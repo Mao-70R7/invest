@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-16T19:08:07+08:00",
+  "generatedAt": "2026-07-16T23:28:03+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 1137,
@@ -40,7 +40,13 @@
     "fundDetailParseErrorCount": 0,
     "holdingSnapshotSourceRowCount": 705036,
     "holdingSnapshotPublishedRowCount": 73968,
-    "holdingSnapshotStrategyCount": 1100
+    "holdingSnapshotStrategyCount": 1100,
+    "insight_rebalance_monthsFileCount": 101,
+    "insight_rebalance_monthsRawBytes": 41533412,
+    "insight_rebalance_monthsCompressedBytes": 3741552,
+    "rebalance_fund_category_monthsFileCount": 101,
+    "rebalance_fund_category_monthsRawBytes": 109556796,
+    "rebalance_fund_category_monthsCompressedBytes": 13815677
   },
   "warnings": [
     {

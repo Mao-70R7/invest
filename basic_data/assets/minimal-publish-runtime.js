@@ -100,16 +100,18 @@
   }
 
   B.loadScript = function loadMinimalPublishScript(src) {
-    const compressedUrl = compressedScriptUrl(src, true);
-    return compressedUrl ? loadCompressed(src, true) : originalLoadScript(src);
+    const compressedUrl = compressedScriptUrl(src, false);
+    if (!compressedUrl) return originalLoadScript(src);
+    return loadCompressed(src, false).catch((error) => {
+      if (/404/.test(String(error?.message || error))) return originalLoadScript(src);
+      throw error;
+    });
   };
 
   async function startPage(options = {}) {
     const dataScripts = Array.isArray(options.dataScripts) ? options.dataScripts : [];
     try {
-      for (const src of dataScripts) {
-        await loadCompressed(src);
-      }
+      await Promise.all(dataScripts.map((src) => loadCompressed(src)));
       if (options.qualityScope && B.renderGlobalQualityGate) {
         B.renderGlobalQualityGate(options.qualityScope);
       }
