@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>策略列表</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./assets/basic.css?v=minimal-3c3d6853ee9b">
+</head>
+<body>
+  <header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="./index.html">
+      <span class="brand-mark">BD</span>
+      <span>
+        <strong>投顾业务分析</strong>
+        <small>市场、产品与经营洞察</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航"><div class="nav-group"><div class="nav-group-title">产品分析</div><a class="nav-link is-active" href="./strategies.html">策略列表</a>
+<a class="nav-link " href="./compare.html">策略对比</a>
+<a class="nav-link " href="./ai-strategy.html">AI选策略</a></div>
+<div class="nav-group"><div class="nav-group-title">基金与排名</div><a class="nav-link " href="./mixed-performance-scatter.html">全市场产品排名</a></div></nav>
+  </div>
+</header>
+  <main id="strategyListPage" class="page-shell"></main>
+  <section id="globalQualityGate" class="global-quality-gate" hidden></section>
+  <div id="fieldModal" class="modal" hidden>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="fieldModalTitle">
+      <button id="fieldModalClose" class="modal-close" type="button" aria-label="关闭">×</button>
+      <h2 id="fieldModalTitle"></h2>
+      <div id="fieldModalBody"></div>
+    </div>
+  </div>
+  <script src="./assets/basic-common.js?v=minimal-3c3d6853ee9b"></script>
+  <script src="./assets/minimal-publish-runtime.js?v=minimal-3c3d6853ee9b"></script>
+  
+  
+  
+  <script>window.MinimalPublish.startPage({"dataScripts":["./data/data_quality_pack.js?v=minimal-3c3d6853ee9b","./data/strategy_list_pack.js?v=minimal-3c3d6853ee9b"],"renderer":"./assets/strategies.js?v=minimal-3c3d6853ee9b","qualityScope":"strategies"});</script>
+</body>
+</html>

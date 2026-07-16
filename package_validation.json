@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-16T19:08:07+08:00",
+  "status": "ready",
+  "checks": {
+    "strategySummaryCount": 1137,
+    "strategyDetailCount": 1137,
+    "strategyDetailMissingCount": 0,
+    "strategyDetailParseErrorCount": 0,
+    "strategyDetailDeclaredIncompleteCount": 33,
+    "strategyDetailWithoutHoldingCount": 7,
+    "strategyDetailWithoutCurveCount": 10,
+    "strategyDetailReferencedFundCount": 4908,
+    "selectedFundCount": 17491,
+    "enhancedFundDetailCount": 17491,
+    "baseOnlyFundCount": 0,
+    "brokenFundDetailCount": 0,
+    "strategyDetailSourceCount": 1137,
+    "strategyDetailDeclaredCompleteCount": 1104,
+    "activeStrategyCount": 678,
+    "activeStrategyWithoutCurveCount": 5,
+    "currentHoldingStrategyCount": 1105,
+    "currentHoldingFundReferenceCount": 18279,
+    "currentHoldingRankMissingReferenceCount": 5,
+    "activeCurrentHoldingRankMissingReferenceCount": 0,
+    "inactiveCurrentHoldingRankMissingReferenceCount": 5,
+    "currentHoldingScaleErrorReferenceCount": 0,
+    "historyRebalanceStrategyCount": 1129,
+    "assessedHistoryRebalanceStrategyCount": 945,
+    "unassessedHistoryRebalanceStrategyCount": 184,
+    "currentHolding近一月RankedReferenceCount": 18274,
+    "currentHolding近三月RankedReferenceCount": 18274,
+    "currentHolding近6月RankedReferenceCount": 18274,
+    "currentHolding近1年RankedReferenceCount": 18274,
+    "fundDetailParsedCount": 17491,
+    "fundDetailNavChartCount": 17458,
+    "fundDetailNavChartMissingCount": 33,
+    "fundDetailBenchmarkChartCount": 17458,
+    "fundDetailChartScaleErrorCount": 0,
+    "fundDetailParseErrorCount": 0,
+    "holdingSnapshotSourceRowCount": 705036,
+    "holdingSnapshotPublishedRowCount": 73968,
+    "holdingSnapshotStrategyCount": 1100
+  },
+  "warnings": [
+    {
+      "type": "source_strategy_data_incomplete",
+      "count": 33,
+      "note": "源数据已明确标记不完整，发布集保留真实缺失状态，不做推测补齐。"
+    },
+    {
+      "type": "base_only_fund_detail",
+      "count": 0,
+      "codes": [],
+      "note": "缺增强详情但基础详情可用。"
+    },
+    {
+      "type": "active_strategy_without_curve",
+      "count": 5,
+      "note": "活跃策略没有任何可画曲线时保留真实缺失状态；正常披露策略应为0。"
+    },
+    {
+      "type": "current_holding_rank_missing",
+      "count": 5,
+      "activeCount": 0,
+      "inactiveCount": 5,
+      "note": "正常运行策略缺失会阻断发布；停止或测试对象保留历史真实缺失，页面展示覆盖率且不把缺失仓位计为前50%。"
+    },
+    {
+      "type": "history_rebalance_unassessed",
+      "count": 184,
+      "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
+    },
+    {
+      "type": "fund_detail_nav_chart_missing",
+      "count": 33,
+      "codes": [
+        "004570",
+        "005131",
+        "005195",
+        "005199",
+        "006175",
+        "023205",
+        "025827",
+        "026363",
+        "026364",
+        "026426",
+        "026503",
+        "026566",
+        "026776",
+        "027026",
+        "027149",
+        "027254",
+        "027267",
+        "027373",
+        "027387",
+        "027410"
+      ],
+      "note": "成立后不足两个净值点或源站未返回净值的基金无法绘制走势，不生成虚假曲线。"
+    }
+  ]
+}
