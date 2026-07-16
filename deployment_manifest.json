@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildId": "minimal-c6c3c18603e0",
-  "generatedAt": "2026-07-16T23:28:19+08:00",
+  "buildId": "minimal-51708d0f3de9",
+  "generatedAt": "2026-07-17T00:12:50+08:00",
   "pageSet": [
     "策略列表",
     "调仓月报",
@@ -48,12 +48,6 @@
     "holdingSnapshotSourceRowCount": 705036,
     "holdingSnapshotPublishedRowCount": 73968,
     "holdingSnapshotStrategyCount": 1100,
-    "insight_rebalance_monthsFileCount": 101,
-    "insight_rebalance_monthsRawBytes": 41533412,
-    "insight_rebalance_monthsCompressedBytes": 3741552,
-    "rebalance_fund_category_monthsFileCount": 101,
-    "rebalance_fund_category_monthsRawBytes": 109556796,
-    "rebalance_fund_category_monthsCompressedBytes": 13815677,
     "strategyDetailCount": 1137,
     "strategyDetailSummaryCount": 1137,
     "strategyDetailMissingCount": 0,
@@ -63,10 +57,12 @@
     "fundBaseOnlyCount": 0,
     "fundBaseOnlyCodes": [],
     "detailRawBytes": 1466844306,
-    "detailCompressedBytes": 194653444
+    "detailCompressedBytes": 194653444,
+    "monthlyRebalanceReportAssetCount": 7,
+    "monthlyRebalanceReportAssetBytes": 598358
   },
-  "fileCount": 18890,
-  "totalBytes": 226215364,
+  "fileCount": 18692,
+  "totalBytes": 208558471,
   "files": [
     {
       "path": ".github/workflows/pages.yml",
@@ -90,8 +86,8 @@
     },
     {
       "path": "basic_data/ai-strategy.html",
-      "size": 2624,
-      "sha256": "9924b2a968021b278a273dcb6c6fc41f2528092c7ef1bc7ed5ed4845cac0595f"
+      "size": 2594,
+      "sha256": "6b06c37bf5d89dc9235ee836b131443916a9d9c24a473187a7f69ba85fb4ffda"
     },
     {
       "path": "basic_data/assets/ai-strategy-config.js",
@@ -134,6 +130,41 @@
       "sha256": "347401ede1323f70d626e402953184c2d208de18ecc0e58b559a16fdf361318c"
     },
     {
+      "path": "basic_data/assets/monthly-rebalance-report-202606/asset_flow.png",
+      "size": 88268,
+      "sha256": "d315788b336488bab959543abf2f7dab8d281a89f4cebcdc851c89d2611edbf9"
+    },
+    {
+      "path": "basic_data/assets/monthly-rebalance-report-202606/asset_split.png",
+      "size": 58673,
+      "sha256": "c65e9b0fa2d6072befd87c18508319334c9bfc0fb38e485faed032a4d13591b7"
+    },
+    {
+      "path": "basic_data/assets/monthly-rebalance-report-202606/event_type.png",
+      "size": 58524,
+      "sha256": "e3d1d498a39b2e131abbef5ca482034c8d1934d2d279975c9e13d89003d1b83e"
+    },
+    {
+      "path": "basic_data/assets/monthly-rebalance-report-202606/index_return.png",
+      "size": 73424,
+      "sha256": "bf9b5698ea6f764aca8baf0bcf2b60c8da4cd27ba739ae7485919bc83205a0fa"
+    },
+    {
+      "path": "basic_data/assets/monthly-rebalance-report-202606/industry_flow.png",
+      "size": 100955,
+      "sha256": "299355e4b79b07e9209f7a36db6c4c203f7b794c92635b66c9eb2560790b91ac"
+    },
+    {
+      "path": "basic_data/assets/monthly-rebalance-report-202606/qdii_flow.png",
+      "size": 155146,
+      "sha256": "9e418504867dfd1f58f03ab2e15f223d03e36c651783c914e8a91b13a46f29c8"
+    },
+    {
+      "path": "basic_data/assets/monthly-rebalance-report-202606/type_performance.png",
+      "size": 63368,
+      "sha256": "1f3b1be271350022e9c37417f6d7e3f0bc37a5a28ec1947cd1017e69409079e3"
+    },
+    {
       "path": "basic_data/assets/strategies.js",
       "size": 19680,
       "sha256": "3d73414a7050e634d1e6c7f2e53046610987d50e4db7fc2dc2789bbaad6100cd"
@@ -145,8 +176,8 @@
     },
     {
       "path": "basic_data/compare.html",
-      "size": 2221,
-      "sha256": "035b6bc52c54e19223683612d49c317d43832ba36da3d48618e1a876f3bc5a48"
+      "size": 2191,
+      "sha256": "c532080741b3bd99f4fb205b2d6fd5bbb0592b9df28bed28b123e121a06b5a2a"
     },
     {
       "path": "basic_data/config/ai-strategy-local-config.js",
@@ -170,18 +201,18 @@
     },
     {
       "path": "basic_data/data/basic_summary_core.js.gz",
-      "size": 2287917,
-      "sha256": "6439d9e61cd6f15ffbc4f931033042caa71ac4415069bcbf2fbbd936cb10b8e1"
+      "size": 2287932,
+      "sha256": "905e8b06593edcd3c844c8df80b2364e225ee917c23ade7953df8850ee1de381"
     },
     {
       "path": "basic_data/data/data_pack_manifest.js",
-      "size": 5110,
-      "sha256": "3781c8f6f3e91a62d64659c5adf5ef2c03c6101408248bf44c5c20150d008307"
+      "size": 4682,
+      "sha256": "d934bea36d5e71610a229d21576ec2ea74e3b5e44bf967e1fd914ffbada70445"
     },
     {
       "path": "basic_data/data/data_quality_pack.js.gz",
-      "size": 14620,
-      "sha256": "2fa4ecb669a9bf76e99177bdfc9ec2fd6f145603cc8d3a87518b6d2df7f20453"
+      "size": 14842,
+      "sha256": "10a90792c6a96735e24fffc08081d2389e819499b0651946cee3cf4182458703"
     },
     {
       "path": "basic_data/data/details/00/ttfund__1H1Z88E.js.gz",
@@ -93349,1049 +93380,24 @@
       "sha256": "677aeefad88b59ecb53552709b71220710506207409a2516883bcb44c0945dea"
     },
     {
-      "path": "basic_data/data/insight_rebalance_month_manifest.js.gz",
-      "size": 1334,
-      "sha256": "6bf104b345f238db34ec1255ba9849aa34ca20376f7f64d8e34acc2bc9092293"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2017-11.js.gz",
-      "size": 2140,
-      "sha256": "30822ec6f64320ba630a79553ae557df108018034ca243dbf4cd67cfb745a289"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2017-12.js.gz",
-      "size": 1892,
-      "sha256": "cc06f7e6cb7eccbbd6f1d05769abbcb5842cca40d37619f8955024dfa5b9858f"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2018-02.js.gz",
-      "size": 2818,
-      "sha256": "a083aed73315f7928d8702663b6d68c1cad9bd7576f82a88c56a172051f806f4"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2018-03.js.gz",
-      "size": 1586,
-      "sha256": "5c03c6729afb2d7c4ec4fc69812540715265f1d7ebebcd6d679b19b250f9d8b3"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2018-04.js.gz",
-      "size": 2313,
-      "sha256": "98d644af7e35dbb888d50231ca81bf584b4fe465770ffd86147b9acf75cc4dad"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2018-05.js.gz",
-      "size": 2684,
-      "sha256": "d36db6d4e5898c5cbe9d61eb661683d47a35467f710986bd6f21f02973d54cac"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2018-06.js.gz",
-      "size": 2237,
-      "sha256": "9b290b91cba8d446c65c9cf6e22739f8feaf943b028cdb1a8a4c043ad2e64813"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2018-09.js.gz",
-      "size": 2679,
-      "sha256": "bb80a8838192284968faded4e11a6a9dc816ab9fab50bfeba88fec0d97046556"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2018-10.js.gz",
-      "size": 2225,
-      "sha256": "ec9120df6438c41b99b2612af1789321a3c6ca4a0259408ad7a741f87bb9fad5"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2018-12.js.gz",
-      "size": 2230,
-      "sha256": "50cb69e2db9b71778f1c3b4420e04a767d305abab2b704c8c0d53cfc8845e793"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-01.js.gz",
-      "size": 3390,
-      "sha256": "430d46a32f1466fe1fac143ccffcff5716de8a42776cfb9cdaf1a6c9874a58d7"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-02.js.gz",
-      "size": 1647,
-      "sha256": "6dc013578b4d7f8ab64cd5e4b82e610afed7e3f1b136f5c16e97a60799665823"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-03.js.gz",
-      "size": 4852,
-      "sha256": "c955c49f1417dd9fc05f9612c3214cf6c15a53d3c0aea153e676bc405285842f"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-04.js.gz",
-      "size": 2740,
-      "sha256": "2bbfbecfe0395abe58bf196bd869c3ad23f7ce785fe13eacc088637306819ec7"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-05.js.gz",
-      "size": 999,
-      "sha256": "aea091515a768d8e99e685c9ba0927ebbd5550ce0e75d9aca9174c4ded6cde1e"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-06.js.gz",
-      "size": 2600,
-      "sha256": "92fce45dda7ca49930076299915e09e2185ee5750fb05ac34a1f43c50d9ae8c7"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-07.js.gz",
-      "size": 4253,
-      "sha256": "46daec4f94ad2d8549c5358fbb921ae39fb225877bd907cd5199593e50a6fbd7"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-08.js.gz",
-      "size": 1438,
-      "sha256": "4ced3642754d2bc50d9f06ff4a4b021ce442e11d563d973f47857dcb4eee51f5"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-09.js.gz",
-      "size": 4328,
-      "sha256": "d28d27c00038e55c5eb3fb181bcc5df8818049cd439dd3eca286ec2a2adb880c"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-10.js.gz",
-      "size": 6241,
-      "sha256": "d3814d4d3cf7c49e8786f2f2c041d77e2b3c80bdd0ceadb1ae70b604387c6122"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-11.js.gz",
-      "size": 2953,
-      "sha256": "cfc44efdcd3e80f0e09c0bdd6cb82ae412f8ed292396bf048ec495c2f06567e7"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2019-12.js.gz",
-      "size": 11063,
-      "sha256": "bbd7478fdde65550b12d6ca479c62fb8fa9b122f3f608667458f278632476172"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-01.js.gz",
-      "size": 9501,
-      "sha256": "9ffb90e18846a9cd2cdb31d54d8e68f3d831a646db640a099e0daa5a04241126"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-02.js.gz",
-      "size": 5099,
-      "sha256": "13ab9834648e607fa432e381074cf85dc031acac841c176d9c6775310859e59b"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-03.js.gz",
-      "size": 12012,
-      "sha256": "e712c05b743e9c3a7201209957e9434f0879be44ce05a12067c0db42e511573e"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-04.js.gz",
-      "size": 6996,
-      "sha256": "b7e31c1f9671ca780f1f5361f81d77277c56d8d363d884793694a298e67b634d"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-05.js.gz",
-      "size": 10233,
-      "sha256": "0ede7f9d7902e21410158ca51aa5171daa7663ebcb0b66effa075ff716933157"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-06.js.gz",
-      "size": 10135,
-      "sha256": "194486980cbce13d416f1884aa650d30814ec5cd7a6ec2c6389af2b6a809554b"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-07.js.gz",
-      "size": 15739,
-      "sha256": "183139f11cd54b421931c270f841dfa9ec5b4e67fe75d010ee1c0a56431c3ee4"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-08.js.gz",
-      "size": 14862,
-      "sha256": "93e6c663078369c771c371d4e922d4569223bdd503f0a52be17a4557d8c89a42"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-09.js.gz",
-      "size": 14155,
-      "sha256": "c087e6609689c1753d3f0e8496f813d66df2a174eb441ba84868c2290334f15e"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-10.js.gz",
-      "size": 10036,
-      "sha256": "5d289caddef9d7f01be0e7cbfbb3b898212779be94a089b063069b6d298e54b0"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-11.js.gz",
-      "size": 16157,
-      "sha256": "0f028ff7319bfbe8dab14dd489252337c1d7a18e4092273bde2732f01ced9c54"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2020-12.js.gz",
-      "size": 13596,
-      "sha256": "b1c4f52624305cbd0c3f53570232c8bfca4abbcdc08f0f03efec1c6aef29046d"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-01.js.gz",
-      "size": 18069,
-      "sha256": "03e78e366441fb53b0efab5ba0711571da7b60306e4cf83dec9393fa7f68c784"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-02.js.gz",
-      "size": 16679,
-      "sha256": "2534689aad51c7f724eeb2f7177fa7464d967002bae1042a8a65de01f27c7e59"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-03.js.gz",
-      "size": 17745,
-      "sha256": "ca8499a4c79610b22dc0501a7adadd147758a426b1c847be10a02159b9ea7fd2"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-04.js.gz",
-      "size": 17138,
-      "sha256": "0b14ad580fd8bba89d1e1800e13481c907c5b48c5b9ed0bc5cabec8f07377cbd"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-05.js.gz",
-      "size": 17201,
-      "sha256": "d8bd4fffc7b429adaf0440d9199d0c98b1ec18d5a67894782428b9cff302090a"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-06.js.gz",
-      "size": 16984,
-      "sha256": "9cbeb6493984ea93223b48af452423cfc0b002e7477d1648073a07235eb4862f"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-07.js.gz",
-      "size": 16465,
-      "sha256": "3999a13edb06dedd5e8dde01d1c356ca5658091bb19110cc44003cb73b833e5d"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-08.js.gz",
-      "size": 17598,
-      "sha256": "bc8164433136aeb260c8229ffd7e0d64b208b3b9145b85d9a734dae151768ad1"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-09.js.gz",
-      "size": 16105,
-      "sha256": "f73cdc58647aa9b96bbe3feda6899a8758345ae99750f14a5abf4ce0955077d9"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-10.js.gz",
-      "size": 15550,
-      "sha256": "2071ba9233f32d8c3a4bbc64cdc1e9cf1ac7d6b5d65aae9059f177c318f0863c"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-11.js.gz",
-      "size": 17427,
-      "sha256": "0318bbfc98469f86c6dd6d27abbdae648f93ead03ef796909c94282ce0a7a176"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2021-12.js.gz",
-      "size": 18635,
-      "sha256": "922bae7ce0942cb683d7e7818da5c2575ddc881834d928be99591d03b58410e1"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-01.js.gz",
-      "size": 19271,
-      "sha256": "720c0a7d3de3182a114f6fb060e34e5c54fde53ffeb712e7b76b9cac31d8cb86"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-02.js.gz",
-      "size": 19225,
-      "sha256": "67f94d939fb61f73dead63efe82d1bb6a95a49c5c0a6bc032aa99db7d124d34a"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-03.js.gz",
-      "size": 17817,
-      "sha256": "e58b9526c302c9b3c80731271e2fc272c2576f2647d35cfd9de344fadae558e6"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-04.js.gz",
-      "size": 20976,
-      "sha256": "076931c8347d5faa2440e18b04efddfe2871d5781c12b73ec98daee7d11ba1ec"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-05.js.gz",
-      "size": 20350,
-      "sha256": "8d36f878f3fda42ac5a3cb1ebdb21390d7101502174b1e92c301b2f835df3f2b"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-06.js.gz",
-      "size": 18375,
-      "sha256": "0cd4c6794c4e38da54123edfe682aff959294e42ac93a441ed85a5daead9096d"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-07.js.gz",
-      "size": 20118,
-      "sha256": "31dde7666ec5a758f9b783a8f6b151fc8c621320056047ac0684b3e05627fe66"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-08.js.gz",
-      "size": 19679,
-      "sha256": "0625d91a7690a9ceaf10f29799aac7b20f1353d44c17a6954ee6b609d8b59dd6"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-09.js.gz",
-      "size": 18481,
-      "sha256": "ccb46b1604880f1d50cd3465ea7683424ed97b74f2c196ca2e42b0a4b9c70f5b"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-10.js.gz",
-      "size": 17967,
-      "sha256": "8466458b390fa70d8e30e7ab39a58a82c153ca344fbfee6ac3e78b76c611bdf8"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-11.js.gz",
-      "size": 21946,
-      "sha256": "a93b633e7563fd018b13cf4bac03c4c370564692e8dd84a49d4ab47a601c6f84"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2022-12.js.gz",
-      "size": 22035,
-      "sha256": "cacced74b188ceedac554f05595270049993a645aed7bee1a8d3574fc29503da"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-01.js.gz",
-      "size": 20555,
-      "sha256": "2d7906183d56802fdd1ddd043710f1172e0a453bf56cff9e1e07c61fb4582064"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-02.js.gz",
-      "size": 24107,
-      "sha256": "025ac4edaa1159e9d21121c9575ef0bb5858dc6fbf4cbe053f6214fbfb15e4d8"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-03.js.gz",
-      "size": 22239,
-      "sha256": "708cf24847cf395d20315ae0b9c9e198992ecd4df8b2ff3870f2468c64856327"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-04.js.gz",
-      "size": 24709,
-      "sha256": "89abce38988de04c8da18a194f3faa04803d9a13f24e3280f4162c1c153f7d21"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-05.js.gz",
-      "size": 22889,
-      "sha256": "d323bdcee4944501af8cc44d1670495a510580487ff2fd24bc572dad26a16cf3"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-06.js.gz",
-      "size": 23249,
-      "sha256": "dc14a76115b54d4c79ca09e5990b341daa0cd1b10aafb46321a68ff301e2e19d"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-07.js.gz",
-      "size": 23738,
-      "sha256": "ba368bb9da510564130907620966d2c79fad3ff0b504af3d02e7b9c29b108778"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-08.js.gz",
-      "size": 23380,
-      "sha256": "5b3aae397fa75ca2bef493c792b5abfe7afc362340b71f1a622e74f001a68c54"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-09.js.gz",
-      "size": 19903,
-      "sha256": "124f4ae1422cc0f5d9e4c084cfbc480bb124c56399c3ff11a3d395664793b8e4"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-10.js.gz",
-      "size": 21598,
-      "sha256": "a6efcd2799e88aff02db4330bb56d109bbf85ffe67e61f2b1be37a22e952bd64"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-11.js.gz",
-      "size": 21172,
-      "sha256": "f33bc372024b83b15c765481c57b890d44ac35216563625e59dd3e380df22dbd"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2023-12.js.gz",
-      "size": 23666,
-      "sha256": "b4dc2b062b9fc1428ed18c05e5b6c50fc2e3a9891d7865a4cb8aff040cdb5b2c"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-01.js.gz",
-      "size": 24972,
-      "sha256": "0dfd70cf4276a4a865c707ef88a5f7d317d9b30a62703d052f4f0a519f12449e"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-02.js.gz",
-      "size": 23807,
-      "sha256": "429f7acfe754de4dbce604256c5e33f299ed471b97ceb9ed61b89183e816304b"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-03.js.gz",
-      "size": 24454,
-      "sha256": "8df59793b639062be90fc3dc7c77793ccf6a3e14c9c5989b5eb757fb7f8b6fcb"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-04.js.gz",
-      "size": 26039,
-      "sha256": "b63ce2b17b26d6341e572eb2fb6efcee20096b1f7926a6f6dcf9092dfad89838"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-05.js.gz",
-      "size": 23731,
-      "sha256": "772633e0aaf1b960f2516701cf6dac357166d4cd62568f1ce13778ddd9f2248c"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-06.js.gz",
-      "size": 21843,
-      "sha256": "7e727215bbdbcd1347bd3e7b247e15e5b885826e5d5e131222f2607c26309317"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-07.js.gz",
-      "size": 24587,
-      "sha256": "a5cbf3739aeadd62ae28e3162ff7e8c77aefa9a81e0fd077f009f306227b9537"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-08.js.gz",
-      "size": 22075,
-      "sha256": "4f85678d3af8acbdcb002398a8ddf8b303fb6ce671cab030cd268693e56b328c"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-09.js.gz",
-      "size": 23675,
-      "sha256": "6292fef8bc4fed35ea7a5fd9329c27a4f4f70886cf592111f8e650f97eab548c"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-10.js.gz",
-      "size": 27000,
-      "sha256": "a6c52536a2fde9952d6e02f588fece5264426f24004fbe0ca850d36bb3e7a092"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-11.js.gz",
-      "size": 21672,
-      "sha256": "f90ce31cf6f28a257b1a22b828cb5142dab1fe56b4628dd53f3620243d326f85"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2024-12.js.gz",
-      "size": 28311,
-      "sha256": "98c93821fc3b820cf4e4963044fc39b2db27dde00eccf0f1fb8de452617c5348"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-01.js.gz",
-      "size": 24682,
-      "sha256": "b3a1e8c37058f4609508855e9a7c96da60baf0dc6b56a919ee09cddef4bad2fb"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-02.js.gz",
-      "size": 25914,
-      "sha256": "878d0c5ac8cfa2dccf75f05fdd9f2a6c139c572a443b672a8bfd22a28efcfe7d"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-03.js.gz",
-      "size": 25610,
-      "sha256": "2967df3d6fe7245b608d7834254930e87661ac1ad9aec3beb7f11a85b467eb8e"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-04.js.gz",
-      "size": 26294,
-      "sha256": "535fc849ee5c417e27a4e752d60ad72833df911c47b857a1039721818a616905"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-05.js.gz",
-      "size": 23757,
-      "sha256": "e975229ce54a62466853f26d8e000019479a0fa886a588fa7efd5972a9dc084e"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-06.js.gz",
-      "size": 25948,
-      "sha256": "a390f492891a830087000badc4759f0ca08aeddfce9c3a031afcde4c24dfac21"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-07.js.gz",
-      "size": 30444,
-      "sha256": "87bae6b97d6c4ce5abc43adac16c6d518baae7b7d6cf020d5357735ebf8bab9c"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-08.js.gz",
-      "size": 28203,
-      "sha256": "972894e693a12d37ef3ba465b414d052ea4f6bcd564e0d851b18c685a2f22688"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-09.js.gz",
-      "size": 28091,
-      "sha256": "a5a38fe32c2aa5fb4f1f09ef166eab984f3814f61860892aef88ba522fea8d08"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-10.js.gz",
-      "size": 28264,
-      "sha256": "70bb9af4a6591d8fa1e12affe690653ac15d9862291eae52dd10ed31c8b3a042"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-11.js.gz",
-      "size": 24943,
-      "sha256": "5d9bbeab45d5d0ba0eabb0dccaaac60e6d979dd1af4980ec25519176855ec913"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2025-12.js.gz",
-      "size": 28269,
-      "sha256": "e7a1c2e89087ec66f6d16e823e3024a550bf334ddf2d2df845d1fe82373b81ff"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2026-01.js.gz",
-      "size": 136227,
-      "sha256": "7bc03c27a7e00ba697ad274e089f00b755e4361e2865fb78e7a3fcdfa338bf63"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2026-02.js.gz",
-      "size": 288690,
-      "sha256": "1a61199179748822634fbc348b0cafaca1c588bb3390589814fc196e0eb5b0d2"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2026-03.js.gz",
-      "size": 484336,
-      "sha256": "09546fd2781bac8cd65bcb7504e006790c0236f0e8d9dc708a4724f23e55eaba"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2026-04.js.gz",
-      "size": 398525,
-      "sha256": "70daa33f01d0cad4c9e3dea9f11269eb88217eb25f2ac48a95c57c046ea89eb6"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2026-05.js.gz",
-      "size": 354821,
-      "sha256": "29d72b3db623680e7ae6affda817d29a4cadf5c4e98670f771eecf7045edce12"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2026-06.js.gz",
-      "size": 368919,
-      "sha256": "b9d313527f5d9bd5ebf6011dc50f3a3bd1637b19d7811ae557d384658945ee27"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_months/2026-07.js.gz",
-      "size": 176579,
-      "sha256": "e6e5a565dfdac7010efa42e1ade37f662ace1d66fab096b0c45242243b2d3803"
-    },
-    {
-      "path": "basic_data/data/insight_rebalance_pack.js.gz",
-      "size": 663467,
-      "sha256": "3f163dc3ef4a0c5db64928c312b9259366171b4fbe3ed3cd1e46833717d36a7c"
-    },
-    {
       "path": "basic_data/data/mixed_performance_scatter_pack.js.gz",
       "size": 3138710,
       "sha256": "04df755058122015e375b4f867becd2da784ea27c1293dc3837e4a7d71b2d265"
     },
     {
-      "path": "basic_data/data/rebalance_fund_category_manifest.js.gz",
-      "size": 76925,
-      "sha256": "1443adf4bcc767a35e81dbb0a4adac877d65efd3cc281c983354252f5c5008df"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2017-11.js.gz",
-      "size": 3410,
-      "sha256": "249fb9227567beb9df77682caa171218c8cf76cd165a7900ac943da3d4945da6"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2017-12.js.gz",
-      "size": 1360,
-      "sha256": "e613ed1ff2e2b64f2e89d89191feac398f0961550bbbd6d3bbb71d7a73e6b6b2"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2018-02.js.gz",
-      "size": 7102,
-      "sha256": "04a062fdf20aba82a41db413aae6f6ffd52a43523af3b8877fe89736ca2f23b0"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2018-03.js.gz",
-      "size": 551,
-      "sha256": "5f9ac28448038af394437d73e38cb1e7260c3bcbe2e240074e0ab5d26e3d1f7f"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2018-04.js.gz",
-      "size": 5076,
-      "sha256": "7dc019cb00622aa50a5af8bece7f13aea34a8213cc72e8a46076c173d4ca76d1"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2018-05.js.gz",
-      "size": 6351,
-      "sha256": "88b3d8c2eaa332e5e89f348d7b765577593271d88adee14779d20e72f044ef6f"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2018-06.js.gz",
-      "size": 2108,
-      "sha256": "6b7825737275a162f46bbad988cca7abec2090cb10be5d637aa01990a7dd20d3"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2018-09.js.gz",
-      "size": 3673,
-      "sha256": "e854f56caba2e386686093d7feee2e40556242f6bff848a411650639e8bd305b"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2018-10.js.gz",
-      "size": 1575,
-      "sha256": "ede28f2e35486574acac911cda30995a52ae8b92c9ab6f08fe78f97099c35029"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2018-12.js.gz",
-      "size": 1413,
-      "sha256": "91d9bfec90c115058399f3c4e3055f243607158f93615be39879cd6ddc2eabbe"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-01.js.gz",
-      "size": 2660,
-      "sha256": "a6712d44b3227d454e9028b3b12132ede09cf6cfb73cf7746c8c843cacbba7ed"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-02.js.gz",
-      "size": 566,
-      "sha256": "fabe34c9ed5400bf1b534aa2a40d0b4fbdc1fe742c4c16d0596161a00e6e7964"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-03.js.gz",
-      "size": 7047,
-      "sha256": "483fa4b3693c64c4ee868b7983817a81390283de9af07e7d1152ca266444c5eb"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-04.js.gz",
-      "size": 2690,
-      "sha256": "1d289b73917586f9632bcf526e7766284c8715fe67d4b68a75998f3436377624"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-05.js.gz",
-      "size": 217,
-      "sha256": "723155e00658e5835061dc4e1ec52262c3f2dac266fde9f936fd5e3c502c6196"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-06.js.gz",
-      "size": 1365,
-      "sha256": "c15021f74c3d04ffc589104127b8958aad50a6fa90a2c2d95e49f5d051766a85"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-07.js.gz",
-      "size": 3991,
-      "sha256": "27147b38eb617d32f5db3935cabe6dfe9c642ca0217b6dbc7334fb0e2cbed3d5"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-08.js.gz",
-      "size": 447,
-      "sha256": "c4d8657648255989bac2d19dbdf62198081d1aa618bafed646c12822f52a8913"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-09.js.gz",
-      "size": 4108,
-      "sha256": "451979906d694ce961a35041401ff074844b8d9a91587e7a7e4c3e9dbfdc13f6"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-10.js.gz",
-      "size": 10076,
-      "sha256": "3e653fd62cff4eb0f1bd54f70d073f1691d18f1c9547d87643357b05ffb9bc8d"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-11.js.gz",
-      "size": 1311,
-      "sha256": "f5d4c6fddf1e55f2cb4a297def86805666df47d4ce45438d5b17da611838076c"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2019-12.js.gz",
-      "size": 11001,
-      "sha256": "21802eed39eb73770943bb3af4c228b162bb74c7d9d5da7694dccdceb4992589"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-01.js.gz",
-      "size": 9872,
-      "sha256": "de49531455de10ef8e016f5255b027e93969912fc6ce2d127450d1a1c6955a1e"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-02.js.gz",
-      "size": 4979,
-      "sha256": "c3d2ae9d0db5bb45f3216a72b068fc0c704265360b84fa94efa6c54aa8718ca3"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-03.js.gz",
-      "size": 13116,
-      "sha256": "3771cb9702da63046ed0f6abf271a3a7acd7bc1e5d256c1e9c08f9b82968bff3"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-04.js.gz",
-      "size": 7420,
-      "sha256": "7d7b07b2a4c652d6f83a74c04caba50f31287ac1cafa56a52197185e549ae882"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-05.js.gz",
-      "size": 13656,
-      "sha256": "ead172ab65de45ba66bdacd051cf562a4ba973716b9713a2473c33ff55eb4d55"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-06.js.gz",
-      "size": 10009,
-      "sha256": "097940c3272c0c88d49bffd2bde42e0556944306fbe0348f7d6322fc0c873b11"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-07.js.gz",
-      "size": 32378,
-      "sha256": "9a73d85445110d5e31e9dc5d2e7b0ae40ab55de87cf817573987a2fbd46c4fbf"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-08.js.gz",
-      "size": 31237,
-      "sha256": "11497188bf347bec8a5b6fdc1bd05f650bf01023f09a9f6501a08ef378287aa7"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-09.js.gz",
-      "size": 25604,
-      "sha256": "e907cae1d97a9691890b8958e18e0f18a0006dad4bcc6474d5f95535d2ec9085"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-10.js.gz",
-      "size": 15304,
-      "sha256": "cc721e506dd65999658d67298babb6d501ddf1500c6e426180a501c6c70b9597"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-11.js.gz",
-      "size": 32719,
-      "sha256": "d148ac81c9eab3e77eb89f680bf6881f8add0da6af595bd9cb67dcdfb468afd5"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2020-12.js.gz",
-      "size": 18870,
-      "sha256": "85aa251336fdf76dfbc87abb096a65cea66661b1a583fe1e08c15d01bca7a1f0"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-01.js.gz",
-      "size": 55030,
-      "sha256": "f3fe5c777f56d00f76a6d6626cef915a30b82849c142c15a615475107af90266"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-02.js.gz",
-      "size": 39127,
-      "sha256": "c009e96a35bd99893c693efa52f1fd5b9f4bf752ce073deba273af3a23c61544"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-03.js.gz",
-      "size": 42001,
-      "sha256": "03f617bbe4184294343a0d079c2c62c2c980abc6c1ab864327cfb6c448c2b787"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-04.js.gz",
-      "size": 41912,
-      "sha256": "ae3b7792c1359c476f2f90befed700d793b8bddb0f165de859dd8f11c507aaec"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-05.js.gz",
-      "size": 24000,
-      "sha256": "76b5d34de75c4461edda793eccf4748c14f3e3668d54ebf7b01fe67175451c1f"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-06.js.gz",
-      "size": 31024,
-      "sha256": "21f871ad90062bd58e9b8e058e6e5a62596d1522d42a98707b09f97865a05c08"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-07.js.gz",
-      "size": 44468,
-      "sha256": "6e865d49e760616f8bcf0823956fd4af432e775e54c5e299b707b8de56d6dda2"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-08.js.gz",
-      "size": 91198,
-      "sha256": "6a90579d1f7ee3557042a2c64cc1f8de16bbcd0b25dd5dcf1fabfb0774d52540"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-09.js.gz",
-      "size": 73671,
-      "sha256": "f09cb2457eb94fd2918dec8bab11c480f8ba0983f21c550402e58920050e10d4"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-10.js.gz",
-      "size": 57418,
-      "sha256": "5dc726382fb036d3e64fccda029bae8bc3beaee2d5df20b52d5b1d1b468cba18"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-11.js.gz",
-      "size": 67673,
-      "sha256": "dfd36cff51482d5115d4986361ee4bd7b477c283958ddadbbe3a1c39d329ad0e"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2021-12.js.gz",
-      "size": 105792,
-      "sha256": "ae4ba9d9332e92d3f24b7ec7fe67e4a3860de6d23b60cf7e9dcbfeb78318470f"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-01.js.gz",
-      "size": 101286,
-      "sha256": "8b048bec6252fe86a265d63241144d02651eace7c89b6a682013ef021cce5982"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-02.js.gz",
-      "size": 141755,
-      "sha256": "c400ba3f49337d7c00988762ab4b84fb5d843a2b272ea750a9ea5580de53d522"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-03.js.gz",
-      "size": 135444,
-      "sha256": "f1aeb52e0419d3db4616d22bf712317fb88c15f03ea984faf385dd08b6fd7528"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-04.js.gz",
-      "size": 123616,
-      "sha256": "3bfee9d69ab82bdbc8c9b350ecfb8d835a2d595e7b8143f1413b3105d71286e2"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-05.js.gz",
-      "size": 125518,
-      "sha256": "5107acbaf4289dc66f9cd609fb18a2edd9e98602a4c681f0f8ef5f0900873fb8"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-06.js.gz",
-      "size": 155705,
-      "sha256": "e7aa72fc6bbb85815c26448aafe11b7eac4d7584b61d524f0aae8c9472d8af1a"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-07.js.gz",
-      "size": 107546,
-      "sha256": "b227a6a6c8034869aa5a38d79c689d330aa07edbbc6ed13bf38b5d66b2671232"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-08.js.gz",
-      "size": 192719,
-      "sha256": "c13e5939188e7c3ad97eb67b5ff3688807e86c9fcabc4076f53fceafd712d7a6"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-09.js.gz",
-      "size": 86276,
-      "sha256": "8a005eafafe6c7b910bd7ac5b4ab078f8a453db84e68f4748aa410af3c057376"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-10.js.gz",
-      "size": 116534,
-      "sha256": "2e8b1311f099609c58c7ba1080eac3680507691d5b246a19555a7993ca74b4a1"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-11.js.gz",
-      "size": 229996,
-      "sha256": "325791e01760ebea4d891265770009f099973a0928c57323ce13b5ea6d56f0b1"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2022-12.js.gz",
-      "size": 159078,
-      "sha256": "b3679cfbc4907a8f743a3e33d85b9d25c8ae1681cf4a8511f11f70dcd87bb253"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-01.js.gz",
-      "size": 161172,
-      "sha256": "d168e71d943c64aea1c10289225ccd159917860c1f5b92963bb85caf0c10f2cc"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-02.js.gz",
-      "size": 260318,
-      "sha256": "535acd0008078d2e51cffe9b6168538641792b7ca99374add9fd0120e96ba9aa"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-03.js.gz",
-      "size": 176246,
-      "sha256": "ba1a417be96d926b6143352cbeb56e8ebcbc8e16fe493f2ccf6cdcb7d7f46d48"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-04.js.gz",
-      "size": 240204,
-      "sha256": "683fd7db28e0f428a9c5b5a24e1d92112a7615e6438a3a1f284b8ef4f4417a3d"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-05.js.gz",
-      "size": 207750,
-      "sha256": "a094086656ab9e377aed2db3c1aa760c479002843e120caefb91eaf88cdcc319"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-06.js.gz",
-      "size": 176060,
-      "sha256": "59828b784901aa91df91add95757d5d65612575c8b6539c86fabb5895f7893b5"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-07.js.gz",
-      "size": 225478,
-      "sha256": "7975895fd8d552daaeacb74b440470a706eeca414af87c7809316c9320f8bca0"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-08.js.gz",
-      "size": 292615,
-      "sha256": "cd383aec182972547c66094d243b33d9c1121739ca14ade57c2d041865a43951"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-09.js.gz",
-      "size": 114258,
-      "sha256": "7c26968e27e6e4a1fdce92dad7d89af93dcd482b4a6807d2c11a3426cbc36dcd"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-10.js.gz",
-      "size": 207914,
-      "sha256": "476f5253c593fad8f991d3a398eb65126ae2fa0c4ebf8580f1c277eba6bb1bc4"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-11.js.gz",
-      "size": 159866,
-      "sha256": "ea105f48f7e7fe16c04517eff42d75c6b955c6a4b020599e5b22cb2622454d70"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2023-12.js.gz",
-      "size": 330485,
-      "sha256": "2bb69aeee1c3c38a70e49208877f455bb9c944f62e79c26edfae0c04bb60c642"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-01.js.gz",
-      "size": 252079,
-      "sha256": "4c466a9ba14a06dc28dc29c14600007c397cf835e678527185bc48ddd78ae383"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-02.js.gz",
-      "size": 214935,
-      "sha256": "01a751d7e41beae86276549bdafc1a1da0dabc8e2e9a598b21286f69f129a3d3"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-03.js.gz",
-      "size": 298434,
-      "sha256": "e7b3a3736916f477ed232a28193c68d57ff69f69545ad6f35accbfeef8a80ad8"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-04.js.gz",
-      "size": 355342,
-      "sha256": "892f7ea302278fc0c075d33168cad408fc6e2cf019bd91f8834bf3f47015a865"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-05.js.gz",
-      "size": 274174,
-      "sha256": "45f13c78f87b6a7fb982278d30694d72e0ba9f939b25810796a4da42449515b4"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-06.js.gz",
-      "size": 173774,
-      "sha256": "0b919ba6d5b3032d63657cf13f807b80cfcbc4033700bca2017cadf593765104"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-07.js.gz",
-      "size": 331511,
-      "sha256": "4351bcf03776f36ddf1aff34e04ef3329e8f473238a62d8d3163b53be1d04e73"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-08.js.gz",
-      "size": 191196,
-      "sha256": "bec004f249f7bf85fb6e31c9d64abb577960d13e52c24b3e5b18085ae0dbbd5f"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-09.js.gz",
-      "size": 225438,
-      "sha256": "ccd7db6d76d33ff175526043b5a250cbca53b573ca0885439ba995ea38b9034b"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-10.js.gz",
-      "size": 366687,
-      "sha256": "e5c7b46c84fb88bee56cfc579bccf71ceb72bd6e57ec0331c82727393b9f4cf9"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-11.js.gz",
-      "size": 190111,
-      "sha256": "e3a2a1a7c68fd573f26002286f728f917db4db61ee64436a16911cbc379ff900"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2024-12.js.gz",
-      "size": 374367,
-      "sha256": "fb7a6ab2f43f594bafd3b96ba8ecc51442b384688b34cf272171b6bb9df2b072"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-01.js.gz",
-      "size": 273274,
-      "sha256": "c791257dce67a8399fbdc1c891497f943dafdf1f748d9aae9f064c3bae63687f"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-02.js.gz",
-      "size": 263430,
-      "sha256": "f5c2853877de692abb35c75cdbb05a6cb475260e4c08a9f3aa800232319fab6b"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-03.js.gz",
-      "size": 268366,
-      "sha256": "309be553dc819f73262d533280b800215343461726cfe4cf086d56c3299c7f21"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-04.js.gz",
-      "size": 327034,
-      "sha256": "5e46b95df1805ca0287456dd9b15185dfc31ad74f623469d2a50ea7bf475e95e"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-05.js.gz",
-      "size": 250661,
-      "sha256": "fe38753d382d66e711758374bd2b14b3d509ae67a4039a42adbe55489f9d0248"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-06.js.gz",
-      "size": 209117,
-      "sha256": "d306bbedf6282e457d2603bd3889eaa1ae7d2677a4381e4516a488bcb9efab55"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-07.js.gz",
-      "size": 410111,
-      "sha256": "57a63fe28ce844c724e06e236c1ca18532fde46a77ced1497193e625baf6c693"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-08.js.gz",
-      "size": 273046,
-      "sha256": "72d5484a11150e7af514d53292cca28e4c2f770e1f3425b4b492b612e1a39fc3"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-09.js.gz",
-      "size": 320399,
-      "sha256": "e73d049653524439d07de22b5064d4dbb2af71235d5dbcccb5ffc687e63ce8e6"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-10.js.gz",
-      "size": 307450,
-      "sha256": "be5b51d2218fb563dc268be571b27ca2ea535db1c668486dfcb46d0926be4562"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-11.js.gz",
-      "size": 250116,
-      "sha256": "6b92d525e116604a5041f9957a8132335aaa555d67945321e1c925fc7d7b0780"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2025-12.js.gz",
-      "size": 331968,
-      "sha256": "6a1b17da17cdb45275ce7d1746e295a8cdf78d83b3ea85166659bd538381e982"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2026-01.js.gz",
-      "size": 375124,
-      "sha256": "d6353474409141a148816d2c133e6465de860ae8b5d60865831c95b5e39a7bf1"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2026-02.js.gz",
-      "size": 240659,
-      "sha256": "8719c22e8e13edc8d07f3b8db194fe1ef6939bd9f110c9beb8d3b7d9ffc9fffd"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2026-03.js.gz",
-      "size": 401938,
-      "sha256": "8f347909946a1d6bfd6760668b17b3eab018e1cb9e4c5d71b2ef09dc1cac3a55"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2026-04.js.gz",
-      "size": 273526,
-      "sha256": "26997e9abc50568a897a932c399bbf0a50d3ff03c721b8b74c256820d7ee3792"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2026-05.js.gz",
-      "size": 243263,
-      "sha256": "3bfe9b181f74cfef59384aaaa913e1e22f67c064f2c592f8f2fc69ff66a4a322"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2026-06.js.gz",
-      "size": 254266,
-      "sha256": "af780d58b03636379e3ede20d104d4601d019709da86c114411b28cdba5da138"
-    },
-    {
-      "path": "basic_data/data/rebalance_fund_category_months/2026-07.js.gz",
-      "size": 99466,
-      "sha256": "85ea53c97b8c985fea2940364fc05ae5761f263c136e56d2a6190356bc5836ff"
-    },
-    {
       "path": "basic_data/data/strategy_detail_index_pack.js.gz",
-      "size": 815722,
-      "sha256": "32f993d3bf32cb84bb0d1d04b1442892d579eaa100f8eb1d786a9e8d89d7706e"
+      "size": 815736,
+      "sha256": "9dd5bcf343bfb33a4f4bf07d7adf3e8172f3f02a80788c4b76e3d69ea2cd5f90"
     },
     {
       "path": "basic_data/data/strategy_list_pack.js.gz",
-      "size": 472695,
-      "sha256": "2eddc573b7d494dbcca0371cf8c7664e6813e5ef1df51f29ca5a9bb8d931726d"
+      "size": 472709,
+      "sha256": "2a8aa751f4a1ff6c83df133227bc32a38decf81a3843461948d764047680605d"
     },
     {
       "path": "basic_data/fund.html",
-      "size": 2291,
-      "sha256": "0f58e27bc6714e049a73b47c4dccf7cccda9a55b7cd445e98992e1f5153c8591"
+      "size": 2261,
+      "sha256": "10482800a7b673e3b2170faa877378abab337344e4b23b93e7c02db19595b927"
     },
     {
       "path": "basic_data/index.html",
@@ -94399,24 +93405,24 @@
       "sha256": "f8ba45f51d33ba08b923c8f03d04f07665845e9d56301e08efa8c8fc031ed552"
     },
     {
-      "path": "basic_data/insights.html",
-      "size": 2202,
-      "sha256": "cccf30f50a77d4603aded98813ab0cf37a681300f37ee8d2f5e8054ed78bf458"
+      "path": "basic_data/mixed-performance-scatter.html",
+      "size": 2233,
+      "sha256": "39e4cfb562970c3b2a963e0c0ccc1241b41761a6d11a57c8879327dc1a1d562a"
     },
     {
-      "path": "basic_data/mixed-performance-scatter.html",
-      "size": 2263,
-      "sha256": "1c3411f8ea2fd03d22ef5a29f7256f8a75f3ddb3af453880e02689c073b152b6"
+      "path": "basic_data/monthly-rebalance-report-202606.html",
+      "size": 46504,
+      "sha256": "be51384813677d2c47a441d7316cffb9e7a3818c32284973480beaa0fbe868e4"
     },
     {
       "path": "basic_data/strategies.html",
-      "size": 2151,
-      "sha256": "e4c222e9c030d81512c6421efe92d4f9cc56cced637cf10303e5889a107a35bb"
+      "size": 2121,
+      "sha256": "d6108f2317997fc9355a662f464e5121c0ab8e08ea893c9fe35f3d740a2eafaa"
     },
     {
       "path": "basic_data/strategy.html",
-      "size": 2208,
-      "sha256": "4513a80bd330171dac337ac608edff5e675eb87992e51c543d813c29a5fd7a31"
+      "size": 2178,
+      "sha256": "c95a8ee90153f4d33783be68e005c07696676edd238f0b78fdc6766741268394"
     },
     {
       "path": "index.html",
@@ -94425,18 +93431,18 @@
     },
     {
       "path": "package_validation.json",
-      "size": 3814,
-      "sha256": "7ab36df48b1e160442ac12b589d2dda0b87b325f5cb2c7613c6cec620b213cf8"
+      "size": 3589,
+      "sha256": "56bb75d531255575af8d133c2e2c561c8c378afb95f8c4c9ecf48ace0adc0c69"
     },
     {
       "path": "README.md",
-      "size": 2288,
-      "sha256": "65ac45443813246f20404f169ce62dc8086fd873d5336746d1ba0fe9f20d3dc5"
+      "size": 2273,
+      "sha256": "9dcca4a973acf772f06cf1ca21fd7390f16bce16da60a2d1a4832ed7c6f7d36a"
     },
     {
       "path": "README_部署说明.md",
-      "size": 2288,
-      "sha256": "65ac45443813246f20404f169ce62dc8086fd873d5336746d1ba0fe9f20d3dc5"
+      "size": 2273,
+      "sha256": "9dcca4a973acf772f06cf1ca21fd7390f16bce16da60a2d1a4832ed7c6f7d36a"
     },
     {
       "path": "scripts/ai_strategy_codex_proxy.mjs",
@@ -94506,7 +93512,7 @@
     {
       "path": "version.json",
       "size": 149,
-      "sha256": "d2d9205e0a73130093acfa4cd5fd738d35d340ee8bd84054e25f544c8a0c4f28"
+      "sha256": "48a4eb83f5f7a2a24ab7bcad72b3b3e669a76b83d9049746341578ed718d67d4"
     },
     {
       "path": "停止最小发布集.cmd",
