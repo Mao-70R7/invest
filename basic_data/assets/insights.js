@@ -276,7 +276,7 @@
     compareQuery: "",
     compareQueryInput: "",
     compareSelectedIds: [],
-    comparePeerMode: "reportType",
+    comparePeerMode: "broadEquity",
     compareScatterX: "最大回撤",
     compareSelectedPointId: "",
     compareOverlapDetailKey: "",
@@ -353,13 +353,13 @@
   state.compareSelectedIds = [...new Set(initialCompareIds)].slice(0, compareMaxCount);
   state.compareQuery = initParams.get("q") || state.compareQuery;
   state.compareQueryInput = state.compareQuery;
-  state.comparePeerMode = initParams.get("peer") || state.comparePeerMode;
+  state.comparePeerMode = "broadEquity";
   state.compareBenchmarkCode = initParams.get("benchmark") || state.compareBenchmarkCode;
   Object.assign(summary.fieldDictionary = summary.fieldDictionary || {}, {
     "策略对比": "同屏比较最多5只策略。策略基础指标来自 basic_summary.strategies；曲线、当前持仓、历史调仓、调仓原因和AI投研总结来自对应 data/details/<统一策略ID>.js；同类推荐和散点图按当前筛选条件重新计算。",
     "对比篮子": "当前已选入策略对比的策略集合，最多5只。选择策略后页面会按需加载对应策略详情文件，不一次性加载全部详情。",
-    "同类推荐": "以第一只已选策略为锚点，按所选同类口径筛选同业务分类、研报产品类型、风险等级或投顾机构策略；再按当前时间区间收益、最大回撤和波动率排序，剔除已选策略后给出可加入对比的候选。",
-    "同类口径": "策略对比页自动推荐和风险收益散点使用的可比池。研报产品类型适合投研可比；业务分类适合运营货架；风险等级适合风险相近对比；投顾机构适合同机构内部产品比较。",
+    "同类推荐": "以第一只已选策略为锚点，只在同一广义权益分档内筛选候选；再按当前时间区间收益、最大回撤和波动率排序，剔除已选策略后给出可加入对比的候选。",
+    "同类口径": "策略对比页的同类固定为广义权益分档。广义权益按权益、商品和另类风险资产合计权重划分 L0-L10，用于自动推荐、风险收益散点和同类统计。",
     "持仓重合度": "两只策略当前正权重基金的重叠程度。计算公式为 sum(min(策略A基金权重, 策略B基金权重))，基金按基金代码优先、基金名称兜底匹配，单位为百分比点。",
     "行业重合度": "两只策略最新仓位在经济行业/主题暴露上的重叠程度。计算公式为 sum(min(策略A行业暴露, 策略B行业暴露))；若研报A股行业缺失，则退回权益行业大类。行业暴露来自基金经济暴露快照和 holding_snapshot_pack 的分类拆分结果。",
     "资产重合度": "两只策略最新仓位在经济大类资产上的暴露重叠程度。计算公式为 sum(min(策略A资产暴露, 策略B资产暴露))；资产暴露来自基金经济暴露快照生成的 holding_snapshot_pack，支持一只基金拆分到多个资产类别。",
@@ -4279,16 +4279,11 @@
     const anchor = compareSelectedRows()[0];
     const rows = compareCandidateRows();
     if (!anchor) return rows;
-    const mode = state.comparePeerMode;
-    const field = mode === "business" ? "业务分类"
-      : mode === "risk" ? "风险等级"
-      : mode === "advisor" ? "投顾机构"
-      : mode === "channel" ? "渠道"
-      : "研报产品类型";
-    const value = raw(anchor[field]);
-    if (!value || mode === "all") return rows;
-    const peers = rows.filter((row) => raw(row[field]) === value);
-    return peers.length ? peers : rows;
+    const bucket = broadEquityBucketValue(anchor);
+    if (!bucket) return [anchor];
+    const peers = rows.filter((row) => broadEquityBucketValue(row) === bucket);
+    if (!peers.some((row) => row.统一策略ID === anchor.统一策略ID)) peers.unshift(anchor);
+    return peers;
   }
 
   function compareRecommendedRows(baseRows = null) {
@@ -4310,6 +4305,7 @@
     const selected = compareSelectedRows();
     const searchRows = compareSearchRows();
     const recommended = compareRecommendedRows().slice(0, 8);
+    const anchorBucket = selected[0] ? broadEquityBucketValue(selected[0]) : "";
     return `<section class="panel compare-selector-panel">
       <div class="panel-head">
         <div><h2>策略对比</h2><p class="desc">搜索或从同类推荐中加入策略，最多同时比较${compareMaxCount}只。</p></div>
@@ -4322,19 +4318,11 @@
           <span>${B.label("策略名称")}</span>
           <input id="compareSearch" class="control" type="search" placeholder="搜索策略名称、代码、投顾机构、业务分类" value="${B.esc(state.compareQueryInput)}">
         </label>
-        <label class="compare-peer-box">
+        <div class="compare-peer-box">
           <span>${B.label("同类口径")}</span>
-          <select id="comparePeerMode" class="control">
-            ${[
-              ["reportType", "研报产品类型"],
-              ["business", "业务分类"],
-              ["risk", "风险等级"],
-              ["advisor", "投顾机构"],
-              ["channel", "渠道"],
-              ["all", "当前筛选全部"]
-            ].map(([key, label]) => `<option value="${key}" ${state.comparePeerMode === key ? "selected" : ""}>${label}</option>`).join("")}
-          </select>
-        </label>
+          <div class="control compare-peer-fixed">广义权益分档${anchorBucket ? ` · ${B.esc(anchorBucket)}` : ""}</div>
+          <em>${anchorBucket ? `同类候选固定为 ${B.esc(anchorBucket)}` : "加入首只策略后确定 L0-L10 同类池"}</em>
+        </div>
       </div>
       <div class="compare-basket">
         <div class="compare-basket-head"><strong>${B.label("对比篮子")}</strong><span>${selected.length}/${compareMaxCount}</span></div>
@@ -4347,7 +4335,7 @@
       </div>
       <div class="compare-pick-grid">
         ${(state.compareQuery ? searchRows : recommended).map((row) => `<article class="compare-pick-card">
-          <div><strong>${strategyLink(row)}</strong><span>${B.esc(row.投顾机构 || row.渠道 || "未识别")}｜${B.esc(row.研报产品类型 || row.业务分类 || "未分类")}</span></div>
+          <div><strong>${strategyLink(row)}</strong><span>${B.esc(row.投顾机构 || row.渠道 || "未识别")}｜广义权益 ${B.esc(broadEquityBucketValue(row) || "未分档")}</span></div>
           <div class="compare-pick-metrics">
             <b>${rangeLabel()} ${signedPct(row[returnMetric()])}</b>
             <em>回撤 ${pct(row.最大回撤)}</em>
@@ -5822,7 +5810,7 @@
         scheduleCompareSearchCommit(650);
       });
     }
-    if (comparePeerMode) comparePeerMode.addEventListener("change", () => { state.comparePeerMode = comparePeerMode.value || "reportType"; scheduleRender(); });
+    if (comparePeerMode) comparePeerMode.addEventListener("change", () => { state.comparePeerMode = "broadEquity"; scheduleRender(); });
     if (compareScatterX) compareScatterX.addEventListener("change", () => { state.compareScatterX = compareScatterX.value || "最大回撤"; scheduleRender(); });
     if (compareBenchmarkSelectEl) compareBenchmarkSelectEl.addEventListener("change", () => { state.compareBenchmarkCode = compareBenchmarkSelectEl.value || ""; scheduleRender(); });
     if (compareClear) compareClear.addEventListener("click", () => { state.compareSelectedIds = []; state.compareOverlapDetailKey = ""; scheduleRender(); });

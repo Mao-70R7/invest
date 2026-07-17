@@ -11,7 +11,8 @@
   const fundDetailPack = window.__BASIC_DATA__?.fundDetailPack || null;
   const modelConfigStorageKey = "aiStrategyModelConfigV5";
   const aiConfigFileDefault = Object.assign({}, window.__AI_STRATEGY_CONFIG__ || {});
-  const aiConfig = Object.assign({}, aiConfigFileDefault, readStoredModelConfig());
+  clearStoredModelConfig();
+  const aiConfig = Object.assign({}, aiConfigFileDefault);
   window.__AI_STRATEGY_CONFIG__ = aiConfig;
   const builtInModelProfiles = {
     local: {
@@ -1353,7 +1354,7 @@
     ];
     return `<details class="panel ai-help-panel">
       <summary class="ai-help-summary">
-        <div><h2>Ai说明：可识别维度与实体字典</h2><p class="desc">这里不是静态文案；每次打开页面都会基于当前 basic_summary、holding_snapshot_pack 和 ai_semantic_index 重新聚合命中数量。</p></div>
+        <div><h2>AI说明：可识别维度与实体字典</h2><p class="desc">这里不是静态文案；每次打开页面都会基于当前 basic_summary、holding_snapshot_pack 和 ai_semantic_index 重新聚合命中数量。</p></div>
         <div class="title-pills"><span class="pill">策略 ${zhCount(allRows.length)}</span><span class="pill">语义持仓 ${zhCount(flatSemanticHoldings().length)}</span></div>
       </summary>
       <div class="ai-help-body">
@@ -1379,7 +1380,7 @@
   function renderAiExplanationShell() {
     return `<details id="aiExplanationLazyPanel" class="panel ai-help-panel">
       <summary class="ai-help-summary">
-        <div><h2>Ai说明：可识别维度与实体字典</h2><p class="desc">默认不展开，打开后再根据当前数据生成可识别字段、实体和基金维度字典。</p></div>
+        <div><h2>AI说明：可识别维度与实体字典</h2><p class="desc">默认不展开，打开后再根据当前数据生成可识别字段、实体和基金维度字典。</p></div>
         <div class="title-pills"><span class="pill">策略 ${zhCount(allRows.length)}</span><span class="pill">展开后加载</span></div>
       </summary>
       <div id="aiExplanationLazyBody" class="ai-help-body">
@@ -3822,84 +3823,31 @@
 
   function renderModelSettings() {
     const config = aiConfig;
-    const base = modelBaseUrl(config);
-    const profiles = modelProfiles(config);
-    const activeProfile = inferModelProfileKey(config);
-    const profileOptions = [
-      ...Object.entries(profiles).map(([key, profile]) => `<option value="${B.esc(key)}"${activeProfile === key ? " selected" : ""}>${B.esc(profile.label || key)}</option>`),
-      `<option value="custom"${activeProfile === "custom" ? " selected" : ""}>自定义配置</option>`,
-    ].join("");
     return `
       <details class="ai-model-panel">
         <summary class="ai-model-summary">
           <div>
-            <strong>模型设置与连通性测试</strong>
-            <span>可选择本地模型或 Codex 桥接模型；需要调试时展开编辑，本页设置可保存到当前浏览器。</span>
+            <strong>AI模型服务</strong>
+            <span>页面已统一配置阿里云百炼，参数固定且不接受浏览器修改。</span>
           </div>
         </summary>
         <div class="ai-model-body">
-          <div class="ai-model-grid">
-            <label>模型来源
-              <select id="aiModelProfile" class="control">
-                ${profileOptions}
-              </select>
-            </label>
-            <label>启用模型解析
-              <select id="aiModelEnabled" class="control">
-                <option value="true"${config.enabled !== false ? " selected" : ""}>启用</option>
-                <option value="false"${config.enabled === false ? " selected" : ""}>关闭，仅本地规则</option>
-              </select>
-            </label>
-            <label>调用模式
-              <select id="aiModelMode" class="control">
-                <option value="hybrid-parse"${raw(config.mode || "hybrid-parse") === "hybrid-parse" ? " selected" : ""}>混合解析</option>
-                <option value="local-only"${raw(config.mode) === "local-only" ? " selected" : ""}>仅本地规则</option>
-                <option value="off"${raw(config.mode) === "off" ? " selected" : ""}>关闭模型</option>
-              </select>
-            </label>
-            <label>Provider
-              <input id="aiModelProvider" class="control" value="${B.esc(config.provider || "inner-ds-openai-compatible")}">
-            </label>
-            <label>模型
-              <input id="aiModelName" class="control" value="${B.esc(config.model || "deepseek-v4-flash-inner")}">
-            </label>
-            <label class="ai-model-wide">Base URL
-              <input id="aiModelBaseUrl" class="control" value="${B.esc(base)}" placeholder="/llmapi/v1">
-            </label>
-            <label class="ai-model-wide">Chat Completions Endpoint
-              <input id="aiModelEndpoint" class="control" value="${B.esc(modelChatEndpoint(config))}" placeholder="/llmapi/v1/chat/completions">
-            </label>
-            <label>API Key
-              <input id="aiModelApiKey" class="control" type="password" autocomplete="off" value="${B.esc(config.apiKey || "")}">
-            </label>
-            <label>超时毫秒
-              <input id="aiModelTimeout" class="control" type="number" min="800" max="120000" step="1000" value="${B.esc(config.timeoutMs || 45000)}">
-            </label>
-            <label>JSON 返回格式
-              <select id="aiModelResponseFormat" class="control">
-                <option value="true"${config.responseFormat !== false ? " selected" : ""}>要求 JSON Object</option>
-                <option value="false"${config.responseFormat === false ? " selected" : ""}>不强制</option>
-              </select>
-            </label>
-            <label>失败退避毫秒
-              <input id="aiModelBackoff" class="control" type="number" min="1000" max="600000" step="1000" value="${B.esc(config.rateLimitBackoffMs || 60000)}">
-            </label>
-            <label class="ai-model-wide">额外 Headers JSON
-              <textarea id="aiModelHeaders" class="control ai-model-headers" rows="3" spellcheck="false">${B.esc(modelHeadersText(config))}</textarea>
-            </label>
+          <div class="ai-model-fixed-grid">
+            <div><span>模型来源</span><strong>阿里云百炼</strong></div>
+            <div><span>模型</span><strong>${B.esc(config.model || "qwen3.6-flash")}</strong></div>
+            <div><span>调用模式</span><strong>AI解析 + 本地规则校验</strong></div>
+            <div><span>返回格式</span><strong>JSON Object</strong></div>
+            <div class="ai-model-fixed-wide"><span>服务地址</span><strong>${B.esc(modelBaseUrl(config))}</strong></div>
+            <div><span>接口超时</span><strong>${B.esc(config.timeoutMs || 60000)} 毫秒</strong></div>
+            <div><span>API Key</span><strong>已内置测试密钥</strong></div>
           </div>
           <div class="ai-model-actions">
-            <button id="aiModelSave" type="button">保存配置</button>
             <button id="aiModelTest" type="button">测试连通性</button>
-            <button id="aiModelCopyStart" type="button">复制启动命令</button>
-            <button id="aiModelCopyStartup" type="button">复制开机自启命令</button>
-            <button id="aiModelReset" type="button">恢复文件默认</button>
             <span id="aiModelTestResult" class="ai-model-test-result">未测试</span>
           </div>
           <div class="ai-model-help">
-            <strong>Codex 桥接服务启动说明</strong>
-            <span>浏览器页面不能直接启动本机进程。重启电脑后，建议安装一次 Windows 开机自启任务；需要临时处理时，也可以手动运行启动命令。</span>
-            <code>${B.esc(codexBridgeCommand("install_ai_strategy_codex_proxy_startup.ps1"))}</code>
+            <strong>配置说明</strong>
+            <span>模型只负责把自然语言转换为筛选条件，候选策略仍由当前页面数据和本地规则计算。模型接口不可用时自动回退本地规则。</span>
           </div>
         </div>
       </details>
@@ -4003,75 +3951,20 @@
   }
 
   function bindModelSettings() {
-    B.byId("aiModelProfile")?.addEventListener("change", (event) => {
-      const key = raw(event.target?.value || "custom");
-      if (key === "custom") {
-        aiConfig.profile = "custom";
-        fillModelSettingsForm(aiConfig);
-        updateModelStatusPill();
-        setModelTestResult("running", "已切换为自定义配置，可手动编辑参数");
-        return;
-      }
-      const config = applyModelProfile(key, false);
-      fillModelSettingsForm(config);
-      updateModelStatusPill();
-      setModelTestResult("running", `已切换为${modelProfiles(config)[key]?.label || key}，保存后写入当前浏览器`);
-    });
-    B.byId("aiModelSave")?.addEventListener("click", () => {
-      try {
-        const config = applyRuntimeModelConfig(collectModelSettingsForm(), true);
-        fillModelSettingsForm(config);
-        updateModelStatusPill();
-        setModelTestResult("ok", "已保存到当前浏览器，本页立即生效");
-      } catch (error) {
-        setModelTestResult("bad", `配置无效：${raw(error?.message || error).slice(0, 180)}`);
-      }
-    });
     B.byId("aiModelTest")?.addEventListener("click", async () => {
-      let config = null;
       try {
-        config = applyRuntimeModelConfig(collectModelSettingsForm(), false);
-        fillModelSettingsForm(config);
-        updateModelStatusPill();
         setModelTestResult("running", "正在测试模型接口...");
         const started = performance.now();
-        const result = await requestModelConnectivity(config);
+        const result = await requestModelConnectivity(aiConfig);
         const elapsed = Math.round(performance.now() - started);
-        setModelTestResult("ok", `连通成功，${result.model || config.model}，${elapsed}ms`);
+        setModelTestResult("ok", `连通成功，${result.model || aiConfig.model}，${elapsed}ms`);
       } catch (error) {
         let message = raw(error?.name === "AbortError" ? "模型测试超时" : error?.message || error);
         if (/Failed to fetch|NetworkError|Load failed/i.test(message)) {
-          message = isCodexProxyConfig(config || aiConfig)
-            ? "本机模型代理不可访问"
-            : "模型接口不可访问，请检查内网、CORS 跨域或 API Key";
+          message = "百炼模型接口不可访问，请检查网络、CORS 跨域或测试密钥状态";
         }
         setModelTestResult("bad", message.slice(0, 220));
       }
-    });
-    B.byId("aiModelCopyStart")?.addEventListener("click", async () => {
-      try {
-        await copyTextToClipboard(codexBridgeCommand("start_ai_strategy_codex_proxy.ps1"));
-        setModelTestResult("ok", "已复制手动启动命令，请在 PowerShell 中运行");
-      } catch (error) {
-        setModelTestResult("bad", raw(error?.message || error).slice(0, 180));
-      }
-    });
-    B.byId("aiModelCopyStartup")?.addEventListener("click", async () => {
-      try {
-        await copyTextToClipboard(codexBridgeCommand("install_ai_strategy_codex_proxy_startup.ps1"));
-        setModelTestResult("ok", "已复制开机自启安装命令，请在 PowerShell 中运行一次");
-      } catch (error) {
-        setModelTestResult("bad", raw(error?.message || error).slice(0, 180));
-      }
-    });
-    B.byId("aiModelReset")?.addEventListener("click", () => {
-      clearStoredModelConfig();
-      Object.keys(aiConfig).forEach((key) => delete aiConfig[key]);
-      Object.assign(aiConfig, aiConfigFileDefault);
-      applyRuntimeModelConfig(aiConfig, false);
-      fillModelSettingsForm(aiConfig);
-      updateModelStatusPill();
-      setModelTestResult("ok", "已恢复配置文件默认值");
     });
   }
 
@@ -4081,7 +3974,7 @@
       <section class="panel ai-query-panel">
         <div class="panel-head">
           <div>
-            <h2>Ai选策略</h2>
+            <h2>AI选策略</h2>
             <p class="desc">输入自然语言条件，系统解析为可核验筛选条件后在当前策略宽表中执行。</p>
           </div>
           <div class="title-pills"><span class="pill">策略宽表 ${allRows.length.toLocaleString("zh-CN")} 条</span><span id="aiModelStatusPill" class="pill">${B.esc(modelLabel)}</span></div>
@@ -4094,8 +3987,8 @@
         </div>
         ${renderModelSettings()}
       </section>
-      ${renderAiExplanationShell()}
       <div id="aiResult">${renderInitialResultPlaceholder()}</div>
+      ${renderAiExplanationShell()}
     `;
     B.byId("aiRun").addEventListener("click", () => runSearch({ allowModel: true }));
     B.byId("aiClear").addEventListener("click", () => {

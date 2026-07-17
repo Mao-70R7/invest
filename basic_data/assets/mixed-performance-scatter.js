@@ -40,6 +40,7 @@
   let openMultiKey = "";
   let opportunityProfileId = "";
   let advantagePanelOpen = false;
+  let opportunityPanelOpen = false;
   let scatterRenderState = null;
 
   if (!pack || !rows.length) {
@@ -1985,12 +1986,26 @@
     const restoreButton = restoreFilterSnapshot
       ? '<button class="mixed-restore-filter" type="button" data-restore-highlight-filter>恢复筛选</button>'
       : "";
+    const scopeControl = renderAdvantageScopeControl(allGfRows);
     if (!allGfRows.length) {
-      return `<section class="panel mixed-highlight-panel mixed-opportunity-panel">
-        <div class="panel-head">
-          <div><h2>广发业务机会分析</h2><p class="desc">当前筛选条件下没有收益、回撤、波动完整的广发产品，暂不生成机会卡。</p></div>
-        </div>
-      </section>`;
+      return `<details class="panel mixed-highlight-panel mixed-highlight-collapsible mixed-opportunity-panel" data-opportunity-panel${opportunityPanelOpen ? " open" : ""}>
+        <summary class="mixed-highlight-summary mixed-opportunity-summary">
+          <div><h2>广发业务机会分析</h2><p>当前筛选条件下没有收益、回撤、波动完整的广发产品，暂不生成机会卡。</p></div>
+          <span class="pill">0 个产品</span>
+          <span class="mixed-opportunity-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mixed-highlight-body"><div class="mixed-highlight-actions">${scopeControl}${restoreButton}</div></div>
+      </details>`;
+    }
+    if (!scopedRows.length) {
+      return `<details class="panel mixed-highlight-panel mixed-highlight-collapsible mixed-opportunity-panel" data-opportunity-panel${opportunityPanelOpen ? " open" : ""}>
+        <summary class="mixed-highlight-summary mixed-opportunity-summary">
+          <div><h2>广发业务机会分析</h2><p>当前选择“${esc(advantageProductScopeLabel())}”，没有收益、回撤、波动完整的匹配产品。</p></div>
+          <span class="pill">0 个${esc(advantageProductScopeLabel())}</span>
+          <span class="mixed-opportunity-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="mixed-highlight-body"><div class="mixed-highlight-actions">${scopeControl}${restoreButton}</div></div>
+      </details>`;
     }
     const evaluated = scopedRows
       .map(opportunityEvaluation)
@@ -2003,27 +2018,30 @@
       .filter((key) => groups[key].length)
       .map((key) => renderOpportunityGroup(key, groups[key]))
       .join("");
-    return `<section class="panel mixed-highlight-panel mixed-opportunity-panel">
-      <div class="panel-head">
+    return `<details class="panel mixed-highlight-panel mixed-highlight-collapsible mixed-opportunity-panel" data-opportunity-panel${opportunityPanelOpen ? " open" : ""}>
+      <summary class="mixed-highlight-summary mixed-opportunity-summary">
         <div>
           <h2>广发业务机会分析</h2>
-          <p class="desc">以广义权益分档作为主排名口径。六维分位加权决定机会强度，同产品类型、正式可比池和比较轨道作为解释与校验证据。</p>
+          <p>以广义权益分档作为主排名口径。六维分位加权决定机会强度，同产品类型、正式可比池和比较轨道作为解释与校验证据。</p>
         </div>
         <div class="mixed-highlight-actions">
           <span class="pill">${scopedRows.length.toLocaleString("zh-CN")} 个${esc(advantageProductScopeLabel())}</span>
           <span class="pill">${notReadyCount.toLocaleString("zh-CN")} 个暂不主推/证据不足</span>
-          ${restoreButton}
         </div>
+        <span class="mixed-opportunity-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="mixed-highlight-body">
+        <div class="mixed-highlight-actions">${scopeControl}${restoreButton}</div>
+        <div class="mixed-advantage-method">
+          <strong>判断口径</strong>
+          <span>六维权重：收益22%、回撤18%、波动12%、风险收益效率20%、多周期胜率13%、多周期持续性15%。</span>
+          <span>评分使用同广义权益分档的非线性分位，前排继续拉开差距；A1要求收益、风险效率和跨周期证据同时成立。</span>
+          <span>B1只做明确赛道机会，B2只做近期改善观察，不能包装成长期能力。</span>
+          <span>点击卡片看能力画像；点击“查看同广义分档点阵”会保留该广义权益分档并默认选中产品。</span>
+        </div>
+        <div class="mixed-strength-groups">${renderedGroups || '<div class="empty">当前筛选下没有达到业务机会门槛的广发产品。</div>'}</div>
       </div>
-      <div class="mixed-advantage-method">
-        <strong>判断口径</strong>
-        <span>六维权重：收益22%、回撤18%、波动12%、风险收益效率20%、多周期胜率13%、多周期持续性15%。</span>
-        <span>评分使用同广义权益分档的非线性分位，前排继续拉开差距；A1要求收益、风险效率和跨周期证据同时成立。</span>
-        <span>B1只做明确赛道机会，B2只做近期改善观察，不能包装成长期能力。</span>
-        <span>点击卡片看能力画像；点击“查看同广义分档点阵”会保留该广义权益分档并默认选中产品。</span>
-      </div>
-      <div class="mixed-strength-groups">${renderedGroups || '<div class="empty">当前筛选下没有达到业务机会门槛的广发产品。</div>'}</div>
-    </section>`;
+    </details>`;
   }
 
   function renderAbilityTable(metrics) {
@@ -2295,6 +2313,11 @@
     root.querySelectorAll("[data-advantage-panel]").forEach((node) => {
       node.addEventListener("toggle", () => {
         advantagePanelOpen = node.open;
+      });
+    });
+    root.querySelectorAll("[data-opportunity-panel]").forEach((node) => {
+      node.addEventListener("toggle", () => {
+        opportunityPanelOpen = node.open;
       });
     });
     root.querySelectorAll("[data-advantage-scope]").forEach((node) => {
