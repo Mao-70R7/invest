@@ -110,14 +110,27 @@
 
   async function startPage(options = {}) {
     const dataScripts = Array.isArray(options.dataScripts) ? options.dataScripts : [];
+    const totalSteps = dataScripts.length + (options.renderer ? 1 : 0);
+    let loadedSteps = 0;
+    const markLoaded = (detail = "") => {
+      loadedSteps += 1;
+      if (B.updatePageLoading) B.updatePageLoading(loadedSteps, totalSteps, detail);
+    };
     try {
-      await Promise.all(dataScripts.map((src) => loadCompressed(src)));
+      if (B.updatePageLoading) B.updatePageLoading(0, totalSteps);
+      await Promise.all(dataScripts.map((src) => loadCompressed(src).then(() => markLoaded("数据资源已加载"))));
       if (options.qualityScope && B.renderGlobalQualityGate) {
         B.renderGlobalQualityGate(options.qualityScope);
       }
-      if (options.renderer) await originalLoadScript(options.renderer);
+      if (options.renderer) {
+        await originalLoadScript(options.renderer);
+        markLoaded("页面组件已加载");
+      }
+      if (B.hidePageLoading) B.hidePageLoading();
+      if (B.ensureInternalTestNotice) B.ensureInternalTestNotice();
     } catch (error) {
       console.error(error);
+      if (B.hidePageLoading) B.hidePageLoading();
       const root = document.querySelector("main") || document.body;
       const panel = document.createElement("section");
       panel.className = "panel";

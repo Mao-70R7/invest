@@ -820,8 +820,10 @@
     const yTicks = axisTicks(yDomain, 6);
     const pointRows = [...plottableRows].sort((a, b) => (productCategory(a).drawOrder - productCategory(b).drawOrder) || clean(a.name).localeCompare(clean(b.name), "zh-CN"));
     const selected = selectedRow(list);
-    const peerRows = selected?.formalPeerPool
-      ? rows.filter((row) => row.formalPeerPool === selected.formalPeerPool && hasCurrentMetrics(row))
+    const medianBucket = clean(selected?.broadEquityBucket);
+    const medianBucketLabel = broadBucketLabels[medianBucket] || medianBucket;
+    const peerRows = medianBucket
+      ? rows.filter((row) => clean(row.broadEquityBucket) === medianBucket && hasCurrentMetrics(row))
       : [];
     const peerReturns = peerRows.map(currentReturn).filter((value) => value !== null).sort((a, b) => a - b);
     const peerRisks = peerRows.map(currentRisk).filter((value) => value !== null).sort((a, b) => a - b);
@@ -833,8 +835,8 @@
       const x = scale(peerRiskMedian, xDomain, [margin.left, width - margin.right]);
       return `<line class="mixed-peer-line" x1="${margin.left}" x2="${width - margin.right}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}"></line>
         <line class="mixed-peer-line" x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${margin.top}" y2="${height - margin.bottom}"></line>
-        <text class="mixed-peer-label" x="${margin.left + 8}" y="${(y - 6).toFixed(1)}">${esc(selected.formalPeerPool)}收益中位数</text>
-        <text class="mixed-peer-label" x="${(x + 6).toFixed(1)}" y="${margin.top + 16}">风险中位数</text>`;
+        <text class="mixed-peer-label" x="${margin.left + 8}" y="${(y - 6).toFixed(1)}">${esc(medianBucketLabel)}收益中位数</text>
+        <text class="mixed-peer-label" x="${(x + 6).toFixed(1)}" y="${margin.top + 16}">广义同类风险中位数</text>`;
     })();
     const points = pointRows.map((row) => {
       const xValue = currentRisk(row);

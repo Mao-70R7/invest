@@ -42,6 +42,7 @@
   const allowedReturnMetrics = new Set(["近一周", "近一月", "近三月", "近6月", "近1年", "今年以来", "累计收益率", "年化收益"]);
   const allowedReportTypes = new Set(["固收+型", "纯债型", "股票型", "多元配置型", "股债混合型", "海外/全球型", "主题/行业型", "现金管理型", "偏股配置型"]);
   const virtualFields = [
+    { field: "__benchmark_text", label: "业绩基准文本" },
     { field: "__holding_entity", label: "最新持仓明细" },
     { field: "__source_any", label: "机构/渠道/策略名称" },
     { field: "__gf_any", label: "机构/渠道/策略名称命中" },
@@ -208,6 +209,8 @@
   const operatorLabels = {
     contains: "包含",
     contains_any: "包含任一",
+    contains_all: "同时包含",
+    weight_gte: "持仓权重大于等于",
     "not contains": "不包含",
     "=": "等于",
     "!=": "不等于",
@@ -1033,23 +1036,27 @@
     const aliases = [...new Set([...entityAliases(entity, term), ...(entity?.evidenceAliases || [])].map(raw).filter(Boolean))];
     const strategyId = raw(row.统一策略ID);
     const indexed = strategyEntityEvidence(row, entity || term);
+    const holdings = semanticHoldingsByStrategy().get(strategyId) || [];
+    const directMatches = holdings.filter((holding) => (holding.weight || 0) > 0.0001 && entityMatchesEvidence(entity, holdingText(holding), aliases));
     if (isIndexedStandardEntity(entity)) {
+      const directWeight = directMatches.reduce((total, holding) => total + (num(holding.weight) || 0), 0);
+      const directLabels = directMatches.slice(0, 6).map((holding) => `基金:${holding.fundName || holding.fundCode || "未命名基金"}${holding.weight ? ` ${formatPct(holding.weight)}` : ""}`);
+      const hasEntity = indexed.hasEntity || directMatches.length > 0;
       return {
-        known: indexed.known,
-        hasEntity: indexed.hasEntity,
+        known: indexed.known || holdings.length > 0,
+        hasEntity,
         entity: indexed.entity || entity,
         term: raw(term),
         aliases,
-        date: indexed.date || raw(row.最新持仓日),
-        weight: indexed.weight,
-        matches: indexed.matches || [],
-        labels: indexed.labels || [],
+        date: indexed.date || directMatches[0]?.date || holdings[0]?.date || raw(row.最新持仓日),
+        weight: indexed.hasEntity && (num(indexed.weight) || 0) > 0.0001 ? indexed.weight : Math.min(100, directWeight),
+        matches: [...(indexed.matches || []), ...directMatches],
+        labels: [...new Set([...(indexed.labels || []), ...directLabels])].slice(0, 10),
         strict: true,
       };
     }
     const structured = structuredHoldingEntityEvidence(row, entity, aliases);
-    const holdings = semanticHoldingsByStrategy().get(strategyId) || [];
-    const matches = holdings.filter((holding) => (holding.weight || 0) > 0.0001 && entityMatchesEvidence(entity, holdingText(holding), aliases));
+    const matches = directMatches;
     const semanticLabels = matches.slice(0, 6).map((holding) => `基金:${holding.fundName || holding.fundCode || "未命名基金"}${holding.weight ? ` ${formatPct(holding.weight)}` : ""}`);
     const labels = [...new Set([...(indexed.labels || []), ...(structured.labels || []), ...semanticLabels].filter(Boolean))].slice(0, 10);
     const semanticWeight = matches.reduce((total, holding) => total + (num(holding.weight) || 0), 0);
@@ -1198,6 +1205,18 @@
     return [...preferred, ...rest];
   }
 
+  let benchmarkFieldCache = null;
+  function benchmarkFieldNames() {
+    if (benchmarkFieldCache) return benchmarkFieldCache;
+    benchmarkFieldCache = actualFieldNames().filter((field) => /基准/.test(field)
+      && !/状态|置信度|分类档|资产大类|资产类别|权益|债券|商品|现金|其他|是否多元/.test(field));
+    return benchmarkFieldCache;
+  }
+
+  function benchmarkText(row) {
+    return benchmarkFieldNames().map((field) => raw(row?.[field])).filter(Boolean).join(" ");
+  }
+
   function filterFieldNames() {
     const names = [];
     const push = (field) => {
@@ -1251,7 +1270,7 @@
         字段: fieldLabel(field),
         命中策略数: zhCount(values.length),
         去重值数: zhCount(distinct.size),
-        说明: field === "searchText" ? "策略名称、机构、渠道、分类等搜索文本合并字段" : "当前策略宽表真实字段",
+        说明: field === "searchText" ? "策略名称、机构、渠道、分类等信息的综合搜索" : "当前产品数据可用于筛选的业务维度",
       };
     });
   }
@@ -1260,9 +1279,9 @@
     const semanticStrategyCount = semanticHoldingsByStrategy().size;
     const semanticFundCount = new Set(flatSemanticHoldings().map(fundKeyOf).filter(Boolean)).size;
     return [
-      { 字段: "标准实体索引", 命中策略数: zhCount(semanticStrategyCount), 命中基金数: zhCount(semanticFundCount), 说明: "用于资产、地域、指数、行业主题、产品形态等可回溯实体硬筛；基金公司等动态字段仅作查询辅助" },
-      { 字段: "完整可比数据", 命中策略数: zhCount(allRows.filter(isCompleteStrategy).length), 命中基金数: "-", 说明: "数据完整性=完整，默认勾选" },
-      { 字段: "机构/渠道/策略名称命中", 命中策略数: zhCount(allRows.filter(isGf).length), 命中基金数: "-", 说明: "投顾机构、渠道、策略名称、搜索文本的通用关键词匹配；不只限广发，基金公司仓位走“最新持仓明细”实体筛选" },
+      { 字段: "业绩基准", 命中策略数: zhCount(allRows.filter((row) => benchmarkText(row)).length), 命中基金数: "-", 说明: "识别基准指数、资产名称及基准原文中的实体" },
+      { 字段: "最新持仓", 命中策略数: zhCount(semanticStrategyCount), 命中基金数: zhCount(semanticFundCount), 说明: "识别当前持有的基金、基金公司、指数、行业主题和地域资产" },
+      { 字段: "策略名称/投顾机构/渠道", 命中策略数: zhCount(allRows.length), 命中基金数: "-", 说明: "分别按名称、管理机构或销售渠道匹配，不再默认合并为持仓条件" },
       { 字段: "海外资产判断/权重", 命中策略数: zhCount(allRows.filter((row) => overseasEvidence(row).hasOverseas).length), 命中基金数: zhCount(new Set(flatSemanticHoldings().filter((holding) => /QDII|海外|全球|港股|美股|德国|日本|DAX|日经|Nikkei|TOPIX/i.test(holdingText(holding))).map(fundKeyOf).filter(Boolean)).size), 说明: "最新持仓快照和语义持仓索引共同核验" },
       { 字段: "黄金判断", 命中策略数: zhCount(allRows.filter((row) => goldEvidence(row).hasGold).length), 命中基金数: zhCount(new Set(flatSemanticHoldings().filter((holding) => /黄金|贵金属|商品黄金/i.test(holdingText(holding))).map(fundKeyOf).filter(Boolean)).size), 说明: "最新持仓快照和基金名称/分类证据共同核验" },
     ];
@@ -1271,11 +1290,13 @@
   function semanticEntityStats(entity) {
     const resolved = resolveSemanticEntity(entity.key || entity.label) || entity;
     const aliases = [...new Set([...entityAliases(resolved, entity.label), ...(resolved?.evidenceAliases || [])].map(raw).filter(Boolean))];
-    const strategyIds = new Set();
+    const holdingStrategyIds = new Set();
+    const benchmarkStrategyIds = new Set();
+    const nameStrategyIds = new Set();
     const fundKeys = new Set();
     strategyEntitiesByStrategy().forEach((rows, strategyId) => {
       const matched = rows.some((item) => item.entityKey === resolved?.key);
-      if (matched) strategyIds.add(strategyId);
+      if (matched) holdingStrategyIds.add(strategyId);
     });
     if (semanticIndex?.fundEntities?.rows && Array.isArray(semanticIndex.fundEntities.rows)) {
       const fields = semanticIndex.fundEntities.fields || [];
@@ -1290,21 +1311,37 @@
         });
       }
     }
-    if (!strategyIds.size && !fundKeys.size && !isIndexedStandardEntity(resolved)) {
+    if (!holdingStrategyIds.size || !fundKeys.size) {
       flatSemanticHoldings().forEach((holding) => {
         if (!entityMatchesEvidence(resolved, holdingText(holding), aliases)) return;
-        if (holding.strategyId) strategyIds.add(holding.strategyId);
+        if (holding.strategyId) holdingStrategyIds.add(holding.strategyId);
         const fundKey = fundKeyOf(holding);
         if (fundKey) fundKeys.add(fundKey);
       });
     }
+    allRows.forEach((row) => {
+      if (entityMatchesEvidence(resolved, benchmarkText(row), aliases)) benchmarkStrategyIds.add(raw(row.统一策略ID || row.策略代码 || row.策略名称));
+      if (entityMatchesEvidence(resolved, raw(row.策略名称), aliases)) nameStrategyIds.add(raw(row.统一策略ID || row.策略代码 || row.策略名称));
+    });
     return {
       实体: resolved?.label || entity.label || entity.key,
-      类型: resolved?.type || entity.type || "持仓实体",
-      命中策略数: zhCount(strategyIds.size),
-      命中基金数: zhCount(fundKeys.size),
+      类型: resolved?.type || entity.type || "标准实体",
+      基准命中策略数: zhCount(benchmarkStrategyIds.size),
+      持仓命中策略数: zhCount(holdingStrategyIds.size),
+      名称命中策略数: zhCount(nameStrategyIds.size),
+      关联基金数: zhCount(fundKeys.size),
       别名: aliases.slice(0, 8).join("、"),
     };
+  }
+
+  function semanticFrameworkRows() {
+    return [
+      { 识别步骤: "条件拆分", 业务判断: "区分收益、回撤、基准、持仓、名称、机构、渠道等条件", 页面结果: "每个条件独立展示" },
+      { 识别步骤: "实体归一", 业务判断: "将指数、资产、行业主题、地域、基金公司等别名映射为标准实体", 页面结果: "保留用户原词并统一匹配" },
+      { 识别步骤: "关系判断", 业务判断: "识别包含、排除、上下限、当前持仓等关系", 页面结果: "转换为可执行筛选条件" },
+      { 识别步骤: "歧义处理", 业务判断: "没有明确关系词时生成2至3个同类候选", 页面结果: "默认最高匹配，可替换不叠加" },
+      { 识别步骤: "结果核验", 业务判断: "逐条件计算筛除数，并展示策略命中依据", 页面结果: "可追溯筛选过程" },
+    ];
   }
 
   function fundDimensionDictionaryRows(label, getter) {
@@ -1339,37 +1376,45 @@
   function renderAiExplanation() {
     const strategyFields = strategyFieldDictionaryRows();
     const virtualFieldsRows = virtualFieldDictionaryRows();
-    const semanticRows = semanticEntityCatalog.map(semanticEntityStats)
-      .sort((a, b) => Number(raw(b.命中策略数).replace(/,/g, "")) - Number(raw(a.命中策略数).replace(/,/g, "")) || a.实体.localeCompare(b.实体, "zh-CN"));
+    const semanticRows = semanticEntityCatalog.filter((entity) => isStandardSemanticEntityKey(entity.key)).map(semanticEntityStats)
+      .sort((a, b) => {
+        const total = (row) => [row.基准命中策略数, row.持仓命中策略数, row.名称命中策略数]
+          .reduce((sum, value) => sum + Number(raw(value).replace(/,/g, "") || 0), 0);
+        return total(b) - total(a) || a.实体.localeCompare(b.实体, "zh-CN");
+      });
     const dimensionBlocks = [
-      ["基金公司", fundDimensionDictionaryRows("fund_detail_pack/ai_semantic_index.基金公司", (holding) => holding.fundCompany), false],
-      ["基金资产类型", fundDimensionDictionaryRows("ai_semantic_index.资产类型", (holding) => holding.assetType), true],
-      ["基金二级分类", fundDimensionDictionaryRows("ai_semantic_index.二级分类", (holding) => holding.secondaryCategory), true],
-      ["基金分组", fundDimensionDictionaryRows("ai_semantic_index.分组", (holding) => holding.group), false],
-      ["基金同类分组/主题", fundDimensionDictionaryRows("ai_semantic_index.基金同类分组", (holding) => holding.peerGroup), false],
-      ["基金画像行业主题", fundDimensionDictionaryRows("fund_detail_pack.行业主题", (holding) => holding.profileTheme), false],
-      ["基金画像大类资产", fundDimensionDictionaryRows("fund_detail_pack.研报大类资产", (holding) => holding.profileAsset), false],
-      ["基金画像A股行业", fundDimensionDictionaryRows("fund_detail_pack.研报A股行业", (holding) => holding.profileIndustry), false],
-      ["基金实体集", fundDimensionDictionaryRows("ai_semantic_index.基金名称", (holding) => holding.fundName || holding.fundCode), false],
+      ["基金公司", fundDimensionDictionaryRows("最新持仓基金公司", (holding) => holding.fundCompany), false],
+      ["基金资产类型", fundDimensionDictionaryRows("最新持仓资产类型", (holding) => holding.assetType), true],
+      ["基金二级分类", fundDimensionDictionaryRows("最新持仓基金分类", (holding) => holding.secondaryCategory), true],
+      ["基金分组", fundDimensionDictionaryRows("最新持仓基金分组", (holding) => holding.group), false],
+      ["基金同类分组/主题", fundDimensionDictionaryRows("最新持仓同类分组", (holding) => holding.peerGroup), false],
+      ["基金行业主题", fundDimensionDictionaryRows("基金公开分类与持仓信息", (holding) => holding.profileTheme), false],
+      ["基金大类资产", fundDimensionDictionaryRows("基金公开分类与持仓信息", (holding) => holding.profileAsset), false],
+      ["基金A股行业", fundDimensionDictionaryRows("基金公开分类与持仓信息", (holding) => holding.profileIndustry), false],
+      ["持仓基金", fundDimensionDictionaryRows("最新持仓基金名称", (holding) => holding.fundName || holding.fundCode), false],
     ];
     return `<details class="panel ai-help-panel">
       <summary class="ai-help-summary">
-        <div><h2>AI说明：可识别维度与实体字典</h2><p class="desc">这里不是静态文案；每次打开页面都会基于当前 basic_summary、holding_snapshot_pack 和 ai_semantic_index 重新聚合命中数量。</p></div>
+        <div><h2>AI说明：可识别维度与实体字典</h2><p class="desc">按当前语义框架展示可识别业务域、标准实体及实际可匹配数量。</p></div>
         <div class="title-pills"><span class="pill">策略 ${zhCount(allRows.length)}</span><span class="pill">语义持仓 ${zhCount(flatSemanticHoldings().length)}</span></div>
       </summary>
       <div class="ai-help-body">
         <div class="ai-help-grid">
           <section>
-            <h3>派生筛选字段</h3>
-            ${aiMiniTable(["字段", "命中策略数", "命中基金数", "说明"], virtualFieldsRows)}
+            <h3>语义识别框架</h3>
+            ${aiMiniTable(["识别步骤", "业务判断", "页面结果"], semanticFrameworkRows())}
           </section>
           <section>
-            <h3>持仓语义实体</h3>
-            ${aiMiniTable(["实体", "类型", "命中策略数", "命中基金数", "别名"], semanticRows)}
+            <h3>可识别业务维度</h3>
+            ${aiMiniTable(["字段", "命中策略数", "命中基金数", "说明"], virtualFieldsRows)}
           </section>
         </div>
+        <details class="ai-help-detail" open>
+          <summary>标准实体字典 <span>${zhCount(semanticRows.length)} 项</span></summary>
+          ${aiMiniTable(["实体", "类型", "基准命中策略数", "持仓命中策略数", "名称命中策略数", "关联基金数", "别名"], semanticRows)}
+        </details>
         <details class="ai-help-detail">
-          <summary>策略宽表字段 <span>${zhCount(strategyFields.length)} 项</span></summary>
+          <summary>可直接筛选字段 <span>${zhCount(strategyFields.length)} 项</span></summary>
           ${aiMiniTable(["字段", "命中策略数", "去重值数", "说明"], strategyFields)}
         </details>
         ${dimensionBlocks.map(([title, rows, open]) => renderFundDimensionBlock(title, rows, open)).join("")}
@@ -1380,7 +1425,7 @@
   function renderAiExplanationShell() {
     return `<details id="aiExplanationLazyPanel" class="panel ai-help-panel">
       <summary class="ai-help-summary">
-        <div><h2>AI说明：可识别维度与实体字典</h2><p class="desc">默认不展开，打开后再根据当前数据生成可识别字段、实体和基金维度字典。</p></div>
+        <div><h2>AI说明：可识别维度与实体字典</h2><p class="desc">默认折叠，展开后查看语义识别框架、业务维度和标准实体。</p></div>
         <div class="title-pills"><span class="pill">策略 ${zhCount(allRows.length)}</span><span class="pill">展开后加载</span></div>
       </summary>
       <div id="aiExplanationLazyBody" class="ai-help-body">
@@ -1440,7 +1485,8 @@
   }
 
   function operatorOptionHtml(selected) {
-    return operatorOptions.map((value) => `<option value="${B.esc(value)}"${value === selected ? " selected" : ""}>${B.esc(operatorLabels[value] || value)}</option>`).join("");
+    const options = operatorOptions.includes(selected) || !selected ? operatorOptions : [selected, ...operatorOptions];
+    return options.map((value) => `<option value="${B.esc(value)}"${value === selected ? " selected" : ""}>${B.esc(operatorLabels[value] || value)}</option>`).join("");
   }
 
   function returnMetricScope(query) {
@@ -1700,6 +1746,9 @@
         if (!alias) return;
         if (rule.field === "研报产品类型" && !hasProductTypeContext(query)) return;
         if (rule.field === "业务分类" && !hasBusinessClassificationContext(query, item.value, alias)) return;
+        if (rule.field === "主动被动" && alias === "指数策略"
+          && detectSemanticEntities(query).some((entity) => /指数/.test(raw(entity.type)))
+          && !/主动被动|被动为主|指数基金为主|ETF为主/.test(query)) return;
         const negative = hasNegativeCueForAlias(query, alias);
         const exact = /^(研报产品类型|市场地域|运作状态|基础数据等级)$/.test(rule.field);
         const op = negative ? (exact ? "!=" : "not contains") : (exact ? "=" : "contains");
@@ -1879,7 +1928,154 @@
       }
       if (shouldReplaceSemanticTermMatch(existing, item)) byTerm.set(termKey, item);
     });
-    return Array.from(byTerm.values());
+    const resolved = Array.from(byTerm.values());
+    const hasSpecificIndex = resolved.some((item) => isStandardSemanticEntityKey(item.key) && /指数/.test(raw(item.type)));
+    if (!hasSpecificIndex) return resolved;
+    return resolved.filter((item) => {
+      const broadIndex = normalizeSearchText(item.term) === "指数"
+        || /^(指数基金|股票指数|债券指数|指数型)$/.test(raw(item.label));
+      return !broadIndex;
+    });
+  }
+
+  const semanticDomainDefinitions = {
+    benchmark: { label: "业绩基准", relation: "基准包含", cues: ["业绩基准", "比较基准", "基准"] },
+    latest_holding: { label: "最新持仓", relation: "当前配置", cues: ["最新持仓", "当前持仓", "现有持仓", "持仓", "持有", "配置"] },
+    strategy_name: { label: "策略名称", relation: "名称包含", cues: ["策略名称", "产品名称", "组合名称", "名称"] },
+    advisor: { label: "投顾机构", relation: "机构包含", cues: ["投顾机构", "管理机构", "投顾公司", "机构"] },
+    channel: { label: "销售渠道", relation: "渠道包含", cues: ["销售渠道", "渠道", "平台"] },
+  };
+
+  function semanticCueDistance(query, term, cue) {
+    const text = raw(query);
+    const termIndex = text.indexOf(term);
+    if (termIndex < 0) return Number.POSITIVE_INFINITY;
+    let distance = Number.POSITIVE_INFINITY;
+    let cueIndex = text.indexOf(cue);
+    while (cueIndex >= 0) {
+      distance = Math.min(distance, Math.abs(cueIndex - termIndex));
+      cueIndex = text.indexOf(cue, cueIndex + Math.max(1, cue.length));
+    }
+    return distance;
+  }
+
+  function explicitSemanticDomain(query, detection) {
+    const ranked = Object.entries(semanticDomainDefinitions)
+      .map(([domain, definition]) => ({
+        domain,
+        distance: Math.min(...definition.cues.map((cue) => semanticCueDistance(query, detection.term, cue))),
+      }))
+      .filter((item) => Number.isFinite(item.distance) && item.distance <= 14)
+      .sort((a, b) => a.distance - b.distance);
+    return ranked[0]?.domain || "";
+  }
+
+  function semanticDomainOrder(entity, explicitDomain = "") {
+    const type = raw(entity?.type);
+    let domains = /基金公司/.test(type)
+      ? ["advisor", "latest_holding", "channel"]
+      : ["latest_holding", "benchmark", "strategy_name"];
+    if (/指数/.test(type)) domains = ["benchmark", "latest_holding", "strategy_name"];
+    if (explicitDomain) domains = [explicitDomain, ...domains.filter((domain) => domain !== explicitDomain)];
+    return domains.slice(0, 3);
+  }
+
+  function semanticDomainScore(entity, domain, explicitDomain = "") {
+    if (explicitDomain) return domain === explicitDomain ? 0.99 : 0.42;
+    const type = raw(entity?.type);
+    if (/指数/.test(type)) return { benchmark: 0.84, latest_holding: 0.72, strategy_name: 0.38 }[domain] || 0.3;
+    if (/基金公司/.test(type)) return { advisor: 0.78, latest_holding: 0.72, channel: 0.5 }[domain] || 0.3;
+    return { latest_holding: 0.82, benchmark: 0.56, strategy_name: 0.42, advisor: 0.4, channel: 0.35 }[domain] || 0.3;
+  }
+
+  function semanticCandidateFilter(group, domain, score) {
+    const entity = resolveSemanticEntity(group.entityKey || group.term) || {
+      key: group.entityKey,
+      label: group.entityLabel,
+      aliases: [group.term],
+    };
+    const aliases = entityAliases(entity, group.term);
+    const negative = !!group.negative;
+    const common = {
+      semanticGroupId: group.id,
+      semanticDomain: domain,
+      semanticEntity: entity.key || group.entityKey || "",
+      semanticLabel: entity.label || group.entityLabel || group.term,
+      sourceText: group.sourceText || group.term,
+      confidence: score,
+      ambiguous: !!group.needsConfirmation,
+    };
+    if (domain === "latest_holding") {
+      const hasWeight = !negative && group.minWeight !== undefined;
+      return {
+        ...common,
+        field: "__holding_entity",
+        op: negative ? "not contains" : (hasWeight ? "weight_gte" : "contains"),
+        value: group.term || entity.aliases?.[0] || entity.key,
+        aliases,
+        minWeight: group.minWeight,
+        matchMode: "single",
+        relation: hasWeight ? "latest_holdings_weight" : "latest_holdings_exists",
+        label: hasWeight
+          ? `最新持仓含${entity.label || group.term}且权重 >= ${group.minWeight}%`
+          : `最新持仓${negative ? "不含" : "包含"}${entity.label || group.term}`,
+      };
+    }
+    const value = negative ? (group.term || aliases[0]) : aliases.join("|");
+    const op = negative ? "not contains" : "contains_any";
+    if (domain === "benchmark") return { ...common, field: "__benchmark_text", op, value, values: negative ? undefined : aliases, label: `业绩基准${negative ? "不包含" : "包含"}${entity.label || group.term}` };
+    if (domain === "strategy_name") return { ...common, field: "策略名称", op, value, values: negative ? undefined : aliases, label: `策略名称${negative ? "不包含" : "包含"}${entity.label || group.term}` };
+    if (domain === "advisor") return { ...common, field: "投顾机构", op, value, values: negative ? undefined : aliases, label: `投顾机构${negative ? "不包含" : "包含"}${entity.label || group.term}` };
+    return { ...common, field: "渠道", op, value, values: negative ? undefined : aliases, label: `销售渠道${negative ? "不包含" : "包含"}${entity.label || group.term}` };
+  }
+
+  function createSemanticConditionGroup(query, detection, index, preferredDomain = "", minWeight = undefined) {
+    const entity = resolveSemanticEntity(detection.key || detection.term) || detection;
+    const explicitDomain = explicitSemanticDomain(query, detection);
+    const domainOrder = semanticDomainOrder(entity, explicitDomain || preferredDomain);
+    if (minWeight !== undefined && domainOrder.includes("latest_holding")) {
+      domainOrder.splice(0, domainOrder.length, "latest_holding");
+    }
+    const id = `semantic-${index}-${raw(entity.key || detection.term).replace(/[^A-Za-z0-9_\-\u4e00-\u9fa5]/g, "-")}`;
+    const group = {
+      id,
+      kind: "entity",
+      sourceText: detection.term,
+      entityKey: entity.key || detection.key || "",
+      entityLabel: entity.label || detection.label || detection.term,
+      entityType: entity.type || detection.type || "实体",
+      term: detection.term || entity.label || entity.key,
+      negative: !!detection.negative,
+      minWeight,
+      explicitDomain: explicitDomain || "",
+      needsConfirmation: !explicitDomain && domainOrder.length > 1,
+      selectedId: "",
+      userSelected: false,
+      candidates: [],
+    };
+    group.candidates = domainOrder.map((domain) => {
+      const confidence = semanticDomainScore(entity, domain, explicitDomain || preferredDomain);
+      const candidateId = `${id}-${domain}`;
+      const filter = semanticCandidateFilter(group, domain, confidence);
+      return {
+        id: candidateId,
+        domain,
+        domainLabel: semanticDomainDefinitions[domain]?.label || domain,
+        relationLabel: semanticDomainDefinitions[domain]?.relation || "包含",
+        confidence,
+        filter: { ...filter, semanticCandidateId: candidateId },
+      };
+    }).sort((a, b) => b.confidence - a.confidence);
+    group.selectedId = group.candidates[0]?.id || "";
+    return group;
+  }
+
+  function selectedSemanticCandidate(group) {
+    return group?.candidates?.find((candidate) => candidate.id === group.selectedId) || group?.candidates?.[0] || null;
+  }
+
+  function semanticGroupFilters(parsed) {
+    return (parsed.semanticGroups || []).map((group) => selectedSemanticCandidate(group)?.filter).filter(Boolean);
   }
 
   function normalizeHoldingEntityConflicts(parsed) {
@@ -1929,6 +2125,7 @@
       || thresholds.gfTerm
       || thresholds.entityTerm
       || (thresholds.holdingEntities || []).length
+      || (parsed.semanticGroups || []).length
       || thresholds.holdingEntityWeightMin !== undefined
       || (thresholds.genericFilters || []).length
       || thresholds.reportType
@@ -2009,6 +2206,10 @@
       positiveHoldingEntities.forEach(pushHoldingEntityFilter);
     }
     negativeHoldingEntities.forEach(pushHoldingEntityFilter);
+    semanticGroupFilters(parsed).forEach((filter) => {
+      const exists = filters.some((item) => item.semanticGroupId === filter.semanticGroupId || filterKey(item) === filterKey(filter));
+      if (!exists) filters.push(filter);
+    });
     if (thresholds.reportType) {
       const filter = { field: "研报产品类型", op: "=", value: thresholds.reportType, label: thresholds.reportType };
       if (!filters.some((item) => filterKey(item) === filterKey(filter))) filters.push(filter);
@@ -2025,6 +2226,7 @@
       assumptions: [],
       warnings: [],
       filters: [],
+      semanticGroups: [],
       completeOnly: state.completeOnly,
       returnMetric: detectReturnMetric(query),
       thresholds: {},
@@ -2095,24 +2297,21 @@
       return true;
     });
     if (semanticDetections.length) {
-      parsed.thresholds.holdingEntities = semanticDetections;
-      const holdingWeightMin = findThreshold(query, ["基金公司仓位", "公司仓位", "持仓占比", "持仓比例", "仓位", "占比", "比例", "权重", "配置比例", "配置"], minDirectionWords);
-      if (holdingWeightMin !== null) {
-        parsed.thresholds.holdingEntityWeightMin = holdingWeightMin;
-        const relation = holdingEntityRelationMode(query, semanticDetections.filter((entity) => !entity.negative));
-        const weightMode = holdingEntityWeightMode(query);
-        parsed.assumptions.push(`识别到持仓实体权重阈值 ${holdingWeightMin}%。${weightMode === "each" ? "按每个实体分别达到阈值筛选。" : "默认按这些实体的最新持仓权重合计筛选，不要求每个实体单独出现；如需分别达标，请使用“分别/各自/都超过”。"}${relation === "any" ? "实体关系为任一命中。" : (weightMode === "each" ? "实体关系为同时命中。" : "权重条件按合并口径执行。")}`);
-      }
-      if (holdingCategoriesByStrategy().size || semanticHoldingsByStrategy().size) {
-        semanticDetections.forEach((entity) => {
-          const strictNote = isIndexedStandardEntity(resolveSemanticEntity(entity.key || entity.term))
-            ? "该条件按标准实体索引硬筛，实体来源、证据字段和规则版本可在命中说明或详情页回溯。"
-            : "该条件按客观持仓字段检索，不写入基金/策略标准实体标签。";
-          parsed.assumptions.push(`“${entity.term}”识别为${entity.type || "持仓"}实体「${entity.label}」；${strictNote}${entity.note ? ` ${entity.note}` : ""}`);
-        });
-      } else {
-        parsed.warnings.push("未加载 AI 标准实体索引，无法执行基金/策略实体硬筛。");
-      }
+      const holdingWeightMin = findThreshold(query, ["基金公司仓位", "公司仓位", "持仓占比", "持仓比例", "持仓权重", "配置比例"], minDirectionWords);
+      parsed.semanticGroups = semanticDetections.map((entity, index) => createSemanticConditionGroup(
+        query,
+        entity,
+        index,
+        "",
+        holdingWeightMin !== null ? holdingWeightMin : undefined
+      ));
+      if (holdingWeightMin !== null) parsed.thresholds.holdingEntityWeightMin = holdingWeightMin;
+      parsed.semanticGroups.forEach((group) => {
+        const selected = selectedSemanticCandidate(group);
+        if (group.needsConfirmation) {
+          parsed.assumptions.push(`“${group.sourceText}”存在多种业务含义，当前按匹配度最高的“${selected?.domainLabel || "默认条件"}”执行，可在待确认条件中替换。`);
+        }
+      });
     }
 
     if (/只看|仅看|限定|筛选/.test(query) && /广发/.test(query)) {
@@ -2125,13 +2324,13 @@
       parsed.filters.push({ field: "投顾机构", op: "not contains", value: "广发", label: "排除广发" });
     }
 
-    if (!parsed.thresholds.onlyGf && !parsed.thresholds.excludeGf && /广发/.test(query)) {
+    if (!parsed.thresholds.onlyGf && !parsed.thresholds.excludeGf && /广发/.test(query) && !parsed.semanticGroups.some((group) => /基金公司/.test(group.entityType))) {
       parsed.thresholds.gfTerm = "广发";
       parsed.assumptions.push("“广发基金的投顾产品”可能对应投顾机构、渠道或策略名称。默认按任一相关字段包含“广发”筛选；可在下方条件表改为单独使用“投顾机构”或“渠道”。");
     }
 
     const entityTerm = extractEntityTerm(query);
-    if (entityTerm && !parsed.thresholds.gfTerm && !parsed.thresholds.onlyGf && !parsed.thresholds.excludeGf && !(parsed.thresholds.holdingEntities || []).length) {
+    if (entityTerm && !parsed.thresholds.gfTerm && !parsed.thresholds.onlyGf && !parsed.thresholds.excludeGf && !(parsed.thresholds.holdingEntities || []).length && !parsed.semanticGroups.length) {
       parsed.thresholds.entityTerm = entityTerm;
       parsed.assumptions.push(`“${entityTerm}”可能对应投顾机构、渠道或策略名称。默认按任一相关字段包含该关键词筛选；可在下方条件表改为单独使用“投顾机构”或“渠道”。`);
     }
@@ -2286,6 +2485,69 @@
     }
   }
 
+  function normalizeModelSemanticDomain(value) {
+    const text = raw(value).trim().toLowerCase();
+    const aliases = {
+      benchmark: "benchmark",
+      基准: "benchmark",
+      业绩基准: "benchmark",
+      latest_holding: "latest_holding",
+      holding: "latest_holding",
+      最新持仓: "latest_holding",
+      当前持仓: "latest_holding",
+      strategy_name: "strategy_name",
+      策略名称: "strategy_name",
+      advisor: "advisor",
+      投顾机构: "advisor",
+      channel: "channel",
+      渠道: "channel",
+    };
+    return aliases[text] || "";
+  }
+
+  function normalizeModelEntityConditions(intent, query) {
+    const normalized = [];
+    const append = (item, fallbackDomain = "") => {
+      const term = raw(firstDefined(item, ["term", "entity", "value", "关键词", "实体"])).trim();
+      const key = raw(firstDefined(item, ["key", "entityKey", "semanticEntity", "实体Key"])).trim();
+      const resolved = resolveSemanticEntity(key || term);
+      if (!resolved || !containsAlias(query, entityAliases(resolved, term))) return;
+      const domain = normalizeModelSemanticDomain(firstDefined(item, ["domain", "业务域", "对象"])) || fallbackDomain;
+      if (!domain) return;
+      normalized.push({
+        sourceText: raw(firstDefined(item, ["sourceText", "source_span", "原文"])).trim() || term,
+        term: term || resolved.label || key,
+        key: resolved.key,
+        label: resolved.label,
+        type: resolved.type,
+        negative: modelBool(firstDefined(item, ["negative", "exclude", "不含"])) === true || hasNegativeCueForEntity(query, resolved),
+        preferredDomain: domain,
+      });
+    };
+    (Array.isArray(intent?.entityConditions) ? intent.entityConditions : []).forEach((item) => append(item));
+    const legacyHoldings = firstDefined(intent, ["holdingEntities", "holding_entities", "持仓实体"]);
+    if (Array.isArray(legacyHoldings)) legacyHoldings.forEach((item) => append(item, "latest_holding"));
+    const hasSpecificIndex = normalized.some((item) => isStandardSemanticEntityKey(item.key) && /指数/.test(raw(item.type)));
+    if (!hasSpecificIndex) return normalized;
+    return normalized.filter((item) => normalizeSearchText(item.term) !== "指数"
+      && !/^(指数基金|股票指数|债券指数|指数型)$/.test(raw(item.label)));
+  }
+
+  function mergeModelSemanticGroups(parsed, intent) {
+    const conditions = normalizeModelEntityConditions(intent, parsed.query);
+    parsed.semanticGroups = Array.isArray(parsed.semanticGroups) ? parsed.semanticGroups : [];
+    conditions.forEach((condition) => {
+      let group = parsed.semanticGroups.find((item) => item.entityKey === condition.key && item.negative === condition.negative);
+      if (!group) {
+        group = createSemanticConditionGroup(parsed.query, condition, parsed.semanticGroups.length, condition.preferredDomain);
+        parsed.semanticGroups.push(group);
+      }
+      if (group.explicitDomain || !group.needsConfirmation) return;
+      const candidate = group.candidates.find((item) => item.domain === condition.preferredDomain);
+      if (candidate) group.selectedId = candidate.id;
+    });
+  }
+
   async function requestModelIntent(queryText) {
     const controller = new AbortController();
     const configuredTimeout = Number(aiConfig.timeoutMs);
@@ -2303,11 +2565,11 @@
       messages: [
         {
           role: "system",
-          content: "你只做中文投顾策略筛选意图解析。只输出 JSON 对象，不要输出策略名单、解释或 Markdown。模型只能输出筛选条件，不能输出候选结果，也不能发明基金/策略实体标签。常用字段：returnMetric,minReturn,drawdownField,maxDrawdown,minAgeYears,includeOverseas,excludeGold,excludeQdii,onlyGf,excludeGf,gfTerm,entityTerm,holdingEntities,holdingEntityWeightMin,reportType,filters。returnMetric 只能是近一周、近一月、近三月、近6月、近1年、今年以来、累计收益率、年化收益；注意年化投顾费率、年化波动、年化换手不是收益口径，应放入 filters。drawdownField 只能是最大回撤或当前回撤；用户只说回撤时按最大回撤。KYC 风险偏好用 filters 输出字段“风险等级序号”：保守/低风险/R2以内 => <=2，稳健/均衡 => <=3，进取/高风险 => >=4。费用、波动率、夏普、权益/债券/货币/QDII/指数基金权重、调仓频率、年化换手率等量化诉求放入 filters。产品/客群偏好可落到研报产品类型、业务分类、市场地域、主动被动、运作状态、基础数据等级等字段；同一单值字段若有多个候选分类，应使用 contains_any 或 in 表达“任一满足”，不要输出多个互斥 AND 条件。用户说AI主题、光模块、算力、半导体、石油、黄金、红利等投资主题时，优先输出 holdingEntities，不要把“主题”误解为 reportType=主题/行业型；只有用户明确要求产品类型、业务分类或行业主题型产品时才输出 reportType。holdingEntities 只能引用下方提供的标准实体或查询别名，每项为 {term, key, negative}；key 使用标准实体 key，term 保留用户词，negative 表示不含。若用户词不能唯一映射到标准实体，不要强行输出 holdingEntities，改用 entityTerm 或 filters。基金公司仓位、持仓占比、配置比例等阈值输出 holdingEntityWeightMin。用户说“同时/且/并且/和”默认多个实体都要命中；用户说“或/或者/任一/任意”才是任一命中。多个实体带权重阈值默认按合计仓位判断，只有用户说分别/各自/都超过才按每个实体分别达标。用户说不持有/未持有/不含/没有/无黄金时，excludeGold=true，且不要再输出正向黄金 holdingEntities。只有用户明确说海外/全球/QDII/海外资产/全球资产时 includeOverseas=true；港股、美股这类具体资产输出 holdingEntities，不要同时输出海外宽口径，除非用户也明确说海外资产。不要因为纳指、纳斯达克100或标普500自动增加海外宽口径。gfTerm 仅用于“广发基金/广发投顾/广发产品”等可能匹配机构、渠道或策略名称的歧义条件；其他投顾机构、渠道或策略名称关键词用 entityTerm。基金公司、基金名称、行业、主题、国家地区、指数应优先映射到已知标准实体；无法映射时不要输出标准实体。filters 是数组，每项为 {field,op,value}，字段必须来自用户消息给出的可用字段。所有百分比或“几个点”数值统一输出百分数数值，例如 5个点输出 5，不要输出 0.05。未知字段输出 null 或 false。"
+          content: "你只做中文投顾策略筛选意图解析。只输出 JSON 对象，不要输出策略名单、解释或 Markdown，也不能发明实体。先把用户表达拆成条件，再为每个实体判断业务域、关系和时间。实体条件输出 entityConditions，每项为 {sourceText,term,key,domain,relation,negative,confidence}。domain 只能是 benchmark、latest_holding、strategy_name、advisor、channel；relation 使用 contains_entity、not_contains_entity 或 weight_gte。出现“业绩基准/比较基准/基准”必须选 benchmark；出现“最新持仓/当前持仓/持仓/持有/配置”选 latest_holding；出现“策略名称/产品名称”选 strategy_name；出现“投顾机构/管理机构”选 advisor；出现“渠道/平台”选 channel。没有明确关系词时给出最可能 domain，但不要把所有实体都默认成 latest_holding。returnMetric 只能是近一周、近一月、近三月、近6月、近1年、今年以来、累计收益率、年化收益。收益、回撤、成立年限分别输出 minReturn、maxDrawdown、drawdownField、minAgeYears。费用、波动率、夏普、资产权重、调仓频率、风险等级等输出 filters，每项为 {field,op,value}，字段必须来自可用字段。同一单值字段的多个候选值用 contains_any 或 in。所有百分比按百分数输出，例如5个点输出5。用户明确不含黄金时 excludeGold=true；明确不含QDII时 excludeQdii=true；只有明确要求海外宽口径时 includeOverseas=true。未知内容输出 null、false 或空数组。"
         },
         {
           role: "user",
-          content: `用户输入：${queryText}\n可用字段：${filterFieldNames().map(fieldLabel).join("、")}\n可用标准实体/查询别名：${semanticEntityCatalog.map((item) => `${item.key}:${item.label}=${(item.aliases || item.queryAliases || []).join("/")}`).join("；")}\n请输出 JSON，例如 {"returnMetric":"近6月","minReturn":10,"drawdownField":"最大回撤","maxDrawdown":5,"minAgeYears":null,"includeOverseas":true,"excludeGold":false,"excludeQdii":false,"onlyGf":false,"excludeGf":false,"gfTerm":null,"entityTerm":null,"holdingEntities":[{"term":"纳指","key":"nasdaq100","negative":false}],"holdingEntityWeightMin":null,"reportType":null,"filters":[]}`
+          content: `用户输入：${queryText}\n可用字段：${filterFieldNames().map(fieldLabel).join("、")}\n可用标准实体/查询别名：${semanticEntityCatalog.map((item) => `${item.key}:${item.label}=${(item.aliases || item.queryAliases || []).join("/")}`).join("；")}\n请输出 JSON，例如 {"returnMetric":"近6月","minReturn":10,"drawdownField":"最大回撤","maxDrawdown":5,"minAgeYears":null,"includeOverseas":false,"excludeGold":false,"excludeQdii":false,"entityConditions":[{"sourceText":"基准包含沪深300","term":"沪深300","key":"hs300","domain":"benchmark","relation":"contains_entity","negative":false,"confidence":0.99}],"filters":[]}`
         }
       ],
     };
@@ -2355,49 +2617,21 @@
     if (modelBool(firstDefined(intent, ["excludeQdii", "exclude_qdii", "不含QDII"])) === true) parsed.thresholds.excludeQdii = true;
     if (modelBool(firstDefined(intent, ["onlyGf", "only_gf", "仅广发"])) === true) parsed.thresholds.onlyGf = true;
     if (modelBool(firstDefined(intent, ["excludeGf", "exclude_gf", "排除广发"])) === true) parsed.thresholds.excludeGf = true;
+    mergeModelSemanticGroups(parsed, intent);
     const gfTerm = raw(firstDefined(intent, ["gfTerm", "gf_term", "广发关键词"])).trim();
-    if (gfTerm && !parsed.thresholds.onlyGf && !parsed.thresholds.excludeGf && !parsed.thresholds.gfTerm) parsed.thresholds.gfTerm = gfTerm;
+    if (gfTerm && !parsed.thresholds.onlyGf && !parsed.thresholds.excludeGf && !parsed.thresholds.gfTerm && !(parsed.semanticGroups || []).length) parsed.thresholds.gfTerm = gfTerm;
     const entityTerm = raw(firstDefined(intent, ["entityTerm", "entity_term", "机构关键词", "关键词"])).trim();
-    if (entityTerm && !parsed.thresholds.gfTerm && !parsed.thresholds.onlyGf && !parsed.thresholds.excludeGf && !parsed.thresholds.entityTerm && !(parsed.thresholds.holdingEntities || []).length) parsed.thresholds.entityTerm = entityTerm;
-    const holdingEntities = [];
-    const holdingEntitySource = firstDefined(intent, ["holdingEntities", "holding_entities", "持仓实体"]);
-    if (Array.isArray(holdingEntitySource)) {
-      holdingEntitySource.forEach((item) => {
-        const term = raw(firstDefined(item, ["term", "entity", "value", "关键词", "实体"])).trim();
-        const entityKey = raw(firstDefined(item, ["key", "entityKey", "semanticEntity", "实体Key"])).trim();
-        if (!term && !entityKey) return;
-        const resolved = resolveSemanticEntity(entityKey || term);
-        holdingEntities.push({
-          key: resolved?.key || "",
-          label: resolved?.label || term || entityKey,
-          term: term || resolved?.label || entityKey,
-          negative: modelBool(firstDefined(item, ["negative", "exclude", "不含"])) === true || (resolved ? hasNegativeCueForEntity(parsed.query, resolved) : false),
-          note: resolved?.note || "",
-        });
-      });
-    }
-    const holdingEntityTerm = raw(firstDefined(intent, ["holdingEntityTerm", "holdingEntity", "持仓关键词", "持仓实体词"])).trim();
-    if (holdingEntityTerm) {
-      const resolved = resolveSemanticEntity(holdingEntityTerm);
-      holdingEntities.push({
-        key: resolved?.key || "",
-        label: resolved?.label || holdingEntityTerm,
-        term: holdingEntityTerm,
-        negative: modelBool(firstDefined(intent, ["excludeHoldingEntity", "不含持仓实体"])) === true || (resolved ? hasNegativeCueForEntity(parsed.query, resolved) : false),
-        note: resolved?.note || "",
-      });
-    }
-    if (holdingEntities.length) {
-      const existing = new Set((parsed.thresholds.holdingEntities || []).map((item) => `${item.key || item.term}:${item.negative ? "not" : "in"}`));
-      parsed.thresholds.holdingEntities = [...(parsed.thresholds.holdingEntities || [])];
-      holdingEntities.forEach((item) => {
-        const key = `${item.key || item.term}:${item.negative ? "not" : "in"}`;
-        if (!existing.has(key)) parsed.thresholds.holdingEntities.push(item);
-      });
-    }
+    if (entityTerm && !parsed.thresholds.gfTerm && !parsed.thresholds.onlyGf && !parsed.thresholds.excludeGf && !parsed.thresholds.entityTerm && !(parsed.thresholds.holdingEntities || []).length && !(parsed.semanticGroups || []).length) parsed.thresholds.entityTerm = entityTerm;
     const holdingEntityWeightMin = modelNumber(firstDefined(intent, ["holdingEntityWeightMin", "holding_entity_weight_min", "持仓实体权重下限", "持仓实体仓位下限"]));
-    if (holdingEntityWeightMin !== null && (parsed.thresholds.holdingEntities || []).some((item) => !item.negative)) {
+    if (holdingEntityWeightMin !== null && (parsed.semanticGroups || []).some((group) => selectedSemanticCandidate(group)?.domain === "latest_holding" && !group.negative)) {
       parsed.thresholds.holdingEntityWeightMin = holdingEntityWeightMin;
+      parsed.semanticGroups.forEach((group) => {
+        if (group.negative || selectedSemanticCandidate(group)?.domain !== "latest_holding") return;
+        group.minWeight = holdingEntityWeightMin;
+        group.candidates = group.candidates.map((candidate) => candidate.domain === "latest_holding"
+          ? { ...candidate, filter: { ...semanticCandidateFilter(group, candidate.domain, candidate.confidence), semanticCandidateId: candidate.id } }
+          : candidate);
+      });
     }
     const reportType = normalizeModelReportType(firstDefined(intent, ["reportType", "report_type", "产品类型"]));
     if (reportType && !parsed.thresholds.reportType) parsed.thresholds.reportType = reportType;
@@ -2533,6 +2767,7 @@
   }
 
   function fieldValue(row, field) {
+    if (field === "__benchmark_text") return benchmarkText(row);
     if (field === "__holding_entity") {
       const filter = activeHoldingEntityFilter();
       return filter ? holdingEntityEvidenceForFilter(row, filter).labels.join("；") : "";
@@ -2708,6 +2943,11 @@
 
   function filterLabel(filter) {
     const op = raw(filter.op || "contains");
+    if (filter.field === "__benchmark_text") {
+      const entity = resolveSemanticEntity(filter.semanticEntity || filter.value);
+      const verb = op === "not contains" || op === "not in" || op === "!=" ? "不包含" : "包含";
+      return `业绩基准${verb}${entity?.label || filter.semanticLabel || filterValues(filter)[0] || raw(filter.value)}`;
+    }
     if (filter.field === "__holding_entity") {
       if (op === "weight_gte") {
         const labels = holdingEntityFilterItems(filter).map((item) => item.label || item.term).filter(Boolean);
@@ -2949,58 +3189,143 @@
     return `<div class="ai-chip-row">${parsed.filters.map((filter) => `<span class="ai-chip">${B.esc(filter.label || filterLabel(filter))}</span>`).join("")}</div>`;
   }
 
-  function conditionRowHtml(filter = {}) {
-    const field = filter.field || "__any_text";
-    const op = filter.op || "contains";
-    const value = filter.value === undefined || filter.value === null ? "" : raw(filter.value);
-    const isSystem = !!filter.system;
-    const fieldText = fieldLabel(field);
-    return `
-      <tr class="ai-condition-row${isSystem ? " is-system" : ""}">
-        <td class="ai-condition-field-cell">
-          <div class="ai-field-summary">
-            <span>当前字段</span>
-            <strong title="${B.esc(fieldText)}">${B.esc(fieldText)}</strong>
-          </div>
-          <details class="ai-field-picker${isSystem ? " is-disabled" : ""}">
-            <summary>字段字典</summary>
-            <select class="control ai-filter-field" aria-label="筛选字段"${isSystem ? " disabled" : ""}>${optionHtml(filterFieldNames(), field)}</select>
-          </details>
-          ${filter.ambiguous ? `<div class="small">字段有歧义，默认合并匹配。</div>` : ""}
-        </td>
-        <td><select class="control ai-filter-op"${isSystem ? " disabled" : ""}>${operatorOptionHtml(op)}</select></td>
-        <td><input class="control ai-filter-value" value="${B.esc(value)}"${isSystem ? " disabled" : ""}></td>
-        <td><button class="ai-remove-filter" type="button"${isSystem ? " disabled" : ""}>删除</button></td>
-      </tr>
-    `;
+  function displayFilterMatches(row, filter) {
+    if (filter.system && filter.field === "数据完整性" && filter.value === "完整") return isCompleteStrategy(row);
+    return compareFilter(row, filter, null);
   }
 
-  function renderFilterEditor(parsed) {
-    const editableCount = (parsed.filters || []).filter((filter) => !filter.system).length;
-    return `
-      <div class="ai-filter-editor">
-        <div class="ai-editor-head">
-          <div>
-            <strong>可微调筛选条件</strong>
-            <span>可选字段 ${filterFieldNames().length.toLocaleString("zh-CN")} 个；修改后点击重新筛选。</span>
+  function conditionFilterStats(parsed) {
+    const pool = parsed.completeOnly ? allRows.filter(isCompleteStrategy) : allRows.slice();
+    return (parsed.filters || []).map((filter, filterIndex) => ({ filter, filterIndex }))
+      .filter((item) => !item.filter.system)
+      .map(({ filter, filterIndex }) => {
+      const remaining = pool.filter((row) => displayFilterMatches(row, filter)).length;
+      return {
+        filter,
+        filterIndex,
+        before: pool.length,
+        removed: pool.length - remaining,
+        remaining,
+      };
+    });
+  }
+
+  function semanticCandidateStats(parsed, group, candidate) {
+    const pool = parsed.completeOnly ? allRows.filter(isCompleteStrategy) : allRows.slice();
+    const remaining = pool.filter((row) => displayFilterMatches(row, candidate.filter)).length;
+    return { before: pool.length, removed: pool.length - remaining, remaining };
+  }
+
+  function confidenceText(filter) {
+    if (filter?.manualEdited) return "手工调整";
+    const confidence = Number(filter?.confidence);
+    if (Number.isFinite(confidence)) return `匹配度 ${Math.round(confidence * 100)}%`;
+    if (filter?.system) return "数据范围";
+    return "明确识别";
+  }
+
+  function semanticRecognitionReason(parsed, filter, group) {
+    if (filter.manualEdited) return "该条件已在页面内手工调整，当前按修改后的字段、关系和值执行。";
+    if (!group) {
+      const sourceText = raw(filter.sourceText);
+      return sourceText
+        ? `原问题中的“${sourceText}”被提取为${fieldLabel(filter.field)}条件。`
+        : `根据原问题提取为“${filter.label || filterLabel(filter)}”条件。`;
+    }
+    const candidate = selectedSemanticCandidate(group);
+    if (group.userSelected) return `你已将“${group.sourceText}”切换为${candidate?.domainLabel || "当前"}条件，同组原条件已被替换。`;
+    if (group.explicitDomain) {
+      const definition = semanticDomainDefinitions[group.explicitDomain];
+      const normalizedQuery = normalizeSearchText(parsed.query || state.query);
+      const cue = (definition?.cues || []).find((item) => normalizedQuery.includes(normalizeSearchText(item)));
+      return `原问题中的“${cue || definition?.label || candidate?.domainLabel}”明确限定了“${group.sourceText}”的业务含义，因此识别为${candidate?.domainLabel || "当前"}条件。`;
+    }
+    return `原问题只提到“${group.sourceText}”，未明确是${group.candidates.map((item) => item.domainLabel).join("、")}；当前按匹配度最高的${candidate?.domainLabel || "默认含义"}执行，可在本条件内替换。`;
+  }
+
+  function renderInlineSemanticOptions(parsed, group) {
+    if (!group?.needsConfirmation || group.candidates.length <= 1) return "";
+    return `<div class="ai-inline-alternatives">
+      <div class="ai-inline-alternatives-head"><strong>同类待确认</strong><span>切换会替代当前条件，不会新增叠加</span></div>
+      <div class="ai-semantic-options">${group.candidates.map((candidate) => {
+        const selected = candidate.id === group.selectedId;
+        const stats = semanticCandidateStats(parsed, group, candidate);
+        return `<label class="ai-semantic-option${selected ? " is-selected" : ""}">
+          <input type="radio" name="${B.esc(group.id)}" value="${B.esc(candidate.id)}" data-semantic-group="${B.esc(group.id)}"${selected ? " checked" : ""}>
+          <span class="ai-semantic-option-main">
+            <small>${B.esc(candidate.domainLabel)} · ${B.esc(candidate.relationLabel)}</small>
+            <strong>${B.esc(candidate.filter.label || filterLabel(candidate.filter))}</strong>
+            <em>独立命中 ${stats.remaining.toLocaleString("zh-CN")} 条 · 独立筛除 ${stats.removed.toLocaleString("zh-CN")} 条</em>
+          </span>
+          <b>${Math.round(candidate.confidence * 100)}%</b>
+        </label>`;
+      }).join("")}</div>
+    </div>`;
+  }
+
+  function editableFilterValue(filter = {}) {
+    if (filter.field === "__benchmark_text" && filter.semanticLabel) return raw(filter.semanticLabel);
+    return filter.value === undefined || filter.value === null ? "" : raw(filter.value);
+  }
+
+  function conditionRowHtml(filter = {}, context = {}) {
+    const field = filter.field || "__any_text";
+    const op = filter.op || "contains";
+    const value = editableFilterValue(filter);
+    const stats = context.stats;
+    const group = context.group;
+    const index = Number(context.index) || 1;
+    const filterIndex = Number.isInteger(context.filterIndex) ? context.filterIndex : -1;
+    const title = context.blank ? "新增筛选条件" : (filter.label || filterLabel(filter));
+    const reason = context.blank ? "手工新增条件，填写后应用即可参与筛选。" : semanticRecognitionReason(context.parsed || state.parsed || {}, filter, group);
+    return `<article class="ai-recognized-condition ai-condition-row${group?.needsConfirmation ? " is-pending" : ""}${context.blank ? " is-new" : ""}" data-filter-index="${filterIndex}">
+      <div class="ai-recognized-index">${context.blank ? "+" : index}</div>
+      <div class="ai-recognized-main">
+        <div class="ai-recognized-overview">
+          <div class="ai-recognized-copy">
+            <div class="ai-recognized-title">
+              <strong>${B.esc(title)}</strong>
+              ${context.blank ? "" : `<span>${B.esc(confidenceText(filter))}</span>`}
+              ${group?.needsConfirmation ? `<em>待确认</em>` : ""}
+            </div>
           </div>
-          <div class="ai-editor-actions">
-            <button id="aiAddFilter" type="button">新增条件</button>
-            <button id="aiApplyFilters" type="button">按调整后条件筛选</button>
+          <div class="ai-recognized-counts">
+            ${stats
+              ? `<span>独立筛除 <strong>${stats.removed.toLocaleString("zh-CN")}</strong></span><span>独立命中 <strong>${stats.remaining.toLocaleString("zh-CN")}</strong></span>`
+              : `<span>应用后计算 <strong>-</strong></span>`}
           </div>
         </div>
-        <div class="table-wrap ai-condition-wrap">
-          <table class="ai-condition-table">
-            <thead><tr><th>字段</th><th>关系</th><th>值</th><th>操作</th></tr></thead>
-            <tbody id="aiConditionBody">
-              ${(parsed.filters || []).map((filter) => conditionRowHtml(filter)).join("") || conditionRowHtml({ field: "__any_text", op: "contains", value: "" })}
-            </tbody>
-          </table>
+        <div class="ai-inline-condition-editor">
+          <label><span>字段</span><select class="control ai-filter-field" aria-label="筛选字段">${optionHtml(filterFieldNames(), field)}</select></label>
+          <label><span>关系</span><select class="control ai-filter-op" aria-label="筛选关系">${operatorOptionHtml(op)}</select></label>
+          <label class="ai-inline-value"><span>值</span><input class="control ai-filter-value" aria-label="筛选值" value="${B.esc(value)}"></label>
+          <button class="ai-remove-filter" type="button" title="删除条件">删除</button>
         </div>
-        <p class="desc">固定的“仅完整可比数据”由上方勾选框控制。字段下拉来自当前策略宽表，另包含海外/黄金持仓核验等派生字段。</p>
-        ${editableCount ? "" : `<p class="desc">当前没有用户筛选条件，可新增字段条件后执行。</p>`}
+        <p class="ai-recognition-reason"><b>识别说明：</b>${B.esc(reason)}</p>
+        ${renderInlineSemanticOptions(context.parsed || state.parsed || {}, group)}
       </div>
-    `;
+    </article>`;
+  }
+
+  function renderRecognizedConditions(parsed) {
+    const stats = conditionFilterStats(parsed);
+    const groupMap = new Map((parsed.semanticGroups || []).map((group) => [group.id, group]));
+    return `<div id="aiConditionBody" class="ai-recognized-grid">
+      ${stats.length ? stats.map((item, index) => conditionRowHtml(item.filter, {
+        parsed,
+        stats: item,
+        group: groupMap.get(item.filter.semanticGroupId),
+        index: index + 1,
+        filterIndex: item.filterIndex,
+      })).join("") : `<div class="empty">当前没有识别到业务筛选条件，可手工新增。</div>`}
+      </div>
+      <div class="ai-condition-actions">
+        <span>修改字段、关系或值后，点击应用调整。</span>
+        <div class="ai-editor-actions">
+          <button id="aiAddFilter" type="button">新增条件</button>
+          <button id="aiApplyFilters" type="button">应用调整</button>
+        </div>
+      </div>`;
   }
 
   function readEditorFilters() {
@@ -3008,24 +3333,24 @@
       const field = row.querySelector(".ai-filter-field")?.value || "";
       const op = row.querySelector(".ai-filter-op")?.value || "contains";
       const value = row.querySelector(".ai-filter-value")?.value || "";
-      const system = row.classList.contains("is-system");
+      const filterIndex = Number(row.dataset.filterIndex);
+      const original = Number.isInteger(filterIndex) && filterIndex >= 0 ? state.parsed?.filters?.[filterIndex] : null;
+      const unchanged = original
+        && !original.system
+        && original.field === field
+        && raw(original.op || "contains") === op
+        && editableFilterValue(original) === value;
+      if (unchanged) return { ...original };
       return {
         field,
         op,
         value,
-        system,
         label: filterLabel({ field, op, value }),
+        unit: original?.field === field ? (original.unit || "") : "",
+        minWeight: original?.field === field && op === "weight_gte" ? original.minWeight : undefined,
+        manualEdited: true,
       };
-    }).filter((filter) => filter.field && (["is empty", "is not empty"].includes(filter.op) || raw(filter.value).trim() !== "" || filter.system));
-  }
-
-  function refreshConditionFieldSummary(row) {
-    const select = row.querySelector(".ai-filter-field");
-    const target = row.querySelector(".ai-field-summary strong");
-    if (!select || !target) return;
-    const text = select.options[select.selectedIndex]?.textContent || fieldLabel(select.value);
-    target.textContent = text;
-    target.title = text;
+    }).filter((filter) => filter.field && (["is empty", "is not empty"].includes(filter.op) || raw(filter.value).trim() !== ""));
   }
 
   function bindConditionRow(row) {
@@ -3035,16 +3360,23 @@
         row.remove();
       });
     }
-    const fieldSelect = row.querySelector(".ai-filter-field");
-    if (fieldSelect) {
-      fieldSelect.addEventListener("change", () => refreshConditionFieldSummary(row));
-    }
+    row.querySelectorAll(".ai-filter-field, .ai-filter-op, .ai-filter-value").forEach((control) => {
+      control.addEventListener("change", () => row.classList.add("is-dirty"));
+      if (control.matches("input")) control.addEventListener("input", () => row.classList.add("is-dirty"));
+    });
   }
 
   function applyEditedFilters() {
     const parsed = state.parsed;
     if (!parsed) return;
-    parsed.filters = readEditorFilters();
+    const editedFilters = readEditorFilters();
+    const activeSemanticGroupIds = new Set(editedFilters.map((filter) => filter.semanticGroupId).filter(Boolean));
+    parsed.completeOnly = true;
+    parsed.filters = [
+      { field: "数据完整性", op: "=", value: "完整", label: "仅完整可比数据", system: true },
+      ...editedFilters,
+    ];
+    parsed.semanticGroups = (parsed.semanticGroups || []).filter((group) => activeSemanticGroupIds.has(group.id));
     parsed.thresholds = parsed.thresholds || {};
     parsed.manualEdited = true;
     parsed.assumptions = (parsed.assumptions || []).filter((item) => !/^已按页面条件表/.test(item));
@@ -3065,7 +3397,12 @@
     const body = B.byId("aiConditionBody");
     if (addButton && body) {
       addButton.addEventListener("click", () => {
-        body.insertAdjacentHTML("beforeend", conditionRowHtml({ field: "__any_text", op: "contains", value: "" }));
+        body.querySelector(".empty")?.remove();
+        const nextIndex = body.querySelectorAll(".ai-condition-row").length + 1;
+        body.insertAdjacentHTML("beforeend", conditionRowHtml(
+          { field: "__any_text", op: "contains", value: "", manualEdited: true },
+          { index: nextIndex, filterIndex: -1, blank: true, parsed: state.parsed },
+        ));
         const lastRow = body.querySelector(".ai-condition-row:last-child");
         if (lastRow) bindConditionRow(lastRow);
       });
@@ -3074,7 +3411,30 @@
     root.querySelectorAll(".ai-condition-row").forEach(bindConditionRow);
   }
 
-  function renderKpis(parsed, result) {
+  function bindSemanticCandidateSwitches() {
+    root.querySelectorAll("[data-semantic-group]").forEach((input) => {
+      input.addEventListener("change", () => {
+        if (!input.checked || !state.parsed) return;
+        const groupId = raw(input.dataset.semanticGroup);
+        const group = (state.parsed.semanticGroups || []).find((item) => item.id === groupId);
+        const candidate = group?.candidates?.find((item) => item.id === input.value);
+        if (!group || !candidate || group.selectedId === candidate.id) return;
+        group.selectedId = candidate.id;
+        group.userSelected = true;
+        const filterIndex = state.parsed.filters.findIndex((filter) => filter.semanticGroupId === group.id);
+        if (filterIndex >= 0) state.parsed.filters.splice(filterIndex, 1, { ...candidate.filter, ambiguous: true });
+        else state.parsed.filters.push({ ...candidate.filter, ambiguous: true });
+        state.parsed.assumptions = (state.parsed.assumptions || []).filter((item) => !item.startsWith(`“${group.sourceText}”已手工切换`));
+        state.parsed.assumptions.push(`“${group.sourceText}”已手工切换为“${candidate.domainLabel}”，同组原条件已被替换。`);
+        const result = applyFilters(state.parsed);
+        state.rows = result.rows;
+        pruneSelectedToRows(result.rows);
+        renderResults(state.parsed, result);
+      });
+    });
+  }
+
+  function renderCandidateScopeNote(parsed, result) {
     const total = allRows.length;
     const complete = allRows.filter(isCompleteStrategy).length;
     const missingRows = result.missing?.rowIds?.size || 0;
@@ -3085,14 +3445,11 @@
       : parsed.model?.status === "fallback"
         ? "模型不可用，已回退本地规则"
         : "本地规则解析";
-    return `
-      <div class="ai-kpi-grid">
-        <section class="ai-kpi"><span>候选结果</span><strong>${result.rows.length.toLocaleString("zh-CN")}</strong><small>按当前条件命中</small></section>
-        <section class="ai-kpi"><span>参与样本</span><strong>${result.baseCount.toLocaleString("zh-CN")}</strong><small>全量 ${total.toLocaleString("zh-CN")}，完整 ${complete.toLocaleString("zh-CN")}</small></section>
-        <section class="ai-kpi"><span>收益口径</span><strong>${B.esc(parsed.returnMetric.field)}</strong><small>${parsed.returnMetric.explicit ? "用户指定或明确命中" : "系统默认"}；${B.esc(modelStatus)}</small></section>
-        <section class="ai-kpi ${missingRows ? "is-warn" : "is-ok"}"><span>数据核验</span><strong>${missingRows ? `字段缺失 ${missingRows} 条` : "通过"}</strong><small>${missingRows ? "字段缺失或待核验的策略未进入严格结果；" : ""}业绩 ${dateText(latest)}；持仓核验 ${holdingEvidenceCount.toLocaleString("zh-CN")} 策</small></section>
-      </div>
-    `;
+    const metricMode = parsed.returnMetric.explicit ? "用户指定或明确命中" : "系统默认";
+    const qualityText = missingRows
+      ? `字段缺失或待核验 ${missingRows.toLocaleString("zh-CN")} 条未进入严格结果`
+      : "候选策略已按完整可比口径核验";
+    return `候选命中 ${result.rows.length.toLocaleString("zh-CN")} 条；完整可比样本 ${result.baseCount.toLocaleString("zh-CN")} 条（全量 ${total.toLocaleString("zh-CN")}、完整 ${complete.toLocaleString("zh-CN")}）；收益口径为 ${B.esc(parsed.returnMetric.field)}（${B.esc(metricMode)}）。${B.esc(modelStatus)}；业绩 ${dateText(latest)}，持仓核验 ${holdingEvidenceCount.toLocaleString("zh-CN")} 策；${B.esc(qualityText)}。`;
   }
 
   function renderDsl(parsed) {
@@ -3109,7 +3466,6 @@
 
   function queryChecks(parsed) {
     const checks = [];
-    if (parsed.completeOnly) checks.push({ key: "complete", label: "仅完整可比数据", test: isCompleteStrategy });
     activeFilters(parsed)
       .filter((filter) => !(filter.system && filter.field === "数据完整性"))
       .forEach((filter, index) => {
@@ -3718,7 +4074,7 @@
     const allowModel = options?.allowModel !== false;
     const seq = ++state.searchSeq;
     state.query = B.byId("aiQuery").value;
-    state.completeOnly = B.byId("aiCompleteOnly").checked;
+    state.completeOnly = true;
     let parsed = parseQuery(state.query);
     if (shouldUseModelParser(allowModel)) {
       B.byId("aiResult").innerHTML = `
@@ -3738,29 +4094,25 @@
 
   function renderResults(parsed, result) {
     state.lastResult = result;
-    const assumptionHtml = [...parsed.assumptions, ...parsed.warnings].length
-      ? `<div class="ai-notes">${[...parsed.assumptions, ...parsed.warnings].map((item) => `<p>${B.esc(item)}</p>`).join("")}</div>`
-      : "";
+    const businessConditionCount = conditionFilterStats(parsed).length;
     B.byId("aiResult").innerHTML = `
-      ${renderKpis(parsed, result)}
-      <details class="panel ai-parse-panel">
-        <summary class="ai-parse-summary">
-          <div><h2>解析条件</h2><p class="desc">自然语言已转换为受控筛选条件；字段可手工调整，结果仍只来自本地真实宽表。</p></div>
-          <span>查看筛选详细规则</span>
+      <details class="panel ai-semantic-panel ai-condition-panel-details" open>
+        <summary class="ai-condition-panel-summary">
+          <div><h2>已识别并执行的筛选条件（可直接微调）</h2><p class="desc">每个条件均以完整可比策略池独立统计，不受其他条件顺序影响。</p></div>
+          <span class="pill">${businessConditionCount.toLocaleString("zh-CN")} 个业务条件</span>
         </summary>
-        <div class="ai-parse-body">
-          ${renderChips(parsed)}
-          ${assumptionHtml}
-          ${renderFilterEditor(parsed)}
+        <div class="ai-condition-panel-body">
+          ${renderRecognizedConditions(parsed)}
         </div>
       </details>
       <section class="panel">
-        <div class="panel-head"><div><h2>候选策略</h2><p class="desc">按匹配得分排序：优先展示收益更高、回撤更低、持仓实体权重更贴合条件的策略；${B.esc(parsed.returnMetric.field)} 和回撤作为同分次排序。</p></div><span class="pill">${result.rows.length.toLocaleString("zh-CN")} 条</span></div>
+        <div class="panel-head"><div><h2>候选策略</h2><p class="desc">按匹配得分排序：优先展示收益更高、回撤更低、持仓实体权重更贴合条件的策略；${B.esc(parsed.returnMetric.field)} 和回撤作为同分次排序。</p><p class="desc ai-candidate-note">${renderCandidateScopeNote(parsed, result)}</p></div><span class="pill">${result.rows.length.toLocaleString("zh-CN")} 条</span></div>
         ${renderTable(result.rows)}
       </section>
       ${result.rows.length ? "" : renderNoResultDiagnostics(parsed)}
     `;
     bindFilterEditor();
+    bindSemanticCandidateSwitches();
     bindCompareSelection(result.rows);
     bindHitReasonButtons();
     bindCandidateScrollbars();
@@ -3981,7 +4333,6 @@
         </div>
         <textarea id="aiQuery" class="control ai-query-box" rows="3" placeholder="例如：找成立一年以上，回撤在3个点以内，收益率在5个点以上，持仓含黄金的策略。">${B.esc(state.query)}</textarea>
         <div class="ai-action-row">
-          <label class="checkline"><input id="aiCompleteOnly" type="checkbox" checked> 仅完整可比数据</label>
           <button id="aiRun" type="button">执行筛选</button>
           <button id="aiClear" type="button">清空</button>
         </div>
@@ -4039,6 +4390,26 @@
           label: filter.label || filterLabel(filter),
           system: !!filter.system,
           ambiguous: !!filter.ambiguous,
+        })),
+        semanticGroups: (parsed.semanticGroups || []).map((group) => ({
+          id: group.id,
+          sourceText: group.sourceText,
+          entityKey: group.entityKey,
+          entityLabel: group.entityLabel,
+          explicitDomain: group.explicitDomain,
+          needsConfirmation: group.needsConfirmation,
+          selectedDomain: selectedSemanticCandidate(group)?.domain || "",
+          candidates: group.candidates.map((candidate) => ({
+            id: candidate.id,
+            domain: candidate.domain,
+            confidence: candidate.confidence,
+            label: candidate.filter.label,
+          })),
+        })),
+        conditionStats: conditionFilterStats(parsed).map((item) => ({
+          label: item.filter.label || filterLabel(item.filter),
+          removed: item.removed,
+          remaining: item.remaining,
         })),
         assumptions: parsed.assumptions.slice(),
         warnings: parsed.warnings.slice(),

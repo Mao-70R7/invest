@@ -4,6 +4,9 @@ window.BasicData = (() => {
   const state = window.__BASIC_DATA__;
   const byId = (id) => document.getElementById(id);
   const esc = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
+  const INTERNAL_TEST_NOTICE = "所有数据为测试模拟数据，不构成任何投资意见，仅内部测试使用。";
+  const PAGE_LOADING_TEXT = "数据正在加载，请稍等。";
+  let noticeScheduled = false;
   const dict = () => state.summary?.fieldDictionary || {};
   const businessFieldDescriptions = {
     "入选策略数": "业务口径：AI核心仓位达到入选标准的策略数量。同一策略只计算一次，用于判断当前主题下可进入重点观察池的产品规模。",
@@ -262,6 +265,69 @@ window.BasicData = (() => {
       document.head.appendChild(script);
     });
   }
+  function showPageLoading(message = PAGE_LOADING_TEXT) {
+    const root = document.querySelector("main") || document.body || document.documentElement;
+    if (!root) return null;
+    let el = byId("pageLoadingStatus");
+    if (!el) {
+      el = document.createElement("section");
+      el.id = "pageLoadingStatus";
+      el.className = "page-loading-status";
+      el.setAttribute("role", "status");
+      el.setAttribute("aria-live", "polite");
+      root.prepend(el);
+    }
+    el.textContent = message || PAGE_LOADING_TEXT;
+    el.hidden = false;
+    return el;
+  }
+  function updatePageLoading(done = 0, total = 0, detail = "") {
+    const progress = total ? `（${Math.min(done, total)}/${total}）` : "";
+    const suffix = detail ? ` ${detail}` : "";
+    return showPageLoading(`${PAGE_LOADING_TEXT}${progress}${suffix}`);
+  }
+  function hidePageLoading() {
+    const el = byId("pageLoadingStatus");
+    if (el) el.hidden = true;
+  }
+  function ensureInternalTestNotice() {
+    const standardTitles = Array.from(document.querySelectorAll(".page-title h1, .title-block h1, .system-page-title h1"));
+    const main = document.querySelector("main");
+    const firstContent = main ? Array.from(main.children).find((child) => child.id !== "pageLoadingStatus" && !child.hidden) : null;
+    const fallbackTitle = firstContent?.querySelector("h1, h2");
+    const titles = standardTitles.length ? standardTitles : (fallbackTitle ? [fallbackTitle] : []);
+    titles.forEach((title) => {
+      const parent = title.parentElement;
+      if (!parent || Array.from(parent.children).some((child) => child.classList?.contains("internal-test-notice"))) return;
+      const notice = document.createElement("p");
+      notice.className = "internal-test-notice";
+      notice.textContent = INTERNAL_TEST_NOTICE;
+      title.insertAdjacentElement("afterend", notice);
+    });
+  }
+  function scheduleInternalTestNotice() {
+    if (noticeScheduled) return;
+    noticeScheduled = true;
+    const run = () => {
+      noticeScheduled = false;
+      ensureInternalTestNotice();
+    };
+    if (typeof window.requestAnimationFrame === "function") window.requestAnimationFrame(run);
+    else window.setTimeout(run, 0);
+  }
+  function installPageChromeObserver() {
+    scheduleInternalTestNotice();
+    if (typeof MutationObserver !== "function" || !document.body) return;
+    const observer = new MutationObserver((mutations) => {
+      const shouldCheck = mutations.some((mutation) => Array.from(mutation.addedNodes || []).some((node) => {
+        if (node.nodeType !== 1) return false;
+        return node.matches?.(".page-title, .title-block, .system-page-title, main > section, main > .panel")
+          || node.querySelector?.(".page-title h1, .title-block h1, .system-page-title h1, h1, h2");
+      }));
+      if (shouldCheck) scheduleInternalTestNotice();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
   const chartColors = {
     "披露业绩": "#d32f2f",
     "模拟业绩": "#1565c0",
@@ -468,27 +534,8 @@ window.BasicData = (() => {
   function renderGlobalQualityGate(pageKey = "", targetId = "globalQualityGate") {
     const el = byId(targetId);
     if (!el) return;
-    const pack = qualityPack();
-    if (!pack || !(pack.checks || []).length) {
-      el.hidden = true;
-      return;
-    }
-    const issues = pageQualityIssues(pageKey);
-    const status = pack.状态 || pack.status || "unknown";
-    const tone = status === "ok" || status === "ready" || !issues.length ? "ok" : (issues.some((row) => (row.状态 || row.status) !== "warn") ? "bad" : "warn");
-    const topIssues = issues.slice(0, 3);
-    const title = issues.length ? `本页相关质量提示 ${issues.length} 项` : "本页相关质量检查通过";
-    const body = issues.length
-      ? topIssues.map((row) => `<li><strong>${esc(row.项目 || row.name)}</strong><span>${esc(row.当前值 || "")}</span><em>${esc(row.说明 || "")}</em></li>`).join("")
-      : "<li><strong>核心门禁通过</strong><span>ready</span><em>当前页面没有相关 warning；完整口径仍可在数据质量页审计。</em></li>";
-    el.hidden = false;
-    el.innerHTML = `<div class="quality-gate-card is-${tone}">
-      <div class="quality-gate-head">
-        <span class="status-badge status-${tone === "ok" ? "ok" : tone === "bad" ? "bad" : "warn"}">${esc(title)}</span>
-        <a href="./data-quality.html">查看数据质量</a>
-      </div>
-      <ul>${body}</ul>
-    </div>`;
+    el.hidden = true;
+    el.innerHTML = "";
   }
   document.addEventListener("click", (event) => {
     const button = event.target.closest("[data-field]");
@@ -504,5 +551,15 @@ window.BasicData = (() => {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && byId("fieldModal")) byId("fieldModal").hidden = true;
   });
-  return { state, byId, esc, fmt, pct, pctSigned, valueHtml, toneClass, statusBadge, label, table, valueList, metricValue, metric, params, loadScript, drawReturnChart, isDerivedField, fieldSourceText, showInfoModal, showHtmlModal, pageQualityIssues, renderGlobalQualityGate };
+  showPageLoading();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", installPageChromeObserver, { once: true });
+  } else {
+    installPageChromeObserver();
+  }
+  window.addEventListener("load", () => {
+    hidePageLoading();
+    scheduleInternalTestNotice();
+  });
+  return { state, byId, esc, fmt, pct, pctSigned, valueHtml, toneClass, statusBadge, label, table, valueList, metricValue, metric, params, loadScript, showPageLoading, updatePageLoading, hidePageLoading, ensureInternalTestNotice, drawReturnChart, isDerivedField, fieldSourceText, showInfoModal, showHtmlModal, pageQualityIssues, renderGlobalQualityGate };
 })();

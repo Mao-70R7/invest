@@ -3,8 +3,10 @@
   const summary = B.state.summary;
   const root = B.byId("strategyListPage");
   const allStrategies = summary.strategies || [];
+  const benchmarkBucket = (row) => row?.基准权益分档 || row?.基准权益分类档 || "未分档";
+  const isUnbucketed = (row) => benchmarkBucket(row) === "未分档";
   const isCompleteStrategy = (row) => row?.数据完整性 === "完整" && row?.风险等级 !== "D0 持仓缺失" && row?.研报产品类型 !== "持仓缺失/不入池";
-  const rowsBase = allStrategies.filter(isCompleteStrategy);
+  const rowsBase = allStrategies.filter((row) => isCompleteStrategy(row) || isUnbucketed(row));
   const state = { page: 1, pageSize: 10, rows: [], sortField: "近一月", sortDir: "desc", hiddenStrategyScope: "" };
   const returnHeaders = ["近一周", "近一月", "近三月", "近1年", "今年以来", "累计收益率"];
   const riskHeaders = ["最大回撤", "波动率"];
@@ -33,16 +35,12 @@
     return values.map((value) => `<option value="${B.esc(value)}">${B.esc(value)}</option>`).join("");
   }
 
-  function benchmarkBucket(row) {
-    return row?.基准权益分档 || row?.基准权益分类档 || "";
-  }
-
   function broadEquityBucket(row) {
     return row?.广义权益分档 || "";
   }
 
   function orderedBenchmarkBuckets() {
-    return [...new Set(rowsBase.map((row) => benchmarkBucket(row)).filter(Boolean))].sort((a, b) => {
+    return [...new Set(rowsBase.map((row) => benchmarkBucket(row)))].sort((a, b) => {
       const ai = benchmarkBucketOrder.indexOf(a);
       const bi = benchmarkBucketOrder.indexOf(b);
       return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi) || a.localeCompare(b, "zh-CN");
@@ -146,6 +144,7 @@
     if (field === "夏普比率") return B.fmt(row[field]);
     if (field === "最近调仓日" && !row[field]) return '<span class="value-muted">无历史调仓事件</span>';
     if (field === "业绩基准说明") return row[field] ? `<span class="small">${B.esc(row[field])}</span>` : '<span class="value-muted">未披露</span>';
+    if (field === "基准权益分档") return B.esc(benchmarkBucket(row));
     return B.fmt(row[field]);
   }
 
@@ -199,7 +198,7 @@
           <option value="client">对客展示</option>
           <option value="nonClient">非对客/隐藏</option>
         </select>`, "排除明确非对客、隐藏或不展示状态")}
-        ${filterControl("基准权益分档", `<select id="benchmarkBucketSelect" class="control"><option value="">全部基准权益分档</option>${options(orderedBenchmarkBuckets())}</select>`, "按业绩基准中的权益占比分档，优先用于策略横向分类")}
+        ${filterControl("基准权益分档", `<select id="benchmarkBucketSelect" class="control"><option value="">全部基准权益分档</option>${options(orderedBenchmarkBuckets())}</select>`, "按业绩基准中的权益占比分档；未披露或不可计算的策略归入未分档，仅供查询核对")}
         ${filterControl("广义权益分档", `<select id="broadEquityBucketSelect" class="control"><option value="">全部广义权益分档</option>${options(orderedBroadEquityBuckets())}</select>`, "权益+商品+另类合并口径，仅用于观察和筛选")}
         ${filterControl("投顾机构", `<select id="institutionSelect" class="control"><option value="">全部投顾机构</option>${options(unique("投顾机构"))}</select>`, "精确匹配投顾机构")}
         ${filterControl("渠道", `<select id="channelSelect" class="control"><option value="">全部渠道</option>${options(unique("渠道"))}</select>`, "精确匹配数据来源渠道")}
@@ -223,7 +222,7 @@
       <details class="filter-help-details">
         <summary>查看筛选字段说明</summary>
         <div class="filter-help-grid">
-          <span><b>基准权益分档</b> 按业绩基准中的权益权重做分档，优先用于市场横向分类和首层筛选。</span>
+          <span><b>基准权益分档</b> 按业绩基准中的权益权重做分档；未分档表示基准未披露或不可计算，仅供查询核对，不进入正式同类排名。</span>
           <span><b>广义权益分档</b> 按权益+商品+另类合计权重分档，用于观察风险资产合并口径，不替代正式可比池。</span>
           <span><b>研报产品类型</b> 投研可比池，适合同类业绩和风险比较。</span>
           <span><b>业务分类</b> 运营货架口径，适合产品线和销售场景管理。</span>
@@ -285,7 +284,8 @@
     const gfCount = rows.filter(isGfStrategy).length;
     const clientCount = rows.filter(isClientFacing).length;
     const scopeText = state.hiddenStrategyScope === "gf" ? "｜证据范围 广发策略" : (state.hiddenStrategyScope === "nonGf" ? "｜证据范围 非广发策略" : "");
-    B.byId("resultCount").textContent = `当前筛选 ${rows.length.toLocaleString("zh-CN")} 条策略，广发 ${gfCount.toLocaleString("zh-CN")} 条，对客 ${clientCount.toLocaleString("zh-CN")} 条${scopeText}`;
+    const unbucketedCount = rows.filter(isUnbucketed).length;
+    B.byId("resultCount").textContent = `当前筛选 ${rows.length.toLocaleString("zh-CN")} 条策略，其中未分档 ${unbucketedCount.toLocaleString("zh-CN")} 条，广发 ${gfCount.toLocaleString("zh-CN")} 条，对客 ${clientCount.toLocaleString("zh-CN")} 条${scopeText}`;
     B.byId("pageInfo").textContent = `${state.page} / ${maxPage}`;
     B.byId("prevPage").disabled = state.page <= 1;
     B.byId("nextPage").disabled = state.page >= maxPage;

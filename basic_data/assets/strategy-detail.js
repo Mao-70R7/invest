@@ -2,6 +2,7 @@
 (async () => {
   const B = window.BasicData;
   const root = B.byId("strategyDetailPage");
+  document.body.classList.add("strategy-detail-page");
   const semanticIndex = window.__AI_STRATEGY_SEMANTIC_INDEX__ || null;
   const id = B.params().get("id");
   const item = B.state.summary.strategies.find((row) => row.统一策略ID === id);
@@ -27,14 +28,14 @@
   ];
   const intervalHeaders = ["口径", "近一周", "近一月", "近三月", "近1年", "今年以来", "成立以来"];
   const curveRows = ["披露业绩", "模拟业绩", "基准业绩", "沪深300业绩"];
-  const holdingHeaders = ["基金代码", "基金名称", "二级分类", "权重", "上次调仓后权重", "权重变化", "基金净值", "净值日期", "日涨幅", "调仓后收益率", "调仓后收益贡献"];
+  const holdingHeaders = ["基金名称", "二级分类", "上次调仓后权重", "权重", "权重变化", "调仓后收益率", "调仓后收益贡献"];
   const snapshots = detail.positionSnapshots || [];
   const signalEvents = detail.signalEvents || [];
   const signalSummary = detail.signalSummary || {};
   const globalBenchmarks = B.state.summary?.globalBenchmarks || [];
   let activeRange = "all";
-  let activePerformanceTab = "interval";
-  let activeSnapshotIndex = 0;
+  let activePerformanceTab = "curve";
+  let activeSnapshotIndex = Math.max(0, snapshots.findIndex((snap) => snap.id !== "current"));
   let holdingSortField = "权重";
   let holdingSortDir = "desc";
   let selectedGlobalBenchmarkCode = "";
@@ -486,6 +487,12 @@
     const sign = n > 0 ? "+" : "";
     return `${sign}${n.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}%`;
   }
+  function drawdownText(value) {
+    const n = num(value);
+    if (n === null) return "未披露";
+    const drawdown = n > 0 ? -n : n;
+    return `${drawdown.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}%`;
+  }
   function returnTone(value) {
     const n = num(value);
     if (n === null || Math.abs(n) < 0.0001) return "is-zero";
@@ -529,6 +536,163 @@
       ["年化收益率", "年化收益"]
     ];
     return `<div class="return-grid">${items.map(([labelName, fieldName]) => returnCell(labelName, fieldName)).join("")}</div>`;
+  }
+  function overviewFact(labelName, value, wide = false) {
+    return `<div class="strategy-key-fact ${wide ? "is-wide" : ""}">
+      <span>${B.label(labelName)}</span>
+      <strong>${B.valueHtml(labelName, value)}</strong>
+    </div>`;
+  }
+  function overviewFacts() {
+    const strategyClass = [
+      classificationMap.研报产品类型 || detail.summary.研报产品类型,
+      classificationMap.研报股票子类型 || detail.summary.研报股票子类型 || classificationMap.业务分类 || detail.summary.业务分类,
+    ].filter((value, index, values) => !isBlank(value) && values.indexOf(value) === index).join(" / ") || "未披露";
+    const benchmark = profileMap.业绩基准说明 || profileMap.业绩基准 || detail.summary.业绩基准 || "未披露";
+    return `<div class="strategy-key-facts">
+      ${overviewFact("成立日期", detail.summary.成立日期)}
+      ${overviewFact("最新业绩日期", detail.summary.最新业绩日期 || detail.summary.收益数据截至 || "未披露")}
+      ${overviewFact("最新持仓日", detail.holdingMeta.最新持仓日 || "未披露")}
+      ${overviewFact("投顾费率", profileMap.投顾费率 || detail.summary.年化投顾费率 || "未披露")}
+      ${overviewFact("策略分类", strategyClass, true)}
+      ${overviewFact("业绩基准", benchmark, true)}
+    </div>`;
+  }
+  function primaryMetricCard(labelName, fieldName, options = {}) {
+    const value = detail.summary[fieldName];
+    const tone = options.risk ? "is-risk" : returnTone(value);
+    const note = options.note || (options.rank === false ? "风险指标" : `同类 ${returnRank(fieldName, value)}`);
+    return `<div class="strategy-primary-metric ${tone}">
+      <span>${B.esc(labelName)}</span>
+      <strong>${options.risk ? drawdownText(value) : signedReturnText(value)}</strong>
+      <em>${B.esc(note)}</em>
+    </div>`;
+  }
+  function primaryMetricGrid() {
+    return `<div class="strategy-primary-metrics">
+      ${primaryMetricCard("今年以来", "今年以来")}
+      ${primaryMetricCard("近1年", "近1年")}
+      ${primaryMetricCard("成立以来", "累计收益率")}
+      ${primaryMetricCard("最大回撤", "最大回撤", { risk: true, rank: false })}
+    </div>`;
+  }
+  function riskMetricsPanel() {
+    const rows = [
+      ["最大回撤", detail.summary.最大回撤, drawdownText],
+      ["当前回撤", detail.summary.当前回撤, drawdownText],
+      ["年化收益", detail.summary.年化收益, B.pctSigned],
+      ["波动率", performanceMap.波动率, B.pct],
+      ["夏普比率", performanceMap.夏普比率, B.fmt],
+      ["年化换手率", performanceMap.年化换手率, B.pct],
+      ["风险等级", classificationMap.风险等级 || detail.summary.风险等级, B.fmt],
+      ["披露风险等级", profileMap.披露风险等级 || detail.summary.披露风险等级, B.fmt],
+    ];
+    return `<div class="strategy-risk-grid">${rows.map(([labelName, value, formatter]) => `
+      <div class="strategy-risk-item">
+        <span>${B.label(labelName)}</span>
+        <strong>${isBlank(value) ? "未披露" : formatter(value)}</strong>
+      </div>`).join("")}</div>`;
+  }
+  function currentAssetAllocation(rows) {
+    const keys = ["股票", "固收", "现金", "基金", "其他"];
+    const classByKey = { 股票: "is-equity", 固收: "is-fixed", 现金: "is-cash", 基金: "is-fund", 其他: "is-other" };
+    const totals = Object.fromEntries(keys.map((key) => [key, 0]));
+    rows.forEach((row) => {
+      const weight = num(row.权重) || 0;
+      keys.forEach((key) => {
+        totals[key] += weight * ((num(row._allocation?.[key]) || 0) / 100);
+      });
+    });
+    const total = keys.reduce((acc, key) => acc + totals[key], 0);
+    const items = keys.map((key) => ({
+      key,
+      value: total > 0 ? totals[key] / total * 100 : 0,
+      className: classByKey[key],
+    }));
+    return `<div class="strategy-asset-allocation">
+      <div class="strategy-asset-bar" aria-label="当前仓位资产分布">${items.filter((item) => item.value > 0.01).map((item) => `<span class="${item.className}" style="width:${item.value.toFixed(4)}%" title="${B.esc(item.key)} ${B.pct(item.value)}"></span>`).join("")}</div>
+      <div class="strategy-asset-legend">${items.map((item) => `<span><i class="${item.className}"></i>${B.esc(item.key)} <strong>${B.pct(item.value)}</strong></span>`).join("")}</div>
+    </div>`;
+  }
+  function compactHoldingTable(rows, mode = "current") {
+    const sorted = [...rows].sort((a, b) => (num(b.权重) || 0) - (num(a.权重) || 0));
+    const headers = mode === "current"
+      ? ["基金名称", "二级分类", "权重", "权重变化", "调仓后收益率", "调仓后收益贡献"]
+      : holdingHeaders;
+    const body = sorted.length ? sorted.map((row) => `<tr>${headers.map((h) => `<td>${holdingValue(row, h)}</td>`).join("")}</tr>`).join("") : `<tr><td colspan="${headers.length}"><div class="empty">暂无持仓明细</div></td></tr>`;
+    return `<div class="table-wrap strategy-holding-table-wrap"><table class="compact-table strategy-holding-table"><thead><tr>${headers.map((h) => `<th>${B.label(h)}</th>`).join("")}</tr></thead><tbody>${body}</tbody></table></div>`;
+  }
+  function compactHoldingCards(rows, mode = "current") {
+    const sorted = [...rows].sort((a, b) => (num(b.权重) || 0) - (num(a.权重) || 0));
+    return `<div class="strategy-holding-cards">${sorted.length ? sorted.map((row) => `<article class="strategy-holding-card">
+      <div><strong>${fundLink(row, row.基金名称 || row.基金代码 || "未命名基金")}</strong><span>${B.esc(row.基金代码 || "--")}｜${B.esc(secondaryCategory(row, fundData(row)) || "未分类")}</span></div>
+      <dl>
+        ${mode === "history" ? `<div><dt>调前权重</dt><dd>${B.pct(row.上次调仓后权重)}</dd></div>` : ""}
+        <div><dt>${mode === "history" ? "调后权重" : "当前权重"}</dt><dd>${B.pct(row.权重)}</dd></div>
+        <div><dt>权重变化</dt><dd class="${returnTone(row.权重变化)}">${B.pctSigned(row.权重变化)}</dd></div>
+        <div><dt>调仓后收益</dt><dd class="${returnTone(row.调仓后收益率)}">${B.pctSigned(row.调仓后收益率)}</dd></div>
+        <div><dt>收益贡献</dt><dd class="${returnTone(row.调仓后收益贡献)}">${B.pctSigned(row.调仓后收益贡献)}</dd></div>
+      </dl>
+    </article>`).join("") : '<div class="empty">暂无持仓明细</div>'}</div>`;
+  }
+  function currentHoldingSection() {
+    const snapshot = currentHoldingSnapshot();
+    const rows = portfolioFundRows();
+    const totalWeight = rows.reduce((acc, row) => acc + (num(row.权重) || 0), 0);
+    return `<section id="strategy-holding" class="panel strategy-section strategy-current-holding">
+      <div class="panel-head strategy-section-head">
+        <div>
+          <h2>当前仓位</h2>
+          <p class="desc">截至 ${B.esc(snapshot.日期 || detail.holdingMeta.最新持仓日 || "未披露")}，来源：${B.esc(detail.holdingMeta.持仓来源 || snapshot.说明 || "未披露")}。</p>
+        </div>
+        <div class="strategy-section-meta"><span>${rows.length.toLocaleString("zh-CN")} 只基金</span><span>合计 ${B.pct(totalWeight)}</span></div>
+      </div>
+      <div class="strategy-subsection-title"><h3>资产分布</h3><p>按当前持仓基金经济资产暴露汇总</p></div>
+      ${currentAssetAllocation(rows)}
+      <div class="strategy-subsection-title"><h3>当前基金持仓列表</h3><p>按当前权重从高到低排列</p></div>
+      ${compactHoldingTable(rows, "current")}
+      ${compactHoldingCards(rows, "current")}
+    </section>`;
+  }
+  function historicalSnapshots() {
+    return snapshots.map((snapshot, index) => ({ snapshot, index })).filter(({ snapshot }) => snapshot.id !== "current" && snapshot.类型 !== "当前仓位");
+  }
+  function latestHistoricalSnapshot() {
+    return historicalSnapshots()[0] || null;
+  }
+  function rebalanceChangeStats(snapshot) {
+    const result = { 新进: 0, 增配: 0, 减配: 0, 退出: 0 };
+    (snapshot?.holdings || []).forEach((row) => {
+      const current = num(row.权重) || 0;
+      const previous = num(row.上次调仓后权重) || 0;
+      const change = num(row.权重变化) ?? (current - previous);
+      const action = raw(row.调仓动作);
+      if (/新进|调入|买入/.test(action) || (previous <= 0.0001 && current > 0.0001)) result.新进 += 1;
+      else if (/退出|调出|卖出/.test(action) || (previous > 0.0001 && current <= 0.0001)) result.退出 += 1;
+      else if (/增配|加仓/.test(action) || change > 0.0001) result.增配 += 1;
+      else if (/减配|减仓/.test(action) || change < -0.0001) result.减配 += 1;
+    });
+    return result;
+  }
+  function latestRebalanceSummary() {
+    const entry = latestHistoricalSnapshot();
+    if (!entry) return '<div class="empty">暂无历史调仓记录</div>';
+    const snapshot = entry.snapshot;
+    const stats = rebalanceChangeStats(snapshot);
+    const reason = raw(snapshot.调仓原因).trim() || "该次调仓未披露具体原因。";
+    return `<div class="strategy-latest-rebalance">
+      <div class="strategy-latest-rebalance-head">
+        <div><span>最近调仓</span><strong>${B.esc(snapshot.日期 || "未披露日期")}</strong></div>
+        <p>${B.esc(snapshot.标题 || "组合调整")}｜${B.esc(snapshot.说明 || `${(snapshot.holdings || []).length} 只基金`)}</p>
+      </div>
+      <div class="strategy-rebalance-stats">
+        <div><span>新进</span><strong>${stats.新进}</strong></div>
+        <div><span>增配</span><strong>${stats.增配}</strong></div>
+        <div><span>减配</span><strong>${stats.减配}</strong></div>
+        <div><span>退出</span><strong>${stats.退出}</strong></div>
+      </div>
+      <div class="strategy-rebalance-reason"><strong>调仓说明</strong><p>${B.esc(reason)}</p></div>
+    </div>`;
   }
   function sourceCards() {
     const sources = detail.curveSources || {};
@@ -682,25 +846,38 @@
     return `<div class="table-wrap interval-matrix"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
   }
   function performanceTabsHtml() {
-    return `<div class="data-tabs"><button type="button" data-performance-tab="interval" class="${activePerformanceTab === "interval" ? "is-active" : ""}">常用区间</button><button type="button" data-performance-tab="annual" class="${activePerformanceTab === "annual" ? "is-active" : ""}">年度业绩</button></div>`;
+    const tabs = [
+      ["curve", "净值曲线"],
+      ["interval", "区间收益"],
+      ["annual", "年度收益"],
+      ["risk", "风险指标"],
+    ];
+    return `<div class="data-tabs strategy-performance-tabs">${tabs.map(([key, text]) => `<button type="button" data-performance-tab="${key}" class="${activePerformanceTab === key ? "is-active" : ""}">${text}</button>`).join("")}</div>`;
   }
   function renderPerformanceTable() {
-    B.byId("performanceTable").innerHTML = activePerformanceTab === "annual" ? annualPerformanceTable() : intervalMatrixTable();
+    const host = B.byId("performanceTable");
+    if (!host) return;
+    host.innerHTML = activePerformanceTab === "annual" ? annualPerformanceTable() : intervalMatrixTable();
   }
   function renderPerformanceTabs() {
-    B.byId("performanceTabs").innerHTML = performanceTabsHtml();
-    B.byId("performanceTabs").querySelectorAll("[data-performance-tab]").forEach((button) => {
+    const host = B.byId("performanceTabs");
+    if (!host) return;
+    host.innerHTML = performanceTabsHtml();
+    host.querySelectorAll("[data-performance-tab]").forEach((button) => {
       button.addEventListener("click", () => {
         activePerformanceTab = button.dataset.performanceTab;
         renderPerformanceTabs();
-        renderPerformanceTable();
       });
     });
-    renderPerformanceTable();
+    document.querySelectorAll("[data-performance-pane]").forEach((pane) => {
+      pane.hidden = pane.dataset.performancePane !== activePerformanceTab;
+    });
+    if (["interval", "annual"].includes(activePerformanceTab)) renderPerformanceTable();
+    if (activePerformanceTab === "curve") renderMainChart();
   }
   function holdingValue(row, h) {
     if (h === "基金代码") return `<strong>${fundLink(row, row[h] || "")}</strong>`;
-    if (h === "基金名称") return fundLink(row, row[h] || "未命名基金");
+    if (h === "基金名称") return `<div class="strategy-fund-name">${fundLink(row, row[h] || "未命名基金")}<small>${B.esc(row.基金代码 || "--")}</small></div>`;
     if (h === "二级分类") return B.esc(secondaryCategory(row, fundData(row)));
     if (["权重", "上次调仓后权重"].includes(h)) return B.pct(row[h]);
     if (["权重变化", "日涨幅", "调仓后收益率", "调仓后收益贡献"].includes(h)) return B.pctSigned(row[h]);
@@ -748,12 +925,13 @@
   }
   function renderSnapshotList() {
     const list = B.byId("rebalanceList");
-    list.innerHTML = snapshots.length ? snapshots.map((snap, index) => `
+    const history = historicalSnapshots();
+    list.innerHTML = history.length ? history.map(({ snapshot: snap, index }) => `
       <button class="rebalance-item ${index === activeSnapshotIndex ? "is-active" : ""}" type="button" data-snapshot-index="${index}">
-        <strong>${B.esc(snap.类型 || "")}｜${B.esc(snap.日期 || "未披露日期")}</strong>
-        <span>${B.esc(snap.标题 || "")}</span>
-        <span>${B.esc(snap.说明 || "")}</span>
-      </button>`).join("") : '<div class="empty">暂无仓位快照</div>';
+        <strong>${B.esc(snap.日期 || "未披露日期")}</strong>
+        <span>${B.esc(snap.标题 || "组合调整")}</span>
+        <span>${B.esc(snap.说明 || `${(snap.holdings || []).length} 只基金`)}</span>
+      </button>`).join("") : '<div class="empty">暂无历史调仓</div>';
     list.querySelectorAll("[data-snapshot-index]").forEach((button) => {
       button.addEventListener("click", () => {
         activeSnapshotIndex = Number(button.dataset.snapshotIndex);
@@ -851,7 +1029,9 @@
       <span class="pill">${(snap.holdings || []).length.toLocaleString("zh-CN")} 只基金</span>`;
     const researchHost = B.byId("rebalanceResearch");
     if (researchHost) researchHost.innerHTML = snapshotResearchBlock(snap);
-    B.byId("holdingTable").innerHTML = holdingTable(snap.holdings || []);
+    B.byId("holdingTable").innerHTML = compactHoldingTable(snap.holdings || [], "history");
+    const cardsHost = B.byId("holdingCards");
+    if (cardsHost) cardsHost.innerHTML = compactHoldingCards(snap.holdings || [], "history");
     B.byId("holdingTable").querySelectorAll("[data-holding-sort]").forEach((button) => {
       button.addEventListener("click", (event) => {
         if (event.target.closest("[data-field]")) return;
@@ -1056,141 +1236,134 @@
     </section>`;
   }
 
+  function otherInformationSection() {
+    const secondaryModules = [governanceSection(), targetSeriesSection(), signalSection(), entityGraphSection()].filter(Boolean).join("");
+    const broadEquity = classificationMap.广义权益分档 || classificationMap.基准权益分档 || classificationMap.基准权益分类档 || "未披露";
+    return `<section id="strategy-more" class="panel strategy-section strategy-more-section">
+      <div class="panel-head strategy-section-head">
+        <div><h2>其他信息</h2><p class="desc">完整分类依据、产品字段、专项分析和穿透口径默认折叠。</p></div>
+      </div>
+      <div class="strategy-more-list">
+        <details class="strategy-more-block">
+          <summary><div><strong>策略分类与基准</strong><span>广义权益分档 ${B.esc(broadEquity)}｜${B.esc(profileMap.业绩基准 || detail.summary.业绩基准 || "基准未披露")}</span></div></summary>
+          <div class="strategy-more-body">
+            <div class="profile-block classification-block"><h3>分类影响指标</h3>${classificationSummary()}</div>
+            <div class="profile-block benchmark-asset-block"><h3>基准资产结构</h3>${benchmarkAssetStructure()}</div>
+            ${benchmarkInfo()}
+          </div>
+        </details>
+        <details class="strategy-more-block">
+          <summary><div><strong>产品基础信息与治理口径</strong><span>代码、风险、起投金额、建议持有期及特殊治理规则</span></div></summary>
+          <div class="strategy-more-body">
+            ${B.valueList(compactInfoRows())}
+            <div class="strategy-secondary-modules">${secondaryModules || '<div class="empty">暂无专项治理或关联信息</div>'}</div>
+          </div>
+        </details>
+        <details class="strategy-more-block">
+          <summary><div><strong>完整持仓穿透信息</strong><span>基金分类、配置日志、经济资产暴露及基金区间表现</span></div></summary>
+          <div class="strategy-more-body strategy-detailed-holdings">${portfolioHoldingsSection()}</div>
+        </details>
+        <details class="strategy-more-block">
+          <summary><div><strong>完整字段与数据口径</strong><span>低频字段、持仓来源和计算说明</span></div></summary>
+          <div class="strategy-more-body">
+            ${B.valueList(classificationInfoRows())}
+            ${B.valueList(Object.entries(detail.holdingMeta || {}).map(([字段, 值]) => ({ 字段, 值 })))}
+            ${B.valueList(otherRows())}
+          </div>
+        </details>
+      </div>
+    </section>`;
+  }
+
+  function bindSectionNavigation() {
+    const links = [...document.querySelectorAll("[data-strategy-section-link]")];
+    if (!links.length) return;
+    links.forEach((link) => link.addEventListener("click", () => {
+      links.forEach((item) => item.classList.toggle("is-active", item === link));
+    }));
+    if (!("IntersectionObserver" in window)) return;
+    const sectionById = new Map(links.map((link) => [link.getAttribute("href").slice(1), link]));
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const activeLink = sectionById.get(visible.target.id);
+      links.forEach((link) => link.classList.toggle("is-active", link === activeLink));
+    }, { rootMargin: "-18% 0px -68% 0px", threshold: [0, 0.15, 0.45] });
+    sectionById.forEach((link, sectionId) => {
+      const section = document.getElementById(sectionId);
+      if (section) observer.observe(section);
+    });
+  }
+
   root.innerHTML = `
-    <section class="page-title">
-      <div>
-        <a class="link" href="./strategies.html">返回策略列表</a>
-        <h1>策略详情</h1>
-        <p class="desc">用于核验单个产品的经营定位、研报同类可比池、业务分类、对客状态、业绩和仓位。</p>
+    <section id="strategy-overview" class="panel strategy-overview strategy-section">
+      <a class="strategy-back-link" href="./strategies.html">← 返回策略列表</a>
+      <div class="strategy-identity-row">
+        <div class="strategy-identity">
+          <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${B.statusBadge(detail.summary.数据完整性)}</div>
+          <p>${B.esc(profileMap.投顾机构 || detail.summary.投顾机构 || "投顾机构未披露")}</p>
+        </div>
+        <div class="strategy-status-list">
+          <span>对客 ${B.esc(classificationMap.天天当前对客展示 || detail.summary.天天当前对客展示 || "未披露")}</span>
+          <span>${B.esc(detail.summary.运作状态 || "运作状态未披露")}</span>
+          <span>${B.esc(classificationMap.研报产品类型 || detail.summary.研报产品类型 || "类型未披露")}</span>
+          <span>${B.esc(classificationMap.业务分类 || detail.summary.业务分类 || "业务分类未披露")}</span>
+          <span>${B.esc(classificationMap.广义权益分档 || classificationMap.基准权益分档 || "权益分档未披露")}</span>
+        </div>
       </div>
-      <span class="pill">${B.label("统一策略ID")} ${B.esc(detail.id)}</span>
+      ${overviewFacts()}
+      ${primaryMetricGrid()}
+      <div class="strategy-overview-foot">数据刷新 ${B.esc(dataRefreshTime || "未披露")}｜策略代码 ${B.esc(profileMap.策略代码 || detail.summary.策略代码 || "未披露")}</div>
     </section>
-    <section class="panel hero-panel">
-      <div class="strategy-hero">
-        <div>
-          <div class="hero-title">
-            <h1>${B.esc(detail.summary.策略名称)}</h1>
-            ${B.statusBadge(detail.summary.数据完整性)}
-          </div>
-          <div class="hero-meta">
-            <span class="pill">${B.esc(detail.summary.渠道)}</span>
-            <span class="pill">${B.esc(classificationMap.研报产品类型 || detail.summary.研报产品类型 || "未披露研报类型")}</span>
-            <span class="pill">${B.esc(classificationMap.业务分类 || detail.summary.业务分类 || "未分类")}</span>
-            <span class="pill">对客 ${B.esc(classificationMap.天天当前对客展示 || detail.summary.天天当前对客展示 || "未披露")}</span>
-            <span class="pill">${B.esc(detail.summary.披露策略类型 || "未披露类型")}</span>
-            <span class="pill">${B.esc(detail.summary.运作状态 || "未披露运作状态")}</span>
-          </div>
-          <div class="hero-dates">
-            ${topFact("成立日期", detail.summary.成立日期, "is-date")}
-            ${topFact("最新业绩日期", detail.summary.最新业绩日期 || detail.summary.收益数据截至 || "未披露", "is-date")}
-            ${topFact("数据刷新时间", dataRefreshTime || "未披露")}
-            <div class="date-card is-date"><span>${B.label("运作天数")}</span><strong>${B.fmt(detail.summary.运作天数, " 天")}</strong></div>
-            ${topFact("投顾机构", profileMap.投顾机构 || detail.summary.投顾机构 || "未披露")}
-            ${topFact("研报产品类型", classificationMap.研报产品类型 || detail.summary.研报产品类型 || "未披露")}
-            ${topFact("研报股票子类型", classificationMap.研报股票子类型 || detail.summary.研报股票子类型 || "未披露")}
-            ${topFact("风险等级", classificationMap.风险等级 || detail.summary.风险等级 || "未披露")}
-            ${topFact("披露风险等级", profileMap.披露风险等级 || detail.summary.披露风险等级 || "未披露")}
-            ${topFact("天天当前对客展示", classificationMap.天天当前对客展示 || detail.summary.天天当前对客展示 || "未披露")}
-            ${topFact("投顾费率", profileMap.投顾费率 || "未披露")}
-            ${topFact("市场地域", classificationMap.市场地域 || "未披露")}
-            ${topFact("主动被动", classificationMap.主动被动 || "未披露")}
-          </div>
-          <p class="desc">${B.esc(detail.summary.运作状态 || "未披露运作状态")}｜最新业绩日 ${B.esc(detail.summary.最新业绩日期 || detail.summary.收益数据截至 || "未披露")}｜最新持仓日 ${B.esc(detail.holdingMeta.最新持仓日 || "未披露")}｜持仓来源 ${B.esc(detail.holdingMeta.持仓来源 || "未披露")}</p>
-        </div>
-        ${returnGrid()}
+    <nav class="strategy-section-nav" aria-label="策略详情页内导航">
+      <a class="is-active" data-strategy-section-link href="#strategy-overview">概览</a>
+      <a data-strategy-section-link href="#strategy-performance">业绩</a>
+      <a data-strategy-section-link href="#strategy-holding">当前仓位</a>
+      <a data-strategy-section-link href="#strategy-rebalance">调仓记录</a>
+      <a data-strategy-section-link href="#strategy-more">更多信息</a>
+    </nav>
+    <section id="strategy-performance" class="panel strategy-section strategy-performance-section">
+      <div class="panel-head strategy-section-head">
+        <div><h2>业绩与风险</h2><p class="desc">收益区间优先采用官方披露，曲线和年度数据用于趋势及相对表现分析。</p></div>
+        <div id="performanceTabs"></div>
       </div>
-      <div class="hero-support profile-compact">
-        <div class="profile-block strategy-info-block">
-          <h3>策略基本信息</h3>
-          ${B.valueList(compactInfoRows())}
-        </div>
-        <div class="profile-block classification-block">
-          <h3>分类影响指标</h3>
-          ${classificationSummary()}
-        </div>
-        <div class="profile-block benchmark-asset-block">
-          <h3>基准资产结构</h3>
-          ${benchmarkAssetStructure()}
-        </div>
-        <div class="profile-block evaluation-block">
-          <h3>评价核心数据</h3>
-          ${coreMetrics()}
-        </div>
-        ${benchmarkInfo()}
-      </div>
-    </section>
-    ${governanceSection()}
-    ${targetSeriesSection()}
-    ${signalSection()}
-    ${portfolioHoldingsSection()}
-    ${entityGraphSection()}
-    <section class="panel chart-panel">
-      <div class="panel-head">
-        <div>
-          <h2>净值曲线</h2>
-          <p class="desc">默认成立以来，切换区间后各曲线均按该区间起点归零展示相对收益率。</p>
-        </div>
-        <div class="chart-actions">
+      <div data-performance-pane="curve">
+        <div class="strategy-chart-toolbar">
           ${globalBenchmarkSelectHtml()}
           <div id="rangeTabs"></div>
         </div>
+        <div id="navChart" class="chart strategy-main-chart"></div>
+        <details class="strategy-source-details"><summary>数据来源与计算口径</summary><div id="sourceCards">${sourceCards()}</div></details>
       </div>
-      <div id="navChart" class="chart"></div>
-      <div id="sourceCards">${sourceCards()}</div>
+      <div data-performance-pane="interval" hidden>${intervalMatrixTable()}</div>
+      <div data-performance-pane="annual" hidden>${annualPerformanceTable()}</div>
+      <div data-performance-pane="risk" hidden>${riskMetricsPanel()}</div>
     </section>
-    <section class="panel">
-      <div class="panel-head">
-        <div><h2>区间业绩</h2><p class="desc">常用区间按最新可用点回看；年度业绩按自然年度首末可用点计算。</p></div>
-        <div id="performanceTabs"></div>
+    ${currentHoldingSection()}
+    <section id="strategy-rebalance" class="panel strategy-section strategy-rebalance-section">
+      <div class="panel-head strategy-section-head">
+        <div><h2>调仓记录</h2><p class="desc">先看最近一次调仓摘要，再按时间线查看历史调仓明细与调仓后表现。</p></div>
       </div>
-      <div id="performanceTable"></div>
-    </section>
-    <section class="panel">
-      <div class="panel-head">
-        <div>
-          <h2>仓位</h2>
-          <p class="desc">左侧为当前仓位和历史调仓列表，点击后右侧切换对应基金仓位明细。</p>
-        </div>
-        <span class="pill">${B.esc(detail.holdingMeta.稽核结论 || "未生成稽核")}</span>
-      </div>
-      <div class="position-layout">
-        <div id="rebalanceList" class="rebalance-list"></div>
-        <div class="position-detail">
+      ${latestRebalanceSummary()}
+      <div class="strategy-rebalance-workspace">
+        <aside class="strategy-rebalance-timeline"><div class="strategy-subsection-title"><h3>历史时间线</h3><p>${historicalSnapshots().length.toLocaleString("zh-CN")} 次调仓</p></div><div id="rebalanceList" class="rebalance-list"></div></aside>
+        <div class="position-detail strategy-rebalance-detail">
+          <div class="strategy-subsection-title"><h3>选中调仓明细与贡献分析</h3><p>点击左侧时间点切换</p></div>
           <div id="holdingHead" class="holding-head"></div>
           <div id="rebalanceResearch"></div>
           <div id="holdingTable"></div>
+          <div id="holdingCards"></div>
+          <div class="strategy-contribution-block">
+            <div class="panel-head">
+              <div><h3>调仓贡献曲线</h3><p id="contributionDesc" class="desc"></p></div>
+              <div class="chart-actions">${contributionGlobalBenchmarkSelectHtml()}</div>
+            </div>
+            <div id="contributionChart" class="chart strategy-contribution-chart"></div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="panel chart-panel">
-      <div class="panel-head">
-        <div>
-          <h2>调仓贡献曲线</h2>
-          <p id="contributionDesc" class="desc"></p>
-        </div>
-        <div class="chart-actions">
-          ${contributionGlobalBenchmarkSelectHtml()}
-        </div>
-      </div>
-      <div id="contributionChart" class="chart"></div>
-    </section>
-    <details class="panel collapsible-panel">
-      <summary class="collapsible-summary">
-        <div><h2>数据质量与其他信息</h2><p class="desc">质量检查、持仓口径和低覆盖字段默认折叠，展开后用于核验。</p></div>
-        <span class="pill">${(detail.qualityChecks || []).length.toLocaleString("zh-CN")} 项质检</span>
-      </summary>
-      <div class="collapsible-body">
-        <div class="quality-grid">
-          ${(detail.qualityChecks || []).map((row) => `<div class="quality-card"><h3>${B.esc(row.项目)}</h3>${B.statusBadge(row.结论)}<p>${B.esc(row.说明)}</p></div>`).join("")}
-        </div>
-        <details class="fold-block">
-          <summary>持仓口径与其他字段</summary>
-          ${B.valueList(classificationInfoRows())}
-          ${B.valueList(Object.entries(detail.holdingMeta || {}).map(([字段, 值]) => ({ 字段, 值 })))}
-          ${B.valueList(otherRows())}
-        </details>
-      </div>
-    </details>
+    ${otherInformationSection()}
   `;
   const globalBenchmarkSelect = B.byId("globalBenchmarkSelect");
   if (globalBenchmarkSelect) {
@@ -1210,4 +1383,5 @@
   renderPerformanceTabs();
   renderMainChart();
   renderPositions();
+  bindSectionNavigation();
 })();
