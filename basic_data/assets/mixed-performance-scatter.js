@@ -31,6 +31,8 @@
     page: 1,
   };
   let searchTimer = null;
+  let searchComposing = false;
+  let restoreSearchFocus = false;
   const rankCache = new Map();
   const peerStatsCache = new Map();
   const broadBucketStatsCache = new Map();
@@ -722,7 +724,7 @@
       ${metricCard("当前可绘制点阵", plottableCount.toLocaleString("zh-CN"), `缺指标产品保留在列表，以 -- 展示`)}
       ${metricCard("当前筛选口径", `${bucketText} / ${broadBucketText} / ${trackText}`, `${peerPoolCount.toLocaleString("zh-CN")} 个正式可比池，数据包 ${broadCount.toLocaleString("zh-CN")} 条`)}
       ${metricCard("广发产品", gfCount.toLocaleString("zh-CN"), "列表按字段排序，点阵按广发基金/投顾分色置顶")}
-      ${metricCard("数据截止", pack.meta?.asOfDate || "2026-06-30", `${state.interval} / ${currentRiskMetric().label}`)}
+      ${metricCard("数据截止", pack.meta?.intervalAsOfDates?.[state.interval] || pack.meta?.asOfDate || "未披露", `${state.interval} / ${currentRiskMetric().label}`)}
     </section>`;
   }
 
@@ -739,7 +741,7 @@
       <div class="panel-head">
         <div>
           <h1>投顾策略 + 公募基金全市场产品排名</h1>
-          <p class="desc">仅过滤未分档产品；缺收益、回撤或波动的产品保留在列表并显示 --，点阵只绘制当前区间坐标完整的产品。</p>
+          <p class="desc">保留策略列表当前可查询策略和全市场主份额公募基金；未分档或缺少区间指标的产品仍可查询，点阵只绘制当前区间坐标完整的产品。</p>
         </div>
         <button class="mixed-reset-filters" type="button" data-reset-filters${hasActiveFilters() ? "" : " disabled"}>重置条件</button>
       </div>
@@ -2266,10 +2268,25 @@
 
   function renderFootnote() {
     const includedNoComplete = Number(pack.meta?.includedNoCompleteMetricRowCount || 0);
+    const includedUnbucketed = Number(pack.meta?.includedUnbucketedRowCount || 0);
     return `<section class="panel mixed-note-panel">
       <h2>数据口径</h2>
-      <p>页面数据来自混排榜工作簿源包，生成时仅剔除未分档产品 ${Number(pack.meta?.excludedUnbucketedRowCount || 0).toLocaleString("zh-CN")} 条；有分档但缺完整收益-风险区间的产品 ${includedNoComplete.toLocaleString("zh-CN")} 条保留在列表，缺失指标显示为 --。列表排名按当前收益区间动态计算：基准权益分档排名使用同一 L 档，基准可比归档排名使用同一正式可比池，同产品类型排名使用“产品类型 + L 档 + 比较轨道”。广发业务机会分析单独以“广义权益分档”为主排名口径，以“产品类型 + 广义权益分档”为补充证据；该口径不替换列表和常规同类排名的正式可比池。点阵只绘制当前区间收益和风险坐标齐全的产品。所有百分比字段按源数据小数比率乘以 100 展示。</p>
+      <p>投顾策略与策略列表使用同一可查询口径，公募基金按主份额展示。未分档产品 ${includedUnbucketed.toLocaleString("zh-CN")} 条、缺完整收益风险区间产品 ${includedNoComplete.toLocaleString("zh-CN")} 条均保留在列表，缺失指标显示为 --。列表排名按当前收益区间动态计算：基准权益分档排名使用同一 L 档，基准可比归档排名使用同一正式可比池，同产品类型排名使用“产品类型 + L 档 + 比较轨道”。广发业务机会分析单独以“广义权益分档”为主排名口径，以“产品类型 + 广义权益分档”为补充证据；该口径不替换列表和常规同类排名的正式可比池。点阵只绘制当前区间收益和风险坐标齐全的产品。所有百分比字段按源数据小数比率乘以 100 展示。</p>
     </section>`;
+  }
+
+  function queueSearch(value) {
+    window.clearTimeout(searchTimer);
+    searchTimer = window.setTimeout(() => {
+      state.search = value;
+      state.selectedId = "";
+      restoreFilterSnapshot = null;
+      openMultiKey = "";
+      opportunityProfileId = "";
+      restoreSearchFocus = true;
+      resetPage();
+      render();
+    }, 600);
   }
 
   function bindEvents() {
@@ -2330,17 +2347,17 @@
         render();
       });
     });
-    search?.addEventListener("input", (event) => {
+    search?.addEventListener("compositionstart", () => {
+      searchComposing = true;
       window.clearTimeout(searchTimer);
-      searchTimer = window.setTimeout(() => {
-        state.search = event.target.value;
-        state.selectedId = "";
-        restoreFilterSnapshot = null;
-        openMultiKey = "";
-        opportunityProfileId = "";
-        resetPage();
-        render();
-      }, 180);
+    });
+    search?.addEventListener("compositionend", (event) => {
+      searchComposing = false;
+      queueSearch(event.target.value);
+    });
+    search?.addEventListener("input", (event) => {
+      if (searchComposing || event.isComposing) return;
+      queueSearch(event.target.value);
     });
 
     root.querySelectorAll(".mixed-scatter-dot").forEach((node) => {
@@ -2477,6 +2494,15 @@
     ].join("");
     drawScatterCanvas();
     bindEvents();
+    if (restoreSearchFocus) {
+      restoreSearchFocus = false;
+      const search = document.getElementById("mixedSearch");
+      if (search) {
+        search.focus({ preventScroll: true });
+        const caret = search.value.length;
+        search.setSelectionRange?.(caret, caret);
+      }
+    }
     if (pendingScrollToScatter) {
       pendingScrollToScatter = false;
       root.querySelector(".mixed-scatter-panel")?.scrollIntoView({ block: "start", behavior: "smooth" });

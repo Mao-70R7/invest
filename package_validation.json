@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-19T20:01:22+08:00",
+  "generatedAt": "2026-07-21T12:05:27+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 1137,
@@ -11,8 +11,8 @@
     "strategyDetailWithoutHoldingCount": 7,
     "strategyDetailWithoutCurveCount": 10,
     "strategyDetailReferencedFundCount": 4923,
-    "selectedFundCount": 17506,
-    "enhancedFundDetailCount": 17506,
+    "selectedFundCount": 17601,
+    "enhancedFundDetailCount": 17601,
     "baseOnlyFundCount": 0,
     "brokenFundDetailCount": 0,
     "strategyDetailSourceCount": 1137,
@@ -32,10 +32,10 @@
     "currentHolding近三月RankedReferenceCount": 18284,
     "currentHolding近6月RankedReferenceCount": 18284,
     "currentHolding近1年RankedReferenceCount": 18284,
-    "fundDetailParsedCount": 17506,
-    "fundDetailNavChartCount": 17474,
-    "fundDetailNavChartMissingCount": 32,
-    "fundDetailBenchmarkChartCount": 17474,
+    "fundDetailParsedCount": 17601,
+    "fundDetailNavChartCount": 17520,
+    "fundDetailNavChartMissingCount": 81,
+    "fundDetailBenchmarkChartCount": 17520,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
     "holdingSnapshotSourceRowCount": 716253,
@@ -75,7 +75,7 @@
     },
     {
       "type": "fund_detail_nav_chart_missing",
-      "count": 32,
+      "count": 81,
       "codes": [
         "004570",
         "005131",
