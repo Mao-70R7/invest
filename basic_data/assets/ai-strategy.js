@@ -2971,6 +2971,48 @@
     return `${fieldLabel(filter.field)} ${operatorLabels[op] || op} ${raw(filter.value)}${filter.unit || ""}`;
   }
 
+  function compactConditionLabel(filter, parsed) {
+    const op = raw(filter.op || "contains");
+    const label = raw(filter.label);
+    if (filter.field === "成立日期") {
+      const years = num(parsed?.thresholds?.minAgeYears);
+      if (years !== null) return `成立时间满${years}年`;
+      if (/^成立满/.test(label)) return label.replace(/^成立满/, "成立时间满");
+    }
+    if (filter.field === "__benchmark_text" || filter.field === "__holding_entity") {
+      return filterLabel(filter).replace(/\s*>=\s*/g, "不低于");
+    }
+    if (label && !/[<>=]/.test(label)) return label;
+    const compactOperators = {
+      contains: "包含",
+      contains_any: "包含任一",
+      contains_all: "同时包含",
+      weight_gte: "持仓权重不低于",
+      "not contains": "不包含",
+      "=": "等于",
+      "!=": "不等于",
+      in: "等于任一",
+      "not in": "不等于任一",
+      ">=": "不低于",
+      "<=": "不超过",
+      ">": "大于",
+      "<": "小于",
+      "is empty": "为空",
+      "is not empty": "有值",
+    };
+    const value = ["in", "not in", "contains_any", "contains_all"].includes(op)
+      ? filterValues(filter).join("、")
+      : raw(filter.value);
+    return `${fieldLabel(filter.field)}${compactOperators[op] || operatorLabels[op] || op}${value}${filter.unit || ""}`;
+  }
+
+  function recognizedConditionSummary(parsed) {
+    const labels = conditionFilterStats(parsed)
+      .map((item) => compactConditionLabel(item.filter, parsed))
+      .filter(Boolean);
+    return labels.length ? `已识别：${labels.join("、")}` : "已识别：暂无可执行的筛选条件";
+  }
+
   function zhDate(value) {
     const date = dateFrom(value);
     if (!date) return raw(value) || "未披露";
@@ -4094,12 +4136,14 @@
 
   function renderResults(parsed, result) {
     state.lastResult = result;
-    const businessConditionCount = conditionFilterStats(parsed).length;
+    const conditionSummary = recognizedConditionSummary(parsed);
     B.byId("aiResult").innerHTML = `
-      <details class="panel ai-semantic-panel ai-condition-panel-details" open>
+      <details class="panel ai-semantic-panel ai-condition-panel-details">
         <summary class="ai-condition-panel-summary">
-          <div><h2>已识别并执行的筛选条件（可直接微调）</h2><p class="desc">每个条件均以完整可比策略池独立统计，不受其他条件顺序影响。</p></div>
-          <span class="pill">${businessConditionCount.toLocaleString("zh-CN")} 个业务条件</span>
+          <div class="ai-condition-summary-copy">
+            <h2 class="ai-condition-summary-text">${B.esc(conditionSummary)}</h2>
+            <p class="desc ai-condition-summary-help">点击展开后可直接微调字段、关系和值；每个条件均以完整可比策略池独立统计。</p>
+          </div>
         </summary>
         <div class="ai-condition-panel-body">
           ${renderRecognizedConditions(parsed)}

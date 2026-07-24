@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildId": "minimal-eedd212c0559",
-  "generatedAt": "2026-07-24T09:19:24+08:00",
+  "buildId": "minimal-80c235b40306",
+  "generatedAt": "2026-07-24T11:56:31+08:00",
   "pageSet": [
     "策略列表",
     "调仓月报",
@@ -62,7 +62,7 @@
     "monthlyRebalanceReportAssetBytes": 668070
   },
   "fileCount": 18881,
-  "totalBytes": 213546323,
+  "totalBytes": 213543889,
   "files": [
     {
       "path": ".github/workflows/pages.yml",
@@ -86,8 +86,8 @@
     },
     {
       "path": "basic_data/ai-strategy.html",
-      "size": 2730,
-      "sha256": "5194d1a848f0d3bbdc1eecf866077a8b086fc64dd320c8ce3834f957236465ed"
+      "size": 2728,
+      "sha256": "9331468dcce73c329bd4fc510e2af32bb727ff99f1e9277fcca39164d5884be5"
     },
     {
       "path": "basic_data/assets/ai-strategy-config.js",
@@ -96,8 +96,8 @@
     },
     {
       "path": "basic_data/assets/ai-strategy.js",
-      "size": 228449,
-      "sha256": "b10978727a6755b00224f1ad49f05b17a4312c97bd72be5cccf07dea2fba795a"
+      "size": 227141,
+      "sha256": "4f1f55861d772f8acaa69b57e5372cf2bcf226bcf9d964c0d9f3aee2378712f2"
     },
     {
       "path": "basic_data/assets/basic-common.js",
@@ -106,8 +106,8 @@
     },
     {
       "path": "basic_data/assets/basic.css",
-      "size": 201981,
-      "sha256": "acc5933a765959cd4bd03c9f1f2c83589cfa4fab58180db1bd9040fd14fd13e7"
+      "size": 200857,
+      "sha256": "ab562d729e432daaaf2e7c748d35d7faa28daf70bc0a70866e8edbcaab31c7dd"
     },
     {
       "path": "basic_data/assets/fund-detail.js",
@@ -94457,7 +94457,7 @@
     {
       "path": "version.json",
       "size": 149,
-      "sha256": "01b282a681cbb6c25ac462891a6cf4c31e2aa6b6b6d07cdab99c2f7f6944fdce"
+      "sha256": "ef58c4fd8415be94770b56d61ecfe717b690b9b9ba03ea88f4234ce7978b3646"
     },
     {
       "path": "停止最小发布集.cmd",

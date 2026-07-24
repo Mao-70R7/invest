@@ -982,9 +982,10 @@ tr:last-child td { border-bottom: 0; }
   padding:16px 18px;
 }
 .ai-condition-panel-summary::-webkit-details-marker { display:none; }
-.ai-condition-panel-summary h2 { margin:0; color:#172033; font-size:18px; }
+.ai-condition-summary-copy { min-width:0; }
+.ai-condition-panel-summary h2 { margin:0; color:#172033; font-size:18px; line-height:1.45; overflow-wrap:anywhere; }
 .ai-condition-panel-summary .desc { margin:4px 0 0; }
-.ai-condition-panel-summary .pill { margin-left:auto; flex:0 0 auto; }
+.ai-condition-panel-details:not([open]) .ai-condition-summary-help { display:none; }
 .ai-condition-panel-summary::after {
   content:"收起";
   flex:0 0 auto;
