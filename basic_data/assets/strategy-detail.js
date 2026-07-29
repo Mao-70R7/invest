@@ -703,10 +703,32 @@
     const warnings = (detail.curveWarnings || []).map((text) => `<p class="warn"><b>${B.label("曲线数据提示")}：</b>${B.esc(text)}</p>`).join("");
     return `<div class="source-note-list">${warnings}${curveRows.map((name) => `<p><b>${B.esc(name)}：</b>${B.esc(sources[name] || "未生成来源说明")}</p>`).join("")}${globalText}${metaText ? `<p><b>基准公式解析：</b>${B.esc(metaText)}</p>` : ""}</div>`;
   }
+  function strategyRelationNotice() {
+    const relation = detail.strategyRelation || {};
+    if (!relation.官方业绩策略ID) return "";
+    const parentName = relation.母策略名称 || relation.母策略ID || "母策略";
+    const parentLink = relation.母策略ID
+      ? `<a class="link" href="./strategy.html?id=${encodeURIComponent(relation.母策略ID)}">${B.esc(parentName)}</a>`
+      : B.esc(parentName);
+    return `<div class="source-note-list"><p class="warn"><b>母子策略业绩口径：</b>本期暂无独立披露净值，当前披露曲线及区间收益共享母策略${parentLink}，仅代表产品系列披露业绩，不代表本期独立成立以来收益。</p></div>`;
+  }
   function isClientFacingSummary() {
     const current = String(classificationMap.天天当前对客展示 || detail.summary.天天当前对客展示 || "");
     const status = String(classificationMap.天天展示状态 || detail.summary.天天展示状态 || "");
     return !(current === "否" || /非对客|不对客|隐藏|未展示|不展示/.test(status));
+  }
+  function isStoppedSummary() {
+    const s = detail.summary || {};
+    if (Number(s.是否已停止 || 0) === 1) return true;
+    const status = [s.策略治理状态, s.运作状态, classificationMap.天天展示状态, s.天天展示状态].filter(Boolean).join(" ");
+    return /已停止|已终止|已下架|已清盘|期满|已止盈|非对客或已结束|stopped/i.test(status);
+  }
+  function stoppedStrategyBanner() {
+    if (!isStoppedSummary()) return "";
+    return `<div class="strategy-stopped-banner" role="status">
+      <strong>策略已下架</strong>
+      <span>该策略不参与当前常规排名；历史净值、收益、持仓和调仓数据仅保留用于查询与复盘。</span>
+    </div>`;
   }
   function isGfSummary() {
     return detail.summary?.是否广发 === "是" || detail.summary?.是否广发策略 === "是" || /广发基金|广发投顾/.test(`${detail.summary?.投顾机构 || ""} ${detail.summary?.渠道 || ""}`);
@@ -908,7 +930,9 @@
   }
   function renderMainChart() {
     const selectedName = selectedGlobalBenchmarkSeriesName();
-    const defaultSeries = selectedName ? ["披露业绩", selectedName] : ["披露业绩"];
+    const officialPoints = detail.curves?.披露业绩?.points || [];
+    const primaryName = officialPoints.length >= 2 ? "披露业绩" : "模拟业绩";
+    const defaultSeries = selectedName ? [primaryName, selectedName] : [primaryName];
     B.drawReturnChart(B.byId("navChart"), mainChartSeries(), { range: activeRange, title: "净值曲线", defaultVisibleSeries: defaultSeries, maxGapDays: 45 });
     const sourceHost = B.byId("sourceCards");
     if (sourceHost) sourceHost.innerHTML = sourceCards();
@@ -1300,10 +1324,10 @@
       <a class="strategy-back-link" href="./strategies.html">← 返回策略列表</a>
       <div class="strategy-identity-row">
         <div class="strategy-identity">
-          <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${B.statusBadge(detail.summary.数据完整性)}</div>
+          <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${isStoppedSummary() ? '<span class="strategy-lifecycle-badge is-stopped">已下架</span>' : ""}${B.statusBadge(detail.summary.数据完整性)}</div>
           <p>${B.esc(profileMap.投顾机构 || detail.summary.投顾机构 || "投顾机构未披露")}</p>
         </div>
-        <div class="strategy-status-list">
+        <div class="strategy-status-list ${isStoppedSummary() ? "is-stopped" : ""}">
           <span>对客 ${B.esc(classificationMap.天天当前对客展示 || detail.summary.天天当前对客展示 || "未披露")}</span>
           <span>${B.esc(detail.summary.运作状态 || "运作状态未披露")}</span>
           <span>${B.esc(classificationMap.研报产品类型 || detail.summary.研报产品类型 || "类型未披露")}</span>
@@ -1311,6 +1335,7 @@
           <span>${B.esc(classificationMap.广义权益分档 || classificationMap.基准权益分档 || "权益分档未披露")}</span>
         </div>
       </div>
+      ${stoppedStrategyBanner()}
       ${overviewFacts()}
       ${primaryMetricGrid()}
       <div class="strategy-overview-foot">数据刷新 ${B.esc(dataRefreshTime || "未披露")}｜策略代码 ${B.esc(profileMap.策略代码 || detail.summary.策略代码 || "未披露")}</div>
@@ -1327,6 +1352,7 @@
         <div><h2>业绩与风险</h2><p class="desc">收益区间优先采用官方披露，曲线和年度数据用于趋势及相对表现分析。</p></div>
         <div id="performanceTabs"></div>
       </div>
+      ${strategyRelationNotice()}
       <div data-performance-pane="curve">
         <div class="strategy-chart-toolbar">
           ${globalBenchmarkSelectHtml()}

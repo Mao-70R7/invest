@@ -6,7 +6,8 @@
   const benchmarkBucket = (row) => row?.基准权益分档 || row?.基准权益分类档 || "未分档";
   const isUnbucketed = (row) => benchmarkBucket(row) === "未分档";
   const isCompleteStrategy = (row) => row?.数据完整性 === "完整" && row?.风险等级 !== "D0 持仓缺失" && row?.研报产品类型 !== "持仓缺失/不入池";
-  const rowsBase = allStrategies.filter((row) => isCompleteStrategy(row) || isUnbucketed(row));
+  const isDefaultListEligible = (row) => isCompleteStrategy(row) || isUnbucketed(row);
+  const rowsBase = allStrategies;
   const state = { page: 1, pageSize: 10, rows: [], sortField: "近一月", sortDir: "desc", hiddenStrategyScope: "" };
   const returnHeaders = ["近一周", "近一月", "近三月", "近1年", "今年以来", "累计收益率"];
   const riskHeaders = ["最大回撤", "波动率"];
@@ -73,6 +74,12 @@
     return current !== "否" && !/非对客|不对客|隐藏|未展示|不展示/.test(status);
   }
 
+  function isStoppedStrategy(row) {
+    if (Number(row?.是否已停止 || 0) === 1) return true;
+    const status = [row?.策略治理状态, row?.运作状态, row?.天天展示状态].filter(Boolean).join(" ");
+    return /已停止|已终止|已下架|已清盘|期满|已止盈|非对客或已结束|stopped/i.test(status);
+  }
+
   function numberValue(row, field) {
     const value = Number(row[field]);
     return Number.isFinite(value) ? value : null;
@@ -125,7 +132,10 @@
       row.主动被动,
       row.披露策略类型,
       row.天天当前对客展示,
-      row.天天展示状态
+      row.天天展示状态,
+      row.策略治理状态,
+      row.运作状态,
+      isStoppedStrategy(row) ? "已下架" : "当前在架"
     ].join(" ").toLowerCase();
   }
 
@@ -137,7 +147,9 @@
 
   function formatCell(row, field) {
     if (field === "策略名称") {
-      return `<a class="link" href="./strategy.html?id=${encodeURIComponent(row.统一策略ID)}">${B.esc(row.策略名称 || "未命名策略")}</a><div class="small">策略代码 ${B.esc(row.策略代码 || "未披露")}</div>`;
+      const stoppedBadge = isStoppedStrategy(row) ? '<span class="strategy-lifecycle-badge is-stopped">已下架</span>' : "";
+      const rankNote = isStoppedStrategy(row) ? '<div class="strategy-rank-note">不参与当前常规排名</div>' : "";
+      return `<div class="strategy-name-line"><a class="link" href="./strategy.html?id=${encodeURIComponent(row.统一策略ID)}">${B.esc(row.策略名称 || "未命名策略")}</a>${stoppedBadge}</div><div class="small">策略代码 ${B.esc(row.策略代码 || "未披露")}</div>${rankNote}`;
     }
     if (returnHeaders.includes(field) || riskHeaders.includes(field)) return B.pctSigned(row[field]);
     if (weightHeaders.includes(field)) return B.pct(row[field]);
@@ -169,7 +181,7 @@
       const cls = index === 0 ? "sticky-name" : index === 1 ? "sticky-channel" : returnHeaders.includes(field) || riskHeaders.includes(field) || weightHeaders.includes(field) ? "narrow" : wideFields.has(field) ? "wide" : "";
       return sortHeader(field, cls);
     }).join("");
-    const body = rows.length ? rows.map((row) => `<tr>${headers.map((field, index) => {
+    const body = rows.length ? rows.map((row) => `<tr class="${isStoppedStrategy(row) ? "is-stopped-strategy" : ""}">${headers.map((field, index) => {
       const cls = index === 0 ? "sticky-name strategy-name-cell" : index === 1 ? "sticky-channel" : returnHeaders.includes(field) || riskHeaders.includes(field) || weightHeaders.includes(field) ? "narrow" : wideFields.has(field) ? "wide" : "";
       return `<td class="${cls}">${formatCell(row, field)}</td>`;
     }).join("")}</tr>`).join("") : `<tr><td colspan="${headers.length}"><div class="empty">暂无数据</div></td></tr>`;
@@ -193,6 +205,11 @@
     <section class="panel">
       <div class="filters strategy-filter-grid">
         ${filterControl("关键词", '<input id="searchInput" class="control" type="search" placeholder="策略、机构、代码、渠道、分类">', "模糊匹配：策略名称、代码、机构、渠道和分类字段")}
+        ${filterControl("产品状态", `<select id="productStatusSelect" class="control">
+          <option value="">默认在架；关键词含历史</option>
+          <option value="stopped">已下架/已结束</option>
+          <option value="all">全部产品状态</option>
+        </select>`, "默认列表不混入下架策略；输入关键词时仍可直接查到历史产品")}
         ${filterControl("对客状态", `<select id="clientScopeSelect" class="control">
           <option value="">全部对客状态</option>
           <option value="client">对客展示</option>
@@ -227,6 +244,7 @@
           <span><b>研报产品类型</b> 投研可比池，适合同类业绩和风险比较。</span>
           <span><b>业务分类</b> 运营货架口径，适合产品线和销售场景管理。</span>
           <span><b>对客状态</b> 用于区分可对客展示产品和仅保留核验样本。</span>
+          <span><b>产品状态</b> 默认不展示已下架策略；关键词搜索会覆盖历史产品，下架策略保留详情但不参与当前常规排名。</span>
         </div>
       </details>
       <div class="pager">
@@ -249,6 +267,7 @@
 
   function filterRows() {
     const keyword = B.byId("searchInput").value.trim().toLowerCase();
+    const productStatus = B.byId("productStatusSelect").value;
     const clientScope = B.byId("clientScopeSelect").value;
     const benchmarkBucketValue = B.byId("benchmarkBucketSelect").value;
     const broadEquityBucketValue = B.byId("broadEquityBucketSelect").value;
@@ -257,6 +276,11 @@
     const reportType = B.byId("reportTypeSelect").value;
     const business = B.byId("businessSelect").value;
     return rowsBase.filter((row) => {
+      const stopped = isStoppedStrategy(row);
+      if (productStatus === "stopped" && !stopped) return false;
+      if (productStatus === "") {
+        if (!keyword && (stopped || !isDefaultListEligible(row))) return false;
+      }
       if (state.hiddenStrategyScope === "gf" && !isGfStrategy(row)) return false;
       if (state.hiddenStrategyScope === "nonGf" && isGfStrategy(row)) return false;
       if (clientScope === "client" && !isClientFacing(row)) return false;
@@ -283,9 +307,11 @@
     const pageRows = rows.slice((state.page - 1) * state.pageSize, state.page * state.pageSize);
     const gfCount = rows.filter(isGfStrategy).length;
     const clientCount = rows.filter(isClientFacing).length;
+    const stoppedCount = rows.filter(isStoppedStrategy).length;
     const scopeText = state.hiddenStrategyScope === "gf" ? "｜证据范围 广发策略" : (state.hiddenStrategyScope === "nonGf" ? "｜证据范围 非广发策略" : "");
     const unbucketedCount = rows.filter(isUnbucketed).length;
-    B.byId("resultCount").textContent = `当前筛选 ${rows.length.toLocaleString("zh-CN")} 条策略，其中未分档 ${unbucketedCount.toLocaleString("zh-CN")} 条，广发 ${gfCount.toLocaleString("zh-CN")} 条，对客 ${clientCount.toLocaleString("zh-CN")} 条${scopeText}`;
+    const keywordHistoryText = B.byId("searchInput").value.trim() && !B.byId("productStatusSelect").value ? "｜关键词已包含历史下架策略" : "";
+    B.byId("resultCount").textContent = `当前筛选 ${rows.length.toLocaleString("zh-CN")} 条策略，其中已下架 ${stoppedCount.toLocaleString("zh-CN")} 条，未分档 ${unbucketedCount.toLocaleString("zh-CN")} 条，广发 ${gfCount.toLocaleString("zh-CN")} 条，对客 ${clientCount.toLocaleString("zh-CN")} 条${scopeText}${keywordHistoryText}`;
     B.byId("pageInfo").textContent = `${state.page} / ${maxPage}`;
     B.byId("prevPage").disabled = state.page <= 1;
     B.byId("nextPage").disabled = state.page >= maxPage;
@@ -310,6 +336,7 @@
     const params = B.params();
     if (params.get("q")) B.byId("searchInput").value = params.get("q");
     state.hiddenStrategyScope = params.get("strategyScope") || state.hiddenStrategyScope;
+    setControlFromParam("productStatusSelect", "productStatus");
     setControlFromParam("clientScopeSelect", "clientScope");
     setControlFromParam("benchmarkBucketSelect", "benchmarkBucket");
     setControlFromParam("broadEquityBucketSelect", "broadEquityBucket");
@@ -329,7 +356,7 @@
   }
 
   applyInitialParams();
-  ["searchInput", "clientScopeSelect", "benchmarkBucketSelect", "broadEquityBucketSelect", "institutionSelect", "channelSelect", "reportTypeSelect", "businessSelect"].forEach((id) => {
+  ["searchInput", "productStatusSelect", "clientScopeSelect", "benchmarkBucketSelect", "broadEquityBucketSelect", "institutionSelect", "channelSelect", "reportTypeSelect", "businessSelect"].forEach((id) => {
     B.byId(id).addEventListener("input", resetPageAndRender);
   });
   B.byId("sortSelect").addEventListener("input", () => {
@@ -350,6 +377,7 @@
   });
   B.byId("resetButton").addEventListener("click", () => {
     B.byId("searchInput").value = "";
+    B.byId("productStatusSelect").value = "";
     B.byId("clientScopeSelect").value = "";
     B.byId("benchmarkBucketSelect").value = "";
     B.byId("broadEquityBucketSelect").value = "";
