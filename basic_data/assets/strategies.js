@@ -6,7 +6,7 @@
   const benchmarkBucket = (row) => row?.基准权益分档 || row?.基准权益分类档 || "未分档";
   const isUnbucketed = (row) => benchmarkBucket(row) === "未分档";
   const isCompleteStrategy = (row) => row?.数据完整性 === "完整" && row?.风险等级 !== "D0 持仓缺失" && row?.研报产品类型 !== "持仓缺失/不入池";
-  const isDefaultListEligible = (row) => isCompleteStrategy(row) || isUnbucketed(row);
+  const isDefaultListEligible = (row) => isCompleteStrategy(row) || isUnbucketed(row) || Number(row?.仅列表展示 ?? 0) === 1;
   const rowsBase = allStrategies;
   const state = { page: 1, pageSize: 10, rows: [], sortField: "近一月", sortDir: "desc", hiddenStrategyScope: "" };
   const returnHeaders = ["近一周", "近一月", "近三月", "近1年", "今年以来", "累计收益率"];
