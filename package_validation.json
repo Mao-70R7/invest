@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-30T03:35:31+08:00",
+  "generatedAt": "2026-07-31T00:51:19+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 1318,
@@ -9,7 +9,7 @@
     "strategyDetailParseErrorCount": 0,
     "strategyDetailDeclaredIncompleteCount": 212,
     "strategyDetailWithoutHoldingCount": 70,
-    "strategyDetailWithoutCurveCount": 68,
+    "strategyDetailWithoutCurveCount": 55,
     "strategyDetailReferencedFundCount": 4959,
     "selectedFundCount": 17627,
     "enhancedFundDetailCount": 17627,
@@ -17,8 +17,8 @@
     "brokenFundDetailCount": 0,
     "strategyDetailSourceCount": 1318,
     "strategyDetailDeclaredCompleteCount": 1106,
-    "activeStrategyCount": 859,
-    "activeStrategyWithoutCurveCount": 66,
+    "activeStrategyCount": 856,
+    "activeStrategyWithoutCurveCount": 53,
     "currentHoldingStrategyCount": 1223,
     "currentHoldingFundReferenceCount": 21372,
     "currentHoldingRankMissingReferenceCount": 5,
@@ -72,7 +72,7 @@
     },
     {
       "type": "active_strategy_without_curve",
-      "count": 66,
+      "count": 53,
       "note": "活跃策略没有任何可画曲线时保留真实缺失状态；正常披露策略应为0。"
     },
     {
