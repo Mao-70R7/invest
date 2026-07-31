@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-31T12:25:35+08:00",
+  "generatedAt": "2026-07-31T13:14:13+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 1318,
@@ -28,10 +28,15 @@
     "historyRebalanceStrategyCount": 1203,
     "assessedHistoryRebalanceStrategyCount": 945,
     "unassessedHistoryRebalanceStrategyCount": 258,
+    "officialPerformanceImageReferenceCount": 14,
+    "officialPerformanceImageInvalidReferenceCount": 0,
+    "officialPerformanceImageMissingSourceAssetCount": 0,
     "currentHolding近一月RankedReferenceCount": 21359,
     "currentHolding近三月RankedReferenceCount": 21359,
     "currentHolding近6月RankedReferenceCount": 21359,
     "currentHolding近1年RankedReferenceCount": 21359,
+    "officialPerformanceImagePublishedAssetCount": 14,
+    "officialPerformanceImageMissingPublishedAssetCount": 0,
     "fundDetailParsedCount": 17629,
     "fundDetailNavChartCount": 17558,
     "fundDetailNavChartMissingCount": 71,
@@ -42,12 +47,17 @@
     "holdingSnapshotPublishedRowCount": 84790,
     "holdingSnapshotStrategyCount": 1218,
     "monthly-rebalance-report-202606FileCount": 8,
-    "monthly-rebalance-report-202606Bytes": 666500
+    "monthly-rebalance-report-202606Bytes": 666500,
+    "gfbank-performanceFileCount": 14,
+    "gfbank-performanceBytes": 477872
   },
   "policy": {
     "blockingZeroChecks": [
       "strategyDetailMissingCount",
       "strategyDetailParseErrorCount",
+      "officialPerformanceImageInvalidReferenceCount",
+      "officialPerformanceImageMissingSourceAssetCount",
+      "officialPerformanceImageMissingPublishedAssetCount",
       "brokenFundDetailCount",
       "fundDetailParseErrorCount",
       "fundDetailChartScaleErrorCount",
