@@ -932,16 +932,13 @@
     const selectedName = selectedGlobalBenchmarkSeriesName();
     const officialPoints = detail.curves?.披露业绩?.points || [];
     const simulatedPoints = detail.curves?.模拟业绩?.points || [];
-    const selectedBenchmarkPoints = selectedGlobalBenchmark()?.points || [];
-    const officialImage = detail.officialPerformanceImage || null;
     const hasDrawableStrategyCurve = officialPoints.length >= 2 || simulatedPoints.length >= 2;
-    if (!hasDrawableStrategyCurve && selectedBenchmarkPoints.length < 2 && officialImage?.url) {
-      const asOfText = officialImage.asOfDate ? `，数据截至 ${B.esc(officialImage.asOfDate)}` : "";
+    if (!hasDrawableStrategyCurve) {
       B.byId("navChart").innerHTML = `
-        <figure class="official-performance-image">
-          <img src="${B.esc(officialImage.url)}" alt="${B.esc(officialImage.title || "官方 App 业绩走势图")}" loading="lazy"/>
-          <figcaption><strong>${B.esc(officialImage.title || "官方 App 业绩走势图")}</strong>${asOfText}。${B.esc(officialImage.note || "")}</figcaption>
-        </figure>`;
+        <div class="empty">
+          <strong>暂无真实业绩走势图</strong><br/>
+          当前渠道尚未提供可验证的结构化逐日净值或收益序列；页面仅展示已取得的官方区间收益，不使用截图或图像反推点替代。
+        </div>`;
       const sourceHost = B.byId("sourceCards");
       if (sourceHost) sourceHost.innerHTML = sourceCards();
       return;
