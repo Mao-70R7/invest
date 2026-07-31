@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-31T06:14:15+08:00",
+  "generatedAt": "2026-07-31T11:32:30+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 1318,
@@ -20,7 +20,7 @@
     "activeStrategyCount": 856,
     "activeStrategyWithoutCurveCount": 53,
     "currentHoldingStrategyCount": 1223,
-    "currentHoldingFundReferenceCount": 21367,
+    "currentHoldingFundReferenceCount": 21364,
     "currentHoldingRankMissingReferenceCount": 5,
     "activeCurrentHoldingRankMissingReferenceCount": 0,
     "inactiveCurrentHoldingRankMissingReferenceCount": 5,
@@ -28,21 +28,21 @@
     "historyRebalanceStrategyCount": 1203,
     "assessedHistoryRebalanceStrategyCount": 945,
     "unassessedHistoryRebalanceStrategyCount": 258,
-    "currentHolding近一月RankedReferenceCount": 21362,
-    "currentHolding近三月RankedReferenceCount": 21362,
-    "currentHolding近6月RankedReferenceCount": 21362,
-    "currentHolding近1年RankedReferenceCount": 21362,
+    "currentHolding近一月RankedReferenceCount": 21359,
+    "currentHolding近三月RankedReferenceCount": 21359,
+    "currentHolding近6月RankedReferenceCount": 21359,
+    "currentHolding近1年RankedReferenceCount": 21359,
     "fundDetailParsedCount": 17629,
     "fundDetailNavChartCount": 17558,
     "fundDetailNavChartMissingCount": 71,
     "fundDetailBenchmarkChartCount": 17558,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 302749,
-    "holdingSnapshotPublishedRowCount": 84158,
-    "holdingSnapshotStrategyCount": 1211,
+    "holdingSnapshotSourceRowCount": 303381,
+    "holdingSnapshotPublishedRowCount": 84790,
+    "holdingSnapshotStrategyCount": 1218,
     "monthly-rebalance-report-202606FileCount": 8,
-    "monthly-rebalance-report-202606Bytes": 669083
+    "monthly-rebalance-report-202606Bytes": 666500
   },
   "policy": {
     "blockingZeroChecks": [

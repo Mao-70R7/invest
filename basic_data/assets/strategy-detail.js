@@ -931,6 +931,21 @@
   function renderMainChart() {
     const selectedName = selectedGlobalBenchmarkSeriesName();
     const officialPoints = detail.curves?.披露业绩?.points || [];
+    const simulatedPoints = detail.curves?.模拟业绩?.points || [];
+    const selectedBenchmarkPoints = selectedGlobalBenchmark()?.points || [];
+    const officialImage = detail.officialPerformanceImage || null;
+    const hasDrawableStrategyCurve = officialPoints.length >= 2 || simulatedPoints.length >= 2;
+    if (!hasDrawableStrategyCurve && selectedBenchmarkPoints.length < 2 && officialImage?.url) {
+      const asOfText = officialImage.asOfDate ? `，数据截至 ${B.esc(officialImage.asOfDate)}` : "";
+      B.byId("navChart").innerHTML = `
+        <figure class="official-performance-image">
+          <img src="${B.esc(officialImage.url)}" alt="${B.esc(officialImage.title || "官方 App 业绩走势图")}" loading="lazy"/>
+          <figcaption><strong>${B.esc(officialImage.title || "官方 App 业绩走势图")}</strong>${asOfText}。${B.esc(officialImage.note || "")}</figcaption>
+        </figure>`;
+      const sourceHost = B.byId("sourceCards");
+      if (sourceHost) sourceHost.innerHTML = sourceCards();
+      return;
+    }
     const primaryName = officialPoints.length >= 2 ? "披露业绩" : "模拟业绩";
     const defaultSeries = selectedName ? [primaryName, selectedName] : [primaryName];
     B.drawReturnChart(B.byId("navChart"), mainChartSeries(), { range: activeRange, title: "净值曲线", defaultVisibleSeries: defaultSeries, maxGapDays: 45 });
