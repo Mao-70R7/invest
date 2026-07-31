@@ -26,7 +26,7 @@
     ["1m", "近1月"],
     ["ytd", "今年以来"]
   ];
-  const intervalHeaders = ["口径", "近一周", "近一月", "近三月", "近1年", "今年以来", "成立以来"];
+  const intervalHeaders = ["口径", "近一周", "近一月", "近三月", "近6月", "近1年", "今年以来", "成立以来"];
   const curveRows = ["披露业绩", "模拟业绩", "基准业绩", "沪深300业绩"];
   const holdingHeaders = ["基金名称", "二级分类", "上次调仓后权重", "权重", "权重变化", "调仓后收益率", "调仓后收益贡献"];
   const snapshots = detail.positionSnapshots || [];
