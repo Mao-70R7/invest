@@ -7,6 +7,37 @@
   const originalLoadScript = B.loadScript.bind(B);
   const pending = new Map();
   const fileProtocol = window.location.protocol === "file:";
+  const runtimeScript = Array.from(document.scripts).find((script) => /\/minimal-publish-runtime\.js(?:\?|$)/.test(script.src || ""));
+  const buildId = runtimeScript ? new URL(runtimeScript.src, document.baseURI).searchParams.get("v") || "" : "";
+
+  async function ensureFreshBuild() {
+    if (fileProtocol || !buildId) return true;
+    try {
+      const versionUrl = new URL("../version.json", document.baseURI);
+      versionUrl.searchParams.set("verify", String(Date.now()));
+      const response = await fetch(versionUrl, { cache: "no-store" });
+      if (!response.ok) return true;
+      const remote = await response.json();
+      const remoteBuildId = String(remote?.buildId || "").trim();
+      if (!remoteBuildId || remoteBuildId === buildId) return true;
+      const nextUrl = new URL(window.location.href);
+      nextUrl.searchParams.set("v", remoteBuildId);
+      window.location.replace(nextUrl.href);
+      return false;
+    } catch (error) {
+      console.warn("页面版本检查失败，继续使用当前已加载版本。", error);
+      return true;
+    }
+  }
+
+  document.addEventListener("click", (event) => {
+    const anchor = event.target?.closest?.('a[href*="strategy.html"], a[href*="fund.html"]');
+    if (!anchor || !buildId || anchor.target === "_blank") return;
+    const url = new URL(anchor.getAttribute("href") || anchor.href, document.baseURI);
+    if (url.origin !== window.location.origin) return;
+    url.searchParams.set("v", buildId);
+    anchor.href = url.href;
+  }, true);
 
   function showProtocolNotice() {
     if (!fileProtocol || document.getElementById("minimalPublishProtocolNotice")) return;
@@ -49,7 +80,8 @@
   function detailPath(kind, id) {
     const cleanKind = kind === "details" ? "details" : "fund_details";
     const cleanId = String(id || "").trim();
-    return `./data/${cleanKind}/${shardKey(cleanId)}/${encodeURIComponent(cleanId)}.js`;
+    const path = `./data/${cleanKind}/${shardKey(cleanId)}/${encodeURIComponent(cleanId)}.js`;
+    return buildId ? `${path}?v=${encodeURIComponent(buildId)}` : path;
   }
 
   function compressedScriptUrl(src, detailOnly = false) {
@@ -109,6 +141,7 @@
   };
 
   async function startPage(options = {}) {
+    if (!(await ensureFreshBuild())) return;
     const dataScripts = Array.isArray(options.dataScripts) ? options.dataScripts : [];
     const totalSteps = dataScripts.length + (options.renderer ? 1 : 0);
     let loadedSteps = 0;
@@ -141,6 +174,7 @@
 
   window.MinimalPublish = Object.freeze({
     version: 2,
+    buildId,
     compressedDetails: true,
     compressedPagePacks: true,
     requiresHttp: true,

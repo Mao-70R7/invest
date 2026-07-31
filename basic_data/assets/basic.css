@@ -572,6 +572,9 @@ h3 { margin: 0 0 10px; font-size: 15px; }
 .class-basis strong { display:block; color:#21525b; font-size:12px; margin-bottom:4px; }
 .class-basis span { display:block; color:#526174; font-size:12px; line-height:1.6; overflow-wrap:anywhere; }
 .strategy-detail-page .page-shell { max-width:1320px; }
+.strategy-performance-availability { display:flex; flex-direction:column; gap:6px; margin:0 0 14px; padding:12px 14px; border:1px solid #f0c36b; border-radius:12px; background:#fff8e8; color:#6f4711; }
+.strategy-performance-availability strong { font-size:14px; }
+.strategy-performance-availability span { font-size:13px; line-height:1.6; }
 .strategy-section { scroll-margin-top:72px; }
 .strategy-overview { padding:18px 20px 16px; }
 .strategy-back-link { display:inline-flex; align-items:center; color:var(--brand-dark); font-size:13px; font-weight:700; margin-bottom:12px; }

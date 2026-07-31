@@ -33,8 +33,13 @@
   const signalEvents = detail.signalEvents || [];
   const signalSummary = detail.signalSummary || {};
   const globalBenchmarks = B.state.summary?.globalBenchmarks || [];
+  const officialCurvePoints = detail.curves?.披露业绩?.points || [];
+  const simulatedCurvePoints = detail.curves?.模拟业绩?.points || [];
+  const hasDrawableStrategyCurve = officialCurvePoints.length >= 2 || simulatedCurvePoints.length >= 2;
+  const hasAnnualPerformance = (detail.annualMatrix || []).some((row) => Object.entries(row || {}).some(([key, value]) => key !== "年度" && num(value) !== null));
+  const hasRiskMetrics = ["最大回撤", "当前回撤", "年化收益", "波动率", "夏普比率"].some((field) => num(detail.summary?.[field]) !== null);
   let activeRange = "all";
-  let activePerformanceTab = "curve";
+  let activePerformanceTab = hasDrawableStrategyCurve ? "curve" : "interval";
   let activeSnapshotIndex = Math.max(0, snapshots.findIndex((snap) => snap.id !== "current"));
   let holdingSortField = "权重";
   let holdingSortDir = "desc";
@@ -855,7 +860,14 @@
       if (h === "口径") return `<td><strong>${B.esc(row[h])}</strong></td>`;
       return `<td>${B.pctSigned(row[h])}</td>`;
     }).join("")}</tr>`).join("");
-    return `<div class="table-wrap interval-matrix"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+    const disclosed = byName.披露业绩 || {};
+    const intervalFields = intervalHeaders.slice(1);
+    const available = intervalFields.filter((field) => num(disclosed[field]) !== null);
+    const missing = intervalFields.filter((field) => num(disclosed[field]) === null);
+    const disclosure = !hasDrawableStrategyCurve
+      ? `<div class="strategy-performance-availability"><strong>当前只有官方区间收益，没有真实历史走势图。</strong><span>已披露：${B.esc(available.join("、") || "无")}；未披露：${B.esc(missing.join("、") || "无")}。缺失区间不补算、不用截图或图像反推点替代。</span></div>`
+      : "";
+    return `${disclosure}<div class="table-wrap interval-matrix"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
   }
   function annualPerformanceTable() {
     const headers = ["年度", "披露业绩", "模拟业绩", "基准业绩", "沪深300业绩"];
@@ -869,10 +881,10 @@
   }
   function performanceTabsHtml() {
     const tabs = [
-      ["curve", "净值曲线"],
-      ["interval", "区间收益"],
-      ["annual", "年度收益"],
-      ["risk", "风险指标"],
+      ...(hasDrawableStrategyCurve ? [["curve", "净值曲线"]] : []),
+      ["interval", hasDrawableStrategyCurve ? "区间收益" : "官方区间收益"],
+      ...(hasAnnualPerformance ? [["annual", "年度收益"]] : []),
+      ...(hasRiskMetrics ? [["risk", "风险指标"]] : []),
     ];
     return `<div class="data-tabs strategy-performance-tabs">${tabs.map(([key, text]) => `<button type="button" data-performance-tab="${key}" class="${activePerformanceTab === key ? "is-active" : ""}">${text}</button>`).join("")}</div>`;
   }
@@ -930,11 +942,12 @@
   }
   function renderMainChart() {
     const selectedName = selectedGlobalBenchmarkSeriesName();
-    const officialPoints = detail.curves?.披露业绩?.points || [];
-    const simulatedPoints = detail.curves?.模拟业绩?.points || [];
-    const hasDrawableStrategyCurve = officialPoints.length >= 2 || simulatedPoints.length >= 2;
+    const chartHost = B.byId("navChart");
+    if (!chartHost) return;
+    const officialPoints = officialCurvePoints;
+    const simulatedPoints = simulatedCurvePoints;
     if (!hasDrawableStrategyCurve) {
-      B.byId("navChart").innerHTML = `
+      chartHost.innerHTML = `
         <div class="empty">
           <strong>暂无真实业绩走势图</strong><br/>
           当前渠道尚未提供可验证的结构化逐日净值或收益序列；页面仅展示已取得的官方区间收益，不使用截图或图像反推点替代。
@@ -945,13 +958,15 @@
     }
     const primaryName = officialPoints.length >= 2 ? "披露业绩" : "模拟业绩";
     const defaultSeries = selectedName ? [primaryName, selectedName] : [primaryName];
-    B.drawReturnChart(B.byId("navChart"), mainChartSeries(), { range: activeRange, title: "净值曲线", defaultVisibleSeries: defaultSeries, maxGapDays: 45 });
+    B.drawReturnChart(chartHost, mainChartSeries(), { range: activeRange, title: "净值曲线", defaultVisibleSeries: defaultSeries, maxGapDays: 45 });
     const sourceHost = B.byId("sourceCards");
     if (sourceHost) sourceHost.innerHTML = sourceCards();
   }
   function renderRangeTabs() {
-    B.byId("rangeTabs").innerHTML = rangeButtons();
-    B.byId("rangeTabs").querySelectorAll("button").forEach((button) => {
+    const host = B.byId("rangeTabs");
+    if (!host) return;
+    host.innerHTML = rangeButtons();
+    host.querySelectorAll("button").forEach((button) => {
       button.addEventListener("click", () => {
         activeRange = button.dataset.range;
         renderRangeTabs();
@@ -1350,7 +1365,7 @@
       ${stoppedStrategyBanner()}
       ${overviewFacts()}
       ${primaryMetricGrid()}
-      <div class="strategy-overview-foot">数据刷新 ${B.esc(dataRefreshTime || "未披露")}｜策略代码 ${B.esc(profileMap.策略代码 || detail.summary.策略代码 || "未披露")}</div>
+      <div class="strategy-overview-foot">数据刷新 ${B.esc(dataRefreshTime || "未披露")}｜策略代码 ${B.esc(profileMap.策略代码 || detail.summary.策略代码 || "未披露")}｜页面版本 ${B.esc(window.MinimalPublish?.buildId || "本地完整版")}</div>
     </section>
     <nav class="strategy-section-nav" aria-label="策略详情页内导航">
       <a class="is-active" data-strategy-section-link href="#strategy-overview">概览</a>
