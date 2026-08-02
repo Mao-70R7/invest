@@ -370,13 +370,14 @@ window.BasicData = (() => {
     const raw = Object.entries(seriesMap || {}).filter(([name]) => visibility[name] !== false).map(([name, payload]) => {
       const points = Array.isArray(payload) ? payload : (payload?.points || []);
       const mode = payload?.模式 || points[0]?.模式 || "nav";
+      const allTimeValueMode = range === "all" ? String(payload?.allTimeValueMode || "") : "";
       const start = alreadyReturn ? null : rangeStartDate(points, range);
       const filtered = points
         .filter((p) => p.日期 && p.数值 !== null && p.数值 !== undefined && (!start || new Date(p.日期) >= start))
         .map((p) => ({ 日期: String(p.日期), 数值: Number(p.数值) }))
         .filter((p) => Number.isFinite(p.数值))
         .sort((a, b) => a.日期.localeCompare(b.日期));
-      return { name, points: filtered, mode: alreadyReturn ? "return" : mode };
+      return { name, points: filtered, mode: alreadyReturn ? "return" : mode, allTimeValueMode };
     }).filter((item) => item.points.length);
     if (!raw.length) return {};
     const commonStart = raw.map((item) => item.points[0].日期).sort().at(-1);
@@ -388,6 +389,18 @@ window.BasicData = (() => {
     }));
     const dates = [...dateSet].sort();
     const entries = raw.map((item) => {
+      if (item.allTimeValueMode) {
+        const rows = item.points
+          .filter((point) => point.日期 >= commonStart && point.日期 <= commonEnd)
+          .map((point) => {
+            const value = item.allTimeValueMode === "unit_nav"
+              ? (Number(point.数值) - 1) * 100
+              : Number(point.数值);
+            return Number.isFinite(value) ? { 日期: point.日期, 数值: value } : null;
+          })
+          .filter(Boolean);
+        return [item.name, rows];
+      }
       const basePoint = pointAtOrBefore(item.points, commonStart) || item.points.find((point) => point.日期 >= commonStart);
       if (!basePoint) return [item.name, []];
       const rows = dates.map((date) => {

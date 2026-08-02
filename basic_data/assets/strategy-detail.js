@@ -840,6 +840,22 @@
   }
   function mainChartSeries() {
     const series = { ...(detail.curves || {}) };
+    const strategyId = String(detail.summary?.统一策略ID || "");
+    if (strategyId.startsWith("gfbank_cgb__")) {
+      ["披露业绩", "基准业绩"].forEach((name) => {
+        const payload = series[name];
+        const points = Array.isArray(payload) ? payload : (payload?.points || []);
+        const mode = payload?.模式 || points[0]?.模式 || "nav";
+        if (!points.length) return;
+        const allTimeValueMode = ["return", "return_pct"].includes(mode)
+          ? "return_pct"
+          : (mode === "nav" && Number(points[0]?.数值) > 0 && Number(points[0]?.数值) <= 10 ? "unit_nav" : "");
+        if (!allTimeValueMode) return;
+        series[name] = Array.isArray(payload)
+          ? { 模式: mode, points: payload, allTimeValueMode }
+          : { ...payload, allTimeValueMode };
+      });
+    }
     const selected = selectedGlobalBenchmark();
     if (selected && Array.isArray(selected.points) && selected.points.length) {
       series[selectedGlobalBenchmarkSeriesName()] = { 模式: "nav", points: selected.points };
