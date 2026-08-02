@@ -486,14 +486,15 @@ window.BasicData = (() => {
       const nearestDate = allDates.reduce((best, date) => Math.abs(xOf(date) - viewX) < Math.abs(xOf(best) - viewX) ? date : best, allDates[0]);
       const guideX = xOf(nearestDate);
       const rows = series.map(([name, values]) => {
-        let nearest = values.find((row) => row.日期 === nearestDate) || pointAtOrBefore(values, nearestDate) || values[0];
-        return { name, value: nearest?.数值, color: colorForSeries(name) };
-      }).filter((row) => Number.isFinite(row.value));
+        const exact = values.find((row) => row.日期 === nearestDate);
+        return { name, value: exact?.数值, color: colorForSeries(name), disclosed: !!exact };
+      });
+      const disclosedRows = rows.filter((row) => row.disclosed && Number.isFinite(row.value));
       hoverLayer.setAttribute("visibility", "visible");
       hoverLine.setAttribute("x1", guideX.toFixed(1));
       hoverLine.setAttribute("x2", guideX.toFixed(1));
-      hoverPoints.innerHTML = rows.map((row) => `<circle cx="${guideX.toFixed(1)}" cy="${yOf(row.value).toFixed(1)}" r="4" fill="#fff" stroke="${row.color}" stroke-width="2"/>`).join("");
-      tip.innerHTML = `<strong>${esc(nearestDate)}</strong>${rows.map((row) => `<div class="chart-tip-row"><span><i class="chart-dot" style="background:${row.color}"></i>${esc(row.name)}</span><b class="${row.value >= 0 ? "ret-pos" : "ret-neg"}">${row.value.toFixed(2)}%</b></div>`).join("")}`;
+      hoverPoints.innerHTML = disclosedRows.map((row) => `<circle cx="${guideX.toFixed(1)}" cy="${yOf(row.value).toFixed(1)}" r="4" fill="#fff" stroke="${row.color}" stroke-width="2"/>`).join("");
+      tip.innerHTML = `<strong>${esc(nearestDate)}</strong>${rows.map((row) => `<div class="chart-tip-row"><span><i class="chart-dot" style="background:${row.color}"></i>${esc(row.name)}</span>${row.disclosed && Number.isFinite(row.value) ? `<b class="${row.value >= 0 ? "ret-pos" : "ret-neg"}">${row.value.toFixed(2)}%</b>` : "<b>该日未披露</b>"}</div>`).join("")}`;
       tip.hidden = false;
       const hostRect = el.getBoundingClientRect();
       const localX = event.clientX - hostRect.left;
