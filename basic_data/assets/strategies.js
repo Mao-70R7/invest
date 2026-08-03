@@ -5,8 +5,6 @@
   const allStrategies = summary.strategies || [];
   const benchmarkBucket = (row) => row?.基准权益分档 || row?.基准权益分类档 || "未分档";
   const isUnbucketed = (row) => benchmarkBucket(row) === "未分档";
-  const isCompleteStrategy = (row) => row?.数据完整性 === "完整" && row?.风险等级 !== "D0 持仓缺失" && row?.研报产品类型 !== "持仓缺失/不入池";
-  const isDefaultListEligible = (row) => isCompleteStrategy(row) || isUnbucketed(row) || Number(row?.仅列表展示 ?? 0) === 1;
   const rowsBase = allStrategies;
   const state = { page: 1, pageSize: 10, rows: [], sortField: "近一月", sortDir: "desc", hiddenStrategyScope: "" };
   const returnHeaders = ["近一周", "近一月", "近三月", "近1年", "今年以来", "累计收益率"];
@@ -65,7 +63,7 @@
   }
 
   function isGfStrategy(row) {
-    return row?.是否广发 === "是" || row?.是否广发策略 === "是" || /广发基金|广发投顾/.test(`${row?.投顾机构 || ""} ${row?.渠道 || ""}`);
+    return row?.是否广发 === "是" || row?.是否广发策略 === "是" || /广发基金|广发投顾|广发银行|广发证券/.test(`${row?.投顾机构 || ""} ${row?.渠道 || ""}`);
   }
 
   function isClientFacing(row) {
@@ -279,7 +277,11 @@
       const stopped = isStoppedStrategy(row);
       if (productStatus === "stopped" && !stopped) return false;
       if (productStatus === "") {
-        if (!keyword && (stopped || !isDefaultListEligible(row))) return false;
+        // Product lifecycle and data completeness are different dimensions.
+        // Keep every active strategy visible even when holdings, rebalances,
+        // or replay NAV are incomplete; only lifecycle-stopped products are
+        // hidden from the default shelf.
+        if (!keyword && stopped) return false;
       }
       if (state.hiddenStrategyScope === "gf" && !isGfStrategy(row)) return false;
       if (state.hiddenStrategyScope === "nonGf" && isGfStrategy(row)) return false;
