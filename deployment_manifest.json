@@ -1,7 +1,7 @@
 {
   "version": 1,
   "buildId": "minimal-90fc645f5fca",
-  "generatedAt": "2026-08-03T12:39:54+08:00",
+  "generatedAt": "2026-08-03T12:50:53+08:00",
   "pageSet": [
     "策略列表",
     "调仓月报",
@@ -64,7 +64,10 @@
     "detailRawBytes": 1524099485,
     "detailCompressedBytes": 202291147,
     "monthlyRebalanceReportAssetCount": 8,
-    "monthlyRebalanceReportAssetBytes": 666929
+    "monthlyRebalanceReportAssetBytes": 666929,
+    "preservedPublishPathCount": 0,
+    "preservedPublishFileCount": 0,
+    "preservedPublishBytes": 0
   },
   "fileCount": 19221,
   "totalBytes": 216612267,
@@ -217,12 +220,12 @@
     {
       "path": "basic_data/data/data_pack_manifest.js",
       "size": 4682,
-      "sha256": "b59e9b551746d17c4983d8d1c66b46bfc6bb89c299aa286550254cde3a58b0f7"
+      "sha256": "a4e71d9ec197925d242c9872b853455956408c5484a656d31adaf7605199ae3a"
     },
     {
       "path": "basic_data/data/data_quality_pack.js.gz",
       "size": 15408,
-      "sha256": "94ccb820999d8d42efd44f3670b7a59b909e61371fcb10dbb1602c6ba5a7eb8d"
+      "sha256": "12cd4abbea38208ac465fe91df6b0bf3797f2f1090fb4fa3d48f190c4fe42be8"
     },
     {
       "path": "basic_data/data/details/00/gfbank_cgb__ui-name-ba62ecf54eac98cf.js.gz",
@@ -96087,7 +96090,7 @@
     {
       "path": "package_validation.json",
       "size": 4447,
-      "sha256": "a02f8b2c774035f48c8076fe58b24b16e175b8648d2224353001b02e776560c9"
+      "sha256": "cf3c8426e9b8c850a2dc842ca886f4ee23665dd81c221af3e7181b4de96471bd"
     },
     {
       "path": "README.md",
@@ -96162,7 +96165,7 @@
     {
       "path": "version.json",
       "size": 149,
-      "sha256": "5f4a329de7bebe120bdf2a430ba6ad8ab58b8fda11e3d87508365279926bbddb"
+      "sha256": "c694ec3673bf3a5ffe78347f8956f9692ab8764adcdf55676431362bd6b3869b"
     },
     {
       "path": "停止最小发布集.cmd",
