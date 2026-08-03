@@ -1,24 +1,24 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-02T15:37:01+08:00",
+  "generatedAt": "2026-08-03T12:39:44+08:00",
   "status": "ready",
   "checks": {
-    "strategySummaryCount": 1527,
-    "strategyDetailCount": 1527,
+    "strategySummaryCount": 1528,
+    "strategyDetailCount": 1528,
     "strategyDetailMissingCount": 0,
     "strategyDetailParseErrorCount": 0,
-    "strategyDetailDeclaredIncompleteCount": 421,
-    "strategyDetailWithoutHoldingCount": 279,
-    "strategyDetailWithoutCurveCount": 264,
+    "strategyDetailDeclaredIncompleteCount": 422,
+    "strategyDetailWithoutHoldingCount": 280,
+    "strategyDetailWithoutCurveCount": 265,
     "strategyDetailReferencedFundCount": 4962,
     "selectedFundCount": 17629,
     "enhancedFundDetailCount": 17629,
     "baseOnlyFundCount": 0,
     "brokenFundDetailCount": 0,
-    "strategyDetailSourceCount": 1527,
+    "strategyDetailSourceCount": 1528,
     "strategyDetailDeclaredCompleteCount": 1106,
-    "activeStrategyCount": 1065,
-    "activeStrategyWithoutCurveCount": 262,
+    "activeStrategyCount": 1066,
+    "activeStrategyWithoutCurveCount": 263,
     "currentHoldingStrategyCount": 1223,
     "currentHoldingFundReferenceCount": 21364,
     "currentHoldingRankMissingReferenceCount": 5,
@@ -47,7 +47,7 @@
     "holdingSnapshotPublishedRowCount": 77534,
     "holdingSnapshotStrategyCount": 1144,
     "monthly-rebalance-report-202606FileCount": 8,
-    "monthly-rebalance-report-202606Bytes": 668444
+    "monthly-rebalance-report-202606Bytes": 666929
   },
   "policy": {
     "blockingZeroChecks": [
@@ -69,7 +69,7 @@
   "warnings": [
     {
       "type": "source_strategy_data_incomplete",
-      "count": 421,
+      "count": 422,
       "note": "源数据已明确标记不完整，发布集保留真实缺失状态，不做推测补齐。"
     },
     {
@@ -80,7 +80,7 @@
     },
     {
       "type": "active_strategy_without_curve",
-      "count": 262,
+      "count": 263,
       "note": "活跃策略没有任何可画曲线时保留真实缺失状态；正常披露策略应为0。"
     },
     {
