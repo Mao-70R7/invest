@@ -73,9 +73,14 @@
   }
 
   function isStoppedStrategy(row) {
+    if (Number(row?.是否历史接口留档 || 0) === 1) return true;
     if (Number(row?.是否已停止 || 0) === 1) return true;
     const status = [row?.策略治理状态, row?.运作状态, row?.天天展示状态].filter(Boolean).join(" ");
     return /已停止|已终止|已下架|已清盘|期满|已止盈|非对客或已结束|stopped/i.test(status);
+  }
+
+  function lifecycleLabel(row) {
+    return Number(row?.是否历史接口留档 || 0) === 1 ? "历史接口留档" : "已下架";
   }
 
   function numberValue(row, field) {
@@ -133,7 +138,7 @@
       row.天天展示状态,
       row.策略治理状态,
       row.运作状态,
-      isStoppedStrategy(row) ? "已下架" : "当前在架"
+      isStoppedStrategy(row) ? lifecycleLabel(row) : "当前在架"
     ].join(" ").toLowerCase();
   }
 
@@ -145,7 +150,7 @@
 
   function formatCell(row, field) {
     if (field === "策略名称") {
-      const stoppedBadge = isStoppedStrategy(row) ? '<span class="strategy-lifecycle-badge is-stopped">已下架</span>' : "";
+      const stoppedBadge = isStoppedStrategy(row) ? `<span class="strategy-lifecycle-badge is-stopped">${B.esc(lifecycleLabel(row))}</span>` : "";
       const rankNote = isStoppedStrategy(row) ? '<div class="strategy-rank-note">不参与当前常规排名</div>' : "";
       return `<div class="strategy-name-line"><a class="link" href="./strategy.html?id=${encodeURIComponent(row.统一策略ID)}">${B.esc(row.策略名称 || "未命名策略")}</a>${stoppedBadge}</div><div class="small">策略代码 ${B.esc(row.策略代码 || "未披露")}</div>${rankNote}`;
     }
@@ -205,7 +210,7 @@
         ${filterControl("关键词", '<input id="searchInput" class="control" type="search" placeholder="策略、机构、代码、渠道、分类">', "模糊匹配：策略名称、代码、机构、渠道和分类字段")}
         ${filterControl("产品状态", `<select id="productStatusSelect" class="control">
           <option value="">默认在架；关键词含历史</option>
-          <option value="stopped">已下架/已结束</option>
+          <option value="stopped">已下架/已结束/历史留档</option>
           <option value="all">全部产品状态</option>
         </select>`, "默认列表不混入下架策略；输入关键词时仍可直接查到历史产品")}
         ${filterControl("对客状态", `<select id="clientScopeSelect" class="control">
@@ -242,7 +247,8 @@
           <span><b>研报产品类型</b> 投研可比池，适合同类业绩和风险比较。</span>
           <span><b>业务分类</b> 运营货架口径，适合产品线和销售场景管理。</span>
           <span><b>对客状态</b> 用于区分可对客展示产品和仅保留核验样本。</span>
-          <span><b>产品状态</b> 默认不展示已下架策略；关键词搜索会覆盖历史产品，下架策略保留详情但不参与当前常规排名。</span>
+          <span><b>产品状态</b> 默认不展示已下架、已结束或历史接口留档策略；关键词搜索仍可查到，且均不参与当前常规排名。</span>
+          <span><b>广发证券渠道</b> “财富管家”是当前产品目录，投顾机构列显示实际提供服务的基金投顾机构；“贝塔牛理财”是历史接口留档，不等同于当前财富管家产品。</span>
         </div>
       </details>
       <div class="pager">
@@ -309,11 +315,12 @@
     const pageRows = rows.slice((state.page - 1) * state.pageSize, state.page * state.pageSize);
     const gfCount = rows.filter(isGfStrategy).length;
     const clientCount = rows.filter(isClientFacing).length;
-    const stoppedCount = rows.filter(isStoppedStrategy).length;
+    const stoppedCount = rows.filter((row) => isStoppedStrategy(row) && Number(row?.是否历史接口留档 || 0) !== 1).length;
+    const legacyCount = rows.filter((row) => Number(row?.是否历史接口留档 || 0) === 1).length;
     const scopeText = state.hiddenStrategyScope === "gf" ? "｜证据范围 广发策略" : (state.hiddenStrategyScope === "nonGf" ? "｜证据范围 非广发策略" : "");
     const unbucketedCount = rows.filter(isUnbucketed).length;
     const keywordHistoryText = B.byId("searchInput").value.trim() && !B.byId("productStatusSelect").value ? "｜关键词已包含历史下架策略" : "";
-    B.byId("resultCount").textContent = `当前筛选 ${rows.length.toLocaleString("zh-CN")} 条策略，其中已下架 ${stoppedCount.toLocaleString("zh-CN")} 条，未分档 ${unbucketedCount.toLocaleString("zh-CN")} 条，广发 ${gfCount.toLocaleString("zh-CN")} 条，对客 ${clientCount.toLocaleString("zh-CN")} 条${scopeText}${keywordHistoryText}`;
+    B.byId("resultCount").textContent = `当前筛选 ${rows.length.toLocaleString("zh-CN")} 条策略，其中已下架/已结束 ${stoppedCount.toLocaleString("zh-CN")} 条，历史接口留档 ${legacyCount.toLocaleString("zh-CN")} 条，未分档 ${unbucketedCount.toLocaleString("zh-CN")} 条，广发 ${gfCount.toLocaleString("zh-CN")} 条，对客 ${clientCount.toLocaleString("zh-CN")} 条${scopeText}${keywordHistoryText}`;
     B.byId("pageInfo").textContent = `${state.page} / ${maxPage}`;
     B.byId("prevPage").disabled = state.page <= 1;
     B.byId("nextPage").disabled = state.page >= maxPage;

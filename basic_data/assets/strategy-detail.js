@@ -35,7 +35,8 @@
   const globalBenchmarks = B.state.summary?.globalBenchmarks || [];
   const officialCurvePoints = detail.curves?.披露业绩?.points || [];
   const simulatedCurvePoints = detail.curves?.模拟业绩?.points || [];
-  const hasDrawableStrategyCurve = officialCurvePoints.length >= 2 || simulatedCurvePoints.length >= 2;
+  const isLegacyArchive = Number(detail.summary?.是否历史接口留档 || 0) === 1;
+  const hasDrawableStrategyCurve = officialCurvePoints.length >= 2 || (!isLegacyArchive && simulatedCurvePoints.length >= 2);
   const hasAnnualPerformance = (detail.annualMatrix || []).some((row) => Object.entries(row || {}).some(([key, value]) => key !== "年度" && num(value) !== null));
   const hasRiskMetrics = ["最大回撤", "当前回撤", "年化收益", "波动率", "夏普比率"].some((field) => num(detail.summary?.[field]) !== null);
   let activeRange = "all";
@@ -724,15 +725,19 @@
   }
   function isStoppedSummary() {
     const s = detail.summary || {};
+    if (Number(s.是否历史接口留档 || 0) === 1) return true;
     if (Number(s.是否已停止 || 0) === 1) return true;
     const status = [s.策略治理状态, s.运作状态, classificationMap.天天展示状态, s.天天展示状态].filter(Boolean).join(" ");
     return /已停止|已终止|已下架|已清盘|期满|已止盈|非对客或已结束|stopped/i.test(status);
   }
+  function lifecycleSummaryLabel() {
+    return isLegacyArchive ? "历史接口留档" : "策略已下架";
+  }
   function stoppedStrategyBanner() {
     if (!isStoppedSummary()) return "";
     return `<div class="strategy-stopped-banner" role="status">
-      <strong>策略已下架</strong>
-      <span>该策略不参与当前常规排名；历史净值、收益、持仓和调仓数据仅保留用于查询与复盘。</span>
+      <strong>${B.esc(lifecycleSummaryLabel())}</strong>
+      <span>${isLegacyArchive ? "该产品来自广发证券贝塔牛历史接口，不是当前财富管家货架产品；已有官方区间收益保留查询，无法取得的日度走势图不构造。" : "该策略不参与当前常规排名；历史净值、收益、持仓和调仓数据仅保留用于查询与复盘。"}</span>
     </div>`;
   }
   function isGfSummary() {
@@ -1367,7 +1372,7 @@
       <a class="strategy-back-link" href="./strategies.html">← 返回策略列表</a>
       <div class="strategy-identity-row">
         <div class="strategy-identity">
-          <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${isStoppedSummary() ? '<span class="strategy-lifecycle-badge is-stopped">已下架</span>' : ""}${B.statusBadge(detail.summary.数据完整性)}</div>
+          <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${isStoppedSummary() ? `<span class="strategy-lifecycle-badge is-stopped">${B.esc(isLegacyArchive ? "历史接口留档" : "已下架")}</span>` : ""}${B.statusBadge(detail.summary.数据完整性)}</div>
           <p>${B.esc(profileMap.投顾机构 || detail.summary.投顾机构 || "投顾机构未披露")}</p>
         </div>
         <div class="strategy-status-list ${isStoppedSummary() ? "is-stopped" : ""}">
