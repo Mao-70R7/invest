@@ -1912,13 +1912,22 @@
   function ensureHoldingSnapshotPack() {
     if (loadedHoldingSnapshotPack()) return true;
     const meta = insight.持仓日期分类快照 || {};
-    if (!meta.external || typeof fetch !== "function") return false;
     if (!holdingSnapshotPackPromise) {
-      holdingSnapshotPackPromise = fetch(meta.external, { cache: "no-store" })
-        .then((response) => {
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          return response.json();
+      const minimalScript = window.MinimalPublish ? "./data/holding_snapshot_pack.js" : "";
+      const scriptSrc = meta.externalScript || minimalScript;
+      const loadPack = scriptSrc && B.loadScript
+        ? B.loadScript(scriptSrc).then(() => {
+          const pack = loadedHoldingSnapshotPack();
+          if (!pack) throw new Error("仓位快照脚本未返回数据");
+          return pack;
         })
+        : meta.external && typeof fetch === "function"
+          ? fetch(meta.external, { cache: "no-store" }).then((response) => {
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response.json();
+          })
+          : Promise.reject(new Error("仓位快照数据不可访问"));
+      holdingSnapshotPackPromise = loadPack
         .then((pack) => {
           window.__BASIC_HOLDING_SNAPSHOT_PACK__ = pack;
           holdingSnapshotRowsCache = null;

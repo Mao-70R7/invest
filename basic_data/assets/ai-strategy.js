@@ -3555,7 +3555,9 @@
 
   function compareUrl() {
     const ids = state.selectedCompareIds.slice(0, compareMaxCount).map(encodeURIComponent).join(",");
-    return `./insights.html?tab=compare&compare=${ids}`;
+    const script = Array.from(document.scripts).find((item) => /\/ai-strategy\.js(?:\?|$)/.test(item.src || ""));
+    const version = script ? new URL(script.src, document.baseURI).searchParams.get("v") || "" : "";
+    return `./compare.html?compare=${ids}${version ? `&v=${encodeURIComponent(version)}` : ""}`;
   }
 
   function renderCompareToolbar(rows) {

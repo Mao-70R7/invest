@@ -1,7 +1,7 @@
 {
   "version": 1,
   "buildId": "minimal-e2e187bbac13",
-  "generatedAt": "2026-08-03T14:26:44+08:00",
+  "generatedAt": "2026-08-05T16:17:19+08:00",
   "pageSet": [
     "策略列表",
     "调仓月报",
@@ -70,7 +70,7 @@
     "preservedPublishBytes": 259882
   },
   "fileCount": 19222,
-  "totalBytes": 216855651,
+  "totalBytes": 216856354,
   "files": [
     {
       "path": ".github/workflows/pages.yml",
@@ -100,7 +100,7 @@
     {
       "path": "basic_data/ai-strategy.html",
       "size": 2730,
-      "sha256": "9b506b657645bb3fede6e7bd01489e1a66188231643671142b7d38971f8b5a04"
+      "sha256": "2f98ec870d59ef61a2f419997edc57e341a334ac0b601287280b6f5994f1b305"
     },
     {
       "path": "basic_data/assets/ai-strategy-config.js",
@@ -109,8 +109,8 @@
     },
     {
       "path": "basic_data/assets/ai-strategy.js",
-      "size": 230158,
-      "sha256": "0862f32b857f107491aaee3b3300d75d638e435d3c9c57c346c16edf284d5706"
+      "size": 230409,
+      "sha256": "445eb1143123060e8956c6751a82bcd820ef03924cb6756da216a82961410fc5"
     },
     {
       "path": "basic_data/assets/basic-common.js",
@@ -129,8 +129,8 @@
     },
     {
       "path": "basic_data/assets/insights.js",
-      "size": 361183,
-      "sha256": "505af1ca448c004becc9e049ba99e7d56ad9155db0a4fe98a855235adea0575c"
+      "size": 361658,
+      "sha256": "02435f072fcc9102b621069941c87b312fedbed4ac1de95ba94956f316b7da2b"
     },
     {
       "path": "basic_data/assets/minimal-publish-runtime.js",
@@ -194,8 +194,8 @@
     },
     {
       "path": "basic_data/compare.html",
-      "size": 2327,
-      "sha256": "b642795726151d17d4728c01b08b59216a6629b967d4cc5c99dcbf44df0f2e45"
+      "size": 2278,
+      "sha256": "f6dfe98e65880ecdb2bdf5802f4157273ea6758ddf41375106a9765c2e78e664"
     },
     {
       "path": "basic_data/config/ai-strategy-local-config.js",
@@ -224,8 +224,8 @@
     },
     {
       "path": "basic_data/data/data_pack_manifest.js",
-      "size": 4676,
-      "sha256": "32b204017a612a5f38b1979d96f64c93a828072caf33740d4bad826ee249ff54"
+      "size": 4702,
+      "sha256": "4a5050355291a21ec56f1b8cb7f884f2389df4a026c85cc87897baca9846469d"
     },
     {
       "path": "basic_data/data/data_quality_pack.js.gz",
