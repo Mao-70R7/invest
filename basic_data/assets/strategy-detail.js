@@ -978,8 +978,15 @@
       return;
     }
     const primaryName = officialPoints.length >= 2 ? "披露业绩" : "模拟业绩";
-    const defaultSeries = selectedName ? [primaryName, selectedName] : [primaryName];
-    B.drawReturnChart(chartHost, mainChartSeries(), { range: activeRange, title: "净值曲线", defaultVisibleSeries: defaultSeries, maxGapDays: 45 });
+    const series = mainChartSeries();
+    const benchmarkPayload = series["基准业绩"];
+    const benchmarkPoints = Array.isArray(benchmarkPayload) ? benchmarkPayload : (benchmarkPayload?.points || []);
+    const defaultSeries = [
+      primaryName,
+      ...(benchmarkPoints.length >= 2 ? ["基准业绩"] : []),
+      ...(selectedName ? [selectedName] : []),
+    ];
+    B.drawReturnChart(chartHost, series, { range: activeRange, title: "净值曲线", defaultVisibleSeries: defaultSeries, maxGapDays: 45 });
     const sourceHost = B.byId("sourceCards");
     if (sourceHost) sourceHost.innerHTML = sourceCards();
   }
