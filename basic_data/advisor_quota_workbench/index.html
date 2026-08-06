@@ -83,7 +83,7 @@
     .algorithm-detail{margin-top:9px;border-top:1px dashed var(--line);padding-top:7px}.algorithm-detail summary{cursor:pointer;color:#12614d;font-size:10px;font-weight:800;list-style-position:inside}.algorithm-detail[open] summary{margin-bottom:7px}.algorithm-detail-body{display:grid;gap:0;border:1px solid #cfe0da;background:#f8fbfa;border-radius:4px}.algorithm-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;padding:7px 9px;border-bottom:1px solid #dfe9e5;font-size:10px;line-height:1.65}.algorithm-row:last-child{border-bottom:0}.algorithm-row b{color:#23463c}.algorithm-row span{color:var(--muted);margin:0}.algorithm-row code{padding:1px 4px;border-radius:3px;background:#e8f1ee;color:#164f40;font-family:Consolas,monospace;font-size:9px}
     .toast{position:fixed;right:20px;bottom:20px;z-index:200;max-width:420px;padding:11px 14px;border-radius:5px;background:#21333c;color:#fff;box-shadow:var(--shadow);font-size:11px;line-height:1.55;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:none}.toast.error{background:#8f3731}
     @media(max-width:1180px){.filter-bar{grid-template-columns:repeat(3,minmax(120px,1fr))}.period-toolbar{grid-template-columns:1fr 1fr 1fr}.preset-group{grid-column:1/-1}.product-layout .data-table{min-width:760px}.detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:820px){.app{display:block}.sidebar{display:none}.topbar{top:0;padding:9px 12px}.page-heading span{display:none}.role-box>span{display:none}.mobile-nav{position:sticky;top:60px;z-index:20;display:flex;gap:5px;padding:7px 10px;border-bottom:1px solid var(--line);background:#fff;overflow:auto}.mobile-nav .nav-btn{width:auto;min-width:max-content;min-height:34px;border:1px solid var(--line);background:#fff;color:var(--muted)}.mobile-nav .nav-btn.active{background:var(--teal-soft);color:var(--teal);border-color:#9dcfc9}.content{padding:12px 10px 30px}.panel-head{align-items:flex-start;flex-wrap:wrap}.panel-title{min-width:0}.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}.filter-bar,.period-toolbar{grid-template-columns:1fr 1fr}.preset-group{grid-column:1/-1}.form-grid,.cycle-form{grid-template-columns:1fr 1fr}.mini-metrics{grid-template-columns:repeat(2,1fr)}.mini-metric{border-bottom:1px solid var(--line)}.allocation-stats{grid-template-columns:1fr 1fr}.allocation-stat:nth-child(2){border-right:0}.allocation-stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.flow-branch,.flow-branch.two{grid-template-columns:1fr}.detail-head{top:101px}.detail-body{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr 1fr}.transaction-inline{grid-template-columns:1fr 1fr}.batch-summary,.rotation-period-summary{grid-template-columns:1fr 1fr}.batch-summary>*:last-child,.rotation-period-summary>*:last-child{grid-column:1/-1}.product-card-head{display:block}.product-card-head .panel-actions{margin-top:10px}.more-actions-menu{left:0;right:auto}}
+    @media(max-width:820px){.app{display:block}.sidebar{display:none}.topbar{top:0;padding:9px 12px}.page-heading span{display:none}.role-box>span{display:none}.mobile-nav{position:sticky;top:60px;z-index:20;display:flex;gap:5px;padding:7px 10px;border-bottom:1px solid var(--line);background:#fff;overflow:auto}.mobile-nav .nav-btn{width:auto;min-width:max-content;min-height:34px;border:1px solid var(--line);background:#fff;color:var(--muted)}.mobile-nav .nav-btn.active{background:var(--teal-soft);color:var(--teal);border-color:#9dcfc9}.content{padding:12px 10px 30px}.panel-head{align-items:flex-start;flex-wrap:wrap}.panel-title{min-width:0}.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}.filter-bar,.period-toolbar{grid-template-columns:1fr 1fr}.preset-group{grid-column:1/-1}.form-grid,.cycle-form{grid-template-columns:1fr 1fr}.mini-metrics{grid-template-columns:repeat(2,1fr)}.mini-metric{border-bottom:1px solid var(--line)}.allocation-stats{grid-template-columns:1fr 1fr}.allocation-stat:nth-child(2){border-right:0}.allocation-stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.flow-branch,.flow-branch.two{grid-template-columns:1fr}.detail-head{top:101px}.detail-body{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr 1fr}.transaction-inline{grid-template-columns:1fr 1fr}.batch-summary,.rotation-period-summary{grid-template-columns:1fr 1fr}.batch-summary>*:last-child,.rotation-period-summary>*:last-child{grid-column:1/-1}.product-card-head{display:block}.product-card-head .panel-actions{margin-top:10px}.bulk-bar>.inline-controls{width:100%;min-width:0;flex-wrap:wrap}.more-actions-menu{left:0;right:auto}}
     @media(max-width:520px){.top-actions .btn{display:none}.filter-bar,.period-toolbar,.form-grid,.cycle-form{grid-template-columns:1fr}.preset-group{grid-column:auto}.metrics{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line)}.metric:last-child{border-bottom:0}.detail-actions .btn{flex:1}.mini-metrics{grid-template-columns:1fr 1fr}.transaction-inline{grid-template-columns:1fr}.modal-layer{padding:8px}.draw-slots{grid-template-columns:1fr 1fr}}
   </style>
 </head>
@@ -116,10 +116,10 @@
   <div class="toast" id="toast"></div>
   <script>
     "use strict";
-    const STORAGE_KEY="gf-advisor-code-workbench-v10";
+    const STORAGE_KEY="gf-advisor-code-workbench-v11";
     const IDB_NAME="gf-advisor-quota-demo-db";
     const IDB_STORE="snapshots";
-    const SEED_VERSION="20260805-advisor-workbench-v10";
+    const SEED_VERSION="20260806-advisor-workbench-v11";
     const MANAGERS=["邓迎怡","刘建林","黎春艳","郑沨"];
     const ADVISOR_NAMES=["邓迎怡","陈晓斌","欧阳园","马玲玲","林囿成","王经","肖敏","黎春艳","杨祺","陈楚瑜","陈文婷","符吉康","刘建林","文静","丁冬","郑沨","胡珍妮","兰守坚"];
     const HALF_WEIGHT_ADVISORS=["陈晓斌","林囿成","杨祺","文静"];
@@ -178,9 +178,10 @@
     }
     const paginate=(rows,page,size)=>rows.slice((page-1)*size,page*size);
     const pages=(rows,size)=>Math.max(1,Math.ceil(rows.length/size));
-    const sourceLabel={equal:"均分",lottery:"抓阄",rotation:"固定周期分配",manual:"经理调整",special:"特殊名额",mobile:"机动名额"};
+    const sourceLabel={equal:"均分",lottery:"抓阄",rotation:"固定周期分配",manual:"经理调整",special:"特殊名额"};
     const purposeLabel={catchup:"首次补齐","catchup-lottery":"补齐抓阄","cycle-equal":"本期轮询均分","tail-lottery":"尾差抓阄","version-follow":"跟进轮转轮次","version-lottery":"轮转尾差抓阄"};
-    const typeLabel={ordinary:"普通预约码",special:"特殊专属码",mobile:"机动码"};
+    const typeLabel={ordinary:"普通预约码",special:"特殊预约码"};
+    const SPECIAL_CODE_TYPES=["员工名额","战略户名额","101客户名额","机动名额"];
     const queueClass=value=>({"排队中":"queue","已取消":"cancelled","已分配":"assigned","已下单":"paused","已完成":"done"}[value]||"");
     const transactionLabel=value=>value||"未下单";
     const isManager=()=>MANAGERS.includes(ui.operator);
@@ -189,27 +190,27 @@
       const data={
         seedVersion:SEED_VERSION,
         updatedAt:Date.now(),
-        advisors:ADVISOR_NAMES.map((name,index)=>({id:`A${String(index+1).padStart(2,"0")}`,name,manager:MANAGERS.includes(name),baseStatus:HALF_WEIGHT_ADVISORS.includes(name)?"半权重":"正常",defaultParticipation:DEFAULT_NONPARTICIPANTS.includes(name)?"不参与":"参与"})),
+        advisors:ADVISOR_NAMES.map((name,index)=>({id:`A${String(index+1).padStart(2,"0")}`,name,manager:MANAGERS.includes(name),baseStatus:DEFAULT_NONPARTICIPANTS.includes(name)?"名额排除":HALF_WEIGHT_ADVISORS.includes(name)?"半权重":"正常"})),
         products:PRODUCT_SEED.map((row,index)=>({id:row[0],code:row[1],name:row[2],fundManager:row[3],scenario:row[4],createdAt:`2026-06-${String(10+index).padStart(2,"0")}`})),
         cycles:[
-          {id:"CY-P01-01",productId:"P01",name:"2026年7月新发期",start:"2026-07-14",end:"2026-08-14",status:"开放中",allocationMode:"basic",ordinaryQuota:140,specialQuota:40,mobileQuota:20,template:{prefix:"HQ19",min:100,max:5000,validTo:"2026-08-14",rule:"产品简称+周期+六位随机码"}},
-          {id:"CY-P02-02",productId:"P02",name:"2026年第2次开放",start:"2026-07-29",end:"2026-08-04",status:"即将开放",allocationMode:"basic",ordinaryQuota:16,specialQuota:3,mobileQuota:1,template:{prefix:"ZL7",min:40,max:1000,validTo:"2026-08-04",rule:"产品简称+周期+六位随机码"}},
-          {id:"CY-P02-01",productId:"P02",name:"2026年第1次开放",start:"2026-05-20",end:"2026-05-26",status:"已结束",allocationMode:"basic",ordinaryQuota:10,specialQuota:1,mobileQuota:1,template:{prefix:"ZL7",min:40,max:1000,validTo:"2026-05-26",rule:"产品简称+周期+六位随机码"}},
-          {id:"CY-P03-06",productId:"P03",name:"2026年第6期",start:"2026-08-20",end:"2026-08-26",status:"即将开放",allocationMode:"rotation",ordinaryQuota:18,specialQuota:1,mobileQuota:1,caseNote:"当前为第3轮。16名顾问参与，其中14人尚未跟上第3轮，先各分1个；全部跟上后进入第4轮，邓迎怡、陈晓斌因本期获配较少先各分1个；最后2个在其余14名本期获配最低的顾问中抓阄。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-08-26",rule:"产品简称+期次+六位随机码"}},
-          {id:"CY-P03-05",productId:"P03",name:"2026年第5期",start:"2026-07-30",end:"2026-08-05",status:"即将开放",allocationMode:"rotation",ordinaryQuota:10,specialQuota:1,mobileQuota:1,caseNote:"当前为第3轮。14名顾问尚未跟上，但本期只有10个名额，因此只在这14人中抓阄10人；未中签者下期继续优先跟进第3轮。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-08-05",rule:"产品简称+期次+六位随机码"}},
-          {id:"CY-P03-04",productId:"P03",name:"2026年第4期",start:"2026-07-15",end:"2026-07-21",status:"已结束",allocationMode:"rotation",ordinaryQuota:12,specialQuota:0,mobileQuota:0,caseNote:"分配前陈晓斌已到第2轮，其余10人停留第1轮。先让10人跟上第2轮；全员跟上后进入第3轮，先给本期尚未获配的陈晓斌1个，最后1个在其余10人中抓阄。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-07-21",rule:"产品简称+期次+六位随机码"}},
-          {id:"CY-P03-03",productId:"P03",name:"2026年第3期",start:"2026-07-07",end:"2026-07-13",status:"已结束",allocationMode:"rotation",ordinaryQuota:4,specialQuota:0,mobileQuota:0,caseNote:"黎春艳、杨祺仍未跟上第1轮，新参加的陈楚瑜也从第1轮开始；3人各分1个后，全员跟上第1轮并进入第2轮，最后1个在本期仍为0个的8人中抓阄。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-07-13",rule:"产品简称+期次+六位随机码"}},
-          {id:"CY-P03-02",productId:"P03",name:"2026年第2期",start:"2026-06-25",end:"2026-07-01",status:"已结束",allocationMode:"rotation",ordinaryQuota:5,specialQuota:0,mobileQuota:0,caseNote:"第1轮仍有7人未跟上，本期5个名额只在这7人中抓阄；中签5人更新到第1轮，未中2人留待下期。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-07-01",rule:"产品简称+期次+六位随机码"}},
-          {id:"CY-P03-01",productId:"P03",name:"2026年第1期",start:"2026-05-28",end:"2026-06-03",status:"已结束",allocationMode:"rotation",ordinaryQuota:3,specialQuota:0,mobileQuota:0,caseNote:"产品从第1轮开始，10名参与顾问的已跟进轮次均为0。本期3个名额在10人中抓阄，中签3人更新为第1轮。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-06-03",rule:"产品简称+期次+六位随机码"}},
-          {id:"CY-P04-01",productId:"P04",name:"2026年7月开放期",start:"2026-07-29",end:"2026-08-04",status:"开放中",allocationMode:"basic",ordinaryQuota:30,specialQuota:4,mobileQuota:2,template:{prefix:"ZT50",min:100,max:2000,validTo:"2026-08-04",rule:"产品简称+日期+六位随机码"}},
-          {id:"CY-P05-01",productId:"P05",name:"2026年临时追加期",start:"2026-07-31",end:"2026-08-03",status:"即将开放",allocationMode:"basic",ordinaryQuota:6,specialQuota:1,mobileQuota:1,template:{prefix:"LHZT1",min:100,max:1500,validTo:"2026-08-03",rule:"产品简称+日期+六位随机码"}},
-          {id:"CY-P06-01",productId:"P06",name:"2026年8月新发期",start:"2026-08-06",end:"2026-09-06",status:"即将开放",allocationMode:"basic",ordinaryQuota:150,specialQuota:30,mobileQuota:20,template:{prefix:"CQHL",min:100,max:5000,validTo:"2026-09-06",rule:"产品简称+周期+六位随机码"}},
-          {id:"CY-P07-01",productId:"P07",name:"2026年7月开放期",start:"2026-07-30",end:"2026-08-05",status:"开放中",allocationMode:"basic",ordinaryQuota:28,specialQuota:2,mobileQuota:2,template:{prefix:"CQZZ",min:100,max:2000,validTo:"2026-08-05",rule:"产品简称+日期+六位随机码"}},
-          {id:"CY-P08-01",productId:"P08",name:"2026年7月开放期",start:"2026-07-29",end:"2026-08-04",status:"开放中",allocationMode:"basic",ordinaryQuota:40,specialQuota:0,mobileQuota:0,template:{prefix:"CQJB",min:100,max:3000,validTo:"2026-08-04",rule:"产品简称+日期+六位随机码"}},
-          {id:"CY-P09-01",productId:"P09",name:"2026年追加开放期",start:"2026-07-30",end:"2026-08-05",status:"开放中",allocationMode:"basic",ordinaryQuota:18,specialQuota:1,mobileQuota:1,template:{prefix:"HH1",min:40,max:1000,validTo:"2026-08-05",rule:"产品简称+日期+六位随机码"}},
-          {id:"CY-P10-01",productId:"P10",name:"2026年7月开放期",start:"2026-07-29",end:"2026-08-04",status:"开放中",allocationMode:"basic",ordinaryQuota:12,specialQuota:6,mobileQuota:4,template:{prefix:"WXZX",min:100,max:3000,validTo:"2026-08-04",rule:"产品简称+日期+六位随机码"}}
+          {id:"CY-P01-01",productId:"P01",name:"2026年7月新发期",start:"2026-07-14",end:"2026-08-14",status:"开放中",allocationMode:"basic",ordinaryQuota:140,specialQuota:60,template:{prefix:"HQ19",min:100,max:5000,validTo:"2026-08-14",rule:"产品简称+周期+六位随机码"}},
+          {id:"CY-P02-02",productId:"P02",name:"2026年第2次开放",start:"2026-07-29",end:"2026-08-04",status:"即将开放",allocationMode:"basic",ordinaryQuota:16,specialQuota:4,template:{prefix:"ZL7",min:40,max:1000,validTo:"2026-08-04",rule:"产品简称+周期+六位随机码"}},
+          {id:"CY-P02-01",productId:"P02",name:"2026年第1次开放",start:"2026-05-20",end:"2026-05-26",status:"已结束",allocationMode:"basic",ordinaryQuota:10,specialQuota:2,template:{prefix:"ZL7",min:40,max:1000,validTo:"2026-05-26",rule:"产品简称+周期+六位随机码"}},
+          {id:"CY-P03-06",productId:"P03",name:"2026年第6期",start:"2026-08-20",end:"2026-08-26",status:"即将开放",allocationMode:"rotation",ordinaryQuota:18,specialQuota:2,caseNote:"当前为第3轮。16名顾问参与，其中14人尚未跟上第3轮，先各分1个；全部跟上后进入第4轮，邓迎怡、陈晓斌因本期获配较少先各分1个；最后2个在其余14名本期获配最低的顾问中抓阄。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-08-26",rule:"产品简称+期次+六位随机码"}},
+          {id:"CY-P03-05",productId:"P03",name:"2026年第5期",start:"2026-07-30",end:"2026-08-05",status:"即将开放",allocationMode:"rotation",ordinaryQuota:10,specialQuota:2,caseNote:"当前为第3轮。14名顾问尚未跟上，但本期只有10个名额，因此只在这14人中抓阄10人；未中签者下期继续优先跟进第3轮。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-08-05",rule:"产品简称+期次+六位随机码"}},
+          {id:"CY-P03-04",productId:"P03",name:"2026年第4期",start:"2026-07-15",end:"2026-07-21",status:"已结束",allocationMode:"rotation",ordinaryQuota:12,specialQuota:0,caseNote:"分配前陈晓斌已到第2轮，其余10人停留第1轮。先让10人跟上第2轮；全员跟上后进入第3轮，先给本期尚未获配的陈晓斌1个，最后1个在其余10人中抓阄。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-07-21",rule:"产品简称+期次+六位随机码"}},
+          {id:"CY-P03-03",productId:"P03",name:"2026年第3期",start:"2026-07-07",end:"2026-07-13",status:"已结束",allocationMode:"rotation",ordinaryQuota:4,specialQuota:0,caseNote:"黎春艳、杨祺仍未跟上第1轮，新参加的陈楚瑜也从第1轮开始；3人各分1个后，全员跟上第1轮并进入第2轮，最后1个在本期仍为0个的8人中抓阄。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-07-13",rule:"产品简称+期次+六位随机码"}},
+          {id:"CY-P03-02",productId:"P03",name:"2026年第2期",start:"2026-06-25",end:"2026-07-01",status:"已结束",allocationMode:"rotation",ordinaryQuota:5,specialQuota:0,caseNote:"第1轮仍有7人未跟上，本期5个名额只在这7人中抓阄；中签5人更新到第1轮，未中2人留待下期。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-07-01",rule:"产品简称+期次+六位随机码"}},
+          {id:"CY-P03-01",productId:"P03",name:"2026年第1期",start:"2026-05-28",end:"2026-06-03",status:"已结束",allocationMode:"rotation",ordinaryQuota:3,specialQuota:0,caseNote:"产品从第1轮开始，10名参与顾问的已跟进轮次均为0。本期3个名额在10人中抓阄，中签3人更新为第1轮。",template:{prefix:"CGQM",min:100,max:3000,validTo:"2026-06-03",rule:"产品简称+期次+六位随机码"}},
+          {id:"CY-P04-01",productId:"P04",name:"2026年7月开放期",start:"2026-07-29",end:"2026-08-04",status:"开放中",allocationMode:"basic",ordinaryQuota:30,specialQuota:6,template:{prefix:"ZT50",min:100,max:2000,validTo:"2026-08-04",rule:"产品简称+日期+六位随机码"}},
+          {id:"CY-P05-01",productId:"P05",name:"2026年临时追加期",start:"2026-07-31",end:"2026-08-03",status:"即将开放",allocationMode:"basic",ordinaryQuota:6,specialQuota:2,template:{prefix:"LHZT1",min:100,max:1500,validTo:"2026-08-03",rule:"产品简称+日期+六位随机码"}},
+          {id:"CY-P06-01",productId:"P06",name:"2026年8月新发期",start:"2026-08-06",end:"2026-09-06",status:"即将开放",allocationMode:"basic",ordinaryQuota:150,specialQuota:50,template:{prefix:"CQHL",min:100,max:5000,validTo:"2026-09-06",rule:"产品简称+周期+六位随机码"}},
+          {id:"CY-P07-01",productId:"P07",name:"2026年7月开放期",start:"2026-07-30",end:"2026-08-05",status:"开放中",allocationMode:"basic",ordinaryQuota:28,specialQuota:4,template:{prefix:"CQZZ",min:100,max:2000,validTo:"2026-08-05",rule:"产品简称+日期+六位随机码"}},
+          {id:"CY-P08-01",productId:"P08",name:"2026年7月开放期",start:"2026-07-29",end:"2026-08-04",status:"开放中",allocationMode:"basic",ordinaryQuota:40,specialQuota:0,template:{prefix:"CQJB",min:100,max:3000,validTo:"2026-08-04",rule:"产品简称+日期+六位随机码"}},
+          {id:"CY-P09-01",productId:"P09",name:"2026年追加开放期",start:"2026-07-30",end:"2026-08-05",status:"开放中",allocationMode:"basic",ordinaryQuota:18,specialQuota:2,template:{prefix:"HH1",min:40,max:1000,validTo:"2026-08-05",rule:"产品简称+日期+六位随机码"}},
+          {id:"CY-P10-01",productId:"P10",name:"2026年7月开放期",start:"2026-07-29",end:"2026-08-04",status:"开放中",allocationMode:"basic",ordinaryQuota:12,specialQuota:10,template:{prefix:"WXZX",min:100,max:3000,validTo:"2026-08-04",rule:"产品简称+日期+六位随机码"}}
         ],
-        accounts:[],queues:[],participations:[],slots:[],codes:[],batches:[],audit:[],rotationVersions:{},halfCarry:{},cycleDemandSnapshots:{}
+        accounts:[],queues:[],slots:[],codes:[],batches:[],audit:[],rotationVersions:{},halfCarry:{},cycleDemandSnapshots:{}
       };
       data.cycles.forEach(c=>{
         const p=data.products.find(item=>item.id===c.productId),legacyPrefix=c.template.prefix;
@@ -239,37 +240,25 @@
       for(let i=0;i<32;i+=3)addQueue(i,"P08",8);
       for(let i=4;i<36;i++)addQueue(i,"P09",9);
       for(let i=1;i<31;i++)addQueue(i,"P10",10);
-      data.cycles.forEach(cycle=>{
-        data.advisors.forEach(advisor=>{
-          const fixedNames=FIXED_CYCLE_PARTICIPANTS[cycle.id];
-          const participates=fixedNames?fixedNames.includes(advisor.name):!DEFAULT_NONPARTICIPANTS.includes(advisor.name);
-          const participatedBefore=cycle.productId==="P03"&&data.cycles.some(item=>item.productId==="P03"&&item.end<cycle.start&&(FIXED_CYCLE_PARTICIPANTS[item.id]||[]).includes(advisor.name));
-          const isNewFixedAdvisor=cycle.productId==="P03"&&participates&&!participatedBefore;
-          const source=fixedNames?(cycle.status==="已结束"?"历史确认名单":"经理设置"):participates?"默认":"经理设置";
-          const note=!participates?"本期不参与均分、抓阄和固定周期分配。":isNewFixedAdvisor?"首次参加该产品固定周期，只补本期1个名额，不追补历史期次。":"按本期确认名单参与。";
-          data.participations.push({id:`PART-${cycle.id}-${advisor.id}`,cycleId:cycle.id,advisor:advisor.name,decision:participates?"参与":"不参与",source,weightOverride:"",updatedAt:"2026-07-22 09:00",note});
-        });
-      });
       data.cycles.filter(cycle=>cycle.productId==="P03").forEach((cycle,periodIndex)=>{
         data.cycleDemandSnapshots[cycle.id]={};
-        data.participations.filter(item=>item.cycleId===cycle.id&&item.decision==="参与").forEach((item,index)=>{data.cycleDemandSnapshots[cycle.id][item.advisor]=1+((index*2+periodIndex)%5)});
+        (FIXED_CYCLE_PARTICIPANTS[cycle.id]||CURRENT_PARTICIPANTS).forEach((name,index)=>{data.cycleDemandSnapshots[cycle.id][name]=1+((index*2+periodIndex)%5)});
       });
       const createSlot=(cycle,type,index)=>{
         const slot={id:`SL-${cycle.id}-${type.slice(0,1).toUpperCase()}-${String(index).padStart(3,"0")}`,cycleId:cycle.id,type,status:"有效",createdAt:"2026-07-01 09:00"};data.slots.push(slot);
         if(type!=="special"){
           const product=data.products.find(p=>p.id===cycle.productId);
-          data.codes.push({id:generateReservationCode(cycle,type,index,1),slotId:slot.id,version:1,type,advisor:"",intendedCustomerId:"",boundCustomerId:"",actualCustomerId:"",state:"经理码池",transactionStatus:"未下单",businessType:"",min:cycle.template.min,max:cycle.template.max,validTo:cycle.template.validTo,createdAt:"2026-07-01 09:00",assignedAt:"",orderTime:"",orderAmount:0,parentCodeId:"",replacementCodeId:"",invalidReason:"",leaderNote:"",productCode:product.code});
+          data.codes.push({id:generateReservationCode(cycle,type,index,1),slotId:slot.id,version:1,type,specialType:"",advisor:"",intendedCustomerId:"",boundCustomerId:"",customerName:"",customerNo:"",actualCustomerId:"",state:"经理码池",transactionStatus:"未下单",businessType:"",min:cycle.template.min,max:cycle.template.max,validTo:cycle.template.validTo,creator:"邓迎怡",createdAt:"2026-07-01 09:00",assignedAt:"",orderTime:"",orderAmount:0,parentCodeId:"",replacementCodeId:"",invalidReason:"",leaderNote:"",remark:"",productCode:product.code});
         }
       };
       data.cycles.forEach(cycle=>{
         for(let i=1;i<=cycle.ordinaryQuota;i++)createSlot(cycle,"ordinary",i);
         for(let i=1;i<=cycle.specialQuota;i++)createSlot(cycle,"special",i);
-        for(let i=1;i<=cycle.mobileQuota;i++)createSlot(cycle,"mobile",i);
       });
       const poolCodes=(cycleId,type="ordinary")=>data.codes.filter(code=>code.type===type&&code.state==="经理码池"&&data.slots.find(s=>s.id===code.slotId)?.cycleId===cycleId);
       const seedBatch=(cycleId,type,rows,time,options={})=>{
         const rowMap=new Map(rows.map(row=>[row.advisor,row])),snapshotNames=options.participants||rows.map(row=>row.advisor);
-        const participantSnapshot=snapshotNames.map(name=>{const row=rowMap.get(name)||{},a=data.advisors.find(item=>item.name===name),part=data.participations.find(item=>item.cycleId===cycleId&&item.advisor===name),weight=part?.weightOverride!==""&&part?.weightOverride!==undefined?Number(part.weightOverride):a?.baseStatus==="半权重"?.5:1,demand=data.cycleDemandSnapshots?.[cycleId]?.[name]??data.queues.filter(q=>q.cycleId===cycleId&&q.advisor===name&&["排队中","已分配","已下单"].includes(q.state)).length;return {advisor:name,weight,demand,participates:part?.decision==="参与",source:part?.source||"默认"}});
+        const participantSnapshot=snapshotNames.map(name=>{const row=rowMap.get(name)||{},a=data.advisors.find(item=>item.name===name),weight=a?.baseStatus==="半权重"?.5:1,demand=data.cycleDemandSnapshots?.[cycleId]?.[name]??data.queues.filter(q=>q.cycleId===cycleId&&(q.registrar||q.advisor)===name&&["排队中","已分配","已下单"].includes(q.state)).length;return {advisor:name,weight,demand,participates:a?.baseStatus!=="名额排除",source:"基础状态"}});
         const batch={id:`B-${String(data.batches.length+1).padStart(3,"0")}`,cycleId,type,purpose:options.purpose||"",status:"已确认",createdAt:time,operator:"邓迎怡",reason:options.reason||"",participantSnapshot,allocations:[]};
         rows.forEach(row=>{
           const count=row.count||0;for(let i=0;i<count;i++){const code=poolCodes(cycleId)[0];if(!code)break;code.state="顾问持有";code.advisor=row.advisor;code.assignedAt=time;batch.allocations.push({advisor:row.advisor,count:1,source:row.source||type,purpose:row.purpose||options.purpose||"",reason:row.reason||"",rotationVersion:Number(row.rotationVersion||0),previousVersion:Number(row.previousVersion||0),codeId:code.id})}
@@ -301,12 +290,16 @@
       const seedSpecial=(cycleId,queueItem,index)=>{
         const slot=data.slots.find(s=>s.cycleId===cycleId&&s.type==="special"&&!data.codes.some(c=>c.slotId===s.id));if(!slot||!queueItem)return;
         const cycle=data.cycles.find(c=>c.id===cycleId);const product=data.products.find(p=>p.id===cycle.productId);
-        const code={id:generateReservationCode(cycle,"special",index,1),slotId:slot.id,version:1,type:"special",advisor:queueItem.advisor,intendedCustomerId:queueItem.customerId,boundCustomerId:queueItem.customerId,actualCustomerId:"",state:"已分配客户",transactionStatus:"未下单",businessType:"",min:cycle.template.min,max:cycle.template.max,validTo:cycle.template.validTo,createdAt:"2026-07-22 14:00",assignedAt:"2026-07-22 14:00",orderTime:"",orderAmount:0,parentCodeId:"",replacementCodeId:"",invalidReason:"",leaderNote:"",productCode:product.code};
+        const customer=data.accounts.find(a=>a.id===queueItem.customerId),specialType=customer.type==="101客户"?"101客户名额":index%2?"员工名额":"战略户名额";
+        const code={id:generateReservationCode(cycle,"special",index,1),slotId:slot.id,version:1,type:"special",specialType,advisor:queueItem.advisor,intendedCustomerId:queueItem.customerId,boundCustomerId:queueItem.customerId,customerName:customer.name,customerNo:customer.id,actualCustomerId:"",state:"已分配客户",transactionStatus:"未下单",businessType:"",min:cycle.template.min,max:cycle.template.max,validTo:cycle.template.validTo,creator:"邓迎怡",createdAt:"2026-07-22 14:00",assignedAt:"2026-07-22 14:00",orderTime:"",orderAmount:0,parentCodeId:"",replacementCodeId:"",invalidReason:"",leaderNote:"",remark:"经理核验后创建并硬绑定客户。",productCode:product.code};
         data.codes.push(code);queueItem.codeId=code.id;queueItem.state="已分配";queueItem.logs.push([code.assignedAt,"邓迎怡核验后制作特殊专属码并绑定客户证件。"]);
       };
       const specialCandidates=data.queues.filter(q=>q.productId==="P01"&&q.state==="排队中"&&["101客户","员工/战略客户"].includes(data.accounts.find(a=>a.id===q.customerId).type));
       specialCandidates.slice(0,4).forEach((q,i)=>seedSpecial("CY-P01-01",q,i+1));
-      data.codes.filter(c=>c.type==="mobile"&&c.state==="经理码池"&&data.slots.find(s=>s.id===c.slotId)?.cycleId==="CY-P01-01").slice(0,3).forEach((code,index)=>{code.state="已发领导";code.leaderNote=`领导客户临时安排${index+1}`;code.assignedAt="2026-07-23 09:30"});
+      for(let index=0;index<3;index++){
+        const cycle=data.cycles.find(c=>c.id==="CY-P01-01"),slot=data.slots.find(s=>s.cycleId===cycle.id&&s.type==="special"&&!data.codes.some(code=>code.slotId===s.id));if(!slot)break;
+        data.codes.push({id:generateReservationCode(cycle,"special",Number(slot.id.split("-").pop()),1),slotId:slot.id,version:1,type:"special",specialType:"机动名额",advisor:"",intendedCustomerId:"",boundCustomerId:"",customerName:"",customerNo:"",actualCustomerId:"",state:"已发领导",transactionStatus:"未下单",businessType:"",min:cycle.template.min,max:cycle.template.max,validTo:cycle.template.validTo,creator:"邓迎怡",createdAt:"2026-07-22 15:00",assignedAt:"2026-07-23 09:30",orderTime:"",orderAmount:0,parentCodeId:"",replacementCodeId:"",invalidReason:"",leaderNote:`领导客户临时安排${index+1}`,remark:`机动名额演示码${index+1}`,productCode:data.products.find(p=>p.id===cycle.productId)?.code||""});
+      }
       data.audit.push({id:"AU-001",time:"2026-07-24 09:00",operator:"系统",action:"初始化演示数据",detail:"建立产品、销售周期、排队、名额槽位、预约码及历史分配批次。"});
       return data;
     }
@@ -336,7 +329,7 @@
       registrationOpen:false,registrationAccountId:"",registrationProducts:[],registrationQuery:"",registrationDraft:{customerName:"",customerNo:"",customerType:"普通客户",advisor:"邓迎怡",amount:300,note:""},
       queueFilters:{name:"",advisor:"",status:"",customerType:""},queueSort:"registeredAt",queueDir:"desc",queuePage:1,queueSize:10,selectedQueueId:"",selectedQueueIds:new Set(),
       ledgerFilters:{advisor:"",type:"",state:""},ledgerSort:"createdAt",ledgerDir:"desc",ledgerPage:1,ledgerSize:10,selectedCodeId:"",expandedTransactions:new Set(),
-      productQuery:"",productPage:1,productSize:5,selectedProductId:"P01",selectedCycleId:"CY-P01-01",productTab:"cycle",managerWorkspace:"products",selectedAdvisorProfile:"",advisorSort:"business",advisorDir:"asc",showZero:false,
+      productQuery:"",productPage:1,productSize:5,selectedProductId:"P01",selectedCycleId:"CY-P01-01",productTab:"cycle",managerWorkspace:"products",selectedAdvisorProfile:"",advisorSort:"business",advisorDir:"asc",showZero:false,specialPage:1,specialSize:10,selectedSpecialCodeIds:new Set(),
       expandedBatches:new Set(),expandedRotationCycles:new Set(["CY-P03-04"]),modal:null,drawTimer:null,drawNames:[],composition:false
     };
     const save=()=>{db.updatedAt=Date.now();localStorage.setItem(STORAGE_KEY,JSON.stringify(db));void writeIndexedSnapshot(db)};
@@ -359,17 +352,14 @@
     const addQueueLog=(item,text)=>item.logs.push([nowText(),`${ui.operator}：${text}`]);
     const statusTag=value=>`<span class="status ${queueClass(value)}">${esc(value)}</span>`;
     const productText=id=>{const p=product(id);return p?`${p.code} ${p.name}`:""};
+    const queueOwner=item=>item.registrar||item.advisor;
     const effectiveParticipant=(cycleId,name)=>{
-      const a=advisor(name),part=db.participations.find(item=>item.cycleId===cycleId&&item.advisor===name);
-      if(part?.decision==="不参与")return {participates:false,weight:0,reason:part.source||"周期设置",part};
-      if(a?.baseStatus==="名额排除"&&part?.source!=="经理设置")return {participates:false,weight:0,reason:"名额排除",part};
-      if(!part&&a?.defaultParticipation==="不参与")return {participates:false,weight:0,reason:"默认不参与",part};
-      const weight=part?.weightOverride?Number(part.weightOverride):(a?.baseStatus==="半权重"?.5:1);
-      return {participates:true,weight,reason:part?.source||"默认",part};
+      const a=advisor(name),participates=a?.baseStatus!=="名额排除",weight=participates?(a?.baseStatus==="半权重"?.5:1):0;
+      return {participates,weight,reason:`基础状态：${a?.baseStatus||"正常"}`,part:null};
     };
     const walletCodes=(cycleId,name)=>cycleCodes(cycleId,"ordinary").filter(item=>item.advisor===name&&item.state==="顾问持有");
     const advisorQueueGap=(cycleId,name)=>{
-      const pending=db.queues.filter(item=>item.cycleId===cycleId&&item.advisor===name&&item.state==="排队中").length;
+      const pending=db.queues.filter(item=>item.cycleId===cycleId&&queueOwner(item)===name&&item.state==="排队中").length;
       return Math.max(0,pending-walletCodes(cycleId,name).length);
     };
     const codeDisplayState=item=>{
@@ -383,9 +373,10 @@
     };
     const codeSource=item=>{
       const batch=db.batches.find(b=>b.allocations.some(a=>code(a.codeId)?.slotId===item.slotId));
-      return batch?sourceLabel[batch.type]||batch.type:item.type==="special"?"特殊名额":item.type==="mobile"?"机动名额":"待分配";
+      return batch?sourceLabel[batch.type]||batch.type:item.type==="special"?(item.specialType||"特殊名额"):"待分配";
     };
-    const codeSourceText=item=>{const s=slot(item.slotId),c=cycle(s?.cycleId),p=product(c?.productId),raw=codeSource(item),source=raw==="均分"?"均分":raw==="抓阄"?"抓阄":raw.includes("固定周期")?"轮转":"经理调整";return p&&c?`${p.code}-${p.name}-${chineseDate(c.start)}-${source}`:source};
+    const reservationTypeLabel=item=>item.type==="special"?(item.specialType||"特殊预约码"):typeLabel[item.type]||item.type;
+    const codeSourceText=item=>{const s=slot(item.slotId),c=cycle(s?.cycleId),p=product(c?.productId),raw=codeSource(item),source=raw==="均分"?"均分":raw==="抓阄"?"抓阄":raw.includes("固定周期")?"轮转":item.type==="special"?raw:"经理调整";return p&&c?`${p.code}-${p.name}-${chineseDate(c.start)}-${source}`:source};
     function toast(text,error=false){
       const el=$("#toast");el.textContent=text;el.className=`toast show${error?" error":""}`;clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.className="toast",2600);
     }
@@ -514,7 +505,7 @@
     function ledgerBaseRows(){
       return advisorVisibleCodes(ui.advisorSelectedCycleId).map(item=>{
         const s=slot(item.slotId),c=cycle(s?.cycleId),p=product(c?.productId),intended=account(item.intendedCustomerId),actual=account(item.actualCustomerId);
-        return {...item,productId:p?.id||"",productName:p?.name||"",productCode:p?.code||"",cycleName:c?.name||"",displayState:codeDisplayState(item),sourceText:codeSourceText(item),intendedName:intended?.name||item.leaderNote||"",actualName:actual?.name||"",mismatch:!!(intended&&actual&&intended.id!==actual.id)};
+        return {...item,productId:p?.id||"",productName:p?.name||"",productCode:p?.code||"",cycleName:c?.name||"",displayState:codeDisplayState(item),sourceText:codeSourceText(item),intendedName:intended?.name||item.customerName||item.leaderNote||"",actualName:actual?.name||"",mismatch:!!(intended&&actual&&intended.id!==actual.id)};
       });
     }
     function ledgerRows(){
@@ -538,7 +529,7 @@
         <div class="field"><label>预约码状态</label><select class="select" id="lf-state"><option value="">全部</option>${["经理码池","顾问未分配","已分配客户","已发领导","已使用","已完成","已作废"].map(v=>`<option ${ui.ledgerFilters.state===v?"selected":""}>${v}</option>`).join("")}</select></div>
         <div class="filter-actions"><button class="btn primary" data-action="query-ledger">查询</button><button class="btn" data-action="clear-ledger-filters">清空</button></div>
       </div>
-      <div class="table-wrap"><table class="data-table ledger-table"><thead><tr><th>${sortHead("ledger","id","预约码")}</th><th>${sortHead("ledger","type","预约码类型")}</th><th>${sortHead("ledger","productCode","基金代码")}</th><th>${sortHead("ledger","productName","基金名称")}</th><th>${sortHead("ledger","min","金额范围")}</th><th>${sortHead("ledger","validTo","有效期")}</th><th>${sortHead("ledger","intendedName","发码客户")}</th><th>${sortHead("ledger","actualName","实际使用人")}</th><th>${sortHead("ledger","displayState","预约码状态")}</th><th>${sortHead("ledger","transactionStatus","交易信息")}</th></tr></thead><tbody>${pageRows.map(item=>`<tr class="clickable ${item.id===ui.selectedCodeId?"selected":""}" data-select-code="${item.id}"><td><span class="code-text">${esc(item.id)}</span>${item.version>1?`<br><span class="tag purple">V${item.version}</span>`:""}</td><td>${typeLabel[item.type]}</td><td class="code-text">${esc(item.productCode)}</td><td><strong>${esc(item.productName)}</strong></td><td>${item.min}万 - ${item.max}万</td><td>${esc(item.validTo)}</td><td>${esc(item.intendedName||"-")}</td><td class="${item.mismatch?"anomaly":""}">${esc(item.actualName||"-")}${item.mismatch?" · 不一致":""}</td><td><span class="tag">${esc(item.displayState)}</span></td><td><button class="link-btn" data-toggle-transaction="${item.id}">${ui.expandedTransactions.has(item.id)?"收起":"查看"}</button></td></tr>${ui.expandedTransactions.has(item.id)?`<tr class="transaction-row"><td colspan="10">${renderTransactionDetails(item,true)}</td></tr>`:""}`).join("")||`<tr><td colspan="10"><div class="empty">没有符合条件的预约码</div></td></tr>`}</tbody></table></div>${pager(ui.ledgerPage,pageCount,rows.length,"ledger-page")}
+      <div class="table-wrap"><table class="data-table ledger-table"><thead><tr><th>${sortHead("ledger","id","预约码")}</th><th>${sortHead("ledger","type","预约码类型")}</th><th>${sortHead("ledger","productCode","基金代码")}</th><th>${sortHead("ledger","productName","基金名称")}</th><th>${sortHead("ledger","min","金额范围")}</th><th>${sortHead("ledger","validTo","有效期")}</th><th>${sortHead("ledger","intendedName","发码客户")}</th><th>${sortHead("ledger","actualName","实际使用人")}</th><th>${sortHead("ledger","displayState","预约码状态")}</th><th>${sortHead("ledger","transactionStatus","交易信息")}</th></tr></thead><tbody>${pageRows.map(item=>`<tr class="clickable ${item.id===ui.selectedCodeId?"selected":""}" data-select-code="${item.id}"><td><span class="code-text">${esc(item.id)}</span>${item.version>1?`<br><span class="tag purple">V${item.version}</span>`:""}</td><td>${esc(reservationTypeLabel(item))}</td><td class="code-text">${esc(item.productCode)}</td><td><strong>${esc(item.productName)}</strong></td><td>${item.min}万 - ${item.max}万</td><td>${esc(item.validTo)}</td><td>${esc(item.intendedName||"-")}</td><td class="${item.mismatch?"anomaly":""}">${esc(item.actualName||"-")}${item.mismatch?" · 不一致":""}</td><td><span class="tag">${esc(item.displayState)}</span></td><td><button class="link-btn" data-toggle-transaction="${item.id}">${ui.expandedTransactions.has(item.id)?"收起":"查看"}</button></td></tr>${ui.expandedTransactions.has(item.id)?`<tr class="transaction-row"><td colspan="10">${renderTransactionDetails(item,true)}</td></tr>`:""}`).join("")||`<tr><td colspan="10"><div class="empty">没有符合条件的预约码</div></td></tr>`}</tbody></table></div>${pager(ui.ledgerPage,pageCount,rows.length,"ledger-page")}
       ${ui.selectedCodeId?`<section class="full-detail" id="codeDetail">${renderLedgerDetail(code(ui.selectedCodeId))}</section>`:""}`;
     }
     function transactionResultTag(value){
@@ -552,20 +543,20 @@
     function renderLedgerDetail(item){
       if(!item)return `<div class="empty">点击左侧预约码查看明细</div>`;
       const s=slot(item.slotId),c=cycle(s?.cycleId),p=product(c?.productId),intended=account(item.intendedCustomerId),actual=account(item.actualCustomerId),versions=db.codes.filter(x=>x.slotId===item.slotId).sort((a,b)=>b.version-a.version);
-      const canManagerRecall=isManager()&&((item.type==="ordinary"&&(item.state==="顾问持有"||(item.state==="已分配客户"&&item.advisor===ui.operator)))||(item.type==="special"&&item.state==="已分配客户")||(item.type==="mobile"&&["经理码池","已发领导"].includes(item.state)));
+      const canManagerRecall=isManager()&&((item.type==="ordinary"&&(item.state==="顾问持有"||(item.state==="已分配客户"&&item.advisor===ui.operator)))||(item.type==="special"&&["经理码池","已发领导","已分配客户"].includes(item.state)));
       const canAdvisorRecall=item.type==="ordinary"&&item.state==="已分配客户"&&item.advisor===ui.operator;
       const canReplace=item.state==="已使用"&&["失败","撤单"].includes(item.transactionStatus)&&(isManager()||item.advisor===ui.operator);
-      return `<div class="detail-head"><div class="detail-head-row"><div><h3>${esc(item.id)}</h3><p>${typeLabel[item.type]} · 槽位 ${esc(item.slotId)} · V${item.version}</p></div><div class="detail-title-actions"><span class="tag">${codeDisplayState(item)}</span><button class="btn icon" data-action="collapse-code-detail" title="收起预约码详情">×</button></div></div><div class="detail-actions">
+      return `<div class="detail-head"><div class="detail-head-row"><div><h3>${esc(item.id)}</h3><p>${esc(reservationTypeLabel(item))} · 槽位 ${esc(item.slotId)} · V${item.version}</p></div><div class="detail-title-actions"><span class="tag">${codeDisplayState(item)}</span><button class="btn icon" data-action="collapse-code-detail" title="收起预约码详情">×</button></div></div><div class="detail-actions">
         ${canManagerRecall?`<button class="btn small danger" data-action="manager-recall-code" data-code-id="${item.id}">经理回收</button>`:""}
         ${canAdvisorRecall?`<button class="btn small danger" data-action="recall-code-direct" data-code-id="${item.id}">顾问回收并替换</button>`:""}
         ${canReplace?`<button class="btn small amber" data-action="replace-code-direct" data-code-id="${item.id}">生成替代码</button>`:""}
         ${item.state==="已分配客户"?`<button class="btn small primary" data-action="simulate-order" data-code-id="${item.id}">模拟客户下单</button>`:""}
         ${item.state==="已使用"&&item.transactionStatus==="待确认"?`<button class="btn small" data-action="update-transaction" data-code-id="${item.id}">更新交易结果</button>`:""}
       </div></div><div class="detail-body">
-        <section class="detail-section"><h4>预约码信息</h4><div class="detail-grid">${detailItems([["预约码",item.id],["基金代码",p.code],["基金名称",p.name],["创建时间",item.createdAt],["名额类型",typeLabel[item.type]],["有效期",item.validTo],["所属顾问",item.advisor||"经理公共池"],["预约码状态",codeDisplayState(item)],["预约码来源",codeSourceText(item)]])}</div></section>
-        <section class="detail-section"><h4>客户与交易</h4><div class="detail-grid">${detailItems([["已分配客户",intended?.name||item.leaderNote||"-"],["实际使用人",actual?.name||"-"],["下单时间",item.orderTime||"-"],["业务类型",item.businessType||"-"],["交易金额",item.orderAmount?money(item.orderAmount):"-"],["交易状态",item.transactionStatus||"未下单"]])}</div></section>
+        <section class="detail-section"><h4>预约码信息</h4><div class="detail-grid">${detailItems([["预约码",item.id],["基金代码",p.code],["基金名称",p.name],["创建时间",item.createdAt],["名额类型",reservationTypeLabel(item)],["有效期",item.validTo],["所属顾问",item.advisor||"经理公共池"],["预约码状态",codeDisplayState(item)],["预约码来源",codeSourceText(item)]])}</div></section>
+        <section class="detail-section"><h4>客户与交易</h4><div class="detail-grid">${detailItems([["已分配客户",intended?.name||item.customerName||item.leaderNote||"-"],["实际使用人",actual?.name||"-"],["下单时间",item.orderTime||"-"],["业务类型",item.businessType||"-"],["交易金额",item.orderAmount?money(item.orderAmount):"-"],["交易状态",item.transactionStatus||"未下单"]])}</div></section>
         <details class="code-history"><summary>历史码版本（${versions.length}）</summary><div class="table-wrap"><table class="data-table"><thead><tr><th>版本</th><th>预约码</th><th>状态</th><th>创建时间</th><th>作废原因</th></tr></thead><tbody>${versions.map(v=>`<tr><td>V${v.version}</td><td class="code-text">${esc(v.id)}</td><td>${codeDisplayState(v)}</td><td>${esc(v.createdAt)}</td><td>${esc(v.invalidReason||"-")}</td></tr>`).join("")}</tbody></table></div></details>
-        <section class="detail-section"><h4>风险控制</h4><div class="notice ${actual&&intended&&actual.id!==intended.id?"danger":""}">${item.type==="ordinary"?"普通码为软绑定：不拦截非登记客户交易，但系统同时记录登记客户、发码客户和实际使用人。":"特殊码硬绑定证件；机动码不绑定客户且仅经理可见。"}${actual&&intended&&actual.id!==intended.id?" 当前实际使用人与发码客户不一致，已进入经理异常视图。":""}</div></section>
+        <section class="detail-section"><h4>风险控制</h4><div class="notice ${actual&&intended&&actual.id!==intended.id?"danger":""}">${item.type==="ordinary"?"普通码为软绑定：不拦截非登记客户交易，但系统同时记录登记客户、发码客户和实际使用人。":item.specialType==="机动名额"?"机动名额不绑定客户，最终使用人不限制且仅顾问经理可见。":"员工、战略户和101客户特殊码硬绑定指定客户。"}${actual&&intended&&actual.id!==intended.id?" 当前实际使用人与发码客户不一致，已进入经理异常视图。":""}</div></section>
       </div>`;
     }
 
@@ -582,31 +573,30 @@
         <section class="panel product-list-panel">
           <div class="panel-head"><div class="panel-title"><strong>产品与销售周期</strong><span>产品固定一条记录，默认展示最近销售周期；每页最多5个产品。</span></div><div class="panel-actions"><button class="btn primary" data-action="new-product">新增未上线产品</button></div></div>
           <div class="toolbar"><div class="lookup-row" style="width:min(540px,100%)"><input class="input ime-safe" id="productQuery" value="${esc(ui.productQuery)}" placeholder="输入基金代码、名称或基金经理"><button class="btn" data-action="query-products">查询</button></div><span class="toolbar-note">没有设置预约码的存量产品也会显示</span></div>
-          <div class="table-wrap"><table class="data-table"><thead><tr><th>基金代码</th><th>基金名称</th><th>基金经理</th><th>最近开放日期</th><th>配置模式</th><th>总名额</th><th>经理普通池</th><th>排队客户</th><th>历史周期</th></tr></thead><tbody>${pageRows.map(item=>{const c=latestCycle(item.id),pool=c?freePool(c.id,"ordinary").length:0,queueCount=c?db.queues.filter(q=>q.cycleId===c.id&&activeQueueStates.includes(q.state)).length:0;return `<tr class="clickable ${item.id===ui.selectedProductId?"selected":""}" data-select-product="${item.id}"><td class="code-text">${isUnboundProduct(item)?`<span class="tag amber">待绑定</span>`:esc(item.code)}</td><td><strong>${esc(item.name)}</strong><br><span class="muted tiny">${esc(item.scenario)}</span></td><td>${esc(item.fundManager)}</td><td>${c?`${shortDate(c.start)} 至 ${shortDate(c.end)}`:"未设置"}</td><td>${c?allocationModeLabel(c.allocationMode):"-"}</td><td>${c?c.ordinaryQuota+c.specialQuota+c.mobileQuota:0}</td><td class="${pool?"amount":""}">${pool}</td><td>${queueCount}</td><td>${productCycles(item.id).length}期</td></tr>`}).join("")||`<tr><td colspan="9"><div class="empty">没有匹配产品</div></td></tr>`}</tbody></table></div>${pager(ui.productPage,pageCount,products.length,"product-page")}
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>基金代码</th><th>基金名称</th><th>基金经理</th><th>最近开放日期</th><th>配置模式</th><th>总名额</th><th>经理普通池</th><th>排队客户</th><th>历史周期</th></tr></thead><tbody>${pageRows.map(item=>{const c=latestCycle(item.id),pool=c?freePool(c.id,"ordinary").length:0,queueCount=c?db.queues.filter(q=>q.cycleId===c.id&&activeQueueStates.includes(q.state)).length:0;return `<tr class="clickable ${item.id===ui.selectedProductId?"selected":""}" data-select-product="${item.id}"><td class="code-text">${isUnboundProduct(item)?`<span class="tag amber">待绑定</span>`:esc(item.code)}</td><td><strong>${esc(item.name)}</strong><br><span class="muted tiny">${esc(item.scenario)}</span></td><td>${esc(item.fundManager)}</td><td>${c?`${shortDate(c.start)} 至 ${shortDate(c.end)}`:"未设置"}</td><td>${c?allocationModeLabel(c.allocationMode):"-"}</td><td>${c?c.ordinaryQuota+c.specialQuota:0}</td><td class="${pool?"amount":""}">${pool}</td><td>${queueCount}</td><td>${productCycles(item.id).length}期</td></tr>`}).join("")||`<tr><td colspan="9"><div class="empty">没有匹配产品</div></td></tr>`}</tbody></table></div>${pager(ui.productPage,pageCount,products.length,"product-page")}
         </section>
         <section class="panel product-detail-panel" id="productDetail">${p?renderProductDetail(p):`<div class="empty">选择产品查看销售周期详情</div>`}</section>
       </div>`;
     }
     function advisorDashboardRow(a){
-      const activeCycles=db.cycles.filter(c=>c.status!=="已结束"),activeParts=activeCycles.map(c=>effectiveParticipant(c.id,a.name)),activeCodes=activeCycles.flatMap(c=>currentCycleCodes(c.id)).filter(item=>item.advisor===a.name),historyAllocations=db.batches.flatMap(batch=>batch.allocations.map(allocation=>({...allocation,batch}))).filter(item=>item.advisor===a.name);
-      return {a,participating:activeParts.filter(item=>item.participates).length,totalCycles:activeCycles.length,currentQuota:activeCodes.length,unused:activeCodes.filter(item=>item.state==="顾问持有").length,assigned:activeCodes.filter(item=>["已分配客户","已使用"].includes(item.state)).length,completed:activeCodes.filter(item=>["成功","部分成功"].includes(item.transactionStatus)).length,historyQuota:historyAllocations.length};
+      const activeCycles=db.cycles.filter(c=>c.status!=="已结束"),activeCodes=activeCycles.flatMap(c=>currentCycleCodes(c.id)).filter(item=>item.advisor===a.name),registeredQueues=db.queues.filter(item=>queueOwner(item)===a.name&&activeQueueStates.includes(item.state)),historyAllocations=db.batches.flatMap(batch=>batch.allocations.map(allocation=>({...allocation,batch}))).filter(item=>item.advisor===a.name);
+      return {a,registeredQueues:registeredQueues.length,queueing:registeredQueues.filter(item=>item.state==="排队中").length,currentQuota:activeCodes.length,unused:activeCodes.filter(item=>item.state==="顾问持有").length,assigned:activeCodes.filter(item=>["已分配客户","已使用"].includes(item.state)).length,completed:activeCodes.filter(item=>["成功","部分成功"].includes(item.transactionStatus)).length,historyQuota:historyAllocations.length};
     }
     function renderAdvisorDashboard(){
-      const rows=db.advisors.map(advisorDashboardRow).sort((x,y)=>Number(y.a.manager)-Number(x.a.manager)||Number(y.a.baseStatus==="正常")-Number(x.a.baseStatus==="正常")||Number(y.a.defaultParticipation==="参与")-Number(x.a.defaultParticipation==="参与")||x.a.name.localeCompare(y.a.name,"zh-CN"));
+      const rows=db.advisors.map(advisorDashboardRow).sort((x,y)=>Number(y.a.manager)-Number(x.a.manager)||({"正常":3,"半权重":2,"名额排除":1}[y.a.baseStatus]-({"正常":3,"半权重":2,"名额排除":1}[x.a.baseStatus]))||x.a.name.localeCompare(y.a.name,"zh-CN"));
       const selected=ui.selectedAdvisorProfile&&advisor(ui.selectedAdvisorProfile)?ui.selectedAdvisorProfile:"";
       return `<div class="dashboard-stack">
-        <section class="panel"><div class="panel-head"><div class="panel-title"><strong>顾问统计面板</strong><span>经理可调整基础权重和默认参与状态；已确认批次仍保留原始快照。</span></div></div>
-          <div class="table-wrap"><table class="data-table"><thead><tr><th>顾问</th><th>角色</th><th>基础权重</th><th>默认参与</th><th>当前参与周期</th><th>当前名额</th><th>未分客户</th><th>已分配</th><th>已完成</th><th>历史获配</th><th>历史详情</th></tr></thead><tbody>${rows.map(row=>`<tr class="${selected===row.a.name?"selected":""}"><td><strong>${row.a.name}</strong></td><td>${row.a.manager?`<span class="tag red">经理</span>`:"普通顾问"}</td><td><select class="select" data-base-status="${row.a.name}" style="min-width:100px">${["正常","半权重","名额排除"].map(v=>`<option ${row.a.baseStatus===v?"selected":""}>${v}</option>`).join("")}</select></td><td><select class="select" data-default-participation="${row.a.name}" style="min-width:96px"><option value="参与" ${row.a.defaultParticipation!=="不参与"?"selected":""}>参与</option><option value="不参与" ${row.a.defaultParticipation==="不参与"?"selected":""}>不参与</option></select></td><td>${row.participating}/${row.totalCycles}期</td><td><strong>${row.currentQuota}</strong></td><td>${row.unused}</td><td>${row.assigned}</td><td>${row.completed}</td><td>${row.historyQuota}</td><td><button class="link-btn" data-select-advisor-profile="${row.a.name}">${selected===row.a.name?"收起":"展开"}</button></td></tr>`).join("")}</tbody></table></div>
+        <section class="panel"><div class="panel-head"><div class="panel-title"><strong>顾问统计面板</strong><span>参与资格只由基础状态决定；排队需求按登记顾问归集，已确认批次保留原始快照。</span></div></div>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>顾问</th><th>角色</th><th>基础状态</th><th>登记有效需求</th><th>其中排队中</th><th>当前名额</th><th>未分客户</th><th>已分配</th><th>已完成</th><th>历史获配</th><th>历史详情</th></tr></thead><tbody>${rows.map(row=>`<tr class="${selected===row.a.name?"selected":""}"><td><strong>${row.a.name}</strong></td><td>${row.a.manager?`<span class="tag red">经理</span>`:"普通顾问"}</td><td><select class="select" data-base-status="${row.a.name}" style="min-width:100px">${["正常","半权重","名额排除"].map(v=>`<option ${row.a.baseStatus===v?"selected":""}>${v}</option>`).join("")}</select></td><td><strong>${row.registeredQueues}</strong></td><td>${row.queueing}</td><td><strong>${row.currentQuota}</strong></td><td>${row.unused}</td><td>${row.assigned}</td><td>${row.completed}</td><td>${row.historyQuota}</td><td><button class="link-btn" data-select-advisor-profile="${row.a.name}">${selected===row.a.name?"收起":"展开"}</button></td></tr>`).join("")}</tbody></table></div>
         </section>
         ${selected?renderAdvisorProfile(selected):""}
       </div>`;
     }
     function renderAdvisorProfile(name){
-      const a=advisor(name),parts=db.participations.filter(item=>item.advisor===name).sort((x,y)=>(cycle(y.cycleId)?.start||"").localeCompare(cycle(x.cycleId)?.start||""));
+      const a=advisor(name);
       const grants=db.batches.map(batch=>{const allocations=batch.allocations.filter(item=>item.advisor===name);return allocations.length?{batch,allocations,c:cycle(batch.cycleId)}:null}).filter(Boolean).sort((x,y)=>y.batch.createdAt.localeCompare(x.batch.createdAt));
       const audits=db.audit.filter(item=>item.operator===name||String(item.detail).includes(name)).slice(0,20);
-      return `<section class="panel advisor-profile"><div class="panel-head"><div class="panel-title"><strong>${esc(name)} · 全量历史</strong><span>${a.manager?"顾问经理":"普通顾问"} · ${a.baseStatus} · 默认${a.defaultParticipation}</span></div><button class="btn icon" data-action="close-advisor-profile" title="收起顾问历史">×</button></div>
-        <div class="profile-section"><h4>销售周期参与变化</h4><div class="table-wrap"><table class="data-table"><thead><tr><th>产品</th><th>销售周期</th><th>日期</th><th>参与状态</th><th>有效权重</th><th>来源</th><th>更新时间</th><th>说明</th></tr></thead><tbody>${parts.map(part=>{const c=cycle(part.cycleId),p=c?cycleProduct(c.id):null,eff=c?effectiveParticipant(c.id,name):{participates:false,weight:0};return `<tr><td><strong>${esc(p?.name||"-")}</strong></td><td>${esc(c?.name||"-")}</td><td class="nowrap">${c?`${shortDate(c.start)} 至 ${shortDate(c.end)}`:"-"}</td><td>${c?.status!=="已结束"?`<select class="select" data-dashboard-participation="${name}" data-cycle-id="${part.cycleId}"><option value="参与" ${eff.participates?"selected":""}>参与</option><option value="不参与" ${!eff.participates?"selected":""}>不参与</option></select>`:part.decision}</td><td>${eff.weight}份</td><td>${esc(part.source||"默认")}</td><td class="nowrap">${esc(part.updatedAt||"-")}</td><td class="history-note">${esc(part.note||"-")}</td></tr>`}).join("")}</tbody></table></div></div>
+      return `<section class="panel advisor-profile"><div class="panel-head"><div class="panel-title"><strong>${esc(name)} · 全量历史</strong><span>${a.manager?"顾问经理":"普通顾问"} · 基础状态：${a.baseStatus}</span></div><button class="btn icon" data-action="close-advisor-profile" title="收起顾问历史">×</button></div>
         <div class="profile-section"><h4>名额分配历史</h4><div class="table-wrap"><table class="data-table"><thead><tr><th>分配时间</th><th>产品</th><th>销售周期</th><th>批次类型</th><th>获得名额</th><th>操作人</th><th>分配说明</th></tr></thead><tbody>${grants.map(item=>`<tr><td class="nowrap">${esc(item.batch.createdAt)}</td><td>${esc(item.c?cycleProduct(item.c.id).name:"-")}</td><td>${esc(item.c?.name||"-")}</td><td>${esc(purposeLabel[item.batch.purpose]||sourceLabel[item.batch.type]||item.batch.type)}</td><td><strong>${item.allocations.length}</strong></td><td>${esc(item.batch.operator)}</td><td class="history-note">${esc(item.batch.reason||item.allocations.map(x=>x.reason).filter(Boolean).join("；")||"-")}</td></tr>`).join("")||`<tr><td colspan="7"><div class="empty">没有名额分配记录</div></td></tr>`}</tbody></table></div></div>
         <div class="profile-section"><h4>操作变化痕迹</h4><div class="table-wrap"><table class="data-table"><thead><tr><th>时间</th><th>操作人</th><th>动作</th><th>内容</th></tr></thead><tbody>${audits.map(item=>`<tr><td class="nowrap">${esc(item.time)}</td><td>${esc(item.operator)}</td><td>${esc(item.action)}</td><td class="history-note">${esc(item.detail)}</td></tr>`).join("")||`<tr><td colspan="4"><div class="empty">暂无操作记录</div></td></tr>`}</tbody></table></div></div>
       </section>`;
@@ -617,7 +607,7 @@
     function renderProductDetail(p){
       const cycles=productCycles(p.id),c=cycle(ui.selectedCycleId)||cycles[0];
       if(!c)return `<div class="product-card-head"><div><h3>${isUnboundProduct(p)?"待绑定基金代码":esc(p.code)} ${esc(p.name)}</h3><p>${esc(p.scenario)}</p></div><div class="panel-actions">${isUnboundProduct(p)?`<button class="btn amber" data-action="bind-product-code">绑定基金代码</button>`:""}<button class="btn" data-action="edit-product">编辑产品</button><button class="btn primary" data-action="new-cycle" data-product-id="${p.id}">新增销售周期</button></div></div><div class="empty">该产品尚未设置销售周期</div>`;
-      const tabs=[["cycle","周期设置"],["participation","参与名单"],["allocation","名额分配"],["special","特殊与机动"],["overview","全量使用情况"]];
+      const tabs=[["cycle","周期设置"],["participation","参与名单"],["allocation","名额分配"],["special","特殊名额"],["overview","全量使用情况"]];
       return `<div class="product-card-head"><div><h3>${isUnboundProduct(p)?"待绑定基金代码":esc(p.code)} ${esc(p.name)}</h3><p>${esc(p.fundManager)} · ${esc(p.scenario)}</p></div><div class="panel-actions">${isUnboundProduct(p)?`<button class="btn amber" data-action="bind-product-code">绑定基金代码</button>`:""}<button class="btn" data-action="edit-product">编辑产品</button><button class="btn primary" data-action="new-cycle" data-product-id="${p.id}">新增销售周期</button></div></div>
         <div class="cycle-selector"><div class="field"><label>销售周期</label><select class="select" id="cycleSelector">${cycles.map(item=>`<option value="${item.id}" ${item.id===c.id?"selected":""}>${item.name} · ${shortDate(item.start)} 至 ${shortDate(item.end)} · ${item.status}</option>`).join("")}</select></div><span class="tag ${c.status==="已结束"?"":"teal"}">${c.status}</span></div>
         <div class="tabs">${tabs.map(([id,label])=>`<button class="tab-btn ${ui.productTab===id?"active":""}" data-product-tab="${id}">${label}</button>`).join("")}</div>
@@ -625,11 +615,11 @@
     }
     function cycleStats(c){
       const codes=currentCycleCodes(c.id),used=codes.filter(item=>item.state==="已使用").length,done=codes.filter(item=>["成功","部分成功"].includes(item.transactionStatus)).length,advisorUnused=codes.filter(item=>item.state==="顾问持有").length,assigned=codes.filter(item=>["已分配客户","已发领导"].includes(item.state)).length;
-      return {total:c.ordinaryQuota+c.specialQuota+c.mobileQuota,pool:freePool(c.id,"ordinary").length,advisorUnused,assigned,used,done};
+      return {total:c.ordinaryQuota+c.specialQuota,pool:freePool(c.id,"ordinary").length,advisorUnused,assigned,used,done};
     }
     function renderCycleSettings(p,c){
       const stats=cycleStats(c);
-      return `<div class="subtle-band"><strong>场景说明：</strong>${esc(p.scenario)}。销售周期互斥；周期名额由顾问经理设置，单次制码200条只是底层批处理限制，不作为周期总量上限。</div>
+      return `<div class="subtle-band"><strong>场景说明：</strong>${esc(p.scenario)}。销售周期互斥；周期名额由顾问经理设置，每期普通名额与特殊名额合计不超过200个。</div>
         <div class="cycle-form">
           <div class="field"><label>周期名称</label><input class="input" id="cycle-name" value="${esc(c.name)}"></div>
           <div class="field"><label>开始日期</label><input class="input" id="cycle-start" type="date" value="${c.start}"></div>
@@ -637,7 +627,6 @@
           <div class="field"><label>周期状态</label><select class="select" id="cycle-status">${["即将开放","开放中","已结束"].map(v=>`<option ${c.status===v?"selected":""}>${v}</option>`).join("")}</select></div>
           <div class="field"><label>普通名额分配模式</label><select class="select" id="cycle-mode">${[["basic","基本法：均分 + 抓阄"],["rotation","固定周期轮转分配"]].map(([v,l])=>`<option value="${v}" ${c.allocationMode===v?"selected":""}>${l}</option>`).join("")}</select></div>
           <div class="field"><label>特殊名额</label><input class="input quota-input" id="cycle-special" type="number" min="0" value="${c.specialQuota}"></div>
-          <div class="field"><label>机动名额</label><input class="input quota-input" id="cycle-mobile" type="number" min="0" value="${c.mobileQuota}"></div>
           <div class="field"><label>普通名额</label><input class="input quota-input" id="cycle-ordinary" type="number" min="0" value="${c.ordinaryQuota}"></div>
           <div class="field"><label>周期总名额（自动合计）</label><div class="cycle-total" id="cycle-total">${stats.total}个</div></div>
           <div class="field"><label>不含数字（最多2个，以 | 分隔）</label><input class="input" id="cycle-exclude-digits" value="${esc(c.template.excludeDigits||"")}" placeholder="例如 5|7"></div>
@@ -646,17 +635,17 @@
           <div class="field"><label>默认金额下限（万元）</label><input class="input" id="cycle-min" type="number" value="${c.template.min}"></div>
           <div class="field"><label>默认金额上限（万元）</label><input class="input" id="cycle-max" type="number" value="${c.template.max}"></div>
           <div class="field"><label>预约码有效期</label><input class="input" id="cycle-valid" type="date" value="${c.template.validTo}"></div>
-          <div class="field full"><div class="notice">制码字段与现有预约码后台一致：排除数字最多2个，指定前缀和指定后缀不能同时设置。普通顾问发码时金额只读；经理可在实际发码前覆盖默认金额。已发出的码不直接修改，须作废并在同一名额槽位生成新码。</div></div>
+          <div class="field full"><div class="notice">特殊名额包含员工、战略户、101客户和机动四类，创建特殊码时再选择类型。制码字段与现有预约码后台一致：排除数字最多2个，指定前缀和指定后缀不能同时设置。</div></div>
           <div class="field full" style="text-align:right"><button class="btn primary" data-action="save-cycle">保存周期设置</button></div>
         </div>
         <div class="mini-metrics">${miniMetric("周期总名额",stats.total)}${miniMetric("普通池可用",stats.pool,true)}${miniMetric("顾问未分配",stats.advisorUnused)}${miniMetric("已发客户/领导",stats.assigned)}${miniMetric("已提交订单",stats.used)}</div>`;
     }
     function miniMetric(label,value,highlight=false){return `<div class="mini-metric"><label>${label}</label><strong class="${highlight?"amount":""}">${value}个</strong></div>`}
     function renderParticipation(p,c){
-      const rows=db.advisors.map(a=>{const eff=effectiveParticipant(c.id,a.name),part=eff.part;return {a,eff,part}}).sort((x,y)=>Number(y.a.manager)-Number(x.a.manager)||y.eff.weight-x.eff.weight||Number(y.eff.participates)-Number(x.eff.participates)||x.a.name.localeCompare(y.a.name,"zh-CN"));const participating=rows.filter(r=>r.eff.participates).length;
-      return `<div class="subtle-band">顾问经理直接设置本周期参与或不参与，只影响未确认的后续批次。当前参与 ${participating} 人。默认按经理、权重、参与状态、姓名排序。</div>
-        <div class="table-wrap"><table class="data-table"><thead><tr><th>顾问</th><th>基础状态</th><th>周期参与</th><th>本周期权重</th><th>设置来源</th><th>最近说明</th></tr></thead><tbody>${rows.map(({a,eff,part})=>`<tr><td><strong>${a.name}</strong>${a.manager?` <span class="tag red">经理</span>`:""}</td><td><select class="select" data-base-status="${a.name}" style="min-width:105px">${["正常","半权重","名额排除"].map(v=>`<option ${a.baseStatus===v?"selected":""}>${v}</option>`).join("")}</select></td><td><select class="select" data-cycle-participation="${a.name}" style="min-width:108px"><option value="参与" ${eff.participates?"selected":""}>参与</option><option value="不参与" ${!eff.participates?"selected":""}>不参与</option></select></td><td>${eff.participates?`${eff.weight}份`:"0份"}${a.baseStatus==="名额排除"&&eff.participates?`<br><button class="link-btn" data-action="set-cycle-weight" data-advisor="${a.name}">设置临时权重</button>`:""}</td><td>${esc(part?.source||"默认")}</td><td>${esc(part?.note||"-")}</td></tr>`).join("")}</tbody></table></div>
-        <div class="section-head"><strong>规则口径</strong><span>确认批次时保存参与名单快照</span></div><div class="panel-body"><details class="rule" open><summary>参与状态如何决定</summary><div>经理直接设置优先于基础状态。基础状态为“名额排除”的顾问默认不参与；经理临时设置其参与时，必须同时明确本周期按正常1份还是半权重0.5份。不参与的销售周期不累计半权重，也不进入均分、抓阄或固定周期轮转。已确认批次不因后续名单变化而重算。</div></details></div>`;
+      const rows=db.advisors.map(a=>{const eff=effectiveParticipant(c.id,a.name),queues=db.queues.filter(item=>item.cycleId===c.id&&queueOwner(item)===a.name);return {a,eff,active:queues.filter(item=>activeQueueStates.includes(item.state)).length,queueing:queues.filter(item=>item.state==="排队中").length}}).sort((x,y)=>Number(y.a.manager)-Number(x.a.manager)||y.eff.weight-x.eff.weight||x.a.name.localeCompare(y.a.name,"zh-CN"));const participating=rows.filter(r=>r.eff.participates).length;
+      return `<div class="subtle-band">参与资格只保留顾问基础状态：正常按1份、半权重按0.5份、名额排除不参与。当前参与 ${participating} 人；排队需求按登记顾问归集。</div>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>顾问</th><th>角色</th><th>基础状态</th><th>有效权重</th><th>登记有效需求</th><th>其中排队中</th></tr></thead><tbody>${rows.map(({a,eff,active,queueing})=>`<tr><td><strong>${a.name}</strong></td><td>${a.manager?`<span class="tag red">经理</span>`:"普通顾问"}</td><td><select class="select" data-base-status="${a.name}" style="min-width:105px">${["正常","半权重","名额排除"].map(v=>`<option ${a.baseStatus===v?"selected":""}>${v}</option>`).join("")}</select></td><td>${eff.weight}份</td><td><strong>${active}</strong>人</td><td>${queueing}人</td></tr>`).join("")}</tbody></table></div>
+        <div class="section-head"><strong>规则口径</strong><span>确认批次时保存基础状态、权重和需求快照</span></div><div class="panel-body"><details class="rule" open><summary>基础状态如何参与分配</summary><div>均分和抓阄执行时读取当前基础状态；名额排除不进入名单。历史批次保存确认时快照，之后调整基础状态不重算历史结果。</div></details></div>`;
     }
     function renderAllocation(p,c){
       const available=freePool(c.id,"ordinary").length,batches=db.batches.filter(b=>b.cycleId===c.id).sort((a,b)=>b.createdAt.localeCompare(a.createdAt)),advisorRows=advisorQuotaRows(c),equalReady=c.allocationMode==="basic"&&equalPreview(c).allocated>0,versionState=c.allocationMode==="rotation"?rotationVersionState(c.productId):null;
@@ -671,8 +660,8 @@
         ${batches.length?batches.map(renderBatch).join(""):`<div class="empty">本周期尚未确认分配批次</div>`}
         ${c.allocationMode==="rotation"?renderRotationHistory(p,c):""}
         <div class="section-head"><strong>顾问名额分配情况</strong><span>总名额为0的顾问 ${hidden} 人</span></div>
-        <div class="toolbar"><span class="toolbar-note">默认顺序：经理优先，其次本期权重、参与状态、姓名；调减只允许回收顾问未分配普通码。</span><div class="panel-actions"><button class="btn small" data-action="reset-advisor-sort">恢复默认排序</button><button class="btn small" data-action="toggle-zero-advisors">${ui.showZero?"折叠无名额顾问":"展开无名额顾问"}</button></div></div>
-        <div class="table-wrap"><table class="data-table"><thead><tr><th>${sortHead("advisor","advisor","顾问")}</th><th>${sortHead("advisor","manager","角色")}</th><th>${sortHead("advisor","weight","本期权重")}</th><th>${sortHead("advisor","participates","参与状态")}</th><th>${sortHead("advisor","effectiveQueue","有效排队")}</th><th>${sortHead("advisor","total","总名额")}</th><th>${sortHead("advisor","equal","均分")}</th><th>${sortHead("advisor","lottery","普通抓阄")}</th><th>${sortHead("advisor","rotationFollow","轮转跟进")}</th><th>${sortHead("advisor","rotationLottery","轮转抓阄")}</th><th>${sortHead("advisor","unused","未分配")}</th><th>${sortHead("advisor","assigned","已分配客户")}</th><th>${sortHead("advisor","completed","已完成")}</th><th>经理调整</th><th>明细</th></tr></thead><tbody>${visible.map(r=>`<tr><td><strong>${r.advisor}</strong></td><td>${r.manager?`<span class="tag red">经理</span>`:"普通顾问"}</td><td>${r.weight}份</td><td>${r.participates?`<span class="tag green">参与</span>`:`<span class="tag">不参与</span>`}</td><td>${r.effectiveQueue}人<br><span class="muted tiny">排队${r.queueing} / 已分配${r.assignedQueue}</span></td><td><strong>${r.total}</strong></td><td>${r.equal}</td><td>${r.lottery}</td><td>${r.rotationFollow}</td><td>${r.rotationLottery}</td><td class="${r.unused?"amount":""}">${r.unused}</td><td>${r.assigned}</td><td>${r.completed}</td><td><div class="inline-controls"><button class="btn small" data-adjust-advisor="-1" data-advisor="${r.advisor}" ${r.unused?"":"disabled"}>−</button><input class="number-edit" value="${r.total}" data-direct-advisor-quota="${r.advisor}"><button class="btn small" data-adjust-advisor="1" data-advisor="${r.advisor}" ${available?"":"disabled"}>＋</button></div></td><td><button class="link-btn" data-jump-ledger="${r.advisor}">查看名额使用情况</button></td></tr>`).join("")||`<tr><td colspan="15"><div class="empty">暂无顾问名额</div></td></tr>`}</tbody></table></div>`;
+        <div class="toolbar"><span class="toolbar-note">默认顺序：经理优先，其次基础状态权重、姓名；有效排队按登记顾问统计。调减只允许回收顾问未分配普通码。</span><div class="panel-actions"><button class="btn small" data-action="reset-advisor-sort">恢复默认排序</button><button class="btn small" data-action="toggle-zero-advisors">${ui.showZero?"折叠无名额顾问":"展开无名额顾问"}</button></div></div>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>${sortHead("advisor","advisor","顾问")}</th><th>${sortHead("advisor","manager","角色")}</th><th>${sortHead("advisor","baseStatus","基础状态")}</th><th>${sortHead("advisor","weight","有效权重")}</th><th>${sortHead("advisor","effectiveQueue","登记有效需求")}</th><th>${sortHead("advisor","total","总名额")}</th><th>${sortHead("advisor","equal","均分")}</th><th>${sortHead("advisor","lottery","普通抓阄")}</th><th>${sortHead("advisor","rotationFollow","轮转跟进")}</th><th>${sortHead("advisor","rotationLottery","轮转抓阄")}</th><th>${sortHead("advisor","unused","未分配")}</th><th>${sortHead("advisor","assigned","已分配客户")}</th><th>${sortHead("advisor","completed","已完成")}</th><th>经理调整</th><th>明细</th></tr></thead><tbody>${visible.map(r=>`<tr><td><strong>${r.advisor}</strong></td><td>${r.manager?`<span class="tag red">经理</span>`:"普通顾问"}</td><td>${esc(r.baseStatus)}</td><td>${r.weight}份</td><td>${r.effectiveQueue}人<br><span class="muted tiny">排队${r.queueing} / 已分配${r.assignedQueue}</span></td><td><strong>${r.total}</strong></td><td>${r.equal}</td><td>${r.lottery}</td><td>${r.rotationFollow}</td><td>${r.rotationLottery}</td><td class="${r.unused?"amount":""}">${r.unused}</td><td>${r.assigned}</td><td>${r.completed}</td><td><div class="inline-controls"><button class="btn small" data-adjust-advisor="-1" data-advisor="${r.advisor}" ${r.unused?"":"disabled"}>−</button><input class="number-edit" value="${r.total}" data-direct-advisor-quota="${r.advisor}"><button class="btn small" data-adjust-advisor="1" data-advisor="${r.advisor}" ${available?"":"disabled"}>＋</button></div></td><td><button class="link-btn" data-jump-ledger="${r.advisor}">查看名额使用情况</button></td></tr>`).join("")||`<tr><td colspan="15"><div class="empty">暂无顾问名额</div></td></tr>`}</tbody></table></div>`;
     }
     function renderBatch(batch){
       const expanded=ui.expandedBatches.has(batch.id),total=batch.allocations.length;
@@ -692,15 +681,16 @@
     function rotationPeriodRows(c){
       const periods=productCycles(c.productId).filter(item=>item.allocationMode==="rotation").sort((a,b)=>a.start.localeCompare(b.start)),priorPeriods=periods.filter(item=>item.start<c.start),executedPrior=priorPeriods.filter(item=>confirmedCycleBatches(item.id).length),currentBatches=confirmedCycleBatches(c.id),currentAllocations=cycleOrdinaryAllocations(c.id);
       return ADVISOR_NAMES.map(name=>{
-        const a=advisor(name),eff=effectiveParticipant(c.id,name),part=eff.part,priorAllocations=executedPrior.flatMap(item=>cycleOrdinaryAllocations(item.id).filter(allocation=>allocation.advisor===name)),allocations=currentAllocations.filter(allocation=>allocation.advisor===name),participatedBefore=executedPrior.some(item=>confirmedParticipantNames(item.id).has(name)),isNew=eff.participates&&!participatedBefore;
+        const a=advisor(name),base=effectiveParticipant(c.id,name),historicalSnapshot=currentBatches.flatMap(batch=>batch.participantSnapshot||[]).find(snapshot=>snapshot.advisor===name),participates=currentBatches.length?!!historicalSnapshot:base.participates,weight=historicalSnapshot?.weight??base.weight,priorAllocations=executedPrior.flatMap(item=>cycleOrdinaryAllocations(item.id).filter(allocation=>allocation.advisor===name)),allocations=currentAllocations.filter(allocation=>allocation.advisor===name),participatedBefore=executedPrior.some(item=>confirmedParticipantNames(item.id).has(name)),isNew=participates&&!participatedBefore;
         const storedState=rotationVersionState(c.productId),priorVersion=Math.max(0,...priorAllocations.map(item=>Number(item.rotationVersion||0))),preVersion=currentBatches.length?Math.max(priorVersion,...allocations.map(item=>Number(item.previousVersion||0))):Object.prototype.hasOwnProperty.call(storedState.advisorVersions,name)?Number(storedState.advisorVersions[name]):Math.max(0,storedState.currentVersion-1),afterVersion=Math.max(preVersion,...allocations.map(item=>Number(item.rotationVersion||0))),direct=allocations.filter(item=>item.purpose==="version-follow").length,lottery=allocations.filter(item=>item.purpose==="version-lottery").length,lotteryCandidate=currentBatches.filter(batch=>batch.purpose==="version-lottery").some(batch=>batch.participantSnapshot.some(snapshot=>snapshot.advisor===name)),allocationReasons=[...new Set(allocations.map(allocation=>allocation.reason).filter(Boolean))];
         let reason="";
-        if(!eff.participates)reason=`未参与：${part?.note||part?.source||"本期未纳入名单"}`;
+        if(!participates)reason=currentBatches.length?"未进入该期已确认批次名单。":"基础状态为名额排除，本期不参与分配。";
         else if(!currentBatches.length)reason=isNew?`首次参加；从产品当前第${storedState.currentVersion}轮开始，获得1个即可跟到当前轮次。`:preVersion<storedState.currentVersion?`当前记录第${preVersion}轮，产品处于第${storedState.currentVersion}轮；本期优先跟进。`:`已跟上产品第${storedState.currentVersion}轮，等待产品进入下一轮。`;
         else if(allocations.length)reason=allocationReasons.join("；");
         else if(lotteryCandidate)reason="进入本期轮转抓阄候选，但未中签，已跟进轮次保持不变。";
         else reason="参与本期名单，本批次未获配，已跟进轮次保持不变。";
-        return {advisor:name,manager:a.manager,weight:eff.weight,participates:eff.participates,source:part?.source||"默认",preVersion,afterVersion,isNew,queue:db.cycleDemandSnapshots?.[c.id]?.[name]??db.queues.filter(q=>q.cycleId===c.id&&q.advisor===name&&["排队中","已分配","已下单"].includes(q.state)).length,direct,lottery,lotteryCandidate,versions:[...new Set(allocations.map(item=>Number(item.rotationVersion||0)).filter(Boolean))],total:allocations.length,reason};
+        const liveQueue=db.queues.filter(q=>q.cycleId===c.id&&queueOwner(q)===name&&["排队中","已分配","已下单"].includes(q.state)).length,queueCount=currentBatches.length?(db.cycleDemandSnapshots?.[c.id]?.[name]??liveQueue):liveQueue;
+        return {advisor:name,manager:a.manager,weight,participates,source:currentBatches.length?"历史批次快照":`基础状态：${a.baseStatus}`,preVersion,afterVersion,isNew,queue:queueCount,direct,lottery,lotteryCandidate,versions:[...new Set(allocations.map(item=>Number(item.rotationVersion||0)).filter(Boolean))],total:allocations.length,reason};
       }).sort((a,b)=>Number(b.manager)-Number(a.manager)||b.weight-a.weight||Number(b.participates)-Number(a.participates)||a.advisor.localeCompare(b.advisor,"zh-CN"));
     }
     function renderRotationHistory(p,currentCycle){
@@ -713,24 +703,25 @@
     }
     function advisorQuotaRows(c){
       const rows=ADVISOR_NAMES.map(name=>{
-        const codes=currentCycleCodes(c.id,"ordinary").filter(item=>item.advisor===name),queues=db.queues.filter(item=>item.cycleId===c.id&&item.advisor===name);
+        const codes=currentCycleCodes(c.id,"ordinary").filter(item=>item.advisor===name),queues=db.queues.filter(item=>item.cycleId===c.id&&queueOwner(item)===name);
         const allocations=db.batches.filter(b=>b.cycleId===c.id).flatMap(b=>b.allocations.map(a=>({...a,batchType:b.type}))).filter(a=>a.advisor===name);
         const a=advisor(name),eff=effectiveParticipant(c.id,name);
-        return {advisor:name,manager:a.manager,weight:eff.weight,participates:eff.participates,effectiveQueue:queues.filter(q=>["排队中","已分配","已下单"].includes(q.state)).length,queueing:queues.filter(q=>q.state==="排队中").length,assignedQueue:queues.filter(q=>["已分配","已下单"].includes(q.state)).length,total:codes.filter(x=>x.state!=="已作废").length,unused:codes.filter(x=>x.state==="顾问持有").length,assigned:codes.filter(x=>x.state==="已分配客户").length,completed:codes.filter(x=>["成功","部分成功"].includes(x.transactionStatus)).length,equal:allocations.filter(x=>x.source==="equal").length,lottery:allocations.filter(x=>x.source==="lottery"&&!x.rotationVersion).length,rotationFollow:allocations.filter(x=>x.purpose==="version-follow").length,rotationLottery:allocations.filter(x=>x.purpose==="version-lottery").length};
+        return {advisor:name,manager:a.manager,baseStatus:a.baseStatus,weight:eff.weight,participates:eff.participates,effectiveQueue:queues.filter(q=>["排队中","已分配","已下单"].includes(q.state)).length,queueing:queues.filter(q=>q.state==="排队中").length,assignedQueue:queues.filter(q=>["已分配","已下单"].includes(q.state)).length,total:codes.filter(x=>x.state!=="已作废").length,unused:codes.filter(x=>x.state==="顾问持有").length,assigned:codes.filter(x=>x.state==="已分配客户").length,completed:codes.filter(x=>["成功","部分成功"].includes(x.transactionStatus)).length,equal:allocations.filter(x=>x.source==="equal").length,lottery:allocations.filter(x=>x.source==="lottery"&&!x.rotationVersion).length,rotationFollow:allocations.filter(x=>x.purpose==="version-follow").length,rotationLottery:allocations.filter(x=>x.purpose==="version-lottery").length};
       });
       if(ui.advisorSort==="business")return rows.sort((a,b)=>Number(b.manager)-Number(a.manager)||b.weight-a.weight||Number(b.participates)-Number(a.participates)||a.advisor.localeCompare(b.advisor,"zh-CN"));
       return sorted(rows,ui.advisorSort,ui.advisorDir);
     }
+    function availableSpecialSlots(cycleId){return db.slots.filter(item=>item.cycleId===cycleId&&item.type==="special"&&item.status==="有效").filter(item=>{const current=currentCodeForSlot(item.id);return !current||current.state==="已作废"})}
+    function specialCodeCustomer(item){return account(item.customerNo||item.boundCustomerId||item.intendedCustomerId)}
     function renderSpecialMobile(p,c){
-      const specials=cycleCodes(c.id,"special"),mobiles=cycleCodes(c.id,"mobile"),specialFree=db.slots.filter(s=>s.cycleId===c.id&&s.type==="special"&&!db.codes.some(code=>code.slotId===s.id&&code.state!=="已作废")).length;
-      return `<div class="subtle-band">特殊名额由经理核验客户后制作硬绑定专属码；机动名额不绑定客户、仅经理可见。两类名额均可回收，但旧码必须作废，同名额槽位生成新码。</div>
-        <div class="mini-metrics">${miniMetric("特殊名额",c.specialQuota)}${miniMetric("特殊可分配",specialFree,true)}${miniMetric("机动名额",c.mobileQuota)}${miniMetric("机动池可用",mobiles.filter(x=>x.state==="经理码池").length,true)}${miniMetric("已发领导",mobiles.filter(x=>x.state==="已发领导").length)}</div>
-        <div class="section-head"><strong>特殊专属码</strong><span>硬绑定客户证件，经理直接分配</span></div>
-        <div class="toolbar"><span class="toolbar-note">可从所有真实登记客户中搜索，不要求客户类型一致；经理负责核验并留痕。</span><button class="btn primary" data-action="allocate-special">分配特殊名额</button></div>
-        <div class="table-wrap"><table class="data-table"><thead><tr><th>预约码</th><th>客户</th><th>客户类型</th><th>所属顾问</th><th>金额限制</th><th>码状态</th><th>交易结果</th><th>操作</th></tr></thead><tbody>${specials.map(item=>{const a=account(item.boundCustomerId);return `<tr><td class="code-text">${maskCode(item.id)}</td><td>${a?.name||"-"}</td><td>${a?.type||"-"}</td><td>${item.advisor||"-"}</td><td>${item.min} - ${item.max}万</td><td>${codeDisplayState(item)}</td><td>${transactionResultTag(item.transactionStatus)}</td><td>${item.state==="已分配客户"?`<button class="btn small danger" data-action="manager-recall-code" data-code-id="${item.id}">回收</button>`:"-"}</td></tr>`}).join("")||`<tr><td colspan="8"><div class="empty">尚未制作特殊专属码</div></td></tr>`}</tbody></table></div>
-        <div class="section-head"><strong>机动码</strong><span>不绑定客户，销量进入经理/公共业绩池</span></div>
-        <div class="toolbar"><span class="toolbar-note">发给领导客户后不限制最终使用人；操作、显码、复制均留痕。</span><button class="btn primary" data-action="assign-mobile">发出机动码</button></div>
-        <div class="table-wrap"><table class="data-table"><thead><tr><th>预约码</th><th>用途说明</th><th>金额限制</th><th>码状态</th><th>交易结果</th><th>发出时间</th><th>操作</th></tr></thead><tbody>${mobiles.map(item=>`<tr><td class="code-text">${maskCode(item.id)}</td><td>${esc(item.leaderNote||"-")}</td><td>${item.min} - ${item.max}万</td><td>${codeDisplayState(item)}</td><td>${transactionResultTag(item.transactionStatus)}</td><td>${esc(item.assignedAt||"-")}</td><td><button class="btn small" data-action="reveal-code" data-code-id="${item.id}">查看</button> ${item.state==="已发领导"?`<button class="btn small danger" data-action="manager-recall-code" data-code-id="${item.id}">回收</button>`:""}</td></tr>`).join("")||`<tr><td colspan="7"><div class="empty">没有机动码</div></td></tr>`}</tbody></table></div>`;
+      const all=currentCycleCodes(c.id,"special").sort((a,b)=>b.createdAt.localeCompare(a.createdAt)),free=availableSpecialSlots(c.id).length,validIds=new Set(all.map(item=>item.id));ui.selectedSpecialCodeIds=new Set([...ui.selectedSpecialCodeIds].filter(id=>validIds.has(id)));const pageCount=pages(all,ui.specialSize);ui.specialPage=Math.min(ui.specialPage,pageCount);const rows=paginate(all,ui.specialPage,ui.specialSize),selected=[...ui.selectedSpecialCodeIds].map(code).filter(Boolean),created=all.filter(item=>item.state!=="已作废");
+      const typeMetrics=SPECIAL_CODE_TYPES.map(type=>miniMetric(type,created.filter(item=>item.specialType===type).length)).join("");
+      return `<div class="subtle-band">特殊名额统一管理四类特殊码。员工、战略户、101客户码必须填写客户信息并硬绑定；机动码不绑定客户。回收时旧码作废，原名额槽位重新可创建。</div>
+        <div class="mini-metrics">${miniMetric("特殊名额",c.specialQuota)}${miniMetric("待创建",free,true)}${typeMetrics}</div>
+        <div class="section-head"><strong>特殊预约码台账</strong><span>当前销售周期已创建 ${all.length} 个当前码</span></div>
+        <div class="toolbar"><span class="toolbar-note">预约码明文展示；创建、编辑和回收均记录操作人及时间。</span><button class="btn primary" data-action="create-special-codes" ${free?"":"disabled"}>创建特殊预约码</button></div>
+        <div class="bulk-bar ${selected.length?"show":""}" id="specialBulkBar"><strong>已选 <span id="special-bulk-count">${selected.length}</span> 个</strong><div class="inline-controls"><label class="muted tiny">金额下限</label><input class="number-edit" id="special-batch-min" type="number" placeholder="不调整"><label class="muted tiny">金额上限</label><input class="number-edit" id="special-batch-max" type="number" placeholder="不调整"><label class="muted tiny">有效期</label><input class="input" id="special-batch-valid" type="date" style="width:142px"><button class="btn small" data-action="apply-special-batch">批量调整</button><button class="btn small danger" data-action="recall-special-batch">批量回收</button><button class="btn small" data-action="clear-special-selection">清空</button></div></div>
+        <div class="table-wrap"><table class="data-table special-code-table"><thead><tr><th><input type="checkbox" id="select-all-special" title="选择本页可回收预约码"></th><th>预约码</th><th>预约码类型</th><th>客户姓名</th><th>客服系统编号</th><th>所属顾问</th><th>金额上下限（万元）</th><th>有效期</th><th>预约码状态</th><th>创建人</th><th>创建时间</th><th>使用人</th><th>使用时间</th><th>订单金额</th><th>备注</th></tr></thead><tbody>${rows.map(item=>{const customer=specialCodeCustomer(item),actual=account(item.actualCustomerId),customerNo=customer?.id||item.customerNo||"",customerName=customer?.name||item.customerName||"",editable=item.state!=="已使用"&&item.state!=="已作废",recoverable=editable,customerCell=item.specialType==="机动名额"?"-":customerNo?esc(customerName):`<input class="input" data-special-field="customerName" data-code-id="${item.id}" value="${esc(customerName)}" ${editable?"":"disabled"} style="min-width:100px">`;return `<tr><td><input type="checkbox" data-special-code="${item.id}" ${ui.selectedSpecialCodeIds.has(item.id)?"checked":""} ${recoverable?"":"disabled"}></td><td class="code-text"><strong>${esc(item.id)}</strong></td><td><span class="tag ${item.specialType==="机动名额"?"amber":"teal"}">${esc(item.specialType||"特殊名额")}</span></td><td>${customerCell}</td><td class="code-text">${esc(customerNo||"-")}</td><td>${esc(item.advisor||"经理公共池")}</td><td><div class="inline-controls"><input class="number-edit" type="number" data-special-field="min" data-code-id="${item.id}" value="${item.min}" ${editable?"":"disabled"}><span>-</span><input class="number-edit" type="number" data-special-field="max" data-code-id="${item.id}" value="${item.max}" ${editable?"":"disabled"}></div></td><td><input class="input" type="date" data-special-field="validTo" data-code-id="${item.id}" value="${item.validTo}" ${editable?"":"disabled"} style="width:138px"></td><td>${statusTag(codeDisplayState(item))}</td><td>${esc(item.creator||"-")}</td><td class="nowrap">${esc(item.createdAt||"-")}</td><td>${esc(actual?.name||"-")}</td><td class="nowrap">${esc(item.orderTime||"-")}</td><td>${item.orderAmount?money(item.orderAmount):"-"}</td><td><input class="input" data-special-field="remark" data-code-id="${item.id}" value="${esc(item.remark||item.leaderNote||"")}" ${editable?"":"disabled"} style="min-width:150px"></td></tr>`}).join("")||`<tr><td colspan="15"><div class="empty">尚未创建特殊预约码</div></td></tr>`}</tbody></table></div>${pager(ui.specialPage,pageCount,all.length,"special-page")}`;
     }
     function renderProductOverview(p,c){
       const rows=advisorQuotaRows(c),codes=cycleCodes(c.id),mismatches=codes.filter(item=>{const a=account(item.actualCustomerId),i=account(item.intendedCustomerId);return a&&i&&a.id!==i.id}).length;
@@ -751,10 +742,10 @@
             ["新建结果","校验通过后建立独立周期编号，初始化参与名单、名额槽位和制码规则；历史周期不覆盖。"],
             ["留痕字段","产品、周期编号、起止日期、创建人、创建时间和周期状态。"]
           ]))}
-          ${arrow()}${flowNode("manager","设置周期名额和制码规则","明确特殊、机动、普通名额并自动合计；按现有预约码后台结构化设置金额上下限、有效期、排除数字以及固定前缀或后缀。")}
-          ${arrow()}${flowNode("manager","全量制作普通码","普通码进入经理普通池；特殊码在绑定客户时制作；机动码进入经理可见池。")}
+          ${arrow()}${flowNode("manager","设置周期名额和制码规则","明确普通名额和特殊名额并自动合计，每期合计不超过200个；按现有预约码后台结构化设置金额上下限、有效期、排除数字以及固定前缀或后缀。")}
+          ${arrow()}${flowNode("manager","制作预约码","普通码全量制作并进入经理普通池；特殊码按需创建，创建时选择员工、战略户、101客户或机动名额。")}
           ${arrow()}${flowNode("advisor","登记全部真实客户需求","关联生产账户，一次选多产品，系统按客户 + 产品 + 周期拆分排队记录。")}
-          ${arrow()}<div class="flow-branch"><div class="branch-card"><strong>特殊名额</strong><p>经理核验具体客户，制作硬绑定专属码并直接发给客户。</p></div><div class="branch-card"><strong>普通名额</strong><p>经理发起均分、抓阄或固定周期轮转批次，预约码进入顾问名下。</p></div><div class="branch-card"><strong>机动名额</strong><p>经理发给领导客户，不绑定客户，最终使用人不限制。</p></div></div>
+          ${arrow()}<div class="flow-branch"><div class="branch-card"><strong>指定客户特殊码</strong><p>员工、战略户、101客户码必须填写客户信息并硬绑定。</p></div><div class="branch-card"><strong>普通名额</strong><p>经理发起均分、抓阄或固定周期轮转批次，预约码进入顾问名下。</p></div><div class="branch-card"><strong>机动特殊码</strong><p>无需填写客户信息，最终使用人不限制，单独归集。</p></div></div>
           ${arrow()}${flowNode("advisor","顾问选择客户发普通码","软绑定发码客户；普通顾问只能看到本人预约码，查看和复制均留痕。")}
           ${arrow()}${flowNode("system","客户下单即标记已使用","继续单独跟踪待确认、成功、部分成功、失败和撤单；实际使用人与发码客户不一致时标记异常。",algorithmDetail([
             ["触发条件","交易系统首次受理包含该预约码的订单，不等待最终确认结果。"],
@@ -763,7 +754,7 @@
             ["客户状态","登记客户本人成功或部分成功时转已完成；非登记客户使用时，原登记客户恢复排队中并标记使用人不一致。"],
             ["失败处理","失败或撤单需要继续销售时，走替代码流程，不能把原码改回未使用。"]
           ]))}
-          ${arrow()}${flowNode("system","计算销量归属","普通码默认归预约码所属顾问；机动码进入经理/公共业绩池；特殊码按专属客户记录。",algorithmDetail([
+          ${arrow()}${flowNode("system","计算销量归属","普通码默认归预约码所属顾问；机动类型特殊码进入经理/公共业绩池；其他特殊码按专属客户记录。",algorithmDetail([
             ["普通码","读取预约码上的所属顾问，不按实际使用人的客户经理重新归属；使用人不一致单独标异常。"],
             ["特殊码","按硬绑定客户和专属名额记录，实际证件校验由交易端执行。"],
             ["机动码","不绑定普通顾问和登记客户，销量进入经理/公共业绩池，供经理单独核对。"],
@@ -771,16 +762,16 @@
             ["争议证据","保留登记客户、发码客户、实际使用人、码所属顾问、订单时间和金额。"]
           ]))}
         `)}
-        ${flowSection("周期产品名额分配","销售周期开始前先确认名单，再由经理选择适用的普通名额规则。",`
-          ${flowNode("system","建立本周期参与名单","读取顾问基础状态：正常、半权重、名额排除。",algorithmDetail([
-            ["初始化范围","产品销售周期创建时，对全部在册顾问各生成一条周期参与记录。"],
-            ["默认参与","基础状态为正常或半权重，且默认参与状态不是“不参与”，则初始化为参与。"],
-            ["默认排除","默认不参与或基础状态为名额排除的顾问初始化为不参与。"],
-            ["权重来源","参与顾问默认读取基础权重：正常为1份，半权重为0.5份；名额排除被经理临时纳入时必须指定1份或0.5份。"],
-            ["后续覆盖","经理可改默认状态并同步未结束周期，也可只改一个周期；已结束周期和已确认批次不追溯。"]
+        ${flowSection("周期产品名额分配","销售周期开始前读取顾问基础状态，再由经理选择适用的普通名额规则。",`
+          ${flowNode("system","建立本期参与名单","逐一读取顾问基础状态：正常按1份、半权重按0.5份、名额排除不进入名单。",algorithmDetail([
+            ["名单全集","每次发起分配时读取全部在册顾问，不单独维护周期参与记录。"],
+            ["正常","进入参与名单，均分权重为1份。"],
+            ["半权重","进入参与名单，均分权重为0.5份；固定周期轮转仍按人处理。"],
+            ["名额排除","不进入均分、抓阄和固定周期轮转名单。"],
+            ["调整边界","经理修改基础状态只影响之后新打开、尚未确认的分配批次，不重算历史批次。"]
           ]))}
-          ${arrow()}${flowNode("manager","经理直接设置参与状态","经理可在顾问统计面板调整默认状态，也可在周期明细中只调整当前销售周期；已确认批次不追溯。")}
-          ${arrow()}${flowNode("system","确认批次参与快照","每个批次单独保存名单、基础状态、本期权重、排队缺口和操作时间；后续修改不追溯。",algorithmDetail([
+          ${arrow()}${flowNode("manager","经理维护基础状态","在参与名单或顾问统计面板维护正常、半权重、名额排除，无需逐周期重复设置。")}
+          ${arrow()}${flowNode("system","确认批次参与快照","每个批次单独保存名单、基础状态、本期权重、按登记顾问归集的排队缺口和操作时间；后续修改不追溯。",algorithmDetail([
             ["快照时点","经理打开分配窗口时计算并锁定本次预览；确认时按该锁定名单和结果保存，关闭窗口后重新发起才会重算。"],
             ["名单字段","顾问姓名、是否参与、本期权重、参与设置来源；固定周期还保存分配前个人轮次、本期已获名额数和是否首次参加。"],
             ["需求字段","均分仅留存当时需求供审计但不参与计算；抓阄保存扣除可用码后的剩余需求；固定周期保存本期需求和历史依据。"],
@@ -796,21 +787,21 @@
             ["后续使用","顾问只能把本人当前持有的普通码分给本人名下排队客户。"]
           ]))}
         `)}
-        ${flowSection("参与资格与权重算法","先确定谁能参加，再计算分配；名单确认和名额算法不混在一起。",`
-          ${flowNode("system","读取顾问默认状态","读取正常、半权重、名额排除以及默认参与/不参与状态。",algorithmDetail([
-            ["判断顺序","先读该顾问在本周期的参与记录；周期明确为不参与时直接剔除。"],
-            ["名额排除","基础状态为名额排除时默认剔除；只有经理对本周期明确设置为参与，才允许临时纳入。"],
-            ["本期权重","经理设置了临时权重则优先使用；否则半权重为0.5份，正常为1份。"],
-            ["缺少周期记录","回退读取顾问默认参与状态；默认不参与或名额排除均不进入名单。"],
-            ["输出结果","每名顾问得到参与/不参与、有效权重、设置来源和对应周期参与记录。"]
+        ${flowSection("参与资格与权重算法","参与名单只读取基础状态，减少逐周期维护。",`
+          ${flowNode("system","读取顾问基础状态","正常、半权重进入名单，名额排除直接剔除。",algorithmDetail([
+            ["判断顺序","读取顾问当前基础状态，不再查找销售周期参与记录。"],
+            ["名额排除","基础状态为名额排除时不进入本次名单。"],
+            ["有效权重","正常为1份，半权重为0.5份，名额排除为0份。"],
+            ["排队归属","按排队记录的登记顾问统计需求，不按所属顾问统计。"],
+            ["输出结果","每名顾问得到基础状态、有效权重、登记有效需求和排队中人数。"]
           ]))}
-          ${arrow()}${flowNode("manager","经理直接调整","可调整默认参与状态并同步未结束周期，也可只调整某一个周期；只影响尚未确认的后续批次。")}
-          ${arrow()}${flowNode("system","生成执行时名单快照","保存参与状态、权重、需求缺口和设置来源。批次确认后，即使人员状态变化也不重算历史。",algorithmDetail([
-            ["候选全集","从全部在册顾问逐一执行参与资格判断，只保留当前参与者。"],
-            ["排序规则","展示按经理优先、本期权重从高到低、参与状态、姓名排序；排序只影响展示，不影响均分或抓阄概率。"],
-            ["需求口径","排队缺口取排队中客户数减顾问未分配普通码数，最低为0；均分不使用该值，抓阄使用。"],
+          ${arrow()}${flowNode("manager","经理调整基础状态","调整后立即用于后续新批次；已确认历史批次保留原始名单和权重。")}
+          ${arrow()}${flowNode("system","生成执行时名单快照","保存基础状态、权重和按登记顾问计算的需求缺口。批次确认后不重算历史。",algorithmDetail([
+            ["候选全集","从全部在册顾问中保留正常和半权重顾问。"],
+            ["排序规则","展示按经理优先、有效权重从高到低、姓名排序；排序只影响展示，不影响抓阄概率。"],
+            ["需求口径","排队缺口取该登记顾问的排队中客户数减其未分配普通码数，最低为0；均分不使用该值，抓阄使用。"],
             ["锁定时点","打开分配窗口时生成本次预览名单；经理确认后将该名单与结果一起固化为批次快照。"],
-            ["再分配","回收后重新发起时生成新快照，读取新的参与状态、需求和普通池，不覆盖旧批次。"]
+            ["再分配","回收后重新发起时生成新快照，读取新的基础状态、需求和普通池，不覆盖旧批次。"]
           ]))}
         `)}
         ${flowSection("普通名额均分算法","均分批次只依据参与名单、权重和经理普通池，不看顾问登记客户数量。",`
@@ -837,8 +828,8 @@
         ${flowSection("普通名额抓阄算法","抓阄是独立批次，每名顾问每批最多获得1个。",`
           ${flowNode("manager","发起抓阄批次","读取当前经理普通池、参与名单和顾问客户排队数据。")}
           ${arrow()}${flowNode("system","计算顾问剩余需求","用排队中客户数减去顾问名下尚未分给客户的普通码；结果大于0才具备抓阄资格。",algorithmDetail([
-            ["参与前提","先执行本周期参与资格判断；不参与、名额排除且未被临时纳入的顾问不计算。"],
-            ["需求分子","只统计该产品、该销售周期、该顾问名下状态为“排队中”的客户记录。"],
+            ["参与前提","基础状态为正常或半权重的顾问参与；名额排除不计算。"],
+            ["需求分子","只统计该产品、该销售周期、登记顾问为该顾问且状态为“排队中”的客户记录。"],
             ["可用码抵扣","只扣除该顾问名下状态为“顾问持有”的普通码；已发客户、已使用、已作废的码不抵扣。"],
             ["计算公式","剩余需求 = 排队中客户数 - 顾问未分配普通码数，结果小于0时按0处理。"],
             ["候选条件","剩余需求大于0才进入候选；需求大小只决定是否入围，不增加单批中签上限。"],
@@ -899,16 +890,16 @@
             ["审计字段","保存产品、销售周期、参与名单、分配前后轮次、本期获配数、码编号、操作人、确认时间和原因。"]
           ],"查看确认和留痕"))}
         `,rotationScenarios())}
-        ${flowSection("特殊名额与机动名额算法","两类名额都由经理直接管理，不参加普通均分和抓阄。",`
-          ${flowNode("manager","选择名额类型","特殊名额面向明确客户；机动名额面向领导临时安排。")}
-          ${arrow()}<div class="flow-branch two"><div class="branch-card"><strong>特殊名额</strong><p>经理从真实登记客户中筛选，核验客户身份、类型、意向金额和登记时间，设置差异化额度后制作硬绑定专属码。</p></div><div class="branch-card"><strong>机动名额</strong><p>经理设置额度和发放说明后制作机动码，不绑定具体客户和普通顾问，交易单独统计。</p></div></div>
-          ${arrow()}<div class="flow-branch two"><div class="branch-card"><strong>名额可用</strong><p>生成预约码并占用对应名额槽位，记录经理、时间、额度和去向。</p></div><div class="branch-card"><strong>名额不足或客户已有有效码</strong><p>阻止重复制作，经理需先回收或调整周期名额。</p></div></div>
-          ${arrow()}${flowNode("system","独立统计和审计","特殊码跟踪绑定客户和交易；机动码只对经理可见，销量进入经理/公共业绩池。",algorithmDetail([
-            ["特殊名额占用","选择一个该周期有效、且不存在未作废码版本的特殊名额槽位；绑定客户、所属顾问、额度和有效期后生成码。"],
-            ["特殊码防重","客户排队记录已分配、已完成、已取消或已有有效码时不能再次分配；需先处理原记录或原码。"],
-            ["机动名额占用","从经理机动池取一个有效码，写入差异化额度、用途说明和发出时间，不绑定具体客户。"],
-            ["权限","特殊码和机动码的制作、额度修改、查看全量和回收均由顾问经理执行。"],
-            ["统计隔离","两类码不进入普通均分、抓阄、顾问普通名额余额和普通顾问销量统计。"]
+        ${flowSection("特殊名额算法","特殊名额统一建池，四类特殊码都由经理直接管理，不参加普通均分和抓阄。",`
+          ${flowNode("manager","选择特殊码类型和创建个数","员工名额、战略户名额、101客户名额、机动名额共享本周期特殊名额池。")}
+          ${arrow()}<div class="flow-branch two"><div class="branch-card"><strong>员工 / 战略户 / 101客户</strong><p>必须填写客户姓名和所属顾问；有客服系统编号时关联直销客户并硬绑定。</p></div><div class="branch-card"><strong>机动名额</strong><p>无需填写客户信息，不绑定普通顾问，最终使用人不限制。</p></div></div>
+          ${arrow()}<div class="flow-branch two"><div class="branch-card"><strong>待创建槽位充足</strong><p>按创建个数逐个生成预约码，占用对应特殊名额槽位。</p></div><div class="branch-card"><strong>创建个数超过剩余名额</strong><p>拒绝创建，经理需先回收旧码或增加特殊名额，且周期总名额仍不得超过200。</p></div></div>
+          ${arrow()}${flowNode("system","形成特殊码台账","逐码记录类型、客户、顾问、金额、有效期、创建人、使用人和订单信息。",algorithmDetail([
+            ["名额占用","从该周期待创建的特殊名额槽位中按顺序取槽位；同一槽位同一时间只能有一个未作废当前码。"],
+            ["客户校验","员工、战略户、101客户码至少填写客户姓名和所属顾问；客服系统编号命中后自动带回生产客户资料。"],
+            ["批量创建","创建个数可编辑；同一次创建共用类型、客户限制、金额上下限、有效期和备注。"],
+            ["行内调整","未提交订单的当前码允许经理逐行或批量调整金额上下限、有效期和备注；无客服系统编号时可编辑客户姓名。"],
+            ["权限与统计","特殊码创建、全量查看、调整和回收仅顾问经理可操作；机动名额交易单独归集。"]
           ]))}
         `)}
         ${flowSection("预约码回收与替换","回收不直接复用旧码。旧码作废或保持失败终态，新码沿用同一名额槽位。",`
@@ -916,18 +907,18 @@
             ["第一优先级","只要码状态为已使用，或交易状态为待确认、成功、部分成功，就不能走普通回收。"],
             ["普通码未发客户","状态为顾问持有时，经理可以回收至经理普通池；经理本人名下也可选择仍回本人。"],
             ["普通码已发客户","状态为已分配客户时，只允许预约码所属顾问先回收；其他经理不能绕过客户回收步骤。"],
-            ["特殊与机动","特殊码和机动码由经理回收；特殊码硬绑定信息不能在原码上修改。"],
+            ["特殊码","四类特殊码均由经理回收；员工、战略户和101客户的硬绑定信息不能改绑到其他客户。"],
             ["周期边界","失败或撤单生成替代码前检查周期状态；销售周期已结束时禁止产生新版本。"],
             ["客户联动","客户关联码被回收时，清空排队记录的码编号并恢复为排队中。"]
           ]))}
-          ${arrow()}<div class="flow-branch"><div class="branch-card"><strong>顾问未分配普通码</strong><p>经理可回收：旧码作废，新码回经理普通池；顾问当前名额减少，但历史获配仍计数。</p></div><div class="branch-card"><strong>普通码已发客户</strong><p>只能由所属顾问先回收：旧码作废，新码回原顾问名下，客户恢复排队中。</p></div><div class="branch-card"><strong>特殊 / 机动码</strong><p>经理回收。特殊码可退特殊池、改派或转普通；机动码生成新码回机动池。</p></div></div>
+          ${arrow()}<div class="flow-branch"><div class="branch-card"><strong>顾问未分配普通码</strong><p>经理可回收：旧码作废，新码回经理普通池；顾问当前名额减少，但历史获配仍计数。</p></div><div class="branch-card"><strong>普通码已发客户</strong><p>只能由所属顾问先回收：旧码作废，新码回原顾问名下，客户恢复排队中。</p></div><div class="branch-card"><strong>四类特殊码</strong><p>经理回收并作废旧码，释放原特殊名额槽位；下次创建生成同槽位新版本。</p></div></div>
           ${arrow()}<div class="flow-branch two"><div class="branch-card"><strong>订单待确认、成功或部分成功</strong><p>不可回收。等待交易终态或按已完成处理。</p></div><div class="branch-card"><strong>订单失败或撤单</strong><p>不是回收：原码保持已使用及失败/撤单结果，在同一名额槽位生成替代码，不增加顾问名额。</p></div></div>
           ${arrow()}${flowNode("system","记录完整版本链","记录原码、替代码、名额槽位、回收人、时间、原因、码去向；销售周期结束后不再生成替代码。",algorithmDetail([
             ["名额与码分离","一个名额槽位代表一个有效名额，允许存在多个先后预约码版本，但同一时间只能有一个当前有效版本。"],
             ["回收旧码","未下单旧码改为已作废，写入作废原因和替代码编号；已使用且失败/撤单的旧码保留已使用与交易结果。"],
             ["生成新码","在同一槽位生成版本号 +1 的新码，写入原码编号；清空实际使用人、订单时间、金额和交易结果。"],
             ["名额不增加","替换前后槽位数量不变，顾问历史获配数不增加，也不重新参加均分或抓阄。"],
-            ["去向规则","顾问回收客户普通码回原顾问；经理回收未分配普通码回经理池；特殊码回特殊池后下次绑定新客户再制码；机动码回机动池。"],
+            ["去向规则","顾问回收客户普通码回原顾问；经理回收未分配普通码回经理池；四类特殊码回收后释放原特殊名额槽位。"],
             ["审计链","按槽位可追溯所有码版本、父子关系、操作人、时间、原因、客户和最终交易结果。"]
           ]))}
         `)}
@@ -936,7 +927,7 @@
           ${arrow()}${flowNode("system","普通码软绑定","记录登记客户、发码客户、实际使用人三者；不硬拦交易，异常进入经理视图。")}
           ${arrow()}${flowNode("system","默认销量归码所属顾问","允许顾问线下微调客户安排，同时避免转发后按实际客户经理重算导致的归属争议。")}
           ${arrow()}${flowNode("manager","保留制码与额度权限","顾问只能分配本人已有名额或执行受控替换，不能自由新制码；差异金额由经理在发码前设置。")}
-          ${arrow()}${flowNode("system","最小可见与审计","普通顾问只看本人码，默认脱敏；经理看全量。显码、复制、导出、回收、替换和调整全部留痕。")}
+          ${arrow()}${flowNode("system","最小可见与审计","普通顾问只看本人码，经理看全量；工作台明文展示预约码，但查看、复制、回收、替换和调整全部留痕。")}
         `)}
       </div>`;
     }
@@ -1073,17 +1064,18 @@
     }
     function confirmReplacement(){
       const old=code(ui.modal.codeId),q=queue(ui.modal.queueId),destination=$("#replace-destination").value;
-      const replacement=invalidateAndReplace(old,destination==="customer"&&q?{state:"已分配客户",advisor:old.advisor,intendedCustomerId:q.customerId,boundCustomerId:old.type==="special"?q.customerId:"",assignedAt:nowText()}:{state:old.type==="mobile"?"经理码池":"顾问持有",advisor:old.advisor},$("#replace-reason").value.trim());
+      const replacement=invalidateAndReplace(old,destination==="customer"&&q?{state:"已分配客户",advisor:old.advisor,intendedCustomerId:q.customerId,boundCustomerId:old.type==="special"?q.customerId:"",assignedAt:nowText()}:{state:old.type==="special"?"经理码池":"顾问持有",advisor:old.type==="special"?"":old.advisor},$("#replace-reason").value.trim());
       if(q){q.codeId=destination==="customer"?replacement.id:"";q.state=destination==="customer"?"已分配":"排队中";addQueueLog(q,`原码交易${old.transactionStatus}，生成替代码 ${maskCode(replacement.id)}，${destination==="customer"?"重新发给原客户":"回到顾问名下"}。`)}
       logAudit("生成替代码",`${maskCode(old.id)} -> ${maskCode(replacement.id)}，沿用槽位${old.slotId}`);save();closeModal();renderShell();toast("替代码已生成，名额总量未增加");
     }
 
     function saveCycleSettings(){
-      const c=cycle(ui.selectedCycleId),p=product(c.productId),ordinary=Math.max(0,Number($("#cycle-ordinary").value)),special=Math.max(0,Number($("#cycle-special").value)),mobile=Math.max(0,Number($("#cycle-mobile").value));
+      const c=cycle(ui.selectedCycleId),p=product(c.productId),ordinary=Math.max(0,Math.floor(Number($("#cycle-ordinary").value))),special=Math.max(0,Math.floor(Number($("#cycle-special").value)));
       const start=$("#cycle-start").value,end=$("#cycle-end").value;
       if(!start||!end||start>end){toast("销售周期日期不正确",true);return}
+      if(ordinary+special>200){toast("每期普通名额与特殊名额合计不能超过200个",true);return}
       const overlap=productCycles(p.id).some(x=>x.id!==c.id&&x.start<=end&&x.end>=start);if(overlap){toast("同一产品销售周期必须互斥，请调整日期",true);return}
-      const reductions=[["ordinary",c.ordinaryQuota,ordinary],["special",c.specialQuota,special],["mobile",c.mobileQuota,mobile]];
+      const reductions=[["ordinary",c.ordinaryQuota,ordinary],["special",c.specialQuota,special]];
       for(const [type,oldCount,newCount] of reductions){if(newCount<oldCount&&freeSlotsForReduction(c.id,type).length<oldCount-newCount){toast(`${typeLabel[type]}已有分配或使用，最多只能调减${freeSlotsForReduction(c.id,type).length}个`,true);return}}
       reductions.forEach(([type,oldCount,newCount])=>syncQuota(c,type,oldCount,newCount));
       const excludeDigits=$("#cycle-exclude-digits").value.trim(),prefixDigits=$("#cycle-prefix-digits").value.trim(),suffixDigits=$("#cycle-suffix-digits").value.trim(),min=Number($("#cycle-min").value),max=Number($("#cycle-max").value);
@@ -1093,16 +1085,16 @@
       if(prefixDigits&&suffixDigits){toast("指定前缀和指定后缀不能同时设置",true);return}
       if(!Number.isFinite(min)||!Number.isFinite(max)||min<0||max<min){toast("预约码金额上下限不正确",true);return}
       c.name=$("#cycle-name").value.trim();c.start=start;c.end=end;c.status=$("#cycle-status").value;c.allocationMode=$("#cycle-mode").value;
-      c.ordinaryQuota=ordinary;c.specialQuota=special;c.mobileQuota=mobile;c.template.excludeDigits=excludeDigits;c.template.prefixDigits=prefixDigits;c.template.suffixDigits=suffixDigits;c.template.min=min;c.template.max=max;c.template.validTo=$("#cycle-valid").value;
+      c.ordinaryQuota=ordinary;c.specialQuota=special;c.template.excludeDigits=excludeDigits;c.template.prefixDigits=prefixDigits;c.template.suffixDigits=suffixDigits;c.template.min=min;c.template.max=max;c.template.validTo=$("#cycle-valid").value;
       cycleCodes(c.id).filter(x=>["经理码池","顾问持有"].includes(x.state)).forEach(x=>{x.min=c.template.min;x.max=c.template.max;x.validTo=c.template.validTo});
-      logAudit("保存销售周期",`${p.name} / ${c.name} / 总名额${ordinary+special+mobile}`);save();renderProducts();toast("销售周期和名额已保存，相关页面已联动");
+      logAudit("保存销售周期",`${p.name} / ${c.name} / 总名额${ordinary+special}`);save();renderProducts();toast("销售周期和名额已保存，相关页面已联动");
     }
     function freeSlotsForReduction(cycleId,type){
       return db.slots.filter(s=>s.cycleId===cycleId&&s.type===type&&s.status==="有效").filter(s=>{const current=currentCodeForSlot(s.id);return type==="special"?!current||current.state==="已作废":current?.state==="经理码池"});
     }
     function syncQuota(c,type,oldCount,newCount){
       if(newCount>oldCount){
-        const p=product(c.productId);for(let i=oldCount+1;i<=newCount;i++){const s={id:`SL-${c.id}-${type[0].toUpperCase()}-${String(i).padStart(3,"0")}`,cycleId:c.id,type,status:"有效",createdAt:nowText()};db.slots.push(s);if(type!=="special")db.codes.push({id:generateReservationCode(c,type,i,1),slotId:s.id,version:1,type,advisor:"",intendedCustomerId:"",boundCustomerId:"",actualCustomerId:"",state:"经理码池",transactionStatus:"未下单",businessType:"",min:c.template.min,max:c.template.max,validTo:c.template.validTo,createdAt:nowText(),assignedAt:"",orderTime:"",orderAmount:0,parentCodeId:"",replacementCodeId:"",invalidReason:"",leaderNote:"",productCode:p.code})}
+        const p=product(c.productId);for(let i=oldCount+1;i<=newCount;i++){const slotId=`SL-${c.id}-${type[0].toUpperCase()}-${String(i).padStart(3,"0")}`;let s=db.slots.find(item=>item.id===slotId);if(s)s.status="有效";else{s={id:slotId,cycleId:c.id,type,status:"有效",createdAt:nowText()};db.slots.push(s)}if(type!=="special"){const previous=currentCodeForSlot(s.id);if(!previous||previous.state==="已作废"){const version=db.codes.filter(item=>item.slotId===s.id).length+1,ticket={id:generateReservationCode(c,type,i,version),slotId:s.id,version,type,specialType:"",advisor:"",intendedCustomerId:"",boundCustomerId:"",customerName:"",customerNo:"",actualCustomerId:"",state:"经理码池",transactionStatus:"未下单",businessType:"",min:c.template.min,max:c.template.max,validTo:c.template.validTo,creator:ui.operator,createdAt:nowText(),assignedAt:"",orderTime:"",orderAmount:0,parentCodeId:previous?.id||"",replacementCodeId:"",invalidReason:"",leaderNote:"",remark:"",productCode:p.code};if(previous)previous.replacementCodeId=ticket.id;db.codes.push(ticket)}}}
       }else if(newCount<oldCount){
         freeSlotsForReduction(c.id,type).slice(0,oldCount-newCount).forEach(s=>{s.status="已取消";const current=currentCodeForSlot(s.id);if(current){current.state="已作废";current.invalidReason="经理调减周期名额"}})
       }
@@ -1126,15 +1118,15 @@
       p.code=fundCode;p.name=$("#bind-product-name").value.trim()||p.name;p.fundManager=$("#bind-product-manager").value.trim()||p.fundManager;productCycles(p.id).forEach(c=>{cycleCodes(c.id).forEach(ticket=>ticket.productCode=fundCode);if(!c.template.prefixDigits&&!c.template.suffixDigits)c.template.prefixDigits=fundCode.slice(-3)});logAudit("绑定生产基金代码",`${p.name} -> ${fundCode}`);save();closeModal();renderProducts();toast("基金代码已绑定，历史销售周期和预约码关系保持不变");
     }
     function openNewCycle(productId){
-      const p=product(productId);openModal("新增销售周期",`${p.code} ${p.name}`,`<div class="form-grid"><div class="field"><label>周期名称</label><input class="input" id="new-cycle-name" value="2026年新增开放期"></div><div class="field"><label>开始日期</label><input class="input" id="new-cycle-start" type="date" value="2026-08-10"></div><div class="field"><label>结束日期</label><input class="input" id="new-cycle-end" type="date" value="2026-08-16"></div><div class="field"><label>普通名额</label><input class="input" id="new-cycle-ordinary" type="number" value="${isUnboundProduct(p)?150:20}"></div><div class="field"><label>特殊名额</label><input class="input" id="new-cycle-special" type="number" value="${isUnboundProduct(p)?30:2}"></div><div class="field"><label>机动名额</label><input class="input" id="new-cycle-mobile" type="number" value="${isUnboundProduct(p)?20:1}"></div><div class="field"><label>分配模式</label><select class="select" id="new-cycle-mode"><option value="basic">基本法：均分 + 抓阄</option><option value="rotation">固定周期轮转分配</option></select></div><div class="field"><label>不含数字</label><input class="input" id="new-cycle-exclude" placeholder="例如 5|7"></div><div class="field"><label>指定前缀</label><input class="input" id="new-cycle-prefix-digits" maxlength="3" value="${isUnboundProduct(p)?"":p.code.slice(-3)}"></div><div class="field"><label>指定后缀</label><input class="input" id="new-cycle-suffix-digits" maxlength="3"></div><div class="field full"><div class="notice">所有产品均须先分配顾问名额。制码规则与现有预约码后台一致；指定前缀和指定后缀二选一。</div></div></div>`,modalButtons("confirm-new-cycle","创建销售周期"),"small");ui.modal.productId=productId;
+      const p=product(productId);openModal("新增销售周期",`${p.code} ${p.name}`,`<div class="form-grid"><div class="field"><label>周期名称</label><input class="input" id="new-cycle-name" value="2026年新增开放期"></div><div class="field"><label>开始日期</label><input class="input" id="new-cycle-start" type="date" value="2026-08-10"></div><div class="field"><label>结束日期</label><input class="input" id="new-cycle-end" type="date" value="2026-08-16"></div><div class="field"><label>普通名额</label><input class="input quota-input" id="new-cycle-ordinary" type="number" min="0" value="${isUnboundProduct(p)?150:20}"></div><div class="field"><label>特殊名额</label><input class="input quota-input" id="new-cycle-special" type="number" min="0" value="${isUnboundProduct(p)?50:2}"></div><div class="field"><label>周期总名额（最多200）</label><div class="cycle-total" id="new-cycle-total">${isUnboundProduct(p)?200:22}个</div></div><div class="field"><label>分配模式</label><select class="select" id="new-cycle-mode"><option value="basic">基本法：均分 + 抓阄</option><option value="rotation">固定周期轮转分配</option></select></div><div class="field"><label>不含数字</label><input class="input" id="new-cycle-exclude" placeholder="例如 5|7"></div><div class="field"><label>指定前缀</label><input class="input" id="new-cycle-prefix-digits" maxlength="3" value="${isUnboundProduct(p)?"":p.code.slice(-3)}"></div><div class="field"><label>指定后缀</label><input class="input" id="new-cycle-suffix-digits" maxlength="3"></div><div class="field full"><div class="notice">每期普通名额与特殊名额合计不超过200个。特殊名额创建预约码时再选择员工、战略户、101客户或机动类型。</div></div></div>`,modalButtons("confirm-new-cycle","创建销售周期"),"small");ui.modal.productId=productId;
     }
     function confirmNewCycle(){
       const p=product(ui.modal.productId),start=$("#new-cycle-start").value,end=$("#new-cycle-end").value;if(productCycles(p.id).some(x=>x.start<=end&&x.end>=start)){toast("与现有销售周期重叠，请调整日期",true);return}
       const excludeDigits=$("#new-cycle-exclude").value.trim(),prefixDigits=$("#new-cycle-prefix-digits").value.trim(),suffixDigits=$("#new-cycle-suffix-digits").value.trim();if(excludeDigits&&!/^\d(\|\d)?$/.test(excludeDigits)){toast("不含数字格式应为5或5|7",true);return}if(prefixDigits&&suffixDigits){toast("指定前缀和指定后缀不能同时设置",true);return}if((prefixDigits&&!/^\d{1,3}$/.test(prefixDigits))||(suffixDigits&&!/^\d{1,3}$/.test(suffixDigits))){toast("指定前缀或后缀必须为1-3位数字",true);return}
-      const c={id:uid("CY"),productId:p.id,name:$("#new-cycle-name").value.trim(),start,end,status:"即将开放",allocationMode:$("#new-cycle-mode").value,ordinaryQuota:0,specialQuota:0,mobileQuota:0,template:{excludeDigits,prefixDigits,suffixDigits,min:100,max:5000,validTo:end}};db.cycles.push(c);
-      db.advisors.forEach(a=>{const participates=a.defaultParticipation!=="不参与";db.participations.push({id:uid("PART"),cycleId:c.id,advisor:a.name,decision:participates?"参与":"不参与",source:participates?"默认":"经理设置",weightOverride:"",updatedAt:nowText(),note:participates?"新周期初始化，默认参与。":"经理设置为默认不参与。"})});
-      const o=Number($("#new-cycle-ordinary").value),s=Number($("#new-cycle-special").value),m=Number($("#new-cycle-mobile").value);syncQuota(c,"ordinary",0,o);syncQuota(c,"special",0,s);syncQuota(c,"mobile",0,m);c.ordinaryQuota=o;c.specialQuota=s;c.mobileQuota=m;
-      logAudit("新增销售周期",`${p.name} / ${c.name} / 总名额${o+s+m}`);save();closeModal();ui.selectedCycleId=c.id;renderProducts();toast("销售周期已创建并生成普通码、机动码");
+      const o=Math.max(0,Math.floor(Number($("#new-cycle-ordinary").value))),s=Math.max(0,Math.floor(Number($("#new-cycle-special").value)));if(o+s>200){toast("每期普通名额与特殊名额合计不能超过200个",true);return}
+      const c={id:uid("CY"),productId:p.id,name:$("#new-cycle-name").value.trim(),start,end,status:"即将开放",allocationMode:$("#new-cycle-mode").value,ordinaryQuota:0,specialQuota:0,template:{excludeDigits,prefixDigits,suffixDigits,min:100,max:5000,validTo:end}};db.cycles.push(c);
+      syncQuota(c,"ordinary",0,o);syncQuota(c,"special",0,s);c.ordinaryQuota=o;c.specialQuota=s;
+      logAudit("新增销售周期",`${p.name} / ${c.name} / 总名额${o+s}`);save();closeModal();ui.selectedCycleId=c.id;renderProducts();toast("销售周期已创建并生成普通预约码，特殊码按需创建");
     }
 
     function participantsForCycle(c){
@@ -1169,7 +1161,7 @@
       db.batches.push(batch);logAudit("确认均分批次",`${cycleProduct(c.id).name}分配${batch.allocations.length}个，${batch.participantSnapshot.length}人参与。`);save();closeModal();renderProducts();toast(`均分完成，共${batch.allocations.length}个普通码进入顾问名下`);
     }
     function lotteryPreview(c){
-      const candidates=participantsForCycle(c).map(x=>({...x,queueing:db.queues.filter(q=>q.cycleId===c.id&&q.advisor===x.advisor&&q.state==="排队中").length,wallet:walletCodes(c.id,x.advisor).length})).map(x=>({...x,gap:Math.max(0,x.queueing-x.wallet)})).filter(x=>x.gap>0);
+      const candidates=participantsForCycle(c).map(x=>({...x,queueing:db.queues.filter(q=>q.cycleId===c.id&&queueOwner(q)===x.advisor&&q.state==="排队中").length,wallet:walletCodes(c.id,x.advisor).length})).map(x=>({...x,gap:Math.max(0,x.queueing-x.wallet)})).filter(x=>x.gap>0);
       const available=freePool(c.id,"ordinary").length,drawCount=Math.min(available,candidates.length);return {candidates,participants:candidates,available,drawCount,remaining:available-drawCount,direct:available>=candidates.length,winners:[]};
     }
     function openLottery(){
@@ -1273,31 +1265,29 @@
     }
     function adjustAdvisorQuotaSilent(c,name,delta){if(delta>0){const allocation=assignPoolCode(c.id,name,"manual","");db.batches.push({id:uid("B"),cycleId:c.id,type:"manual",status:"已确认",createdAt:nowText(),operator:ui.operator,participantSnapshot:[{advisor:name,weight:effectiveParticipant(c.id,name).weight,demand:advisorQueueGap(c.id,name)}],allocations:[allocation]})}else{const old=walletCodes(c.id,name)[0];invalidateAndReplace(old,{state:"经理码池",advisor:""},"顾问经理调减未使用名额")}}
 
-    function openSpecialAllocation(){
-      const c=cycle(ui.selectedCycleId),free=db.slots.filter(s=>s.cycleId===c.id&&s.type==="special"&&!db.codes.some(x=>x.slotId===s.id&&x.state!=="已作废")).length;
-      if(!free){toast("当前销售周期没有可用特殊名额",true);return}
-      const rows=db.queues.filter(q=>q.cycleId===c.id&&!["已完成","已取消","已分配"].includes(q.state)&&!q.codeId).slice(0,20);
-      openModal("分配特殊专属码",`${cycleProduct(c.id).name} · 可用特殊名额${free}个`,`<div class="form-grid"><div class="field full"><label>客户搜索</label><input class="input ime-safe" id="special-customer-search" placeholder="输入姓名、手机号、身份证号或所属顾问"></div><div class="field full"><div class="picker" id="special-customer-list"><table><thead><tr><th>选择</th><th>客户</th><th>类型</th><th>所属顾问</th><th>意向金额</th><th>状态</th></tr></thead><tbody>${rows.map(q=>specialCustomerRow(q)).join("")}</tbody></table></div></div><div class="field"><label>金额下限（万元）</label><input class="input" id="special-min" type="number" value="${c.template.min}"></div><div class="field"><label>金额上限（万元）</label><input class="input" id="special-max" type="number" value="${c.template.max}"></div><div class="field full"><label>经理核验说明</label><textarea class="textarea" id="special-note">已核验客户身份、客户类型和真实购买意向，制作硬绑定特殊专属码。</textarea></div></div>`,modalButtons("confirm-special-allocation","确认制作并分配"));ui.modal.queueId="";ui.modal.availableQueueIds=rows.map(q=>q.id);
+    function openCreateSpecialCodes(){
+      const c=cycle(ui.selectedCycleId),free=availableSpecialSlots(c.id).length;if(!free){toast("当前销售周期没有待创建的特殊名额",true);return}
+      openModal("创建特殊预约码",`${cycleProduct(c.id).name} · 待创建${free}个`,`<div class="form-grid"><div class="field"><label>预约码类型</label><select class="select" id="special-code-type">${SPECIAL_CODE_TYPES.map(type=>`<option>${type}</option>`).join("")}</select></div><div class="field"><label>创建个数</label><input class="input" id="special-create-count" type="number" min="1" max="${free}" value="1"></div><div class="field full" id="special-customer-fields"><div class="form-grid"><div class="field"><label>客服系统编号</label><div class="lookup-row"><input class="input" id="special-customer-no" placeholder="输入编号后关联"><button class="btn" data-action="lookup-special-account">关联客户数据</button></div></div><div class="field"><label>客户姓名</label><input class="input" id="special-customer-name" placeholder="必填；无编号时可手工录入"></div><div class="field"><label>所属顾问</label><select class="select" id="special-advisor">${ADVISOR_NAMES.map(name=>`<option ${name===ui.operator?"selected":""}>${name}</option>`).join("")}</select></div><div class="field"><label>客户限制</label><input class="input" value="指定个人客户（硬绑定）" readonly></div></div></div><div class="field"><label>金额下限（万元）</label><input class="input" id="special-min" type="number" value="${c.template.min}"></div><div class="field"><label>金额上限（万元）</label><input class="input" id="special-max" type="number" value="${c.template.max}"></div><div class="field"><label>有效期</label><input class="input" id="special-valid" type="date" value="${c.template.validTo}"></div><div class="field"><label>备注</label><input class="input" id="special-note" value="顾问经理核验后创建特殊预约码。"></div></div>`,modalButtons("confirm-create-special-codes","确认创建"));ui.modal.accountId="";
     }
-    function specialCustomerRow(q){const a=account(q.customerId);return `<tr class="${ui.modal?.queueId===q.id?"selected":""}" data-special-select="${q.id}"><td><input type="radio" ${ui.modal?.queueId===q.id?"checked":""}></td><td><strong>${a.name}</strong><br><span class="muted tiny">${maskPhone(a.phone)}</span></td><td>${a.type}</td><td>${q.advisor}</td><td class="amount">${money(q.amount)}</td><td>${statusTag(q.state)}</td></tr>`}
-    function confirmSpecialAllocation(){
-      const q=queue(ui.modal.queueId);if(!q){toast("请选择客户",true);return}const c=cycle(q.cycleId),s=db.slots.find(s=>s.cycleId===c.id&&s.type==="special"&&!db.codes.some(x=>x.slotId===s.id&&x.state!=="已作废"));if(!s){toast("特殊名额已被占用",true);return}
-      const previous=currentCodeForSlot(s.id),version=db.codes.filter(x=>x.slotId===s.id).length+1,index=Number(s.id.split("-").pop())||db.codes.length+1,ticket={id:generateReservationCode(c,"special",index,version),slotId:s.id,version,type:"special",advisor:q.advisor,intendedCustomerId:q.customerId,boundCustomerId:q.customerId,actualCustomerId:"",state:"已分配客户",transactionStatus:"未下单",businessType:"",min:Number($("#special-min").value),max:Number($("#special-max").value),validTo:c.template.validTo,createdAt:nowText(),assignedAt:nowText(),orderTime:"",orderAmount:0,parentCodeId:previous?.id||"",replacementCodeId:"",invalidReason:"",leaderNote:""};
-      if(previous)previous.replacementCodeId=ticket.id;
-      db.codes.push(ticket);q.codeId=ticket.id;q.state="已分配";addQueueLog(q,`顾问经理制作并分配特殊专属码，硬绑定客户证件。${$("#special-note").value.trim()}`);logAudit("分配特殊专属码",`${account(q.customerId).name} / ${product(q.productId).name}`);save();closeModal();renderProducts();toast("特殊专属码已制作并分配");
+    function toggleSpecialCustomerFields(){const mobile=$("#special-code-type")?.value==="机动名额",section=$("#special-customer-fields");if(section)section.style.display=mobile?"none":"block"}
+    function lookupSpecialAccount(){const id=$("#special-customer-no").value.trim(),item=account(id);if(!item){ui.modal.accountId="";toast("未查询到直销客户，可保留手工客户姓名继续创建",true);return}ui.modal.accountId=item.id;$("#special-customer-name").value=item.name;$("#special-advisor").value=item.advisor;toast(`已关联客户 ${item.name}`)}
+    function confirmCreateSpecialCodes(){
+      const c=cycle(ui.selectedCycleId),specialType=$("#special-code-type").value,count=Math.floor(Number($("#special-create-count").value)),free=availableSpecialSlots(c.id),min=Number($("#special-min").value),max=Number($("#special-max").value),validTo=$("#special-valid").value,customerNo=$("#special-customer-no")?.value.trim()||"",linked=account(customerNo),customerName=$("#special-customer-name")?.value.trim()||linked?.name||"",assignedAdvisor=$("#special-advisor")?.value||"",remark=$("#special-note").value.trim();
+      if(!Number.isInteger(count)||count<1||count>free.length){toast(`创建个数必须为1至${free.length}`,true);return}if(!Number.isFinite(min)||!Number.isFinite(max)||min<0||max<min){toast("预约码金额上下限不正确",true);return}if(!validTo){toast("请填写预约码有效期",true);return}if(specialType!=="机动名额"&&(!customerName||!assignedAdvisor)){toast("该预约码类型必须填写客户姓名和所属顾问",true);return}
+      const createdAt=nowText(),created=[];free.slice(0,count).forEach((s,index)=>{const previous=currentCodeForSlot(s.id),version=db.codes.filter(item=>item.slotId===s.id).length+1,slotIndex=Number(s.id.split("-").pop())||db.codes.length+1,ticket={id:generateReservationCode(c,"special",slotIndex,version),slotId:s.id,version,type:"special",specialType,advisor:specialType==="机动名额"?"":assignedAdvisor,intendedCustomerId:specialType==="机动名额"?"":customerNo,boundCustomerId:specialType==="机动名额"?"":customerNo,customerName:specialType==="机动名额"?"":customerName,customerNo:specialType==="机动名额"?"":customerNo,actualCustomerId:"",state:specialType==="机动名额"?"经理码池":"已分配客户",transactionStatus:"未下单",businessType:"",min,max,validTo,creator:ui.operator,createdAt,assignedAt:specialType==="机动名额"?"":createdAt,orderTime:"",orderAmount:0,parentCodeId:previous?.id||"",replacementCodeId:"",invalidReason:"",leaderNote:specialType==="机动名额"?remark:"",remark,productCode:cycleProduct(c.id)?.code||""};if(previous)previous.replacementCodeId=ticket.id;db.codes.push(ticket);created.push(ticket)});
+      if(specialType!=="机动名额"&&customerNo){const q=db.queues.find(item=>item.cycleId===c.id&&item.customerId===customerNo&&!item.codeId&&!["已取消","已完成"].includes(item.state));if(q&&created[0]){q.codeId=created[0].id;q.state="已分配";addQueueLog(q,`顾问经理创建${specialType}特殊预约码并硬绑定客户。`)}}
+      logAudit("创建特殊预约码",`${cycleProduct(c.id).name} / ${specialType} / ${count}个 / ${customerName||"不绑定客户"}`);save();closeModal();ui.specialPage=1;renderProducts();toast(`已创建${count}个${specialType}预约码`);
     }
-    function openAssignMobile(){
-      const c=cycle(ui.selectedCycleId),ticket=freePool(c.id,"mobile")[0];if(!ticket){toast("没有可发出的机动码",true);return}
-      openModal("发出机动码","机动码不绑定客户，最终使用人不限制，仅经理可见。",`<div class="form-grid"><div class="field"><label>预约码</label><input class="input" value="${maskCode(ticket.id)}" readonly></div><div class="field"><label>金额下限（万元）</label><input class="input" id="mobile-min" type="number" value="${ticket.min}"></div><div class="field"><label>金额上限（万元）</label><input class="input" id="mobile-max" type="number" value="${ticket.max}"></div><div class="field full"><label>领导客户/用途说明</label><textarea class="textarea" id="mobile-note">领导客户临时安排，最终使用人不限制。</textarea></div></div>`,modalButtons("confirm-mobile","确认发出"),"small");ui.modal.codeId=ticket.id;
-    }
-    function confirmMobile(){const ticket=code(ui.modal.codeId);ticket.state="已发领导";ticket.leaderNote=$("#mobile-note").value.trim();ticket.min=Number($("#mobile-min").value);ticket.max=Number($("#mobile-max").value);ticket.assignedAt=nowText();logAudit("发出机动码",`${maskCode(ticket.id)} / ${ticket.leaderNote}`);save();closeModal();renderProducts();toast("机动码已发出并单独记账")}
+    function updateSpecialField(codeId,field,value){const item=code(codeId);if(!item||item.state==="已使用"||item.state==="已作废")return;if(field==="customerName"&&item.customerNo)return;const next=["min","max"].includes(field)?Number(value):value;if(field==="min"&&(!Number.isFinite(next)||next<0||next>item.max)){toast("金额下限不正确",true);renderProducts();return}if(field==="max"&&(!Number.isFinite(next)||next<item.min)){toast("金额上限不正确",true);renderProducts();return}item[field]=next;logAudit("编辑特殊预约码",`${item.id} / ${field} -> ${value}`);save();toast("特殊预约码已更新")}
+    function applySpecialBatch(){const rows=[...ui.selectedSpecialCodeIds].map(code).filter(item=>item&&item.state!=="已使用"&&item.state!=="已作废");if(!rows.length){toast("请先选择可调整的预约码",true);return}const minText=$("#special-batch-min").value,maxText=$("#special-batch-max").value,validTo=$("#special-batch-valid").value,min=minText===""?null:Number(minText),max=maxText===""?null:Number(maxText);if(min===null&&max===null&&!validTo){toast("请至少填写一项批量调整内容",true);return}if((min!==null&&(!Number.isFinite(min)||min<0))||(max!==null&&(!Number.isFinite(max)||max<0))){toast("批量金额格式不正确",true);return}for(const item of rows){const nextMin=min??item.min,nextMax=max??item.max;if(nextMax<nextMin){toast("批量金额上限不能低于下限",true);return}}rows.forEach(item=>{if(min!==null)item.min=min;if(max!==null)item.max=max;if(validTo)item.validTo=validTo});logAudit("批量调整特殊预约码",`${rows.length}个预约码`);save();renderProducts();toast(`已批量调整${rows.length}个预约码`)}
+    function openRecallSpecialBatch(){const rows=[...ui.selectedSpecialCodeIds].map(code).filter(item=>item&&item.state!=="已使用"&&item.state!=="已作废");if(!rows.length){toast("请先选择可回收的预约码",true);return}openModal("批量回收特殊预约码",`已选择${rows.length}个预约码`,`<div class="notice warn">回收后旧码立即作废，原特殊名额槽位重新可创建；已提交订单的码不可回收。</div><div class="field" style="margin-top:12px"><label>回收原因</label><textarea class="textarea" id="special-recall-reason">顾问经理确认未继续使用，批量回收特殊预约码。</textarea></div>`,modalButtons("confirm-recall-special-batch","确认回收"),"small")}
+    function confirmRecallSpecialBatch(){const reason=$("#special-recall-reason").value.trim(),rows=[...ui.selectedSpecialCodeIds].map(code).filter(item=>item&&item.state!=="已使用"&&item.state!=="已作废");rows.forEach(item=>{item.state="已作废";item.invalidReason=reason;const q=db.queues.find(row=>row.codeId===item.id);if(q){q.codeId="";q.state="排队中";addQueueLog(q,`特殊预约码回收作废，客户恢复排队中。`)}});logAudit("批量回收特殊预约码",`${rows.length}个 / ${reason}`);ui.selectedSpecialCodeIds.clear();save();closeModal();renderProducts();toast(`已回收${rows.length}个预约码，名额槽位已释放`)}
     function openManagerRecall(codeId){
       const item=code(codeId),q=db.queues.find(x=>x.codeId===item.id);
       let options="";
       if(item.type==="ordinary")options=item.state==="已分配客户"&&item.advisor===ui.operator?`<option value="self">作废旧码，新码回本人名下</option><option value="pool">作废旧码，新码回经理普通池</option>`:`<option value="pool">作废旧码，新码回经理普通池</option>`;
-      if(item.type==="special")options=`<option value="special-pool">作废旧码，退回特殊名额池</option><option value="convert">作废旧码，将名额转为普通名额</option>`;
-      if(item.type==="mobile")options=`<option value="mobile-pool">作废旧码，新码回机动池</option>`;
-      openModal("经理回收预约码",`${typeLabel[item.type]} · ${maskCode(item.id)}`,`<div class="notice warn">${item.type==="ordinary"?"仅允许回收顾问未分配给客户的普通码。回收后顾问当前名额减少，历史获配仍保留；经理择时另行发起抓阄。":item.type==="special"?"特殊码硬绑定客户，旧码必须作废且不能修改绑定客户。":"机动码不复用旧码，回收后在同一槽位生成新码。"} </div><div class="form-grid" style="margin-top:12px"><div class="field"><label>回收去向</label><select class="select" id="manager-recall-dest">${options}</select></div><div class="field"><label>回收原因</label><input class="input" id="manager-recall-reason" value="经理确认本预约码未继续使用，执行回收。"></div></div>`,modalButtons("confirm-manager-recall","确认回收"),"small");ui.modal.codeId=item.id;ui.modal.queueId=q?.id||"";
+      if(item.type==="special")options=`<option value="special-pool">作废旧码，释放原特殊名额槽位</option>`;
+      openModal("经理回收预约码",`${reservationTypeLabel(item)} · ${maskCode(item.id)}`,`<div class="notice warn">${item.type==="ordinary"?"仅允许回收顾问未分配给客户的普通码。回收后顾问当前名额减少，历史获配仍保留；经理择时另行发起抓阄。":"特殊码回收后一律作废旧码，释放同一特殊名额槽位；再次创建时生成新版本，不复用旧码。"} </div><div class="form-grid" style="margin-top:12px"><div class="field"><label>回收去向</label><select class="select" id="manager-recall-dest">${options}</select></div><div class="field"><label>回收原因</label><input class="input" id="manager-recall-reason" value="经理确认本预约码未继续使用，执行回收。"></div></div>`,modalButtons("confirm-manager-recall","确认回收"),"small");ui.modal.codeId=item.id;ui.modal.queueId=q?.id||"";
     }
     function confirmManagerRecall(){
       const old=code(ui.modal.codeId),q=queue(ui.modal.queueId),dest=$("#manager-recall-dest").value,reason=$("#manager-recall-reason").value.trim(),c=cycle(slot(old.slotId).cycleId);
@@ -1305,9 +1295,7 @@
       let replacement=null;
       if(dest==="pool")replacement=invalidateAndReplace(old,{state:"经理码池",advisor:""},reason);
       if(dest==="self")replacement=invalidateAndReplace(old,{state:"顾问持有",advisor:old.advisor},reason);
-      if(dest==="mobile-pool")replacement=invalidateAndReplace(old,{state:"经理码池",advisor:"",leaderNote:""},reason);
       if(dest==="special-pool"){old.state="已作废";old.invalidReason=reason}
-      if(dest==="convert"){old.state="已作废";old.invalidReason=reason;const s=slot(old.slotId);s.type="ordinary";c.specialQuota--;c.ordinaryQuota++;replacement=invalidateAndReplace(old,{state:"经理码池",advisor:"",boundCustomerId:""},`${reason}；特殊名额转普通名额`);replacement.type="ordinary"}
       if(q){q.codeId="";q.state="排队中";addQueueLog(q,`经理回收${typeLabel[old.type]}，原码作废，客户恢复排队中。`)}
       logAudit("经理回收预约码",`${maskCode(old.id)} / ${dest}${replacement?` / 新码${maskCode(replacement.id)}`:""}`);save();closeModal();renderShell();toast("回收完成，旧码已作废，相关名额和客户状态已联动");
     }
@@ -1325,28 +1313,8 @@
     function confirmTransaction(){
       const item=code(ui.modal.codeId),result=$("#tx-result").value;item.transactionStatus=result;const q=db.queues.find(x=>x.codeId===item.id);if(q)q.state=item.actualCustomerId!==q.customerId?"排队中":["成功","部分成功"].includes(result)?"已完成":"已下单";if(q)addQueueLog(q,`交易结果更新为${result}，排队状态同步为${q.state}。`);logAudit("更新交易结果",`${item.id} -> ${result}`);save();closeModal();renderAdvisor();toast("交易结果和客户状态已联动更新");
     }
-    function setCycleParticipation(cycleId,name,decision,source="经理设置"){
-      let part=db.participations.find(item=>item.cycleId===cycleId&&item.advisor===name);if(!part){part={id:uid("PART"),cycleId,advisor:name,weightOverride:""};db.participations.push(part)}
-      const was=part.decision;part.decision=decision;part.source=source;part.updatedAt=nowText();part.note=`${ui.operator}直接设置本周期${part.decision}`;
-      if(part.decision==="参与"&&advisor(name).baseStatus==="名额排除")part.weightOverride=1;
-      const currentCycle=cycle(cycleId);if(was==="不参与"&&part.decision==="参与"&&currentCycle?.allocationMode==="rotation"){const state=rotationVersionState(currentCycle.productId),known=Object.prototype.hasOwnProperty.call(state.advisorVersions,name);part.note+=known?`，重新参加时保留原第${state.advisorVersions[name]}轮记录；如落后当前第${state.currentVersion}轮，只用1个名额直接跟到当前轮次，不追补缺席轮次。`:`，首次参加从产品当前第${state.currentVersion}轮开始，获得1个即可跟到当前轮次，不补历史。`}
-      logAudit("设置周期参与状态",`${name} / ${currentCycle?.name||cycleId} -> ${part.decision}`);save();renderProducts();toast("周期参与状态已更新");
-    }
-    function setDefaultParticipation(name,decision){
-      const a=advisor(name),changedAt=nowText();a.defaultParticipation=decision;
-      db.cycles.filter(c=>c.status!=="已结束").forEach(c=>{let part=db.participations.find(item=>item.cycleId===c.id&&item.advisor===name);if(!part){part={id:uid("PART"),cycleId:c.id,advisor:name,weightOverride:""};db.participations.push(part)}part.decision=decision;part.source="经理统计面板";part.updatedAt=changedAt;part.note=`${ui.operator}将默认参与状态调整为${decision}，同步更新未结束周期。`});logAudit("调整顾问默认参与状态",`${name} -> ${decision}`);save();renderProducts();toast(`已将${name}当前未结束周期统一调整为${decision}`);
-    }
-    function openCycleWeight(name){
-      const part=db.participations.find(item=>item.cycleId===ui.selectedCycleId&&item.advisor===name);
-      openModal("设置本周期临时权重",`${name}基础状态为名额排除，经理临时设为参与时必须明确权重。`,`<div class="field"><label>本周期权重</label><select class="select" id="cycle-weight"><option value="1" ${Number(part.weightOverride)!==.5?"selected":""}>正常 1份</option><option value="0.5" ${Number(part.weightOverride)===.5?"selected":""}>半权重 0.5份</option></select></div>`,modalButtons("confirm-cycle-weight","保存权重"),"small");
-      ui.modal.advisor=name;
-    }
-    function confirmCycleWeight(){
-      const part=db.participations.find(item=>item.cycleId===ui.selectedCycleId&&item.advisor===ui.modal.advisor);part.weightOverride=Number($("#cycle-weight").value);part.source="经理设置";part.updatedAt=nowText();part.note=`${ui.operator}设置本周期临时权重${part.weightOverride}份。`;logAudit("设置周期临时权重",`${part.advisor} / ${part.weightOverride}份`);save();closeModal();renderProducts();toast("本周期临时权重已保存");
-    }
-
     function handleInputChange(event){
-      if(event.target.matches(".quota-input"))$("#cycle-total").textContent=`${Number($("#cycle-special").value||0)+Number($("#cycle-mobile").value||0)+Number($("#cycle-ordinary").value||0)}个`;
+      if(event.target.matches(".quota-input")){const currentTotal=$("#cycle-total"),newTotal=$("#new-cycle-total");if(currentTotal)currentTotal.textContent=`${Number($("#cycle-special")?.value||0)+Number($("#cycle-ordinary")?.value||0)}个`;if(newTotal)newTotal.textContent=`${Number($("#new-cycle-special")?.value||0)+Number($("#new-cycle-ordinary")?.value||0)}个`}
       if(event.target.matches("[data-direct-advisor-quota]")&&event.type==="change")directAdvisorQuota(event.target.dataset.directAdvisorQuota,event.target.value);
     }
     function captureRegistrationDraft(){if(!ui.registrationOpen)return;ui.registrationDraft={customerName:$("#reg-name")?.value.trim()||"",customerNo:$("#accountLookup")?.value.trim()||"",customerType:$("#reg-customer-type")?.value||"普通客户",advisor:$("#reg-advisor")?.value||ui.operator,amount:Number($("#reg-amount")?.value||300),note:$("#reg-note")?.value||""};if(ui.registrationAccountId&&ui.registrationDraft.customerNo!==ui.registrationAccountId)ui.registrationAccountId=""}
@@ -1356,8 +1324,8 @@
     function readLedgerFilters(){ui.ledgerFilters={advisor:$("#lf-advisor").value.trim(),type:$("#lf-type").value,state:$("#lf-state").value};ui.ledgerPage=1}
 
     document.addEventListener("click",event=>{
-      if(event.target.matches("[data-bulk-queue],#select-all-queues,[data-reg-cycle]"))return;
-      const target=event.target.closest("button,[data-view],[data-select-advisor-cycle],[data-select-queue],[data-select-code],[data-select-product],[data-special-select],[data-toggle-batch],[data-toggle-rotation-cycle],[data-reg-cycle],[data-add-product],[data-toggle-transaction]");
+      if(event.target.matches("[data-bulk-queue],#select-all-queues,[data-special-code],#select-all-special,[data-reg-cycle]"))return;
+      const target=event.target.closest("button,[data-view],[data-select-advisor-cycle],[data-select-queue],[data-select-code],[data-select-product],[data-toggle-batch],[data-toggle-rotation-cycle],[data-reg-cycle],[data-add-product],[data-toggle-transaction]");
       if(!target)return;
       if(target.dataset.view){ui.view=target.dataset.view;renderShell();return}
       const action=target.dataset.action;
@@ -1366,17 +1334,16 @@
       if(target.dataset.selectAdvisorCycle){ui.advisorSelectedCycleId=target.dataset.selectAdvisorCycle;ui.queuePage=1;ui.ledgerPage=1;ui.selectedQueueId="";ui.selectedCodeId="";if(ui.registrationOpen)ui.registrationProducts=[ui.advisorSelectedCycleId];renderAdvisor();return}
       if(target.dataset.managerWorkspace){ui.managerWorkspace=target.dataset.managerWorkspace;ui.selectedAdvisorProfile="";renderProducts();return}
       if(target.dataset.selectAdvisorProfile){ui.selectedAdvisorProfile=ui.selectedAdvisorProfile===target.dataset.selectAdvisorProfile?"":target.dataset.selectAdvisorProfile;renderProducts();if(ui.selectedAdvisorProfile)requestAnimationFrame(()=>$(".advisor-profile")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
-      if(target.dataset.productTab){ui.productTab=target.dataset.productTab;renderProducts();return}
+      if(target.dataset.productTab){ui.productTab=target.dataset.productTab;if(ui.productTab!=="special")ui.selectedSpecialCodeIds.clear();renderProducts();return}
       if(target.dataset.selectQueue){ui.selectedQueueId=target.dataset.selectQueue;renderAdvisor();requestAnimationFrame(()=>$("#queueDetail")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
       if(target.dataset.selectCode){ui.selectedCodeId=target.dataset.selectCode;renderAdvisor();requestAnimationFrame(()=>$("#codeDetail")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
       if(target.dataset.toggleTransaction){const id=target.dataset.toggleTransaction;ui.expandedTransactions.has(id)?ui.expandedTransactions.delete(id):ui.expandedTransactions.add(id);renderAdvisor();return}
-      if(target.dataset.selectProduct){ui.selectedProductId=target.dataset.selectProduct;ui.selectedCycleId=latestCycle(ui.selectedProductId)?.id||"";renderProducts();requestAnimationFrame(()=>$("#productDetail")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
+      if(target.dataset.selectProduct){ui.selectedProductId=target.dataset.selectProduct;ui.selectedCycleId=latestCycle(ui.selectedProductId)?.id||"";ui.selectedSpecialCodeIds.clear();ui.specialPage=1;renderProducts();requestAnimationFrame(()=>$("#productDetail")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
       if(target.dataset.toggleBatch){const id=target.dataset.toggleBatch;ui.expandedBatches.has(id)?ui.expandedBatches.delete(id):ui.expandedBatches.add(id);renderProducts();return}
       if(target.dataset.toggleRotationCycle){const id=target.dataset.toggleRotationCycle;ui.expandedRotationCycles.has(id)?ui.expandedRotationCycles.delete(id):ui.expandedRotationCycles.add(id);renderProducts();return}
       if(target.dataset.sortScope){const scope=target.dataset.sortScope,key=target.dataset.sortKey,sortKey=scope==="queue"?"queueSort":scope==="ledger"?"ledgerSort":scope==="advisorProduct"?"advisorProductSort":"advisorSort",dirKey=scope==="queue"?"queueDir":scope==="ledger"?"ledgerDir":scope==="advisorProduct"?"advisorProductDir":"advisorDir";ui[dirKey]=ui[sortKey]===key&&ui[dirKey]==="asc"?"desc":"asc";ui[sortKey]=key;renderShell();return}
-      if(target.dataset.pageAction){const delta=Number(target.dataset.pageDir),kind=target.dataset.pageAction;if(kind==="queue-page")ui.queuePage+=delta;if(kind==="ledger-page")ui.ledgerPage+=delta;if(kind==="product-page")ui.productPage+=delta;if(kind==="advisor-product-page")ui.advisorProductPage+=delta;renderShell();return}
+      if(target.dataset.pageAction){const delta=Number(target.dataset.pageDir),kind=target.dataset.pageAction;if(kind==="queue-page")ui.queuePage+=delta;if(kind==="ledger-page")ui.ledgerPage+=delta;if(kind==="product-page")ui.productPage+=delta;if(kind==="advisor-product-page")ui.advisorProductPage+=delta;if(kind==="special-page")ui.specialPage+=delta;renderShell();return}
       if(target.dataset.removeRegCycle){captureRegistrationDraft();ui.registrationProducts=ui.registrationProducts.filter(x=>x!==target.dataset.removeRegCycle);renderRegistrationInner();return}
-      if(target.dataset.specialSelect){ui.modal.queueId=target.dataset.specialSelect;const rows=ui.modal.availableQueueIds.map(queue);$("#special-customer-list tbody").innerHTML=rows.map(q=>specialCustomerRow(q)).join("");return}
       if(target.dataset.addProduct){const id=target.dataset.addProduct;target.checked?ui.modal.productIds.push(id):ui.modal.productIds=ui.modal.productIds.filter(x=>x!==id);return}
       if(target.dataset.adjustAdvisor){adjustAdvisorQuota(target.dataset.advisor,Number(target.dataset.adjustAdvisor));return}
       if(target.dataset.jumpLedger){const c=cycle(ui.selectedCycleId);ui.view="advisor";ui.advisorTab="ledger";ui.advisorStart=c?.start||ui.advisorStart;ui.advisorEnd=c?.end||ui.advisorEnd;ui.advisorPeriodPreset="custom";ui.advisorSelectedCycleId=ui.selectedCycleId;ui.ledgerFilters={advisor:target.dataset.jumpLedger,type:"",state:""};ui.ledgerPage=1;renderShell();return}
@@ -1434,17 +1401,18 @@
         "confirm-rotation":confirmRotation,
         "reset-advisor-sort":()=>{ui.advisorSort="business";ui.advisorDir="asc";renderProducts()},
         "toggle-zero-advisors":()=>{ui.showZero=!ui.showZero;renderProducts()},
-        "allocate-special":openSpecialAllocation,
-        "confirm-special-allocation":confirmSpecialAllocation,
-        "assign-mobile":openAssignMobile,
-        "confirm-mobile":confirmMobile,
+        "create-special-codes":openCreateSpecialCodes,
+        "lookup-special-account":lookupSpecialAccount,
+        "confirm-create-special-codes":confirmCreateSpecialCodes,
+        "apply-special-batch":applySpecialBatch,
+        "recall-special-batch":openRecallSpecialBatch,
+        "confirm-recall-special-batch":confirmRecallSpecialBatch,
+        "clear-special-selection":()=>{ui.selectedSpecialCodeIds.clear();renderProducts()},
         "manager-recall-code":()=>openManagerRecall(target.dataset.codeId),
         "confirm-manager-recall":confirmManagerRecall,
         "close-advisor-profile":()=>{ui.selectedAdvisorProfile="";renderProducts()},
-        "set-cycle-weight":()=>openCycleWeight(target.dataset.advisor),
-        "confirm-cycle-weight":confirmCycleWeight,
         "open-reset":()=>openModal("重置演示数据","将清除本浏览器中的演示操作，恢复完整初始样例。",`<div class="notice danger">重置后，新增登记、分配批次、回收替换、产品周期修改和操作日志都会恢复到初始状态。</div>`,`<button class="btn" data-action="close-modal">取消</button><button class="btn danger" data-action="confirm-reset">确认重置</button>`,"small"),
-        "confirm-reset":()=>{localStorage.removeItem(STORAGE_KEY);db=makeSeed();ui.selectedQueueId="";ui.selectedCodeId="";ui.selectedQueueIds.clear();ui.registrationOpen=false;ui.advisorSelectedCycleId="";save();closeModal();renderShell();toast("演示数据已重置")},
+        "confirm-reset":()=>{localStorage.removeItem(STORAGE_KEY);db=makeSeed();ui.selectedQueueId="";ui.selectedCodeId="";ui.selectedQueueIds.clear();ui.selectedSpecialCodeIds.clear();ui.registrationOpen=false;ui.advisorSelectedCycleId="";save();closeModal();renderShell();toast("演示数据已重置")},
         "close-modal":closeModal
       };
       if(handlers[action])handlers[action]();
@@ -1452,22 +1420,20 @@
     document.addEventListener("change",event=>{
       handleInputChange(event);
       if(event.target.id==="operatorSelect"){ui.operator=event.target.value;if(!isManager()&&ui.view==="products")ui.view="advisor";ui.queueFilters.advisor="";ui.ledgerFilters.advisor="";ui.registrationDraft.advisor=ui.operator;ui.advisorSelectedCycleId="";ui.selectedQueueId="";ui.selectedCodeId="";renderShell()}
-      if(event.target.id==="cycleSelector"){ui.selectedCycleId=event.target.value;ui.productTab="cycle";renderProducts()}
+      if(event.target.id==="cycleSelector"){ui.selectedCycleId=event.target.value;ui.productTab="cycle";ui.selectedSpecialCodeIds.clear();ui.specialPage=1;renderProducts()}
       if(event.target.id==="advisor-start"||event.target.id==="advisor-end"){ui.advisorStart=$("#advisor-start").value;ui.advisorEnd=$("#advisor-end").value;if(ui.advisorStart>ui.advisorEnd){toast("开始日期不能晚于结束日期",true);return}ui.advisorPeriodPreset="custom";ui.advisorProductPage=1;ui.advisorSelectedCycleId="";renderAdvisor()}
       if(event.target.id==="advisor-has-codes"){ui.advisorHasCodes=event.target.checked;ui.advisorProductPage=1;ui.advisorSelectedCycleId="";renderAdvisor()}
       if(event.target.matches("[data-reg-cycle]")){captureRegistrationDraft();const id=event.target.dataset.regCycle;event.target.checked?ui.registrationProducts.push(id):ui.registrationProducts=ui.registrationProducts.filter(x=>x!==id);renderRegistrationInner()}
       if(event.target.matches("[data-bulk-queue]")){const id=event.target.dataset.bulkQueue;event.target.checked?ui.selectedQueueIds.add(id):ui.selectedQueueIds.delete(id);updateQueueSelectionBar()}
       if(event.target.id==="select-all-queues"){const rows=paginate(queueRows(),ui.queuePage,ui.queueSize).filter(item=>item.state==="排队中");rows.forEach(item=>event.target.checked?ui.selectedQueueIds.add(item.id):ui.selectedQueueIds.delete(item.id));$(".queue-table")?.querySelectorAll("input[data-bulk-queue]:not([disabled])").forEach(input=>input.checked=event.target.checked);updateQueueSelectionBar()}
+      if(event.target.matches("[data-special-code]")){const id=event.target.dataset.specialCode;event.target.checked?ui.selectedSpecialCodeIds.add(id):ui.selectedSpecialCodeIds.delete(id);const bar=$("#specialBulkBar"),count=$("#special-bulk-count");if(bar)bar.classList.toggle("show",ui.selectedSpecialCodeIds.size>0);if(count)count.textContent=ui.selectedSpecialCodeIds.size}
+      if(event.target.id==="select-all-special"){const rows=paginate(currentCycleCodes(ui.selectedCycleId,"special").sort((a,b)=>b.createdAt.localeCompare(a.createdAt)),ui.specialPage,ui.specialSize).filter(item=>!["已使用","已作废"].includes(item.state));rows.forEach(item=>event.target.checked?ui.selectedSpecialCodeIds.add(item.id):ui.selectedSpecialCodeIds.delete(item.id));$(".special-code-table")?.querySelectorAll("input[data-special-code]:not([disabled])").forEach(input=>input.checked=event.target.checked);const bar=$("#specialBulkBar"),count=$("#special-bulk-count");if(bar)bar.classList.toggle("show",ui.selectedSpecialCodeIds.size>0);if(count)count.textContent=ui.selectedSpecialCodeIds.size}
+      if(event.target.id==="special-code-type")toggleSpecialCustomerFields();
       if(event.target.matches("[data-base-status]")){const a=advisor(event.target.dataset.baseStatus);a.baseStatus=event.target.value;logAudit("编辑顾问基础状态",`${a.name} -> ${a.baseStatus}`);save();renderProducts();toast("顾问基础状态已更新，只影响后续未确认批次")}
-      if(event.target.matches("[data-default-participation]"))setDefaultParticipation(event.target.dataset.defaultParticipation,event.target.value);
-      if(event.target.matches("[data-cycle-participation]"))setCycleParticipation(ui.selectedCycleId,event.target.dataset.cycleParticipation,event.target.value);
-      if(event.target.matches("[data-dashboard-participation]"))setCycleParticipation(event.target.dataset.cycleId,event.target.dataset.dashboardParticipation,event.target.value,"经理统计面板");
     });
     document.addEventListener("input",event=>{
       if(event.target.matches(".quota-input"))handleInputChange(event);
-      if(event.target.id==="special-customer-search"&&!ui.composition){
-        clearTimeout(ui.specialTimer);ui.specialTimer=setTimeout(()=>{const term=event.target.value.trim().toLowerCase(),ids=ui.modal.availableQueueIds.filter(id=>{const q=queue(id),a=account(q.customerId);return `${a.name}${a.phone}${a.cert}${q.advisor}`.toLowerCase().includes(term)});$("#special-customer-list tbody").innerHTML=ids.map(id=>specialCustomerRow(queue(id))).join("")||`<tr><td colspan="6"><div class="empty">没有匹配客户</div></td></tr>`},420);
-      }
+      if(event.target.matches("[data-special-field]")&&!ui.composition){const codeId=event.target.dataset.codeId,field=event.target.dataset.specialField,value=event.target.value;clearTimeout(ui.specialFieldTimer);ui.specialFieldTimer=setTimeout(()=>updateSpecialField(codeId,field,value),420)}
       if(event.target.id==="add-product-search"&&!ui.composition){
         clearTimeout(ui.addProductTimer);ui.addProductTimer=setTimeout(()=>{const term=event.target.value.trim().toLowerCase(),rows=ui.modal.available.map(product).filter(p=>`${p.code}${p.name}${p.fundManager}`.toLowerCase().includes(term));$("#add-product-list tbody").innerHTML=rows.map(p=>`<tr><td><input type="checkbox" data-add-product="${p.id}" ${ui.modal.productIds.includes(p.id)?"checked":""}></td><td class="code-text">${p.code}</td><td><strong>${p.name}</strong></td><td>${p.fundManager}</td></tr>`).join("")},420);
       }
