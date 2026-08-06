@@ -1093,7 +1093,7 @@
     const leaderCount = data.filter((item) => item.y >= yP75).length;
     const pressureCount = data.filter((item) => item.y < yP25).length;
     return `<div class="chart" style="height:460px">
-      <div class="legend" style="padding:8px 10px 0"><span class="legend-item"><i style="background:#b42318"></i><span>广发基金投顾</span></span><span class="legend-item"><i style="background:#166c77"></i><span>非广发产品</span></span><span class="legend-item"><i style="background:#dff3e8;border:1px solid #b7791f"></i><span>绩优层 ${countText(excellentCount)} 个</span></span><span class="legend-item"><span>收益领先 ${countText(leaderCount)} 个 / 承压 ${countText(pressureCount)} 个</span></span><span class="legend-item"><span>显示 ${countText(visible.length)} / ${countText(data.length)} 点</span></span></div>
+      <div class="legend" style="padding:8px 10px 0"><span class="legend-item"><i style="background:#b42318"></i><span>广发基金</span></span><span class="legend-item"><i style="background:#166c77"></i><span>非广发产品</span></span><span class="legend-item"><i style="background:#dff3e8;border:1px solid #b7791f"></i><span>绩优层 ${countText(excellentCount)} 个</span></span><span class="legend-item"><span>收益领先 ${countText(leaderCount)} 个 / 承压 ${countText(pressureCount)} 个</span></span><span class="legend-item"><span>显示 ${countText(visible.length)} / ${countText(data.length)} 点</span></span></div>
       <div id="scatterHoverTip" class="chart-tooltip scatter-hover-tip" hidden></div>
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="策略表现点阵图">
         ${layerBands}
@@ -2976,7 +2976,7 @@
     return `
       <section class="insight-hero">
         ${kpi("全市场产品", countText(rows.length), "目标盈同系列合并；不含D0")}
-        ${kpi("广发产品", countText(gf.length), "广发基金投顾")}
+        ${kpi("广发产品", countText(gf.length), "广发基金")}
         ${kpi(`市场中位${rangeLabel()}收益`, signedPct(marketMedian), "同筛选口径")}
         ${kpi(`广发中位${rangeLabel()}收益`, signedPct(gfMedian), "同筛选口径", gfMedian !== null && marketMedian !== null && gfMedian >= marketMedian ? "is-good" : "is-warn")}
         ${kpi("广发相对差", signedPct(gfMedian === null || marketMedian === null ? null : gfMedian - marketMedian), "广发中位 - 市场中位")}

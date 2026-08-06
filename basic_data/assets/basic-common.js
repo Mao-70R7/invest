@@ -231,9 +231,15 @@ window.BasicData = (() => {
     return `<span class="status-badge ${cls}">${esc(text)}</span>`;
   }
   function label(name) {
-    const safe = esc(name);
+    const fieldName = String(name ?? "");
+    const displayName = fieldName
+      .replaceAll("广发基金投顾", "广发基金")
+      .replaceAll("广发证券易淘金/财富管家", "广发证券")
+      .replaceAll("广发证券易淘金/贝塔牛理财", "广发证券");
+    const safe = esc(displayName);
+    const safeField = esc(fieldName);
     const mark = isDerivedField(name) ? '<sup class="derived-star" title="基于基础数据加工">*</sup>' : "";
-    return `<span class="field-label">${safe}${mark}<button class="info-button" type="button" data-field="${safe}" title="查看字段口径">?</button></span>`;
+    return `<span class="field-label">${safe}${mark}<button class="info-button" type="button" data-field="${safeField}" title="查看字段口径">?</button></span>`;
   }
   function table(headers, rows, formatter) {
     const head = headers.map((item) => `<th>${label(item)}</th>`).join("");
