@@ -72,7 +72,7 @@
     .batch-row{border-bottom:1px solid var(--line)}.batch-summary{display:grid;grid-template-columns:135px 95px 80px 1fr 80px;gap:8px;align-items:center;padding:10px 12px;cursor:pointer;font-size:10px}.batch-summary:hover{background:#f7fbfa}.batch-detail{padding:0 12px 12px;background:#fbfcfc}
     .rotation-history{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.rotation-period{border-bottom:1px solid var(--line)}.rotation-period:last-child{border-bottom:0}.rotation-period-summary{display:grid;grid-template-columns:minmax(150px,1.4fr) repeat(6,minmax(68px,.6fr)) 70px;gap:8px;align-items:center;padding:11px 12px;cursor:pointer;font-size:10px}.rotation-period-summary:hover{background:#f7fbfa}.rotation-period-summary strong{font-size:11px}.rotation-reason{margin-bottom:10px}.rotation-table{min-width:1460px}
     .ledger-code{display:inline-flex;align-items:center;gap:5px}.anomaly{color:var(--red);font-weight:800}.source-equal{color:var(--teal)}.source-lottery{color:var(--purple)}.source-rotation{color:var(--blue)}
-    .modal-layer{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(12,25,32,.52)}.modal-layer.open{display:flex}.modal{width:min(980px,96vw);max-height:92vh;border-radius:7px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden}.modal.small{width:min(620px,96vw)}.modal-head{min-height:58px;padding:12px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.modal-head h3{margin:0;font-size:15px}.modal-head p{margin:4px 0 0;color:var(--muted);font-size:10px}.modal-close{width:34px;height:34px;border:0;background:transparent;color:var(--muted);font-size:22px}.modal-body{padding:15px 16px;overflow:auto}.modal-foot{padding:11px 16px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:7px;background:#fbfcfc}
+    .modal-layer{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(12,25,32,.52)}.modal-layer.open{display:flex}.modal{width:min(980px,96vw);max-height:92vh;border-radius:7px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden}.modal.small{width:min(620px,96vw)}.modal.detail{width:min(1120px,96vw)}.modal-head{min-height:58px;padding:12px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.modal-head h3{margin:0;font-size:15px}.modal-head p{margin:4px 0 0;color:var(--muted);font-size:10px}.modal-close{width:34px;height:34px;border:0;background:transparent;color:var(--muted);font-size:22px}.modal-body{padding:15px 16px;overflow:auto}.modal-foot{padding:11px 16px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:7px;background:#fbfcfc}.modal-detail-actions{position:sticky;top:-15px;z-index:4;margin:-15px -16px 14px;padding:10px 16px;border-bottom:1px solid var(--line);background:#fff}.modal-detail-actions .primary-actions{flex:1}.modal-detail-actions .primary-actions .select{width:156px}.modal-detail-body{padding:0;grid-template-columns:repeat(2,minmax(0,1fr))}
     .allocation-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:5px;margin:12px 0}.allocation-stat{padding:10px;border-right:1px solid var(--line)}.allocation-stat:last-child{border:0}.allocation-stat label{display:block;color:var(--muted);font-size:9px}.allocation-stat strong{display:block;margin-top:4px;font-size:18px}
     .draw-area{margin-top:13px;padding:18px;border:1px solid #e6cf9e;border-radius:6px;background:#fffaf0;text-align:center}.draw-slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;max-width:760px;margin:0 auto 14px}.draw-slot{height:58px;border:1px solid #d9b96d;border-radius:5px;background:#fff;display:grid;place-items:center;color:#764e08;font-size:16px;font-weight:800}.draw-slot.rolling{animation:pulse .45s infinite alternate}@keyframes pulse{to{background:#fff0c3;transform:translateY(-1px)}}.draw-actions{display:flex;justify-content:center;gap:8px}
     .flow-page{display:grid;gap:14px}.flow-intro{padding:16px 18px}.legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.role-mark{display:inline-flex;align-items:center;min-height:25px;padding:0 8px;border-radius:4px;font-size:10px;font-weight:800}.role-manager{background:var(--red-soft);color:var(--red)}.role-advisor{background:var(--amber-soft);color:var(--amber)}.role-system{background:var(--green-soft);color:var(--green)}
@@ -83,7 +83,7 @@
     .toast{position:fixed;right:20px;bottom:20px;z-index:200;max-width:420px;padding:11px 14px;border-radius:5px;background:#21333c;color:#fff;box-shadow:var(--shadow);font-size:11px;line-height:1.55;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:none}.toast.error{background:#8f3731}
     @media(max-width:1180px){.filter-bar{grid-template-columns:repeat(3,minmax(120px,1fr))}.period-toolbar,.period-toolbar.has-advisor-switch{grid-template-columns:1fr 1fr 1fr}.preset-group{grid-column:1/-1}.product-layout .data-table{min-width:760px}.detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:820px){.app{display:block}.sidebar{display:none}.topbar{top:0;padding:9px 12px}.page-heading span{display:none}.role-box>span{display:none}.mobile-nav{position:sticky;top:60px;z-index:20;display:flex;gap:5px;padding:7px 10px;border-bottom:1px solid var(--line);background:#fff;overflow:auto}.mobile-nav .nav-btn{width:auto;min-width:max-content;min-height:34px;border:1px solid var(--line);background:#fff;color:var(--muted)}.mobile-nav .nav-btn.active{background:var(--teal-soft);color:var(--teal);border-color:#9dcfc9}.content{padding:12px 10px 30px}.panel-head{align-items:flex-start;flex-wrap:wrap}.panel-title{min-width:0}.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}.filter-bar,.period-toolbar,.period-toolbar.has-advisor-switch{grid-template-columns:1fr 1fr}.preset-group{grid-column:1/-1}.form-grid,.cycle-form{grid-template-columns:1fr 1fr}.mini-metrics{grid-template-columns:repeat(2,1fr)}.mini-metric{border-bottom:1px solid var(--line)}.allocation-stats{grid-template-columns:1fr 1fr}.allocation-stat:nth-child(2){border-right:0}.allocation-stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.flow-branch,.flow-branch.two{grid-template-columns:1fr}.detail-head{top:101px}.detail-body{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr 1fr}.transaction-inline{grid-template-columns:1fr 1fr}.batch-summary,.rotation-period-summary{grid-template-columns:1fr 1fr}.batch-summary>*:last-child,.rotation-period-summary>*:last-child{grid-column:1/-1}.product-card-head{display:block}.product-card-head .panel-actions{margin-top:10px}.bulk-bar>.inline-controls{width:100%;min-width:0;flex-wrap:wrap}.more-actions-menu{left:0;right:auto}}
-    @media(max-width:520px){.top-actions .btn{display:none}.filter-bar,.period-toolbar,.period-toolbar.has-advisor-switch,.form-grid,.cycle-form{grid-template-columns:1fr}.preset-group{grid-column:auto}.metrics{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line)}.metric:last-child{border-bottom:0}#queueDetail .detail-head-row{display:block;padding-right:72px}#queueDetail .detail-title-actions{position:absolute;right:12px;top:12px}#queueDetail .detail-title-line h3{width:100%}#queueDetail .detail-title-line .detail-actions{width:calc(100% + 72px);flex:0 0 calc(100% + 72px);display:grid;grid-template-columns:minmax(94px,1fr) 128px auto}.detail-actions .btn{flex:1}.mini-metrics{grid-template-columns:1fr 1fr}.transaction-inline{grid-template-columns:1fr}.modal-layer{padding:8px}.draw-slots{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.top-actions .btn{display:none}.filter-bar,.period-toolbar,.period-toolbar.has-advisor-switch,.form-grid,.cycle-form{grid-template-columns:1fr}.preset-group{grid-column:auto}.metrics{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line)}.metric:last-child{border-bottom:0}.modal-detail-actions{align-items:flex-start}.modal-detail-actions .primary-actions{width:100%;display:grid;grid-template-columns:minmax(94px,1fr) 118px auto}.modal-detail-actions .primary-actions .select{width:100%}.modal-detail-actions .primary-actions .btn{min-width:0;padding:0 7px}.mini-metrics{grid-template-columns:1fr 1fr}.transaction-inline{grid-template-columns:1fr}.modal-layer{padding:8px}.draw-slots{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
@@ -118,7 +118,7 @@
     const STORAGE_KEY="gf-advisor-code-workbench-v12";
     const IDB_NAME="gf-advisor-quota-demo-db";
     const IDB_STORE="snapshots";
-    const SEED_VERSION="20260806-advisor-workbench-v12";
+    const SEED_VERSION="20260806-advisor-workbench-v13";
     const MANAGERS=["邓迎怡","刘建林","黎春艳","郑沨"];
     const ADVISOR_NAMES=["邓迎怡","陈晓斌","欧阳园","马玲玲","林囿成","王经","肖敏","黎春艳","杨祺","陈楚瑜","陈文婷","符吉康","刘建林","文静","丁冬","郑沨","胡珍妮","兰守坚"];
     const HALF_WEIGHT_ADVISORS=["陈晓斌","林囿成","杨祺","文静"];
@@ -137,7 +137,7 @@
       ["P01","276210","广发寰宇全球精选19号（QDII）","代振华","新发200名额：基本法均分与抓阄分批执行"],
       ["P02","276144","广发增利7号","代振华","存量开放20名额：8位顾问参与、25名客户排队"],
       ["P03","276082","广发长庚启明","戴宗哲","固定周期轮转分配：覆盖多轮、名单咬合、新顾问加入和名额超过人数"],
-      ["P04","276112","广发主题50号","陈可、马天诣","半权重顾问参与：0.5份按同产品跨周期累计"],
+      ["P04","276112","广发主题50号","陈可、马天诣","0.5份权重顾问参与：半份按同产品跨周期累计"],
       ["P05","276132","广发量化主题1号","陈可","存量少量名额：名额少于参与顾问时全量抓阄"],
       ["P06","276220","广发苍穹港股通互联网精选","陈可","即将开放的新发产品，名额由经理设置"],
       ["P07","276221","广发苍穹智泽1号","刘治睿","供大于当前需求：按基本法分批分配，剩余暂存经理普通名额池"],
@@ -189,7 +189,7 @@
       const data={
         seedVersion:SEED_VERSION,
         updatedAt:Date.now(),
-        advisors:ADVISOR_NAMES.map((name,index)=>({id:`A${String(index+1).padStart(2,"0")}`,name,manager:MANAGERS.includes(name),baseStatus:DEFAULT_NONPARTICIPANTS.includes(name)?"名额排除":HALF_WEIGHT_ADVISORS.includes(name)?"半权重":"正常"})),
+        advisors:ADVISOR_NAMES.map((name,index)=>({id:`A${String(index+1).padStart(2,"0")}`,name,manager:MANAGERS.includes(name),baseStatus:DEFAULT_NONPARTICIPANTS.includes(name)?"名额排除":"正常",baseWeight:HALF_WEIGHT_ADVISORS.includes(name)?.5:1})),
         products:PRODUCT_SEED.map((row,index)=>({id:row[0],code:row[1],name:row[2],fundManager:row[3],scenario:row[4],createdAt:`2026-06-${String(10+index).padStart(2,"0")}`})),
         cycles:[
           {id:"CY-P01-01",productId:"P01",name:"2026年7月新发期",start:"2026-07-14",end:"2026-08-14",status:"开放中",allocationMode:"basic",ordinaryQuota:140,specialQuota:60,template:{prefix:"HQ19",min:100,max:5000,validTo:"2026-08-14",rule:"产品简称+周期+六位随机码"}},
@@ -257,7 +257,8 @@
       const poolCodes=(cycleId,type="ordinary")=>data.codes.filter(code=>code.type===type&&code.state==="经理码池"&&data.slots.find(s=>s.id===code.slotId)?.cycleId===cycleId);
       const seedBatch=(cycleId,type,rows,time,options={})=>{
         const rowMap=new Map(rows.map(row=>[row.advisor,row])),snapshotNames=options.participants||rows.map(row=>row.advisor);
-        const participantSnapshot=snapshotNames.map(name=>{const row=rowMap.get(name)||{},a=data.advisors.find(item=>item.name===name),weight=a?.baseStatus==="半权重"?.5:1,demand=data.cycleDemandSnapshots?.[cycleId]?.[name]??data.queues.filter(q=>q.cycleId===cycleId&&(q.registrar||q.advisor)===name&&["排队中","已分配","已下单"].includes(q.state)).length;return {advisor:name,weight,demand,participates:a?.baseStatus!=="名额排除",source:"基础状态"}});
+        const cycleProductId=data.cycles.find(item=>item.id===cycleId)?.productId;
+        const participantSnapshot=snapshotNames.map(name=>{const row=rowMap.get(name)||{},a=data.advisors.find(item=>item.name===name),weight=a?.baseStatus==="名额排除"?0:Number(a?.baseWeight||1),demand=data.cycleDemandSnapshots?.[cycleId]?.[name]??data.queues.filter(q=>q.productId===cycleProductId&&(q.registrar||q.advisor)===name&&["排队中","已分配","已下单"].includes(q.state)).length;return {advisor:name,weight,demand,participates:a?.baseStatus!=="名额排除",source:"基础状态"}});
         const batch={id:`B-${String(data.batches.length+1).padStart(3,"0")}`,cycleId,type,purpose:options.purpose||"",status:"已确认",createdAt:time,operator:"邓迎怡",reason:options.reason||"",participantSnapshot,allocations:[]};
         rows.forEach(row=>{
           const count=row.count||0;for(let i=0;i<count;i++){const code=poolCodes(cycleId)[0];if(!code)break;code.state="顾问持有";code.advisor=row.advisor;code.assignedAt=time;batch.allocations.push({advisor:row.advisor,count:1,source:row.source||type,purpose:row.purpose||options.purpose||"",reason:row.reason||"",rotationVersion:Number(row.rotationVersion||0),previousVersion:Number(row.previousVersion||0),codeId:code.id})}
@@ -328,7 +329,7 @@
       registrationOpen:false,registrationAccountId:"",registrationProducts:[],registrationQuery:"",registrationDraft:{customerName:"",customerNo:"",customerType:"普通客户",advisor:"邓迎怡",amount:300,note:""},
       queueFilters:{name:"",advisor:"",status:"",customerType:""},queueSort:"registeredAt",queueDir:"desc",queuePage:1,queueSize:10,selectedQueueId:"",selectedQueueIds:new Set(),
       ledgerFilters:{issuedCustomer:"",actualCustomer:"",type:"",state:""},ledgerSort:"createdAt",ledgerDir:"desc",ledgerPage:1,ledgerSize:10,selectedCodeId:"",selectedLedgerCodeIds:new Set(),expandedTransactions:new Set(),
-      productQuery:"",productPage:1,productSize:5,selectedProductId:"P01",selectedCycleId:"CY-P01-01",productTab:"cycle",managerWorkspace:"products",selectedAdvisorProfile:"",advisorSort:"business",advisorDir:"asc",showZero:false,specialPage:1,specialSize:10,selectedSpecialCodeIds:new Set(),
+      productQuery:"",productPage:1,productSize:5,selectedProductId:"P01",selectedCycleId:"CY-P01-01",productTab:"cycle",managerWorkspace:"products",selectedAdvisorProfile:"",advisorSort:"business",advisorDir:"asc",showZero:false,specialPage:1,specialSize:10,selectedSpecialCodeIds:new Set(),selectedParticipantNames:new Set(),
       expandedBatches:new Set(),expandedRotationCycles:new Set(["CY-P03-04"]),modal:null,drawTimer:null,drawNames:[],composition:false,advisorScopeTimer:null
     };
     const save=()=>{db.updatedAt=Date.now();localStorage.setItem(STORAGE_KEY,JSON.stringify(db));void writeIndexedSnapshot(db)};
@@ -342,6 +343,9 @@
     const productCycles=id=>db.cycles.filter(item=>item.productId===id).sort((a,b)=>b.start.localeCompare(a.start));
     const latestCycle=id=>productCycles(id)[0];
     const cycleProduct=id=>product(cycle(id)?.productId);
+    const cycleProductId=id=>cycle(id)?.productId||"";
+    const productQueues=id=>db.queues.filter(item=>item.productId===id);
+    const queuesForCycleProduct=id=>productQueues(cycleProductId(id));
     const cycleCodes=(cycleId,type)=>db.codes.filter(item=>(!type||item.type===type)&&slot(item.slotId)?.cycleId===cycleId);
     const currentCodeForSlot=slotId=>db.codes.filter(item=>item.slotId===slotId).sort((a,b)=>b.version-a.version)[0];
     const currentCycleCodes=(cycleId,type)=>db.slots.filter(item=>item.cycleId===cycleId&&item.status==="有效"&&(!type||item.type===type)).map(item=>currentCodeForSlot(item.id)).filter(Boolean);
@@ -354,12 +358,12 @@
     const queueOwner=item=>item.registrar||item.advisor;
     const activeAdvisor=()=>isManager()&&ADVISOR_NAMES.includes(ui.advisorScope)?ui.advisorScope:ui.operator;
     const effectiveParticipant=(cycleId,name)=>{
-      const a=advisor(name),participates=a?.baseStatus!=="名额排除",weight=participates?(a?.baseStatus==="半权重"?.5:1):0;
-      return {participates,weight,reason:`基础状态：${a?.baseStatus||"正常"}`,part:null};
+      const a=advisor(name),participates=a?.baseStatus!=="名额排除",weight=participates?Number(a?.baseWeight||1):0;
+      return {participates,weight,reason:`基础状态：${a?.baseStatus||"正常"}，权重：${Number(a?.baseWeight||1)}份`,part:null};
     };
     const walletCodes=(cycleId,name)=>cycleCodes(cycleId,"ordinary").filter(item=>item.advisor===name&&item.state==="顾问持有");
     const advisorQueueGap=(cycleId,name)=>{
-      const pending=db.queues.filter(item=>item.cycleId===cycleId&&queueOwner(item)===name&&item.state==="排队中").length;
+      const pending=queuesForCycleProduct(cycleId).filter(item=>queueOwner(item)===name&&item.state==="排队中").length;
       return Math.max(0,pending-walletCodes(cycleId,name).length);
     };
     const codeDisplayState=item=>{
@@ -398,7 +402,7 @@
       if(ui.view==="advisor")renderAdvisor();else if(ui.view==="products"&&isManager())renderProducts();else if(ui.view==="design")renderDesign();else{ui.view="advisor";renderAdvisor()}
     }
 
-    function advisorVisibleQueues(cycleId){const name=activeAdvisor();return db.queues.filter(item=>item.cycleId===cycleId&&queueOwner(item)===name)}
+    function advisorVisibleQueues(cycleId){const name=activeAdvisor();return queuesForCycleProduct(cycleId).filter(item=>queueOwner(item)===name)}
     function advisorVisibleCodes(cycleId){const name=activeAdvisor();return currentCycleCodes(cycleId).filter(item=>item.advisor===name)}
     function advisorCodeAvailable(item){return item.type==="ordinary"&&item.advisor===activeAdvisor()&&item.state==="顾问持有"}
     function advisorScopeField(){
@@ -438,7 +442,7 @@
       if(!cycleRows.some(row=>row.id===ui.advisorSelectedCycleId))ui.advisorSelectedCycleId=pageRows[0]?.id||"";
       const selected=cycleRows.find(row=>row.id===ui.advisorSelectedCycleId),tabs=[["queues","排队面板"],["ledger","预约码面板"]];
       $("#content").innerHTML=`<div class="advisor-workbench">
-        <section class="panel"><div class="panel-head"><div class="panel-title"><strong>产品销售周期</strong><span>当前查看：${esc(activeAdvisor())}。排队按登记顾问归集，预约码按所属顾问归集。</span></div></div>
+        <section class="panel"><div class="panel-head"><div class="panel-title"><strong>产品销售周期</strong><span>当前查看：${esc(activeAdvisor())}。排队按产品和登记顾问归集，不因新建销售周期中断；预约码按当前销售周期和所属顾问归集。</span></div></div>
           <div class="period-toolbar ${isManager()?"has-advisor-switch":""}"><div class="preset-group">${[["biweekly","双周"],["prev","上一月"],["current","本月"],["next","下一月"]].map(([id,label])=>`<button class="btn small ${ui.advisorPeriodPreset===id?"primary":""}" data-period-preset="${id}">${label}</button>`).join("")}</div><div class="field"><label>开始日期</label><input class="input" id="advisor-start" type="date" value="${ui.advisorStart}"></div><div class="field"><label>结束日期</label><input class="input" id="advisor-end" type="date" value="${ui.advisorEnd}"></div>${advisorScopeField()}<span class="tag ${ui.advisorPeriodPreset==="custom"?"amber":""}">${ui.advisorPeriodPreset==="custom"?"自定义":"周期边界当天计入"}</span></div>
           <div class="filter-bar"><div class="field"><label>产品</label><input class="input ime-safe" id="advisor-product-filter" value="${esc(ui.advisorProductFilter)}" placeholder="基金代码或名称"></div><div class="field"><label>基金经理</label><input class="input ime-safe" id="advisor-manager-filter" value="${esc(ui.advisorManagerFilter)}" placeholder="中文模糊匹配"></div><label class="check-field"><input type="checkbox" id="advisor-has-codes" ${ui.advisorHasCodes?"checked":""}>有可用码</label><div class="filter-actions"><button class="btn primary" data-action="query-advisor-products">查询</button><button class="btn" data-action="clear-advisor-products">清空</button></div></div>
           <div class="table-wrap"><table class="data-table cycle-list-table"><thead><tr><th>${sortHead("advisorProduct","code","基金代码")}</th><th>${sortHead("advisorProduct","name","产品名称")}</th><th>${sortHead("advisorProduct","manager","基金经理")}</th><th>${sortHead("advisorProduct","start","开放周期")}</th><th>${sortHead("advisorProduct","codeCount","预约码数")}</th><th>${sortHead("advisorProduct","remaining","剩余预约码")}</th><th>${sortHead("advisorProduct","waiting","排队客户")}</th><th>${sortHead("advisorProduct","assigned","已分配客户")}</th><th>${sortHead("advisorProduct","completed","已完成客户")}</th></tr></thead><tbody>${pageRows.map(row=>`<tr class="clickable ${row.id===ui.advisorSelectedCycleId?"selected":""}" data-select-advisor-cycle="${row.id}"><td class="code-text">${esc(row.code)}</td><td><strong>${esc(row.name)}</strong><br><span class="muted tiny">${esc(row.cycle.name)}</span></td><td>${esc(row.manager)}</td><td class="cycle-period">${shortDate(row.start)} 至 ${shortDate(row.end)}</td><td>${row.codeCount}</td><td class="${row.remaining?"amount":""}">${row.remaining}</td><td>${row.waiting}</td><td>${row.assigned}</td><td>${row.completed}</td></tr>`).join("")||`<tr><td colspan="9"><div class="empty">当前时间范围没有匹配的开放周期</div></td></tr>`}</tbody></table></div>${pager(ui.advisorProductPage,pageCount,cycleRows.length,"advisor-product-page")}
@@ -463,7 +467,7 @@
       </div>
       ${ui.selectedQueueIds.size?`<div class="bulk-bar"><div class="bulk-summary">已选 ${ui.selectedQueueIds.size} 位排队客户</div><div class="row-actions"><button class="btn primary" data-action="open-queue-batch">批量操作</button><button class="btn" data-action="clear-queue-selection">取消选择</button></div></div>`:""}
       <div class="table-wrap"><table class="data-table queue-table"><thead><tr><th><input type="checkbox" id="select-all-queues" title="选择本页排队中客户"></th><th>${sortHead("queue","customerName","姓名")}</th><th>${sortHead("queue","customerNo","客服系统编号")}</th><th>${sortHead("queue","customerType","客户类型")}</th><th>${sortHead("queue","advisor","所属顾问")}</th><th>${sortHead("queue","registrar","登记顾问")}</th><th>${sortHead("queue","registeredAt","登记时间")}</th><th>${sortHead("queue","amount","意向金额")}</th><th>${sortHead("queue","state","排队状态")}</th><th>${sortHead("queue","codeText","预约码")}</th><th>操作</th></tr></thead><tbody>${pageRows.length?pageRows.map(item=>`<tr class="clickable ${item.id===ui.selectedQueueId?"selected":""}" data-select-queue="${item.id}"><td><input type="checkbox" data-bulk-queue="${item.id}" ${ui.selectedQueueIds.has(item.id)?"checked":""} ${item.state!=="排队中"?"disabled":""}></td><td><strong>${esc(item.customerName)}</strong></td><td class="code-text">${esc(item.customerNo)}</td><td>${esc(item.customerType)}</td><td>${esc(item.advisor)}</td><td>${esc(item.registrar)}</td><td class="nowrap">${esc(item.registeredAt)}</td><td class="amount">${money(item.amount)}</td><td>${statusTag(item.state)}</td><td>${item.codeText?`<span class="code-text">${esc(item.codeText)}</span>`:"-"}</td><td><div class="row-actions">${item.state==="排队中"?`<button class="btn small primary" data-action="assign-code" data-id="${item.id}">分配</button><button class="btn small danger" data-action="cancel-queue" data-id="${item.id}">取消</button>`:"-"}</div></td></tr>`).join(""):`<tr><td colspan="11"><div class="empty">没有符合条件的登记记录</div></td></tr>`}</tbody></table></div>${pager(ui.queuePage,pageCount,rows.length,"queue-page")}
-      ${ui.selectedQueueId?`<section class="full-detail" id="queueDetail">${renderQueueDetail(queue(ui.selectedQueueId))}</section>`:""}`;
+      `;
     }
     function filterField(label,id,value,placeholder){return `<div class="field"><label for="${id}">${label}</label><input class="input ime-safe" id="${id}" value="${esc(value)}" placeholder="${placeholder}"></div>`}
     function customerTypeBreakdown(rows){
@@ -498,8 +502,8 @@
     function renderQueueDetail(item){
       if(!item)return `<div class="empty">点击左侧记录查看客户详情</div>`;
       const a=account(item.customerId),p=product(item.productId),c=cycle(item.cycleId),ticket=code(item.codeId),locked=["已取消","已完成"].includes(item.state),ordered=["已下单","已完成"].includes(item.state);
-      return `<div class="detail-head"><div class="detail-head-row"><div><div class="detail-title-line"><h3>${esc(a?.name||item.customerId)} · 客户详情</h3><div class="detail-actions"><button class="btn primary" data-action="assign-code" data-id="${item.id}" ${item.state!=="排队中"?"disabled":""}>分配预约码</button><select class="select" id="queue-detail-state" title="排队状态" ${locked||item.state!=="排队中"?"disabled":""}><option selected>${item.state}</option>${item.state==="排队中"?`<option value="已取消">已取消</option>`:""}</select><button class="btn" data-action="save-queue-detail" data-id="${item.id}" ${locked?"disabled":""}>保存</button></div></div><p>${esc(a?.id||item.customerId)} · ${esc(p?.name||"")} · ${esc(c?.name||"")}</p></div><div class="detail-title-actions">${statusTag(item.state)}<button class="btn icon" data-action="collapse-queue-detail" title="收起客户详情">×</button></div></div></div>
-        <div class="detail-body"><section class="detail-section"><h4>登记信息</h4><div class="detail-grid">${detailItems([["客户姓名",a?.name||"-"],["客服系统编号",a?.id||item.customerId],["意向产品",`${p?.code||""} ${p?.name||""}`],["排队状态",item.state],["登记时间",item.registeredAt],["登记顾问",item.registrar||item.advisor],["所属顾问",item.advisor]])}</div><div class="field detail-edit"><label>补充说明</label><textarea class="textarea" id="queue-detail-note" ${locked?"disabled":""}>${esc(item.note||"")}</textarea></div></section>
+      return `<div class="detail-actions modal-detail-actions"><div class="primary-actions"><button class="btn primary" data-action="assign-code" data-id="${item.id}" ${item.state!=="排队中"?"disabled":""}>分配预约码</button><select class="select" id="queue-detail-state" title="排队状态" ${locked||item.state!=="排队中"?"disabled":""}><option selected>${item.state}</option>${item.state==="排队中"?`<option value="已取消">已取消</option>`:""}</select><button class="btn" data-action="save-queue-detail" data-id="${item.id}" ${locked?"disabled":""}>保存</button></div>${statusTag(item.state)}</div>
+        <div class="detail-body modal-detail-body"><section class="detail-section"><h4>登记信息</h4><div class="detail-grid">${detailItems([["客户姓名",a?.name||"-"],["客服系统编号",a?.id||item.customerId],["意向产品",`${p?.code||""} ${p?.name||""}`],["排队状态",item.state],["登记时间",item.registeredAt],["登记顾问",item.registrar||item.advisor],["所属顾问",item.advisor]])}</div><div class="field detail-edit"><label>补充说明</label><textarea class="textarea" id="queue-detail-note" ${locked?"disabled":""}>${esc(item.note||"")}</textarea></div></section>
         ${ticket?`<section class="detail-section"><h4>预约码信息</h4><div class="detail-grid">${detailItems([["已分配预约码",ticket.id],["预约码类型",typeLabel[ticket.type]],["预约码金额",`${ticket.min}万 - ${ticket.max}万`],["预约码有效期",ticket.validTo]])}</div></section>`:""}
         ${ordered&&ticket?`<section class="detail-section"><h4>下单信息</h4><div class="detail-grid">${detailItems([["实际使用人",account(ticket.actualCustomerId)?.name||"-"],["下单时间",ticket.orderTime||"-"],["下单金额",ticket.orderAmount?money(ticket.orderAmount):"-"]])}</div>${renderTransactionDetails(ticket,false)}</section>`:""}
         <section class="detail-section"><h4>动作时间线</h4><div class="timeline">${[...(item.logs||[])].reverse().map(([time,text])=>`<div class="timeline-item"><strong>${esc(time)}</strong><br>${esc(text)}</div>`).join("")}</div></section></div>`;
@@ -550,7 +554,7 @@
       </div>
       ${ui.selectedLedgerCodeIds.size?`<div class="bulk-bar"><div class="bulk-summary">已选 ${ui.selectedLedgerCodeIds.size} 个预约码</div><div class="row-actions"><button class="btn primary" data-action="open-ledger-batch">批量操作</button><button class="btn" data-action="clear-ledger-selection">取消选择</button></div></div>`:""}
       <div class="table-wrap"><table class="data-table ledger-table"><thead><tr><th><input type="checkbox" id="select-all-ledger" title="选择本页可操作预约码"></th><th>${sortHead("ledger","id","预约码")}</th><th>${sortHead("ledger","type","预约码类型")}</th><th>${sortHead("ledger","productCode","基金代码")}</th><th>${sortHead("ledger","productName","基金名称")}</th><th>${sortHead("ledger","min","金额范围")}</th><th>${sortHead("ledger","validTo","有效期")}</th><th>${sortHead("ledger","intendedName","发码客户")}</th><th>${sortHead("ledger","actualName","实际使用人")}</th><th>${sortHead("ledger","displayState","预约码状态")}</th><th>${sortHead("ledger","transactionStatus","交易信息")}</th></tr></thead><tbody>${pageRows.map(item=>`<tr class="clickable ${item.id===ui.selectedCodeId?"selected":""}" data-select-code="${item.id}"><td><input type="checkbox" data-ledger-code="${item.id}" ${ui.selectedLedgerCodeIds.has(item.id)?"checked":""} ${ledgerBatchSelectable(item)?"":"disabled"}></td><td><span class="code-text">${esc(item.id)}</span>${item.version>1?`<br><span class="tag purple">V${item.version}</span>`:""}</td><td>${esc(reservationTypeLabel(item))}</td><td class="code-text">${esc(item.productCode)}</td><td><strong>${esc(item.productName)}</strong></td><td>${item.min}万 - ${item.max}万</td><td>${esc(item.validTo)}</td><td>${esc(item.intendedName||"-")}</td><td class="${item.mismatch?"anomaly":""}">${esc(item.actualName||"-")}${item.mismatch?" · 不一致":""}</td><td><span class="tag">${esc(item.displayState)}</span></td><td><button class="link-btn" data-toggle-transaction="${item.id}">${ui.expandedTransactions.has(item.id)?"收起":"查看"}</button></td></tr>${ui.expandedTransactions.has(item.id)?`<tr class="transaction-row"><td colspan="11">${renderTransactionDetails(item,true)}</td></tr>`:""}`).join("")||`<tr><td colspan="11"><div class="empty">没有符合条件的预约码</div></td></tr>`}</tbody></table></div>${pager(ui.ledgerPage,pageCount,rows.length,"ledger-page")}
-      ${ui.selectedCodeId?`<section class="full-detail" id="codeDetail">${renderLedgerDetail(code(ui.selectedCodeId))}</section>`:""}`;
+      `;
     }
     function transactionResultTag(value){
       const cls=["成功","部分成功"].includes(value)?"green":["失败","撤单"].includes(value)?"red":value==="待确认"?"amber":"";
@@ -576,17 +580,27 @@
       if(!item)return `<div class="empty">点击左侧预约码查看明细</div>`;
       const s=slot(item.slotId),c=cycle(s?.cycleId),p=product(c?.productId),intended=account(item.intendedCustomerId),actual=account(item.actualCustomerId),versions=db.codes.filter(x=>x.slotId===item.slotId).sort((a,b)=>b.version-a.version);
       const canReturn=canReturnCodeToPool(item),canReplace=canReplaceCurrentCode(item);
-      return `<div class="detail-head"><div class="detail-head-row"><div><h3>${esc(item.id)}</h3><p>${esc(reservationTypeLabel(item))} · 槽位 ${esc(item.slotId)} · V${item.version}</p></div><div class="detail-title-actions"><span class="tag">${codeDisplayState(item)}</span><button class="btn icon" data-action="collapse-code-detail" title="收起预约码详情">×</button></div></div><div class="detail-actions">
+      return `<div class="detail-actions modal-detail-actions"><div class="primary-actions">
         ${canReturn?`<button class="btn small danger" data-action="return-code-to-pool" data-code-id="${item.id}">归还名额池</button>`:""}
         ${canReplace?`<button class="btn small amber" data-action="replace-code-direct" data-code-id="${item.id}">生成替代码</button>`:""}
         ${item.state==="已分配客户"?`<button class="btn small primary" data-action="simulate-order" data-code-id="${item.id}">模拟客户下单</button>`:""}
         ${item.state==="已使用"&&item.transactionStatus==="待确认"?`<button class="btn small" data-action="update-transaction" data-code-id="${item.id}">更新交易结果</button>`:""}
-      </div></div><div class="detail-body">
+      </div><span class="tag">${codeDisplayState(item)}</span></div><div class="detail-body modal-detail-body">
         <section class="detail-section"><h4>预约码信息</h4><div class="detail-grid">${detailItems([["预约码",item.id],["基金代码",p.code],["基金名称",p.name],["创建时间",item.createdAt],["名额类型",reservationTypeLabel(item)],["有效期",item.validTo],["所属顾问",item.advisor||"经理公共池"],["预约码状态",codeDisplayState(item)],["预约码来源",codeSourceText(item)]])}</div></section>
         <section class="detail-section"><h4>客户与交易</h4><div class="detail-grid">${detailItems([["已分配客户",intended?.name||item.customerName||item.leaderNote||"-"],["实际使用人",actual?.name||"-"],["下单时间",item.orderTime||"-"],["业务类型",item.businessType||"-"],["交易金额",item.orderAmount?money(item.orderAmount):"-"],["交易状态",item.transactionStatus||"未下单"]])}</div></section>
         <details class="code-history"><summary>历史码版本（${versions.length}）</summary><div class="table-wrap"><table class="data-table"><thead><tr><th>版本</th><th>预约码</th><th>状态</th><th>创建时间</th><th>作废原因</th></tr></thead><tbody>${versions.map(v=>`<tr><td>V${v.version}</td><td class="code-text">${esc(v.id)}</td><td>${codeDisplayState(v)}</td><td>${esc(v.createdAt)}</td><td>${esc(v.invalidReason||"-")}</td></tr>`).join("")}</tbody></table></div></details>
         <section class="detail-section"><h4>风险控制</h4><div class="notice ${actual&&intended&&actual.id!==intended.id?"danger":""}">${item.type==="ordinary"?"普通码为软绑定：不拦截非登记客户交易，但系统同时记录登记客户、发码客户和实际使用人。":item.specialType==="机动名额"?"机动名额不绑定客户，最终使用人不限制且仅顾问经理可见。":"员工、战略户和101客户特殊码硬绑定指定客户。"}${actual&&intended&&actual.id!==intended.id?" 当前实际使用人与发码客户不一致，已进入经理异常视图。":""}</div></section>
       </div>`;
+    }
+    function openQueueDetail(id){
+      const item=queue(id);if(!item)return;
+      const a=account(item.customerId),p=product(item.productId);ui.selectedQueueId=id;
+      openModal(`${a?.name||item.customerId} · 客户详情`,`${a?.id||item.customerId} · ${p?.code||""} ${p?.name||""}`,renderQueueDetail(item),`<button class="btn" data-action="close-modal">关闭</button>`,"detail");ui.modal.queueId=id;
+    }
+    function openCodeDetail(id){
+      const item=code(id);if(!item)return;
+      const s=slot(item.slotId),c=cycle(s?.cycleId),p=product(c?.productId);ui.selectedCodeId=id;
+      openModal("预约码详情",`${item.id} · ${p?.code||""} ${p?.name||""}`,renderLedgerDetail(item),`<button class="btn" data-action="close-modal">关闭</button>`,"detail");ui.modal.codeId=id;
     }
 
     function renderProducts(){
@@ -602,7 +616,7 @@
         <section class="panel product-list-panel">
           <div class="panel-head"><div class="panel-title"><strong>产品与销售周期</strong><span>产品固定一条记录，默认展示最近销售周期；每页最多5个产品。</span></div><div class="panel-actions"><button class="btn primary" data-action="new-product">新增未上线产品</button></div></div>
           <div class="toolbar"><div class="lookup-row" style="width:min(540px,100%)"><input class="input ime-safe" id="productQuery" value="${esc(ui.productQuery)}" placeholder="输入基金代码、名称或基金经理"><button class="btn" data-action="query-products">查询</button></div><span class="toolbar-note">没有设置预约码的存量产品也会显示</span></div>
-          <div class="table-wrap"><table class="data-table"><thead><tr><th>基金代码</th><th>基金名称</th><th>基金经理</th><th>最近开放日期</th><th>配置模式</th><th>总名额</th><th>经理普通池</th><th>排队客户</th><th>历史周期</th></tr></thead><tbody>${pageRows.map(item=>{const c=latestCycle(item.id),pool=c?freePool(c.id,"ordinary").length:0,queueCount=c?db.queues.filter(q=>q.cycleId===c.id&&activeQueueStates.includes(q.state)).length:0;return `<tr class="clickable ${item.id===ui.selectedProductId?"selected":""}" data-select-product="${item.id}"><td class="code-text">${isUnboundProduct(item)?`<span class="tag amber">待绑定</span>`:esc(item.code)}</td><td><strong>${esc(item.name)}</strong><br><span class="muted tiny">${esc(item.scenario)}</span></td><td>${esc(item.fundManager)}</td><td>${c?`${shortDate(c.start)} 至 ${shortDate(c.end)}`:"未设置"}</td><td>${c?allocationModeLabel(c.allocationMode):"-"}</td><td>${c?c.ordinaryQuota+c.specialQuota:0}</td><td class="${pool?"amount":""}">${pool}</td><td>${queueCount}</td><td>${productCycles(item.id).length}期</td></tr>`}).join("")||`<tr><td colspan="9"><div class="empty">没有匹配产品</div></td></tr>`}</tbody></table></div>${pager(ui.productPage,pageCount,products.length,"product-page")}
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>基金代码</th><th>基金名称</th><th>基金经理</th><th>最近开放日期</th><th>配置模式</th><th>总名额</th><th>经理普通池</th><th>排队客户</th><th>历史周期</th></tr></thead><tbody>${pageRows.map(item=>{const c=latestCycle(item.id),pool=c?freePool(c.id,"ordinary").length:0,queueCount=productQueues(item.id).filter(q=>activeQueueStates.includes(q.state)).length;return `<tr class="clickable ${item.id===ui.selectedProductId?"selected":""}" data-select-product="${item.id}"><td class="code-text">${isUnboundProduct(item)?`<span class="tag amber">待绑定</span>`:esc(item.code)}</td><td><strong>${esc(item.name)}</strong><br><span class="muted tiny">${esc(item.scenario)}</span></td><td>${esc(item.fundManager)}</td><td>${c?`${shortDate(c.start)} 至 ${shortDate(c.end)}`:"未设置"}</td><td>${c?allocationModeLabel(c.allocationMode):"-"}</td><td>${c?c.ordinaryQuota+c.specialQuota:0}</td><td class="${pool?"amount":""}">${pool}</td><td>${queueCount}</td><td>${productCycles(item.id).length}期</td></tr>`}).join("")||`<tr><td colspan="9"><div class="empty">没有匹配产品</div></td></tr>`}</tbody></table></div>${pager(ui.productPage,pageCount,products.length,"product-page")}
         </section>
         <section class="panel product-detail-panel" id="productDetail">${p?renderProductDetail(p):`<div class="empty">选择产品查看销售周期详情</div>`}</section>
       </div>`;
@@ -612,11 +626,11 @@
       return {a,registeredQueues:registeredQueues.length,queueing:registeredQueues.filter(item=>item.state==="排队中").length,currentQuota:activeCodes.length,unused:activeCodes.filter(item=>item.state==="顾问持有").length,assigned:activeCodes.filter(item=>["已分配客户","已使用"].includes(item.state)).length,completed:activeCodes.filter(item=>["成功","部分成功"].includes(item.transactionStatus)).length,historyQuota:historyAllocations.length};
     }
     function renderAdvisorDashboard(){
-      const rows=db.advisors.map(advisorDashboardRow).sort((x,y)=>Number(y.a.manager)-Number(x.a.manager)||({"正常":3,"半权重":2,"名额排除":1}[y.a.baseStatus]-({"正常":3,"半权重":2,"名额排除":1}[x.a.baseStatus]))||x.a.name.localeCompare(y.a.name,"zh-CN"));
+      const rows=db.advisors.map(advisorDashboardRow).sort((x,y)=>Number(y.a.manager)-Number(x.a.manager)||({"正常":2,"名额排除":1}[y.a.baseStatus]-({"正常":2,"名额排除":1}[x.a.baseStatus]))||Number(y.a.baseWeight||1)-Number(x.a.baseWeight||1)||x.a.name.localeCompare(y.a.name,"zh-CN"));
       const selected=ui.selectedAdvisorProfile&&advisor(ui.selectedAdvisorProfile)?ui.selectedAdvisorProfile:"";
       return `<div class="dashboard-stack">
         <section class="panel"><div class="panel-head"><div class="panel-title"><strong>顾问统计面板</strong><span>参与资格只由基础状态决定；排队需求按登记顾问归集，已确认批次保留原始快照。</span></div></div>
-          <div class="table-wrap"><table class="data-table"><thead><tr><th>顾问</th><th>角色</th><th>基础状态</th><th>登记有效需求</th><th>其中排队中</th><th>当前名额</th><th>未分客户</th><th>已分配</th><th>已完成</th><th>历史获配</th><th>历史详情</th></tr></thead><tbody>${rows.map(row=>`<tr class="${selected===row.a.name?"selected":""}"><td><strong>${row.a.name}</strong></td><td>${row.a.manager?`<span class="tag red">经理</span>`:"普通顾问"}</td><td><select class="select" data-base-status="${row.a.name}" style="min-width:100px">${["正常","半权重","名额排除"].map(v=>`<option ${row.a.baseStatus===v?"selected":""}>${v}</option>`).join("")}</select></td><td><strong>${row.registeredQueues}</strong></td><td>${row.queueing}</td><td><strong>${row.currentQuota}</strong></td><td>${row.unused}</td><td>${row.assigned}</td><td>${row.completed}</td><td>${row.historyQuota}</td><td><button class="link-btn" data-select-advisor-profile="${row.a.name}">${selected===row.a.name?"收起":"展开"}</button></td></tr>`).join("")}</tbody></table></div>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>顾问</th><th>角色</th><th>基础状态</th><th>分配权重</th><th>登记有效需求</th><th>其中排队中</th><th>当前名额</th><th>未分客户</th><th>已分配</th><th>已完成</th><th>历史获配</th><th>历史详情</th></tr></thead><tbody>${rows.map(row=>`<tr class="${selected===row.a.name?"selected":""}"><td><strong>${row.a.name}</strong></td><td>${row.a.manager?`<span class="tag red">经理</span>`:"普通顾问"}</td><td><select class="select" data-base-status="${row.a.name}" style="min-width:100px">${["正常","名额排除"].map(v=>`<option ${row.a.baseStatus===v?"selected":""}>${v}</option>`).join("")}</select></td><td><select class="select" data-base-weight="${row.a.name}" style="min-width:82px"><option value="1" ${Number(row.a.baseWeight||1)===1?"selected":""}>1份</option><option value="0.5" ${Number(row.a.baseWeight||1)===.5?"selected":""}>0.5份</option></select></td><td><strong>${row.registeredQueues}</strong></td><td>${row.queueing}</td><td><strong>${row.currentQuota}</strong></td><td>${row.unused}</td><td>${row.assigned}</td><td>${row.completed}</td><td>${row.historyQuota}</td><td><button class="link-btn" data-select-advisor-profile="${row.a.name}">${selected===row.a.name?"收起":"展开"}</button></td></tr>`).join("")}</tbody></table></div>
         </section>
         ${selected?renderAdvisorProfile(selected):""}
       </div>`;
@@ -625,7 +639,7 @@
       const a=advisor(name);
       const grants=db.batches.map(batch=>{const allocations=batch.allocations.filter(item=>item.advisor===name);return allocations.length?{batch,allocations,c:cycle(batch.cycleId)}:null}).filter(Boolean).sort((x,y)=>y.batch.createdAt.localeCompare(x.batch.createdAt));
       const audits=db.audit.filter(item=>item.operator===name||String(item.detail).includes(name)).slice(0,20);
-      return `<section class="panel advisor-profile"><div class="panel-head"><div class="panel-title"><strong>${esc(name)} · 全量历史</strong><span>${a.manager?"顾问经理":"普通顾问"} · 基础状态：${a.baseStatus}</span></div><div class="panel-actions"><button class="btn primary" data-jump-advisor-dashboard="${esc(name)}">进入顾问名额管理</button><button class="btn icon" data-action="close-advisor-profile" title="收起顾问历史">×</button></div></div>
+      return `<section class="panel advisor-profile"><div class="panel-head"><div class="panel-title"><strong>${esc(name)} · 全量历史</strong><span>${a.manager?"顾问经理":"普通顾问"} · 基础状态：${a.baseStatus} · 分配权重：${Number(a.baseWeight||1)}份</span></div><div class="panel-actions"><button class="btn primary" data-jump-advisor-dashboard="${esc(name)}">进入顾问名额管理</button><button class="btn icon" data-action="close-advisor-profile" title="收起顾问历史">×</button></div></div>
         <div class="profile-section"><h4>名额分配历史</h4><div class="table-wrap"><table class="data-table"><thead><tr><th>分配时间</th><th>产品</th><th>销售周期</th><th>批次类型</th><th>获得名额</th><th>操作人</th><th>分配说明</th></tr></thead><tbody>${grants.map(item=>`<tr><td class="nowrap">${esc(item.batch.createdAt)}</td><td>${esc(item.c?cycleProduct(item.c.id).name:"-")}</td><td>${esc(item.c?.name||"-")}</td><td>${esc(purposeLabel[item.batch.purpose]||sourceLabel[item.batch.type]||item.batch.type)}</td><td><strong>${item.allocations.length}</strong></td><td>${esc(item.batch.operator)}</td><td class="history-note">${esc(item.batch.reason||item.allocations.map(x=>x.reason).filter(Boolean).join("；")||"-")}</td></tr>`).join("")||`<tr><td colspan="7"><div class="empty">没有名额分配记录</div></td></tr>`}</tbody></table></div></div>
         <div class="profile-section"><h4>操作变化痕迹</h4><div class="table-wrap"><table class="data-table"><thead><tr><th>时间</th><th>操作人</th><th>动作</th><th>内容</th></tr></thead><tbody>${audits.map(item=>`<tr><td class="nowrap">${esc(item.time)}</td><td>${esc(item.operator)}</td><td>${esc(item.action)}</td><td class="history-note">${esc(item.detail)}</td></tr>`).join("")||`<tr><td colspan="4"><div class="empty">暂无操作记录</div></td></tr>`}</tbody></table></div></div>
       </section>`;
@@ -671,10 +685,12 @@
     }
     function miniMetric(label,value,highlight=false){return `<div class="mini-metric"><label>${label}</label><strong class="${highlight?"amount":""}">${value}个</strong></div>`}
     function renderParticipation(p,c){
-      const rows=db.advisors.map(a=>{const eff=effectiveParticipant(c.id,a.name),queues=db.queues.filter(item=>item.cycleId===c.id&&queueOwner(item)===a.name);return {a,eff,active:queues.filter(item=>activeQueueStates.includes(item.state)).length,queueing:queues.filter(item=>item.state==="排队中").length}}).sort((x,y)=>Number(y.a.manager)-Number(x.a.manager)||y.eff.weight-x.eff.weight||x.a.name.localeCompare(y.a.name,"zh-CN"));const participating=rows.filter(r=>r.eff.participates).length;
-      return `<div class="subtle-band">参与资格只保留顾问基础状态：正常按1份、半权重按0.5份、名额排除不参与。当前参与 ${participating} 人；排队需求按登记顾问归集。</div>
-        <div class="table-wrap"><table class="data-table"><thead><tr><th>顾问</th><th>角色</th><th>基础状态</th><th>有效权重</th><th>登记有效需求</th><th>其中排队中</th></tr></thead><tbody>${rows.map(({a,eff,active,queueing})=>`<tr><td><strong>${a.name}</strong></td><td>${a.manager?`<span class="tag red">经理</span>`:"普通顾问"}</td><td><select class="select" data-base-status="${a.name}" style="min-width:105px">${["正常","半权重","名额排除"].map(v=>`<option ${a.baseStatus===v?"selected":""}>${v}</option>`).join("")}</select></td><td>${eff.weight}份</td><td><strong>${active}</strong>人</td><td>${queueing}人</td></tr>`).join("")}</tbody></table></div>
-        <div class="section-head"><strong>规则口径</strong><span>确认批次时保存基础状态、权重和需求快照</span></div><div class="panel-body"><details class="rule" open><summary>基础状态如何参与分配</summary><div>均分和抓阄执行时读取当前基础状态；名额排除不进入名单。历史批次保存确认时快照，之后调整基础状态不重算历史结果。</div></details></div>`;
+      const rows=db.advisors.map(a=>{const eff=effectiveParticipant(c.id,a.name),queues=productQueues(p.id).filter(item=>queueOwner(item)===a.name);return {a,eff,active:queues.filter(item=>activeQueueStates.includes(item.state)).length,queueing:queues.filter(item=>item.state==="排队中").length}}).sort((x,y)=>Number(y.a.manager)-Number(x.a.manager)||y.eff.weight-x.eff.weight||Number(y.eff.participates)-Number(x.eff.participates)||x.a.name.localeCompare(y.a.name,"zh-CN"));const participating=rows.filter(r=>r.eff.participates).length;
+      ui.selectedParticipantNames=new Set([...ui.selectedParticipantNames].filter(name=>ADVISOR_NAMES.includes(name)));
+      return `<div class="subtle-band">基础状态决定是否参与，分配权重单独设置为1份或0.5份。当前参与 ${participating} 人；排队需求按产品和登记顾问归集。</div>
+        ${ui.selectedParticipantNames.size?`<div class="bulk-bar"><div class="bulk-summary">已选 ${ui.selectedParticipantNames.size} 位顾问</div><div class="row-actions"><button class="btn primary" data-action="open-participant-batch">批量设置</button><button class="btn" data-action="clear-participant-selection">取消选择</button></div></div>`:""}
+        <div class="table-wrap"><table class="data-table participation-table"><thead><tr><th><input type="checkbox" id="select-all-participants" title="选择全部顾问"></th><th>顾问</th><th>角色</th><th>基础状态</th><th>分配权重</th><th>有效权重</th><th>登记有效需求</th><th>其中排队中</th></tr></thead><tbody>${rows.map(({a,eff,active,queueing})=>`<tr><td><input type="checkbox" data-participant-advisor="${a.name}" ${ui.selectedParticipantNames.has(a.name)?"checked":""}></td><td><strong>${a.name}</strong></td><td>${a.manager?`<span class="tag red">经理</span>`:"普通顾问"}</td><td><select class="select" data-base-status="${a.name}" style="min-width:105px">${["正常","名额排除"].map(v=>`<option ${a.baseStatus===v?"selected":""}>${v}</option>`).join("")}</select></td><td><select class="select" data-base-weight="${a.name}" style="min-width:82px"><option value="1" ${Number(a.baseWeight||1)===1?"selected":""}>1份</option><option value="0.5" ${Number(a.baseWeight||1)===.5?"selected":""}>0.5份</option></select></td><td>${eff.weight}份</td><td><strong>${active}</strong>人</td><td>${queueing}人</td></tr>`).join("")}</tbody></table></div>
+        <div class="section-head"><strong>规则口径</strong><span>确认批次时保存基础状态、权重和需求快照</span></div><div class="panel-body"><details class="rule" open><summary>基础状态和权重如何参与分配</summary><div>状态为名额排除时不进入均分和抓阄；状态正常时按设置的1份或0.5份参与。历史批次保存确认时快照，之后调整不重算历史结果。</div></details></div>`;
     }
     function renderAllocation(p,c){
       const available=freePool(c.id,"ordinary").length,batches=db.batches.filter(b=>b.cycleId===c.id).sort((a,b)=>b.createdAt.localeCompare(a.createdAt)),advisorRows=advisorQuotaRows(c),equalReady=c.allocationMode==="basic"&&equalPreview(c).allocated>0,versionState=c.allocationMode==="rotation"?rotationVersionState(c.productId):null;
@@ -718,7 +734,7 @@
         else if(allocations.length)reason=allocationReasons.join("；");
         else if(lotteryCandidate)reason="进入本期轮转抓阄候选，但未中签，已跟进轮次保持不变。";
         else reason="参与本期名单，本批次未获配，已跟进轮次保持不变。";
-        const liveQueue=db.queues.filter(q=>q.cycleId===c.id&&queueOwner(q)===name&&["排队中","已分配","已下单"].includes(q.state)).length,queueCount=currentBatches.length?(db.cycleDemandSnapshots?.[c.id]?.[name]??liveQueue):liveQueue;
+        const liveQueue=productQueues(c.productId).filter(q=>queueOwner(q)===name&&["排队中","已分配","已下单"].includes(q.state)).length,queueCount=currentBatches.length?(db.cycleDemandSnapshots?.[c.id]?.[name]??liveQueue):liveQueue;
         return {advisor:name,manager:a.manager,weight,participates,source:currentBatches.length?"历史批次快照":`基础状态：${a.baseStatus}`,preVersion,afterVersion,isNew,queue:queueCount,direct,lottery,lotteryCandidate,versions:[...new Set(allocations.map(item=>Number(item.rotationVersion||0)).filter(Boolean))],total:allocations.length,reason};
       }).sort((a,b)=>Number(b.manager)-Number(a.manager)||b.weight-a.weight||Number(b.participates)-Number(a.participates)||a.advisor.localeCompare(b.advisor,"zh-CN"));
     }
@@ -732,7 +748,7 @@
     }
     function advisorQuotaRows(c){
       const rows=ADVISOR_NAMES.map(name=>{
-        const codes=currentCycleCodes(c.id,"ordinary").filter(item=>item.advisor===name),queues=db.queues.filter(item=>item.cycleId===c.id&&queueOwner(item)===name);
+        const codes=currentCycleCodes(c.id,"ordinary").filter(item=>item.advisor===name),queues=productQueues(c.productId).filter(item=>queueOwner(item)===name);
         const allocations=db.batches.filter(b=>b.cycleId===c.id).flatMap(b=>b.allocations.map(a=>({...a,batchType:b.type}))).filter(a=>a.advisor===name);
         const a=advisor(name),eff=effectiveParticipant(c.id,name);
         return {advisor:name,manager:a.manager,baseStatus:a.baseStatus,weight:eff.weight,participates:eff.participates,effectiveQueue:queues.filter(q=>["排队中","已分配","已下单"].includes(q.state)).length,queueing:queues.filter(q=>q.state==="排队中").length,assignedQueue:queues.filter(q=>["已分配","已下单"].includes(q.state)).length,total:codes.filter(x=>x.state!=="已作废").length,unused:codes.filter(x=>x.state==="顾问持有").length,assigned:codes.filter(x=>x.state==="已分配客户").length,completed:codes.filter(x=>["成功","部分成功"].includes(x.transactionStatus)).length,equal:allocations.filter(x=>x.source==="equal").length,lottery:allocations.filter(x=>x.source==="lottery"&&!x.rotationVersion).length,rotationFollow:allocations.filter(x=>x.purpose==="version-follow").length,rotationLottery:allocations.filter(x=>x.purpose==="version-lottery").length};
@@ -749,7 +765,7 @@
         <div class="mini-metrics">${miniMetric("特殊名额",c.specialQuota)}${miniMetric("待创建",free,true)}${typeMetrics}</div>
         <div class="section-head"><strong>特殊预约码台账</strong><span>当前销售周期已创建 ${all.length} 个当前码</span></div>
         <div class="toolbar"><span class="toolbar-note">预约码明文展示；创建、编辑和回收均记录操作人及时间。</span><button class="btn primary" data-action="create-special-codes" ${free?"":"disabled"}>创建特殊预约码</button></div>
-        <div class="bulk-bar ${selected.length?"show":""}" id="specialBulkBar"><strong>已选 <span id="special-bulk-count">${selected.length}</span> 个</strong><div class="inline-controls"><label class="muted tiny">金额下限</label><input class="number-edit" id="special-batch-min" type="number" placeholder="不调整"><label class="muted tiny">金额上限</label><input class="number-edit" id="special-batch-max" type="number" placeholder="不调整"><label class="muted tiny">有效期</label><input class="input" id="special-batch-valid" type="date" style="width:142px"><button class="btn small" data-action="apply-special-batch">批量调整</button><button class="btn small danger" data-action="recall-special-batch">批量回收</button><button class="btn small" data-action="clear-special-selection">清空</button></div></div>
+        <div class="bulk-bar ${selected.length?"show":""}" id="specialBulkBar"><strong>已选 <span id="special-bulk-count">${selected.length}</span> 个</strong><div class="row-actions"><button class="btn small primary" data-action="open-special-batch-adjust">批量调整</button><button class="btn small danger" data-action="recall-special-batch">批量回收</button><button class="btn small" data-action="clear-special-selection">清空</button></div></div>
         <div class="table-wrap"><table class="data-table special-code-table"><thead><tr><th><input type="checkbox" id="select-all-special" title="选择本页可回收预约码"></th><th>预约码</th><th>预约码类型</th><th>客户姓名</th><th>客服系统编号</th><th>所属顾问</th><th>金额上下限（万元）</th><th>有效期</th><th>预约码状态</th><th>创建人</th><th>创建时间</th><th>使用人</th><th>使用时间</th><th>订单金额</th><th>备注</th></tr></thead><tbody>${rows.map(item=>{const customer=specialCodeCustomer(item),actual=account(item.actualCustomerId),customerNo=customer?.id||item.customerNo||"",customerName=customer?.name||item.customerName||"",editable=item.state!=="已使用"&&item.state!=="已作废",recoverable=editable,customerCell=item.specialType==="机动名额"?"-":customerNo?esc(customerName):`<input class="input" data-special-field="customerName" data-code-id="${item.id}" value="${esc(customerName)}" ${editable?"":"disabled"} style="min-width:100px">`;return `<tr><td><input type="checkbox" data-special-code="${item.id}" ${ui.selectedSpecialCodeIds.has(item.id)?"checked":""} ${recoverable?"":"disabled"}></td><td class="code-text"><strong>${esc(item.id)}</strong></td><td><span class="tag ${item.specialType==="机动名额"?"amber":"teal"}">${esc(item.specialType||"特殊名额")}</span></td><td>${customerCell}</td><td class="code-text">${esc(customerNo||"-")}</td><td>${esc(item.advisor||"经理公共池")}</td><td><div class="inline-controls"><input class="number-edit" type="number" data-special-field="min" data-code-id="${item.id}" value="${item.min}" ${editable?"":"disabled"}><span>-</span><input class="number-edit" type="number" data-special-field="max" data-code-id="${item.id}" value="${item.max}" ${editable?"":"disabled"}></div></td><td><input class="input" type="date" data-special-field="validTo" data-code-id="${item.id}" value="${item.validTo}" ${editable?"":"disabled"} style="width:138px"></td><td>${statusTag(codeDisplayState(item))}</td><td>${esc(item.creator||"-")}</td><td class="nowrap">${esc(item.createdAt||"-")}</td><td>${esc(actual?.name||"-")}</td><td class="nowrap">${esc(item.orderTime||"-")}</td><td>${item.orderAmount?money(item.orderAmount):"-"}</td><td><input class="input" data-special-field="remark" data-code-id="${item.id}" value="${esc(item.remark||item.leaderNote||"")}" ${editable?"":"disabled"} style="min-width:150px"></td></tr>`}).join("")||`<tr><td colspan="15"><div class="empty">尚未创建特殊预约码</div></td></tr>`}</tbody></table></div>${pager(ui.specialPage,pageCount,all.length,"special-page")}`;
     }
     function renderProductOverview(p,c){
@@ -792,14 +808,14 @@
           ]))}
         `)}
         ${flowSection("周期产品名额分配","销售周期开始前读取顾问基础状态，再由经理选择适用的普通名额规则。",`
-          ${flowNode("system","建立本期参与名单","逐一读取顾问基础状态：正常按1份、半权重按0.5份、名额排除不进入名单。",algorithmDetail([
+          ${flowNode("system","建立本期参与名单","逐一读取顾问基础状态和分配权重：正常状态进入名单，名额排除不进入；进入名单后按1份或0.5份计算。",algorithmDetail([
             ["名单全集","每次发起分配时读取全部在册顾问，不单独维护周期参与记录。"],
-            ["正常","进入参与名单，均分权重为1份。"],
-            ["半权重","进入参与名单，均分权重为0.5份；固定周期轮转仍按人处理。"],
+            ["正常状态","进入参与名单，再读取单独设置的1份或0.5份分配权重。"],
+            ["0.5份权重","参与均分时按半份累计；固定周期轮转仍按人处理。"],
             ["名额排除","不进入均分、抓阄和固定周期轮转名单。"],
             ["调整边界","经理修改基础状态只影响之后新打开、尚未确认的分配批次，不重算历史批次。"]
           ]))}
-          ${arrow()}${flowNode("manager","经理维护基础状态","在参与名单或顾问统计面板维护正常、半权重、名额排除，无需逐周期重复设置。")}
+          ${arrow()}${flowNode("manager","经理维护状态和权重","在参与名单或顾问统计面板维护正常/名额排除状态，并单独设置1份/0.5份权重，无需逐周期重复设置。")}
           ${arrow()}${flowNode("system","确认批次参与快照","每个批次单独保存名单、基础状态、本期权重、按登记顾问归集的排队缺口和操作时间；后续修改不追溯。",algorithmDetail([
             ["快照时点","经理打开分配窗口时计算并锁定本次预览；确认时按该锁定名单和结果保存，关闭窗口后重新发起才会重算。"],
             ["名单字段","顾问姓名、是否参与、本期权重、参与设置来源；固定周期还保存分配前个人轮次、本期已获名额数和是否首次参加。"],
@@ -817,16 +833,16 @@
           ]))}
         `)}
         ${flowSection("参与资格与权重算法","参与名单只读取基础状态，减少逐周期维护。",`
-          ${flowNode("system","读取顾问基础状态","正常、半权重进入名单，名额排除直接剔除。",algorithmDetail([
+          ${flowNode("system","读取顾问状态和权重","状态正常的顾问进入名单，名额排除直接剔除；进入名单后读取1份或0.5份权重。",algorithmDetail([
             ["判断顺序","读取顾问当前基础状态，不再查找销售周期参与记录。"],
             ["名额排除","基础状态为名额排除时不进入本次名单。"],
-            ["有效权重","正常为1份，半权重为0.5份，名额排除为0份。"],
+            ["有效权重","正常状态读取1份或0.5份；名额排除统一按0份。"],
             ["排队归属","按排队记录的登记顾问统计需求，不按所属顾问统计。"],
             ["输出结果","每名顾问得到基础状态、有效权重、登记有效需求和排队中人数。"]
           ]))}
           ${arrow()}${flowNode("manager","经理调整基础状态","调整后立即用于后续新批次；已确认历史批次保留原始名单和权重。")}
           ${arrow()}${flowNode("system","生成执行时名单快照","保存基础状态、权重和按登记顾问计算的需求缺口。批次确认后不重算历史。",algorithmDetail([
-            ["候选全集","从全部在册顾问中保留正常和半权重顾问。"],
+            ["候选全集","从全部在册顾问中保留基础状态为正常的顾问，再读取其分配权重。"],
             ["排序规则","展示按经理优先、有效权重从高到低、姓名排序；排序只影响展示，不影响抓阄概率。"],
             ["需求口径","排队缺口取该登记顾问的排队中客户数减其未分配普通码数，最低为0；均分不使用该值，抓阄使用。"],
             ["锁定时点","打开分配窗口时生成本次预览名单；经理确认后将该名单与结果一起固化为批次快照。"],
@@ -836,12 +852,12 @@
         ${flowSection("普通名额均分算法","均分批次只依据参与名单、权重和经理普通池，不看顾问登记客户数量。",`
           ${flowNode("manager","发起均分批次","选择产品销售周期，系统锁定当前参与名单和经理普通池数量。")}
           ${arrow()}<div class="flow-branch two"><div class="branch-card"><strong>没有参与顾问或普通池为0</strong><p>不生成分配结果，提示经理检查名单或名额。</p></div><div class="branch-card"><strong>存在参与顾问和可用码</strong><p>进入完整加权轮次计算。</p></div></div>
-          ${arrow()}${flowNode("system","计算下一完整加权轮次","正常顾问每轮增加1份；半权重每轮增加0.5份，并叠加同产品以前参与周期留下的0.5份。只在累计达到整数时生成预约码。",algorithmDetail([
+          ${arrow()}${flowNode("system","计算下一完整加权轮次","1份权重顾问每轮增加1份；0.5份权重顾问每轮增加0.5份，并叠加同产品以前参与周期留下的0.5份。只在累计达到整数时生成预约码。",algorithmDetail([
             ["输入数据","本期参与顾问及有效权重、经理普通池可用码数、同产品每名顾问上次确认后的半份结余。"],
             ["试算一轮","对每人计算“历史结余 + 试算轮数 × 本期权重”，向下取整得到该顾问本次应获整数码。"],
             ["整轮条件","汇总所有顾问应获整数码；汇总数不超过普通池时，轮数加1并继续试算下一轮。"],
             ["停止条件","下一轮所需整数码超过普通池时停止，不拆散这一加权轮次，也不按客户需求挑人。"],
-            ["半权重累计","0.5份只按同一产品累计；顾问不参与的周期不新增0.5份，但既有结余保留。"],
+            ["半份累计","0.5份只按同一产品累计；顾问不参与的周期不新增0.5份，但既有结余保留。"],
             ["输出公式","本次获配 = 向下取整（原结余 + 完整轮数 × 权重）；新结余 = 原结余 + 完整轮数 × 权重 - 本次获配。"]
           ]))}
           ${arrow()}<div class="flow-branch two"><div class="branch-card"><strong>普通池能覆盖下一完整轮次</strong><p>所有参与顾问同时推进一轮，扣除本轮应生成的整数码，再继续测试下一轮。</p></div><div class="branch-card"><strong>普通池不能覆盖下一完整轮次</strong><p>停止均分，不拆散完整轮次；尚未分出的码留给独立抓阄或后续批次。</p></div></div>
@@ -857,8 +873,8 @@
         ${flowSection("普通名额抓阄算法","抓阄是独立批次，每名顾问每批最多获得1个。",`
           ${flowNode("manager","发起抓阄批次","读取当前经理普通池、参与名单和顾问客户排队数据。")}
           ${arrow()}${flowNode("system","计算顾问剩余需求","用排队中客户数减去顾问名下尚未分给客户的普通码；结果大于0才具备抓阄资格。",algorithmDetail([
-            ["参与前提","基础状态为正常或半权重的顾问参与；名额排除不计算。"],
-            ["需求分子","只统计该产品、该销售周期、登记顾问为该顾问且状态为“排队中”的客户记录。"],
+            ["参与前提","基础状态为正常的顾问参与；名额排除不计算，权重不改变抓阄单批最多1个的规则。"],
+            ["需求分子","统计该产品下登记顾问为该顾问且状态为“排队中”的客户记录，不受登记时销售周期影响。"],
             ["可用码抵扣","只扣除该顾问名下状态为“顾问持有”的普通码；已发客户、已使用、已作废的码不抵扣。"],
             ["计算公式","剩余需求 = 排队中客户数 - 顾问未分配普通码数，结果小于0时按0处理。"],
             ["候选条件","剩余需求大于0才进入候选；需求大小只决定是否入围，不增加单批中签上限。"],
@@ -880,7 +896,7 @@
             ["顾问轮次","每名顾问单独记录已经跟到第几轮。顾问记录低于产品当前轮次，说明还没有跟上。"],
             ["本期获配","另行统计顾问在当前销售周期已经获得多少名额，用于防止刚跟上的顾问在同一期继续多拿。"],
             ["参与范围","只处理本期确认参与的顾问；不参与者不阻塞产品轮次推进，个人轮次暂时保留。"],
-            ["权重口径","固定周期按人轮转，不使用半权重；半权重只用于普通产品均分。"],
+            ["权重口径","固定周期按人轮转，不使用0.5份权重；0.5份只用于普通产品均分。"],
             ["处理顺序","先找未跟上当前轮次的人，再选其中本期获配最少的一组；够分直接分，不够才抓阄。"]
           ],"查看轮转数据口径"))}
           ${arrow()}${flowNode("system","找出需要跟进的顾问","顾问已跟进轮次低于产品当前轮次，就需要跟进；已经跟上则暂不处理。",algorithmDetail([
@@ -967,9 +983,9 @@
     }
     function arrow(){return `<div class="flow-arrow"></div>`}
     function equalAlgorithmScenarios(){return `<div class="scenario-list">
-      <details><summary>均分例1：名额足够完成多轮</summary><div class="scenario-content"><strong>例：</strong>8名正常顾问、2名半权重顾问、普通池20个。两个完整加权轮次合计生成18个整数名额：正常顾问各2个，半权重顾问各1个；剩余2个不拆散下一轮，留给独立抓阄或后续分配。</div></details>
+      <details><summary>均分例1：名额足够完成多轮</summary><div class="scenario-content"><strong>例：</strong>8名1份权重顾问、2名0.5份权重顾问、普通池20个。两个完整加权轮次合计生成18个整数名额：1份顾问各2个，0.5份顾问各1个；剩余2个不拆散下一轮，留给独立抓阄或后续分配。</div></details>
       <details><summary>均分例2：不足完成第一轮</summary><div class="scenario-content"><strong>例：</strong>10名正常顾问参与，但普通池只有4个。任何四人先拿都会破坏均分，因此均分结果为0；经理可另行发起抓阄。</div></details>
-      <details><summary>均分例3：半权重累计成整数</summary><div class="scenario-content"><strong>例：</strong>文静连续参加同一产品两期，每期产生0.5份。第一期留下0.5份，第二期累计到1份并获得1个；主动不参与的周期不增加0.5份。</div></details>
+      <details><summary>均分例3：0.5份累计成整数</summary><div class="scenario-content"><strong>例：</strong>文静连续参加同一产品两期，每期产生0.5份。第一期留下0.5份，第二期累计到1份并获得1个；名额排除的周期不增加0.5份。</div></details>
       <details><summary>均分例4：归还名额池后再次均分</summary><div class="scenario-content"><strong>例：</strong>10个顾问未分配码集中归还名额池，新码回到同周期普通池。只要归还数量足够覆盖下一完整加权轮次，经理可以再次发起均分；新批次独立记录，不修改原批次。</div></details>
     </div>`}
     function lotteryAlgorithmScenarios(){return `<div class="scenario-list">
@@ -1007,19 +1023,20 @@
       if(!note){toast("线下登记必须填写补充说明",true);return}
       if(!amount||amount<=0){toast("请填写有效意向资金",true);return}
       let a=account(customerNo);if(!a){a={id:customerNo,name:customerName,phone:"",cert:"",type:customerType,advisor:assignedAdvisor,member:"未关联",risk:"未关联",holdings:"手工登记，待后续关联"};db.accounts.push(a)}
-      const created=[],duplicates=[];
+      const created=[],duplicates=[],seenProducts=new Set();
       ui.registrationProducts.forEach(cycleId=>{
         const c=cycle(cycleId),p=c&&cycleProduct(c.id);if(!c||!p)return;
-        const duplicate=db.queues.find(q=>q.customerId===a.id&&q.productId===p.id&&q.cycleId===c.id&&!["已完成","已取消"].includes(q.state));
+        if(seenProducts.has(p.id))return;seenProducts.add(p.id);
+        const duplicate=db.queues.find(q=>q.customerId===a.id&&q.productId===p.id&&!["已完成","已取消"].includes(q.state));
         if(duplicate){duplicates.push(p.name);return}
         const item={id:uid("Q"),customerId:a.id,productId:p.id,cycleId:c.id,advisor:assignedAdvisor,registrar:ui.operator,source:"线下登记",state:"排队中",amount,registeredAt:nowText(),note,offlineReason:note,codeId:"",logs:[[nowText(),`${ui.operator}创建线下排队登记，所属顾问为${assignedAdvisor}。备注：${note}`]]};
         db.queues.unshift(item);created.push(item);
       });
-      a.name=customerName;a.type=customerType;a.advisor=assignedAdvisor;logAudit("创建排队登记",`${a.name}新增${created.length}条客户+产品+周期记录${duplicates.length?`，跳过重复${duplicates.length}条`:""}。`);save();
+      a.name=customerName;a.type=customerType;a.advisor=assignedAdvisor;logAudit("创建排队登记",`${a.name}新增${created.length}条客户+产品记录${duplicates.length?`，跳过重复${duplicates.length}条`:""}；销售周期仅作为登记时快照。`);save();
       ui.selectedQueueId=created.find(x=>x.cycleId===ui.advisorSelectedCycleId)?.id||created[0]?.id||ui.selectedQueueId;ui.registrationProducts=[];ui.registrationAccountId="";ui.registrationDraft={customerName:"",customerNo:"",customerType:"普通客户",advisor:ui.operator,amount:300,note:""};ui.registrationOpen=false;renderAdvisor();toast(`已创建${created.length}条排队记录${duplicates.length?`，${duplicates.length}条有效组合未重复创建`:""}`);
     }
     function saveQueueDetail(id){
-      const item=queue(id);if(!item||["已取消","已完成"].includes(item.state))return;const note=$("#queue-detail-note").value.trim(),next=$("#queue-detail-state").value;item.note=note;if(item.state==="排队中"&&next==="已取消")item.state="已取消";addQueueLog(item,`保存客户详情${next!=="排队中"?`，状态调整为${item.state}`:""}。备注：${note||"无"}`);logAudit("保存客户详情",`${account(item.customerId).name} / ${product(item.productId).name} / ${item.state}`);save();renderAdvisor();toast("客户详情已保存");
+      const item=queue(id);if(!item||["已取消","已完成"].includes(item.state))return;const note=$("#queue-detail-note").value.trim(),next=$("#queue-detail-state").value;item.note=note;if(item.state==="排队中"&&next==="已取消")item.state="已取消";addQueueLog(item,`保存客户详情${next!=="排队中"?`，状态调整为${item.state}`:""}。备注：${note||"无"}`);logAudit("保存客户详情",`${account(item.customerId).name} / ${product(item.productId).name} / ${item.state}`);save();closeModal();renderAdvisor();toast("客户详情已保存");
     }
     function openCancelQueues(ids){
       const valid=ids.map(queue).filter(item=>item?.state==="排队中");if(!valid.length){toast("只能取消排队中的客户",true);return}openModal("确认取消排队",`本次将取消 ${valid.length} 条排队记录。`,`<div class="notice warn">取消后该记录不可修改；客户再次产生需求时可新建登记。</div><div class="field" style="margin-top:12px"><label>取消原因</label><textarea class="textarea" id="cancel-queue-reason">客户确认本销售周期暂不参与。</textarea></div>`,modalButtons("confirm-cancel-queues","确认取消"),"small");ui.modal.queueIds=valid.map(item=>item.id);
@@ -1054,12 +1071,13 @@
     }
     function confirmAddProducts(){
       const base=queue(ui.modal.queueId),a=account(base.customerId),ids=ui.modal.productIds||[];if(!ids.length){toast("至少选择一只产品",true);return}
-      ids.forEach(pid=>{const c=latestCycle(pid);db.queues.unshift({id:uid("Q"),customerId:a.id,productId:pid,cycleId:c.id,advisor:base.advisor,source:base.source,state:"排队中",amount:base.amount,registeredAt:nowText(),note:"从客户详情新增排队产品。",offlineReason:base.offlineReason,codeId:"",logs:[[nowText(),`${ui.operator}从客户详情新增${product(pid).name}排队登记。`]]})});
+      ids.forEach(pid=>{const c=latestCycle(pid);db.queues.unshift({id:uid("Q"),customerId:a.id,productId:pid,cycleId:c.id,advisor:base.advisor,registrar:ui.operator,source:base.source,state:"排队中",amount:base.amount,registeredAt:nowText(),note:"从客户详情新增排队产品。",offlineReason:base.offlineReason,codeId:"",logs:[[nowText(),`${ui.operator}从客户详情新增${product(pid).name}排队登记。`]]})});
       logAudit("新增排队产品",`${a.name}新增${ids.length}只产品。`);save();closeModal();renderAdvisor();toast(`已新增${ids.length}条排队记录`);
     }
 
     function openAssignCode(id){
-      const item=queue(id),a=account(item.customerId),c=cycle(item.cycleId),p=product(item.productId);
+      const item=queue(id),a=account(item.customerId),selectedCycle=cycle(ui.advisorSelectedCycleId),c=selectedCycle?.productId===item.productId?selectedCycle:latestCycle(item.productId),p=product(item.productId);
+      if(!c){toast("当前产品没有可用销售周期",true);return}
       const available=walletCodes(c.id,item.advisor);
       if(!available.length){toast("所属顾问当前没有可用普通码，请先由顾问经理完成名额分配。",true);return}
       const ticket=available[0];
@@ -1217,7 +1235,7 @@
     }
     function allocationModalBody(kind,preview,c){
       const noRound=kind==="equal"&&preview.rounds===0;
-      return `<details class="rule"><summary>查看本批次规则</summary><div>${kind==="equal"?"均分不读取登记需求。正常顾问每个完整轮次1份，半权重顾问0.5份并按同产品参与周期累计；不足完成第一轮时不均分，全部留给抓阄。":"抓阄读取排队中客户数并扣除顾问未分配普通码。每名顾问每个批次最多中1个；码足够覆盖全部候选人时直接分配。"}</div></details>
+      return `<details class="rule"><summary>查看本批次规则</summary><div>${kind==="equal"?"均分不读取登记需求。顾问按1份或0.5份权重参与，0.5份按同产品参与周期累计；不足完成第一轮时不均分，全部留给抓阄。":"抓阄读取产品级排队中客户数并扣除顾问未分配普通码。每名顾问每个批次最多中1个；码足够覆盖全部候选人时直接分配。"}</div></details>
         <div class="allocation-stats">${allocStat("经理普通池",preview.available)}${allocStat(kind==="equal"?"参与顾问":"候选顾问",preview.participants?.length||preview.candidates?.length||0)}${allocStat(kind==="equal"?"完整加权轮次":"本次席位",kind==="equal"?preview.rounds:preview.drawCount)}${allocStat("分配后剩余",preview.remaining)}</div>
         ${noRound?`<div class="notice warn">当前普通池不足完成一次完整加权均分，本次均分结果为0。请关闭后单独发起抓阄批次。</div>`:""}
         <div class="table-wrap"><table class="data-table"><thead><tr><th>顾问</th><th>周期状态/权重</th><th>${kind==="equal"?"本次前半份结余":"排队中客户"}</th><th>${kind==="equal"?"本次获配":"顾问未分配码"}</th><th>${kind==="equal"?"本次后半份结余":"剩余缺口"}</th>${kind==="lottery"?"<th>本次确认前变化</th>":""}</tr></thead><tbody>${(kind==="equal"?preview.rows:preview.candidates).map(r=>`<tr><td><strong>${r.advisor}</strong></td><td>${r.weight}份</td><td>${kind==="equal"?r.carry:r.queueing}</td><td>${kind==="equal"?r.count:r.wallet}</td><td class="${kind==="equal"?"":"amount"}">${kind==="equal"?r.nextCarry:r.gap}</td>${kind==="lottery"?`<td><strong data-draw-change="${esc(r.advisor)}"></strong></td>`:""}</tr>`).join("")||`<tr><td colspan="${kind==="lottery"?6:5}"><div class="empty">当前没有符合条件的顾问</div></td></tr>`}</tbody></table></div>`;
@@ -1233,7 +1251,7 @@
       db.batches.push(batch);logAudit("确认均分批次",`${cycleProduct(c.id).name}分配${batch.allocations.length}个，${batch.participantSnapshot.length}人参与。`);save();closeModal();renderProducts();toast(`均分完成，共${batch.allocations.length}个普通码进入顾问名下`);
     }
     function lotteryPreview(c){
-      const candidates=participantsForCycle(c).map(x=>({...x,queueing:db.queues.filter(q=>q.cycleId===c.id&&queueOwner(q)===x.advisor&&q.state==="排队中").length,wallet:walletCodes(c.id,x.advisor).length})).map(x=>({...x,gap:Math.max(0,x.queueing-x.wallet)})).filter(x=>x.gap>0);
+      const candidates=participantsForCycle(c).map(x=>({...x,queueing:productQueues(c.productId).filter(q=>queueOwner(q)===x.advisor&&q.state==="排队中").length,wallet:walletCodes(c.id,x.advisor).length})).map(x=>({...x,gap:Math.max(0,x.queueing-x.wallet)})).filter(x=>x.gap>0);
       const available=freePool(c.id,"ordinary").length,drawCount=Math.min(available,candidates.length);return {candidates,participants:candidates,available,drawCount,remaining:available-drawCount,direct:available>=candidates.length,winners:[]};
     }
     function openLottery(){
@@ -1347,11 +1365,24 @@
       const c=cycle(ui.selectedCycleId),specialType=$("#special-code-type").value,count=Math.floor(Number($("#special-create-count").value)),free=availableSpecialSlots(c.id),min=Number($("#special-min").value),max=Number($("#special-max").value),validTo=$("#special-valid").value,customerNo=$("#special-customer-no")?.value.trim()||"",linked=account(customerNo),customerName=$("#special-customer-name")?.value.trim()||linked?.name||"",assignedAdvisor=$("#special-advisor")?.value||"",remark=$("#special-note").value.trim();
       if(!Number.isInteger(count)||count<1||count>free.length){toast(`创建个数必须为1至${free.length}`,true);return}if(!Number.isFinite(min)||!Number.isFinite(max)||min<0||max<min){toast("预约码金额上下限不正确",true);return}if(!validTo){toast("请填写预约码有效期",true);return}if(specialType!=="机动名额"&&(!customerName||!assignedAdvisor)){toast("该预约码类型必须填写客户姓名和所属顾问",true);return}
       const createdAt=nowText(),created=[];free.slice(0,count).forEach((s,index)=>{const previous=currentCodeForSlot(s.id),version=db.codes.filter(item=>item.slotId===s.id).length+1,slotIndex=Number(s.id.split("-").pop())||db.codes.length+1,ticket={id:generateReservationCode(c,"special",slotIndex,version),slotId:s.id,version,type:"special",specialType,advisor:specialType==="机动名额"?"":assignedAdvisor,intendedCustomerId:specialType==="机动名额"?"":customerNo,boundCustomerId:specialType==="机动名额"?"":customerNo,customerName:specialType==="机动名额"?"":customerName,customerNo:specialType==="机动名额"?"":customerNo,actualCustomerId:"",state:specialType==="机动名额"?"经理码池":"已分配客户",transactionStatus:"未下单",businessType:"",min,max,validTo,creator:ui.operator,createdAt,assignedAt:specialType==="机动名额"?"":createdAt,orderTime:"",orderAmount:0,parentCodeId:previous?.id||"",replacementCodeId:"",invalidReason:"",leaderNote:specialType==="机动名额"?remark:"",remark,productCode:cycleProduct(c.id)?.code||""};if(previous)previous.replacementCodeId=ticket.id;db.codes.push(ticket);created.push(ticket)});
-      if(specialType!=="机动名额"&&customerNo){const q=db.queues.find(item=>item.cycleId===c.id&&item.customerId===customerNo&&!item.codeId&&!["已取消","已完成"].includes(item.state));if(q&&created[0]){q.codeId=created[0].id;q.state="已分配";addQueueLog(q,`顾问经理创建${specialType}特殊预约码并硬绑定客户。`)}}
+      if(specialType!=="机动名额"&&customerNo){const q=db.queues.find(item=>item.productId===c.productId&&item.customerId===customerNo&&!item.codeId&&!["已取消","已完成"].includes(item.state));if(q&&created[0]){q.codeId=created[0].id;q.state="已分配";addQueueLog(q,`顾问经理创建${specialType}特殊预约码并硬绑定客户。`)}}
       logAudit("创建特殊预约码",`${cycleProduct(c.id).name} / ${specialType} / ${count}个 / ${customerName||"不绑定客户"}`);save();closeModal();ui.specialPage=1;renderProducts();toast(`已创建${count}个${specialType}预约码`);
     }
     function updateSpecialField(codeId,field,value){const item=code(codeId);if(!item||item.state==="已使用"||item.state==="已作废")return;if(field==="customerName"&&item.customerNo)return;const next=["min","max"].includes(field)?Number(value):value;if(field==="min"&&(!Number.isFinite(next)||next<0||next>item.max)){toast("金额下限不正确",true);renderProducts();return}if(field==="max"&&(!Number.isFinite(next)||next<item.min)){toast("金额上限不正确",true);renderProducts();return}item[field]=next;logAudit("编辑特殊预约码",`${item.id} / ${field} -> ${value}`);save();toast("特殊预约码已更新")}
-    function applySpecialBatch(){const rows=[...ui.selectedSpecialCodeIds].map(code).filter(item=>item&&item.state!=="已使用"&&item.state!=="已作废");if(!rows.length){toast("请先选择可调整的预约码",true);return}const minText=$("#special-batch-min").value,maxText=$("#special-batch-max").value,validTo=$("#special-batch-valid").value,min=minText===""?null:Number(minText),max=maxText===""?null:Number(maxText);if(min===null&&max===null&&!validTo){toast("请至少填写一项批量调整内容",true);return}if((min!==null&&(!Number.isFinite(min)||min<0))||(max!==null&&(!Number.isFinite(max)||max<0))){toast("批量金额格式不正确",true);return}for(const item of rows){const nextMin=min??item.min,nextMax=max??item.max;if(nextMax<nextMin){toast("批量金额上限不能低于下限",true);return}}rows.forEach(item=>{if(min!==null)item.min=min;if(max!==null)item.max=max;if(validTo)item.validTo=validTo});logAudit("批量调整特殊预约码",`${rows.length}个预约码`);save();renderProducts();toast(`已批量调整${rows.length}个预约码`)}
+    function openSpecialBatchAdjust(){
+      const rows=[...ui.selectedSpecialCodeIds].map(code).filter(item=>item&&item.state!=="已使用"&&item.state!=="已作废");if(!rows.length){toast("请先选择可调整的预约码",true);return}
+      openModal("批量调整特殊预约码",`已选择 ${rows.length} 个预约码，填写需要统一修改的字段。`,`<div class="form-grid"><div class="field"><label>金额下限（万元）</label><input class="input" id="special-batch-min" type="number" min="0" placeholder="留空则不调整"></div><div class="field"><label>金额上限（万元）</label><input class="input" id="special-batch-max" type="number" min="0" placeholder="留空则不调整"></div><div class="field"><label>有效期</label><input class="input" id="special-batch-valid" type="date"></div><div class="field full"><label>调整说明</label><textarea class="textarea" id="special-batch-reason">顾问经理批量核对并调整特殊预约码参数。</textarea></div><div class="field full"><div class="notice">只修改本弹窗中已填写的字段；确认前不会改变原页面数据。</div></div></div>`,modalButtons("confirm-special-batch-adjust","确认调整"),"small");ui.modal.codeIds=rows.map(item=>item.id);
+    }
+    function confirmSpecialBatchAdjust(){
+      const rows=(ui.modal.codeIds||[]).map(code).filter(item=>item&&item.state!=="已使用"&&item.state!=="已作废"),minText=$("#special-batch-min").value,maxText=$("#special-batch-max").value,validTo=$("#special-batch-valid").value,reason=$("#special-batch-reason").value.trim(),min=minText===""?null:Number(minText),max=maxText===""?null:Number(maxText);if(min===null&&max===null&&!validTo){toast("请至少填写一项批量调整内容",true);return}if(!reason){toast("请填写调整说明",true);return}if((min!==null&&(!Number.isFinite(min)||min<0))||(max!==null&&(!Number.isFinite(max)||max<0))){toast("批量金额格式不正确",true);return}for(const item of rows){const nextMin=min??item.min,nextMax=max??item.max;if(nextMax<nextMin){toast("批量金额上限不能低于下限",true);return}}rows.forEach(item=>{if(min!==null)item.min=min;if(max!==null)item.max=max;if(validTo)item.validTo=validTo;item.remark=[item.remark,reason].filter(Boolean).join("；")});logAudit("批量调整特殊预约码",`${rows.length}个预约码 / ${reason}`);ui.selectedSpecialCodeIds.clear();save();closeModal();renderProducts();toast(`已批量调整${rows.length}个预约码`)
+    }
+    function openParticipantBatch(){
+      const names=[...ui.selectedParticipantNames].filter(name=>ADVISOR_NAMES.includes(name));if(!names.length){toast("请先选择顾问",true);return}
+      openModal("批量设置顾问",`已选择 ${names.length} 位顾问`,`<div class="form-grid"><div class="field"><label>基础状态</label><select class="select" id="participant-batch-status"><option value="">不调整</option><option value="正常">正常</option><option value="名额排除">名额排除</option></select></div><div class="field"><label>分配权重</label><select class="select" id="participant-batch-weight"><option value="">不调整</option><option value="1">1份</option><option value="0.5">0.5份</option></select></div><div class="field full"><label>调整说明</label><textarea class="textarea" id="participant-batch-reason">顾问经理批量维护顾问基础状态和分配权重。</textarea></div><div class="field full"><div class="notice warn">修改只影响后续未确认的均分和抓阄批次，历史批次保留原始参与快照。</div></div></div>`,modalButtons("confirm-participant-batch","确认设置"),"small");ui.modal.advisorNames=names;
+    }
+    function confirmParticipantBatch(){
+      const names=ui.modal.advisorNames||[],status=$("#participant-batch-status").value,weightText=$("#participant-batch-weight").value,reason=$("#participant-batch-reason").value.trim();if(!status&&!weightText){toast("请至少选择一项要调整的内容",true);return}if(!reason){toast("请填写调整说明",true);return}names.map(advisor).filter(Boolean).forEach(item=>{if(status)item.baseStatus=status;if(weightText)item.baseWeight=Number(weightText)});logAudit("批量设置顾问",`${names.join("、")} / 状态${status||"不调整"} / 权重${weightText||"不调整"} / ${reason}`);ui.selectedParticipantNames.clear();save();closeModal();renderProducts();toast(`已更新${names.length}位顾问`)
+    }
     function openRecallSpecialBatch(){const rows=[...ui.selectedSpecialCodeIds].map(code).filter(item=>item&&item.state!=="已使用"&&item.state!=="已作废");if(!rows.length){toast("请先选择可回收的预约码",true);return}openModal("批量回收特殊预约码",`已选择${rows.length}个预约码`,`<div class="notice warn">回收后旧码立即作废，原特殊名额槽位重新可创建；已提交订单的码不可回收。</div><div class="field" style="margin-top:12px"><label>回收原因</label><textarea class="textarea" id="special-recall-reason">顾问经理确认未继续使用，批量回收特殊预约码。</textarea></div>`,modalButtons("confirm-recall-special-batch","确认回收"),"small")}
     function confirmRecallSpecialBatch(){const reason=$("#special-recall-reason").value.trim(),rows=[...ui.selectedSpecialCodeIds].map(code).filter(item=>item&&item.state!=="已使用"&&item.state!=="已作废");rows.forEach(item=>{item.state="已作废";item.invalidReason=reason;const q=db.queues.find(row=>row.codeId===item.id);if(q){q.codeId="";q.state="排队中";addQueueLog(q,`特殊预约码回收作废，客户恢复排队中。`)}});logAudit("批量回收特殊预约码",`${rows.length}个 / ${reason}`);ui.selectedSpecialCodeIds.clear();save();closeModal();renderProducts();toast(`已回收${rows.length}个预约码，名额槽位已释放`)}
     function revealCode(codeId){
@@ -1380,7 +1411,7 @@
 
     document.addEventListener("click",event=>{
       if(!event.target.closest(".advisor-switcher"))$("#advisor-scope-suggestions")?.classList.remove("open");
-      if(event.target.matches("[data-bulk-queue],#select-all-queues,[data-ledger-code],#select-all-ledger,[data-special-code],#select-all-special,[data-reg-cycle]"))return;
+      if(event.target.matches("[data-bulk-queue],#select-all-queues,[data-ledger-code],#select-all-ledger,[data-special-code],#select-all-special,[data-participant-advisor],#select-all-participants,[data-reg-cycle]"))return;
       const target=event.target.closest("button,[data-view],[data-select-advisor-cycle],[data-select-queue],[data-select-code],[data-select-product],[data-toggle-batch],[data-toggle-rotation-cycle],[data-reg-cycle],[data-add-product],[data-toggle-transaction]");
       if(!target)return;
       if(target.dataset.view){ui.view=target.dataset.view;renderShell();return}
@@ -1392,11 +1423,11 @@
       if(target.dataset.selectAdvisorCycle){ui.advisorSelectedCycleId=target.dataset.selectAdvisorCycle;ui.queuePage=1;ui.ledgerPage=1;ui.selectedQueueId="";ui.selectedCodeId="";ui.selectedQueueIds.clear();ui.selectedLedgerCodeIds.clear();if(ui.registrationOpen)ui.registrationProducts=[ui.advisorSelectedCycleId];renderAdvisor();return}
       if(target.dataset.managerWorkspace){ui.managerWorkspace=target.dataset.managerWorkspace;ui.selectedAdvisorProfile="";renderProducts();return}
       if(target.dataset.selectAdvisorProfile){ui.selectedAdvisorProfile=ui.selectedAdvisorProfile===target.dataset.selectAdvisorProfile?"":target.dataset.selectAdvisorProfile;renderProducts();if(ui.selectedAdvisorProfile)requestAnimationFrame(()=>$(".advisor-profile")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
-      if(target.dataset.productTab){ui.productTab=target.dataset.productTab;if(ui.productTab!=="special")ui.selectedSpecialCodeIds.clear();renderProducts();return}
-      if(target.dataset.selectQueue){ui.selectedQueueId=target.dataset.selectQueue;renderAdvisor();requestAnimationFrame(()=>$("#queueDetail")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
-      if(target.dataset.selectCode){ui.selectedCodeId=target.dataset.selectCode;renderAdvisor();requestAnimationFrame(()=>$("#codeDetail")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
+      if(target.dataset.productTab){ui.productTab=target.dataset.productTab;if(ui.productTab!=="special")ui.selectedSpecialCodeIds.clear();if(ui.productTab!=="participation")ui.selectedParticipantNames.clear();renderProducts();return}
+      if(target.dataset.selectQueue){openQueueDetail(target.dataset.selectQueue);return}
+      if(target.dataset.selectCode){openCodeDetail(target.dataset.selectCode);return}
       if(target.dataset.toggleTransaction){const id=target.dataset.toggleTransaction;ui.expandedTransactions.has(id)?ui.expandedTransactions.delete(id):ui.expandedTransactions.add(id);renderAdvisor();return}
-      if(target.dataset.selectProduct){ui.selectedProductId=target.dataset.selectProduct;ui.selectedCycleId=latestCycle(ui.selectedProductId)?.id||"";ui.selectedSpecialCodeIds.clear();ui.specialPage=1;renderProducts();requestAnimationFrame(()=>$("#productDetail")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
+      if(target.dataset.selectProduct){ui.selectedProductId=target.dataset.selectProduct;ui.selectedCycleId=latestCycle(ui.selectedProductId)?.id||"";ui.selectedSpecialCodeIds.clear();ui.selectedParticipantNames.clear();ui.specialPage=1;renderProducts();requestAnimationFrame(()=>$("#productDetail")?.scrollIntoView({behavior:"smooth",block:"start"}));return}
       if(target.dataset.toggleBatch){const id=target.dataset.toggleBatch;ui.expandedBatches.has(id)?ui.expandedBatches.delete(id):ui.expandedBatches.add(id);renderProducts();return}
       if(target.dataset.toggleRotationCycle){const id=target.dataset.toggleRotationCycle;ui.expandedRotationCycles.has(id)?ui.expandedRotationCycles.delete(id):ui.expandedRotationCycles.add(id);renderProducts();return}
       if(target.dataset.sortScope){const scope=target.dataset.sortScope,key=target.dataset.sortKey,sortKey=scope==="queue"?"queueSort":scope==="ledger"?"ledgerSort":scope==="advisorProduct"?"advisorProductSort":"advisorSort",dirKey=scope==="queue"?"queueDir":scope==="ledger"?"ledgerDir":scope==="advisorProduct"?"advisorProductDir":"advisorDir";ui[dirKey]=ui[sortKey]===key&&ui[dirKey]==="asc"?"desc":"asc";ui[sortKey]=key;renderShell();return}
@@ -1465,15 +1496,19 @@
         "create-special-codes":openCreateSpecialCodes,
         "lookup-special-account":lookupSpecialAccount,
         "confirm-create-special-codes":confirmCreateSpecialCodes,
-        "apply-special-batch":applySpecialBatch,
+        "open-special-batch-adjust":openSpecialBatchAdjust,
+        "confirm-special-batch-adjust":confirmSpecialBatchAdjust,
         "recall-special-batch":openRecallSpecialBatch,
         "confirm-recall-special-batch":confirmRecallSpecialBatch,
         "clear-special-selection":()=>{ui.selectedSpecialCodeIds.clear();renderProducts()},
+        "open-participant-batch":openParticipantBatch,
+        "confirm-participant-batch":confirmParticipantBatch,
+        "clear-participant-selection":()=>{ui.selectedParticipantNames.clear();renderProducts()},
         "return-code-to-pool":()=>openReturnCodeToPool(target.dataset.codeId),
         "confirm-return-code-to-pool":confirmReturnCodeToPool,
         "close-advisor-profile":()=>{ui.selectedAdvisorProfile="";renderProducts()},
         "open-reset":()=>openModal("重置演示数据","将清除本浏览器中的演示操作，恢复完整初始样例。",`<div class="notice danger">重置后，新增登记、分配批次、回收替换、产品周期修改和操作日志都会恢复到初始状态。</div>`,`<button class="btn" data-action="close-modal">取消</button><button class="btn danger" data-action="confirm-reset">确认重置</button>`,"small"),
-        "confirm-reset":()=>{localStorage.removeItem(STORAGE_KEY);db=makeSeed();ui.advisorScope=ui.operator;ui.selectedQueueId="";ui.selectedCodeId="";ui.selectedQueueIds.clear();ui.selectedLedgerCodeIds.clear();ui.selectedSpecialCodeIds.clear();ui.registrationOpen=false;ui.advisorSelectedCycleId="";save();closeModal();renderShell();toast("演示数据已重置")},
+        "confirm-reset":()=>{localStorage.removeItem(STORAGE_KEY);db=makeSeed();ui.advisorScope=ui.operator;ui.selectedQueueId="";ui.selectedCodeId="";ui.selectedQueueIds.clear();ui.selectedLedgerCodeIds.clear();ui.selectedSpecialCodeIds.clear();ui.selectedParticipantNames.clear();ui.registrationOpen=false;ui.advisorSelectedCycleId="";save();closeModal();renderShell();toast("演示数据已重置")},
         "close-modal":closeModal
       };
       if(handlers[action])handlers[action]();
@@ -1481,7 +1516,7 @@
     document.addEventListener("change",event=>{
       handleInputChange(event);
       if(event.target.id==="operatorSelect"){ui.operator=event.target.value;ui.advisorScope=ui.operator;if(!isManager()&&ui.view==="products")ui.view="advisor";ui.queueFilters.advisor="";ui.ledgerFilters={issuedCustomer:"",actualCustomer:"",type:"",state:""};ui.registrationDraft.advisor=ui.operator;ui.advisorSelectedCycleId="";ui.selectedQueueId="";ui.selectedCodeId="";ui.selectedQueueIds.clear();ui.selectedLedgerCodeIds.clear();renderShell()}
-      if(event.target.id==="cycleSelector"){ui.selectedCycleId=event.target.value;ui.productTab="cycle";ui.selectedSpecialCodeIds.clear();ui.specialPage=1;renderProducts()}
+      if(event.target.id==="cycleSelector"){ui.selectedCycleId=event.target.value;ui.productTab="cycle";ui.selectedSpecialCodeIds.clear();ui.selectedParticipantNames.clear();ui.specialPage=1;renderProducts()}
       if(event.target.id==="advisor-start"||event.target.id==="advisor-end"){ui.advisorStart=$("#advisor-start").value;ui.advisorEnd=$("#advisor-end").value;if(ui.advisorStart>ui.advisorEnd){toast("开始日期不能晚于结束日期",true);return}ui.advisorPeriodPreset="custom";ui.advisorProductPage=1;ui.advisorSelectedCycleId="";renderAdvisor()}
       if(event.target.id==="advisor-has-codes"){ui.advisorHasCodes=event.target.checked;ui.advisorProductPage=1;ui.advisorSelectedCycleId="";renderAdvisor()}
       if(event.target.matches("[data-reg-cycle]")){captureRegistrationDraft();const id=event.target.dataset.regCycle;event.target.checked?ui.registrationProducts.push(id):ui.registrationProducts=ui.registrationProducts.filter(x=>x!==id);renderRegistrationInner()}
@@ -1492,8 +1527,11 @@
       if(event.target.id==="ledger-batch-operation")updateLedgerBatchHint();
       if(event.target.matches("[data-special-code]")){const id=event.target.dataset.specialCode;event.target.checked?ui.selectedSpecialCodeIds.add(id):ui.selectedSpecialCodeIds.delete(id);const bar=$("#specialBulkBar"),count=$("#special-bulk-count");if(bar)bar.classList.toggle("show",ui.selectedSpecialCodeIds.size>0);if(count)count.textContent=ui.selectedSpecialCodeIds.size}
       if(event.target.id==="select-all-special"){const rows=paginate(currentCycleCodes(ui.selectedCycleId,"special").sort((a,b)=>b.createdAt.localeCompare(a.createdAt)),ui.specialPage,ui.specialSize).filter(item=>!["已使用","已作废"].includes(item.state));rows.forEach(item=>event.target.checked?ui.selectedSpecialCodeIds.add(item.id):ui.selectedSpecialCodeIds.delete(item.id));$(".special-code-table")?.querySelectorAll("input[data-special-code]:not([disabled])").forEach(input=>input.checked=event.target.checked);const bar=$("#specialBulkBar"),count=$("#special-bulk-count");if(bar)bar.classList.toggle("show",ui.selectedSpecialCodeIds.size>0);if(count)count.textContent=ui.selectedSpecialCodeIds.size}
+      if(event.target.matches("[data-participant-advisor]")){const name=event.target.dataset.participantAdvisor;event.target.checked?ui.selectedParticipantNames.add(name):ui.selectedParticipantNames.delete(name);renderProducts()}
+      if(event.target.id==="select-all-participants"){ADVISOR_NAMES.forEach(name=>event.target.checked?ui.selectedParticipantNames.add(name):ui.selectedParticipantNames.delete(name));renderProducts()}
       if(event.target.id==="special-code-type")toggleSpecialCustomerFields();
       if(event.target.matches("[data-base-status]")){const a=advisor(event.target.dataset.baseStatus);a.baseStatus=event.target.value;logAudit("编辑顾问基础状态",`${a.name} -> ${a.baseStatus}`);save();renderProducts();toast("顾问基础状态已更新，只影响后续未确认批次")}
+      if(event.target.matches("[data-base-weight]")){const a=advisor(event.target.dataset.baseWeight);a.baseWeight=Number(event.target.value);logAudit("编辑顾问分配权重",`${a.name} -> ${a.baseWeight}份`);save();renderProducts();toast("顾问分配权重已更新，只影响后续未确认批次")}
     });
     document.addEventListener("input",event=>{
       if(event.target.matches(".quota-input"))handleInputChange(event);
