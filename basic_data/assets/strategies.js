@@ -10,6 +10,10 @@
   const returnHeaders = ["近一周", "近一月", "近三月", "近1年", "今年以来", "累计收益率"];
   const riskHeaders = ["最大回撤", "波动率"];
   const weightHeaders = ["权益基金权重", "债券基金权重", "货币基金权重", "QDII权重", "指数基金权重"];
+  const trailingHeaders = [
+    "研报产品类型", "研报股票子类型", "业务分类", "市场地域", "主动被动",
+    "披露策略类型", "天天当前对客展示", "基准权益分档", "基准可用状态"
+  ];
   const numericHeaders = new Set([...returnHeaders, ...riskHeaders, "夏普比率", ...weightHeaders, "调仓次数"]);
   const dateHeaders = ["最新业绩日期", "最新持仓日", "最近调仓日"];
   const dateHeaderSet = new Set(dateHeaders);
@@ -145,7 +149,8 @@
   function sortHeader(field, cls = "") {
     const active = state.sortField === field;
     const arrow = active ? (state.sortDir === "asc" ? "▲" : "▼") : "↕";
-    return `<th class="${cls}"><span class="sort-head ${active ? "is-active" : ""}" role="button" tabindex="0" data-sort-field="${B.esc(field)}">${B.label(field)}<span class="sort-arrow">${arrow}</span></span></th>`;
+    const label = field === "天天当前对客展示" ? B.esc("对客展示") : B.label(field);
+    return `<th class="${cls}"><span class="sort-head ${active ? "is-active" : ""}" role="button" tabindex="0" data-sort-field="${B.esc(field)}">${label}<span class="sort-arrow">${arrow}</span></span></th>`;
   }
 
   function formatCell(row, field) {
@@ -175,9 +180,9 @@
 
   function renderTable(rows) {
     const headers = [
-      "策略名称", "渠道", "投顾机构", "研报产品类型", "研报股票子类型", "风险等级", "业务分类", "市场地域", "主动被动",
-      "披露策略类型", "天天当前对客展示", "天天展示状态", "基准权益分档", "广义权益分档", "基准可用状态", "业绩基准说明", "最新业绩日期",
-      ...returnHeaders, ...riskHeaders, "夏普比率", ...weightHeaders, ...dateHeaders.filter((field) => field !== "最新业绩日期"), "调仓次数"
+      "策略名称", "渠道", "投顾机构", "风险等级", "天天展示状态", "广义权益分档", "业绩基准说明", "最新业绩日期",
+      ...returnHeaders, ...riskHeaders, "夏普比率", ...weightHeaders, ...dateHeaders.filter((field) => field !== "最新业绩日期"), "调仓次数",
+      ...trailingHeaders
     ];
     const wideFields = new Set(["投顾机构", "研报产品类型", "研报股票子类型", "风险等级", "业务分类", "主动被动", "披露策略类型", "天天当前对客展示", "天天展示状态", "基准权益分档", "广义权益分档", "基准可用状态", "业绩基准说明"]);
     const head = headers.map((field, index) => {
