@@ -21,6 +21,24 @@
   const reportTypeOrder = ["纯债型", "固收+型", "股债混合型", "股票型", "多元配置型"];
   const benchmarkBucketOrder = Array.from({ length: 11 }, (_, index) => `L${index}`);
 
+  function formatDataSyncTime(value) {
+    const text = String(value || "").trim();
+    if (!text) return "未披露";
+    const chinese = text.match(/^(\d{4})年(\d{1,2})月(\d{1,2})日\s*(\d{1,2})[:时](\d{1,2})/);
+    if (chinese) {
+      const [, year, month, day, hour, minute] = chinese;
+      return `${year}年${month.padStart(2, "0")}月${day.padStart(2, "0")}日${hour.padStart(2, "0")}时${minute.padStart(2, "0")}分`;
+    }
+    const iso = text.match(/^(\d{4})-(\d{1,2})-(\d{1,2})[T\s](\d{1,2}):(\d{1,2})/);
+    if (iso) {
+      const [, year, month, day, hour, minute] = iso;
+      return `${year}年${month.padStart(2, "0")}月${day.padStart(2, "0")}日${hour.padStart(2, "0")}时${minute.padStart(2, "0")}分`;
+    }
+    return text;
+  }
+
+  const dataSyncTime = formatDataSyncTime(summary?.overview?.数据刷新时间 || summary?.overview?.生成时间);
+
   function unique(field) {
     return [...new Set(rowsBase.map((row) => row[field]).filter(Boolean))].sort((a, b) => a.localeCompare(b, "zh-CN"));
   }
@@ -180,8 +198,8 @@
 
   function renderTable(rows) {
     const headers = [
-      "策略名称", "渠道", "投顾机构", "风险等级", "天天展示状态", "广义权益分档", "业绩基准说明", "最新业绩日期",
-      ...returnHeaders, ...riskHeaders, "夏普比率", ...weightHeaders, ...dateHeaders.filter((field) => field !== "最新业绩日期"), "调仓次数",
+      "策略名称", "渠道", "投顾机构", "风险等级", "广义权益分档", "业绩基准说明", "最新业绩日期",
+      ...returnHeaders, ...riskHeaders, "夏普比率", "天天展示状态", ...weightHeaders, ...dateHeaders.filter((field) => field !== "最新业绩日期"), "调仓次数",
       ...trailingHeaders
     ];
     const wideFields = new Set(["投顾机构", "研报产品类型", "研报股票子类型", "风险等级", "业务分类", "主动被动", "披露策略类型", "天天当前对客展示", "天天展示状态", "基准权益分档", "广义权益分档", "基准可用状态", "业绩基准说明"]);
@@ -325,7 +343,13 @@
     const scopeText = state.hiddenStrategyScope === "gf" ? "｜证据范围 广发策略" : (state.hiddenStrategyScope === "nonGf" ? "｜证据范围 非广发策略" : "");
     const unbucketedCount = rows.filter(isUnbucketed).length;
     const keywordHistoryText = B.byId("searchInput").value.trim() && !B.byId("productStatusSelect").value ? "｜关键词已包含历史下架策略" : "";
-    B.byId("resultCount").textContent = `当前筛选 ${rows.length.toLocaleString("zh-CN")} 条策略，其中已下架/已结束 ${stoppedCount.toLocaleString("zh-CN")} 条，历史接口留档 ${legacyCount.toLocaleString("zh-CN")} 条，未分档 ${unbucketedCount.toLocaleString("zh-CN")} 条，广发 ${gfCount.toLocaleString("zh-CN")} 条，对客 ${clientCount.toLocaleString("zh-CN")} 条${scopeText}${keywordHistoryText}`;
+    const resultCount = B.byId("resultCount");
+    resultCount.textContent = `当前筛选 ${rows.length.toLocaleString("zh-CN")} 条策略，其中已下架/已结束 ${stoppedCount.toLocaleString("zh-CN")} 条，历史接口留档 ${legacyCount.toLocaleString("zh-CN")} 条，未分档 ${unbucketedCount.toLocaleString("zh-CN")} 条，广发 ${gfCount.toLocaleString("zh-CN")} 条，对客 ${clientCount.toLocaleString("zh-CN")} 条${scopeText}${keywordHistoryText}`;
+    const syncTime = document.createElement("span");
+    syncTime.className = "strategy-data-sync-time";
+    syncTime.style.cssText = "color:#b42318;font-weight:800;margin-left:10px;white-space:nowrap";
+    syncTime.textContent = `最近一次数据同步：${dataSyncTime}`;
+    resultCount.appendChild(syncTime);
     B.byId("pageInfo").textContent = `${state.page} / ${maxPage}`;
     B.byId("prevPage").disabled = state.page <= 1;
     B.byId("nextPage").disabled = state.page >= maxPage;

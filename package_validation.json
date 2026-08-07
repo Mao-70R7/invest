@@ -46,8 +46,8 @@
     "holdingSnapshotSourceRowCount": 282551,
     "holdingSnapshotPublishedRowCount": 77501,
     "holdingSnapshotStrategyCount": 1144,
-    "monthly-rebalance-report-202606FileCount": 8,
-    "monthly-rebalance-report-202606Bytes": 666908
+    "monthly-rebalance-report-202607FileCount": 8,
+    "monthly-rebalance-report-202607Bytes": 667414
   },
   "policy": {
     "blockingZeroChecks": [
@@ -122,5 +122,6 @@
       ],
       "note": "成立后不足两个净值点或源站未返回净值的基金无法绘制走势，不生成虚假曲线。"
     }
-  ]
+  ],
+  "presentationRefreshedAt": "2026-08-07T10:46:07+08:00"
 }
