@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-07T23:36:45+08:00",
+  "generatedAt": "2026-08-08T04:17:18+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 1305,
@@ -47,7 +47,7 @@
     "holdingSnapshotPublishedRowCount": 84749,
     "holdingSnapshotStrategyCount": 1218,
     "monthly-rebalance-report-202607FileCount": 8,
-    "monthly-rebalance-report-202607Bytes": 662365
+    "monthly-rebalance-report-202607Bytes": 659637
   },
   "policy": {
     "blockingZeroChecks": [
