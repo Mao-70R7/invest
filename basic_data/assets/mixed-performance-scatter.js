@@ -592,7 +592,6 @@
 
   function hasActiveFilters() {
     return state.productType !== "all"
-      || selectedValues("buckets").length > 0
       || selectedValues("broadBuckets").length > 0
       || selectedValues("comparisonTracks").length > 0
       || selectedValues("fundMainTypes").length > 0
@@ -637,7 +636,6 @@
   function filteredRows({ requireCurrent = false } = {}) {
     return rows.filter((row) => {
       if (state.productType !== "all" && row.productType !== state.productType) return false;
-      if (!matchesMulti(row, "buckets", "bucket")) return false;
       if (!matchesMulti(row, "broadBuckets", "broadEquityBucket")) return false;
       if (!matchesMulti(row, "comparisonTracks", "comparisonTrack")) return false;
       if (!matchesMulti(row, "fundMainTypes", "fundMainType")) return false;
@@ -675,7 +673,7 @@
     if (key === "comparisonTrack") return clean(row.comparisonTrack);
     if (key === "formalPeerPool") return clean(row.formalPeerPool);
     if (key === "absoluteRank") return numeric(row.absoluteReturnRank);
-    if (key === "bucketRank") return ranks.bucket?.rank ?? null;
+    if (key === "bucketRank") return ranks.broadBucket?.rank ?? null;
     if (key === "peerRank") return ranks.peer?.rank ?? null;
     if (key === "typePeerRank") return ranks.typePeer?.rank ?? null;
     return "";
@@ -715,14 +713,13 @@
     const fundCount = list.filter((row) => row.productType === "公募基金").length;
     const broadCount = broadList.length;
     const plottableCount = list.filter((row) => hasCurrentMetrics(row)).length;
-    const bucketText = selectionSummary("buckets", "全部分档", bucketLabels);
-    const broadBucketText = selectionSummary("broadBuckets", "全部广义分档", broadBucketLabels);
+    const broadBucketText = selectionSummary("broadBuckets", "全部基准权益分档", broadBucketLabels);
     const trackText = selectionSummary("comparisonTracks", "全部轨道");
     const peerPoolCount = new Set(list.map((row) => clean(row.formalPeerPool)).filter(Boolean)).size;
     return `<section class="grid mixed-kpi-grid">
       ${metricCard("当前筛选产品", list.length.toLocaleString("zh-CN"), `${fundCount} 只基金 / ${strategyCount} 条投顾`)}
       ${metricCard("当前可绘制点阵", plottableCount.toLocaleString("zh-CN"), `缺指标产品保留在列表，以 -- 展示`)}
-      ${metricCard("当前筛选口径", `${bucketText} / ${broadBucketText} / ${trackText}`, `${peerPoolCount.toLocaleString("zh-CN")} 个正式可比池，数据包 ${broadCount.toLocaleString("zh-CN")} 条`)}
+      ${metricCard("当前筛选口径", `${broadBucketText} / ${trackText}`, `${peerPoolCount.toLocaleString("zh-CN")} 个正式可比池，数据包 ${broadCount.toLocaleString("zh-CN")} 条`)}
       ${metricCard("广发产品", gfCount.toLocaleString("zh-CN"), "列表按字段排序，点阵按广发基金/投顾分色置顶")}
       ${metricCard("数据截止", pack.meta?.intervalAsOfDates?.[state.interval] || pack.meta?.asOfDate || "未披露", `${state.interval} / ${currentRiskMetric().label}`)}
     </section>`;
@@ -733,7 +730,6 @@
   }
 
   function renderControls() {
-    const bucketValues = valuesFor("bucket");
     const broadBucketValues = valuesFor("broadEquityBucket");
     const trackValues = valuesFor("comparisonTrack");
     const fundTypeValues = valuesFor("fundMainType");
@@ -751,8 +747,7 @@
           <option value="公募基金"${state.productType === "公募基金" ? " selected" : ""}>公募基金</option>
           <option value="投顾策略"${state.productType === "投顾策略" ? " selected" : ""}>投顾策略</option>
         </select></label>
-        ${multiControlHtml({ id: "mixedBucket", label: "基准权益分档", stateKey: "buckets", values: bucketValues, allLabel: "全部分档", labels: bucketLabels })}
-        ${multiControlHtml({ id: "mixedBroadBucket", label: "广义权益分档", stateKey: "broadBuckets", values: broadBucketValues, allLabel: "全部广义分档", labels: broadBucketLabels })}
+        ${multiControlHtml({ id: "mixedBroadBucket", label: "基准权益分档", stateKey: "broadBuckets", values: broadBucketValues, allLabel: "全部基准权益分档", labels: broadBucketLabels })}
         ${multiControlHtml({ id: "mixedComparisonTrack", label: "比较轨道", stateKey: "comparisonTracks", values: trackValues, allLabel: "全部轨道" })}
         ${multiControlHtml({ id: "mixedFundType", label: "基金类型", stateKey: "fundMainTypes", values: fundTypeValues, allLabel: "全部类型" })}
         <label>收益区间<select id="mixedInterval" class="control">${intervals.map((item) => `<option value="${esc(item)}"${item === state.interval ? " selected" : ""}>${esc(item)}</option>`).join("")}</select></label>
@@ -970,8 +965,7 @@
       `<span class="rank-tag mixed-category-badge ${category.className}">${esc(category.label)}</span>`,
       `<span class="rank-tag ${isStrategy(row) ? "is-strategy" : "is-fof"}">${esc(row.productType)}</span>`,
       row.fundMainType ? `<span class="rank-tag">${esc(row.fundMainType)}</span>` : "",
-      row.bucket ? `<span class="rank-tag">${esc(bucketLabels[row.bucket] || row.bucket)}</span>` : "",
-      row.broadEquityBucket ? `<span class="rank-tag">广义 ${esc(broadBucketLabels[row.broadEquityBucket] || row.broadEquityBucket)}</span>` : "",
+      row.broadEquityBucket ? `<span class="rank-tag">基准权益 ${esc(broadBucketLabels[row.broadEquityBucket] || row.broadEquityBucket)}</span>` : "",
       row.comparisonTrack ? `<span class="rank-tag">${esc(row.comparisonTrack)}</span>` : "",
     ].join("");
   }
@@ -998,7 +992,7 @@
         <div><span>年化波动率</span><strong>${formatRate(data.volatility)}</strong></div>
         <div><span>风险净值点数</span><strong>${esc(formatNumber(data.navPoints))}</strong></div>
         <div><span>基准权益权重</span><strong>${formatRate(row.benchmarkEquityWeight)}</strong></div>
-        <div><span>广义权益权重</span><strong>${formatRate(row.broadEquityWeight)}</strong></div>
+        <div><span>基准风险资产权重</span><strong>${formatRate(row.broadEquityWeight)}</strong></div>
         <div><span>净值区间</span><strong>${esc(data.range || "--")}</strong></div>
         <div><span>基准权益分档排名</span><strong>${formatRank(ranks.bucket)}</strong></div>
         <div><span>基准可比归档排名</span><strong>${formatRank(ranks.peer)}</strong></div>
@@ -1009,7 +1003,7 @@
         <p>${esc(row.benchmark || "未披露")}</p>
         <span>${esc(row.bucketSource || "未标识")} · ${esc(row.formalPeerPool || "未进入正式可比池")} · ${esc(row.peerPoolNote || "")}</span>
         <p>互斥向量：权益 ${formatRateText(row.benchmarkEquityWeight)}；债券 ${formatRateText(row.benchmarkBondWeight)}；货币 ${formatRateText(row.benchmarkCashWeight)}；商品 ${formatRateText(row.benchmarkCommodityWeight)}；另类 ${formatRateText(row.benchmarkAlternativeWeight)}；未知 ${formatRateText(row.benchmarkUnknownWeight)}。港股权益 ${formatRateText(row.benchmarkHkEquityWeight)}、海外权益 ${formatRateText(row.benchmarkOverseasEquityWeight)}为权益子项，不重复计入合计。</p>
-        <p>广义权益分档：${esc(broadBucketLabels[row.broadEquityBucket] || row.broadEquityBucket || "未分档")}；广义权益权重 ${formatRateText(row.broadEquityWeight)}。${esc(row.broadEquityMethod || "广义权益=权益+商品+另类。")}</p>
+        <p>基准权益分档：${esc(broadBucketLabels[row.broadEquityBucket] || row.broadEquityBucket || "未分档")}；基准风险资产权重 ${formatRateText(row.broadEquityWeight)}。${esc(row.broadEquityMethod || "基准风险资产=权益+商品+另类。")}</p>
         <span>${esc(row.bucketNote || "")}；比较轨道按非权益资产80%主导规则计算。</span>
         ${row.broadEquityNote ? `<span>${esc(row.broadEquityNote)}</span>` : ""}
       </div>
@@ -1066,8 +1060,8 @@
 
   function opportunityRankLayerDefinitions(ranks) {
     return [
-      { key: "broadBucket", label: "同广义权益分档", info: ranks.broadBucket, scores: [32, 24, 10], strict: true },
-      { key: "productBroadBucket", label: "同产品类型+广义权益分档", info: ranks.productBroadBucket, scores: [24, 18, 8], broad: true },
+      { key: "broadBucket", label: "同基准权益分档", info: ranks.broadBucket, scores: [32, 24, 10], strict: true },
+      { key: "productBroadBucket", label: "同产品类型+基准权益分档", info: ranks.productBroadBucket, scores: [24, 18, 8], broad: true },
       { key: "peer", label: "正式可比池校验", info: ranks.peer, scores: [10, 7, 3] },
       { key: "track", label: "比较轨道校验", info: ranks.track, scores: [5, 3, 1] },
     ].filter((layer) => layer.info && Number.isFinite(layer.info.rank) && Number.isFinite(layer.info.total));
@@ -1133,7 +1127,7 @@
     }
     if (strictTopLayers.length && broadTopLayers.length) {
       evidence.push(comparisonMode === "broad"
-        ? `同广义权益分档总池与${broadTopLayers.slice(0, 2).map((layer) => layer.label).join("、")}均居前25%，优势不依赖单一产品类型`
+        ? `同基准权益分档总池与${broadTopLayers.slice(0, 2).map((layer) => layer.label).join("、")}均居前25%，优势不依赖单一产品类型`
         : `从精确可比池扩大到${broadTopLayers.slice(0, 2).map((layer) => layer.label).join("、")}后仍居前25%，不是单一窄分类偶然靠前`);
     }
 
@@ -1211,7 +1205,7 @@
     if (!strictTopLayers.length && score >= 80) {
       score = 79;
       caveats.push(comparisonMode === "broad"
-        ? "同产品类型子池表现较好，但广义权益分档总池未进入前25%，不升级为明显优势"
+        ? "同产品类型子池表现较好，但基准权益分档总池未进入前25%，不升级为明显优势"
         : "扩大口径表现较好，但精确可比池未进入前25%，不升级为明显优势");
     }
     if (topLayers.length < 2 && score >= 65) {
@@ -1343,7 +1337,7 @@
     const poolField = comparisonMode === "broad" ? "broadEquityBucket" : "formalPeerPool";
     const poolValue = clean(row?.[poolField]);
     const context = comparisonMode === "broad"
-      ? `广义权益分档 ${broadBucketLabels[poolValue] || poolValue || "未分档"}`
+      ? `基准权益分档 ${broadBucketLabels[poolValue] || poolValue || "未分档"}`
       : (poolValue || "正式可比池");
     const rankOptions = { poolField, context };
     const periodValues = multiPeriodAbilityValues(row, rankLayerBuilder);
@@ -1453,7 +1447,7 @@
     const rankedPeriods = profile.top30.slice(0, 3).map((period) => `${period.interval}前${(period.pct * 100).toFixed(1)}%`);
     const rankEvidence = evaluation.topLayers.length
       ? evaluation.topLayers.slice(0, 3).map((layer) => exactRankText(layer.info, layer.label)).join("；")
-      : exactRankText(evaluation.primaryRank, `广义权益分档${broadLabel}`);
+      : exactRankText(evaluation.primaryRank, `基准权益分档${broadLabel}`);
     const relativeEvidence = relativeMetricEvidence(row, evaluation).join("；") || "当前缺少可稳定解释的中位数差异";
     const periodText = rankedPeriods.length
       ? `${rankedPeriods.join("；")}`
@@ -1461,13 +1455,13 @@
     const riskSupport = evaluation.riskPositive + evaluation.riskAdjustedPositive;
     const productFit = customerUseCase(row, evaluation, "broad");
     const usageDecision = typeKey === "steady"
-      ? "可优先用于同广义权益档的存量替代，卖点是回撤、波动或风险效率，而非追逐最高收益"
+      ? "可优先用于同基准权益档的存量替代，卖点是回撤、波动或风险效率，而非追逐最高收益"
       : typeKey === "offensive"
         ? "只作为进攻仓位候选，客户必须接受收益弹性对应的净值波动"
         : typeKey === "improvement"
           ? "只进入观察或小比例试配，不能把短期改善包装成长期能力"
           : riskSupport >= 2
-            ? "可进入同广义权益档优先替代清单，收益和风险效率需要同时展示"
+            ? "可进入同基准权益档优先替代清单，收益和风险效率需要同时展示"
             : "只做赛道型备选，不进入普适主推清单";
     const customerFit = `${productFit}；${usageDecision}`;
     const mainClaim = riskSupport >= 2
@@ -1475,13 +1469,13 @@
       : evaluation.riskNegative >= 2
         ? `${state.interval}收益有弹性，但需要用更深回撤或更高波动换取`
         : `${state.interval}在${broadLabel}内存在局部排名优势`;
-    const boundary = evaluation.caveats[0] || (profile.weak.length ? `${profile.weak[0].interval}排名落在后40%，多周期稳定性仍需验证` : "不得外推为跨广义权益分档的绝对领先");
+    const boundary = evaluation.caveats[0] || (profile.weak.length ? `${profile.weak[0].interval}排名落在后40%，多周期稳定性仍需验证` : "不得外推为跨基准权益分档的绝对领先");
     const nextCheck = researchNextCheck(row, evaluation, opportunityRankLayerDefinitions);
     const advantageType = researchAdvantageType(evaluation);
     return {
       headline: `${def.badge}：${rankEvidence}；${relativeEvidence}。`,
       customer: `适用场景：${bucketScene(row, "broadEquityBucket")}、${track}。${customerFit}。当前${state.interval}收益${formatRateText(data.return, true)}、最大回撤${formatRateText(data.maxDrawdown)}、年化波动${formatRateText(data.volatility)}；客户需要接受的代价是：${boundary}。`,
-      research: `主比较口径为广义权益分档${broadLabel}。竞争力性质：${advantageType}。排名证据：${rankEvidence}。相对中位数：${relativeEvidence}。多周期证据：${periodText}。下一步验证：${nextCheck}。`,
+      research: `主比较口径为基准权益分档${broadLabel}。竞争力性质：${advantageType}。排名证据：${rankEvidence}。相对中位数：${relativeEvidence}。多周期证据：${periodText}。下一步验证：${nextCheck}。`,
       action: `业务动作：${typeKey === "comprehensive" || typeKey === "steady" ? "进入重点替代和客户触达清单" : typeKey === "offensive" || typeKey === "scenario" ? "进入定向客群和场景素材清单" : "只进入跟踪清单"}。主话术：${mainClaim}。目标客群：${customerFit}。素材必须同时展示“${rankEvidence}”和回撤/波动数据。禁用边界：${boundary}。`,
     };
   }
@@ -1945,7 +1939,7 @@
       <div class="mixed-advantage-card-head">
         <div class="mixed-highlight-main">
           ${row.detailUrl ? `<a href="${esc(row.detailUrl)}">${esc(row.name)}</a>` : `<strong>${esc(row.name)}</strong>`}
-          <span>${esc(row.code || row.id)} · ${esc(category.label)} · ${esc(broadBucketLabels[row.broadEquityBucket] || row.broadEquityBucket || "广义权益未分档")}</span>
+          <span>${esc(row.code || row.id)} · ${esc(category.label)} · ${esc(broadBucketLabels[row.broadEquityBucket] || row.broadEquityBucket || "基准权益未分档")}</span>
         </div>
         <div class="mixed-advantage-score">
           ${renderStars(item.def.stars)}
@@ -1965,7 +1959,7 @@
       </div>
       <div class="mixed-opportunity-actions">
         <button class="mixed-highlight-select" type="button" data-profile-open="${esc(row.id)}">能力画像</button>
-        <button class="mixed-highlight-select" type="button" data-opportunity-select="${esc(row.id)}">查看同广义分档点阵</button>
+        <button class="mixed-highlight-select" type="button" data-opportunity-select="${esc(row.id)}">查看同基准权益分档点阵</button>
       </div>
     </li>`;
   }
@@ -2026,7 +2020,7 @@
       <summary class="mixed-highlight-summary mixed-opportunity-summary">
         <div>
           <h2>广发业务机会分析</h2>
-          <p>以广义权益分档作为主排名口径。六维分位加权决定机会强度，同产品类型、正式可比池和比较轨道作为解释与校验证据。</p>
+          <p>以基准权益分档作为主排名口径。六维分位加权决定机会强度，同产品类型、正式可比池和比较轨道作为解释与校验证据。</p>
         </div>
         <div class="mixed-highlight-actions">
           <span class="pill">${scopedRows.length.toLocaleString("zh-CN")} 个${esc(advantageProductScopeLabel())}</span>
@@ -2039,9 +2033,9 @@
         <div class="mixed-advantage-method">
           <strong>判断口径</strong>
           <span>六维权重：收益22%、回撤18%、波动12%、风险收益效率20%、多周期胜率13%、多周期持续性15%。</span>
-          <span>评分使用同广义权益分档的非线性分位，前排继续拉开差距；A1要求收益、风险效率和跨周期证据同时成立。</span>
+          <span>评分使用同基准权益分档的非线性分位，前排继续拉开差距；A1要求收益、风险效率和跨周期证据同时成立。</span>
           <span>B1只做明确赛道机会，B2只做近期改善观察，不能包装成长期能力。</span>
-          <span>点击卡片看能力画像；点击“查看同广义分档点阵”会保留该广义权益分档并默认选中产品。</span>
+          <span>点击卡片看能力画像；点击“查看同基准权益分档点阵”会保留该基准权益分档并默认选中产品。</span>
         </div>
         <div class="mixed-strength-groups">${renderedGroups || '<div class="empty">当前筛选下没有达到业务机会门槛的广发产品。</div>'}</div>
       </div>
@@ -2103,7 +2097,7 @@
         <section class="mixed-profile-body">
           <div class="mixed-profile-radar-card">
             <h3>六维能力画像</h3>
-            <p class="desc">兼顾客户盈利体验与投研评价，单项均在同一广义权益分档内比较。</p>
+            <p class="desc">兼顾客户盈利体验与投研评价，单项均在同一基准权益分档内比较。</p>
             ${renderAbilityRadar(metrics)}
           </div>
           <div class="mixed-profile-evidence-card">
@@ -2118,7 +2112,7 @@
         </section>
         <footer class="mixed-profile-actions">
           ${row.detailUrl ? `<a class="mixed-profile-link" href="${esc(row.detailUrl)}">打开详情页</a>` : ""}
-          <button class="mixed-highlight-select" type="button" data-profile-select="${esc(row.id)}">查看同广义分档点阵</button>
+          <button class="mixed-highlight-select" type="button" data-profile-select="${esc(row.id)}">查看同基准权益分档点阵</button>
           <button class="mixed-profile-close-secondary" type="button" data-profile-close>关闭</button>
         </footer>
       </article>
@@ -2231,8 +2225,7 @@
             <th>${sortHeader("typePeerRank", "同产品类型排名")}</th>
             <th>${sortHeader("drawdown", "最大回撤")}</th>
             <th>${sortHeader("volatility", "年化波动")}</th>
-            <th>${sortHeader("bucket", "基准权益分档")}</th>
-            <th>${sortHeader("broadEquityBucket", "广义权益分档")}</th>
+            <th>${sortHeader("broadEquityBucket", "基准权益分档")}</th>
             <th>${sortHeader("comparisonTrack", "比较轨道")}</th>
             <th>${sortHeader("formalPeerPool", "正式可比池")}</th>
             <th>${sortHeader("range", "净值区间")}</th>
@@ -2252,7 +2245,6 @@
               <td>${formatRank(ranks.typePeer)}</td>
               <td>${formatRate(data.maxDrawdown)}</td>
               <td>${formatRate(data.volatility)}</td>
-              <td>${esc(bucketLabels[row.bucket] || row.bucket)}</td>
               <td>${esc(broadBucketLabels[row.broadEquityBucket] || row.broadEquityBucket || "未分档")}</td>
               <td>${esc(row.comparisonTrack || "未形成")}</td>
               <td>${esc(row.formalPeerPool || "未进入")}</td>
@@ -2260,7 +2252,7 @@
               <td>${esc(row.bucketSource || "未标识")}</td>
               <td>${esc(row.institution || "未知机构")}</td>
             </tr>`;
-          }).join("") : '<tr><td colspan="15"><div class="empty">当前筛选条件下没有产品</div></td></tr>'}</tbody>
+          }).join("") : '<tr><td colspan="14"><div class="empty">当前筛选条件下没有产品</div></td></tr>'}</tbody>
         </table>
       </div>
     </section>`;
@@ -2271,7 +2263,7 @@
     const includedUnbucketed = Number(pack.meta?.includedUnbucketedRowCount || 0);
     return `<section class="panel mixed-note-panel">
       <h2>数据口径</h2>
-      <p>投顾策略与策略列表使用同一可查询口径，公募基金按主份额展示。未分档产品 ${includedUnbucketed.toLocaleString("zh-CN")} 条、缺完整收益风险区间产品 ${includedNoComplete.toLocaleString("zh-CN")} 条均保留在列表，缺失指标显示为 --。列表排名按当前收益区间动态计算：基准权益分档排名使用同一 L 档，基准可比归档排名使用同一正式可比池，同产品类型排名使用“产品类型 + L 档 + 比较轨道”。广发业务机会分析单独以“广义权益分档”为主排名口径，以“产品类型 + 广义权益分档”为补充证据；该口径不替换列表和常规同类排名的正式可比池。点阵只绘制当前区间收益和风险坐标齐全的产品。所有百分比字段按源数据小数比率乘以 100 展示。</p>
+      <p>投顾策略与策略列表使用同一可查询口径，公募基金按主份额展示。未分档产品 ${includedUnbucketed.toLocaleString("zh-CN")} 条、缺完整收益风险区间产品 ${includedNoComplete.toLocaleString("zh-CN")} 条均保留在列表，缺失指标显示为 --。基准权益分档统一按业绩基准中的权益、商品和另类风险资产合计权重划分 L0—L10，作为策略分类和排名的首层口径；正式比较再结合非权益轨道、地域和产品类型。点阵只绘制当前区间收益和风险坐标齐全的产品。所有百分比字段按源数据小数比率乘以 100 展示。</p>
     </section>`;
   }
 

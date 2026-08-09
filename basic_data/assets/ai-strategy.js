@@ -41,6 +41,28 @@
   let modelBackoffUntil = 0;
   const allowedReturnMetrics = new Set(["近一周", "近一月", "近三月", "近6月", "近1年", "今年以来", "累计收益率", "年化收益"]);
   const allowedReportTypes = new Set(["固收+型", "纯债型", "股票型", "多元配置型", "股债混合型", "海外/全球型", "主题/行业型", "现金管理型", "偏股配置型"]);
+  const businessRoutingCatalog = Object.freeze([
+    { id: "channel", label: "销售渠道", aliases: ["渠道", "销售渠道", "平台", "销售平台"], summary: "策略在哪个业务渠道展示或销售。", neighbors: ["strategy"], fields: ["渠道"] },
+    { id: "advisor_organization", label: "投顾管理机构", aliases: ["投顾机构", "管理机构", "投顾管理人", "管理人"], summary: "负责管理或提供策略服务的标准机构。", neighbors: ["strategy"], fields: ["投顾机构"] },
+    { id: "strategy_series", label: "策略系列", aliases: ["系列", "母策略", "子策略", "期次", "第几期"], summary: "同一品牌或机制下的母策略、子策略和期次集合。", neighbors: ["strategy_relationship", "strategy", "performance_observation"], fields: ["策略名称", "母策略名称", "策略关系类型", "官方业绩口径"] },
+    { id: "strategy", label: "策略", aliases: ["策略", "产品", "组合", "投顾产品"], summary: "AI筛选的主业务对象，承载名称、分类、风险、状态和标签。", neighbors: ["strategy_governance", "performance_observation", "benchmark_specification", "holding_snapshot"], fields: ["策略名称", "渠道", "投顾机构", "披露策略类型", "披露风险等级", "研报产品类型", "研报股票子类型", "业务分类", "风险等级", "成立日期", "运作状态", "市场地域", "主动被动", "特殊标签", "策略实现标签", "业务组合分类"] },
+    { id: "strategy_relationship", label: "策略关系", aliases: ["母子关系", "继承", "共享业绩", "共用基准"], summary: "已经验证的母子、期次和数据复用关系。", neighbors: ["strategy_series", "strategy", "performance_observation", "benchmark_specification"], fields: ["母策略名称", "策略关系类型", "官方业绩口径", "业绩基准继承口径"] },
+    { id: "strategy_governance", label: "生命周期与治理", aliases: ["治理", "下架", "终止", "停止", "展示", "排名资格", "有效策略"], summary: "策略当前运作、展示、排名和异常处理状态。", neighbors: ["strategy", "business_data_quality"], fields: ["策略治理状态", "分析分组", "是否测试组合", "是否信号类组合", "是否目标盈期次", "是否已停止", "是否纳入常规排名", "仅列表展示", "是否单独分析", "业绩分析截止日期", "持仓处理方式", "调仓展示方式", "运作状态", "天天当前对客展示", "天天展示状态"] },
+    { id: "fee_policy", label: "费率政策", aliases: ["费率", "投顾费", "服务费", "管理费"], summary: "策略当前披露的投顾费率及可比较状态。", neighbors: ["strategy"], fields: ["年化投顾费率", "费率状态"] },
+    { id: "benchmark_specification", label: "业绩基准", aliases: ["基准", "业绩基准", "比较基准", "基准说明"], summary: "策略用于比较业绩的基准定义、说明和可用状态。", neighbors: ["benchmark_exposure_snapshot", "performance_observation", "risk_observation"], fields: ["业绩基准", "业绩基准说明", "基准可用状态", "基准结构类型", "基准权益分档", "非权益比较轨道", "正式可比池"] },
+    { id: "benchmark_exposure_snapshot", label: "基准资产配置", aliases: ["基准配置", "基准权益", "基准债券", "基准风险资产", "基准权益分档"], summary: "基准中权益、债券、现金、商品、另类和地域资产的标准权重。", neighbors: ["benchmark_specification", "strategy_allocation_profile"], fields: ["基准权益权重", "基准债券权重", "基准货币权重", "基准权益分档", "基准风险资产权重", "基准港股权益权重", "基准海外权益权重", "基准资产大类-权益", "基准资产大类-债券", "基准资产大类-现金", "基准资产大类-商品", "基准资产大类-另类", "基准资产大类-其他"] },
+    { id: "strategy_allocation_profile", label: "策略配置画像", aliases: ["权益中枢", "固收中枢", "配置画像", "配置风格", "指数化", "主动管理", "风险资产偏离"], summary: "由持仓、基准、风险和调仓组合形成的可组合配置特征。", neighbors: ["benchmark_exposure_snapshot", "holding_snapshot", "risk_observation"], fields: ["权益中枢", "固收中枢", "基准风险资产中枢", "海外配置中枢", "指数化程度", "主动管理程度", "风险资产偏离", "权益风险档", "波动风险档", "回撤风险档", "配置风格标签"] },
+    { id: "performance_observation", label: "策略业绩", aliases: ["业绩", "收益", "回报", "净值", "累计收益", "区间收益"], summary: "策略在标准区间或当前截止日上的收益和净值表现。", neighbors: ["risk_observation", "benchmark_specification", "peer_ranking"], fields: ["近一周", "近一月", "近三月", "近6月", "近1年", "今年以来", "累计收益率", "年化收益", "官方单位净值", "官方累计收益", "自建累计收益", "与官方偏差", "最新业绩日期", "收益数据截至", "日涨跌幅"] },
+    { id: "risk_observation", label: "风险指标", aliases: ["风险", "回撤", "最大回撤", "当前回撤", "波动", "夏普"], summary: "策略的回撤、波动、夏普和风险分档。", neighbors: ["performance_observation", "strategy_allocation_profile"], fields: ["最大回撤", "当前回撤", "波动率", "夏普比率", "风险等级", "风险数据截至", "权益风险档", "波动风险档", "回撤风险档", "风险触发指标"] },
+    { id: "peer_ranking", label: "同类池与排名", aliases: ["同类", "排名", "前十", "前10%", "分位", "可比池"], summary: "策略进入正式可比池的资格和同类评价；当前宽表只支持可比池及资格，具体名次需底层排名事实。", neighbors: ["performance_observation", "benchmark_exposure_snapshot", "strategy_governance"], support: "partial", fields: ["正式可比池", "可比池样本资格", "可比池说明", "是否纳入常规排名"] },
+    { id: "holding_snapshot", label: "策略持仓", aliases: ["持仓", "当前持仓", "最新持仓", "持有", "仓位"], summary: "策略在最新披露日的持仓快照和基金头寸。", neighbors: ["fund", "fund_classification", "fund_exposure_snapshot", "strategy_allocation_profile"], fields: ["最新持仓日", "持仓基金数", "权益基金权重", "债券基金权重", "货币基金权重", "混合基金权重", "QDII权重", "指数基金权重", "主动基金权重", "__holding_entity"] },
+    { id: "rebalance_event", label: "调仓行为", aliases: ["调仓", "换手", "加仓", "减仓", "买入", "卖出", "调仓频率"], summary: "策略的调仓日期、次数、频率和换手统计；基金级历史动作需底层调仓明细。", neighbors: ["holding_snapshot", "fund"], support: "partial", fields: ["最近调仓日", "调仓次数", "单次平均换手率", "年化换手率", "调仓频率", "最近一年调仓次数"] },
+    { id: "signal_event", label: "信号行为", aliases: ["信号", "买入信号", "卖出信号", "定投信号", "信号胜率"], summary: "信号策略的事件、指令数量和标准区间评价。", neighbors: ["fund", "performance_observation"], fields: ["是否信号类组合", "信号事件数", "最近信号日", "信号指令数", "买入指令数", "卖出指令数", "加仓指令数", "减仓指令数", "信号胜率_1月", "信号胜率_3月", "信号胜率_6月", "信号胜率_1年", "信号加权方向收益_1月", "信号加权方向收益_3月", "信号加权方向收益_6月", "信号加权方向收益_1年"] },
+    { id: "fund", label: "基金", aliases: ["基金", "基金名称", "基金公司"], summary: "策略持仓、调仓或信号涉及的基金业务对象。", neighbors: ["holding_snapshot", "fund_classification", "fund_exposure_snapshot"], support: "partial", fields: ["__holding_entity"] },
+    { id: "fund_classification", label: "基金分类", aliases: ["基金类型", "资产类型", "指数基金", "债券基金", "QDII", "ETF"], summary: "基金的资产、地域、主动被动、指数和产品形态分类。", neighbors: ["fund", "holding_snapshot"], fields: ["__holding_entity", "权益基金权重", "债券基金权重", "货币基金权重", "混合基金权重", "QDII权重", "指数基金权重", "主动基金权重"] },
+    { id: "fund_exposure_snapshot", label: "基金经济暴露", aliases: ["行业暴露", "主题暴露", "地域暴露", "海外暴露", "黄金暴露", "AI主题"], summary: "基金及策略穿透后的资产、行业、主题和地域暴露。", neighbors: ["fund", "holding_snapshot"], fields: ["__holding_entity", "海外配置中枢", "QDII权重"] },
+    { id: "business_data_quality", label: "业务数据完整性", aliases: ["数据完整", "数据缺失", "业绩完整", "业绩缺失", "缺业绩", "缺基准", "缺仓位", "数据质量"], summary: "从业务使用角度分别描述业绩、基准、持仓和综合数据是否足以筛选和分析。", neighbors: ["strategy_governance", "performance_observation", "benchmark_specification", "holding_snapshot"], fields: ["业绩完整", "业绩完整性", "业绩完整性说明", "数据完整性", "基础数据等级", "基准可用状态", "最新业绩日期", "最新持仓日", "质检情况"] },
+  ]);
   const virtualFields = [
     { field: "__benchmark_text", label: "业绩基准文本" },
     { field: "__holding_entity", label: "最新持仓明细" },
@@ -433,11 +455,16 @@
   }
 
   function dateFrom(value) {
-    const text = raw(value).trim();
-    const match = text.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    const text = raw(value).trim()
+      .replace(/[年/.]/g, "-")
+      .replace(/月/g, "-")
+      .replace(/日/g, "");
+    const match = text.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
     if (!match) return null;
     const date = new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
-    return Number.isNaN(date.getTime()) ? null : date;
+    if (Number.isNaN(date.getTime())) return null;
+    if (date.getFullYear() !== Number(match[1]) || date.getMonth() !== Number(match[2]) - 1 || date.getDate() !== Number(match[3])) return null;
+    return date;
   }
 
   function dateText(date) {
@@ -759,8 +786,9 @@
     if (!raw(alias).trim()) return false;
     const aliasPattern = escapedRegExp(alias);
     const negativeCue = "(?:不含|不包含|不持有|未持有|不是|非|未|没有|无|剔除|排除|不要|不想|不能有|不得持有|避免)";
-    if (new RegExp(`${negativeCue}[^\\s，。；、,.]{0,12}${aliasPattern}`, "i").test(text)) return true;
-    if (new RegExp(`${aliasPattern}[^\\s，。；、,.]{0,8}(?:除外|排除|剔除|不要|不含|不包含)`, "i").test(text)) return true;
+    const sameClauseChars = "[^\\s，。；、,.但且并同最好而又]";
+    if (new RegExp(`${negativeCue}${sameClauseChars}{0,12}${aliasPattern}`, "i").test(text)) return true;
+    if (new RegExp(`${aliasPattern}${sameClauseChars}{0,8}(?:除外|排除|剔除|不要|不含|不包含)`, "i").test(text)) return true;
     const compactText = normalizeSearchText(text);
     const compactAlias = normalizeSearchText(alias);
     return !!compactAlias && [
@@ -780,8 +808,17 @@
     return entityAliases(entity, entity?.label || "").some((alias) => hasNegativeCueForAlias(text, alias));
   }
 
+  function hasLowOverseasPreference(query) {
+    const text = raw(query);
+    const lowCue = "(?:少一点|少一些|尽量少|最好少|较少|低一点|低配|少配|不要太多|不宜太多|控制|压低|降低)";
+    const overseasCue = "(?:QDII|海外|全球|境外|海外资产|全球资产|海外配置)";
+    return new RegExp(`${overseasCue}[^\\s，。；、,.]{0,8}${lowCue}`, "i").test(text)
+      || new RegExp(`${lowCue}[^\\s，。；、,.]{0,8}${overseasCue}`, "i").test(text);
+  }
+
   function explicitlyRequestsOverseas(query) {
     const text = raw(query);
+    if (hasLowOverseasPreference(text)) return false;
     if (/(不含|不包含|不持有|未持有|剔除|排除|不要).{0,8}(QDII|海外|全球|境外|海外资产|全球资产)/i.test(text)) return false;
     return /(含|包含|持有|配置|有).{0,8}(QDII|海外|全球|境外|海外资产|全球资产)|海外资产|全球资产|QDII|海外|全球|境外/i.test(text);
   }
@@ -1153,10 +1190,8 @@
   }
 
   function asOfDate() {
-    const today = new Date();
     const latest = latestDataDate();
-    if (latest && latest > today) return latest;
-    return today;
+    return latest || new Date();
   }
 
   function yearsAgo(date, years) {
@@ -1164,6 +1199,109 @@
     out.setFullYear(out.getFullYear() - Math.trunc(years));
     if (!Number.isInteger(years)) out.setDate(out.getDate() - Math.round((years % 1) * 365.25));
     return out;
+  }
+
+  function calendarMonthsAgo(date, months) {
+    const wholeMonths = Math.max(0, Math.round(Number(months) || 0));
+    const day = date.getDate();
+    const out = new Date(date.getFullYear(), date.getMonth(), 1);
+    out.setMonth(out.getMonth() - wholeMonths);
+    const monthEnd = new Date(out.getFullYear(), out.getMonth() + 1, 0).getDate();
+    out.setDate(Math.min(day, monthEnd));
+    return out;
+  }
+
+  function calendarDaysAgo(date, days) {
+    const out = new Date(date.getTime());
+    out.setDate(out.getDate() - Math.max(0, Math.round(Number(days) || 0)));
+    return out;
+  }
+
+  function relativeDateBoundary(expression, asOf) {
+    const text = raw(expression).replace(/\s+/g, "");
+    if (!text || !asOf) return null;
+    if (/本月/.test(text)) {
+      const date = new Date(asOf.getFullYear(), asOf.getMonth(), 1);
+      return { date, value: dateText(date), op: ">=", periodLabel: "本月" };
+    }
+    if (/今年|本年度/.test(text)) {
+      const date = new Date(asOf.getFullYear(), 0, 1);
+      return { date, value: dateText(date), op: ">=", periodLabel: "今年" };
+    }
+    if (/(?:最近|近|过去)(?:半年|半年度)|半年(?:以内|内|之内)/.test(text)) {
+      const date = calendarMonthsAgo(asOf, 6);
+      return { date, value: dateText(date), op: ">=", periodLabel: "最近6个月" };
+    }
+    if (/(?:最近|近|过去)(?:一季度|1季度)|(?:一季度|1季度)(?:以内|内|之内)/.test(text)) {
+      const date = calendarMonthsAgo(asOf, 3);
+      return { date, value: dateText(date), op: ">=", periodLabel: "最近3个月" };
+    }
+    const match = text.match(/(?:最近|近|过去)([0-9]+(?:\.[0-9]+)?|[一二两三四五六七八九十半]+)(天|日|周|星期|个?月|年)(?:以内|内|之内)?/)
+      || text.match(/([0-9]+(?:\.[0-9]+)?|[一二两三四五六七八九十半]+)(天|日|周|星期|个?月|年)(?:以内|内|之内)/);
+    if (!match) return null;
+    const count = chineseNumber(match[1]);
+    if (count === null || count < 0) return null;
+    const unit = match[2];
+    let date = null;
+    let periodLabel = "";
+    if (/月/.test(unit)) {
+      date = calendarMonthsAgo(asOf, count);
+      periodLabel = `最近${count}个月`;
+    } else if (/年/.test(unit)) {
+      date = calendarMonthsAgo(asOf, count * 12);
+      periodLabel = `最近${count}年`;
+    } else if (/周|星期/.test(unit)) {
+      date = calendarDaysAgo(asOf, count * 7);
+      periodLabel = `最近${count}周`;
+    } else {
+      date = calendarDaysAgo(asOf, count);
+      periodLabel = `最近${count}天`;
+    }
+    return { date, value: dateText(date), op: ">=", periodLabel };
+  }
+
+  function establishedRelativeDateCondition(query, asOf) {
+    const text = raw(query);
+    if (!/(成立|设立|创建|新成立|新策略|新产品)/.test(text)) return null;
+    return relativeDateBoundary(text, asOf);
+  }
+
+  const explicitDateFieldRules = Object.freeze([
+    { field: "成立日期", aliases: ["成立日期", "成立时间", "成立日", "设立日期", "设立时间", "设立日"] },
+    { field: "最新业绩日期", aliases: ["最新业绩日期", "业绩日期", "最新收益日期"] },
+    { field: "收益数据截至", aliases: ["收益数据截至", "收益截至日期", "业绩截至日期"] },
+    { field: "最新持仓日", aliases: ["最新持仓日", "最新持仓日期", "持仓日期"] },
+    { field: "最近调仓日", aliases: ["最近调仓日", "最近调仓日期", "调仓日期"] },
+  ]);
+
+  function explicitDateOperator(value) {
+    const text = raw(value).replace(/\s+/g, "");
+    if (/^(?:大于等于|不早于|不少于|>=|≥)$/.test(text)) return ">=";
+    if (/^(?:小于等于|不晚于|不超过|<=|≤)$/.test(text)) return "<=";
+    if (/^(?:大于|晚于|之后|以后|>)$/.test(text)) return ">";
+    if (/^(?:小于|早于|之前|以前|<)$/.test(text)) return "<";
+    return "=";
+  }
+
+  function explicitDateFilters(query) {
+    const text = raw(query);
+    const operatorPattern = "(大于等于|小于等于|不早于|不晚于|不少于|不超过|之后|以后|之前|以前|晚于|早于|大于|小于|等于|为|是|>=|<=|≥|≤|>|<|=)?";
+    const datePattern = "(\\d{4}(?:-|/|\\.|年)\\d{1,2}(?:-|/|\\.|月)\\d{1,2}日?)";
+    const filters = [];
+    explicitDateFieldRules.forEach((rule) => {
+      if (!filterFieldNames().includes(rule.field)) return;
+      for (const alias of rule.aliases) {
+        const match = text.match(new RegExp(`${escapedRegExp(alias)}\\s*${operatorPattern}\\s*${datePattern}`));
+        if (!match) continue;
+        const date = dateFrom(match[2]);
+        if (!date) break;
+        const op = explicitDateOperator(match[1]);
+        const value = dateText(date);
+        filters.push({ field: rule.field, op, value, label: `${rule.field} ${op} ${value}` });
+        break;
+      }
+    });
+    return filters;
   }
 
   function chineseNumber(value) {
@@ -1185,7 +1323,7 @@
 
   function preferredFieldOrder() {
     return [
-      "策略名称", "投顾机构", "渠道", "业务分类", "研报产品类型", "风险等级", "成立日期", "运作状态", "数据完整性",
+      "策略名称", "投顾机构", "渠道", "业务分类", "研报产品类型", "风险等级", "成立日期", "运作状态", "业绩完整", "业绩完整性", "数据完整性",
       "累计收益率", "近6月", "近1年", "近三月", "近一月", "近一周", "今年以来", "最大回撤", "当前回撤", "年化收益", "波动率",
       "市场地域", "主可比池", "主动被动", "特殊标签", "策略实现标签", "权益基金权重", "债券基金权重", "货币基金权重", "混合基金权重", "QDII权重",
       "最新业绩日期", "最新持仓日", "最近调仓日", "调仓次数", "年化投顾费率", "基准可用状态", "基础数据等级", "费率状态",
@@ -1218,13 +1356,7 @@
   }
 
   function filterFieldNames() {
-    const names = [];
-    const push = (field) => {
-      if (field && !names.includes(field)) names.push(field);
-    };
-    virtualFields.forEach((item) => push(item.field));
-    actualFieldNames().forEach(push);
-    return names;
+    return modelFilterFieldNames();
   }
 
   function fieldLabel(field) {
@@ -1232,6 +1364,168 @@
     if (virtual) return virtual.label;
     if (field === "searchText") return "搜索文本";
     return field || "未选择字段";
+  }
+
+  const businessRoutingById = new Map(businessRoutingCatalog.map((item) => [item.id, item]));
+  const businessFieldCardCache = new Map();
+
+  function businessRoutingPromptCatalog() {
+    return businessRoutingCatalog.map((item) => ({
+      id: item.id,
+      label: item.label,
+      aliases: item.aliases,
+      definition: item.summary,
+      relatedEntities: item.neighbors || [],
+      executionSupport: item.support || "direct",
+    }));
+  }
+
+  function localBusinessRoute(queryText) {
+    const query = normalizeSearchText(queryText);
+    const ranked = businessRoutingCatalog.map((item) => {
+      const aliases = [...(item.aliases || []), item.label];
+      const matches = aliases.filter((alias) => alias && query.includes(normalizeSearchText(alias)));
+      const longest = Math.max(0, ...matches.map((alias) => normalizeSearchText(alias).length));
+      return { item, score: matches.length * 10 + longest };
+    }).filter((item) => item.score > 0).sort((a, b) => b.score - a.score);
+    const selected = ranked.slice(0, 5).map(({ item, score }) => ({
+      entityId: item.id,
+      sourceText: item.label,
+      confidence: Math.min(0.95, 0.55 + score / 100),
+      source: "local-dictionary",
+    }));
+    if (!selected.some((item) => item.entityId === "strategy")) {
+      selected.unshift({ entityId: "strategy", sourceText: "策略", confidence: 0.8, source: "default-subject" });
+    }
+    return selected.slice(0, 6);
+  }
+
+  function normalizeModelRoute(route, queryText) {
+    const source = route && typeof route === "object" && !Array.isArray(route) ? route : {};
+    const rawCandidates = Array.isArray(source.entityCandidates)
+      ? source.entityCandidates
+      : (Array.isArray(source.entities) ? source.entities : []);
+    const candidates = [];
+    rawCandidates.forEach((item) => {
+      const entityId = raw(typeof item === "string" ? item : firstDefined(item, ["entityId", "id", "entity", "实体"])).trim();
+      if (!businessRoutingById.has(entityId) || candidates.some((entry) => entry.entityId === entityId)) return;
+      candidates.push({
+        entityId,
+        sourceText: raw(typeof item === "string" ? "" : firstDefined(item, ["sourceText", "text", "原文"])).trim(),
+        confidence: Math.max(0, Math.min(1, modelNumber(typeof item === "string" ? null : item.confidence) ?? 0.7)),
+        source: "model-route",
+      });
+    });
+    localBusinessRoute(queryText).forEach((item) => {
+      if (!candidates.some((entry) => entry.entityId === item.entityId)) candidates.push(item);
+    });
+    return {
+      intent: raw(firstDefined(source, ["intent", "主意图"])).trim() || "筛选策略",
+      entityCandidates: candidates.slice(0, 8),
+      clauses: Array.isArray(source.clauses) ? source.clauses.slice(0, 12) : [],
+      logic: source.logic && typeof source.logic === "object" ? source.logic : { type: "and" },
+      unresolved: Array.isArray(source.unresolved) ? source.unresolved.slice(0, 8) : [],
+      unmatchedSpans: Array.isArray(source.unmatchedSpans) ? source.unmatchedSpans.slice(0, 8) : [],
+    };
+  }
+
+  function modelFilterFieldNames() {
+    const actual = new Set(actualFieldNames());
+    const names = [];
+    businessRoutingCatalog.forEach((entity) => (entity.fields || []).forEach((field) => {
+      if ((actual.has(field) || virtualFields.some((item) => item.field === field)) && !names.includes(field)) names.push(field);
+    }));
+    return names;
+  }
+
+  function businessFieldCard(field) {
+    if (businessFieldCardCache.has(field)) return businessFieldCardCache.get(field);
+    const values = field.startsWith("__")
+      ? []
+      : allRows.map((row) => row?.[field]).filter((value) => !isEmptyValue(value));
+    const distinct = [...new Set(values.map((value) => raw(value).trim()).filter(Boolean))];
+    const numericRatio = values.length ? values.filter((value) => num(value) !== null).length / values.length : 0;
+    const dataType = isDateField(field)
+      ? "date"
+      : (numericRatio >= 0.9 || /收益|回撤|波动|夏普|权重|中枢|偏离|费率|换手率|次数|天数|基金数|指令数|事件数|置信度/.test(field))
+        ? "number"
+        : (distinct.length > 0 && distinct.length <= 30 ? "enum" : "text");
+    const isPercent = /收益|回撤|波动|权重|中枢|偏离|费率|换手率|胜率|置信度/.test(field) && !/次数|数量/.test(field);
+    const allowedOperators = dataType === "number" || dataType === "date"
+      ? [">=", "<=", ">", "<", "=", "!=", "is empty", "is not empty"]
+      : (dataType === "enum"
+        ? ["=", "!=", "in", "not in", "contains_any", "is empty", "is not empty"]
+        : ["contains", "not contains", "=", "!=", "is empty", "is not empty"]);
+    const card = {
+      field: fieldLabel(field),
+      label: fieldLabel(field),
+      definition: raw(summary.fieldDictionary?.[field]).slice(0, 180) || "当前策略筛选数据中的业务字段。",
+      dataType,
+      unit: isPercent ? "percent_point" : (dataType === "date" ? "YYYY-MM-DD" : "none"),
+      valueFormat: dataType === "date" ? "YYYY-MM-DD" : (isPercent ? "number_in_percent_points" : dataType),
+      relativeDatePolicy: dataType === "date" ? "相对日期由本地系统按查询基准日期换算；禁止把“最近三个月内”等原文直接写入日期字段值。" : undefined,
+      allowedOperators,
+      valueDictionary: dataType === "enum" ? distinct.slice(0, 24) : [],
+      coverage: {
+        nonEmpty: values.length,
+        total: allRows.length,
+        ratio: allRows.length ? Number((values.length / allRows.length).toFixed(4)) : 0,
+      },
+      nullPolicy: "空值表示当前没有可执行事实；普通正向筛选默认不命中，查询缺失时使用 is empty。",
+    };
+    businessFieldCardCache.set(field, card);
+    return card;
+  }
+
+  function hydrateBusinessRoute(route, queryText) {
+    const selectedIds = (route?.entityCandidates || []).map((item) => item.entityId).filter((id) => businessRoutingById.has(id));
+    const expandedIds = [...selectedIds];
+    selectedIds.forEach((id) => {
+      const entity = businessRoutingById.get(id);
+      (entity?.neighbors || []).slice(0, 2).forEach((neighborId) => {
+        if (!expandedIds.includes(neighborId) && businessRoutingById.has(neighborId)) expandedIds.push(neighborId);
+      });
+    });
+    const entityDetails = expandedIds.slice(0, 10).map((id) => {
+      const entity = businessRoutingById.get(id);
+      return {
+        id: entity.id,
+        label: entity.label,
+        definition: entity.summary,
+        executionSupport: entity.support || "direct",
+        relatedEntities: entity.neighbors || [],
+        fields: (entity.fields || []).filter((field) => modelFilterFieldNames().includes(field)).map(fieldLabel),
+      };
+    });
+    const orderedFields = [];
+    expandedIds.slice(0, 10).forEach((id) => {
+      const entity = businessRoutingById.get(id);
+      (entity?.fields || []).filter((field) => modelFilterFieldNames().includes(field)).forEach((field) => {
+        if (!orderedFields.includes(field)) orderedFields.push(field);
+      });
+    });
+    const semanticEntities = semanticEntityCatalog.filter((entity) => {
+      const aliases = [entity.label, ...(entity.aliases || []), ...(entity.queryAliases || [])].filter(Boolean);
+      return aliases.some((alias) => containsAlias(queryText, [alias]));
+    }).slice(0, 12).map((entity) => ({
+      key: entity.key,
+      label: entity.label,
+      type: entity.type,
+      aliases: [...new Set([...(entity.aliases || []), ...(entity.queryAliases || [])])].slice(0, 12),
+    }));
+    return {
+      catalogVersion: "ai-filter-two-stage-v1.20260808",
+      entities: entityDetails,
+      fieldCards: orderedFields.slice(0, 48).map(businessFieldCard),
+      semanticEntities,
+      globalRules: {
+        defaultLogic: "AND",
+        percentageInput: "用户说5%或5个点时，输出数值5；不得输出0.05。",
+        dateHandling: "保留用户原始时间表达，标准日期由本地程序计算。",
+        missingValue: "除非用户明确查询缺失，否则空值不命中正向条件。",
+        unsupported: "具体排名名次、任意自定义区间曲线、基金级历史调仓动作若字段卡不存在，必须放入unsupportedConditions，不得伪造筛选字段。",
+      },
+    };
   }
 
   function zhCount(value) {
@@ -1461,7 +1755,7 @@
       <div class="panel-head">
         <div>
           <h2>候选策略</h2>
-          <p class="desc">页面已加载，默认示例会在首屏显示后用本地规则预览；点击“执行筛选”时才会按模型设置调用模型解析。</p>
+          <p class="desc">页面已加载，默认示例会在首屏显示后用本地规则预览；点击“执行筛选”后仍以本地规则优先，仅在条件未识别或存在会改变结果的歧义时调用模型。</p>
         </div>
       </div>
       <div class="empty">正在准备本地筛选预览...</div>
@@ -1481,7 +1775,8 @@
   }
 
   function optionHtml(options, selected) {
-    return options.map((value) => `<option value="${B.esc(value)}"${value === selected ? " selected" : ""}>${B.esc(fieldLabel(value))}</option>`).join("");
+    const values = selected && !options.includes(selected) ? [selected, ...options] : options;
+    return values.map((value) => `<option value="${B.esc(value)}"${value === selected ? " selected" : ""}>${B.esc(fieldLabel(value))}</option>`).join("");
   }
 
   function operatorOptionHtml(selected) {
@@ -1766,6 +2061,7 @@
   function hasProductTypeContext(query) {
     const text = raw(query);
     return /策略类型|产品类型|研报产品|类型为|类别为|分类为|策略分类|产品分类/.test(text)
+      || /(不要|不选|排除|剔除|非)\s*(固收\+?|固收加|纯债|短债|股票型?|多元配置|股债混合)/.test(text)
       || /(固收|纯债|短债|股票|多元|股债).{0,6}(策略|产品|组合)/.test(text)
       || /(策略|产品|组合).{0,6}(固收|纯债|短债|股票|多元|股债)/.test(text);
   }
@@ -1787,21 +2083,25 @@
   function addProductTypeContextFilters(parsed, query) {
     if (!hasProductTypeContext(query)) return;
     const text = raw(query);
-    const addReportType = (value) => addGenericFilter(parsed, {
+    const addReportType = (value, alias) => {
+      const negative = hasNegativeCueForAlias(text, alias);
+      const op = negative ? "!=" : "=";
+      addGenericFilter(parsed, {
       field: "研报产品类型",
-      op: "=",
+      op,
       value,
-      label: `研报产品类型 = ${value}`,
-    });
+      label: `研报产品类型 ${op} ${value}`,
+      });
+    };
     if (/固收(?!\+|加)/.test(text)) {
-      addReportType("固收+型");
-      addReportType("纯债型");
+      addReportType("固收+型", "固收");
+      addReportType("纯债型", "固收");
     }
-    if (/固收\+|固收加/.test(text)) addReportType("固收+型");
-    if (/纯债|短债/.test(text)) addReportType("纯债型");
-    if (/股债/.test(text)) addReportType("股债混合型");
-    if (/多元/.test(text)) addReportType("多元配置型");
-    if (/股票|偏股/.test(text)) addReportType("股票型");
+    if (/固收\+|固收加/.test(text)) addReportType("固收+型", /固收\+/.test(text) ? "固收+" : "固收加");
+    if (/纯债|短债/.test(text)) addReportType("纯债型", /纯债/.test(text) ? "纯债" : "短债");
+    if (/股债/.test(text)) addReportType("股债混合型", "股债");
+    if (/多元/.test(text)) addReportType("多元配置型", "多元");
+    if (/股票|偏股/.test(text)) addReportType("股票型", /偏股/.test(text) ? "偏股" : "股票");
   }
 
   function isProductTypeEntityInProductContext(entity, query) {
@@ -1936,6 +2236,27 @@
         || /^(指数基金|股票指数|债券指数|指数型)$/.test(raw(item.label));
       return !broadIndex;
     });
+  }
+
+  function addLowOverseasPreferenceFilter(parsed, query) {
+    if (!hasLowOverseasPreference(query)) return;
+    const explicitMax = findThreshold(
+      query,
+      ["海外配置中枢", "海外配置", "海外资产权重", "海外权重", "QDII权重", "QDII比例"],
+      maxDirectionWords
+    );
+    const maxValue = explicitMax === null ? 10 : explicitMax;
+    parsed.thresholds.preferLowOverseas = true;
+    addGenericFilter(parsed, {
+      field: "海外配置中枢",
+      op: "<=",
+      value: maxValue,
+      unit: "%",
+      label: `海外配置中枢 <= ${maxValue}%`,
+    });
+    if (explicitMax === null) {
+      parsed.assumptions.push("“海外少一点”未给出具体阈值，默认按海外配置中枢不超过10%筛选，可在已识别条件中微调。");
+    }
   }
 
   const semanticDomainDefinitions = {
@@ -2136,7 +2457,7 @@
     const thresholds = parsed.thresholds || {};
     const filters = [];
     if (parsed.completeOnly) {
-      filters.push({ field: "数据完整性", op: "=", value: "完整", label: "仅完整可比数据", system: true });
+      filters.push({ field: "业绩完整", op: "=", value: "是", label: "仅业绩完整策略", system: true });
     }
     if (thresholds.minAgeYears !== undefined) {
       filters.push({ field: "成立日期", op: "<=", value: dateText(thresholds.launchBefore), label: `成立满${thresholds.minAgeYears}年` });
@@ -2232,7 +2553,23 @@
       thresholds: {},
     };
 
-    const ageMatch = query.match(/成立.{0,6}?([0-9]+(?:\.[0-9]+)?|[一二两三四五六七八九十半]+)\s*年\s*(?:以上|以?上|满|超过|大于|不低于)?/);
+    const recentEstablished = establishedRelativeDateCondition(query, asOf);
+    if (recentEstablished) {
+      parsed.thresholds.establishedSince = recentEstablished.value;
+      parsed.thresholds.establishedRelativePeriod = recentEstablished.periodLabel;
+      addGenericFilter(parsed, {
+        field: "成立日期",
+        op: ">=",
+        value: recentEstablished.value,
+        label: `成立日期 >= ${recentEstablished.value}`,
+        relativeDateSource: recentEstablished.periodLabel,
+      });
+      parsed.assumptions.push(`“${recentEstablished.periodLabel}内成立”以查询基准日 ${dateText(asOf)} 计算，转换为成立日期不早于 ${recentEstablished.value}。`);
+    }
+
+    explicitDateFilters(query).forEach((filter) => addGenericFilter(parsed, filter));
+
+    const ageMatch = recentEstablished ? null : query.match(/成立.{0,6}?([0-9]+(?:\.[0-9]+)?|[一二两三四五六七八九十半]+)\s*年\s*(?:以上|以?上|满|超过|大于|不低于)?/);
     if (ageMatch) {
       const years = chineseNumber(ageMatch[1]);
       if (years !== null) {
@@ -2265,6 +2602,7 @@
     addProductTypeContextFilters(parsed, query);
     addRiskProfileFilters(parsed, query);
     addKycRecommendationFilters(parsed, query);
+    addLowOverseasPreferenceFilter(parsed, query);
 
     const goldEntity = semanticEntityCatalog.find((entity) => entity.key === "gold");
     if (goldEntity && hasNegativeCueForEntity(query, goldEntity)) {
@@ -2292,7 +2630,7 @@
 
     const semanticDetections = detectSemanticEntities(query).filter((entity) => {
       if (entity.key === "gold" && parsed.thresholds.excludeGold) return false;
-      if (entity.key === "overseas" && (parsed.thresholds.includeOverseas || parsed.thresholds.excludeQdii)) return false;
+      if (entity.key === "overseas" && (parsed.thresholds.includeOverseas || parsed.thresholds.excludeQdii || parsed.thresholds.preferLowOverseas)) return false;
       if (isProductTypeEntityInProductContext(entity, query)) return false;
       return true;
     });
@@ -2354,14 +2692,29 @@
 
     normalizeHoldingEntityConflicts(parsed);
     parsed.filters = buildFilterList(parsed);
+    normalizeParsedDateFilters(parsed);
     if (!hasBusinessFilter(parsed)) parsed.warnings.push("没有识别到可执行筛选条件，请补充收益、回撤、成立时间、持仓或产品类型条件。");
     return parsed;
   }
 
-  function shouldUseModelParser(allowModel = true) {
+  function localParseNeedsModel(parsed) {
+    if (!parsed || !raw(parsed.query).trim()) return false;
+    const hasResultChangingAmbiguity = (parsed.semanticGroups || []).some((group) => group.needsConfirmation && (group.candidates || []).length > 1);
+    if (hasResultChangingAmbiguity) return true;
+    return !hasBusinessFilter(parsed);
+  }
+
+  function shouldUseModelParser(allowModel = true, localParsed = null) {
     if (!allowModel) return false;
     const mode = raw(aiConfig.mode || "hybrid-parse").toLowerCase();
-    return aiConfig.enabled !== false && !!modelChatEndpoint(aiConfig) && mode !== "local-only" && mode !== "off" && Date.now() >= modelBackoffUntil;
+    const available = aiConfig.enabled !== false
+      && !!modelChatEndpoint(aiConfig)
+      && mode !== "local-only"
+      && mode !== "off"
+      && Date.now() >= modelBackoffUntil;
+    if (!available) return false;
+    if (["model-first", "model-only", "always"].includes(mode)) return true;
+    return localParseNeedsModel(localParsed);
   }
 
   function firstDefined(source, keys) {
@@ -2430,7 +2783,7 @@
     if (!text) return "";
     if (filterFieldNames().includes(text)) return text;
     const compact = text.replace(/\s+/g, "");
-    const matched = filterFieldNames().find((field) => fieldLabel(field).replace(/\s+/g, "") === compact || field.replace(/\s+/g, "") === compact);
+    const matched = modelFilterFieldNames().find((field) => fieldLabel(field).replace(/\s+/g, "") === compact || field.replace(/\s+/g, "") === compact);
     return matched || "";
   }
 
@@ -2457,12 +2810,13 @@
       if (!field) return null;
       const op = normalizeModelOperator(firstDefined(item, ["op", "operator", "关系", "操作符"]));
       const value = firstDefined(item, ["value", "值", "target"]);
-      if (!["is empty", "is not empty"].includes(op) && (value === undefined || value === null || raw(value).trim() === "")) return null;
+      const normalizedValue = Array.isArray(value) ? value.map((itemValue) => raw(itemValue).trim()).filter(Boolean) : raw(value).trim();
+      if (!["is empty", "is not empty"].includes(op) && (value === undefined || value === null || (Array.isArray(normalizedValue) ? !normalizedValue.length : !normalizedValue))) return null;
       return {
         field,
         op,
-        value: raw(value),
-        label: filterLabel({ field, op, value }),
+        value: normalizedValue,
+        label: filterLabel({ field, op, value: normalizedValue }),
       };
     }).filter(Boolean);
   }
@@ -2548,7 +2902,7 @@
     });
   }
 
-  async function requestModelIntent(queryText) {
+  async function requestModelJson(messages) {
     const controller = new AbortController();
     const configuredTimeout = Number(aiConfig.timeoutMs);
     const timeoutMs = Math.min(
@@ -2562,16 +2916,7 @@
     const payload = {
       model: aiConfig.model || "deepseek-v4-flash-inner",
       temperature: 0,
-      messages: [
-        {
-          role: "system",
-          content: "你只做中文投顾策略筛选意图解析。只输出 JSON 对象，不要输出策略名单、解释或 Markdown，也不能发明实体。先把用户表达拆成条件，再为每个实体判断业务域、关系和时间。实体条件输出 entityConditions，每项为 {sourceText,term,key,domain,relation,negative,confidence}。domain 只能是 benchmark、latest_holding、strategy_name、advisor、channel；relation 使用 contains_entity、not_contains_entity 或 weight_gte。出现“业绩基准/比较基准/基准”必须选 benchmark；出现“最新持仓/当前持仓/持仓/持有/配置”选 latest_holding；出现“策略名称/产品名称”选 strategy_name；出现“投顾机构/管理机构”选 advisor；出现“渠道/平台”选 channel。没有明确关系词时给出最可能 domain，但不要把所有实体都默认成 latest_holding。returnMetric 只能是近一周、近一月、近三月、近6月、近1年、今年以来、累计收益率、年化收益。收益、回撤、成立年限分别输出 minReturn、maxDrawdown、drawdownField、minAgeYears。费用、波动率、夏普、资产权重、调仓频率、风险等级等输出 filters，每项为 {field,op,value}，字段必须来自可用字段。同一单值字段的多个候选值用 contains_any 或 in。所有百分比按百分数输出，例如5个点输出5。用户明确不含黄金时 excludeGold=true；明确不含QDII时 excludeQdii=true；只有明确要求海外宽口径时 includeOverseas=true。未知内容输出 null、false 或空数组。"
-        },
-        {
-          role: "user",
-          content: `用户输入：${queryText}\n可用字段：${filterFieldNames().map(fieldLabel).join("、")}\n可用标准实体/查询别名：${semanticEntityCatalog.map((item) => `${item.key}:${item.label}=${(item.aliases || item.queryAliases || []).join("/")}`).join("；")}\n请输出 JSON，例如 {"returnMetric":"近6月","minReturn":10,"drawdownField":"最大回撤","maxDrawdown":5,"minAgeYears":null,"includeOverseas":false,"excludeGold":false,"excludeQdii":false,"entityConditions":[{"sourceText":"基准包含沪深300","term":"沪深300","key":"hs300","domain":"benchmark","relation":"contains_entity","negative":false,"confidence":0.99}],"filters":[]}`
-        }
-      ],
+      messages,
     };
     if (aiConfig.responseFormat !== false) payload.response_format = { type: "json_object" };
     try {
@@ -2592,7 +2937,53 @@
     }
   }
 
-  function applyModelIntent(parsed, intent) {
+  async function requestModelRoute(queryText) {
+    const route = await requestModelJson([
+      {
+        role: "system",
+        content: "你只做中文投顾业务问题路由，不生成筛选字段、SQL、策略名单或答案。只输出JSON对象。先识别主意图，再把原问题拆为少量业务子句，从给定实体ID中返回最多6个entityCandidates。每项为{entityId,sourceText,confidence}。同时返回clauses，每项为{sourceText,entityIds,measure,timeExpression,operatorExpression,valueExpression,negative}；保留无法确认的unresolved和未匹配的unmatchedSpans。不得发明实体ID。",
+      },
+      {
+        role: "user",
+        content: `用户问题：${queryText}\n业务实体核心框架：${JSON.stringify(businessRoutingPromptCatalog())}\n严格返回：{"intent":"筛选策略","entityCandidates":[{"entityId":"performance_observation","sourceText":"近一年收益","confidence":0.98}],"clauses":[{"sourceText":"近一年收益大于5%","entityIds":["performance_observation"],"measure":"收益","timeExpression":"近一年","operatorExpression":"大于","valueExpression":"5%","negative":false}],"logic":{"type":"and"},"unresolved":[],"unmatchedSpans":[]}`,
+      },
+    ]);
+    return normalizeModelRoute(route, queryText);
+  }
+
+  async function requestModelIntent(queryText, route) {
+    const hydrated = hydrateBusinessRoute(route, queryText);
+    return requestModelJson([
+      {
+        role: "system",
+        content: "你只把中文投顾问题编译为可执行筛选JSON，不输出策略名单、解释、Markdown或SQL。字段只能取自fieldCards，操作符只能取自该字段allowedOperators；标准持仓或基准实体只能取自semanticEntities。不得自行计算相对日期、收益、排名或创造字段。日期字段的绝对值必须使用YYYY-MM-DD；相对日期可保留原文作为filters.value，由本地系统按查询基准日期统一换算，禁止把自然语言日期直接用于最终比较。returnMetric只能是近一周、近一月、近三月、近6月、近1年、今年以来、累计收益率、年化收益。收益下限、回撤上限和成立年限可分别输出minReturn、maxDrawdown、drawdownField、minAgeYears；其他条件输出filters[{field,op,value}]。所有百分比使用百分数，例如5%输出5。实体条件输出entityConditions[{sourceText,term,key,domain,relation,negative,confidence}]，domain只能为benchmark、latest_holding、strategy_name、advisor、channel。无法由字段卡执行的条件必须放入unsupportedConditions，不能近似替换或静默忽略。只输出JSON对象。",
+      },
+      {
+        role: "user",
+        content: `用户问题：${queryText}\n查询基准日期：${dateText(asOfDate())}\n第一轮业务路由：${JSON.stringify(route)}\n相关实体字段卡：${JSON.stringify(hydrated)}\n严格返回示例：{"returnMetric":"近6月","minReturn":10,"drawdownField":"最大回撤","maxDrawdown":5,"minAgeYears":null,"includeOverseas":false,"excludeGold":false,"excludeQdii":false,"entityConditions":[{"sourceText":"基准包含沪深300","term":"沪深300","key":"hs300","domain":"benchmark","relation":"contains_entity","negative":false,"confidence":0.99}],"filters":[],"unsupportedConditions":[]}`,
+      },
+    ]);
+  }
+
+  function modelIntentHasExecutableSignal(intent) {
+    if (!intent || typeof intent !== "object" || Array.isArray(intent)) return false;
+    if ((Array.isArray(intent.entityConditions) && intent.entityConditions.length) || (Array.isArray(intent.filters) && intent.filters.length)) return true;
+    const scalarKeys = [
+      "returnMetric", "return_metric", "metric", "收益口径",
+      "minReturn", "min_return", "returnMin", "收益率下限",
+      "maxDrawdown", "max_drawdown", "drawdownMax", "回撤上限",
+      "drawdownField", "drawdown_field", "回撤字段",
+      "minAgeYears", "min_age_years", "成立年限下限",
+      "reportType", "report_type", "产品类型",
+      "gfTerm", "gf_term", "广发关键词",
+      "entityTerm", "entity_term", "机构关键词", "关键词",
+    ];
+    if (scalarKeys.some((key) => intent[key] !== undefined && intent[key] !== null && raw(intent[key]).trim() !== "")) return true;
+    return ["includeOverseas", "include_overseas", "excludeGold", "exclude_gold", "excludeQdii", "exclude_qdii", "onlyGf", "only_gf", "excludeGf", "exclude_gf"]
+      .some((key) => modelBool(intent[key]) === true);
+  }
+
+  function applyModelIntent(parsed, intent, callCount = 1, route = null) {
     if (!intent || typeof intent !== "object") return parsed;
     const metric = normalizeModelMetric(firstDefined(intent, ["returnMetric", "return_metric", "metric", "收益口径"]));
     if (metric && !parsed.returnMetric.explicit) {
@@ -2636,6 +3027,10 @@
     const reportType = normalizeModelReportType(firstDefined(intent, ["reportType", "report_type", "产品类型"]));
     if (reportType && !parsed.thresholds.reportType) parsed.thresholds.reportType = reportType;
     const extraFilters = normalizeModelFilters(intent);
+    const unsupportedConditions = (Array.isArray(intent?.unsupportedConditions) ? intent.unsupportedConditions : [])
+      .map((item) => raw(typeof item === "string" ? item : firstDefined(item, ["sourceText", "condition", "条件", "reason", "原因"])).trim())
+      .filter(Boolean)
+      .slice(0, 8);
     normalizeHoldingEntityConflicts(parsed);
     parsed.filters = buildFilterList(parsed);
     extraFilters.forEach((filter) => {
@@ -2643,24 +3038,56 @@
       if (!exists) parsed.filters.push(filter);
     });
     parsed.filters = normalizeLogicalFilters(parsed.filters, parsed);
-    parsed.model = { status: "used", provider: raw(aiConfig.provider || "local"), model: raw(aiConfig.model || "codex") };
-    parsed.assumptions.push("已调用本机模型辅助解析；模型只输出筛选条件，候选结果仍由本地策略宽表和持仓快照核验。");
+    normalizeParsedDateFilters(parsed);
+    if (unsupportedConditions.length) parsed.warnings.push(`以下条件当前没有可执行字段，未静默替换：${unsupportedConditions.join("；")}。`);
+    if ((route?.unmatchedSpans || []).length) parsed.warnings.push(`第一轮仍有未匹配表达：${route.unmatchedSpans.map(raw).filter(Boolean).join("、")}。`);
+    parsed.model = {
+      status: "used",
+      provider: raw(aiConfig.provider || "local"),
+      model: raw(aiConfig.model || "codex"),
+      callCount,
+      stages: ["business-entity-routing", "field-card-query-plan"],
+      routeEntities: (route?.entityCandidates || []).map((item) => item.entityId).filter(Boolean),
+    };
+    parsed.assumptions.push(`本地规则存在未识别条件或结果歧义，本次按“业务实体路由→字段卡筛选计划”受控调用模型 ${callCount} 次；最终条件仍由本地策略宽表和持仓快照核验。`);
     return parsed;
   }
 
   async function parseQueryHybrid(queryText, localParsed, allowModel = true) {
-    localParsed.model = { status: "local-rule" };
+    localParsed.model = { status: "local-rule", callCount: 0 };
     if (!allowModel) return localParsed;
+    const mode = raw(aiConfig.mode || "hybrid-parse").toLowerCase();
+    const modelRequiredByPolicy = ["model-first", "model-only", "always"].includes(mode) || localParseNeedsModel(localParsed);
+    if (!modelRequiredByPolicy) {
+      localParsed.model = { status: "local-rule", callCount: 0, decision: "local-sufficient" };
+      return localParsed;
+    }
     if (modelBackoffUntil > Date.now()) {
-      localParsed.model = { status: "fallback", error: "model-rate-limited" };
+      localParsed.model = { status: "fallback", error: "model-rate-limited", callCount: 0 };
       localParsed.warnings.push("模型接口正在限流，已临时使用本地规则解析。");
       localParsed.filters = buildFilterList(localParsed);
       return localParsed;
     }
-    if (!shouldUseModelParser(true)) return localParsed;
+    if (!shouldUseModelParser(true, localParsed)) return localParsed;
+    let modelCallCount = 0;
     try {
-      const intent = await requestModelIntent(queryText);
-      return applyModelIntent(localParsed, intent);
+      modelCallCount += 1;
+      const route = await requestModelRoute(queryText);
+      modelCallCount += 1;
+      const intent = await requestModelIntent(queryText, route);
+      if (!modelIntentHasExecutableSignal(intent)) {
+        localParsed.model = {
+          status: "fallback",
+          error: "model-empty-query-plan",
+          callCount: modelCallCount,
+          stages: ["business-entity-routing", "field-card-query-plan"],
+          routeEntities: (route?.entityCandidates || []).map((item) => item.entityId).filter(Boolean),
+        };
+        localParsed.warnings.push("两轮模型解析没有形成合法的可执行条件，已保留本地规则结果；未继续重试。");
+        localParsed.filters = buildFilterList(localParsed);
+        return localParsed;
+      }
+      return applyModelIntent(localParsed, intent, modelCallCount, route);
     } catch (error) {
       let message = raw(error?.name === "AbortError" ? "模型解析超时" : error?.message || error);
       if (/Failed to fetch|NetworkError|Load failed/i.test(message)) {
@@ -2672,15 +3099,15 @@
       if (error?.status === 429 || /429|Too Many Requests/i.test(message)) {
         modelBackoffUntil = Date.now() + Math.max(10000, Number(aiConfig.rateLimitBackoffMs) || 60000);
       }
-      localParsed.model = { status: "fallback", error: message };
+      localParsed.model = { status: "fallback", error: message, callCount: Math.max(1, modelCallCount) };
       localParsed.warnings.push(`模型解析不可用，已使用本地规则解析：${message}`);
       localParsed.filters = buildFilterList(localParsed);
       return localParsed;
     }
   }
 
-  function isCompleteStrategy(row) {
-    return row?.数据完整性 === "完整" && row?.风险等级 !== "D0 持仓缺失" && row?.研报产品类型 !== "持仓缺失/不入池";
+  function isPerformanceCompleteStrategy(row) {
+    return row?.业绩完整 === "是" || row?.业绩完整性 === "完整";
   }
 
   function isGf(row) {
@@ -2813,6 +3240,44 @@
     return /日期|业绩日|持仓日|调仓日|截至/.test(raw(field));
   }
 
+  function normalizeDateFilterValue(filter, parsed) {
+    if (!filter || !isDateField(filter.field) || ["is empty", "is not empty"].includes(filter.op)) return filter;
+    if (Array.isArray(filter.value)) return null;
+    const exactDate = dateFrom(filter.value);
+    if (exactDate) {
+      const op = filter.op === "contains" ? "=" : (filter.op === "not contains" ? "!=" : filter.op);
+      const value = dateText(exactDate);
+      return { ...filter, op, value, label: filterLabel({ ...filter, op, value }) };
+    }
+    const relative = relativeDateBoundary(filter.value, parsed?.asOf)
+      || (filter.field === "成立日期" ? establishedRelativeDateCondition(parsed?.query, parsed?.asOf) : null);
+    if (!relative) return null;
+    return {
+      ...filter,
+      op: relative.op,
+      value: relative.value,
+      label: `${fieldLabel(filter.field)} >= ${relative.value}`,
+      relativeDateSource: raw(filter.value),
+      relativeDatePeriod: relative.periodLabel,
+    };
+  }
+
+  function normalizeParsedDateFilters(parsed) {
+    if (!parsed || !Array.isArray(parsed.filters)) return parsed;
+    const normalized = [];
+    parsed.filters.forEach((filter) => {
+      const next = normalizeDateFilterValue(filter, parsed);
+      if (next) {
+        normalized.push(next);
+        return;
+      }
+      const warning = `${fieldLabel(filter.field)}的值“${raw(filter.value)}”无法转换为 YYYY-MM-DD，已拒绝执行该条件。`;
+      if (!(parsed.warnings || []).includes(warning)) parsed.warnings.push(warning);
+    });
+    parsed.filters = normalized;
+    return parsed;
+  }
+
   function isEmptyValue(value) {
     return value === null || value === undefined || raw(value).trim() === "";
   }
@@ -2896,7 +3361,7 @@
   }
 
   function activeFilters(parsed) {
-    return (parsed.filters || []).filter((filter) => !(parsed.completeOnly && filter.system && filter.field === "数据完整性" && filter.value === "完整"));
+    return (parsed.filters || []).filter((filter) => !(parsed.completeOnly && filter.system && filter.field === "业绩完整" && filter.value === "是"));
   }
 
   function filterMatchScore(row, filter, parsed) {
@@ -2909,6 +3374,10 @@
     const value = fieldValue(row, filter.field);
     if (isEmptyValue(value)) return 0;
     if ([">=", ">"].includes(op)) {
+      if (isDateField(filter.field) && dateFrom(value) && dateFrom(filter.value)) {
+        const marginDays = Math.max(0, (dateFrom(value).getTime() - dateFrom(filter.value).getTime()) / 86400000);
+        return 4 + Math.min(40, marginDays / 30);
+      }
       const left = num(value);
       const right = num(filter.value);
       if (left === null || right === null) return 0;
@@ -2917,6 +3386,10 @@
       return 4 + Math.min(40, margin * factor);
     }
     if (["<=", "<"].includes(op)) {
+      if (isDateField(filter.field) && dateFrom(value) && dateFrom(filter.value)) {
+        const marginDays = Math.max(0, (dateFrom(filter.value).getTime() - dateFrom(value).getTime()) / 86400000);
+        return 4 + Math.min(35, marginDays / 30);
+      }
       const left = num(value);
       const right = num(filter.value);
       if (left === null || right === null) return 0;
@@ -3125,6 +3598,7 @@
   }
 
   function syncParsedFromFilters(parsed) {
+    normalizeParsedDateFilters(parsed);
     const returnFilter = (parsed.filters || []).find((filter) => allowedReturnMetrics.has(filter.field) && [">=", ">", "=", "<=", "<"].includes(filter.op));
     if (returnFilter) parsed.returnMetric = { field: returnFilter.field, explicit: true, source: "filter" };
     const drawdownFilter = (parsed.filters || []).find((filter) => ["最大回撤", "当前回撤"].includes(filter.field) && [">=", ">", "=", "<=", "<"].includes(filter.op));
@@ -3148,7 +3622,7 @@
     syncParsedFromFilters(parsed);
     const missing = { generic: 0, rowIds: new Set() };
     let base = allRows.slice();
-    if (parsed.completeOnly) base = base.filter(isCompleteStrategy);
+    if (parsed.completeOnly) base = base.filter(isPerformanceCompleteStrategy);
     const filters = activeFilters(parsed);
     const rows = base.filter((row) => {
       return filters.every((filter) => compareFilter(row, filter, missing));
@@ -3223,7 +3697,8 @@
       if (!row._aiHitReason) return '<span class="value-muted">暂无</span>';
       return `<button class="ai-hit-reason-btn" type="button" data-ai-hit-id="${B.esc(row.统一策略ID || "")}">查看</button>`;
     }
-    if (field === "数据完整性") return B.statusBadge ? B.statusBadge(row[field]) : B.esc(row[field] || "");
+    if (field === "业绩完整") return B.statusBadge ? B.statusBadge(row[field] === "是" ? "完整" : "缺失") : B.esc(row[field] || "");
+    if (field === "数据完整性" || field === "业绩完整性") return B.statusBadge ? B.statusBadge(row[field]) : B.esc(row[field] || "");
     return B.fmt(row[field]);
   }
 
@@ -3232,12 +3707,12 @@
   }
 
   function displayFilterMatches(row, filter) {
-    if (filter.system && filter.field === "数据完整性" && filter.value === "完整") return isCompleteStrategy(row);
+    if (filter.system && filter.field === "业绩完整" && filter.value === "是") return isPerformanceCompleteStrategy(row);
     return compareFilter(row, filter, null);
   }
 
   function conditionFilterStats(parsed) {
-    const pool = parsed.completeOnly ? allRows.filter(isCompleteStrategy) : allRows.slice();
+    const pool = parsed.completeOnly ? allRows.filter(isPerformanceCompleteStrategy) : allRows.slice();
     return (parsed.filters || []).map((filter, filterIndex) => ({ filter, filterIndex }))
       .filter((item) => !item.filter.system)
       .map(({ filter, filterIndex }) => {
@@ -3253,7 +3728,7 @@
   }
 
   function semanticCandidateStats(parsed, group, candidate) {
-    const pool = parsed.completeOnly ? allRows.filter(isCompleteStrategy) : allRows.slice();
+    const pool = parsed.completeOnly ? allRows.filter(isPerformanceCompleteStrategy) : allRows.slice();
     const remaining = pool.filter((row) => displayFilterMatches(row, candidate.filter)).length;
     return { before: pool.length, removed: pool.length - remaining, remaining };
   }
@@ -3415,7 +3890,7 @@
     const activeSemanticGroupIds = new Set(editedFilters.map((filter) => filter.semanticGroupId).filter(Boolean));
     parsed.completeOnly = true;
     parsed.filters = [
-      { field: "数据完整性", op: "=", value: "完整", label: "仅完整可比数据", system: true },
+      { field: "业绩完整", op: "=", value: "是", label: "仅业绩完整策略", system: true },
       ...editedFilters,
     ];
     parsed.semanticGroups = (parsed.semanticGroups || []).filter((group) => activeSemanticGroupIds.has(group.id));
@@ -3478,26 +3953,26 @@
 
   function renderCandidateScopeNote(parsed, result) {
     const total = allRows.length;
-    const complete = allRows.filter(isCompleteStrategy).length;
+    const performanceComplete = allRows.filter(isPerformanceCompleteStrategy).length;
     const missingRows = result.missing?.rowIds?.size || 0;
     const latest = latestDataDate();
     const holdingEvidenceCount = holdingEvidenceByStrategy().size;
     const modelStatus = parsed.model?.status === "used"
-      ? `模型 ${parsed.model.model || "codex"} 已辅助解析`
+      ? `模型 ${parsed.model.model || "codex"} 已受控调用 ${parsed.model.callCount || 1} 次`
       : parsed.model?.status === "fallback"
         ? "模型不可用，已回退本地规则"
-        : "本地规则解析";
+        : "本地规则已完整解析（模型 0 次）";
     const metricMode = parsed.returnMetric.explicit ? "用户指定或明确命中" : "系统默认";
     const qualityText = missingRows
       ? `字段缺失或待核验 ${missingRows.toLocaleString("zh-CN")} 条未进入严格结果`
-      : "候选策略已按完整可比口径核验";
-    return `候选命中 ${result.rows.length.toLocaleString("zh-CN")} 条；完整可比样本 ${result.baseCount.toLocaleString("zh-CN")} 条（全量 ${total.toLocaleString("zh-CN")}、完整 ${complete.toLocaleString("zh-CN")}）；收益口径为 ${B.esc(parsed.returnMetric.field)}（${B.esc(metricMode)}）。${B.esc(modelStatus)}；业绩 ${dateText(latest)}，持仓核验 ${holdingEvidenceCount.toLocaleString("zh-CN")} 策；${B.esc(qualityText)}。`;
+      : "候选策略已按业绩完整口径核验";
+    return `候选命中 ${result.rows.length.toLocaleString("zh-CN")} 条；业绩完整候选池 ${result.baseCount.toLocaleString("zh-CN")} 条（全量 ${total.toLocaleString("zh-CN")}、业绩完整 ${performanceComplete.toLocaleString("zh-CN")}）；收益口径为 ${B.esc(parsed.returnMetric.field)}（${B.esc(metricMode)}）。${B.esc(modelStatus)}；数据基准日 ${dateText(latest)}，持仓核验 ${holdingEvidenceCount.toLocaleString("zh-CN")} 策；${B.esc(qualityText)}。`;
   }
 
   function renderDsl(parsed) {
     const payload = {
       asOfDate: dateText(parsed.asOf),
-      completeOnly: parsed.completeOnly,
+      performanceCompleteOnly: parsed.completeOnly,
       modelParse: parsed.model || { status: "local-rule" },
       filters: parsed.filters.map((item) => ({ field: item.field, op: item.op, value: item.value, unit: item.unit || "" })),
       sort: [{ field: parsed.returnMetric.field, direction: "desc" }],
@@ -3509,7 +3984,7 @@
   function queryChecks(parsed) {
     const checks = [];
     activeFilters(parsed)
-      .filter((filter) => !(filter.system && filter.field === "数据完整性"))
+      .filter((filter) => !(filter.system && filter.field === "业绩完整"))
       .forEach((filter, index) => {
         checks.push({
           key: `filter-${index}`,
@@ -3525,9 +4000,10 @@
   function renderNoResultDiagnostics(parsed) {
     const checks = queryChecks(parsed);
     if (!checks.length) return "";
-    let running = allRows.slice();
+    const diagnosticPool = parsed.completeOnly ? allRows.filter(isPerformanceCompleteStrategy) : allRows.slice();
+    let running = diagnosticPool.slice();
     const steps = checks.map((check) => {
-      const independentCount = allRows.filter(check.test).length;
+      const independentCount = diagnosticPool.filter(check.test).length;
       running = running.filter(check.test);
       return { label: check.label, independentCount, runningCount: running.length };
     });
@@ -3596,7 +4072,7 @@
         } else {
           state.selectedCompareIds = state.selectedCompareIds.filter((item) => item !== id);
         }
-        renderResults(state.parsed, state.lastResult || { rows: state.rows, missing: { generic: 0 }, baseCount: allRows.filter(isCompleteStrategy).length });
+        renderResults(state.parsed, state.lastResult || { rows: state.rows, missing: { generic: 0 }, baseCount: allRows.filter(isPerformanceCompleteStrategy).length });
       });
     });
     const selectTop = B.byId("aiSelectTop");
@@ -3608,14 +4084,14 @@
           if (!state.selectedCompareIds.includes(id)) state.selectedCompareIds.push(id);
           return state.selectedCompareIds.length >= compareMaxCount;
         });
-        renderResults(state.parsed, state.lastResult || { rows: state.rows, missing: { generic: 0 }, baseCount: allRows.filter(isCompleteStrategy).length });
+        renderResults(state.parsed, state.lastResult || { rows: state.rows, missing: { generic: 0 }, baseCount: allRows.filter(isPerformanceCompleteStrategy).length });
       });
     }
     const clearButton = B.byId("aiClearCompare");
     if (clearButton) {
       clearButton.addEventListener("click", () => {
         state.selectedCompareIds = [];
-        renderResults(state.parsed, state.lastResult || { rows: state.rows, missing: { generic: 0 }, baseCount: allRows.filter(isCompleteStrategy).length });
+        renderResults(state.parsed, state.lastResult || { rows: state.rows, missing: { generic: 0 }, baseCount: allRows.filter(isPerformanceCompleteStrategy).length });
       });
     }
     const openButton = B.byId("aiOpenCompare");
@@ -3760,7 +4236,8 @@
     if (!target) return [];
     const drawdownField = target.field;
     const withoutDrawdown = checks.filter((check) => check !== target);
-    return allRows
+    const pool = parsed.completeOnly ? allRows.filter(isPerformanceCompleteStrategy) : allRows;
+    return pool
       .filter((row) => withoutDrawdown.every((check) => check.test(row)))
       .filter((row) => num(row[drawdownField]) !== null)
       .sort((a, b) => {
@@ -3940,13 +4417,14 @@
     const yField = resolveScatterField(rows, state.scatterYField, returnField);
     state.scatterXField = xField;
     state.scatterYField = yField;
-    const sourceRows = (rows || []).slice(0, 500).map((row) => ({
+    const drawableRows = (rows || []).map((row) => ({
       row,
       id: raw(row.统一策略ID || row.策略代码 || row.策略名称),
       x: num(row[xField]),
       y: num(row[yField]),
       group: scatterGroup(row),
     })).filter((item) => item.id && item.x !== null && item.y !== null);
+    const sourceRows = drawableRows.slice(0, 500);
     if (!sourceRows.length) return `<div class="ai-scatter-card"><div class="empty">候选策略缺少可绘制的 ${B.esc(xField)} 或 ${B.esc(yField)} 字段。</div></div>`;
     const palette = ["#2563eb", "#0f766e", "#a855f7", "#ea580c", "#dc2626", "#64748b", "#0891b2", "#9333ea"];
     const groups = Array.from(new Set(sourceRows.map((item) => item.group))).sort((a, b) => a.localeCompare(b, "zh-CN")).slice(0, palette.length);
@@ -3972,7 +4450,7 @@
         <div class="ai-scatter-head">
           <div>
             <strong>候选策略点阵</strong>
-            <span>展示 ${sourceRows.length.toLocaleString("zh-CN")} 条可绘制候选；点击点查看策略说明。</span>
+            <span>筛选命中 ${(rows || []).length.toLocaleString("zh-CN")} 条，其中 ${drawableRows.length.toLocaleString("zh-CN")} 条具备 ${B.esc(xField)} 与 ${B.esc(yField)}；点阵最多展示前 ${sourceRows.length.toLocaleString("zh-CN")} 条，点击点查看策略说明。</span>
           </div>
           <div class="ai-scatter-controls">
             ${scatterMetricSelect("aiScatterXField", "X轴", xField, fields)}
@@ -4120,10 +4598,10 @@
     state.query = B.byId("aiQuery").value;
     state.completeOnly = true;
     let parsed = parseQuery(state.query);
-    if (shouldUseModelParser(allowModel)) {
+    if (shouldUseModelParser(allowModel, parsed)) {
       B.byId("aiResult").innerHTML = `
         <section class="panel">
-          <div class="panel-head"><div><h2>解析中</h2><p class="desc">正在调用 ${B.esc(aiConfig.model || "模型")} 解析筛选条件；若接口不可用会自动回退本地规则。</p></div></div>
+          <div class="panel-head"><div><h2>解析中</h2><p class="desc">本地规则仍有未识别条件或结果歧义，正在受控调用 ${B.esc(aiConfig.model || "模型")}：第一轮识别业务实体和关系，第二轮只读取相关字段卡并生成筛选计划；总上限 2 次，接口不可用不重试并自动回退本地规则。</p></div></div>
         </section>
       `;
     }
@@ -4144,7 +4622,7 @@
         <summary class="ai-condition-panel-summary">
           <div class="ai-condition-summary-copy">
             <h2 class="ai-condition-summary-text">${B.esc(conditionSummary)}</h2>
-            <p class="desc ai-condition-summary-help">点击展开后可直接微调字段、关系和值；每个条件均以完整可比策略池独立统计。</p>
+            <p class="desc ai-condition-summary-help">点击展开后可直接微调字段、关系和值；每个条件均以业绩完整策略池独立统计，基准或仓位缺失不会被默认排除。</p>
           </div>
         </summary>
         <div class="ai-condition-panel-body">
@@ -4233,7 +4711,7 @@
           <div class="ai-model-fixed-grid">
             <div><span>模型来源</span><strong>阿里云百炼</strong></div>
             <div><span>模型</span><strong>${B.esc(config.model || "qwen3.6-flash")}</strong></div>
-            <div><span>调用模式</span><strong>AI解析 + 本地规则校验</strong></div>
+            <div><span>调用模式</span><strong>本地优先 + 必要时模型</strong></div>
             <div><span>返回格式</span><strong>JSON Object</strong></div>
             <div class="ai-model-fixed-wide"><span>服务地址</span><strong>${B.esc(modelBaseUrl(config))}</strong></div>
             <div><span>接口超时</span><strong>${B.esc(config.timeoutMs || 60000)} 毫秒</strong></div>
@@ -4245,7 +4723,7 @@
           </div>
           <div class="ai-model-help">
             <strong>配置说明</strong>
-            <span>模型只负责把自然语言转换为筛选条件，候选策略仍由当前页面数据和本地规则计算。模型接口不可用时自动回退本地规则。</span>
+            <span>明确的常见问题使用本地字典和规则直接执行，模型调用为 0 次；需要模型时固定分为“业务实体路由”和“相关字段卡生成筛选计划”两轮，单次执行最多 2 次，不按子句重复调用。接口不可用或计划不合法时不继续重试，并自动回退本地规则。</span>
           </div>
         </div>
       </details>
@@ -4401,6 +4879,16 @@
   }
 
   window.__AI_STRATEGY_DEBUG__ = {
+    businessRoute(queryText) {
+      return normalizeModelRoute({}, queryText);
+    },
+    businessRouteCatalog() {
+      return businessRoutingPromptCatalog();
+    },
+    hydrateBusinessRoute(queryText) {
+      const route = normalizeModelRoute({}, queryText);
+      return hydrateBusinessRoute(route, queryText);
+    },
     semanticDetections(queryText) {
       return detectSemanticEntities(queryText).map((item) => ({
         key: item.key,
@@ -4421,7 +4909,8 @@
     },
     parseLocal(queryText, options = {}) {
       const previousCompleteOnly = state.completeOnly;
-      if (Object.prototype.hasOwnProperty.call(options, "completeOnly")) state.completeOnly = !!options.completeOnly;
+      if (Object.prototype.hasOwnProperty.call(options, "performanceCompleteOnly")) state.completeOnly = !!options.performanceCompleteOnly;
+      else if (Object.prototype.hasOwnProperty.call(options, "completeOnly")) state.completeOnly = !!options.completeOnly;
       const parsed = parseQuery(queryText);
       const result = applyFilters(parsed);
       state.completeOnly = previousCompleteOnly;

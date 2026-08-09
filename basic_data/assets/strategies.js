@@ -3,7 +3,7 @@
   const summary = B.state.summary;
   const root = B.byId("strategyListPage");
   const allStrategies = summary.strategies || [];
-  const benchmarkBucket = (row) => row?.基准权益分档 || row?.基准权益分类档 || "未分档";
+  const benchmarkBucket = (row) => row?.基准权益分档 || row?.广义权益分档 || row?.基准权益分类档 || "未分档";
   const isUnbucketed = (row) => benchmarkBucket(row) === "未分档";
   const rowsBase = allStrategies;
   const state = { page: 1, pageSize: 10, rows: [], sortField: "近一月", sortDir: "desc", hiddenStrategyScope: "" };
@@ -12,7 +12,7 @@
   const weightHeaders = ["权益基金权重", "债券基金权重", "货币基金权重", "QDII权重", "指数基金权重"];
   const trailingHeaders = [
     "研报产品类型", "研报股票子类型", "业务分类", "市场地域", "主动被动",
-    "披露策略类型", "天天当前对客展示", "基准权益分档", "基准可用状态"
+    "披露策略类型", "天天当前对客展示", "基准可用状态"
   ];
   const numericHeaders = new Set([...returnHeaders, ...riskHeaders, "夏普比率", ...weightHeaders, "调仓次数"]);
   const dateHeaders = ["最新业绩日期", "最新持仓日", "最近调仓日"];
@@ -56,20 +56,8 @@
     return values.map((value) => `<option value="${B.esc(value)}">${B.esc(value)}</option>`).join("");
   }
 
-  function broadEquityBucket(row) {
-    return row?.广义权益分档 || "";
-  }
-
   function orderedBenchmarkBuckets() {
     return [...new Set(rowsBase.map((row) => benchmarkBucket(row)))].sort((a, b) => {
-      const ai = benchmarkBucketOrder.indexOf(a);
-      const bi = benchmarkBucketOrder.indexOf(b);
-      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi) || a.localeCompare(b, "zh-CN");
-    });
-  }
-
-  function orderedBroadEquityBuckets() {
-    return [...new Set(rowsBase.map((row) => broadEquityBucket(row)).filter(Boolean))].sort((a, b) => {
       const ai = benchmarkBucketOrder.indexOf(a);
       const bi = benchmarkBucketOrder.indexOf(b);
       return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi) || a.localeCompare(b, "zh-CN");
@@ -152,7 +140,6 @@
       row.研报股票子类型,
       row.业务分类,
       benchmarkBucket(row),
-      broadEquityBucket(row),
       row.市场地域,
       row.主动被动,
       row.披露策略类型,
@@ -198,11 +185,11 @@
 
   function renderTable(rows) {
     const headers = [
-      "策略名称", "渠道", "投顾机构", "风险等级", "广义权益分档", "业绩基准说明", "最新业绩日期",
+      "策略名称", "渠道", "投顾机构", "风险等级", "基准权益分档", "业绩基准说明", "最新业绩日期",
       ...returnHeaders, ...riskHeaders, "夏普比率", "天天展示状态", ...weightHeaders, ...dateHeaders.filter((field) => field !== "最新业绩日期"), "调仓次数",
       ...trailingHeaders
     ];
-    const wideFields = new Set(["投顾机构", "研报产品类型", "研报股票子类型", "风险等级", "业务分类", "主动被动", "披露策略类型", "天天当前对客展示", "天天展示状态", "基准权益分档", "广义权益分档", "基准可用状态", "业绩基准说明"]);
+    const wideFields = new Set(["投顾机构", "研报产品类型", "研报股票子类型", "风险等级", "业务分类", "主动被动", "披露策略类型", "天天当前对客展示", "天天展示状态", "基准权益分档", "基准可用状态", "业绩基准说明"]);
     const head = headers.map((field, index) => {
       const cls = index === 0 ? "sticky-name" : index === 1 ? "sticky-channel" : returnHeaders.includes(field) || riskHeaders.includes(field) || weightHeaders.includes(field) ? "narrow" : wideFields.has(field) ? "wide" : "";
       return sortHeader(field, cls);
@@ -241,8 +228,7 @@
           <option value="client">对客展示</option>
           <option value="nonClient">非对客/隐藏</option>
         </select>`, "排除明确非对客、隐藏或不展示状态")}
-        ${filterControl("基准权益分档", `<select id="benchmarkBucketSelect" class="control"><option value="">全部基准权益分档</option>${options(orderedBenchmarkBuckets())}</select>`, "按业绩基准中的权益占比分档；未披露或不可计算的策略归入未分档，仅供查询核对")}
-        ${filterControl("广义权益分档", `<select id="broadEquityBucketSelect" class="control"><option value="">全部广义权益分档</option>${options(orderedBroadEquityBuckets())}</select>`, "权益+商品+另类合并口径，仅用于观察和筛选")}
+        ${filterControl("基准权益分档", `<select id="benchmarkBucketSelect" class="control"><option value="">全部基准权益分档</option>${options(orderedBenchmarkBuckets())}</select>`, "按业绩基准中的权益、商品和另类风险资产合计权重分档；作为策略分类和同类比较的首层口径")}
         ${filterControl("投顾机构", `<select id="institutionSelect" class="control"><option value="">全部投顾机构</option>${options(unique("投顾机构"))}</select>`, "精确匹配投顾机构")}
         ${filterControl("渠道", `<select id="channelSelect" class="control"><option value="">全部渠道</option>${options(unique("渠道"))}</select>`, "精确匹配数据来源渠道")}
         ${filterControl("研报产品类型", `<select id="reportTypeSelect" class="control"><option value="">全部研报产品类型</option>${options(orderedUnique("研报产品类型", reportTypeOrder))}</select>`, "投研可比口径：纯债、固收+、股债、股票、多元配置")}
@@ -265,8 +251,7 @@
       <details class="filter-help-details">
         <summary>查看筛选字段说明</summary>
         <div class="filter-help-grid">
-          <span><b>基准权益分档</b> 按业绩基准中的权益权重做分档；未分档表示基准未披露或不可计算，仅供查询核对，不进入正式同类排名。</span>
-          <span><b>广义权益分档</b> 按权益+商品+另类合计权重分档，用于观察风险资产合并口径，不替代正式可比池。</span>
+          <span><b>基准权益分档</b> 按业绩基准中的权益、商品和另类风险资产合计权重做 L0—L10 分档，是策略分类和同类比较的首层口径；基准缺失或无法可靠计算时标为未分档。</span>
           <span><b>研报产品类型</b> 投研可比池，适合同类业绩和风险比较。</span>
           <span><b>业务分类</b> 运营货架口径，适合产品线和销售场景管理。</span>
           <span><b>对客状态</b> 用于区分可对客展示产品和仅保留核验样本。</span>
@@ -297,7 +282,6 @@
     const productStatus = B.byId("productStatusSelect").value;
     const clientScope = B.byId("clientScopeSelect").value;
     const benchmarkBucketValue = B.byId("benchmarkBucketSelect").value;
-    const broadEquityBucketValue = B.byId("broadEquityBucketSelect").value;
     const institution = B.byId("institutionSelect").value;
     const channel = B.byId("channelSelect").value;
     const reportType = B.byId("reportTypeSelect").value;
@@ -317,7 +301,6 @@
       if (clientScope === "client" && !isClientFacing(row)) return false;
       if (clientScope === "nonClient" && isClientFacing(row)) return false;
       if (benchmarkBucketValue && benchmarkBucket(row) !== benchmarkBucketValue) return false;
-      if (broadEquityBucketValue && broadEquityBucket(row) !== broadEquityBucketValue) return false;
       if (institution && row.投顾机构 !== institution) return false;
       if (channel && row.渠道 !== channel) return false;
       if (reportType && row.研报产品类型 !== reportType) return false;
@@ -377,7 +360,6 @@
     setControlFromParam("productStatusSelect", "productStatus");
     setControlFromParam("clientScopeSelect", "clientScope");
     setControlFromParam("benchmarkBucketSelect", "benchmarkBucket");
-    setControlFromParam("broadEquityBucketSelect", "broadEquityBucket");
     setControlFromParam("institutionSelect", "institution");
     setControlFromParam("channelSelect", "channel");
     setControlFromParam("reportTypeSelect", "reportType");
@@ -394,7 +376,7 @@
   }
 
   applyInitialParams();
-  ["searchInput", "productStatusSelect", "clientScopeSelect", "benchmarkBucketSelect", "broadEquityBucketSelect", "institutionSelect", "channelSelect", "reportTypeSelect", "businessSelect"].forEach((id) => {
+  ["searchInput", "productStatusSelect", "clientScopeSelect", "benchmarkBucketSelect", "institutionSelect", "channelSelect", "reportTypeSelect", "businessSelect"].forEach((id) => {
     B.byId(id).addEventListener("input", resetPageAndRender);
   });
   B.byId("sortSelect").addEventListener("input", () => {
@@ -418,7 +400,6 @@
     B.byId("productStatusSelect").value = "";
     B.byId("clientScopeSelect").value = "";
     B.byId("benchmarkBucketSelect").value = "";
-    B.byId("broadEquityBucketSelect").value = "";
     B.byId("institutionSelect").value = "";
     B.byId("channelSelect").value = "";
     B.byId("reportTypeSelect").value = "";
