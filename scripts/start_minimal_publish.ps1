@@ -7,7 +7,10 @@ param(
 $ErrorActionPreference = "Stop"
 
 $packageRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
-$runtimeDir = Join-Path $packageRoot ".runtime"
+$packageParent = Split-Path -Parent $packageRoot
+# Runtime state must stay outside the generated package. Keeping a process cwd
+# or an open log handle below packageRoot prevents atomic replacement on Windows.
+$runtimeDir = Join-Path $packageParent ".minimal_publish_runtime"
 $logDir = Join-Path $runtimeDir "logs"
 New-Item -ItemType Directory -Force -Path $logDir | Out-Null
 
@@ -30,7 +33,7 @@ function Test-Http([string]$Url) {
 if ($EnableCodexFallback -and -not (Test-Http $proxyHealth)) {
   $proxyLog = Join-Path $logDir "ai_proxy.log"
   $proxyArgs = "-NoProfile -ExecutionPolicy Bypass -File `"$proxyStart`""
-  $proxyProcess = Start-Process -FilePath "powershell.exe" -ArgumentList $proxyArgs -WindowStyle Hidden -PassThru -RedirectStandardOutput $proxyLog -RedirectStandardError (Join-Path $logDir "ai_proxy_error.log")
+  $proxyProcess = Start-Process -FilePath "powershell.exe" -ArgumentList $proxyArgs -WorkingDirectory $runtimeDir -WindowStyle Hidden -PassThru -RedirectStandardOutput $proxyLog -RedirectStandardError (Join-Path $logDir "ai_proxy_error.log")
   $state.proxyPid = $proxyProcess.Id
   foreach ($attempt in 1..30) {
     if (Test-Http $proxyHealth) { break }
@@ -45,7 +48,7 @@ if (-not (Test-Http $siteUrl)) {
   $python = (Get-Command python -ErrorAction Stop).Source
   $siteLog = Join-Path $logDir "site.log"
   $siteArgs = "-X utf8 `"$serverScript`" --host 127.0.0.1 --port $Port --directory `"$packageRoot`""
-  $siteProcess = Start-Process -FilePath $python -ArgumentList $siteArgs -WindowStyle Hidden -PassThru -RedirectStandardOutput $siteLog -RedirectStandardError (Join-Path $logDir "site_error.log")
+  $siteProcess = Start-Process -FilePath $python -ArgumentList $siteArgs -WorkingDirectory $runtimeDir -WindowStyle Hidden -PassThru -RedirectStandardOutput $siteLog -RedirectStandardError (Join-Path $logDir "site_error.log")
   $state.sitePid = $siteProcess.Id
   foreach ($attempt in 1..30) {
     if (Test-Http $siteUrl) { break }

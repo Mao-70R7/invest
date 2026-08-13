@@ -49,8 +49,8 @@
     { id: "strategy_relationship", label: "策略关系", aliases: ["母子关系", "继承", "共享业绩", "共用基准"], summary: "已经验证的母子、期次和数据复用关系。", neighbors: ["strategy_series", "strategy", "performance_observation", "benchmark_specification"], fields: ["母策略名称", "策略关系类型", "官方业绩口径", "业绩基准继承口径"] },
     { id: "strategy_governance", label: "生命周期与治理", aliases: ["治理", "下架", "终止", "停止", "展示", "排名资格", "有效策略"], summary: "策略当前运作、展示、排名和异常处理状态。", neighbors: ["strategy", "business_data_quality"], fields: ["策略治理状态", "分析分组", "是否测试组合", "是否信号类组合", "是否目标盈期次", "是否已停止", "是否纳入常规排名", "仅列表展示", "是否单独分析", "业绩分析截止日期", "持仓处理方式", "调仓展示方式", "运作状态", "天天当前对客展示", "天天展示状态"] },
     { id: "fee_policy", label: "费率政策", aliases: ["费率", "投顾费", "服务费", "管理费"], summary: "策略当前披露的投顾费率及可比较状态。", neighbors: ["strategy"], fields: ["年化投顾费率", "费率状态"] },
-    { id: "benchmark_specification", label: "业绩基准", aliases: ["基准", "业绩基准", "比较基准", "基准说明"], summary: "策略用于比较业绩的基准定义、说明和可用状态。", neighbors: ["benchmark_exposure_snapshot", "performance_observation", "risk_observation"], fields: ["业绩基准", "业绩基准说明", "基准可用状态", "基准结构类型", "基准权益分档", "非权益比较轨道", "正式可比池"] },
-    { id: "benchmark_exposure_snapshot", label: "基准资产配置", aliases: ["基准配置", "基准权益", "基准债券", "基准风险资产", "基准权益分档"], summary: "基准中权益、债券、现金、商品、另类和地域资产的标准权重。", neighbors: ["benchmark_specification", "strategy_allocation_profile"], fields: ["基准权益权重", "基准债券权重", "基准货币权重", "基准权益分档", "基准风险资产权重", "基准港股权益权重", "基准海外权益权重", "基准资产大类-权益", "基准资产大类-债券", "基准资产大类-现金", "基准资产大类-商品", "基准资产大类-另类", "基准资产大类-其他"] },
+    { id: "benchmark_specification", label: "业绩基准", aliases: ["基准", "业绩基准", "比较基准", "基准说明"], summary: "策略用于比较业绩的基准定义、说明和可用状态。", neighbors: ["benchmark_exposure_snapshot", "performance_observation", "risk_observation"], fields: ["业绩基准", "业绩基准说明", "基准可用状态", "基准结构类型", "基准风险资产权重", "非权益比较轨道", "正式可比池"] },
+    { id: "benchmark_exposure_snapshot", label: "基准资产配置", aliases: ["基准配置", "基准权益", "基准债券", "基准风险资产", "风险资产权重"], summary: "基准中权益、债券、现金、商品、另类和地域资产的标准权重。", neighbors: ["benchmark_specification", "strategy_allocation_profile"], fields: ["基准权益权重", "基准债券权重", "基准货币权重", "基准风险资产权重", "基准风险资产权重_百分比", "基准港股权益权重", "基准海外权益权重", "基准资产大类-权益", "基准资产大类-债券", "基准资产大类-现金", "基准资产大类-商品", "基准资产大类-另类", "基准资产大类-其他"] },
     { id: "strategy_allocation_profile", label: "策略配置画像", aliases: ["权益中枢", "固收中枢", "配置画像", "配置风格", "指数化", "主动管理", "风险资产偏离"], summary: "由持仓、基准、风险和调仓组合形成的可组合配置特征。", neighbors: ["benchmark_exposure_snapshot", "holding_snapshot", "risk_observation"], fields: ["权益中枢", "固收中枢", "基准风险资产中枢", "海外配置中枢", "指数化程度", "主动管理程度", "风险资产偏离", "权益风险档", "波动风险档", "回撤风险档", "配置风格标签"] },
     { id: "performance_observation", label: "策略业绩", aliases: ["业绩", "收益", "回报", "净值", "累计收益", "区间收益"], summary: "策略在标准区间或当前截止日上的收益和净值表现。", neighbors: ["risk_observation", "benchmark_specification", "peer_ranking"], fields: ["近一周", "近一月", "近三月", "近6月", "近1年", "今年以来", "累计收益率", "年化收益", "官方单位净值", "官方累计收益", "自建累计收益", "与官方偏差", "最新业绩日期", "收益数据截至", "日涨跌幅"] },
     { id: "risk_observation", label: "风险指标", aliases: ["风险", "回撤", "最大回撤", "当前回撤", "波动", "夏普"], summary: "策略的回撤、波动、夏普和风险分档。", neighbors: ["performance_observation", "strategy_allocation_profile"], fields: ["最大回撤", "当前回撤", "波动率", "夏普比率", "风险等级", "风险数据截至", "权益风险档", "波动风险档", "回撤风险档", "风险触发指标"] },
@@ -3654,6 +3654,7 @@
     if (field === "策略名称") {
       return `<a class="link" href="./strategy.html?id=${encodeURIComponent(row.统一策略ID || "")}">${B.esc(row.策略名称 || "未命名策略")}</a><div class="small">${B.esc(row.策略代码 || row.统一策略ID || "未披露代码")}</div>`;
     }
+    if (field === B.strategyListInstitutionField) return `<span class="strategy-institution-value">${B.esc(B.strategyInstitutionText(row))}</span>`;
     if (["累计收益率", "近1年", "近6月", "近一周", "近一月", "近三月", "今年以来", "最大回撤", "当前回撤", "波动率", "年化收益"].includes(field)) return B.pctSigned(row[field]);
     if (["权益基金权重", "债券基金权重", "货币基金权重", "QDII权重", "指数基金权重", "海外资产权重", "持仓实体权重"].includes(field)) {
       if (field === "海外资产权重") return B.pct(overseasEvidence(row).overseasWeight);
@@ -4254,17 +4255,16 @@
     if (isHead) classes.push("ai-candidate-head");
     if (field === "命中说明") classes.push("ai-sticky-hit", "ai-hit-reason-col");
     if (field === "策略名称") classes.push("ai-sticky-name", "strategy-name-cell");
-    if (field === "投顾机构") classes.push("ai-sticky-advisor");
-    if (field === "渠道") classes.push("ai-sticky-channel");
-    if (["累计收益率", "年化收益", "近6月", "近1年", "当前回撤", "最大回撤", "持仓实体权重"].includes(field)) classes.push("narrow");
-    if (["业务分类", "研报产品类型", "风险等级"].includes(field)) classes.push("wide");
+    if (field === B.strategyListInstitutionField) classes.push("ai-sticky-institution", "strategy-institution-cell");
+    if ([...B.strategyListFieldGroups.returns, ...B.strategyListFieldGroups.risks, ...B.strategyListFieldGroups.weights].includes(field)) classes.push("narrow");
+    if ([B.strategyListInstitutionField, "研报产品类型", "研报股票子类型", "风险等级", "业务分类", "主动被动", "披露策略类型", "天天当前对客展示", "天天展示状态", "基准风险资产权重", "基准可用状态", "业绩基准说明"].includes(field)) classes.push("wide");
     return classes.join(" ");
   }
 
   function renderRowsTable(rows, headers, emptyText, options = {}) {
     const withSelection = !!options.withSelection;
     if (withSelection) {
-      const headerHtml = `${withSelection ? '<th class="ai-select-head ai-sticky-select">选择</th>' : ""}${headers.map((field) => `<th class="${candidateCellClass(field, true)}">${B.label(field)}</th>`).join("")}`;
+      const headerHtml = `${withSelection ? '<th class="ai-select-head ai-sticky-select">选择</th>' : ""}${headers.map((field) => `<th class="${candidateCellClass(field, true)}">${field === "命中说明" ? B.label(field) : B.strategyListHeaderLabel(field)}</th>`).join("")}`;
       const body = rows.length
         ? rows.map((row) => `<tr>${selectionCell(row)}${headers.map((field) => `<td class="${candidateCellClass(field)}">${formatValue(row, field)}</td>`).join("")}</tr>`).join("")
         : `<tr><td colspan="${headers.length + 1}"><div class="empty">${B.esc(emptyText)}</div></td></tr>`;
@@ -4548,37 +4548,8 @@
     });
   }
 
-  function dynamicHeaders(parsed) {
-    const headers = [];
-    const push = (field) => {
-      if (field && !headers.includes(field)) headers.push(field);
-    };
-    ["命中说明", "策略名称", "投顾机构", "渠道", "业务分类", "研报产品类型", "风险等级"].forEach(push);
-    (parsed?.filters || []).forEach((filter) => {
-      if (filter.field === "__holding_entity") {
-        push("持仓实体权重");
-        return;
-      }
-      if (filter.field === "__gf_any" || filter.field === "__source_any") {
-        push("投顾机构");
-        push("渠道");
-        return;
-      }
-      if (filter.field === "__any_text") return;
-      if (filter.field === "风险等级序号") {
-        push("风险等级");
-        return;
-      }
-      if (filter.field === "海外资产判断" || filter.field === "海外资产权重" || filter.field === "海外资产分类") {
-        push("海外资产判断");
-        push("海外资产权重");
-        push("海外资产分类");
-        return;
-      }
-      push(filter.field);
-    });
-    ["累计收益率", "年化收益", "近6月", "近1年", "当前回撤", "最新业绩日期", "最新持仓日"].forEach(push);
-    return headers;
+  function dynamicHeaders(_parsed) {
+    return ["命中说明", ...B.strategyListHeaders];
   }
 
   function renderTable(rows) {

@@ -6,6 +6,39 @@ window.BasicData = (() => {
   const esc = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
   const INTERNAL_TEST_NOTICE = "所有数据为测试模拟数据，不构成任何投资意见，仅内部测试使用。";
   const PAGE_LOADING_TEXT = "数据正在加载，请稍等。";
+  const strategyListFieldGroups = Object.freeze({
+    returns: Object.freeze(["近一周", "近一月", "近三月", "近1年", "今年以来", "累计收益率"]),
+    risks: Object.freeze(["最大回撤", "波动率"]),
+    weights: Object.freeze(["权益基金权重", "债券基金权重", "货币基金权重", "QDII权重", "指数基金权重"]),
+    dates: Object.freeze(["最新业绩日期", "最新持仓日", "最近调仓日"]),
+    trailing: Object.freeze([
+      "研报产品类型", "研报股票子类型", "业务分类", "市场地域", "主动被动",
+      "披露策略类型", "天天当前对客展示", "基准可用状态",
+    ]),
+  });
+  const strategyListInstitutionField = "销售渠道/管理机构";
+  const strategyChannelDisplayNames = Object.freeze({ "天天基金/投顾": "天天基金" });
+  const strategyListHeaders = Object.freeze([
+    "策略名称", strategyListInstitutionField, "基准风险资产权重",
+    ...strategyListFieldGroups.returns,
+    ...strategyListFieldGroups.risks,
+    "夏普比率", "风险等级", "业绩基准说明", "最新业绩日期", "天天展示状态",
+    ...strategyListFieldGroups.weights,
+    ...strategyListFieldGroups.dates.filter((field) => field !== "最新业绩日期"),
+    "调仓次数",
+    ...strategyListFieldGroups.trailing,
+  ]);
+  function strategyInstitutionText(row) {
+    const rawChannel = String(row?.渠道 || "").trim();
+    const channel = strategyChannelDisplayNames[rawChannel] || rawChannel || "未披露";
+    const manager = String(row?.投顾机构 || "").trim() || "未披露";
+    return `${channel}/${manager}`;
+  }
+  function strategyListHeaderLabel(field) {
+    if (field === strategyListInstitutionField) return "销售渠道 / 管理机构";
+    if (field === "业绩基准说明") return "业绩基准";
+    return field === "天天当前对客展示" ? "对客展示" : label(field);
+  }
   let noticeScheduled = false;
   const dict = () => state.summary?.fieldDictionary || {};
   const businessFieldDescriptions = {
@@ -34,7 +67,7 @@ window.BasicData = (() => {
     "策略基金净值缺失数", "完整策略数", "官方业绩覆盖", "历史调仓覆盖", "当前持仓覆盖", "回放覆盖",
     "主可比池", "市场地域", "主动被动", "特殊标签", "策略实现标签", "权益基金权重", "债券基金权重",
     "货币基金权重", "混合基金权重", "QDII权重", "指数基金权重", "主动基金权重", "基准权益权重",
-    "基准债券权重", "基准货币权重", "基准权益分档", "基准权益分档说明", "基准风险资产权重", "权益中枢", "固收中枢", "基准风险资产中枢", "海外配置中枢", "指数化程度", "主动管理程度", "风险资产偏离", "配置风格标签", "基准可用状态", "基础数据等级", "费率状态", "年化投顾费率", "分类依据",
+    "基准债券权重", "基准货币权重", "基准风险资产权重", "基准风险资产权重_百分比", "基准风险资产权重说明", "权益中枢", "固收中枢", "基准风险资产中枢", "海外配置中枢", "指数化程度", "主动管理程度", "风险资产偏离", "配置风格标签", "基准可用状态", "基础数据等级", "费率状态", "年化投顾费率", "分类依据",
     "运作天数", "数据完整性", "质检情况", "稽核结论", "近一周", "近一月", "近三月", "近6月", "近1年", "今年以来",
     "累计收益率", "自建累计收益", "与官方偏差", "最大回撤", "当前回撤", "年化收益", "波动率", "夏普比率",
     "单次平均换手率", "年化换手率", "调仓频率", "最近一年调仓次数", "官方对比口径", "可比记录数",
@@ -262,6 +295,76 @@ window.BasicData = (() => {
   function params() {
     return new URLSearchParams(window.location.search);
   }
+  const GLOBAL_STRATEGY_FILTERS = {
+    benchmark: { param: "hasBenchmark", label: "有基准" },
+    performance: { param: "hasPerformance", label: "有业绩走势" },
+    history: { param: "hasHistory", label: "有历史仓位" },
+    active: { param: "clientActive", label: "对客未终止" },
+  };
+  function parseFilterFlag(value, fallback = true) {
+    if (value === null || value === undefined || value === "") return fallback;
+    return !["0", "false", "否", "no", "off"].includes(String(value).toLowerCase());
+  }
+  function isInstitutionOverviewPage() {
+    return /(?:^|\/)institutions\.html$/i.test(window.location.pathname);
+  }
+  function initialGlobalStrategyFilters() {
+    const query = params();
+    // The four completeness filters are the institution overview's initial
+    // business scope. Other pages only inherit them when an institution link
+    // explicitly carries the query parameters; top-navigation visits must
+    // start from their own full data universe.
+    const defaultEnabled = isInstitutionOverviewPage();
+    return Object.fromEntries(Object.entries(GLOBAL_STRATEGY_FILTERS).map(([key, config]) => [
+      key,
+      query.has(config.param)
+        ? parseFilterFlag(query.get(config.param), true)
+        : defaultEnabled,
+    ]));
+  }
+  const hasExplicitGlobalStrategyFilters = Object.values(GLOBAL_STRATEGY_FILTERS)
+    .some((config) => params().has(config.param));
+  const globalStrategyFilters = initialGlobalStrategyFilters();
+  function appendGlobalStrategyFilters(target) {
+    Object.entries(GLOBAL_STRATEGY_FILTERS).forEach(([key, config]) => {
+      target.searchParams.set(config.param, globalStrategyFilters[key] ? "1" : "0");
+    });
+    return target;
+  }
+  function setGlobalStrategyFilter(key, selected, { syncUrl = true } = {}) {
+    if (!(key in GLOBAL_STRATEGY_FILTERS)) return;
+    globalStrategyFilters[key] = Boolean(selected);
+    if (syncUrl) {
+      const target = appendGlobalStrategyFilters(new URL(window.location.href));
+      window.history.replaceState({}, "", `${target.pathname}${target.search}${target.hash}`);
+    }
+  }
+  function withGlobalStrategyFilters(href, extra = {}) {
+    const target = appendGlobalStrategyFilters(new URL(href, window.location.href));
+    Object.entries(extra).forEach(([key, value]) => {
+      if (value === null || value === undefined || value === "") target.searchParams.delete(key);
+      else target.searchParams.set(key, String(value));
+    });
+    return target.href;
+  }
+  function strategyFilterFacts(row) {
+    const clean = (value) => String(value || "").trim();
+    const stopped = Number(row?.是否历史接口留档 || 0) === 1
+      || Number(row?.是否已停止 || 0) === 1
+      || /已停止|已终止|已下架|已清盘|期满|已止盈|非对客或已结束|stopped/i.test(
+        [row?.策略治理状态, row?.运作状态, row?.天天展示状态].filter(Boolean).join(" ")
+      );
+    return {
+      benchmark: clean(row?.有基准) ? row.有基准 === "是" : Boolean(clean(row?.业绩基准 || row?.业绩基准说明)),
+      performance: clean(row?.有业绩走势) ? row.有业绩走势 === "是" : Boolean(clean(row?.最新业绩日期 || row?.收益数据截至)),
+      history: clean(row?.有历史仓位) ? row.有历史仓位 === "是" : Number(row?.完整历史仓位快照数 || row?.完整调仓后仓位数 || 0) > 0,
+      active: clean(row?.对客未终止) ? row.对客未终止 === "是" : !stopped,
+    };
+  }
+  function matchesGlobalStrategyFilters(row, filters = globalStrategyFilters) {
+    const facts = strategyFilterFacts(row);
+    return Object.entries(GLOBAL_STRATEGY_FILTERS).every(([key]) => !filters[key] || facts[key]);
+  }
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement("script");
@@ -335,12 +438,12 @@ window.BasicData = (() => {
     observer.observe(document.body, { childList: true, subtree: true });
   }
   const chartColors = {
-    "披露业绩": "#d32f2f",
-    "模拟业绩": "#1565c0",
-    "基准业绩": "#2e7d32",
-    "沪深300业绩": "#6a1b9a",
-    "调仓前仓位模拟": "#f57c00",
-    "调仓后仓位实际": "#00897b"
+    "披露业绩": "#B86B3E",
+    "模拟业绩": "#4F7888",
+    "基准业绩": "#3F7B56",
+    "沪深300业绩": "#756B8B",
+    "调仓前仓位模拟": "#A77A38",
+    "调仓后仓位实际": "#4D8079"
   };
   function colorForSeries(name) {
     if (chartColors[name]) return chartColors[name];
@@ -581,5 +684,5 @@ window.BasicData = (() => {
     hidePageLoading();
     scheduleInternalTestNotice();
   });
-  return { state, byId, esc, fmt, pct, pctSigned, valueHtml, toneClass, statusBadge, label, table, valueList, metricValue, metric, params, loadScript, showPageLoading, updatePageLoading, hidePageLoading, ensureInternalTestNotice, drawReturnChart, isDerivedField, fieldSourceText, showInfoModal, showHtmlModal, pageQualityIssues, renderGlobalQualityGate };
+  return { state, byId, esc, fmt, pct, pctSigned, valueHtml, toneClass, statusBadge, label, table, valueList, metricValue, metric, params, loadScript, showPageLoading, updatePageLoading, hidePageLoading, ensureInternalTestNotice, drawReturnChart, isDerivedField, fieldSourceText, showInfoModal, showHtmlModal, pageQualityIssues, renderGlobalQualityGate, strategyListHeaders, strategyListFieldGroups, strategyListInstitutionField, strategyInstitutionText, strategyListHeaderLabel, globalStrategyFilters, globalStrategyFilterDefinitions: GLOBAL_STRATEGY_FILTERS, hasExplicitGlobalStrategyFilters, setGlobalStrategyFilter, withGlobalStrategyFilters, strategyFilterFacts, matchesGlobalStrategyFilters };
 })();

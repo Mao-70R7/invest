@@ -425,8 +425,8 @@
     return ["策略代码", "披露策略类型", "披露风险等级", "建议持有时长", "起投金额", "标签", "策略概念"].map((name) => ({ 字段: name, 值: byName[name] ?? "未披露" }));
   }
   function classificationInfoRows() {
-    const names = ["研报产品类型", "研报股票子类型", "研报分类依据", "风险等级", "权益风险档", "波动风险档", "回撤风险档", "风险触发指标", "风险分类依据", "业务分类", "业务分类依据", "业务组合分类", "业务分类标签", "天天展示状态", "天天当前对客展示", "天天上架生命周期", "天天展示判定依据", "基准权益分档", "基准权益分档说明", "基准风险资产权重", "权益中枢", "固收中枢", "基准风险资产中枢", "海外配置中枢", "指数化程度", "主动管理程度", "风险资产偏离", "配置风格标签", "市场地域", "主动被动", "特殊标签", "策略实现标签", "权益基金权重", "债券基金权重", "货币基金权重", "混合基金权重", "QDII权重", "指数基金权重", "主动基金权重", "基准权益权重", "基准债券权重", "基准货币权重", "基准结构类型", "非权益比较轨道", "正式可比池", "可比池样本资格", "可比池说明", "基准互斥权重合计_百分比", "基准港股权益权重", "基准海外权益权重", "是否多元策略", "多元策略标签", "基准映射置信度", "基准资产已映射权重", "基准资产未映射权重", "基准资产大类-权益", "基准资产大类-债券", "基准资产大类-现金", "基准资产大类-商品", "基准资产大类-另类", "基准资产大类-其他", "基准资产类别-A股", "基准资产类别-港股", "基准资产类别-海外权益", "基准资产类别-债券", "基准资产类别-商品", "基准资产类别-现金", "基准资产类别-其他", "基准可用状态", "基础数据等级", "分类依据"];
-    return names.map((name) => ({ 字段: name, 值: name === "基准权益分档" ? (classificationMap.基准权益分档 || classificationMap.广义权益分档 || classificationMap.基准权益分类档 || "未披露") : (classificationMap[name] ?? "未披露") }));
+    const names = ["研报产品类型", "研报股票子类型", "研报分类依据", "风险等级", "权益风险档", "波动风险档", "回撤风险档", "风险触发指标", "风险分类依据", "业务分类", "业务分类依据", "业务组合分类", "业务分类标签", "天天展示状态", "天天当前对客展示", "天天上架生命周期", "天天展示判定依据", "基准风险资产权重", "基准风险资产权重_百分比", "基准风险资产权重说明", "权益中枢", "固收中枢", "基准风险资产中枢", "海外配置中枢", "指数化程度", "主动管理程度", "风险资产偏离", "配置风格标签", "市场地域", "主动被动", "特殊标签", "策略实现标签", "权益基金权重", "债券基金权重", "货币基金权重", "混合基金权重", "QDII权重", "指数基金权重", "主动基金权重", "基准权益权重", "基准债券权重", "基准货币权重", "基准结构类型", "非权益比较轨道", "正式可比池", "可比池样本资格", "可比池说明", "基准互斥权重合计_百分比", "基准港股权益权重", "基准海外权益权重", "是否多元策略", "多元策略标签", "基准映射置信度", "基准资产已映射权重", "基准资产未映射权重", "基准资产大类-权益", "基准资产大类-债券", "基准资产大类-现金", "基准资产大类-商品", "基准资产大类-另类", "基准资产大类-其他", "基准资产类别-A股", "基准资产类别-港股", "基准资产类别-海外权益", "基准资产类别-债券", "基准资产类别-商品", "基准资产类别-现金", "基准资产类别-其他", "基准可用状态", "基础数据等级", "分类依据"];
+    return names.map((name) => ({ 字段: name, 值: name === "基准风险资产权重" ? (classificationMap.基准风险资产权重 || "未披露") : (classificationMap[name] ?? "未披露") }));
   }
   function classChip(labelName, value, main = false) {
     return `<div class="class-chip ${main ? "is-main" : ""}"><span>${B.label(labelName)}</span><strong>${B.valueHtml(labelName, value)}</strong></div>`;
@@ -436,7 +436,7 @@
   }
   function classificationSummary() {
     const holdingWeights = ["权益基金权重", "债券基金权重", "货币基金权重", "QDII权重", "指数基金权重", "主动基金权重"];
-    const benchmarkWeights = ["基准风险资产权重", "基准权益权重", "基准债券权重", "基准货币权重", "基准资产大类-商品", "基准资产大类-另类"];
+    const benchmarkWeights = ["基准风险资产权重_百分比", "基准权益权重", "基准债券权重", "基准货币权重", "基准资产大类-商品", "基准资产大类-另类"];
     return `<div class="classification-summary">
       <div class="class-chip-grid">
         ${classChip("研报产品类型", classificationMap.研报产品类型 || detail.summary.研报产品类型, true)}
@@ -445,7 +445,7 @@
         ${classChip("业务分类", classificationMap.业务分类 || detail.summary.业务分类)}
         ${classChip("天天当前对客展示", classificationMap.天天当前对客展示 || detail.summary.天天当前对客展示)}
         ${classChip("天天展示状态", classificationMap.天天展示状态)}
-        ${classChip("基准权益分档", classificationMap.基准权益分档 || classificationMap.广义权益分档 || classificationMap.基准权益分类档)}
+        ${classChip("基准风险资产权重", classificationMap.基准风险资产权重)}
         ${classChip("配置风格标签", classificationMap.配置风格标签)}
         ${classChip("非权益比较轨道", classificationMap.非权益比较轨道)}
         ${classChip("正式可比池", classificationMap.正式可比池)}
@@ -464,12 +464,12 @@
     </div>`;
   }
   function benchmarkAssetStructure() {
-    const metaFields = ["基准权益分档", "基准权益分档说明", "非权益比较轨道", "正式可比池", "可比池样本资格", "基准映射置信度"];
+    const metaFields = ["基准风险资产权重", "基准风险资产权重说明", "非权益比较轨道", "正式可比池", "可比池样本资格", "基准映射置信度"];
     const majorFields = ["基准资产大类-权益", "基准资产大类-债券", "基准资产大类-现金", "基准资产大类-商品", "基准资产大类-另类", "基准资产大类-其他"];
     const categoryFields = ["基准资产类别-A股", "基准资产类别-港股", "基准资产类别-海外权益", "基准资产类别-债券", "基准资产类别-商品", "基准资产类别-现金", "基准资产类别-其他"];
     const coverageFields = ["基准互斥权重合计_百分比", "基准港股权益权重", "基准海外权益权重", "基准资产已映射权重", "基准资产未映射权重"];
     return `<div class="classification-summary benchmark-asset-summary">
-      <div class="class-chip-grid">${metaFields.map((name) => classChip(name, name === "基准权益分档" ? (classificationMap.基准权益分档 || classificationMap.广义权益分档 || classificationMap.基准权益分类档) : classificationMap[name])).join("")}</div>
+      <div class="class-chip-grid">${metaFields.map((name) => classChip(name, classificationMap[name])).join("")}</div>
       <div class="class-section-title">资产大类</div>
       <div class="class-metric-grid">${majorFields.map((name) => classMetric(name, classificationMap[name])).join("")}${coverageFields.map((name) => classMetric(name, classificationMap[name])).join("")}</div>
       <div class="class-section-title">资产类别</div>
@@ -562,6 +562,14 @@
       ${overviewFact("投顾费率", profileMap.投顾费率 || detail.summary.年化投顾费率 || "未披露")}
       ${overviewFact("策略分类", strategyClass, true)}
       ${overviewFact("业绩基准", benchmark, true)}
+    </div>`;
+  }
+  function ownershipFacts() {
+    const channel = profileMap.渠道 || detail.summary.渠道 || "未披露";
+    const manager = profileMap.投顾机构 || detail.summary.投顾机构 || "未披露";
+    return `<div class="strategy-ownership-facts" aria-label="策略销售与管理信息">
+      <div><span>销售渠道</span><strong>${B.esc(channel)}</strong></div>
+      <div><span>投顾管理人</span><strong>${B.esc(manager)}</strong></div>
     </div>`;
   }
   function primaryMetricCard(labelName, fieldName, options = {}) {
@@ -1317,14 +1325,14 @@
 
   function otherInformationSection() {
     const secondaryModules = [governanceSection(), targetSeriesSection(), signalSection(), entityGraphSection()].filter(Boolean).join("");
-    const benchmarkBucket = classificationMap.基准权益分档 || classificationMap.广义权益分档 || classificationMap.基准权益分类档 || "未披露";
+    const benchmarkBucket = classificationMap.基准风险资产权重 || "未披露";
     return `<section id="strategy-more" class="panel strategy-section strategy-more-section">
       <div class="panel-head strategy-section-head">
         <div><h2>其他信息</h2><p class="desc">完整分类依据、产品字段、专项分析和穿透口径默认折叠。</p></div>
       </div>
       <div class="strategy-more-list">
         <details class="strategy-more-block">
-          <summary><div><strong>策略分类与基准</strong><span>基准权益分档 ${B.esc(benchmarkBucket)}｜${B.esc(profileMap.业绩基准 || detail.summary.业绩基准 || "基准未披露")}</span></div></summary>
+          <summary><div><strong>策略分类与基准</strong><span>基准风险资产权重 ${B.esc(benchmarkBucket)}｜${B.esc(profileMap.业绩基准 || detail.summary.业绩基准 || "基准未披露")}</span></div></summary>
           <div class="strategy-more-body">
             <div class="profile-block classification-block"><h3>分类影响指标</h3>${classificationSummary()}</div>
             <div class="profile-block benchmark-asset-block"><h3>基准资产结构</h3>${benchmarkAssetStructure()}</div>
@@ -1380,17 +1388,18 @@
       <div class="strategy-identity-row">
         <div class="strategy-identity">
           <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${isStoppedSummary() ? `<span class="strategy-lifecycle-badge is-stopped">${B.esc(isLegacyArchive ? "历史接口留档" : "已下架")}</span>` : ""}${B.statusBadge(detail.summary.数据完整性)}</div>
-          <p>${B.esc(profileMap.投顾机构 || detail.summary.投顾机构 || "投顾机构未披露")}</p>
+          <p>销售渠道 ${B.esc(profileMap.渠道 || detail.summary.渠道 || "未披露")} ｜ 投顾管理人 ${B.esc(profileMap.投顾机构 || detail.summary.投顾机构 || "未披露")}</p>
         </div>
         <div class="strategy-status-list ${isStoppedSummary() ? "is-stopped" : ""}">
           <span>对客 ${B.esc(classificationMap.天天当前对客展示 || detail.summary.天天当前对客展示 || "未披露")}</span>
           <span>${B.esc(detail.summary.运作状态 || "运作状态未披露")}</span>
           <span>${B.esc(classificationMap.研报产品类型 || detail.summary.研报产品类型 || "类型未披露")}</span>
           <span>${B.esc(classificationMap.业务分类 || detail.summary.业务分类 || "业务分类未披露")}</span>
-          <span>${B.esc(classificationMap.基准权益分档 || classificationMap.广义权益分档 || "权益分档未披露")}</span>
+          <span>${B.esc(classificationMap.基准风险资产权重 || "基准风险资产权重未披露")}</span>
         </div>
       </div>
       ${stoppedStrategyBanner()}
+      ${ownershipFacts()}
       ${overviewFacts()}
       ${primaryMetricGrid()}
       <div class="strategy-overview-foot">数据刷新 ${B.esc(dataRefreshTime || "未披露")}｜策略代码 ${B.esc(profileMap.策略代码 || detail.summary.策略代码 || "未披露")}｜页面版本 ${B.esc(window.MinimalPublish?.buildId || "本地完整版")}</div>

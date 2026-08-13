@@ -1,7 +1,12 @@
 $ErrorActionPreference = "Stop"
 
 $packageRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
-$runtimeState = Join-Path $packageRoot ".runtime\processes.json"
+$packageParent = Split-Path -Parent $packageRoot
+$runtimeState = Join-Path $packageParent ".minimal_publish_runtime\processes.json"
+$legacyRuntimeState = Join-Path $packageRoot ".runtime\processes.json"
+if (-not (Test-Path -LiteralPath $runtimeState) -and (Test-Path -LiteralPath $legacyRuntimeState)) {
+  $runtimeState = $legacyRuntimeState
+}
 if (-not (Test-Path -LiteralPath $runtimeState)) {
   Write-Host "No minimal publish runtime state found."
   exit 0
