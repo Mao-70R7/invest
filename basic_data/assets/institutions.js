@@ -253,7 +253,7 @@
         </article>
       </section>
 
-      <details class="panel institution-method"><summary>统计口径与数据边界</summary><div><p><b>基准风险资产权重：</b>按业绩基准中的权益、商品和另类风险资产合计权重划分 L0—L10；缺基准或无法可靠拆分时保留“未分档”。</p><p><b>有历史仓位：</b>只认基金权重全部精确且合计 99%—101% 的官方历史快照或完整调仓后仓位；发车新增资金分配比例不是存量仓位。</p><p><b>走势：</b>普通调仓与发车信号合并，按日期和策略去重；区间总数为窗口内去重策略数，不是折线点位求和。</p><p><b>投顾管理人缺失：</b>源端未披露时归入“未披露”，不根据策略名称、持仓或销售渠道推断。</p></div></details>`;
+      <details class="panel institution-method"><summary>统计口径与数据边界</summary><div><p><b>基准风险资产权重：</b>按业绩基准中的权益、商品和另类风险资产合计权重划分 L0—L10；缺基准或无法可靠拆分时保留“未分档”。</p><p><b>有历史仓位：</b>只认基金权重全部精确且合计 99%—101% 的官方历史快照或完整调仓后仓位；发车新增资金分配比例不是存量仓位。</p><p><b>走势：</b>普通调仓与发车信号合并，按日期和策略去重；区间总数为窗口内去重策略数，不是折线点位求和。</p><p><b>投顾管理人缺失：</b>源端明确披露管理人时保留披露值；为空或明确标记未披露时，以销售渠道的业务名称兜底。qieman/且慢渠道统一显示为“盈米基金”。</p></div></details>`;
 
     root.querySelectorAll("[data-days]").forEach((button) => button.addEventListener("click", () => { state.days = Number(button.dataset.days); state.selectedDate = ""; render(); }));
     root.querySelectorAll("[data-dimension]").forEach((button) => button.addEventListener("click", () => { state.dimension = button.dataset.dimension; state.selectedDate = ""; render(); }));
