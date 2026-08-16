@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-16T15:00:08+08:00",
+  "generatedAt": "2026-08-17T03:55:57+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 1960,
@@ -45,8 +45,8 @@
     "fundDetailBenchmarkChartCount": 0,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 548515,
-    "holdingSnapshotPublishedRowCount": 128027,
+    "holdingSnapshotSourceRowCount": 548527,
+    "holdingSnapshotPublishedRowCount": 128039,
     "holdingSnapshotStrategyCount": 1868
   },
   "policy": {
