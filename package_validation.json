@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-20T00:39:15+08:00",
+  "generatedAt": "2026-08-20T07:17:02+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 1963,
@@ -9,7 +9,7 @@
     "strategyDetailParseErrorCount": 0,
     "strategyDetailDeclaredIncompleteCount": 209,
     "strategyDetailWithoutHoldingCount": 61,
-    "strategyDetailWithoutCurveCount": 60,
+    "strategyDetailWithoutCurveCount": 59,
     "strategyDetailReferencedFundCount": 6177,
     "selectedFundCount": 0,
     "enhancedFundDetailCount": 0,
@@ -20,7 +20,7 @@
     "strategyDetailSourceCount": 1963,
     "strategyDetailDeclaredCompleteCount": 1754,
     "activeStrategyCount": 1498,
-    "activeStrategyWithoutCurveCount": 58,
+    "activeStrategyWithoutCurveCount": 57,
     "currentHoldingStrategyCount": 1877,
     "currentHoldingFundReferenceCount": 32791,
     "currentHoldingRankMissingReferenceCount": 27,
@@ -28,8 +28,8 @@
     "inactiveCurrentHoldingRankMissingReferenceCount": 5,
     "currentHoldingScaleErrorReferenceCount": 0,
     "historyRebalanceStrategyCount": 1819,
-    "assessedHistoryRebalanceStrategyCount": 1412,
-    "unassessedHistoryRebalanceStrategyCount": 407,
+    "assessedHistoryRebalanceStrategyCount": 1411,
+    "unassessedHistoryRebalanceStrategyCount": 408,
     "officialPerformanceImageReferenceCount": 0,
     "officialPerformanceImageInvalidReferenceCount": 0,
     "officialPerformanceImageMissingSourceAssetCount": 0,
@@ -45,8 +45,8 @@
     "fundDetailBenchmarkChartCount": 0,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 505697,
-    "holdingSnapshotPublishedRowCount": 135998,
+    "holdingSnapshotSourceRowCount": 505841,
+    "holdingSnapshotPublishedRowCount": 135989,
     "holdingSnapshotStrategyCount": 1870
   },
   "policy": {
@@ -75,7 +75,7 @@
     },
     {
       "type": "active_strategy_without_curve",
-      "count": 58,
+      "count": 57,
       "note": "活跃策略没有任何可画曲线时保留真实缺失状态；正常披露策略应为0。"
     },
     {
@@ -87,7 +87,7 @@
     },
     {
       "type": "history_rebalance_unassessed",
-      "count": 407,
+      "count": 408,
       "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
     }
   ]
