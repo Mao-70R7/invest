@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-29T02:29:43+08:00",
+  "generatedAt": "2026-08-30T02:12:33+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 1968,
@@ -8,7 +8,7 @@
     "strategyDetailMissingCount": 0,
     "strategyDetailParseErrorCount": 0,
     "strategyDetailDeclaredIncompleteCount": 208,
-    "strategyDetailWithoutHoldingCount": 61,
+    "strategyDetailWithoutHoldingCount": 62,
     "strategyDetailWithoutCurveCount": 60,
     "strategyDetailReferencedFundCount": 6192,
     "selectedFundCount": 0,
@@ -21,8 +21,8 @@
     "strategyDetailDeclaredCompleteCount": 1760,
     "activeStrategyCount": 1502,
     "activeStrategyWithoutCurveCount": 58,
-    "currentHoldingStrategyCount": 1882,
-    "currentHoldingFundReferenceCount": 32885,
+    "currentHoldingStrategyCount": 1881,
+    "currentHoldingFundReferenceCount": 32855,
     "currentHoldingRankMissingReferenceCount": 28,
     "activeCurrentHoldingRankMissingReferenceCount": 23,
     "inactiveCurrentHoldingRankMissingReferenceCount": 5,
@@ -33,10 +33,10 @@
     "officialPerformanceImageReferenceCount": 0,
     "officialPerformanceImageInvalidReferenceCount": 0,
     "officialPerformanceImageMissingSourceAssetCount": 0,
-    "currentHolding近一月RankedReferenceCount": 32857,
-    "currentHolding近三月RankedReferenceCount": 32857,
-    "currentHolding近6月RankedReferenceCount": 32857,
-    "currentHolding近1年RankedReferenceCount": 32857,
+    "currentHolding近一月RankedReferenceCount": 32827,
+    "currentHolding近三月RankedReferenceCount": 32827,
+    "currentHolding近6月RankedReferenceCount": 32827,
+    "currentHolding近1年RankedReferenceCount": 32827,
     "officialPerformanceImagePublishedAssetCount": 0,
     "officialPerformanceImageMissingPublishedAssetCount": 0,
     "fundDetailParsedCount": 0,
@@ -45,9 +45,9 @@
     "fundDetailBenchmarkChartCount": 0,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 515884,
-    "holdingSnapshotPublishedRowCount": 136055,
-    "holdingSnapshotStrategyCount": 1873
+    "holdingSnapshotSourceRowCount": 515804,
+    "holdingSnapshotPublishedRowCount": 135963,
+    "holdingSnapshotStrategyCount": 1872
   },
   "policy": {
     "blockingZeroChecks": [
