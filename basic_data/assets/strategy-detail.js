@@ -32,6 +32,7 @@
   const snapshots = detail.positionSnapshots || [];
   const signalEvents = detail.signalEvents || [];
   const signalSummary = detail.signalSummary || {};
+  const targetProfit = detail.targetProfit || {};
   const globalBenchmarks = B.state.summary?.globalBenchmarks || [];
   const officialCurvePoints = detail.curves?.披露业绩?.points || [];
   const simulatedCurvePoints = detail.curves?.模拟业绩?.points || [];
@@ -102,7 +103,11 @@
     "历史发车信号": "信号类策略的历史发车、买入、卖出、加仓、减仓指令。每次信号按基金级权重变化拆成局部调仓，并用基金后续收益评价指令方向。",
     "信号胜率": "买入/加仓后基金上涨判为胜，卖出/减仓后基金下跌判为胜；净值或观察期不足的指令不进入分母。",
     "信号加权方向收益": "按基金指令调整强度加权的方向收益。买入/加仓取基金区间收益，卖出/减仓取基金区间收益的相反数。",
-    "权重变化_百分点": "该基金在本次信号中的调后权重减调前权重。正值代表买入或加仓，负值代表卖出或减仓。"
+    "权重变化_百分点": "该基金在本次信号中的调后权重减调前权重。正值代表买入或加仓，负值代表卖出或减仓。",
+    "当前运作状态": "目标盈期次当前所处业务阶段。认购期、冷静期、运作期和止盈观察期优先采用天天源端阶段及日期组合判定。",
+    "止盈观察起始日": "进入目标收益观察机制的计划起始日期，不代表已经达到止盈条件。",
+    "计划运作结束日": "产品计划运作周期的结束边界，不等同于实际止盈日或实际清算日。",
+    "实际止盈日": "仅在渠道明确披露实际止盈日期时展示；不得用计划运作结束日推断。"
   });
   const fundPack = window.__BASIC_DATA__?.fundDetailPack || {};
   const fundFields = fundPack.fundFields || [];
@@ -564,6 +569,86 @@
       ${overviewFact("策略分类", strategyClass, true)}
       ${overviewFact("业绩基准", benchmark, true)}
     </div>`;
+  }
+  function targetProfitBoolean(value) {
+    if (value === null || value === undefined || value === "") return "未披露";
+    return flagOn(value) ? "是" : "否";
+  }
+  function isTargetProfitStrategy() {
+    const summary = detail.summary || {};
+    return flagOn(targetProfit.是否目标盈)
+      || flagOn(summary.是否目标盈期次)
+      || summary.业务分类 === "目标盈系列产品";
+  }
+  function targetProfitFact(labelName, value, options = {}) {
+    const display = options.percent && !isBlank(value)
+      ? B.pct(value)
+      : options.boolean
+        ? targetProfitBoolean(value)
+        : (isBlank(value) ? "未披露" : B.esc(value));
+    return `<div class="target-profit-operation-fact ${options.wide ? "is-wide" : ""}">
+      <span>${B.label(labelName)}</span>
+      <strong>${display}</strong>
+    </div>`;
+  }
+  function targetProfitOperationSection() {
+    if (!isTargetProfitStrategy()) return "";
+    const hasOperationData = flagOn(targetProfit.是否目标盈) || Object.keys(targetProfit).length > 2;
+    if (!hasOperationData) {
+      return `<section id="strategy-target-profit" class="panel strategy-section target-profit-operation-section is-missing">
+        <div class="panel-head strategy-section-head">
+          <div><h2>目标盈运作信息</h2><p class="desc">已识别为目标盈系列产品，但当前详情包尚无可核验的期次运作字段。</p></div>
+          <span class="pill">待补采</span>
+        </div>
+        <div class="target-profit-operation-note">页面不根据产品名称推断认购期、观察期、计划结束日或实际止盈日。</div>
+      </section>`;
+    }
+    const currentStatus = targetProfit.当前运作状态 || detail.summary.运作状态 || "未披露";
+    const confirmationParts = [
+      ["买入确认", targetProfit.买入确认天数],
+      ["收益确认", targetProfit.收益确认天数],
+      ["赎回确认", targetProfit.赎回确认天数],
+      ["现金到账", targetProfit.现金到账天数],
+    ].filter(([, value]) => !isBlank(value)).map(([labelName, value]) => `${labelName}${value}天`);
+    const stageFacts = [
+      ["认购开始日期", targetProfit.认购开始日期],
+      ["认购结束日期", targetProfit.认购结束日期],
+      ["起始运作日期", targetProfit.起始运作日期],
+      ["止盈观察起始日", targetProfit.止盈观察起始日],
+      ["计划运作结束日", targetProfit.计划运作结束日],
+      ["实际止盈日", targetProfit.实际止盈日],
+    ];
+    return `<section id="strategy-target-profit" class="panel strategy-section target-profit-operation-section">
+      <div class="panel-head strategy-section-head">
+        <div>
+          <p class="target-profit-operation-eyebrow">TARGET PROFIT LIFECYCLE</p>
+          <h2>目标盈运作信息</h2>
+          <p class="desc">按期次展示认购、运作、止盈观察和计划结束边界。</p>
+        </div>
+        <div class="target-profit-operation-status"><span>当前运作状态</span><strong>${B.esc(currentStatus)}</strong></div>
+      </div>
+      <div class="target-profit-operation-facts">
+        ${targetProfitFact("当前运作状态", currentStatus)}
+        ${targetProfitFact("目标止盈收益率", targetProfit.目标止盈收益率_百分比, { percent: true })}
+        ${stageFacts.map(([labelName, value]) => targetProfitFact(labelName, value)).join("")}
+        ${targetProfitFact("建议持有时长", targetProfit.建议持有时长)}
+        ${targetProfitFact("到期是否继续持有", targetProfit.到期是否继续持有, { boolean: true })}
+        ${targetProfitFact("交易确认周期", confirmationParts.join(" · ") || "未披露", { wide: true })}
+      </div>
+      <div class="target-profit-operation-note"><strong>日期边界：</strong>计划运作结束日不代表实际止盈日；实际止盈日未获渠道明确披露时保留“未披露”。</div>
+      <details class="target-profit-operation-source">
+        <summary>查看状态判定与源端字段</summary>
+        ${B.valueList([
+          { 字段: "运作状态判定依据", 值: targetProfit.运作状态判定依据 },
+          { 字段: "源端当前阶段", 值: targetProfit.源端当前阶段 },
+          { 字段: "持仓模块当前阶段", 值: targetProfit.持仓模块当前阶段 },
+          { 字段: "源端停止标记", 值: targetProfitBoolean(targetProfit.源端停止标记) },
+          { 字段: "持仓模块停止标记", 值: targetProfitBoolean(targetProfit.持仓模块停止标记) },
+          { 字段: "源端服务器时间", 值: targetProfit.源端服务器时间 },
+          { 字段: "目标收益口径", 值: targetProfit.目标收益口径 },
+        ])}
+      </details>
+    </section>`;
   }
   function ownershipFacts() {
     const channel = profileMap.渠道 || detail.summary.渠道 || "未披露";
@@ -1407,11 +1492,13 @@
     </section>
     <nav class="strategy-section-nav" aria-label="策略详情页内导航">
       <a class="is-active" data-strategy-section-link href="#strategy-overview">概览</a>
+      ${isTargetProfitStrategy() ? '<a data-strategy-section-link href="#strategy-target-profit">目标盈</a>' : ""}
       <a data-strategy-section-link href="#strategy-performance">业绩</a>
       <a data-strategy-section-link href="#strategy-holding">当前仓位</a>
       <a data-strategy-section-link href="#strategy-rebalance">调仓记录</a>
       <a data-strategy-section-link href="#strategy-more">更多信息</a>
     </nav>
+    ${targetProfitOperationSection()}
     <section id="strategy-performance" class="panel strategy-section strategy-performance-section">
       <div class="panel-head strategy-section-head">
         <div><h2>业绩与风险</h2><p class="desc">收益区间优先采用官方披露，曲线和年度数据用于趋势及相对表现分析。</p></div>
