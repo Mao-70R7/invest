@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildId": "minimal-7205cbca6972",
-  "generatedAt": "2026-09-02T11:53:56+08:00",
+  "buildId": "minimal-0b03b733e6d4",
+  "generatedAt": "2026-09-03T14:00:22+08:00",
   "pageSet": [
     "机构总览",
     "策略列表",
@@ -66,8 +66,8 @@
     "preservedPublishFileCount": 1,
     "preservedPublishBytes": 278034
   },
-  "fileCount": 2025,
-  "totalBytes": 142356138,
+  "fileCount": 2026,
+  "totalBytes": 142370004,
   "files": [
     {
       "path": ".github/workflows/pages.yml",
@@ -96,63 +96,68 @@
     },
     {
       "path": "basic_data/ai-strategy.html",
-      "size": 2703,
-      "sha256": "36d068d9cde6eafe58739685c2becced118a8264ec2beb7a5b961352513ebb92"
+      "size": 2885,
+      "sha256": "fe9bee6cfc33daba8e204079ace9d04b642544293b7bff409d3234ba77f071d7"
     },
     {
       "path": "basic_data/assets/ai-strategy-config.js",
-      "size": 108,
-      "sha256": "48f4e501b96781d98bdbdebf9eebaa15017801b0382d04fcbc199654a927b439"
+      "size": 109,
+      "sha256": "ddb6887e22f4b46a547c319af52a2d2780be8f0b2dfc17c8726424fb204cb0e2"
     },
     {
       "path": "basic_data/assets/ai-strategy.js",
-      "size": 260872,
-      "sha256": "83d3f1325f5cce0add05e4d3eeb35e2b15f3c005e8fbf7603b7c096941d4252b"
+      "size": 264482,
+      "sha256": "2b49ba945154e90f34e0cfa671146fad66cb226034e348614d5c74120ce66f9d"
     },
     {
       "path": "basic_data/assets/basic-common.js",
-      "size": 48291,
-      "sha256": "e385a49b48997a63f97083a73cfd109944cd68f2989f9af277f59d9b8d79c02b"
+      "size": 48556,
+      "sha256": "3f62397a094ce5fefe411602fa42ce3084ca537f7b5a2bf77d7ad500076c9b00"
     },
     {
       "path": "basic_data/assets/basic.css",
-      "size": 225560,
-      "sha256": "40adfe562b4afcbec487fa57fa04561c4daabdfada376469fe0565a93b997a16"
+      "size": 227204,
+      "sha256": "793d4ca8f61bd937427a83032c5cbb47a841acd14db5bd42c794ebe9dd61774a"
     },
     {
       "path": "basic_data/assets/insights.js",
-      "size": 358061,
-      "sha256": "53f5170a3632a50812d202d48ebf65bbaade0fb1e30100d7960b0be266cfb560"
+      "size": 358745,
+      "sha256": "afe801497c46940800551b74c8b4dab92d36ed67134d7879ab7769151bf834bb"
     },
     {
       "path": "basic_data/assets/institutions.js",
-      "size": 20859,
-      "sha256": "51989a511a9935c4b99f960dbf2eabc5ba6a213f3ef615fd901c621e541319d9"
+      "size": 21148,
+      "sha256": "a8c88c1cd13df1fa6a0a207f81c993d43df3d1db614963c28f4b4bc11669000c"
     },
     {
       "path": "basic_data/assets/minimal-publish-runtime.js",
-      "size": 7740,
-      "sha256": "acb890e234b0d9d46a7b0bb73107465fb8fb9d43d3d9d3e72d2884f155f47826"
+      "size": 7928,
+      "sha256": "ca8d7c24d7dd89a7baaab9db776459796e0a716318da1f38c376694ed3021f90"
     },
     {
       "path": "basic_data/assets/mixed-performance-scatter.js",
-      "size": 135326,
-      "sha256": "7f2c4a50a015b2f896e2a5c82f5998fd7fb55f6f24b172e50c51a47abe6a8f73"
+      "size": 137918,
+      "sha256": "88a0a2374ce490c3304fbad69575eb256fb7f79294b5e06df108f6edcf1cc241"
     },
     {
       "path": "basic_data/assets/strategies.js",
-      "size": 30595,
-      "sha256": "662201a30cf69a96fb3b46527cc747136cd6c1c14e4ddabe8b6bc13090db832c"
+      "size": 31159,
+      "sha256": "adf0992e323a3b6f851c5d66cc6dc48a8356e6f7f932ab43c9f192ce2766980e"
     },
     {
       "path": "basic_data/assets/strategy-detail.js",
-      "size": 92205,
-      "sha256": "0753c44709e1e46e999afe4a9931b6419a7bc480fc736762fdcb09d4f888d3b8"
+      "size": 93511,
+      "sha256": "c4b956cccb2e03f5565fa13b62f0af64a48d3c56652d5951ec8417fe925f054d"
+    },
+    {
+      "path": "basic_data/assets/tianyan-navigation.css",
+      "size": 1116,
+      "sha256": "0870f1c8ced6a7b7a810407a78a416d749d09e5bd311f84de31c9dd67e5b63d5"
     },
     {
       "path": "basic_data/compare.html",
-      "size": 2251,
-      "sha256": "47a40ad00ebe003f36342b3e508953eb2cb0404da824f6e7e6d97888e9dc9f68"
+      "size": 2433,
+      "sha256": "830d41bf385abacc34c4c20dd9e74b27a537e2b4df16f170b0068f1426e1ee76"
     },
     {
       "path": "basic_data/config/ai-strategy-local-config.js",
@@ -10076,38 +10081,38 @@
     },
     {
       "path": "basic_data/index.html",
-      "size": 793,
-      "sha256": "17e0f8f8642d8799225a7f4c85cd052ec885006de159320314e3c3e7d08e726d"
+      "size": 775,
+      "sha256": "6d1d39243cd7b2809c65973f8db2895a2a0305b1f3d0e7307908d5e6fbc12a0f"
     },
     {
       "path": "basic_data/institutions.html",
-      "size": 2236,
-      "sha256": "27d1b574a2a721be03095f47eacb78efc11b3b398e07344434dbdb068da7f5e2"
+      "size": 2418,
+      "sha256": "6c9d1f6d6f30b49c83bf7fa7b3d4655e8ff0ac46b3274acd0f79c7208b695621"
     },
     {
       "path": "basic_data/mixed-performance-scatter.html",
-      "size": 2342,
-      "sha256": "aa6f39ea53bf3e41b029be789cfc4bb1d6fe1cc03124b046db7ae43aefb35451"
+      "size": 2512,
+      "sha256": "524630640b72b725028ae079c0ec4fa6cdf5d9ffde4cd0c1bc5bbc51509f196a"
     },
     {
       "path": "basic_data/strategies.html",
-      "size": 2239,
-      "sha256": "66b90863539446891575a8c2bfa912a472d6407f053aa0629f21bc30d7d231ff"
+      "size": 2421,
+      "sha256": "8f4b2ed5b3d8e563a794a8069168a40dd3ea6aeee804c9412b753dd037397f2e"
     },
     {
       "path": "basic_data/strategy.html",
-      "size": 2296,
-      "sha256": "be4e35d57f7ff71fba9746504a111bb4281d05f131577249e494f33ea623d206"
+      "size": 2478,
+      "sha256": "f90e30ce6f2bb4485b28bff2e3315841a5a261f16505652ecc79e9841df7e64d"
     },
     {
       "path": "index.html",
-      "size": 815,
-      "sha256": "071ca419fa2482edcda366d5ecdf271e851d8520788275e730f9607d09129377"
+      "size": 797,
+      "sha256": "3ba87d63be870e43a9d05118f19b5b88413d35d6c8fb067db1409df04fb24bb4"
     },
     {
       "path": "package_validation.json",
-      "size": 3670,
-      "sha256": "f466cd42267b0b18c46738d7013f97ab59b791444e1881169ddbcb31c45ed01c"
+      "size": 3778,
+      "sha256": "b08d9d42021ea00d4f1ad34ddafc2a4b1128716e26c8a624d929867c0b42882b"
     },
     {
       "path": "README.md",
@@ -10121,18 +10126,18 @@
     },
     {
       "path": "scripts/ai_strategy_codex_proxy.mjs",
-      "size": 8519,
-      "sha256": "9eba22ae40f6174da588e6ba0157ceed413ba6658f34d0d52e71af09c029c2c9"
+      "size": 8755,
+      "sha256": "fbc1777f405f4516a0bd5299f4cc9cf99f68e652cad45ec040c0f14c7ea04a97"
     },
     {
       "path": "scripts/install_ai_strategy_codex_proxy_startup.cmd",
-      "size": 156,
-      "sha256": "b9a5bbbd2bdeefc7407ab9450e9d5acc7fb7e6dcbfbf1220c3cfc8afc7e10836"
+      "size": 161,
+      "sha256": "bba6982654268fb6ab77d0a728b9ab79d20bd986e3f7e6e66afae7922884a8a0"
     },
     {
       "path": "scripts/install_ai_strategy_codex_proxy_startup.ps1",
-      "size": 1320,
-      "sha256": "cbc215c7b9baa20743fabb4eab097b32159626c2dc0f70a91fbb6dc6f0edf07f"
+      "size": 1356,
+      "sha256": "852350602b19434105a19dd4045589c426a4a9a88a2628e9b8cceb00bc3bb8aa"
     },
     {
       "path": "scripts/serve_basic_data_site.py",
@@ -10141,48 +10146,48 @@
     },
     {
       "path": "scripts/start_ai_strategy_codex_proxy.cmd",
-      "size": 146,
-      "sha256": "890ccf26c985f19cfb23b342dec2e9fd784d0166ccf57fc265113bdfc654c3e2"
+      "size": 151,
+      "sha256": "9f01ea0dc8a1be0993d822c026584deb9b57fd23c28f4615baa494a02c863019"
     },
     {
       "path": "scripts/start_ai_strategy_codex_proxy.ps1",
-      "size": 1874,
-      "sha256": "5a8b5c99c87abc270eb2306d49230f02378d2dab24b861b57b5a47a44002500c"
+      "size": 1927,
+      "sha256": "b663ff4802c849497ce855918d81bca0eb686035b32f0db23ac170109f497913"
     },
     {
       "path": "scripts/start_minimal_publish.cmd",
-      "size": 117,
-      "sha256": "943ce82b931fe96c733b463718f7c1edd3bdaabd2702f8597c35aea556872aa0"
+      "size": 121,
+      "sha256": "22b052155d291c96bddb8d16ce60fed6bad80e300ce41ac41c1a7265dd531f05"
     },
     {
       "path": "scripts/start_minimal_publish.ps1",
-      "size": 2943,
-      "sha256": "27ab23d7d1d3d3fafd7aa7f1ac3a2cfe0780c4872b9b200b9c832789d0ed2f18"
+      "size": 3014,
+      "sha256": "19cf1aa0007d46b847d8ed78292d29ed6f9fdc0bc06f7269009d35a51a582643"
     },
     {
       "path": "scripts/stop_minimal_publish.cmd",
-      "size": 116,
-      "sha256": "1417283b8157b309722b6bc1a3fc9a7e23ef154b5ae54e1b640a97aa5df36221"
+      "size": 120,
+      "sha256": "0fdf6d4f814874f2dfe3a71d782aa4c19e2985ec9f6cf08f0a709aa478a11a44"
     },
     {
       "path": "scripts/stop_minimal_publish.ps1",
-      "size": 932,
-      "sha256": "4945cd33546442ede2cdda496871146bb3bfe06a6baf796f478f84594b07fdb6"
+      "size": 954,
+      "sha256": "8871fca4bdb3552cbd6c6ac58666e42e1c1f5264886737f479deafab285b688c"
     },
     {
       "path": "scripts/uninstall_ai_strategy_codex_proxy_startup.cmd",
-      "size": 158,
-      "sha256": "7c8d446d1f9ce08517ccb6042ea3925ede135e7b03293573a737b64d5f14d3d3"
+      "size": 163,
+      "sha256": "9a5a5ef28dfdbe43de5d381dc8d31c788968b60e68e64c88e086591c2a0a9244"
     },
     {
       "path": "scripts/uninstall_ai_strategy_codex_proxy_startup.ps1",
-      "size": 356,
-      "sha256": "cbb575e7a4d7e331862e001de998520b9e1713ad0420c00e29d42a80be8fb50e"
+      "size": 370,
+      "sha256": "53bf61df920d853fd0f98e89bc249c44716c7fb5ebc5753b4510725e9f7cb85d"
     },
     {
       "path": "version.json",
       "size": 151,
-      "sha256": "540a4f4da83457a4d6c7c98eab11339934dce7bb2ac99a73cb92f7615f17cdd0"
+      "sha256": "615b7095dc4b5f1485c28ad6db138a728faf1dd74eb54f57e61b209cd87fb4e4"
     },
     {
       "path": "停止最小发布集.cmd",
@@ -10194,5 +10199,10 @@
       "size": 58,
       "sha256": "fde8860405e951900cdc0080196dc927fb16da60ffe7464e5d2c068490a4fac5"
     }
+  ],
+  "dataBuildId": "minimal-7205cbca6972",
+  "systemName": "天眼投顾",
+  "protectedPaths": [
+    "private_fund"
   ]
 }

@@ -90,5 +90,7 @@
       "count": 293,
       "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
     }
-  ]
+  ],
+  "presentationRefreshedAt": "2026-09-03T14:00:22+08:00",
+  "presentationChangeType": "navigation_brand"
 }
