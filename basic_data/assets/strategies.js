@@ -15,6 +15,10 @@
     incomingGlobalFiltersActive: Boolean(B.hasExplicitGlobalStrategyFilters),
     selectedIds: new Set(),
     selectionNotice: "",
+    scatterX: "近1年",
+    scatterY: "最大回撤",
+    scatterFocus: true,
+    scatterSelectedId: "",
   };
   const compareMaxCount = 5;
   const returnHeaders = B.strategyListFieldGroups.returns;
@@ -27,6 +31,7 @@
   const riskOrder = ["R0 现金/超低波", "R1 低波", "R2 稳健收益", "R3 均衡稳健", "R4 均衡成长", "R5 权益/进取"];
   const reportTypeOrder = ["纯债型", "固收+型", "股债混合型", "股票型", "多元配置型"];
   const benchmarkBucketOrder = Array.from({ length: 11 }, (_, index) => `L${index}`);
+  let scatterObserver = null;
 
   function formatDataSyncTime(value) {
     const text = String(value || "").trim();
@@ -72,11 +77,64 @@
   }
 
   function filterControl(label, html, hint) {
-    return `<label class="strategy-filter-field">
+    const tag = html.startsWith("<details") ? "div" : "label";
+    return `<${tag} class="strategy-filter-field">
       <span>${B.esc(label)}</span>
       ${html}
       <em>${B.esc(hint)}</em>
-    </label>`;
+    </${tag}>`;
+  }
+
+  function multiSelect(id, label, values) {
+    return `<details id="${id}" class="strategy-multi" data-multi-filter data-label="${B.esc(label)}">
+      <summary class="control" aria-label="${B.esc(label)}多选"><span>全部${B.esc(label)}</span><b aria-hidden="true">⌄</b></summary>
+      <div class="strategy-multi-menu"><input class="control strategy-multi-search" type="search" placeholder="搜索${B.esc(label)}" aria-label="搜索${B.esc(label)}选项">
+        <button type="button" class="strategy-multi-clear">清空选择 / 全部</button>
+        <div class="strategy-multi-options">${values.map(value => `<label><input type="checkbox" value="${B.esc(value)}"><span>${B.esc(value)}</span></label>`).join("")}</div>
+        <small>同一字段满足任一已选值即可</small></div></details>`;
+  }
+
+  function multiValues(id) {
+    return [...B.byId(id).querySelectorAll('input[type="checkbox"]:checked')].map(input => input.value);
+  }
+
+  function updateMultiLabel(id) {
+    const control = B.byId(id), values = multiValues(id);
+    const label = values.length ? `${values.slice(0, 2).join("、")}${values.length > 2 ? ` 等 ${values.length} 项` : ""}` : `全部${control.dataset.label}`;
+    control.querySelector("summary span").textContent = label;
+    control.querySelector("summary").title = values.join("、") || label;
+  }
+
+  function setMultiValues(id, values) {
+    B.byId(id).querySelectorAll('input[type="checkbox"]').forEach(input => { input.checked = values.includes(input.value); });
+    updateMultiLabel(id);
+  }
+
+  function bindMultiSelects() {
+    root.querySelectorAll("[data-multi-filter]").forEach(control => {
+      control.addEventListener("change", event => {
+        if (event.target.type !== "checkbox") return;
+        updateMultiLabel(control.id);
+        resetPageAndRender();
+      });
+      control.querySelector(".strategy-multi-clear").addEventListener("click", () => {
+        setMultiValues(control.id, []);
+        resetPageAndRender();
+      });
+      const search = control.querySelector(".strategy-multi-search");
+      const filterOptions = () => {
+        const term = search.value.trim().toLocaleLowerCase();
+        control.querySelectorAll(".strategy-multi-options label").forEach(label => { label.hidden = !label.textContent.toLocaleLowerCase().includes(term); });
+      };
+      search.addEventListener("input", event => { if (!event.isComposing) filterOptions(); });
+      search.addEventListener("compositionend", filterOptions);
+      control.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !event.isComposing) { control.open = false; control.querySelector("summary").focus(); }
+      });
+    });
+    document.addEventListener("click", event => root.querySelectorAll("[data-multi-filter][open]").forEach(control => {
+      if (!control.contains(event.target)) control.open = false;
+    }));
   }
 
   function isGfStrategy(row) {
@@ -132,6 +190,7 @@
   }
 
   function numberValue(row, field) {
+    if (row[field] === null || row[field] === undefined || String(row[field]).trim() === "" || typeof row[field] === "boolean") return null;
     const value = Number(row[field]);
     return Number.isFinite(value) ? value : null;
   }
@@ -325,7 +384,9 @@
 
   root.innerHTML = `
     <section class="panel">
+      <div class="panel-head"><div><h2>策略产品业绩点阵</h2><p class="desc">一只策略一个点；筛选条件同时作用于点阵和列表。</p></div><span id="strategyScatterCount" class="pill"></span></div>
       <div id="strategyIncomingScope">${incomingScopeHtml()}</div>
+      <details id="strategyFilterDisclosure" class="strategy-filter-disclosure" ${window.matchMedia("(max-width: 680px)").matches ? "" : "open"}><summary>筛选策略 <small id="strategyActiveFilters">全部分类</small></summary>
       <div class="filters strategy-filter-grid">
         ${filterControl("关键词", '<input id="searchInput" class="control" type="search" placeholder="策略、机构、代码、渠道、分类">', "模糊匹配：策略名称、代码、机构、渠道和分类字段")}
         ${filterControl("产品范围", `<select id="productStatusSelect" class="control">
@@ -339,11 +400,11 @@
           <option value="client">对客展示</option>
           <option value="nonClient">非对客/隐藏</option>
         </select>`, "排除明确非对客、隐藏或不展示状态")}
-        ${filterControl("基准风险资产权重", `<select id="benchmarkBucketSelect" class="control"><option value="">全部基准风险资产权重</option>${options(orderedBenchmarkBuckets())}</select>`, "按业绩基准中的权益、商品和另类风险资产合计权重分档；作为策略分类和同类比较的首层口径")}
-        ${filterControl("投顾机构", `<select id="institutionSelect" class="control"><option value="">全部投顾机构</option>${options(unique("投顾机构"))}</select>`, "精确匹配投顾机构")}
+        ${filterControl("基准风险资产权重", multiSelect("benchmarkBucketSelect", "基准风险资产权重", orderedBenchmarkBuckets()), "支持多选，按基准风险资产合计权重 L0—L10 分档")}
+        ${filterControl("投顾机构", multiSelect("institutionSelect", "投顾机构", unique("投顾机构")), "支持多选，精确匹配已选机构")}
         ${filterControl("渠道", `<select id="channelSelect" class="control"><option value="">全部渠道</option>${options(unique("渠道"))}</select>`, "精确匹配数据来源渠道")}
-        ${filterControl("研报产品类型", `<select id="reportTypeSelect" class="control"><option value="">全部研报产品类型</option>${options(orderedUnique("研报产品类型", reportTypeOrder))}</select>`, "投研可比口径：纯债、固收+、股债、股票、多元配置")}
-        ${filterControl("业务分类", `<select id="businessSelect" class="control"><option value="">全部业务分类</option>${options(unique("业务分类"))}</select>`, "运营货架口径，可能比研报产品类型更细")}
+        ${filterControl("研报产品类型", multiSelect("reportTypeSelect", "研报产品类型", orderedUnique("研报产品类型", reportTypeOrder)), "支持多选，按投研可比类型查询")}
+        ${filterControl("业务分类", multiSelect("businessSelect", "业务分类", unique("业务分类")), "支持多选，按运营货架分类查询")}
         ${filterControl("排序", `<select id="sortSelect" class="control">
           <option value="name">按策略名称</option>
           <option value="return">按累计收益率</option>
@@ -370,6 +431,8 @@
           <span><b>广发证券渠道</b> “财富管家”是当前产品目录，投顾机构列显示实际提供服务的基金投顾机构；“贝塔牛理财”是历史接口留档，不等同于当前财富管家产品。</span>
         </div>
       </details>
+      </details>
+      <div id="strategyScatterMount"></div>
       <div class="pager">
         <p id="resultCount" class="desc"></p>
         <div class="pager-controls">
@@ -398,15 +461,140 @@
     </section>
   `;
 
+  function scatterQuantile(values, fraction) {
+    const sorted = values.slice().sort((a, b) => a - b);
+    if (!sorted.length) return null;
+    const position = (sorted.length - 1) * fraction, index = Math.floor(position);
+    return sorted[index] + (sorted[Math.min(index + 1, sorted.length - 1)] - sorted[index]) * (position - index);
+  }
+
+  function renderStrategyScatter(rows) {
+    scatterObserver?.disconnect();
+    const mount = B.byId("strategyScatterMount");
+    const xFields = [...returnHeaders, "近6月", "年化收益"].filter((field, i, list) => list.indexOf(field) === i && allStrategies.some(row => numberValue(row, field) !== null));
+    const yFields = ["最大回撤", "当前回撤", "波动率"];
+    if (!xFields.includes(state.scatterX)) state.scatterX = xFields[0] || "近1年";
+    const points = rows.map(row => {
+      const y = numberValue(row, state.scatterY);
+      return { row, id: String(row.统一策略ID), x: numberValue(row, state.scatterX), y: y === null ? null : Math.abs(y), gf: isGfStrategy(row) };
+    }).filter(point => point.x !== null && point.y !== null);
+    if (!points.some(point => point.id === state.scatterSelectedId)) state.scatterSelectedId = "";
+    const missing = rows.length - points.length;
+    B.byId("strategyScatterCount").textContent = `可绘制 ${points.length.toLocaleString("zh-CN")} · 指标暂缺 ${missing.toLocaleString("zh-CN")}`;
+    const selectOptions = (fields, selected) => fields.map(field => `<option value="${B.esc(field)}" ${field === selected ? "selected" : ""}>${B.esc(field)}${field === "最大回撤" ? "幅度（全历史）" : field === "波动率" ? "（全历史）" : ""}</option>`).join("");
+    mount.innerHTML = `<div class="strategy-scatter-controls">
+      <label>X 轴 · 区间收益<select id="strategyScatterX" class="control">${selectOptions(xFields, state.scatterX)}</select></label>
+      <label>Y 轴 · 风险指标<select id="strategyScatterY" class="control">${selectOptions(yFields, state.scatterY)}</select></label>
+      <div class="strategy-scatter-view"><button id="strategyScatterFocus" type="button" aria-pressed="${state.scatterFocus}">聚焦主分布</button><button id="strategyScatterAll" type="button" aria-pressed="${!state.scatterFocus}">全样本</button></div>
+    </div>
+    <div class="strategy-scatter-legend"><span><i class="is-gf"></i>广发策略 ${points.filter(point => point.gf).length}</span><span><i></i>其他策略 ${points.filter(point => !point.gf).length}</span><span><i class="is-picked"></i>当前选中</span><small id="strategyScatterViewport"></small></div>
+    <p class="strategy-scatter-note" id="strategyScatterMedian"></p>
+    <div class="strategy-scatter-canvas-wrap"><canvas id="strategyScatterCanvas" tabindex="0" role="img" aria-label="策略收益风险点阵。用左右方向键或下方按钮选择产品，详情卡提供数值及详情链接。" data-point-count="${points.length}" data-missing-count="${missing}"></canvas><div id="strategyScatterTooltip" class="strategy-scatter-tooltip" hidden></div>${points.length ? "" : '<div class="strategy-scatter-empty">当前筛选下没有同时具备两个指标的策略；缺失产品仍保留在下方列表。</div>'}</div>
+    <div class="strategy-scatter-bottom"><p class="small">缺指标 ${missing} 只，保留在列表中。虚线为全部可绘制样本中位数；右下方为相对高收益、低风险区域。聚焦只调整视窗，不改变列表或统计样本。</p><div><button id="strategyScatterPrev" type="button" ${points.length ? "" : "disabled"}>上一只</button><button id="strategyScatterNext" type="button" ${points.length ? "" : "disabled"}>下一只</button></div></div>
+    <div id="strategyScatterDetail" class="strategy-scatter-detail" aria-live="polite"></div>
+    <details class="strategy-scatter-method"><summary>日期与统计口径</summary><p class="small">点阵直接使用当前策略列表数据，不联网重算。最大回撤和波动率沿用全历史统计口径，并非 X 轴所选区间的风险指标；切换收益区间不会改变该风险口径。各策略最新业绩日见详情卡。空值不按 0 处理，指标齐全不代表产品适合投资。</p></details>`;
+    const canvas = B.byId("strategyScatterCanvas"), ctx = canvas.getContext("2d");
+    const tooltip = B.byId("strategyScatterTooltip");
+    const medianX = scatterQuantile(points.map(point => point.x), .5), medianY = scatterQuantile(points.map(point => point.y), .5);
+    const format = value => value === null ? "--" : `${value.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}%`;
+    B.byId("strategyScatterMedian").textContent = points.length ? `样本中位数：${state.scatterX} ${format(medianX)} / ${state.scatterY}幅度 ${format(medianY)}` : "当前无有效坐标";
+    let hitPoints = [], width = 0, height = 0;
+    const detail = () => {
+      const point = points.find(item => item.id === state.scatterSelectedId);
+      B.byId("strategyScatterDetail").innerHTML = point
+        ? `<div><strong>${B.esc(point.row.策略名称)}</strong><span>${B.esc(B.strategyInstitutionText(point.row))} · ${B.esc(benchmarkBucket(point.row))}</span></div><dl><div><dt>${B.esc(state.scatterX)}</dt><dd>${format(point.x)}</dd></div><div><dt>${B.esc(state.scatterY)}幅度</dt><dd>${format(point.y)}</dd></div><div><dt>最新业绩日</dt><dd>${B.esc(point.row.最新业绩日期 || point.row.最新业绩日 || "未披露")}</dd></div></dl><a class="link" href="./strategy.html?id=${encodeURIComponent(point.id)}">查看策略详情 ↗</a>`
+        : '<span class="small">点击点阵中的策略，或用上一只 / 下一只查看指标与详情。也可通过下方列表查看缺指标产品。</span>';
+    };
+    const draw = () => {
+      if (!ctx || !canvas.isConnected) return;
+      width = Math.max(260, canvas.parentElement.getBoundingClientRect().width);
+      height = width < 600 ? 330 : 420;
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
+      canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio);
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+      const pad = { left: 58, right: 18, top: 34, bottom: 42 }, pw = width - pad.left - pad.right, ph = height - pad.top - pad.bottom;
+      const domain = (values, positive) => {
+        if (!values.length) return [0, 1];
+        const trim = state.scatterFocus && values.length >= 20;
+        let lo = scatterQuantile(values, trim ? .02 : 0), hi = scatterQuantile(values, trim ? .98 : 1);
+        const margin = (hi - lo || Math.max(Math.abs(hi) * .2, 1)) * .09;
+        lo -= margin; hi += margin;
+        return [positive ? Math.max(0, lo) : lo, hi];
+      };
+      const [xmin, xmax] = domain(points.map(point => point.x), false), [ymin, ymax] = domain(points.map(point => point.y), true);
+      const sx = value => pad.left + (value - xmin) / (xmax - xmin) * pw;
+      const sy = value => pad.top + ph - (value - ymin) / (ymax - ymin) * ph;
+      ctx.fillStyle = "#ffffff"; ctx.fillRect(pad.left, pad.top, pw, ph);
+      if (medianX !== null && medianY !== null) {
+        ctx.fillStyle = "rgba(179,63,70,.045)";
+        ctx.fillRect(sx(medianX), sy(medianY), pad.left + pw - sx(medianX), pad.top + ph - sy(medianY));
+      }
+      ctx.font = '11px "Microsoft YaHei",sans-serif'; ctx.lineWidth = 1;
+      const ticks = width < 500 ? 3 : 4;
+      for (let i = 0; i <= ticks; i++) {
+        const x = pad.left + pw * i / ticks, y = pad.top + ph * i / ticks;
+        ctx.strokeStyle = "#e8ecef"; ctx.beginPath(); ctx.moveTo(x, pad.top); ctx.lineTo(x, pad.top + ph); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + pw, y); ctx.stroke();
+        ctx.fillStyle = "#657583"; ctx.textAlign = "center"; ctx.fillText(format(xmin + (xmax - xmin) * i / ticks), x, height - 24);
+        ctx.textAlign = "right"; ctx.fillText(format(ymax - (ymax - ymin) * i / ticks), pad.left - 7, y + 4);
+      }
+      if (points.length) {
+        ctx.strokeStyle = "#6c7e8a"; ctx.setLineDash([4, 5]); ctx.beginPath(); ctx.moveTo(sx(medianX), pad.top); ctx.lineTo(sx(medianX), pad.top + ph); ctx.moveTo(pad.left, sy(medianY)); ctx.lineTo(pad.left + pw, sy(medianY)); ctx.stroke(); ctx.setLineDash([]);
+      }
+      ctx.textAlign = "left"; ctx.fillStyle = "#334c5e"; ctx.fillText(`${state.scatterY}幅度 (%)`, pad.left, 17);
+      ctx.textAlign = "center"; ctx.fillText(`${state.scatterX} (%)`, pad.left + pw / 2, height - 5);
+      hitPoints = points.filter(point => point.x >= xmin && point.x <= xmax && point.y >= ymin && point.y <= ymax).map(point => ({ ...point, px: sx(point.x), py: sy(point.y) }));
+      // Selected and highlighted products are painted last, without changing the sample.
+      hitPoints.slice().sort((a, b) => Number(a.gf) - Number(b.gf)).forEach(point => {
+        ctx.fillStyle = point.gf ? "#b33f46" : "rgba(117,137,149,.40)";
+        ctx.beginPath(); ctx.arc(point.px, point.py, point.gf ? 3.5 : 2.5, 0, Math.PI * 2); ctx.fill();
+      });
+      const selected = hitPoints.find(point => point.id === state.scatterSelectedId);
+      if (selected) { ctx.strokeStyle = "#173344"; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(selected.px, selected.py, 7, 0, Math.PI * 2); ctx.stroke(); }
+      canvas.dataset.visibleCount = String(hitPoints.length);
+      B.byId("strategyScatterViewport").textContent = `${state.scatterFocus ? "主分布" : "全样本"}视图 · 视窗内 ${hitPoints.length} / 视窗外 ${points.length - hitPoints.length}`;
+    };
+    const pick = id => { state.scatterSelectedId = id; detail(); draw(); };
+    const step = direction => {
+      if (!points.length) return;
+      const index = points.findIndex(point => point.id === state.scatterSelectedId);
+      pick(points[(index + direction + points.length) % points.length].id);
+    };
+    const nearest = event => {
+      const rect = canvas.getBoundingClientRect(), x = (event.clientX - rect.left) * width / rect.width, y = (event.clientY - rect.top) * height / rect.height;
+      let nearestPoint = null, distance = event.pointerType === "touch" ? 24 ** 2 : 13 ** 2;
+      for (const point of hitPoints) { const d = (point.px - x) ** 2 + (point.py - y) ** 2; if (d <= distance) { distance = d; nearestPoint = point; } }
+      return nearestPoint;
+    };
+    canvas.addEventListener("pointermove", event => {
+      const point = nearest(event); tooltip.hidden = !point;
+      if (!point) return;
+      tooltip.textContent = `${point.row.策略名称} · ${state.scatterX} ${format(point.x)} · ${state.scatterY} ${format(point.y)}`;
+      tooltip.style.left = `${Math.min(point.px + 10, Math.max(0, width - 270))}px`; tooltip.style.top = `${Math.max(0, point.py - 50)}px`;
+    });
+    canvas.addEventListener("pointerleave", () => { tooltip.hidden = true; });
+    canvas.addEventListener("click", event => { const point = nearest(event); if (point) pick(point.id); });
+    canvas.addEventListener("keydown", event => { if (["ArrowLeft", "ArrowRight"].includes(event.key)) { event.preventDefault(); step(event.key === "ArrowRight" ? 1 : -1); } });
+    B.byId("strategyScatterPrev").onclick = () => step(-1);
+    B.byId("strategyScatterNext").onclick = () => step(1);
+    B.byId("strategyScatterX").onchange = event => { state.scatterX = event.target.value; renderStrategyScatter(state.rows); };
+    B.byId("strategyScatterY").onchange = event => { state.scatterY = event.target.value; renderStrategyScatter(state.rows); };
+    B.byId("strategyScatterFocus").onclick = () => { state.scatterFocus = true; renderStrategyScatter(state.rows); };
+    B.byId("strategyScatterAll").onclick = () => { state.scatterFocus = false; renderStrategyScatter(state.rows); };
+    detail(); draw();
+    if (window.ResizeObserver) { scatterObserver = new ResizeObserver(draw); scatterObserver.observe(canvas.parentElement); }
+  }
+
   function filterRows() {
     const keyword = B.byId("searchInput").value.trim().toLowerCase();
     const productStatus = B.byId("productStatusSelect").value;
     const clientScope = B.byId("clientScopeSelect").value;
-    const benchmarkBucketValue = B.byId("benchmarkBucketSelect").value;
-    const institution = B.byId("institutionSelect").value;
+    const benchmarkBucketValues = multiValues("benchmarkBucketSelect");
+    const institutions = multiValues("institutionSelect");
     const channel = B.byId("channelSelect").value;
-    const reportType = B.byId("reportTypeSelect").value;
-    const business = B.byId("businessSelect").value;
+    const reportTypes = multiValues("reportTypeSelect");
+    const businesses = multiValues("businessSelect");
     return allStrategies.filter((row) => {
       if (!matchesProductScope(row, productStatus)) return false;
       if (state.incomingGlobalFiltersActive && !B.matchesGlobalStrategyFilters(row)) return false;
@@ -414,11 +602,11 @@
       if (state.hiddenStrategyScope === "nonGf" && isGfStrategy(row)) return false;
       if (clientScope === "client" && !isClientFacing(row)) return false;
       if (clientScope === "nonClient" && isClientFacing(row)) return false;
-      if (benchmarkBucketValue && benchmarkBucket(row) !== benchmarkBucketValue) return false;
-      if (institution && row.投顾机构 !== institution) return false;
+      if (benchmarkBucketValues.length && !benchmarkBucketValues.includes(benchmarkBucket(row))) return false;
+      if (institutions.length && !institutions.includes(row.投顾机构)) return false;
       if (channel && row.渠道 !== channel) return false;
-      if (reportType && row.研报产品类型 !== reportType) return false;
-      if (business && row.业务分类 !== business) return false;
+      if (reportTypes.length && !reportTypes.includes(row.研报产品类型)) return false;
+      if (businesses.length && !businesses.includes(row.业务分类)) return false;
       if (keyword && !keywordText(row).includes(keyword)) return false;
       return true;
     });
@@ -430,6 +618,9 @@
       return state.sortDir === "asc" ? compared : -compared;
     });
     state.rows = rows;
+    renderStrategyScatter(rows);
+    const activeLabels = [...root.querySelectorAll("[data-multi-filter]")].filter(control => multiValues(control.id).length).map(control => control.querySelector("summary span").textContent);
+    B.byId("strategyActiveFilters").textContent = `${rows.length.toLocaleString("zh-CN")} 只 · ${activeLabels.join(" / ") || "全部分类"}`;
     const maxPage = Math.max(1, Math.ceil(rows.length / state.pageSize));
     state.page = Math.min(state.page, maxPage);
     const pageRows = rows.slice((state.page - 1) * state.pageSize, state.page * state.pageSize);
@@ -467,6 +658,10 @@
     if (!value) return;
     const el = B.byId(controlId);
     if (!el) return;
+    if (el.matches("[data-multi-filter]")) {
+      setMultiValues(controlId, B.params().getAll(paramName).flatMap(item => item.split(",")).filter(Boolean));
+      return;
+    }
     const found = [...el.options || []].some((option) => option.value === value || option.textContent === value);
     if (found) el.value = value;
   }
@@ -481,7 +676,7 @@
     setControlFromParam("productStatusSelect", "productStatus");
     setControlFromParam("clientScopeSelect", "clientScope");
     setControlFromParam("benchmarkBucketSelect", "riskWeight");
-    if (!B.byId("benchmarkBucketSelect").value) setControlFromParam("benchmarkBucketSelect", "benchmarkBucket");
+    if (!multiValues("benchmarkBucketSelect").length) setControlFromParam("benchmarkBucketSelect", "benchmarkBucket");
     setControlFromParam("institutionSelect", "institution");
     setControlFromParam("channelSelect", "channel");
     setControlFromParam("reportTypeSelect", "reportType");
@@ -509,13 +704,15 @@
   }
 
   applyInitialParams();
+  bindMultiSelects();
   B.byId("clearIncomingScope")?.addEventListener("click", () => {
     clearIncomingGlobalFilters();
     resetPageAndRender();
   });
-  ["searchInput", "productStatusSelect", "clientScopeSelect", "benchmarkBucketSelect", "institutionSelect", "channelSelect", "reportTypeSelect", "businessSelect"].forEach((id) => {
-    B.byId(id).addEventListener("input", resetPageAndRender);
+  ["searchInput", "productStatusSelect", "clientScopeSelect", "channelSelect"].forEach((id) => {
+    B.byId(id).addEventListener("input", event => { if (!event.isComposing) resetPageAndRender(); });
   });
+  B.byId("searchInput").addEventListener("compositionend", resetPageAndRender);
   B.byId("sortSelect").addEventListener("input", () => {
     applySortPreset(B.byId("sortSelect").value);
     resetPageAndRender();
@@ -547,11 +744,11 @@
     B.byId("searchInput").value = "";
     B.byId("productStatusSelect").value = "recommended";
     B.byId("clientScopeSelect").value = "";
-    B.byId("benchmarkBucketSelect").value = "";
-    B.byId("institutionSelect").value = "";
+    setMultiValues("benchmarkBucketSelect", []);
+    setMultiValues("institutionSelect", []);
     B.byId("channelSelect").value = "";
-    B.byId("reportTypeSelect").value = "";
-    B.byId("businessSelect").value = "";
+    setMultiValues("reportTypeSelect", []);
+    setMultiValues("businessSelect", []);
     B.byId("sortSelect").value = "month";
     B.byId("pageSizeSelect").value = "10";
     state.hiddenStrategyScope = "";

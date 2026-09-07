@@ -265,6 +265,11 @@
     lastResult: null,
   };
   const compareMaxCount = 5;
+  let fieldPickerSequence = 0;
+  let modelConnectivityState = "unknown";
+  let modelConnectivityPromise = null;
+  let modelFailureDialogShown = false;
+  const modelFallbackMessage = "模型已欠费，筛选仅支持属性简单识别筛选";
   const scatterMetricOptions = [
     "最大回撤",
     "当前回撤",
@@ -1445,12 +1450,13 @@
       : allRows.map((row) => row?.[field]).filter((value) => !isEmptyValue(value));
     const distinct = [...new Set(values.map((value) => raw(value).trim()).filter(Boolean))];
     const numericRatio = values.length ? values.filter((value) => num(value) !== null).length / values.length : 0;
-    const dataType = isDateField(field)
+    const isRiskBucket = field === "基准风险资产权重" || (distinct.length > 0 && distinct.every(value => /^(L(?:10|[0-9])|未分档)$/.test(value)));
+    const dataType = isRiskBucket ? "enum" : isDateField(field)
       ? "date"
       : (numericRatio >= 0.9 || /收益|回撤|波动|夏普|权重|中枢|偏离|费率|换手率|次数|天数|基金数|指令数|事件数|置信度/.test(field))
         ? "number"
         : (distinct.length > 0 && distinct.length <= 30 ? "enum" : "text");
-    const isPercent = /收益|回撤|波动|权重|中枢|偏离|费率|换手率|胜率|置信度/.test(field) && !/次数|数量/.test(field);
+    const isPercent = !isRiskBucket && /收益|回撤|波动|权重|中枢|偏离|费率|换手率|胜率|置信度/.test(field) && !/次数|数量/.test(field);
     const allowedOperators = dataType === "number" || dataType === "date"
       ? [">=", "<=", ">", "<", "=", "!=", "is empty", "is not empty"]
       : (dataType === "enum"
@@ -2706,6 +2712,7 @@
 
   function shouldUseModelParser(allowModel = true, localParsed = null) {
     if (!allowModel) return false;
+    if (modelConnectivityState === "failed" || modelConnectivityState === "checking") return false;
     const mode = raw(aiConfig.mode || "hybrid-parse").toLowerCase();
     const available = aiConfig.enabled !== false
       && !!modelChatEndpoint(aiConfig)
@@ -3055,6 +3062,11 @@
 
   async function parseQueryHybrid(queryText, localParsed, allowModel = true) {
     localParsed.model = { status: "local-rule", callCount: 0 };
+    if (modelConnectivityState === "failed") {
+      localParsed.model = { status: "fallback", callCount: 0, error: "connectivity-unavailable" };
+      localParsed.warnings.push(modelFallbackMessage);
+      return localParsed;
+    }
     if (!allowModel) return localParsed;
     const mode = raw(aiConfig.mode || "hybrid-parse").toLowerCase();
     const modelRequiredByPolicy = ["model-first", "model-only", "always"].includes(mode) || localParseNeedsModel(localParsed);
@@ -3786,8 +3798,88 @@
     return filter.value === undefined || filter.value === null ? "" : raw(filter.value);
   }
 
+  function fieldSampleHelp(field) {
+    if (!field) return '<span>输入中文查找字段，并从候选项中选择。</span>';
+    const card = businessFieldCard(field);
+    const values = field === "__benchmark_text" ? allRows.map(benchmarkText)
+      : field === "__any_text" ? allRows.map(row => row.策略名称)
+      : allRows.map(row => fieldValue(row, field));
+    const examples = [...new Set(values.filter(value => !isEmptyValue(value)).map(value => typeof value === "object" ? JSON.stringify(value) : raw(value)))].slice(0, 4);
+    const format = field === "基准风险资产权重" ? "分类档位：L0—L10 或未分档，不输入百分比。"
+      : card.dataType === "date" ? "日期：YYYY-MM-DD，例如 2026-09-01。"
+      : card.unit === "percent_point" ? "百分数：5 表示 5%，不填写 0.05；负数使用负号。"
+      : card.dataType === "number" ? "数值：输入数字，小数使用英文小数点；空值不等于 0。"
+      : field === "__holding_entity" ? "持仓实体名称：输入基金名称或资产/行业关键词；样例取自当前条件的持仓证据，未命中不等于持仓不存在。"
+      : "文本 / 分类：单值可选精确或包含匹配；多个值请选“包含任一”或“等于任一”，并用中文或英文逗号分隔。";
+    return `<div><b>样例数据：</b>${examples.length ? examples.map(value => `<code title="${B.esc(value)}">${B.esc(value.slice(0, 70))}${value.length > 70 ? "…" : ""}</code>`).join(" ") : "当前字段没有可用样例，不能据此推断取值。"}</div><div><b>格式说明：</b>${B.esc(format)}</div><small>${B.esc(card.definition)}</small>`;
+  }
+
+  function fieldPickerHtml(field) {
+    const id = `aiFieldPicker${++fieldPickerSequence}`;
+    return `<div class="ai-field-picker"><span id="${id}Label">字段</span>
+      <input class="ai-filter-field" type="hidden" value="${B.esc(field)}">
+      <input class="control ai-field-query" type="text" role="combobox" aria-labelledby="${id}Label" aria-label="筛选字段" aria-autocomplete="list" aria-expanded="false" aria-controls="${id}Options" autocomplete="off" placeholder="输入中文搜索字段" value="${field ? B.esc(fieldLabel(field)) : ""}">
+      <div id="${id}Options" class="ai-field-options" role="listbox" aria-label="匹配字段" hidden></div></div>`;
+  }
+
+  function fuzzyFieldScore(field, query) {
+    const normalize = text => normalizeSearchText(text).replace(/一/g, "1").replace(/二/g, "2").replace(/三/g, "3").replace(/六/g, "6");
+    const name = normalize(fieldLabel(field)), term = normalize(query);
+    if (!term) return 2;
+    if (name === term) return 0;
+    if (name.includes(term) || normalize(field).includes(term)) return 1;
+    let cursor = 0;
+    for (const char of term) { const index = name.indexOf(char, cursor); if (index < 0) return 99; cursor = index + 1; }
+    return 3;
+  }
+
+  function bindFieldPicker(row) {
+    const input = row.querySelector(".ai-field-query"), canonical = row.querySelector(".ai-filter-field");
+    const list = row.querySelector(".ai-field-options"), help = row.querySelector(".ai-field-help");
+    if (!input || !list) return;
+    let composing = false, candidates = [], active = -1;
+    const close = () => { list.hidden = true; input.setAttribute("aria-expanded", "false"); input.removeAttribute("aria-activedescendant"); };
+    const highlight = () => {
+      list.querySelectorAll("[role=option]").forEach((option, index) => option.setAttribute("aria-selected", String(index === active)));
+      if (active >= 0) { const option = list.children[active]; input.setAttribute("aria-activedescendant", option.id); option.scrollIntoView({ block: "nearest" }); }
+    };
+    const choose = field => {
+      canonical.value = field; input.value = fieldLabel(field); input.removeAttribute("aria-invalid");
+      help.innerHTML = fieldSampleHelp(field); row.classList.add("is-dirty"); close(); input.focus({ preventScroll: true });
+    };
+    const show = (editing = false) => {
+      if (composing) return;
+      if (editing) { canonical.value = ""; help.innerHTML = fieldSampleHelp(""); row.classList.add("is-dirty"); }
+      const fields = [...new Set([...filterFieldNames(), ...(canonical.value ? [canonical.value] : [])])];
+      candidates = fields.map(field => ({ field, score: fuzzyFieldScore(field, input.value) })).filter(item => item.score < 99).sort((a, b) => a.score - b.score).slice(0, 60).map(item => item.field);
+      list.innerHTML = candidates.length ? candidates.map((field, index) => `<button type="button" role="option" aria-selected="false" id="${list.id}-${index}" data-ai-pick-field="${B.esc(field)}">${B.esc(fieldLabel(field))}</button>`).join("") : '<span class="small">没有匹配字段，请换一个关键词。</span>';
+      active = -1; input.removeAttribute("aria-activedescendant"); list.hidden = false; input.setAttribute("aria-expanded", "true");
+    };
+    input.addEventListener("compositionstart", () => { composing = true; });
+    input.addEventListener("compositionend", () => { composing = false; show(true); });
+    input.addEventListener("input", event => { if (!composing && !event.isComposing) show(true); });
+    input.addEventListener("focus", () => show());
+    input.addEventListener("click", () => { if (list.hidden) show(); });
+    input.addEventListener("keydown", event => {
+      if (composing || event.isComposing || event.keyCode === 229) return;
+      if (event.key === "Escape") { close(); return; }
+      if (["ArrowDown", "ArrowUp"].includes(event.key)) {
+        event.preventDefault(); if (list.hidden) show();
+        if (candidates.length) { active = (active + (event.key === "ArrowDown" ? 1 : -1) + candidates.length) % candidates.length; highlight(); }
+      } else if (event.key === "Enter" && !list.hidden) {
+        event.preventDefault();
+        const field = candidates[active] || candidates.find(item => fieldLabel(item) === input.value);
+        if (field) choose(field);
+      }
+    });
+    // Do not reuse data-field: basic-common delegates that attribute to its glossary modal.
+    list.addEventListener("mousedown", event => { if (event.target.closest("[data-ai-pick-field]")) event.preventDefault(); });
+    list.addEventListener("click", event => { const option = event.target.closest("[data-ai-pick-field]"); if (option) choose(option.dataset.aiPickField); });
+    input.addEventListener("blur", () => window.setTimeout(() => { if (!row.querySelector(".ai-field-picker").contains(document.activeElement)) close(); }, 120));
+  }
+
   function conditionRowHtml(filter = {}, context = {}) {
-    const field = filter.field || "__any_text";
+    const field = context.blank ? "" : (filter.field || "__any_text");
     const op = filter.op || "contains";
     const value = editableFilterValue(filter);
     const stats = context.stats;
@@ -3814,11 +3906,12 @@
           </div>
         </div>
         <div class="ai-inline-condition-editor">
-          <label><span>字段</span><select class="control ai-filter-field" aria-label="筛选字段">${optionHtml(filterFieldNames(), field)}</select></label>
+          ${fieldPickerHtml(field)}
           <label><span>关系</span><select class="control ai-filter-op" aria-label="筛选关系">${operatorOptionHtml(op)}</select></label>
           <label class="ai-inline-value"><span>值</span><input class="control ai-filter-value" aria-label="筛选值" value="${B.esc(value)}"></label>
           <button class="ai-remove-filter" type="button" title="删除条件">删除</button>
         </div>
+        <div class="ai-field-help" aria-live="polite">${fieldSampleHelp(field)}</div>
         <p class="ai-recognition-reason"><b>识别说明：</b>${B.esc(reason)}</p>
         ${renderInlineSemanticOptions(context.parsed || state.parsed || {}, group)}
       </div>
@@ -3872,6 +3965,7 @@
   }
 
   function bindConditionRow(row) {
+    bindFieldPicker(row);
     const remove = row.querySelector(".ai-remove-filter");
     if (remove) {
       remove.addEventListener("click", () => {
@@ -3887,6 +3981,13 @@
   function applyEditedFilters() {
     const parsed = state.parsed;
     if (!parsed) return;
+    const unresolved = [...root.querySelectorAll(".ai-condition-row")].find(row => !row.querySelector(".ai-filter-field")?.value);
+    if (unresolved) {
+      unresolved.querySelector(".ai-field-help").textContent = "请先从匹配列表中选择一个有效字段，或删除这条条件。";
+      unresolved.querySelector(".ai-field-query").setAttribute("aria-invalid", "true");
+      unresolved.querySelector(".ai-field-query").focus();
+      return;
+    }
     const editedFilters = readEditorFilters();
     const activeSemanticGroupIds = new Set(editedFilters.map((filter) => filter.semanticGroupId).filter(Boolean));
     parsed.completeOnly = true;
@@ -4735,10 +4836,10 @@
     node.textContent = message;
   }
 
-  async function requestModelConnectivity(config) {
+  async function requestModelConnectivity(config, timeoutOverride) {
     const endpoint = modelChatEndpoint(config);
     if (!endpoint) throw new Error("模型 endpoint 未配置");
-    const timeoutMs = Math.min(Math.max(Number(config.timeoutMs) || 45000, 800), 120000);
+    const timeoutMs = Math.min(Math.max(Number(timeoutOverride || config.timeoutMs) || 45000, 800), 120000);
     const controller = new AbortController();
     const timer = window.setTimeout(() => controller.abort(), timeoutMs);
     const headers = { "Content-Type": "application/json", ...(config.headers || {}) };
@@ -4761,14 +4862,15 @@
         signal: controller.signal,
       });
       const text = await response.text();
-      if (!response.ok) throw new Error(`模型接口返回 ${response.status}: ${text.slice(0, 220)}`);
+      if (!response.ok) throw new Error(`模型接口返回 HTTP ${response.status}`);
       let data = null;
       try {
         data = text ? JSON.parse(text) : null;
       } catch (error) {
-        throw new Error(`模型返回非 JSON：${text.slice(0, 220)}`);
+        throw new Error("模型返回格式异常（非 JSON）");
       }
       const content = data?.choices?.[0]?.message?.content || data?.choices?.[0]?.text || data?.output_text || "";
+      if (data?.error || typeof content !== "string" || !content.trim()) throw new Error("模型未返回有效测试内容");
       return {
         model: data?.model || config.model || "",
         content: raw(content).slice(0, 120),
@@ -4776,6 +4878,62 @@
     } finally {
       window.clearTimeout(timer);
     }
+  }
+
+  function showModelFailureDialog(reason) {
+    if (modelFailureDialogShown) return;
+    modelFailureDialogShown = true;
+    const previousFocus = document.activeElement;
+    const dialog = document.createElement("dialog");
+    dialog.className = "ai-connectivity-dialog";
+    dialog.setAttribute("aria-labelledby", "aiConnectivityTitle");
+    dialog.innerHTML = `<h2 id="aiConnectivityTitle">模型服务暂不可用</h2><p class="ai-connectivity-message">${B.esc(modelFallbackMessage)}</p>
+      <p class="desc">检测结果：${B.esc(reason)}。连通性失败也可能由网络、跨域或密钥问题引起，不能单凭检测结果确认欠费。当前仍可使用本地属性筛选和手工条件。</p>
+      <form method="dialog"><button type="submit" autofocus>继续属性筛选</button></form>`;
+    document.body.appendChild(dialog);
+    dialog.addEventListener("close", () => {
+      dialog.remove();
+      if (previousFocus?.isConnected && previousFocus !== document.body) previousFocus.focus();
+      else B.byId("aiQuery")?.focus();
+    }, { once: true });
+    dialog.showModal();
+  }
+
+  function checkModelConnectivity({ automatic = false } = {}) {
+    if (modelConnectivityPromise) return modelConnectivityPromise;
+    modelConnectivityState = "checking";
+    setModelTestResult("running", "正在测试模型接口...");
+    const button = B.byId("aiModelTest");
+    if (button) button.disabled = true;
+    const notice = B.byId("aiModelConnectivityNotice");
+    if (notice) { notice.hidden = false; notice.textContent = "正在检测模型连通性，属性筛选可正常使用…"; }
+    modelConnectivityPromise = (async () => {
+      const started = performance.now();
+      try {
+        // A fixed tiny probe: never send strategy rows or the user's query during page load.
+        const result = await requestModelConnectivity(aiConfig, automatic ? 8000 : undefined);
+        modelConnectivityState = "available";
+        modelBackoffUntil = 0;
+        setModelTestResult("ok", `连通成功，${result.model || aiConfig.model}，${Math.round(performance.now() - started)}ms`);
+        if (notice) { notice.hidden = true; notice.textContent = ""; }
+        return true;
+      } catch (error) {
+        modelConnectivityState = "failed";
+        let reason = raw(error?.name === "AbortError" ? "模型测试超时" : error?.message || "模型测试失败");
+        if (/Failed to fetch|NetworkError|Load failed/i.test(reason)) reason = "模型接口不可访问，请检查网络、跨域或密钥状态";
+        setModelTestResult("bad", reason.slice(0, 180));
+        if (notice) { notice.hidden = false; notice.textContent = `${modelFallbackMessage}。可在“AI模型服务”中重新测试。`; }
+        showModelFailureDialog(reason.slice(0, 180));
+        return false;
+      } finally {
+        if (button) button.disabled = false;
+        updateModelStatusPill();
+        const pill = B.byId("aiModelStatusPill");
+        if (pill && modelConnectivityState === "failed") pill.textContent = "模型不可用 · 本地属性筛选";
+        modelConnectivityPromise = null;
+      }
+    })();
+    return modelConnectivityPromise;
   }
 
   function fillModelSettingsForm(config = aiConfig) {
@@ -4798,21 +4956,7 @@
   }
 
   function bindModelSettings() {
-    B.byId("aiModelTest")?.addEventListener("click", async () => {
-      try {
-        setModelTestResult("running", "正在测试模型接口...");
-        const started = performance.now();
-        const result = await requestModelConnectivity(aiConfig);
-        const elapsed = Math.round(performance.now() - started);
-        setModelTestResult("ok", `连通成功，${result.model || aiConfig.model}，${elapsed}ms`);
-      } catch (error) {
-        let message = raw(error?.name === "AbortError" ? "模型测试超时" : error?.message || error);
-        if (/Failed to fetch|NetworkError|Load failed/i.test(message)) {
-          message = "百炼模型接口不可访问，请检查网络、CORS 跨域或测试密钥状态";
-        }
-        setModelTestResult("bad", message.slice(0, 220));
-      }
-    });
+    B.byId("aiModelTest")?.addEventListener("click", () => checkModelConnectivity());
   }
 
   function renderShell() {
@@ -4832,6 +4976,7 @@
           <button id="aiClear" type="button">清空</button>
         </div>
         ${renderModelSettings()}
+        <p id="aiModelConnectivityNotice" class="ai-connectivity-notice" role="status" hidden></p>
       </section>
       <div id="aiResult">${renderInitialResultPlaceholder()}</div>
       ${renderAiExplanationShell()}
@@ -4847,6 +4992,7 @@
     bindModelSettings();
     bindAiExplanationLazyLoad();
     scheduleInitialSearchPreview();
+    requestAnimationFrame(() => checkModelConnectivity({ automatic: true }));
   }
 
   window.__AI_STRATEGY_DEBUG__ = {

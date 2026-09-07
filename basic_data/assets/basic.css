@@ -3078,3 +3078,93 @@ tbody tr:hover { background:#f6f8f7; }
   .institution-adjustment-table { min-width:760px; }
   .institution-trend-kpis strong:not(.is-date) { font-size:23px; }
 }
+
+/* Strategy dot plot and searchable multi-selects: presentation only. */
+.strategy-filter-disclosure { border-block:1px solid var(--line); margin:14px 0 20px; }
+.strategy-filter-disclosure > summary { padding:13px 0; cursor:pointer; color:var(--brand-dark); font-size:14px; font-weight:750; }
+.strategy-filter-disclosure > summary small { margin-left:10px; color:var(--muted); font-weight:400; }
+.strategy-filter-disclosure > .filters { margin-top:5px; }
+.strategy-multi { position:relative; min-width:0; }
+.strategy-multi > summary { display:flex; align-items:center; justify-content:space-between; gap:6px; list-style:none; cursor:pointer; font-weight:500; }
+.strategy-multi > summary::-webkit-details-marker { display:none; }
+.strategy-multi > summary span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.strategy-multi[open] > summary { border-color:var(--brand); }
+.strategy-multi-menu { position:absolute; top:calc(100% + 5px); left:0; z-index:30; width:max(100%, 250px); max-width:calc(100vw - 64px); padding:12px; background:#fff; border:1px solid #bfcdd3; box-shadow:0 8px 28px #17203322; border-radius:8px; }
+.strategy-multi-menu > .control { width:100%; }
+.strategy-multi-clear { border:0; background:transparent; color:var(--brand-dark); padding:9px 0; cursor:pointer; }
+.strategy-multi-options { max-height:230px; overflow-y:auto; overscroll-behavior:contain; }
+.strategy-multi-options label { display:flex; gap:9px; align-items:center; padding:9px 5px; font-size:13px; font-weight:500; cursor:pointer; }
+.strategy-multi-options label:hover { background:#f0f5f5; }
+.strategy-multi-options input { width:17px; height:17px; margin:0; accent-color:var(--brand); flex:none; }
+.strategy-multi-options label[hidden], .ai-field-options[hidden], .ai-connectivity-notice[hidden], .strategy-scatter-tooltip[hidden] { display:none !important; }
+.strategy-multi-menu > small { display:block; padding-top:8px; color:var(--muted); font-weight:400; }
+.strategy-scatter-controls { display:flex; align-items:end; gap:14px; flex-wrap:wrap; }
+.strategy-scatter-controls > label { display:grid; gap:6px; min-width:190px; color:#52616d; font-size:12px; }
+.strategy-scatter-controls .control { min-height:40px; }
+.strategy-scatter-view { margin-left:auto; display:flex; gap:5px; }
+.strategy-scatter-view button, .strategy-scatter-bottom button { min-height:40px; padding:0 14px; border:1px solid #c9d4d9; border-radius:6px; background:#fff; color:var(--brand-dark); cursor:pointer; }
+.strategy-scatter-view [aria-pressed="true"] { background:var(--brand-dark); border-color:var(--brand-dark); color:#fff; }
+.strategy-scatter-legend { display:flex; align-items:center; flex-wrap:wrap; gap:14px; padding:17px 0 5px; color:#596773; font-size:12px; }
+.strategy-scatter-legend > span { display:flex; align-items:center; gap:6px; }
+.strategy-scatter-legend i { display:inline-block; width:8px; height:8px; background:#8d9ba8; border-radius:50%; }
+.strategy-scatter-legend .is-gf { background:#B33F46; }
+.strategy-scatter-legend .is-picked { background:#fff; border:2px solid #264F63; width:11px; height:11px; }
+.strategy-scatter-legend small { margin-left:auto; }
+.strategy-scatter-note { font-size:12px; color:var(--muted); margin:6px 0 10px; }
+.strategy-scatter-canvas-wrap { position:relative; width:100%; min-width:0; border-bottom:1px solid var(--line); }
+#strategyScatterCanvas { display:block; max-width:100%; touch-action:pan-y; }
+#strategyScatterCanvas:focus-visible { outline:2px solid var(--brand); outline-offset:2px; }
+.strategy-scatter-tooltip { position:absolute; pointer-events:none; z-index:5; background:#fff; color:#243746; font-size:12px; line-height:1.7; border:1px solid #bdcbd2; box-shadow:0 4px 14px #20304020; padding:9px 12px; border-radius:6px; max-width:260px; }
+.strategy-scatter-empty { position:absolute; inset:20% 10%; display:grid; place-content:center; text-align:center; color:var(--muted); font-size:14px; pointer-events:none; }
+.strategy-scatter-bottom { display:flex; gap:18px; align-items:start; justify-content:space-between; margin:12px 0; }
+.strategy-scatter-bottom > p { margin:0; max-width:850px; line-height:1.7; }
+.strategy-scatter-bottom > div { flex:none; display:flex; gap:6px; }
+.strategy-scatter-detail { background:#f5f8f8; border:1px solid #dce5e5; padding:14px 16px; min-height:52px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.strategy-scatter-detail > div { display:grid; gap:5px; }
+.strategy-scatter-detail strong { color:var(--entity); }
+.strategy-scatter-detail span { font-size:12px; color:var(--muted); }
+.strategy-scatter-detail dl { display:flex; flex-wrap:wrap; gap:24px; margin:0 0 0 auto; }
+.strategy-scatter-detail dt { font-size:11px; color:var(--muted); }
+.strategy-scatter-detail dd { margin:3px 0 0; font-size:15px; font-weight:700; color:var(--kpi); }
+.strategy-scatter-detail > a { font-size:12px; }
+.strategy-scatter-method { margin:10px 0 20px; color:var(--muted); }
+.strategy-scatter-method summary { font-size:12px; cursor:pointer; }
+.strategy-scatter-method p { line-height:1.8; }
+
+/* Keep the input node stable throughout IME composition. */
+.ai-inline-condition-editor > .ai-field-picker { margin-top:0; min-width:0; display:grid; gap:5px; position:relative; }
+.ai-field-picker > span { font-size:11px; color:#667085; font-weight:700; }
+.ai-field-query { width:100%; min-width:0; }
+.ai-field-query[aria-invalid="true"] { border-color:#B33F46; }
+.ai-field-options { position:absolute; top:100%; left:0; z-index:40; min-width:100%; width:max-content; max-width:min(400px, 80vw); max-height:260px; overflow-y:auto; overscroll-behavior:contain; padding:5px; background:#fff; border:1px solid #b8c8d1; border-radius:6px; box-shadow:0 8px 24px #17203322; }
+.ai-field-options > button { display:block; width:100%; min-height:38px; padding:8px 10px; border:0; text-align:left; white-space:normal; background:#fff; color:#253c49; font-size:13px; cursor:pointer; }
+.ai-field-options > button:hover, .ai-field-options > button[aria-selected="true"] { background:#eaf2f2; color:var(--brand-dark); }
+.ai-field-options > p { padding:8px; font-size:12px; color:var(--muted); }
+.ai-field-help { margin-top:9px; padding:9px 11px; border-left:2px solid #b6cdce; background:#f3f7f7; color:#52616c; font-size:12px; line-height:1.8; overflow-wrap:anywhere; }
+.ai-field-help strong { color:#344c58; }
+.ai-field-help code { display:inline-block; padding:0 5px; margin:2px 4px 2px 0; background:#fff; border:1px solid #dce4e6; border-radius:3px; color:#325162; font-family:inherit; }
+.ai-connectivity-notice { padding:10px 13px; margin:12px 0 0; border:1px solid #e5d6ba; background:#fffaf0; color:#795520; font-size:13px; line-height:1.7; }
+.ai-connectivity-dialog { width:480px; max-width:calc(100vw - 40px); max-height:80vh; padding:26px; border:1px solid #c6d1d6; border-radius:12px; box-shadow:0 24px 80px #17203344; color:#243746; }
+.ai-connectivity-dialog::backdrop { background:#17203366; }
+.ai-connectivity-dialog h2 { margin:0 0 16px; font-size:20px; }
+.ai-connectivity-message { font-size:16px; font-weight:700; line-height:1.8; color:#965130; }
+.ai-connectivity-dialog .desc { font-size:12px; line-height:1.9; }
+.ai-connectivity-dialog form { display:flex; justify-content:flex-end; margin:22px 0 0; }
+.ai-connectivity-dialog button { min-height:42px; border:0; border-radius:6px; padding:0 18px; background:var(--brand-dark); color:#fff; cursor:pointer; }
+@media (max-width:680px) {
+  .strategy-filter-grid { grid-template-columns:minmax(0,1fr); }
+  .strategy-filter-field em { min-height:0; }
+  .strategy-multi-menu { width:100%; }
+  .strategy-scatter-controls { gap:10px; }
+  .strategy-scatter-controls > label { flex:1; min-width:125px; }
+  .strategy-scatter-view { margin:2px 0 0; width:100%; }
+  .strategy-scatter-view button { flex:1; }
+  .strategy-scatter-legend { gap:10px; }
+  .strategy-scatter-legend small { width:100%; margin:0; }
+  .strategy-scatter-bottom { flex-direction:column; gap:10px; }
+  .strategy-scatter-detail { padding:12px; gap:13px; }
+  .strategy-scatter-detail dl { margin:0; width:100%; gap:16px; }
+  .ai-inline-condition-editor { grid-template-columns:minmax(0,1fr) !important; }
+  .ai-field-options { width:100%; max-width:100%; }
+  .ai-field-options > button, .strategy-multi-options label { min-height:44px; }
+}
