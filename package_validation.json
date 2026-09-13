@@ -1,42 +1,42 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-11T02:02:33+08:00",
+  "generatedAt": "2026-09-13T17:24:20+08:00",
   "status": "ready",
   "checks": {
-    "strategySummaryCount": 1953,
-    "strategyDetailCount": 1953,
+    "strategySummaryCount": 1956,
+    "strategyDetailCount": 1956,
     "strategyDetailMissingCount": 0,
     "strategyDetailParseErrorCount": 0,
-    "strategyDetailDeclaredIncompleteCount": 211,
+    "strategyDetailDeclaredIncompleteCount": 214,
     "strategyDetailWithoutHoldingCount": 62,
     "strategyDetailWithoutCurveCount": 59,
-    "strategyDetailReferencedFundCount": 6216,
+    "strategyDetailReferencedFundCount": 6217,
     "selectedFundCount": 0,
     "enhancedFundDetailCount": 0,
     "baseOnlyFundCount": 0,
     "brokenFundDetailCount": 0,
     "forbiddenFundDetailPageCount": 0,
     "forbiddenFundDetailFileCount": 0,
-    "strategyDetailSourceCount": 1953,
+    "strategyDetailSourceCount": 1956,
     "strategyDetailDeclaredCompleteCount": 1742,
-    "activeStrategyCount": 1527,
+    "activeStrategyCount": 1529,
     "activeStrategyWithoutCurveCount": 57,
-    "currentHoldingStrategyCount": 1866,
-    "currentHoldingFundReferenceCount": 32835,
+    "currentHoldingStrategyCount": 1869,
+    "currentHoldingFundReferenceCount": 32863,
     "currentHoldingRankMissingReferenceCount": 28,
     "activeCurrentHoldingRankMissingReferenceCount": 23,
     "inactiveCurrentHoldingRankMissingReferenceCount": 5,
     "currentHoldingScaleErrorReferenceCount": 0,
-    "historyRebalanceStrategyCount": 1805,
-    "assessedHistoryRebalanceStrategyCount": 1515,
-    "unassessedHistoryRebalanceStrategyCount": 290,
+    "historyRebalanceStrategyCount": 1808,
+    "assessedHistoryRebalanceStrategyCount": 1517,
+    "unassessedHistoryRebalanceStrategyCount": 291,
     "officialPerformanceImageReferenceCount": 0,
     "officialPerformanceImageInvalidReferenceCount": 0,
     "officialPerformanceImageMissingSourceAssetCount": 0,
-    "currentHolding近一月RankedReferenceCount": 32807,
-    "currentHolding近三月RankedReferenceCount": 32807,
-    "currentHolding近6月RankedReferenceCount": 32807,
-    "currentHolding近1年RankedReferenceCount": 32807,
+    "currentHolding近一月RankedReferenceCount": 32835,
+    "currentHolding近三月RankedReferenceCount": 32835,
+    "currentHolding近6月RankedReferenceCount": 32835,
+    "currentHolding近1年RankedReferenceCount": 32835,
     "officialPerformanceImagePublishedAssetCount": 0,
     "officialPerformanceImageMissingPublishedAssetCount": 0,
     "fundDetailParsedCount": 0,
@@ -45,9 +45,9 @@
     "fundDetailBenchmarkChartCount": 0,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 518534,
-    "holdingSnapshotPublishedRowCount": 135571,
-    "holdingSnapshotStrategyCount": 1850
+    "holdingSnapshotSourceRowCount": 525394,
+    "holdingSnapshotPublishedRowCount": 139321,
+    "holdingSnapshotStrategyCount": 1861
   },
   "policy": {
     "blockingZeroChecks": [
@@ -70,7 +70,7 @@
   "warnings": [
     {
       "type": "source_strategy_data_incomplete",
-      "count": 211,
+      "count": 214,
       "note": "源数据已明确标记不完整，发布集保留真实缺失状态，不做推测补齐。"
     },
     {
@@ -87,7 +87,7 @@
     },
     {
       "type": "history_rebalance_unassessed",
-      "count": 290,
+      "count": 291,
       "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
     }
   ]
