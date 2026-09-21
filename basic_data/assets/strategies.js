@@ -497,6 +497,8 @@
     <details class="strategy-scatter-method"><summary>日期与统计口径</summary><p class="small">点阵直接使用当前策略列表数据，不联网重算。最大回撤和波动率沿用全历史统计口径，并非 X 轴所选区间的风险指标；切换收益区间不会改变该风险口径。各策略最新业绩日见详情卡。空值不按 0 处理，指标齐全不代表产品适合投资。</p></details>`;
     const canvas = B.byId("strategyScatterCanvas"), ctx = canvas.getContext("2d");
     const tooltip = B.byId("strategyScatterTooltip");
+    if (businessQuery.highlightColor) mount.querySelector('.strategy-scatter-legend').innerHTML = `<span><i style="background:${businessQuery.highlightColor}"></i>筛选命中产品 ${points.length}</span><span><i class="is-picked"></i>当前选中</span><small id="strategyScatterViewport"></small>`;
+    mount.querySelector('canvas').dataset.queryHighlight = businessQuery.highlightColor || '';
     const medianX = scatterQuantile(points.map(point => point.x), .5), medianY = scatterQuantile(points.map(point => point.y), .5);
     const format = value => value === null ? "--" : `${value.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}%`;
     B.byId("strategyScatterMedian").textContent = points.length ? `样本中位数：${state.scatterX} ${format(medianX)} / ${state.scatterY}幅度 ${format(medianY)}` : "当前无有效坐标";
@@ -549,8 +551,8 @@
       hitPoints = points.filter(point => point.x >= xmin && point.x <= xmax && point.y >= ymin && point.y <= ymax).map(point => ({ ...point, px: sx(point.x), py: sy(point.y) }));
       // Selected and highlighted products are painted last, without changing the sample.
       hitPoints.slice().sort((a, b) => Number(a.gf) - Number(b.gf)).forEach(point => {
-        ctx.fillStyle = point.gf ? "#b33f46" : "rgba(117,137,149,.40)";
-        ctx.beginPath(); ctx.arc(point.px, point.py, point.gf ? 3.5 : 2.5, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = businessQuery.highlightColor || (point.gf ? "#b33f46" : "rgba(117,137,149,.40)");
+        ctx.beginPath(); ctx.arc(point.px, point.py, businessQuery.highlightColor || point.gf ? 3.5 : 2.5, 0, Math.PI * 2); ctx.fill();
       });
       const selected = hitPoints.find(point => point.id === state.scatterSelectedId);
       if (selected) { ctx.strokeStyle = "#173344"; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(selected.px, selected.py, 7, 0, Math.PI * 2); ctx.stroke(); }

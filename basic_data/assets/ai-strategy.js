@@ -1,6 +1,7 @@
 (() => {
   const B = window.BasicData;
   const summary = B.state.summary || {};
+  const institutionAliases = summary.institutionAliases || {};
   const root = B.byId("aiStrategyPage");
   if (!root) return;
 
@@ -1326,6 +1327,11 @@
     return raw(text).replace(/[，。；、]/g, " ").replace(/\s+/g, " ").trim();
   }
 
+  function canonicalInstitutionName(value) {
+    const text = raw(value).trim().replace(/－/g, "-");
+    return institutionAliases[text] || text;
+  }
+
   function preferredFieldOrder() {
     return [
       "策略名称", "投顾机构", "渠道", "业务分类", "研报产品类型", "风险等级", "成立日期", "运作状态", "业绩完整", "业绩完整性", "数据完整性",
@@ -1961,6 +1967,16 @@
     const negativeValuesByField = new Map();
     (filters || []).forEach((filter) => {
       const normalized = { ...filter, label: filter.label || filterLabel(filter) };
+      if (normalized.field === "投顾机构") {
+        const values = [...new Set(filterValues(normalized).map(canonicalInstitutionName).filter(Boolean))];
+        if (values.length) {
+          normalized.value = values.length === 1 ? values[0] : values.join("|");
+          normalized.values = values.length === 1 ? undefined : values;
+          if (values.some((value) => !filterValues(filter).includes(value))) {
+            normalized.label = `投顾机构按标准名称查询：${values.join("、")}`;
+          }
+        }
+      }
       if (isNegativeCategoricalFilter(normalized)) {
         const set = negativeValuesByField.get(normalized.field) || new Set();
         filterValues(normalized).forEach((value) => set.add(value));
@@ -2062,6 +2078,33 @@
         });
       });
     });
+  }
+
+  function addInstitutionAliasFilters(parsed, query) {
+    const normalizedQuery = normalizeSearchText(query);
+    const matches = Object.entries(institutionAliases)
+      .filter(([alias]) => alias && normalizedQuery.includes(normalizeSearchText(alias)))
+      .sort((a, b) => normalizeSearchText(b[0]).length - normalizeSearchText(a[0]).length);
+    if (!matches.length) return;
+    const longestLength = normalizeSearchText(matches[0][0]).length;
+    const canonicalValues = [...new Set(matches
+      .filter(([alias]) => normalizeSearchText(alias).length === longestLength)
+      .map(([, canonical]) => canonicalInstitutionName(canonical))
+      .filter(Boolean))];
+    if (!canonicalValues.length) return;
+    parsed.filters.push({
+      field: "投顾机构",
+      op: canonicalValues.length === 1 ? "=" : "in",
+      value: canonicalValues.length === 1 ? canonicalValues[0] : canonicalValues.join("|"),
+      values: canonicalValues.length === 1 ? undefined : canonicalValues,
+      label: `投顾机构：${canonicalValues.join("、")}`,
+    });
+    const sourceAliases = matches
+      .filter(([alias]) => normalizeSearchText(alias).length === longestLength)
+      .map(([alias]) => alias);
+    if (sourceAliases.some((alias) => canonicalInstitutionName(alias) !== alias)) {
+      parsed.assumptions.push(`机构历史名称“${sourceAliases.join("、")}”已归一为“${canonicalValues.join("、")}”。`);
+    }
   }
 
   function hasProductTypeContext(query) {
@@ -2605,6 +2648,7 @@
 
     addNumericIntentFilters(parsed, query);
     addCategoricalIntentFilters(parsed, query);
+    addInstitutionAliasFilters(parsed, query);
     addProductTypeContextFilters(parsed, query);
     addRiskProfileFilters(parsed, query);
     addKycRecommendationFilters(parsed, query);
