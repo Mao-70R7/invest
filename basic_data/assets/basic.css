@@ -1591,6 +1591,7 @@ tr:last-child td { border-bottom: 0; }
 .fund-report-card-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:10px; }
 .fund-report-card-head h3 { margin:0; color:#172033; font-size:14px; line-height:1.35; }
 .fund-report-card-head span { color:#667085; font-size:12px; font-weight:700; text-align:right; line-height:1.35; }
+.fund-source-warning { display:block; white-space:normal; overflow-wrap:anywhere; line-height:1.5; margin:8px 0; padding:8px 10px; font-size:12px; }
 .fund-report-meta { display:flex; flex-wrap:wrap; gap:8px 14px; color:#667085; font-size:12px; margin-top:10px; }
 .fund-asset-bars { display:grid; gap:8px; }
 .fund-asset-bars.compact { margin-top:8px; }
