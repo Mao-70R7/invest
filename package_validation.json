@@ -1,42 +1,42 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-25T22:00:22+08:00",
+  "generatedAt": "2026-09-29T03:46:06+08:00",
   "status": "ready",
   "checks": {
-    "strategySummaryCount": 1958,
-    "strategyDetailCount": 1958,
+    "strategySummaryCount": 1959,
+    "strategyDetailCount": 1959,
     "strategyDetailMissingCount": 0,
     "strategyDetailParseErrorCount": 0,
-    "strategyDetailDeclaredIncompleteCount": 212,
+    "strategyDetailDeclaredIncompleteCount": 213,
     "strategyDetailWithoutHoldingCount": 63,
     "strategyDetailWithoutCurveCount": 59,
-    "strategyDetailReferencedFundCount": 6235,
+    "strategyDetailReferencedFundCount": 6237,
     "selectedFundCount": 0,
     "enhancedFundDetailCount": 0,
     "baseOnlyFundCount": 0,
     "brokenFundDetailCount": 0,
     "forbiddenFundDetailPageCount": 0,
     "forbiddenFundDetailFileCount": 0,
-    "strategyDetailSourceCount": 1958,
+    "strategyDetailSourceCount": 1959,
     "strategyDetailDeclaredCompleteCount": 1746,
-    "activeStrategyCount": 1530,
+    "activeStrategyCount": 1531,
     "activeStrategyWithoutCurveCount": 57,
-    "currentHoldingStrategyCount": 1870,
-    "currentHoldingFundReferenceCount": 32915,
-    "currentHoldingRankMissingReferenceCount": 353,
-    "activeCurrentHoldingRankMissingReferenceCount": 312,
-    "inactiveCurrentHoldingRankMissingReferenceCount": 41,
+    "currentHoldingStrategyCount": 1871,
+    "currentHoldingFundReferenceCount": 32919,
+    "currentHoldingRankMissingReferenceCount": 30414,
+    "activeCurrentHoldingRankMissingReferenceCount": 24658,
+    "inactiveCurrentHoldingRankMissingReferenceCount": 5756,
     "currentHoldingScaleErrorReferenceCount": 0,
-    "historyRebalanceStrategyCount": 1810,
+    "historyRebalanceStrategyCount": 1811,
     "assessedHistoryRebalanceStrategyCount": 1520,
-    "unassessedHistoryRebalanceStrategyCount": 290,
+    "unassessedHistoryRebalanceStrategyCount": 291,
     "officialPerformanceImageReferenceCount": 0,
     "officialPerformanceImageInvalidReferenceCount": 0,
     "officialPerformanceImageMissingSourceAssetCount": 0,
-    "currentHolding近一月RankedReferenceCount": 32691,
-    "currentHolding近三月RankedReferenceCount": 32688,
-    "currentHolding近6月RankedReferenceCount": 32682,
-    "currentHolding近1年RankedReferenceCount": 32562,
+    "currentHolding近一月RankedReferenceCount": 2505,
+    "currentHolding近三月RankedReferenceCount": 2505,
+    "currentHolding近6月RankedReferenceCount": 2505,
+    "currentHolding近1年RankedReferenceCount": 2505,
     "officialPerformanceImagePublishedAssetCount": 0,
     "officialPerformanceImageMissingPublishedAssetCount": 0,
     "fundDetailParsedCount": 0,
@@ -45,9 +45,9 @@
     "fundDetailBenchmarkChartCount": 0,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 570140,
-    "holdingSnapshotPublishedRowCount": 166058,
-    "holdingSnapshotStrategyCount": 1862
+    "holdingSnapshotSourceRowCount": 570250,
+    "holdingSnapshotPublishedRowCount": 166012,
+    "holdingSnapshotStrategyCount": 1863
   },
   "policy": {
     "blockingZeroChecks": [
@@ -64,13 +64,13 @@
       "activeCurrentHoldingRankMissingReferenceCount"
     ],
     "warningCounts": {
-      "activeCurrentHoldingRankMissingReferenceCount": 312
+      "activeCurrentHoldingRankMissingReferenceCount": 24658
     }
   },
   "warnings": [
     {
       "type": "source_strategy_data_incomplete",
-      "count": 212,
+      "count": 213,
       "note": "源数据已明确标记不完整，发布集保留真实缺失状态，不做推测补齐。"
     },
     {
@@ -80,17 +80,15 @@
     },
     {
       "type": "current_holding_rank_missing",
-      "count": 353,
-      "activeCount": 312,
-      "inactiveCount": 41,
+      "count": 30414,
+      "activeCount": 24658,
+      "inactiveCount": 5756,
       "note": "同类排名缺失属于可披露的覆盖率缺口，不阻断其他准确数据发布；页面不把缺失仓位计为前50%。"
     },
     {
       "type": "history_rebalance_unassessed",
-      "count": 290,
+      "count": 291,
       "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
     }
-  ],
-  "presentationRefreshedAt": "2026-09-28T11:18:27+08:00",
-  "presentationChangeType": "page_performance"
+  ]
 }
