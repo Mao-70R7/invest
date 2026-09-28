@@ -7,9 +7,9 @@
 
   const allRows = summary.strategies || [];
   const holdingPack = window.__BASIC_HOLDING_SNAPSHOT_PACK__ || null;
-  const semanticIndex = window.__AI_STRATEGY_SEMANTIC_INDEX__ || null;
+  let semanticIndex = window.__AI_STRATEGY_SEMANTIC_INDEX__ || null;
   const topicPack = window.__BASIC_AI_TOPIC_EVIDENCE_PACK__ || window.__BASIC_TOPIC_ANALYSIS_PACK__ || null;
-  const fundDetailPack = window.__BASIC_DATA__?.fundDetailPack || null;
+  let fundDetailPack = window.__BASIC_DATA__?.fundDetailPack || null;
   const modelConfigStorageKey = "aiStrategyModelConfigV5";
   const aiConfigFileDefault = Object.assign({}, window.__AI_STRATEGY_CONFIG__ || {});
   clearStoredModelConfig();
@@ -222,11 +222,11 @@
     },
   ];
   let fundProfileCache = null;
-  const semanticEntityCatalog = normalizeSemanticCatalog(mergeSemanticCatalog([
+  let semanticEntityCatalog = normalizeSemanticCatalog(mergeSemanticCatalog([
     ...((semanticIndex?.entityCatalog && Array.isArray(semanticIndex.entityCatalog) && semanticIndex.entityCatalog.length) ? semanticIndex.entityCatalog : fallbackSemanticEntityCatalog),
     ...dynamicSemanticEntityCatalog(),
   ]));
-  const indexedStandardEntityKeys = new Set(((semanticIndex?.entityCatalog && Array.isArray(semanticIndex.entityCatalog)) ? semanticIndex.entityCatalog : [])
+  let indexedStandardEntityKeys = new Set(((semanticIndex?.entityCatalog && Array.isArray(semanticIndex.entityCatalog)) ? semanticIndex.entityCatalog : [])
     .map((entity) => raw(entity?.key))
     .filter(Boolean));
   const operatorLabels = {
@@ -249,8 +249,9 @@
   const operatorOptions = ["contains", "contains_any", "not contains", "in", "not in", ">=", "<=", ">", "<", "=", "!=", "is not empty", "is empty"];
   const singleValueCategoricalFields = new Set(["研报产品类型", "业务分类", "市场地域", "主动被动", "运作状态", "基础数据等级", "风险等级", "业务组合分类"]);
   const defaultQuery = "找成立一年以上，回撤在3个点以内，收益率在5个点以上，持仓含黄金的策略。";
+  const warmQuery = document.getElementById("aiWarmQuery");
   const state = {
-    query: new URLSearchParams(window.location.search).get("q") || defaultQuery,
+    query: warmQuery?.dataset.edited === "1" ? warmQuery.value : (new URLSearchParams(window.location.search).get("q") || defaultQuery),
     metric: "累计收益率",
     completeOnly: true,
     rows: [],
@@ -1744,10 +1745,17 @@
     const panel = B.byId("aiExplanationLazyPanel");
     const body = B.byId("aiExplanationLazyBody");
     if (!panel || !body) return;
-    panel.addEventListener("toggle", () => {
+    panel.addEventListener("toggle", async () => {
       if (!panel.open || panel.dataset.loaded === "1" || panel.dataset.loaded === "loading") return;
       panel.dataset.loaded = "loading";
       body.innerHTML = `<div class="empty">正在加载实体字典...</div>`;
+      try {
+        await ensureAnalysisData();
+      } catch (error) {
+        panel.dataset.loaded = "";
+        body.innerHTML = `<div class="empty">分析数据加载失败：${B.esc(error?.message || error)}。请稍后重新展开。</div>`;
+        return;
+      }
       window.setTimeout(() => {
         const holder = document.createElement("div");
         holder.innerHTML = renderAiExplanation();
@@ -1763,19 +1771,21 @@
   }
 
   function renderInitialResultPlaceholder() {
+    const deferred = window.MinimalPublish?.hasDeferredData?.();
     return `<section class="panel ai-result-placeholder">
       <div class="panel-head">
         <div>
           <h2>候选策略</h2>
-          <p class="desc">页面已加载，默认示例会在首屏显示后用本地规则预览；点击“执行筛选”后仍以本地规则优先，仅在条件未识别或存在会改变结果的歧义时调用模型。</p>
+          <p class="desc">${deferred ? "输入条件后点击“执行筛选”，系统会加载完整分析数据并生成结果。" : "页面已加载，默认示例会在首屏显示后用本地规则预览；点击“执行筛选”后仍以本地规则优先，仅在条件未识别或存在会改变结果的歧义时调用模型。"}</p>
         </div>
       </div>
-      <div class="empty">正在准备本地筛选预览...</div>
+      <div class="empty">${deferred ? "筛选准备就绪。" : "正在准备本地筛选预览..."}</div>
     </section>`;
   }
 
   let initialSearchTimer = null;
   function scheduleInitialSearchPreview() {
+    if (window.MinimalPublish?.hasDeferredData?.()) return;
     if (initialSearchTimer) window.clearTimeout(initialSearchTimer);
     const seq = state.searchSeq;
     initialSearchTimer = window.setTimeout(() => {
@@ -4708,11 +4718,43 @@
     `;
   }
 
+  let analysisDataReady = false;
+  async function ensureAnalysisData() {
+    if (analysisDataReady || !window.MinimalPublish?.hasDeferredData?.()) return;
+    await window.MinimalPublish.loadDeferredData();
+    semanticIndex = window.__AI_STRATEGY_SEMANTIC_INDEX__ || null;
+    fundDetailPack = window.__BASIC_DATA__?.fundDetailPack || null;
+    if (!semanticIndex || !fundDetailPack) throw new Error("完整穿透数据尚未就绪");
+    semanticEntityCatalog = normalizeSemanticCatalog(mergeSemanticCatalog([
+      ...((Array.isArray(semanticIndex.entityCatalog) && semanticIndex.entityCatalog.length) ? semanticIndex.entityCatalog : fallbackSemanticEntityCatalog),
+      ...dynamicSemanticEntityCatalog(),
+    ]));
+    indexedStandardEntityKeys = new Set((Array.isArray(semanticIndex.entityCatalog) ? semanticIndex.entityCatalog : [])
+      .map((entity) => raw(entity?.key)).filter(Boolean));
+    fundProfileCache = null;
+    semanticHoldingCache = null;
+    flatSemanticHoldingCache = null;
+    strategyEntityCache = null;
+    analysisDataReady = true;
+  }
+
   async function runSearch(options = {}) {
     const allowModel = options?.allowModel !== false;
     const seq = ++state.searchSeq;
     state.query = B.byId("aiQuery").value;
     state.completeOnly = true;
+    if (window.MinimalPublish?.hasDeferredData?.() && !analysisDataReady) {
+      B.byId("aiResult").innerHTML = `<section class="panel"><div class="empty">正在加载完整分析数据，请稍候...</div></section>`;
+      try {
+        await ensureAnalysisData();
+      } catch (error) {
+        if (seq === state.searchSeq) {
+          B.byId("aiResult").innerHTML = `<section class="panel"><div class="empty">分析数据加载失败：${B.esc(error?.message || error)}。请重试。</div></section>`;
+        }
+        return;
+      }
+      if (seq !== state.searchSeq) return;
+    }
     let parsed = parseQuery(state.query);
     if (shouldUseModelParser(allowModel, parsed)) {
       B.byId("aiResult").innerHTML = `

@@ -7,6 +7,8 @@
 
   const originalLoadScript = B.loadScript.bind(B);
   const pending = new Map();
+  let deferredDataScripts = [];
+  let deferredDataPromise = null;
   const fileProtocol = window.location.protocol === "file:";
   const runtimeScript = Array.from(document.scripts).find((script) => /\/minimal-publish-runtime\.js(?:\?|$)/.test(script.src || ""));
   const buildId = runtimeScript ? new URL(runtimeScript.src, document.baseURI).searchParams.get("v") || "" : "";
@@ -142,9 +144,22 @@
     });
   };
 
+  function loadDeferredData() {
+    if (!deferredDataPromise) {
+      deferredDataPromise = Promise.all(deferredDataScripts.map((src) => loadCompressed(src)))
+        .catch((error) => {
+          deferredDataPromise = null;
+          throw error;
+        });
+    }
+    return deferredDataPromise;
+  }
+
   async function startPage(options = {}) {
     if (!(await ensureFreshBuild())) return;
     const dataScripts = Array.isArray(options.dataScripts) ? options.dataScripts : [];
+    deferredDataScripts = Array.isArray(options.deferredDataScripts) ? options.deferredDataScripts : [];
+    deferredDataPromise = null;
     const totalSteps = dataScripts.length + (options.renderer ? 1 : 0);
     let loadedSteps = 0;
     const markLoaded = (detail = "") => {
@@ -183,6 +198,8 @@
     shardKey,
     detailPath,
     startPage,
+    loadDeferredData,
+    hasDeferredData: () => deferredDataScripts.length > 0,
   });
   window.__MINIMAL_PUBLISH_RUNTIME__ = window.MinimalPublish;
 })();
