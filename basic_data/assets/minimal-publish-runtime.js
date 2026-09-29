@@ -156,7 +156,6 @@
   }
 
   async function startPage(options = {}) {
-    if (!(await ensureFreshBuild())) return;
     const dataScripts = Array.isArray(options.dataScripts) ? options.dataScripts : [];
     deferredDataScripts = Array.isArray(options.deferredDataScripts) ? options.deferredDataScripts : [];
     deferredDataPromise = null;
@@ -168,7 +167,13 @@
     };
     try {
       if (B.updatePageLoading) B.updatePageLoading(0, totalSteps);
-      await Promise.all(dataScripts.map((src) => loadCompressed(src).then(() => markLoaded("数据资源已加载"))));
+      // Start the large transfers while the independent version check is in flight.
+      // Catch immediately so a redirect cannot leave an unhandled fetch rejection.
+      const dataResult = Promise.all(dataScripts.map((src) => loadCompressed(src).then(() => markLoaded("数据资源已加载"))))
+        .then(() => ({ ok: true }), (error) => ({ ok: false, error }));
+      if (!(await ensureFreshBuild())) return;
+      const result = await dataResult;
+      if (!result.ok) throw result.error;
       if (options.qualityScope && B.renderGlobalQualityGate) {
         B.renderGlobalQualityGate(options.qualityScope);
       }
