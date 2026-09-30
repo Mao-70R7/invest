@@ -1,7 +1,7 @@
 {
   "version": 1,
   "buildId": "minimal-95ea1c96cd50",
-  "generatedAt": "2026-09-30T04:34:17+08:00",
+  "generatedAt": "2026-09-30T14:06:46+08:00",
   "pageSet": [
     "机构总览",
     "策略列表",
@@ -71,7 +71,7 @@
     "preservedPublishBytes": 278034
   },
   "fileCount": 2024,
-  "totalBytes": 137481189,
+  "totalBytes": 137475059,
   "files": [
     {
       "path": ".github/workflows/pages.yml",
@@ -100,8 +100,8 @@
     },
     {
       "path": "basic_data/ai-strategy.html",
-      "size": 3464,
-      "sha256": "96fd48d80c44e58f96c9768fbb8a77082ec26a5984dc400df8d6d43829f48a7d"
+      "size": 3441,
+      "sha256": "ea56a94b1676273a25c202bb4e9a01366494e10bd0ccaf9d12c4462946d0a5ca"
     },
     {
       "path": "basic_data/assets/ai-strategy-config.js",
@@ -110,13 +110,13 @@
     },
     {
       "path": "basic_data/assets/ai-strategy.js",
-      "size": 275979,
-      "sha256": "3076c9050bfa0a9b1f767686049281f677f2f2f4c861dafb4db5feff7d1de1e0"
+      "size": 274679,
+      "sha256": "fbac7e85610c8e97aeaf4f2d5f0b3936e804338284bfa5b79599ffa702752c0d"
     },
     {
       "path": "basic_data/assets/basic-common.js",
-      "size": 48291,
-      "sha256": "e385a49b48997a63f97083a73cfd109944cd68f2989f9af277f59d9b8d79c02b"
+      "size": 47896,
+      "sha256": "1cce6fb82c429efbd4feae3edd058e73bf34bc122161e3acfbd1f7b7eb333ba2"
     },
     {
       "path": "basic_data/assets/basic.css",
@@ -130,8 +130,8 @@
     },
     {
       "path": "basic_data/assets/insights.js",
-      "size": 358061,
-      "sha256": "53f5170a3632a50812d202d48ebf65bbaade0fb1e30100d7960b0be266cfb560"
+      "size": 352939,
+      "sha256": "9d51b4f28969e4ad202c262f67ac40b7014b3d82b888269c86f5fe05be3cebd2"
     },
     {
       "path": "basic_data/assets/institutions.js",
@@ -150,8 +150,8 @@
     },
     {
       "path": "basic_data/assets/strategies.js",
-      "size": 47315,
-      "sha256": "be686dd5949f9ddc6f771500dddca879257f974801467fe1ffe93faf44db79b6"
+      "size": 48150,
+      "sha256": "5a0424e9b6069b025ec169e68ec17f5e5fde3d0e6eec22feed994064e18d26f3"
     },
     {
       "path": "basic_data/assets/strategy-detail.js",
@@ -165,8 +165,8 @@
     },
     {
       "path": "basic_data/compare.html",
-      "size": 2603,
-      "sha256": "e126529edb3c9eee38cf5779f8e85107be4963785202af397292732ec971949c"
+      "size": 2586,
+      "sha256": "766d65e827ccda8ece37661484bdc0cf0a58d0b51a7dbf0ce4ae70aca52ad468"
     },
     {
       "path": "basic_data/config/ai-strategy-local-config.js",
@@ -10080,23 +10080,23 @@
     },
     {
       "path": "basic_data/institutions.html",
-      "size": 2587,
-      "sha256": "5e65619265da423b57157b84db9b3a5c3ef04665274e1239d23e959a17440de3"
+      "size": 2556,
+      "sha256": "cb62a22d43e92bf0b8ad0d5bee0410de513b610a55fcaf54b0b36a1f890f72f1"
     },
     {
       "path": "basic_data/mixed-performance-scatter.html",
-      "size": 2686,
-      "sha256": "48e9e44dffe96baaa1e7c8103f32055dfd3c52d3b0323940cd2f7d0cd45fda3c"
+      "size": 2654,
+      "sha256": "124dce3920e3e52580ddbd3330c75f420fdf798ab1cdfbbdbcc4f973ae90f79b"
     },
     {
       "path": "basic_data/strategies.html",
-      "size": 2660,
-      "sha256": "a64c71a8532ea9470c31faaa9efddbc37501c54b4dd65277316665dad3b5675e"
+      "size": 2646,
+      "sha256": "b1e773e0c913a78e5b5d702535aa78f0bc69f6fbaeb165e5b5272cb4d15dea7f"
     },
     {
       "path": "basic_data/strategy.html",
-      "size": 2648,
-      "sha256": "50a46f18d793f508325d37cf10d07e56fe3d62b1a8b74aaa642a81e4ccddfc5d"
+      "size": 2617,
+      "sha256": "283fdfe57fdf32e3ec97c8d49a4dc54ce56dfd3f0f464ba3cce3cb2846e7c196"
     },
     {
       "path": "index.html",
@@ -10193,5 +10193,6 @@
       "size": 58,
       "sha256": "fde8860405e951900cdc0080196dc927fb16da60ffe7464e5d2c068490a4fac5"
     }
-  ]
+  ],
+  "uiRevision": "7154105be6c5"
 }

@@ -275,11 +275,24 @@
   function syncScrollbars() {
     const wrap = B.byId("strategyTableWrap");
     const top = B.byId("topScrollbar");
-    if (!wrap || !top) return;
-    const inner = top.querySelector(".strategy-scrollbar-inner");
-    inner.style.width = `${wrap.scrollWidth}px`;
-    top.onscroll = () => { wrap.scrollLeft = top.scrollLeft; };
-    wrap.onscroll = () => { top.scrollLeft = wrap.scrollLeft; };
+    const bottom = B.byId("bottomScrollbar");
+    if (!wrap || !top || !bottom) return;
+    for (const bar of [top, bottom]) {
+      const inner = bar.querySelector(".strategy-scrollbar-inner");
+      if (inner) inner.style.width = `${wrap.scrollWidth - wrap.offsetWidth + bar.clientWidth}px`;
+    }
+    let syncing = false;
+    const syncTo = (left, source) => {
+      if (syncing) return;
+      syncing = true;
+      for (const element of [wrap, top, bottom]) {
+        if (element !== source) element.scrollLeft = left;
+      }
+      syncing = false;
+    };
+    top.onscroll = () => syncTo(top.scrollLeft, top);
+    bottom.onscroll = () => syncTo(bottom.scrollLeft, bottom);
+    wrap.onscroll = () => syncTo(wrap.scrollLeft, wrap);
   }
 
   function updateSelectionControls(pageRows = []) {
@@ -454,9 +467,11 @@
           <button id="strategyCompareButton" class="strategy-compare-button" type="button" disabled>策略对比</button>
         </div>
       </div>
+      <p class="desc">列表含更多指标，可左右滚动表格或使用上下横向滚动条查看。</p>
       <div class="strategy-table-shell">
-        <div id="topScrollbar" class="strategy-scrollbar"><div class="strategy-scrollbar-inner"></div></div>
+        <div id="topScrollbar" class="strategy-scrollbar" role="region" aria-label="策略列表顶部横向滚动" tabindex="0"><div class="strategy-scrollbar-inner"></div></div>
         <div id="strategyTableWrap" class="strategy-table-wrap"></div>
+        <div id="bottomScrollbar" class="strategy-scrollbar is-bottom" role="region" aria-label="策略列表底部横向滚动" tabindex="0"><div class="strategy-scrollbar-inner"></div></div>
       </div>
     </section>
   `;

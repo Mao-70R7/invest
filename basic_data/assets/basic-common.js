@@ -4,7 +4,7 @@ window.BasicData = (() => {
   const state = window.__BASIC_DATA__;
   const byId = (id) => document.getElementById(id);
   const esc = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
-  const INTERNAL_TEST_NOTICE = "所有数据为测试模拟数据，不构成任何投资意见，仅内部测试使用。";
+  const INTERNAL_TEST_NOTICE = "数据来自公开披露及系统加工，可能存在时点和口径差异；仅供内部分析，不构成投资建议。";
   const PAGE_LOADING_TEXT = "数据正在加载，请稍等。";
   const strategyListFieldGroups = Object.freeze({
     returns: Object.freeze(["近一周", "近一月", "近三月", "近1年", "今年以来", "累计收益率"]),

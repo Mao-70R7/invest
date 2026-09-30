@@ -271,7 +271,7 @@
   let modelConnectivityState = "unknown";
   let modelConnectivityPromise = null;
   let modelFailureDialogShown = false;
-  const modelFallbackMessage = "模型已欠费，筛选仅支持属性简单识别筛选";
+  const modelFallbackMessage = "模型服务暂不可用，当前仅支持本地属性筛选";
   const scatterMetricOptions = [
     "最大回撤",
     "当前回撤",
@@ -5009,7 +5009,7 @@
         if (/Failed to fetch|NetworkError|Load failed/i.test(reason)) reason = "模型接口不可访问，请检查网络、跨域或密钥状态";
         setModelTestResult("bad", reason.slice(0, 180));
         if (notice) { notice.hidden = false; notice.textContent = `${modelFallbackMessage}。可在“AI模型服务”中重新测试。`; }
-        showModelFailureDialog(reason.slice(0, 180));
+        if (!automatic) showModelFailureDialog(reason.slice(0, 180));
         return false;
       } finally {
         if (button) button.disabled = false;

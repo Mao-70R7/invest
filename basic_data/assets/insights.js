@@ -285,7 +285,7 @@
   const initTab = initParams.get("tab");
   if (compareStandalone) state.tab = "compare";
   else if (tabs.some(([key]) => key === initTab)) state.tab = initTab;
-  if (initTab === "cockpit") state.tab = "market";
+  if (!compareStandalone && initTab === "cockpit") state.tab = "market";
   state.range = initParams.get("range") || state.range;
   state.benchmarkBucket = initParams.get("benchmarkBucket") || initParams.get("broadEquityBucket") || initParams.get("benchmarkEquityBucket") || state.benchmarkBucket;
   state.risk = initParams.get("risk") || state.risk;
@@ -5571,6 +5571,7 @@
   }
 
   function renderContent() {
+    if (compareStandalone) return compareTab();
     if (state.tab === "compare") return compareTab();
     if (state.tab === "holding" && !ensureInsightLazyPack("holding")) return insightLazyLoadingPanel("仓位分析");
     if (state.tab === "rebalance" && !ensureInsightLazyPack("rebalance")) return insightLazyLoadingPanel("调仓分析");
