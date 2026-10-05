@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-30T04:34:15+08:00",
+  "generatedAt": "2026-10-05T09:06:17+08:00",
   "status": "ready",
   "checks": {
-    "strategySummaryCount": 1967,
-    "strategyDetailCount": 1967,
+    "strategySummaryCount": 1968,
+    "strategyDetailCount": 1968,
     "strategyDetailMissingCount": 0,
     "strategyDetailParseErrorCount": 0,
-    "strategyDetailDeclaredIncompleteCount": 214,
-    "strategyDetailWithoutHoldingCount": 60,
-    "strategyDetailWithoutCurveCount": 61,
+    "strategyDetailDeclaredIncompleteCount": 213,
+    "strategyDetailWithoutHoldingCount": 58,
+    "strategyDetailWithoutCurveCount": 59,
     "strategyDetailReferencedFundCount": 6248,
     "selectedFundCount": 0,
     "enhancedFundDetailCount": 0,
@@ -17,26 +17,26 @@
     "brokenFundDetailCount": 0,
     "forbiddenFundDetailPageCount": 0,
     "forbiddenFundDetailFileCount": 0,
-    "strategyDetailSourceCount": 1967,
-    "strategyDetailDeclaredCompleteCount": 1753,
-    "activeStrategyCount": 1539,
-    "activeStrategyWithoutCurveCount": 59,
-    "currentHoldingStrategyCount": 1882,
-    "currentHoldingFundReferenceCount": 33100,
-    "currentHoldingRankMissingReferenceCount": 30645,
-    "activeCurrentHoldingRankMissingReferenceCount": 24838,
-    "inactiveCurrentHoldingRankMissingReferenceCount": 5807,
+    "strategyDetailSourceCount": 1968,
+    "strategyDetailDeclaredCompleteCount": 1755,
+    "activeStrategyCount": 1540,
+    "activeStrategyWithoutCurveCount": 57,
+    "currentHoldingStrategyCount": 1885,
+    "currentHoldingFundReferenceCount": 33190,
+    "currentHoldingRankMissingReferenceCount": 30760,
+    "activeCurrentHoldingRankMissingReferenceCount": 24939,
+    "inactiveCurrentHoldingRankMissingReferenceCount": 5821,
     "currentHoldingScaleErrorReferenceCount": 0,
-    "historyRebalanceStrategyCount": 1817,
-    "assessedHistoryRebalanceStrategyCount": 1524,
-    "unassessedHistoryRebalanceStrategyCount": 293,
+    "historyRebalanceStrategyCount": 1819,
+    "assessedHistoryRebalanceStrategyCount": 1527,
+    "unassessedHistoryRebalanceStrategyCount": 292,
     "officialPerformanceImageReferenceCount": 0,
     "officialPerformanceImageInvalidReferenceCount": 0,
     "officialPerformanceImageMissingSourceAssetCount": 0,
-    "currentHolding近一月RankedReferenceCount": 2455,
-    "currentHolding近三月RankedReferenceCount": 2455,
-    "currentHolding近6月RankedReferenceCount": 2455,
-    "currentHolding近1年RankedReferenceCount": 2455,
+    "currentHolding近一月RankedReferenceCount": 2430,
+    "currentHolding近三月RankedReferenceCount": 2430,
+    "currentHolding近6月RankedReferenceCount": 2430,
+    "currentHolding近1年RankedReferenceCount": 2430,
     "officialPerformanceImagePublishedAssetCount": 0,
     "officialPerformanceImageMissingPublishedAssetCount": 0,
     "fundDetailParsedCount": 0,
@@ -45,9 +45,9 @@
     "fundDetailBenchmarkChartCount": 0,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 565315,
-    "holdingSnapshotPublishedRowCount": 160293,
-    "holdingSnapshotStrategyCount": 1874
+    "holdingSnapshotSourceRowCount": 590649,
+    "holdingSnapshotPublishedRowCount": 175294,
+    "holdingSnapshotStrategyCount": 1870
   },
   "policy": {
     "blockingZeroChecks": [
@@ -64,30 +64,30 @@
       "activeCurrentHoldingRankMissingReferenceCount"
     ],
     "warningCounts": {
-      "activeCurrentHoldingRankMissingReferenceCount": 24838
+      "activeCurrentHoldingRankMissingReferenceCount": 24939
     }
   },
   "warnings": [
     {
       "type": "source_strategy_data_incomplete",
-      "count": 214,
+      "count": 213,
       "note": "源数据已明确标记不完整，发布集保留真实缺失状态，不做推测补齐。"
     },
     {
       "type": "active_strategy_without_curve",
-      "count": 59,
+      "count": 57,
       "note": "活跃策略没有任何可画曲线时保留真实缺失状态；正常披露策略应为0。"
     },
     {
       "type": "current_holding_rank_missing",
-      "count": 30645,
-      "activeCount": 24838,
-      "inactiveCount": 5807,
+      "count": 30760,
+      "activeCount": 24939,
+      "inactiveCount": 5821,
       "note": "同类排名缺失属于可披露的覆盖率缺口，不阻断其他准确数据发布；页面不把缺失仓位计为前50%。"
     },
     {
       "type": "history_rebalance_unassessed",
-      "count": 293,
+      "count": 292,
       "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
     }
   ]
