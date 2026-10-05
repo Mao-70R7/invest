@@ -1,7 +1,7 @@
 {
   "version": 1,
   "buildId": "minimal-ee466a46e87f",
-  "generatedAt": "2026-10-05T09:06:18+08:00",
+  "generatedAt": "2026-10-05T09:37:33+08:00",
   "pageSet": [
     "机构总览",
     "策略列表",
@@ -71,7 +71,7 @@
     "preservedPublishBytes": 278034
   },
   "fileCount": 2025,
-  "totalBytes": 138012098,
+  "totalBytes": 138012094,
   "files": [
     {
       "path": ".github/workflows/pages.yml",
@@ -196,12 +196,12 @@
     {
       "path": "basic_data/data/data_pack_manifest.js",
       "size": 4555,
-      "sha256": "69cac607a012ef02d50a0ab7ae76001cef9f8da2a22ef68adac060f7b4d5a5aa"
+      "sha256": "ec4d89e858e0c50eb3588a9fd25f73bfec4dafef233f3b2f72491f7628ad3544"
     },
     {
       "path": "basic_data/data/data_quality_pack.js.gz",
-      "size": 15320,
-      "sha256": "797596f3b27327b229ab51978f2315d3cd85b4cdce7726fd780e9e8684f31792"
+      "size": 15316,
+      "sha256": "101dc74a42771cfdbb0c6e39393bd8de820a2710caaba33d86eb0ffe9d6f07cd"
     },
     {
       "path": "basic_data/data/details/00/qieman__ZH144732.js.gz",
@@ -10111,7 +10111,7 @@
     {
       "path": "package_validation.json",
       "size": 3687,
-      "sha256": "4b9a094817188bfcafe69641dd19c4b22644bf6f7d3b1c7f646c32994a33648c"
+      "sha256": "de61c49548f375a0b70e2c72baba4ae645dea4ec4505ac1477e4269802c02a05"
     },
     {
       "path": "README.md",
@@ -10186,7 +10186,7 @@
     {
       "path": "version.json",
       "size": 151,
-      "sha256": "cdf8c145c4425f18da7a53cda0114e9f0b4aee904dd72156136dae81a98a5dc2"
+      "sha256": "d69bfb62fc654f904ff5d1bcd0aef3201c3c85949188f95b41df3540e82ba848"
     },
     {
       "path": "停止最小发布集.cmd",
