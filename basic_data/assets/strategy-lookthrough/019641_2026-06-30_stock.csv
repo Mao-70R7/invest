@@ -1,0 +1,72 @@
+﻿股票代码,股票名称,占基金净值比例_百分比,行业一级,行业二级,数据来源,原始快照ID,基金代码,报告期,用于聚合,排除原因
+000660,SK海力士,5.77,-,-,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+00083,信和置业,1.49,地产,地产,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+003550,LG集团,0.36,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+00388,香港交易所,2.12,其他金融,其他金融,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+005930,三星电子,9.48,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+005935,Samsung Electronics Co Pref,0.2,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+00669,创科实业,1.78,家庭电器及用品,家庭电器及用品,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+00700,腾讯控股,6.1,计算机,软件服务,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+01109,华润置地,1.43,地产,地产,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+011780,Kumho Petro Chemical,0.63,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+01299,友邦保险,1.88,非银金融,保险,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+017670,SK电讯,0.37,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+02318,中国平安,1.41,非银金融,保险,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+02338,潍柴动力,1.21,工业工程,工业工程,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+02476,胜宏科技,0.29,工业工程,工业工程,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+02788,创新实业,1.1,有色金属,一般金属及矿石,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+028260,三星物产,0.54,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+02899,紫金矿业,1.72,有色金属,黄金及贵金属,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+034730,SK集团,1.05,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+03750,宁德时代,4.28,工业工程,工业工程,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+03898,时代电气,0.3,工业工程,工业工程,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+039490,Kiwoom,0.11,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+055550,新韩金融集团,1.89,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+09988,阿里巴巴-W,1.43,商贸零售,专业零售,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+105560,KB金融集团,0.53,-,-,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+145020,Hugel,0.36,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+1590,亚德客-KY,0.81,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+2301,光宝科,0.51,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+2308,台达电,2.46,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+2330,台积电,9.82,-,-,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+2345,智邦,1.45,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+267260,Hyundai Electric & Energy,0.15,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+2891,中信金,1.48,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+294870,Hyundai Develop,0.24,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+3008,大立光,0.85,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+3533,嘉泽,0.42,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+3711,日月光投控,0.68,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+402340,SK Square,0.5,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+5347,世界,0.19,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+6274,台耀,1.35,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+7769,鸿劲,0.77,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ASX,ASX LTD,0.95,电子,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+BHARTI,BHARTI AIRTEL LTD,0.87,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+BHE,BHARAT ELECTRONI CS LTD,0.6,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+BHP,BHP GROUP LTD,0.85,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CBA,COMMONWEA LTH BANK OF AUSTRAL,0.25,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CIFC,CHOLAMAND ALAM INVESTMEN T AND,0.85,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+COL,COLES GROUP LTD,0.66,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+DBS,DBS GROUP HOLDINGS LTD,1.8,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GMG,GOODMAN GROUP,0.38,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+HDB,HDFC银行,0.5,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+HDFCAMC,HDFC ASSET MANAGEMEN T CO LTD,1.29,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+IBN,印度工业信贷投资银行,0.12,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ICICIAMC,ICICI PRUDENTIA L ASSET MANAG,0.24,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+INDIGO,INTERGLOB E AVIATION LTD,0.37,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MAY,MALAYAN BANKING BHD,0.75,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MPL,MEDIBANK PRIVATE LTD,1.11,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NAB,NATIONAL AUSTRALIA BANK LTD,0.32,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NST,NORTHERN STAR RESOURCES LTD,0.51,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+PLS,PLS Group Ltd,0.37,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+QAN,QANTAS AIRWAYS LTD,0.21,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+RIO,RIO TINTO LTD,1.0,原材料,原材料,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SBIN,STATE BANK OF INDIA,0.72,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SE,Sea Ltd ADR,0.15,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SGX,SINGAPORE EXCHANGE LTD,0.97,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SHFL,SHRIRAM FINANCE LTD,0.6,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+STO,SANTOS LTD,0.95,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TLS,TELSTRA GROUP LTD,2.37,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TRENT,TRENT LTD,0.44,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VCX,VICINITY CENTRES STAPLED SECS,0.46,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+WOW,WOOLWORTH S GROUP LTD,0.5,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-019641-2026-a75e3fd49ad94d56,019641,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差

@@ -1,0 +1,61 @@
+﻿股票代码,股票名称,占基金净值比例_百分比,行业一级,行业二级,数据来源,原始快照ID,基金代码,报告期,用于聚合,排除原因
+00522,ASMPT,0.11,电子,半导体,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+00981,中芯国际,0.12,电子,半导体,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+01347,华虹宏力,0.48,电子,半导体,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+01888,建滔积层板,0.6,工业工程,工业工程,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+02513,智谱,0.24,计算机,软件服务,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+03200,大族数控,0.06,工业工程,工业工程,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+03986,兆易创新,0.61,电子,半导体,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+09903,天数智芯,0.36,电子,半导体,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ACMR,ACM Research Inc-A,0.53,工业,工业,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ADI,亚德诺,0.35,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ALAB,Astera Labs Inc,0.62,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AMAT,应用材料,3.53,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AMD,超威半导体,2.43,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AMKR,艾马克技术,0.72,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+APH,安费诺,0.49,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ARM,Arm Holdings plc ADR,0.93,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ASML,阿斯麦,3.47,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ASX,日月光半导体,1.1,电子,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AVGO,博通,1.05,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+BE,Bloom Energy Corp-A,0.84,工业,工业,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CAT,卡特彼勒,1.0,工业,工业,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+COHR,Coherent Corp,1.1,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CRDO,Credo Technology Group Holding Ltd,1.14,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+DELL,戴尔科技,0.26,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GE,GE航空航天,0.98,国防军工,工业,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GFS,GLOBALFOUNDRIES Inc,0.52,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GLW,康宁,2.05,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GOOG,谷歌-C,0.92,通讯服务,通讯服务,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GS,高盛,0.44,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ICHR,Ichor Holdings Ltd,0.53,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+INTC,英特尔,1.95,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+KLAC,科磊,2.05,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+KLIC,库力索法工业,1.87,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+LITE,Lumentum Holdings Inc,0.52,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+LRCX,拉姆研究,3.67,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MKSI,MKS Inc,3.61,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MRVL,迈威尔科技,2.23,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MU,美光科技,8.46,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NBIS,Nebius Group NV-A,2.41,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NVDA,英伟达,2.37,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NXPI,恩智浦半导体,0.25,电子,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+PLTR,Palantir Technologies Inc-A,0.22,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+QCOM,高通,0.48,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+RVMD,Revolution Medicines Inc,0.46,医疗保健,医疗保健,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SIMO,慧荣科技,0.93,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SMTC,先科电子,0.4,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SNDK,闪迪,9.12,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+STM,意法半导体,0.59,电子,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+STX,希捷科技,1.26,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TER,泰瑞达,0.76,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TSEM,Tower半导体,0.82,电子,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TSM,台积电,3.65,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TTMI,TTM科技,0.49,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TXN,德州仪器,0.26,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+UCTT,超科林半导体,0.57,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+UMC,联华电子,0.95,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VECO,维易科精密仪器,0.59,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VRT,Vertiv Holdings Co-A,0.29,金融,金融,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VSH,威世科技,0.47,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+WDC,西部数据,2.01,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-008254-2026-59129f8ddb2918b5,008254,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差

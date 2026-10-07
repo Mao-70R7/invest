@@ -1495,6 +1495,7 @@
       ${isTargetProfitStrategy() ? '<a data-strategy-section-link href="#strategy-target-profit">目标盈</a>' : ""}
       <a data-strategy-section-link href="#strategy-performance">业绩</a>
       <a data-strategy-section-link href="#strategy-holding">当前仓位</a>
+      <a data-asset-lookthrough-link href="./strategy-lookthrough.html#${encodeURIComponent(detail.summary.统一策略ID || id)}">资产穿透分析</a>
       <a data-strategy-section-link href="#strategy-rebalance">调仓记录</a>
       <a data-strategy-section-link href="#strategy-more">更多信息</a>
     </nav>

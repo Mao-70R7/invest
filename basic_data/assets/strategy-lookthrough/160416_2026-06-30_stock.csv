@@ -1,0 +1,101 @@
+﻿股票代码,股票名称,占基金净值比例_百分比,行业一级,行业二级,数据来源,原始快照ID,基金代码,报告期,用于聚合,排除原因
+00386,中国石油化工股份,0.29,基础化工,石油及天然气,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+00857,中国石油股份,0.54,石油石化,石油及天然气,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+1605,国际石油开发帝石,0.6,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+5019,日本出光兴产株式会社,0.22,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+5020,Eneos Holdings Inc,0.47,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+5021,科斯莫能源控股,0.1,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AKRBPNO,AkerBP公司,0.45,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ALDAU,Ampol有限公司,0.13,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AM,Antero Midstream Corp,0.26,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+APA,阿帕奇石油,0.28,石油石化,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AR,Antero Resources Corp,0.26,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AROC,Archrock Inc,0.17,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ARXCN,ARC能源有限公司,0.29,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+BKR,Baker Hughes Co-A,1.29,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+BP.,英国石油,2.41,石油石化,-,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CHRD,Chord Energy Corp,0.16,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CNQCN,加拿大自然资源有限公司,1.94,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CNX,康索尔能源,0.12,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+COP,康菲石油,3.09,石油石化,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CRC,加州资源,0.11,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CRK,康斯托克能源,0.1,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CVECN,Cenovus能源公司,1.08,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CVX,雪佛龙,8.04,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+DINO,HF Sinclair Corp,0.32,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+DTM,DT Midstream Inc,0.36,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+DVN,戴文能源,0.63,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+EC,哥伦比亚国家石油,0.69,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ENBCN,Enbridge股份有限公司,2.77,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ENIIM,埃尼集团,1.74,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+EOG,EOG能源,1.67,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+EQNRNO,挪威国家石油公司,2.07,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+EQT,EQT能源,0.75,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+EXE,Expand Energy Corp,0.51,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+FANG,Diamondback Energy Inc,1.21,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+FRONO,Frontline公共有限公司,0.18,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+FTI,TechnipFMC plc,0.66,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GLNG,Golar LNG Ltd,0.13,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GPOR,格尔夫波特能源,0.09,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GTT,Gaztransport et Technigaz SA,0.18,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+HAL,哈里伯顿,0.69,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+HBR,HARBOUR ENERGY PLC ORD 0.002P,0.1,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+IMOCN,加拿大帝国石油有限公司,1.36,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+KEYCN,Keyera Corp,0.22,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+KMI,金德摩根,1.67,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+LBRT,Liberty Energy Inc-A,0.1,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+LNG,Cheniere Energy Inc,1.26,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MGY,Magnolia Oil & Gas Corp-A,0.11,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MPC,马拉松原油,1.86,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MTDR,Matador Resources Co,0.15,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MUR,墨菲石油,0.11,石油石化,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NE,Noble Corp plc-A,0.14,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NOV,NOV Inc,0.16,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NVTKRM,诺瓦泰克公司,0.8,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+OGZD,PJSC GAZPROM LEVEL 1 ADS (REPR 2 ORD),0.14,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+OKE,欧尼克,1.28,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+OVV,Ovintiv Inc,0.33,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+OXY,西方石油,1.13,石油石化,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+PBF,PBF Energy Inc-A,0.13,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+PBR,巴西石油,1.41,石油石化,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+PPLCN,彭比纳管道公司,0.63,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+PR,Permian Resources Corp-A,0.3,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+PSKCN,PrairieSkyRoyalty有限公司,0.13,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+PSX,Phillips 66,1.62,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+PTEN,Patterson-UTI Energy Inc,0.08,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+REPSM,雷普索尔股份公司,0.68,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+RIG,越洋钻探,0.1,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+RIGD,印度瑞来斯实业,4.4,-,-,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ROSNRM,俄罗斯石油公司,0.95,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+RRC,山脉资源,0.21,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SHEL,壳牌,5.62,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SLB,斯伦贝谢,1.64,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SOBOCN,SouthBow公司,0.18,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SPMIM,塞班股份有限公司,0.24,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+STNG,Scorpio Tankers Inc,0.08,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+STOAU,桑托斯有限公司,0.38,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SUBCNO,Subsea7股份公司,0.24,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SUCN,森科能源公司,1.58,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TATNRM,鞑靼石油公司,0.3,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TDW,潮水海运,0.08,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TE,Technip Energies BV,0.16,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TENIM,特纳股份公司,0.75,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TOUCN,托玛琳石油公司,0.37,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TPL,Texas Pacific Land Corp,0.72,金融,金融,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TRGP,Targa Resources Corp,1.38,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TRPCN,TC能源公司,1.65,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TTE,TotalEnergies SE,4.14,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+UGP,Ultrapar Participacoes SA ADR,0.13,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VAL,Valaris Ltd,0.12,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VARNO,Var Energi ASA,0.24,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VG,Venture Global Inc-A,0.12,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VIST,Vista Energy SAB de CV ADR,0.17,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VK,瓦卢雷克,0.13,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VLO,瓦莱罗能源,1.92,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+VNOM,Viper Energy Inc-A,0.17,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+WCPCN,Whitecap资源股份有限公司,0.3,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+WDSAU,伍德赛德能源集团有限公司,0.87,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+WFRD,威德福国际,0.15,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+WHD,Cactus Inc-A,0.09,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+WMB,威廉姆斯,2.14,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+XOM,埃克森美孚,9.95,能源,能源,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-160416-2026-b619f3d635357d3e,160416,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差

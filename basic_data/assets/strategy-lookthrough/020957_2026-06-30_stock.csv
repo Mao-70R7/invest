@@ -1,0 +1,21 @@
+﻿股票代码,股票名称,占基金净值比例_百分比,行业一级,行业二级,数据来源,原始快照ID,基金代码,报告期,用于聚合,排除原因
+285A,KIOXIA,0.38,-,-,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+6976,太阳诱电,0.08,-,-,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+6981,村田制作所,0.34,-,-,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AMAT,应用材料,1.24,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+AMD,超威半导体,0.79,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ARM,Arm Holdings plc ADR,0.73,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+ASML,阿斯麦,0.68,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+CAT,卡特彼勒,0.36,工业,工业,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+GLW,康宁,0.87,,,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+INTC,英特尔,0.95,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+KLAC,科磊,0.31,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+LRCX,拉姆研究,0.74,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MRVL,迈威尔科技,0.51,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+MU,美光科技,2.37,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NOK,诺基亚,0.18,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+NVDA,英伟达,0.21,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+SNDK,闪迪,2.33,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TER,泰瑞达,0.5,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+TSLA,特斯拉,0.06,非日常生活消费品,非日常生活消费品,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
+WDC,西部数据,0.79,信息技术,信息技术,东财F10基金持仓,eastmoney_f10_all_market-stock_holding-020957-2026-8d6f9fd60229baaa,020957,2026-06-30,0,证券样本超过同季资产大类且超出舍入容差
