@@ -93,6 +93,6 @@
       "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
     }
   ],
-  "presentationRefreshedAt": "2026-10-07T23:21:15+08:00",
-  "presentationChangeType": "publish_git_byte_integrity"
+  "presentationRefreshedAt": "2026-10-07T23:37:38+08:00",
+  "presentationChangeType": "lossless_source_csv_bundles"
 }

@@ -292,4 +292,38 @@ window.lookthroughReceive=(s)=>{if(s.generatedAt!==buildGeneratedAt){if(s.id===s
 function load(id){resetLookthroughInteraction();selectedId=id;const meta=catalog.find(s=>s.id===id);if(!meta){document.getElementById('lead').textContent='没有匹配的策略';return}if(cache.has(id)){display(cache.get(id));return}for(const key of ['assetChart','typeChart','industryChart','assetLegend','typeLegend','industryLegend','holdings','metrics','quality','download','assetFoot','industryFoot'])document.getElementById(key).innerHTML='';document.getElementById('title').textContent=meta.name+' · 持仓穿透分析';document.getElementById('lead').textContent='正在读取该策略快照…';document.getElementById('fresh').textContent='';script=document.createElement('script');script.src='assets/strategy-lookthrough/'+meta.fileStem+'.js?v='+encodeURIComponent(buildGeneratedAt);script.onerror=()=>{if(selectedId===id)document.getElementById('lead').textContent='策略数据加载失败，请核查文件是否完整。'};script.addEventListener('load',function(){this.remove()});document.body.appendChild(script);}
 function filter(){const term=search.value.trim().toLowerCase(),keep=select.value;const matches=catalog.filter(s=>(!basis.value||(['nav_drift','source_latest','disclosed_fallback'].includes(basis.value)?s.weightBasis===basis.value:s.allocationBasis===basis.value))&&(!channel.value||s.channelId===channel.value)&&(!state.value||s.canCalculate===(state.value==='ready'))&&(!term||(s.name+' '+s.id+' '+s.advisor).toLowerCase().includes(term)));select.replaceChildren();for(const s of matches){const o=document.createElement('option');o.value=s.id;o.textContent=s.name+' · '+s.channelName+(s.allocationBasis==='official_rebalance_target'?' · 调仓模型':s.allocationBasis==='historical_exact'?' · 历史仓位':s.allocationBasis==='parent_strategy_reference'?' · 母策略参考':'')+(s.canCalculate?'':' · 暂不可计算');select.appendChild(o)}if(matches.length){select.value=matches.some(s=>s.id===keep)?keep:matches[0].id;load(select.value)}else{resetLookthroughInteraction();selectedId='';for(const key of ['assetChart','typeChart','industryChart','assetLegend','typeLegend','industryLegend','holdings','metrics','quality','download','assetFoot','industryFoot'])document.getElementById(key).innerHTML='';document.getElementById('title').textContent='未找到匹配策略';document.getElementById('lead').textContent='没有符合筛选条件的策略。';document.getElementById('fresh').textContent=''}}
 window.addEventListener('hashchange',()=>{const wanted=decodeURIComponent(location.hash.slice(1));if(catalog.some(s=>s.id===wanted)){search.value='';channel.value='';state.value='';basis.value='';filter();select.value=wanted;load(wanted)}});select.addEventListener('change',()=>{load(select.value);history.replaceState(null,'','#'+encodeURIComponent(select.value))});search.addEventListener('input',filter);channel.addEventListener('change',filter);state.addEventListener('change',filter);basis.addEventListener('change',filter);filter();const requested=decodeURIComponent(location.hash.slice(1))||(catalog.find(s=>s.canCalculate&&s.governanceStatus==='正常运行')||catalog.find(s=>s.canCalculate)||catalog[0]).id;if(catalog.some(s=>s.id===requested)){select.value=requested;load(requested)}
-</script></body></html>
+</script><script id="lookthrough-source-csv-download">
+(() => {
+  const root = 'assets/strategy-lookthrough/source-csv/';
+  const pattern = /^assets\/strategy-lookthrough\/([0-9]{6}_[0-9-]+_(?:stock|bond)\.csv)$/;
+  const cache = new Map();
+  function shard(name) { let h=0; for(const c of name) h=(Math.imul(h,31)+c.charCodeAt(0))>>>0; return (h%64).toString(16).padStart(2,'0')+'.json'; }
+  function decorate() {
+    document.querySelectorAll('a[href]').forEach(a => {
+      const match = pattern.exec(a.getAttribute('href'));
+      if(match) { a.dataset.lookthroughCsvSource=match[1]; a.href=root+shard(match[1]); a.setAttribute('title','下载原始持仓CSV（保留来源原文）'); }
+    });
+  }
+  new MutationObserver(decorate).observe(document.body,{childList:true,subtree:true});
+  decorate();
+  document.addEventListener('click',async event => {
+    const a=event.target.closest('a[data-lookthrough-csv-source]'); if(!a) return;
+    event.preventDefault(); event.stopImmediatePropagation();
+    const name=a.dataset.lookthroughCsvSource, key=shard(name), old=a.textContent;
+    a.textContent='正在准备CSV…';
+    try {
+      if(!cache.has(key)) cache.set(key,fetch(root+key).then(async r => { if(!r.ok) throw new Error('来源分片读取失败'); return r.json(); }).catch(e => {cache.delete(key);throw e;}));
+      const doc=await cache.get(key), record=doc.files[name];
+      if(doc.schemaVersion!==1||!record) throw new Error('来源文件未找到');
+      const raw=atob(record.contentBase64), bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
+      if(bytes.length!==record.size) throw new Error('来源文件长度校验失败');
+      const digest=await crypto.subtle.digest('SHA-256',bytes);
+      if(Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('')!==record.sha256) throw new Error('来源文件完整性校验失败');
+      const url=URL.createObjectURL(new Blob([bytes],{type:'text/csv;charset=utf-8'}));
+      const link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),60000);
+    } catch(error) { alert('下载失败：'+error.message); }
+    finally { a.textContent=old; }
+  },true);
+})();
+</script>
+</body></html>
