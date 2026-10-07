@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildId": "minimal-26ad6ddf4e3a",
-  "generatedAt": "2026-10-07T23:08:44+08:00",
+  "buildId": "minimal-629b554e3dd3",
+  "generatedAt": "2026-10-07T23:21:15+08:00",
   "pageSet": [
     "机构总览",
     "策略列表",
@@ -70,9 +70,14 @@
     "preservedPublishFileCount": 0,
     "preservedPublishBytes": 0
   },
-  "fileCount": 12860,
-  "totalBytes": 572164514,
+  "fileCount": 12861,
+  "totalBytes": 572164582,
   "files": [
+    {
+      "path": ".gitattributes",
+      "size": 66,
+      "sha256": "246ae076eeaccf1cd2652e2a6709e7afab2a7cff3fe4340fd03bfbddbddd441e"
+    },
     {
       "path": ".github/workflows/pages.yml",
       "size": 699,
@@ -54221,7 +54226,7 @@
     {
       "path": "basic_data/compare.html",
       "size": 2612,
-      "sha256": "a80ff1450e14ce2aec9b29a7855c21ae6a7d01d1f45c1de1411646fd86fbc625"
+      "sha256": "532bc8ea2cf9264766789f3073eb337ae06b7e25995cb545dc98f2c180fcb6c9"
     },
     {
       "path": "basic_data/data/basic_summary_core.js.gz",
@@ -64291,17 +64296,17 @@
     {
       "path": "basic_data/institutions.html",
       "size": 2591,
-      "sha256": "53cbbe7629a37fa58fb5ccb050cd4f41965a162f506c8c01f73934c9a7de37a9"
+      "sha256": "67f8b546427b0b6b91e3116a74dd506b738460ddb17ea0751b8fab00df4eb4c7"
     },
     {
       "path": "basic_data/mixed-performance-scatter.html",
       "size": 2677,
-      "sha256": "2e3888a7eb8ee56149aaca7efd9959897f53364310ca309f8361086ff4180c8e"
+      "sha256": "df223f7e2e39e11c3323f09212caded6225490b1ded55a3936e8562f8ae7b4f3"
     },
     {
       "path": "basic_data/strategies.html",
       "size": 2666,
-      "sha256": "8917d8e6b23f92956f296ab11c80d42fc889956012af1f927834877969fad3be"
+      "sha256": "2041135f90a6f35a1fc6c287d7bca3233aa59865e5738d309f936b5f5379473a"
     },
     {
       "path": "basic_data/strategy-lookthrough.html",
@@ -64311,7 +64316,7 @@
     {
       "path": "basic_data/strategy.html",
       "size": 2649,
-      "sha256": "f54f3c62712ac9a59a68de2dd7cc0827633977cb1622c696fb7c60d55fe7cb18"
+      "sha256": "e7ee2a405e7579843885a50e0c83fa21e8111b4ca49de1b8b0512b727d8d1315"
     },
     {
       "path": "index.html",
@@ -64320,8 +64325,8 @@
     },
     {
       "path": "package_validation.json",
-      "size": 3893,
-      "sha256": "9705a9de33e6c4d5d238bc5772af614528222c2e20b96467b9cd2582eebdb38a"
+      "size": 3895,
+      "sha256": "b4726adcb7ae7139e144d5d3627be2641d638f3558af2d4f83d408bd0b08a8b0"
     },
     {
       "path": "README.md",
@@ -64361,7 +64366,7 @@
     {
       "path": "version.json",
       "size": 151,
-      "sha256": "b486bcb251c385b7a8a478759c56b639693937b2f60ddd999993ea6e9cd7e1b0"
+      "sha256": "4d2b29d5688d1958bd247a6e0497d8aad3bcc4bc9c192c5d634fffe84904bb4f"
     },
     {
       "path": "停止最小发布集.cmd",
