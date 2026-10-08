@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-08T12:06:01+08:00",
+  "generatedAt": "2026-10-08T17:55:55+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 2183,
@@ -48,8 +48,8 @@
     "holdingSnapshotSourceRowCount": 654764,
     "holdingSnapshotPublishedRowCount": 196353,
     "holdingSnapshotStrategyCount": 2084,
-    "strategy-lookthroughFileCount": 10672,
-    "strategy-lookthroughBytes": 781143779
+    "strategy-lookthroughFileCount": 16037,
+    "strategy-lookthroughBytes": 1046828328
   },
   "policy": {
     "blockingZeroChecks": [
