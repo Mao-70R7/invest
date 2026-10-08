@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-08T09:54:34+08:00",
+  "generatedAt": "2026-10-08T11:12:35+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 2002,
     "strategyDetailCount": 2002,
     "strategyDetailMissingCount": 0,
     "strategyDetailParseErrorCount": 0,
-    "strategyDetailDeclaredIncompleteCount": 244,
+    "strategyDetailDeclaredIncompleteCount": 247,
     "strategyDetailWithoutHoldingCount": 58,
     "strategyDetailWithoutCurveCount": 59,
     "strategyDetailReferencedFundCount": 6257,
@@ -18,7 +18,7 @@
     "forbiddenFundDetailPageCount": 0,
     "forbiddenFundDetailFileCount": 0,
     "strategyDetailSourceCount": 2002,
-    "strategyDetailDeclaredCompleteCount": 1758,
+    "strategyDetailDeclaredCompleteCount": 1755,
     "activeStrategyCount": 1574,
     "activeStrategyWithoutCurveCount": 57,
     "currentHoldingStrategyCount": 1919,
@@ -45,11 +45,11 @@
     "fundDetailBenchmarkChartCount": 0,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 550286,
-    "holdingSnapshotPublishedRowCount": 161528,
-    "holdingSnapshotStrategyCount": 1736,
-    "strategy-lookthroughFileCount": 10880,
-    "strategy-lookthroughBytes": 488414143
+    "holdingSnapshotSourceRowCount": 595512,
+    "holdingSnapshotPublishedRowCount": 180157,
+    "holdingSnapshotStrategyCount": 1911,
+    "strategy-lookthroughFileCount": 10672,
+    "strategy-lookthroughBytes": 781147369
   },
   "policy": {
     "blockingZeroChecks": [
@@ -72,7 +72,7 @@
   "warnings": [
     {
       "type": "source_strategy_data_incomplete",
-      "count": 244,
+      "count": 247,
       "note": "源数据已明确标记不完整，发布集保留真实缺失状态，不做推测补齐。"
     },
     {
