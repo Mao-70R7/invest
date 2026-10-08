@@ -1,1 +1,42 @@
-{"schemaVersion":1,"generatedAt":"2026-10-08T17:53:33+08:00","status":"passed","strategyCount":2485,"calculatedCount":2080,"fundRowsChecked":37311,"securitySourceFilesChecked":5696,"dbIndependentRecompute":true,"assetCompositionAudit":{"contractVersion":1,"errors":[],"verifiedFunds":4239,"unverifiedFunds":23,"strategiesChecked":2080,"fullCompositionStrategies":2048,"sourcePdfsChecked":2900},"businessLookthroughAudit":{"version":2,"errors":[],"strategiesChecked":2080,"partialEquityStrategies":1083,"historicalIndustryGapStrategies":1546,"completeSourceFilesChecked":5363,"historicalOriginalResponsesChecked":5055},"allocationSourceErrorCount":0,"allocationSourceErrors":[],"parentReferenceErrorCount":0,"parentReferenceErrors":[],"latestWeightErrorCount":0,"latestWeightErrors":[],"errorCount":0,"errors":[]}
+{
+  "schemaVersion": 1,
+  "compressedStorageAudit": {
+    "status": "passed",
+    "fileCount": 2526,
+    "compressedBytes": 78511272,
+    "strategyCount": 2526
+  },
+  "generatedAt": "2026-10-08T23:27:31+08:00",
+  "status": "passed",
+  "strategyCount": 2526,
+  "calculatedCount": 2121,
+  "fundRowsChecked": 38187,
+  "securitySourceFilesChecked": 5705,
+  "dbIndependentRecompute": true,
+  "assetCompositionAudit": {
+    "contractVersion": 1,
+    "errors": [],
+    "verifiedFunds": 4239,
+    "unverifiedFunds": 30,
+    "strategiesChecked": 2121,
+    "fullCompositionStrategies": 2074,
+    "sourcePdfsChecked": 2900
+  },
+  "businessLookthroughAudit": {
+    "version": 2,
+    "errors": [],
+    "strategiesChecked": 2121,
+    "partialEquityStrategies": 1110,
+    "historicalIndustryGapStrategies": 1559,
+    "completeSourceFilesChecked": 5427,
+    "historicalOriginalResponsesChecked": 5055
+  },
+  "allocationSourceErrorCount": 0,
+  "allocationSourceErrors": [],
+  "parentReferenceErrorCount": 0,
+  "parentReferenceErrors": [],
+  "latestWeightErrorCount": 0,
+  "latestWeightErrors": [],
+  "errorCount": 0,
+  "errors": []
+}
