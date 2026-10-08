@@ -64,10 +64,10 @@
   }
 
   const productCategories = {
-    marketFund: { label: "全市场基金产品", fill: "#B9D6C2", stroke: "#3F7B56", className: "is-market-fund", legendClass: "mixed-market-fund-legend", drawOrder: 1, radius: 3.8 },
-    marketStrategy: { label: "全市场投顾产品", fill: "#B9CED6", stroke: "#4F7888", className: "is-market-strategy", legendClass: "mixed-market-strategy-legend", drawOrder: 2, radius: 4.2 },
-    gfFund: { label: "广发基金产品", fill: "#E3BFA6", stroke: "#B86B3E", className: "is-gf-fund", legendClass: "mixed-gf-fund-legend", drawOrder: 3, radius: 5.2 },
-    gfStrategy: { label: "广发投顾产品", fill: "#DEB3B0", stroke: "#B5524A", className: "is-gf-strategy", legendClass: "mixed-gf-strategy-legend", drawOrder: 4, radius: 5.8 },
+    marketFund: { label: "全市场基金产品", fill: "#B9D6C2", stroke: "#3F7B56", className: "is-market-fund", legendClass: "mixed-market-fund-legend", drawOrder: 1, radius: 2.5 },
+    marketStrategy: { label: "全市场投顾产品", fill: "#B9CED6", stroke: "#4F7888", className: "is-market-strategy", legendClass: "mixed-market-strategy-legend", drawOrder: 2, radius: 2.5 },
+    gfFund: { label: "广发基金产品", fill: "#E3BFA6", stroke: "#B86B3E", className: "is-gf-fund", legendClass: "mixed-gf-fund-legend", drawOrder: 3, radius: 3.5 },
+    gfStrategy: { label: "广发投顾产品", fill: "#DEB3B0", stroke: "#B5524A", className: "is-gf-strategy", legendClass: "mixed-gf-strategy-legend", drawOrder: 4, radius: 3.5 },
   };
   const advantageStrengthDefinitions = {
     obvious: {

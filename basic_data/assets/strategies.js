@@ -228,9 +228,6 @@
 
   function keywordText(row) {
     return [
-      row.searchText,
-      row.策略名称,
-      row.策略代码,
       row.投顾机构,
       row.渠道,
       row.风险等级,
@@ -270,29 +267,6 @@
     if (field === "业绩基准说明") return row[field] ? `<span class="small">${B.esc(row[field])}</span>` : '<span class="value-muted">未披露</span>';
     if (field === "基准风险资产权重") return B.esc(benchmarkBucket(row));
     return B.fmt(row[field]);
-  }
-
-  function syncScrollbars() {
-    const wrap = B.byId("strategyTableWrap");
-    const top = B.byId("topScrollbar");
-    const bottom = B.byId("bottomScrollbar");
-    if (!wrap || !top || !bottom) return;
-    for (const bar of [top, bottom]) {
-      const inner = bar.querySelector(".strategy-scrollbar-inner");
-      if (inner) inner.style.width = `${wrap.scrollWidth - wrap.offsetWidth + bar.clientWidth}px`;
-    }
-    let syncing = false;
-    const syncTo = (left, source) => {
-      if (syncing) return;
-      syncing = true;
-      for (const element of [wrap, top, bottom]) {
-        if (element !== source) element.scrollLeft = left;
-      }
-      syncing = false;
-    };
-    top.onscroll = () => syncTo(top.scrollLeft, top);
-    bottom.onscroll = () => syncTo(bottom.scrollLeft, bottom);
-    wrap.onscroll = () => syncTo(wrap.scrollLeft, wrap);
   }
 
   function updateSelectionControls(pageRows = []) {
@@ -392,7 +366,6 @@
       updateSelectionControls(rows);
     });
     updateSelectionControls(rows);
-    requestAnimationFrame(syncScrollbars);
   }
 
   root.innerHTML = `
@@ -401,7 +374,9 @@
       <div id="strategyIncomingScope">${incomingScopeHtml()}</div>
       <details id="strategyFilterDisclosure" class="strategy-filter-disclosure" ${window.matchMedia("(max-width: 680px)").matches ? "" : "open"}><summary>筛选策略 <small id="strategyActiveFilters">全部分类</small></summary>
       <div class="filters strategy-filter-grid">
-        ${filterControl("关键词", '<input id="searchInput" class="control" type="search" placeholder="策略、机构、代码、渠道、分类">', "模糊匹配：策略名称、代码、机构、渠道和分类字段")}
+        ${filterControl("策略名称", '<input id="strategyNameInput" class="control" type="search" placeholder="输入策略名称">', "仅匹配策略名称；与代码、其他关键词同时填写时取交集")}
+        ${filterControl("策略代码", '<input id="strategyCodeInput" class="control" type="search" placeholder="输入策略代码">', "仅匹配源端策略代码，支持部分代码查询")}
+        ${filterControl("其他关键词", '<input id="searchInput" class="control" type="search" placeholder="机构、渠道、风险、分类、状态">', "匹配机构、渠道及分类状态；不包含策略名称和代码")}
         ${filterControl("产品范围", `<select id="productStatusSelect" class="control">
           <option value="recommended" selected>默认优选（基准、业绩、仓位完整且未终止）</option>
           <option value="active">当前运作（含数据不完整）</option>
@@ -467,11 +442,9 @@
           <button id="strategyCompareButton" class="strategy-compare-button" type="button" disabled>策略对比</button>
         </div>
       </div>
-      <p class="desc">列表含更多指标，可左右滚动表格或使用上下横向滚动条查看。</p>
+      <p class="desc">列表含更多指标，可左右滑动表格或使用表格底部横向滚动条查看。</p>
       <div class="strategy-table-shell">
-        <div id="topScrollbar" class="strategy-scrollbar" role="region" aria-label="策略列表顶部横向滚动" tabindex="0"><div class="strategy-scrollbar-inner"></div></div>
-        <div id="strategyTableWrap" class="strategy-table-wrap"></div>
-        <div id="bottomScrollbar" class="strategy-scrollbar is-bottom" role="region" aria-label="策略列表底部横向滚动" tabindex="0"><div class="strategy-scrollbar-inner"></div></div>
+        <div id="strategyTableWrap" class="strategy-table-wrap" role="region" aria-label="策略列表，可左右滚动" tabindex="0"></div>
       </div>
     </section>
   `;
@@ -606,6 +579,8 @@
   }
 
   function filterRows() {
+    const strategyName = B.byId("strategyNameInput").value.trim().toLowerCase();
+    const strategyCode = B.byId("strategyCodeInput").value.trim().toLowerCase();
     const keyword = B.byId("searchInput").value.trim().toLowerCase();
     const productStatus = B.byId("productStatusSelect").value;
     const clientScope = B.byId("clientScopeSelect").value;
@@ -626,6 +601,8 @@
       if (channel && row.渠道 !== channel) return false;
       if (reportTypes.length && !reportTypes.includes(row.研报产品类型)) return false;
       if (businesses.length && !businesses.includes(row.业务分类)) return false;
+      if (strategyName && !String(row.策略名称 || "").toLowerCase().includes(strategyName)) return false;
+      if (strategyCode && !String(row.策略代码 || "").toLowerCase().includes(strategyCode)) return false;
       if (keyword && !keywordText(row).includes(keyword)) return false;
       return true;
     });
@@ -688,7 +665,17 @@
 
   function applyInitialParams() {
     const params = B.params();
-    if (params.get("q")) B.byId("searchInput").value = params.get("q");
+    // Route legacy search links to a visible field instead of a hidden filter.
+    if (params.get("q")) {
+      const query = params.get("q"), needle = query.toLowerCase();
+      const field = allStrategies.some(row => String(row.策略名称 || "").toLowerCase().includes(needle))
+        ? "strategyNameInput" : allStrategies.some(row => String(row.策略代码 || "").toLowerCase().includes(needle))
+          ? "strategyCodeInput" : "searchInput";
+      B.byId(field).value = query;
+    }
+    if (params.get("strategyName")) B.byId("strategyNameInput").value = params.get("strategyName");
+    if (params.get("strategyCode")) B.byId("strategyCodeInput").value = params.get("strategyCode");
+    if (params.get("keyword")) B.byId("searchInput").value = params.get("keyword");
     state.hiddenStrategyScope = params.get("strategyScope") || state.hiddenStrategyScope;
     if (state.incomingGlobalFiltersActive && !params.has("productStatus")) {
       B.byId("productStatusSelect").value = "all";
@@ -729,10 +716,10 @@
     clearIncomingGlobalFilters();
     resetPageAndRender();
   });
-  ["searchInput", "productStatusSelect", "clientScopeSelect", "channelSelect"].forEach((id) => {
+  ["strategyNameInput", "strategyCodeInput", "searchInput", "productStatusSelect", "clientScopeSelect", "channelSelect"].forEach((id) => {
     B.byId(id).addEventListener("input", event => { if (!event.isComposing) resetPageAndRender(); });
   });
-  B.byId("searchInput").addEventListener("compositionend", resetPageAndRender);
+  ["strategyNameInput", "strategyCodeInput", "searchInput"].forEach(id => B.byId(id).addEventListener("compositionend", resetPageAndRender));
   B.byId("sortSelect").addEventListener("input", () => {
     applySortPreset(B.byId("sortSelect").value);
     resetPageAndRender();
@@ -763,6 +750,8 @@
   B.byId("resetButton").addEventListener("click", () => {
     businessQuery.clear();
     B.byId("searchInput").value = "";
+    B.byId("strategyNameInput").value = "";
+    B.byId("strategyCodeInput").value = "";
     B.byId("productStatusSelect").value = "recommended";
     B.byId("clientScopeSelect").value = "";
     setMultiValues("benchmarkBucketSelect", []);

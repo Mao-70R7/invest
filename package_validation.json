@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-07T22:30:03+08:00",
+  "generatedAt": "2026-10-08T09:54:34+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 2002,
     "strategyDetailCount": 2002,
     "strategyDetailMissingCount": 0,
     "strategyDetailParseErrorCount": 0,
-    "strategyDetailDeclaredIncompleteCount": 247,
+    "strategyDetailDeclaredIncompleteCount": 244,
     "strategyDetailWithoutHoldingCount": 58,
     "strategyDetailWithoutCurveCount": 59,
     "strategyDetailReferencedFundCount": 6257,
@@ -18,7 +18,7 @@
     "forbiddenFundDetailPageCount": 0,
     "forbiddenFundDetailFileCount": 0,
     "strategyDetailSourceCount": 2002,
-    "strategyDetailDeclaredCompleteCount": 1755,
+    "strategyDetailDeclaredCompleteCount": 1758,
     "activeStrategyCount": 1574,
     "activeStrategyWithoutCurveCount": 57,
     "currentHoldingStrategyCount": 1919,
@@ -48,8 +48,8 @@
     "holdingSnapshotSourceRowCount": 550286,
     "holdingSnapshotPublishedRowCount": 161528,
     "holdingSnapshotStrategyCount": 1736,
-    "strategy-lookthroughFileCount": 10815,
-    "strategy-lookthroughBytes": 438836222
+    "strategy-lookthroughFileCount": 10880,
+    "strategy-lookthroughBytes": 488414143
   },
   "policy": {
     "blockingZeroChecks": [
@@ -72,7 +72,7 @@
   "warnings": [
     {
       "type": "source_strategy_data_incomplete",
-      "count": 247,
+      "count": 244,
       "note": "源数据已明确标记不完整，发布集保留真实缺失状态，不做推测补齐。"
     },
     {
@@ -92,7 +92,5 @@
       "count": 292,
       "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
     }
-  ],
-  "presentationRefreshedAt": "2026-10-07T23:37:38+08:00",
-  "presentationChangeType": "lossless_source_csv_bundles"
+  ]
 }
