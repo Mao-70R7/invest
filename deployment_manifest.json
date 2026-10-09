@@ -1,7 +1,7 @@
 {
   "version": 1,
   "buildId": "minimal-c76d0fb6d48e",
-  "generatedAt": "2026-10-10T05:52:53+08:00",
+  "generatedAt": "2026-10-10T06:21:10+08:00",
   "pageSet": [
     "机构总览",
     "策略列表",
@@ -13293,12 +13293,12 @@
     {
       "path": "basic_data/data/data_pack_manifest.js",
       "size": 5386,
-      "sha256": "3575a9eea9f3e09f9ebc8f16623cd9dc33eca7fa00e7aa2fe177d5a1019a183e"
+      "sha256": "3e87d8670a8df5401c36760aa84d85c9be600fc1bcd1f840db2758c3cfb748f6"
     },
     {
       "path": "basic_data/data/data_quality_pack.js.gz",
       "size": 15927,
-      "sha256": "0e401d35f811fae18a99c5dcb145d17ade5ee5818ffb889ab709cad6a284a394"
+      "sha256": "6fc5f495e1de2298449451ae12477338536ba818f8a0bdde02796841e296809e"
     },
     {
       "path": "basic_data/data/details/00/qieman__ZH144732.js.gz",
@@ -24358,7 +24358,7 @@
     {
       "path": "package_validation.json",
       "size": 4083,
-      "sha256": "151a9ffdf84ec7015a834fd9d44d0aa48c381badce800d0e595b3471749a7a02"
+      "sha256": "57366756f04a8014688806d85b2e5956e095927b21102b46dec07e3b11e66c8e"
     },
     {
       "path": "README.md",
@@ -24398,7 +24398,7 @@
     {
       "path": "version.json",
       "size": 151,
-      "sha256": "e5082c1aca8e9770c7acd5b31fd73ddd87c1f514991d39eec2986b099f5a24bf"
+      "sha256": "bc1a62dbebdcb0ca08adcb9e8854291251a8bea3235dece7c55efb39dc9a9efe"
     },
     {
       "path": "停止最小发布集.cmd",
