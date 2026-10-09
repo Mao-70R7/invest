@@ -22,5 +22,7 @@
     "basis": "source_label_alignment_with_verified_product_definition",
     "isWindDirectData": false,
     "currentWindMembershipVerified": false
-  }
+  },
+  "evidenceScope": "Classification-only refresh before current-database full rebuild; unchanged values refer to that refresh only",
+  "supersededByCurrentBuildEvidence": "build_evidence.json"
 }
