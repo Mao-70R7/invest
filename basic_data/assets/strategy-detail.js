@@ -1495,7 +1495,7 @@
       ${isTargetProfitStrategy() ? '<a data-strategy-section-link href="#strategy-target-profit">目标盈</a>' : ""}
       <a data-strategy-section-link href="#strategy-performance">业绩</a>
       <a data-strategy-section-link href="#strategy-holding">当前仓位</a>
-      <a data-asset-lookthrough-link href="./strategy-lookthrough.html#${encodeURIComponent(detail.summary.统一策略ID || id)}">资产穿透分析</a>
+      <a data-strategy-section-link data-asset-lookthrough-link href="#strategy-lookthrough">资产穿透分析</a>
       <a data-strategy-section-link href="#strategy-rebalance">调仓记录</a>
       <a data-strategy-section-link href="#strategy-more">更多信息</a>
     </nav>
@@ -1519,6 +1519,12 @@
       <div data-performance-pane="risk" hidden>${riskMetricsPanel()}</div>
     </section>
     ${currentHoldingSection()}
+    <section id="strategy-lookthrough" class="panel strategy-section strategy-lookthrough-section">
+      <div class="panel-head strategy-section-head">
+        <div><h2>资产穿透分析</h2><p class="desc">大类资产分布、基金类型分布、权益风格分布；组合权重和底层基金报告日期分别标注。</p></div>
+      </div>
+      <iframe id="strategyLookthroughFrame" title="当前策略资产穿透分析三图" loading="lazy" style="display:block;width:100%;height:2200px;border:0;" src="./strategy-lookthrough.html?embed=charts&amp;v=${encodeURIComponent(window.MinimalPublish?.buildId || dataRefreshTime || 'local')}#${encodeURIComponent(detail.summary.统一策略ID || id)}"></iframe>
+    </section>
     <section id="strategy-rebalance" class="panel strategy-section strategy-rebalance-section">
       <div class="panel-head strategy-section-head">
         <div><h2>调仓记录</h2><p class="desc">先看最近一次调仓摘要，再按时间线查看历史调仓明细与调仓后表现。</p></div>
@@ -1562,5 +1568,13 @@
   renderPerformanceTabs();
   renderMainChart();
   renderPositions();
+  const lookthroughFrame = document.getElementById("strategyLookthroughFrame");
+  window.addEventListener("message", (event) => {
+    if (!lookthroughFrame || event.source !== lookthroughFrame.contentWindow || event.origin !== location.origin) return;
+    const message = event.data;
+    if (message?.type !== "tianyan-lookthrough-size" || message.strategyId !== String(detail.summary.统一策略ID || id)) return;
+    if (!Number.isFinite(message.height) || message.height < 100 || message.height > 100000) return;
+    lookthroughFrame.style.height = Math.ceil(message.height) + "px";
+  });
   bindSectionNavigation();
 })();

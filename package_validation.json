@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-08T23:37:49+08:00",
+  "generatedAt": "2026-10-09T11:55:48+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 2183,
@@ -48,8 +48,8 @@
     "holdingSnapshotSourceRowCount": 654764,
     "holdingSnapshotPublishedRowCount": 196353,
     "holdingSnapshotStrategyCount": 2084,
-    "strategy-lookthroughFileCount": 13667,
-    "strategy-lookthroughBytes": 225780245
+    "strategy-lookthroughFileCount": 18723,
+    "strategy-lookthroughBytes": 1240820818
   },
   "policy": {
     "blockingZeroChecks": [
@@ -92,5 +92,14 @@
       "count": 395,
       "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
     }
-  ]
+  ],
+  "sourceValidation": {
+    "status": "passed",
+    "validatedAt": "2026-10-09T12:01:28+08:00",
+    "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
+    "dbIndependentRecompute": true,
+    "checksComplete": true,
+    "inputSnapshotAudit": null,
+    "errorCount": 0
+  }
 }

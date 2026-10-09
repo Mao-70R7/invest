@@ -1,1 +1,9 @@
-{"version":2,"errors":[],"strategiesChecked":2080,"partialEquityStrategies":1083,"historicalIndustryGapStrategies":1530,"completeSourceFilesChecked":5427,"historicalOriginalResponsesChecked":0}
+{
+  "version": 2,
+  "errors": [],
+  "strategiesChecked": 2121,
+  "partialEquityStrategies": 1110,
+  "historicalIndustryGapStrategies": 1559,
+  "completeSourceFilesChecked": 5427,
+  "historicalOriginalResponsesChecked": 0
+}
