@@ -1,10 +1,10 @@
-/* Static-site UI. Credentials are supplied by the visitor, never published. */
+/* Public dialog. An opaque browser session isolates conversations. */
 (() => {
   "use strict";
   const config = window.TianyanAssistantConfig || {};
   const api = (config.apiBase || "").replace(/\/$/, "");
   const storageKey = "tianyan_assistant_session_v1";
-  let session = null, busy = false, timer = null, opener = null, opened = false;
+  let session = null, busy = false, timer = null, opener = null, opened = false, connecting = null;
   try { session = JSON.parse(sessionStorage.getItem(storageKey) || "null"); } catch (_) {}
   const el = (tag, className, text) => {
     const node = document.createElement(tag);
@@ -27,12 +27,6 @@
   const transcript = el("div", "ty-assistant-transcript");
   transcript.setAttribute("role", "log"); transcript.setAttribute("aria-live", "polite");
   const notice = el("p", "ty-assistant-notice"); notice.hidden = true; notice.setAttribute("role", "status");
-  const auth = el("form", "ty-assistant-auth");
-  auth.append(el("h3", "", "进入数据问答"), el("p", "", "输入管理员提供的访问码。每个会话独立保存问题和答复。"));
-  const accessLabel = el("label", "", "访问码"); accessLabel.htmlFor = "tyAssistantCode";
-  const code = el("input"); code.id = "tyAssistantCode"; code.type = "password"; code.autocomplete = "off"; code.required = true;
-  const login = el("button", "ty-assistant-primary", "进入助手"); login.type = "submit";
-  auth.append(accessLabel, code, login);
   const footer = el("div", "ty-assistant-footer");
   const form = el("form", "ty-assistant-compose");
   const label = el("label", "ty-assistant-sr-only", "输入问题"); label.htmlFor = "tyAssistantQuestion";
@@ -41,9 +35,9 @@
   const send = el("button", "ty-assistant-primary", "发送"); send.type = "submit";
   form.append(label, input, send);
   const tools = el("div", "ty-assistant-tools");
-  const logout = el("button", "ty-assistant-text-button", "结束会话"); logout.type = "button";
-  tools.append(el("span", "", "Enter 发送 · Shift+Enter 换行"), logout);
-  footer.append(form, tools); panel.append(header, notice, auth, transcript, footer); overlay.append(panel);
+  const logout = el("button", "ty-assistant-text-button", "新对话"); logout.type = "button";
+  tools.append(el("span", "", "问题、答复及访问信息将同步给毛家轩"), logout);
+  footer.append(form, tools); panel.append(header, notice, transcript, footer); overlay.append(panel);
   document.body.append(overlay);
 
   function persist() {
@@ -52,9 +46,15 @@
   }
   function showNotice(text) { notice.textContent = text; notice.hidden = !text; }
   function controls() {
-    auth.hidden = !!session; footer.hidden = !session;
-    send.disabled = busy; input.disabled = busy;
-    send.textContent = busy ? "处理中" : "发送";
+    send.disabled = busy || !session; input.disabled = busy || !session; logout.disabled = busy || !session;
+    send.textContent = busy ? "处理中" : session ? "发送" : "连接中";
+  }
+  async function connect() {
+    if (session && session.expires_at * 1000 > Date.now()) return;
+    if (connecting) return connecting;
+    session = null; persist(); controls();
+    connecting = request("/v1/sessions", "POST", {}).then(value => { session = value; persist(); controls(); }).finally(() => { connecting = null; });
+    return connecting;
   }
   async function request(path, method = "GET", body) {
     const headers = {};
@@ -149,14 +149,19 @@
       render(tasks); controls(); showNotice("");
       state.textContent = busy ? (health.worker_online ? "本地助手正在处理，请稍等" : "问题已排队，等待本地助手恢复连接") : (health.worker_online ? "助手在线 · 可以继续提问" : "本地助手暂时离线 · 提交后将排队等待");
       if (busy) timer = setTimeout(refresh, 3000);
-    } catch (error) { showNotice(error.message); if (session) timer = setTimeout(refresh, 6000); }
+    } catch (error) {
+      showNotice(error.message);
+      if (!session && opened) { try { await connect(); timer = setTimeout(refresh, 100); } catch (connectionError) { showNotice(connectionError.message); timer = setTimeout(open, 6000); } }
+      else if (session) timer = setTimeout(refresh, 6000);
+    }
   }
-  function open() {
+  async function open() {
     opener = document.activeElement; overlay.hidden = false; opened = true; document.body.classList.add("ty-assistant-open");
     controls();
-    if (!api) { showNotice("助手连接正在配置，暂未开放提问。"); login.disabled = true; }
-    else if (session) { clearTimeout(timer); refresh(); input.focus(); }
-    else { render([]); code.focus(); }
+    if (!api) { showNotice("助手连接正在配置，暂未开放提问。"); return; }
+    render([]); state.textContent = "正在连接助手…";
+    try { clearTimeout(timer); await connect(); await refresh(); input.focus(); }
+    catch (error) { showNotice(error.message); if (opened) timer = setTimeout(open, 6000); }
   }
   function hide() { overlay.hidden = true; opened = false; clearTimeout(timer); document.body.classList.remove("ty-assistant-open"); if (opener) opener.focus(); }
   close.onclick = hide; overlay.onclick = event => { if (event.target === overlay) hide(); };
@@ -169,22 +174,16 @@
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     }
   });
-  auth.onsubmit = async event => {
-    event.preventDefault(); login.disabled = true;
-    try { session = await request("/v1/sessions", "POST", { access_code: code.value }); code.value = ""; persist(); controls(); await refresh(); input.focus(); }
-    catch (error) { showNotice(error.message); }
-    finally { login.disabled = false; }
-  };
   form.onsubmit = async event => {
-    event.preventDefault(); if (busy || !input.value.trim()) return;
+    event.preventDefault(); if (busy || !session || !input.value.trim()) return;
     busy = true; controls(); clearTimeout(timer);
     const payload = session.pending && session.pending.question === input.value.trim() ? session.pending : { question: input.value.trim(), client_message_id: crypto.randomUUID() };
     session.pending = payload; persist();
     try { await request("/v1/tasks", "POST", payload); delete session.pending; persist(); input.value = ""; await refresh(); }
-    catch (error) { busy = false; controls(); showNotice(error.message); timer = setTimeout(refresh, 4000); }
+    catch (error) { busy = false; controls(); showNotice(error.message); if (session) timer = setTimeout(refresh, 4000); else timer = setTimeout(open, 1000); }
   };
   input.onkeydown = event => { if (event.key === "Enter" && !event.shiftKey && !event.isComposing) { event.preventDefault(); form.requestSubmit(); } };
-  logout.onclick = () => { clearTimeout(timer); session = null; persist(); busy = false; controls(); render([]); showNotice(""); code.focus(); state.textContent = "输入访问码开始新会话"; };
+  logout.onclick = () => { clearTimeout(timer); session = null; persist(); busy = false; input.value = ""; showNotice(""); open(); };
   const existingTriggers = [...document.querySelectorAll("[data-tianyan-assistant]")];
   if (existingTriggers.length) {
     for (const trigger of existingTriggers) { trigger.type = "button"; trigger.onclick = open; }
