@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-10T18:06:58+08:00",
+  "generatedAt": "2026-10-11T06:53:16+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 2191,
@@ -28,8 +28,8 @@
     "inactiveCurrentHoldingRankMissingReferenceCount": 5890,
     "currentHoldingScaleErrorReferenceCount": 0,
     "historyRebalanceStrategyCount": 1981,
-    "assessedHistoryRebalanceStrategyCount": 1670,
-    "unassessedHistoryRebalanceStrategyCount": 311,
+    "assessedHistoryRebalanceStrategyCount": 1674,
+    "unassessedHistoryRebalanceStrategyCount": 307,
     "officialPerformanceImageReferenceCount": 0,
     "officialPerformanceImageInvalidReferenceCount": 0,
     "officialPerformanceImageMissingSourceAssetCount": 0,
@@ -45,11 +45,11 @@
     "fundDetailBenchmarkChartCount": 0,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 656831,
-    "holdingSnapshotPublishedRowCount": 197080,
+    "holdingSnapshotSourceRowCount": 656819,
+    "holdingSnapshotPublishedRowCount": 197068,
     "holdingSnapshotStrategyCount": 2092,
     "strategy-lookthroughFileCount": 16362,
-    "strategy-lookthroughBytes": 1206660319
+    "strategy-lookthroughBytes": 1204714133
   },
   "policy": {
     "blockingZeroChecks": [
@@ -89,13 +89,13 @@
     },
     {
       "type": "history_rebalance_unassessed",
-      "count": 311,
+      "count": 307,
       "note": "历史事件仅为建仓或底层净值不足时不计算胜率，页面展示具体原因。"
     }
   ],
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-10T18:17:04+08:00",
+    "validatedAt": "2026-10-11T07:03:43+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
