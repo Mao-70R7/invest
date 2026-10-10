@@ -169,7 +169,12 @@
       if (B.updatePageLoading) B.updatePageLoading(0, totalSteps);
       // Start the large transfers while the independent version check is in flight.
       // Catch immediately so a redirect cannot leave an unhandled fetch rejection.
-      const dataResult = Promise.all(dataScripts.map((src) => loadCompressed(src).then(() => markLoaded("数据资源已加载"))))
+      const cohort=window.BusinessQuery?.loadCohort(buildId);
+      if(options.renderer){const preload=document.createElement('link');preload.rel='preload';preload.as='script';preload.href=options.renderer;document.head.append(preload);}
+      const dataResult = Promise.all(dataScripts.map(async(src) => {
+        if(/strategy_list_pack\.js/.test(src)){const exact=await cohort;if(exact){B.state.summary=exact;markLoaded("结果名单已加载");return;}}
+        await loadCompressed(src);markLoaded("数据资源已加载");
+      }))
         .then(() => ({ ok: true }), (error) => ({ ok: false, error }));
       if (!(await ensureFreshBuild())) return;
       const result = await dataResult;

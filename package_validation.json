@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-10T06:21:08+08:00",
+  "generatedAt": "2026-10-10T18:06:58+08:00",
   "status": "ready",
   "checks": {
-    "strategySummaryCount": 2193,
-    "strategyDetailCount": 2193,
+    "strategySummaryCount": 2191,
+    "strategyDetailCount": 2191,
     "strategyDetailMissingCount": 0,
     "strategyDetailParseErrorCount": 0,
-    "strategyDetailDeclaredIncompleteCount": 319,
+    "strategyDetailDeclaredIncompleteCount": 318,
     "strategyDetailWithoutHoldingCount": 62,
     "strategyDetailWithoutCurveCount": 63,
     "strategyDetailReferencedFundCount": 6344,
@@ -17,26 +17,26 @@
     "brokenFundDetailCount": 0,
     "forbiddenFundDetailPageCount": 0,
     "forbiddenFundDetailFileCount": 0,
-    "strategyDetailSourceCount": 2193,
-    "strategyDetailDeclaredCompleteCount": 1874,
-    "activeStrategyCount": 1762,
+    "strategyDetailSourceCount": 2191,
+    "strategyDetailDeclaredCompleteCount": 1873,
+    "activeStrategyCount": 1760,
     "activeStrategyWithoutCurveCount": 61,
-    "currentHoldingStrategyCount": 2106,
-    "currentHoldingFundReferenceCount": 37193,
-    "currentHoldingRankMissingReferenceCount": 34486,
-    "activeCurrentHoldingRankMissingReferenceCount": 28596,
+    "currentHoldingStrategyCount": 2104,
+    "currentHoldingFundReferenceCount": 37165,
+    "currentHoldingRankMissingReferenceCount": 34460,
+    "activeCurrentHoldingRankMissingReferenceCount": 28570,
     "inactiveCurrentHoldingRankMissingReferenceCount": 5890,
     "currentHoldingScaleErrorReferenceCount": 0,
-    "historyRebalanceStrategyCount": 1983,
-    "assessedHistoryRebalanceStrategyCount": 1672,
+    "historyRebalanceStrategyCount": 1981,
+    "assessedHistoryRebalanceStrategyCount": 1670,
     "unassessedHistoryRebalanceStrategyCount": 311,
     "officialPerformanceImageReferenceCount": 0,
     "officialPerformanceImageInvalidReferenceCount": 0,
     "officialPerformanceImageMissingSourceAssetCount": 0,
-    "currentHolding近一月RankedReferenceCount": 2707,
-    "currentHolding近三月RankedReferenceCount": 2707,
-    "currentHolding近6月RankedReferenceCount": 2707,
-    "currentHolding近1年RankedReferenceCount": 2707,
+    "currentHolding近一月RankedReferenceCount": 2705,
+    "currentHolding近三月RankedReferenceCount": 2705,
+    "currentHolding近6月RankedReferenceCount": 2705,
+    "currentHolding近1年RankedReferenceCount": 2705,
     "officialPerformanceImagePublishedAssetCount": 0,
     "officialPerformanceImageMissingPublishedAssetCount": 0,
     "fundDetailParsedCount": 0,
@@ -45,11 +45,11 @@
     "fundDetailBenchmarkChartCount": 0,
     "fundDetailChartScaleErrorCount": 0,
     "fundDetailParseErrorCount": 0,
-    "holdingSnapshotSourceRowCount": 658195,
-    "holdingSnapshotPublishedRowCount": 197281,
-    "holdingSnapshotStrategyCount": 2094,
-    "strategy-lookthroughFileCount": 16378,
-    "strategy-lookthroughBytes": 1202202374
+    "holdingSnapshotSourceRowCount": 656831,
+    "holdingSnapshotPublishedRowCount": 197080,
+    "holdingSnapshotStrategyCount": 2092,
+    "strategy-lookthroughFileCount": 16362,
+    "strategy-lookthroughBytes": 1206660319
   },
   "policy": {
     "blockingZeroChecks": [
@@ -66,13 +66,13 @@
       "activeCurrentHoldingRankMissingReferenceCount"
     ],
     "warningCounts": {
-      "activeCurrentHoldingRankMissingReferenceCount": 28596
+      "activeCurrentHoldingRankMissingReferenceCount": 28570
     }
   },
   "warnings": [
     {
       "type": "source_strategy_data_incomplete",
-      "count": 319,
+      "count": 318,
       "note": "源数据已明确标记不完整，发布集保留真实缺失状态，不做推测补齐。"
     },
     {
@@ -82,8 +82,8 @@
     },
     {
       "type": "current_holding_rank_missing",
-      "count": 34486,
-      "activeCount": 28596,
+      "count": 34460,
+      "activeCount": 28570,
       "inactiveCount": 5890,
       "note": "同类排名缺失属于可披露的覆盖率缺口，不阻断其他准确数据发布；页面不把缺失仓位计为前50%。"
     },
@@ -95,7 +95,7 @@
   ],
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-10T06:27:12+08:00",
+    "validatedAt": "2026-10-10T18:17:04+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,

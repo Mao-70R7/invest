@@ -36,7 +36,7 @@
   form.append(label, input, send);
   const tools = el("div", "ty-assistant-tools");
   const logout = el("button", "ty-assistant-text-button", "新对话"); logout.type = "button";
-  tools.append(el("span", "", "问题、答复及访问信息将同步给毛家轩"), logout);
+  tools.append(logout);
   footer.append(form, tools); panel.append(header, notice, transcript, footer); overlay.append(panel);
   document.body.append(overlay);
 
@@ -144,11 +144,12 @@
     if (!session || !opened) return;
     try {
       const [list, health] = await Promise.all([request("/v1/tasks"), request("/v1/health")]);
+      setHealth(health.worker_online === true);
       const tasks = list.tasks.reverse(); busy = tasks.some(t => ["queued", "processing"].includes(t.status));
       if (session.pending && tasks.some(t => t.client_message_id === session.pending.client_message_id)) { delete session.pending; persist(); }
       render(tasks); controls(); showNotice("");
-      state.textContent = busy ? (health.worker_online ? "本地助手正在处理，请稍等" : "问题已排队，等待本地助手恢复连接") : (health.worker_online ? "助手在线 · 可以继续提问" : "本地助手暂时离线 · 提交后将排队等待");
-      if (busy) timer = setTimeout(refresh, 3000);
+      state.textContent = health.worker_online ? (busy ? "本地助手正在处理，请稍等" : "助手在线 · 可以继续提问") : "后台不在线，请联系mjx启动ai助手服务";
+      timer = setTimeout(refresh, busy ? 3000 : 15000);
     } catch (error) {
       showNotice(error.message);
       if (!session && opened) { try { await connect(); timer = setTimeout(refresh, 100); } catch (connectionError) { showNotice(connectionError.message); timer = setTimeout(open, 6000); } }
@@ -194,4 +195,25 @@
     if (nav) nav.append(trigger); else { trigger.classList.add("ty-assistant-floating"); document.body.append(trigger); }
   }
   window.TianyanAssistant = { open, close: hide };
+  const statusLabel=el('span','ty-assistant-status-label','检测中');
+  const statusDot=el('span','ty-assistant-status-dot');statusDot.setAttribute('aria-hidden','true');
+  const indicators=[];
+  for(const trigger of document.querySelectorAll('[data-tianyan-assistant]')){
+    const dot=statusDot.cloneNode(true),label=statusLabel.cloneNode(true);trigger.append(dot,label);indicators.push({trigger,dot,label});
+  }
+  const healthBadge=el('span','ty-assistant-health');healthBadge.setAttribute('role','status');
+  healthBadge.append(statusDot,statusLabel);heading.append(healthBadge);
+  indicators.push({trigger:healthBadge,dot:statusDot,label:statusLabel});
+  function setHealth(online){
+    for(const {trigger,label} of indicators){trigger.dataset.online=String(online);label.textContent=online?'在线':'离线';trigger.title=online?'AI助手后台在线':'后台不在线，请联系mjx启动ai助手服务';}
+    healthBadge.setAttribute('aria-label',online?'AI助手后台在线':'后台不在线，请联系mjx启动ai助手服务');
+    if(!online)state.textContent='后台不在线，请联系mjx启动ai助手服务';
+    else if(state.textContent.startsWith('后台不在线'))state.textContent='助手在线 · 可以继续提问';
+  }
+  async function checkHealth(){
+    try{const response=await fetch(api+'/v1/health',{cache:'no-store',signal:AbortSignal.timeout(6000)});if(!response.ok)throw Error('health');const health=await response.json();setHealth(health.worker_online===true);}
+    catch{setHealth(false);}
+  }
+  if(api){checkHealth();setInterval(()=>{if(!document.hidden)checkHealth();},15000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkHealth();});}
+  else setHealth(false);
 })();
