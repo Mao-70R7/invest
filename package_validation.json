@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-13T20:37:06+08:00",
+  "generatedAt": "2026-10-14T00:41:13+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 2202,
@@ -23,9 +23,9 @@
     "activeStrategyWithoutCurveCount": 61,
     "currentHoldingStrategyCount": 2115,
     "currentHoldingFundReferenceCount": 37442,
-    "currentHoldingRankMissingReferenceCount": 34727,
-    "activeCurrentHoldingRankMissingReferenceCount": 28837,
-    "inactiveCurrentHoldingRankMissingReferenceCount": 5890,
+    "currentHoldingRankMissingReferenceCount": 214,
+    "activeCurrentHoldingRankMissingReferenceCount": 197,
+    "inactiveCurrentHoldingRankMissingReferenceCount": 17,
     "currentHoldingScaleErrorReferenceCount": 0,
     "historyRebalanceStrategyCount": 1992,
     "assessedHistoryRebalanceStrategyCount": 1685,
@@ -33,10 +33,10 @@
     "officialPerformanceImageReferenceCount": 0,
     "officialPerformanceImageInvalidReferenceCount": 0,
     "officialPerformanceImageMissingSourceAssetCount": 0,
-    "currentHolding近一月RankedReferenceCount": 2715,
-    "currentHolding近三月RankedReferenceCount": 2715,
-    "currentHolding近6月RankedReferenceCount": 2715,
-    "currentHolding近1年RankedReferenceCount": 2715,
+    "currentHolding近一月RankedReferenceCount": 37361,
+    "currentHolding近三月RankedReferenceCount": 37366,
+    "currentHolding近6月RankedReferenceCount": 37360,
+    "currentHolding近1年RankedReferenceCount": 37236,
     "officialPerformanceImagePublishedAssetCount": 0,
     "officialPerformanceImageMissingPublishedAssetCount": 0,
     "fundDetailParsedCount": 0,
@@ -48,8 +48,8 @@
     "holdingSnapshotSourceRowCount": 663132,
     "holdingSnapshotPublishedRowCount": 198556,
     "holdingSnapshotStrategyCount": 2103,
-    "strategy-lookthroughFileCount": 2771,
-    "strategy-lookthroughBytes": 138190587
+    "strategy-lookthroughFileCount": 16772,
+    "strategy-lookthroughBytes": 1214052133
   },
   "policy": {
     "blockingZeroChecks": [
@@ -66,7 +66,7 @@
       "activeCurrentHoldingRankMissingReferenceCount"
     ],
     "warningCounts": {
-      "activeCurrentHoldingRankMissingReferenceCount": 28837
+      "activeCurrentHoldingRankMissingReferenceCount": 197
     }
   },
   "warnings": [
@@ -82,9 +82,9 @@
     },
     {
       "type": "current_holding_rank_missing",
-      "count": 34727,
-      "activeCount": 28837,
-      "inactiveCount": 5890,
+      "count": 214,
+      "activeCount": 197,
+      "inactiveCount": 17,
       "note": "同类排名缺失属于可披露的覆盖率缺口，不阻断其他准确数据发布；页面不把缺失仓位计为前50%。"
     },
     {
@@ -95,7 +95,7 @@
   ],
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-13T20:48:12+08:00",
+    "validatedAt": "2026-10-14T00:47:34+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
