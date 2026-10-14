@@ -13,17 +13,38 @@
   const runtimeScript = Array.from(document.scripts).find((script) => /\/minimal-publish-runtime\.js(?:\?|$)/.test(script.src || ""));
   const buildId = runtimeScript ? new URL(runtimeScript.src, document.baseURI).searchParams.get("v") || "" : "";
 
+  async function withNetworkTimeout(url, options, timeoutMs, read) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const response = await fetch(url, { ...options, signal: controller.signal });
+      return await read(response);
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
   async function ensureFreshBuild() {
     if (fileProtocol || !buildId) return true;
     try {
       const versionUrl = new URL("../version.json", document.baseURI);
       versionUrl.searchParams.set("verify", String(Date.now()));
-      const response = await fetch(versionUrl, { cache: "no-store" });
-      if (!response.ok) return true;
-      const remote = await response.json();
+      const remote = await withNetworkTimeout(versionUrl, { cache: "no-store" }, 4000,
+        async (response) => response.ok ? response.json() : null);
       const remoteBuildId = String(remote?.buildId || "").trim();
       if (!remoteBuildId || remoteBuildId === buildId) return true;
       const nextUrl = new URL(window.location.href);
+      // A stale CDN page must still render after one refresh, never loop forever.
+      const retryKey = `minimal-refresh:${nextUrl.pathname}:${remoteBuildId}`;
+      let alreadyAttempted = nextUrl.searchParams.get("v") === remoteBuildId;
+      try {
+        alreadyAttempted ||= sessionStorage.getItem(retryKey) === "1";
+        if (!alreadyAttempted) sessionStorage.setItem(retryKey, "1");
+      } catch (_) { /* The URL guard also works when browser storage is disabled. */ }
+      if (alreadyAttempted) {
+        console.warn("页面缓存尚未更新，已停止重复刷新，继续显示当前页面。");
+        return true;
+      }
       nextUrl.searchParams.set("v", remoteBuildId);
       window.location.replace(nextUrl.href);
       return false;
@@ -109,11 +130,24 @@
   }
 
   async function loadCompressedScript(src, compressedUrl) {
-    const response = await fetch(compressedUrl, { cache: "default" });
-    if (!response.ok) {
-      throw new Error(`压缩数据加载失败 (${response.status}): ${compressedUrl.pathname}`);
+    let source;
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      try {
+        source = await withNetworkTimeout(compressedUrl, { cache: attempt ? "reload" : "default" }, 30000,
+          async (response) => {
+            if (!response.ok) {
+              const error = new Error(`压缩数据加载失败 (${response.status}): ${compressedUrl.pathname}`);
+              error.retryable = [408, 429, 500, 502, 503, 504].includes(response.status);
+              throw error;
+            }
+            return responseText(response);
+          });
+        break;
+      } catch (error) {
+        const transient = error?.retryable || error?.name === "AbortError" || error?.name === "TypeError";
+        if (attempt || !transient) throw error;
+      }
     }
-    const source = await responseText(response);
     const script = document.createElement("script");
     script.text = `${source}\n//# sourceURL=${compressedUrl.href}`;
     document.head.appendChild(script);
@@ -195,6 +229,13 @@
       const panel = document.createElement("section");
       panel.className = "panel";
       panel.innerHTML = `<div class="empty">页面数据加载失败：${B.esc(error?.message || error)}</div>`;
+      panel.setAttribute("role", "alert");
+      const retry = document.createElement("button");
+      retry.type = "button";
+      retry.className = "btn";
+      retry.textContent = "重新加载";
+      retry.addEventListener("click", () => window.location.reload());
+      panel.appendChild(retry);
       root.prepend(panel);
     }
   }

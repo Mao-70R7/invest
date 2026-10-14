@@ -96,19 +96,24 @@
   ],
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-14T15:18:38+08:00",
+    "validatedAt": "2026-10-14T16:03:14+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
     "inputSnapshotAudit": null,
     "errorCount": 0
   },
-  "presentationRefreshedAt": "2026-10-14T15:02:02+08:00",
+  "presentationRefreshedAt": "2026-10-14T15:48:49+08:00",
   "presentationChangeType": "monthly_rebalance_module",
   "monthlyRebalanceValidation": {
     "status": "passed",
     "monthCount": 12,
     "latestMonth": "2026-09",
     "databaseRecomputed": true
+  },
+  "pageVersionValidation": {
+    "status": "passed",
+    "buildId": "minimal-261a383a3faf",
+    "pageCount": 19
   }
 }
