@@ -9,14 +9,14 @@
     page: 1,
     pageSize: 10,
     rows: [],
-    sortField: "近一月",
+    sortField: "近1年",
     sortDir: "desc",
     hiddenStrategyScope: "",
     incomingGlobalFiltersActive: Boolean(B.hasExplicitGlobalStrategyFilters),
     selectedIds: new Set(),
     selectionNotice: "",
     scatterX: "近1年",
-    scatterY: "最大回撤",
+    scatterY: "近1年最大回撤",
     scatterFocus: true,
     scatterSelectedId: "",
   };
@@ -144,7 +144,8 @@
   function isClientFacing(row) {
     const current = String(row?.天天当前对客展示 || "");
     const status = String(row?.天天展示状态 || "");
-    return current !== "否" && !/非对客|不对客|隐藏|未展示|不展示/.test(status);
+    if (current) return current === "是";
+    return current === "是" && !/非对客|不对客|隐藏|未展示|不展示/.test(status);
   }
 
   function isStoppedStrategy(row) {
@@ -221,7 +222,7 @@
       sharpe: ["夏普比率", "desc"],
       holdingDate: ["最新持仓日", "desc"],
       rebalance: ["最近调仓日", "desc"]
-    }[value] || ["近一月", "desc"];
+    }[value] || ["近1年", "desc"];
     state.sortField = preset[0];
     state.sortDir = preset[1];
   }
@@ -260,7 +261,13 @@
       return `<div class="strategy-name-line"><a class="link" href="./strategy.html?id=${encodeURIComponent(row.统一策略ID)}">${B.esc(row.策略名称 || "未命名策略")}</a>${stoppedBadge}</div><div class="small">策略代码 ${B.esc(row.策略代码 || "未披露")}</div>${rankNote}`;
     }
     if (field === B.strategyListInstitutionField) return `<span class="strategy-institution-value">${B.esc(B.strategyInstitutionText(row))}</span>`;
-    if (returnHeaders.includes(field) || riskHeaders.includes(field)) return B.pctSigned(row[field]);
+    if (returnHeaders.includes(field)) return B.pctSigned(row[field]);
+    if (riskHeaders.includes(field)) {
+      const value = row[field];
+      if (value === null || value === undefined || value === "" || !Number.isFinite(Number(value))) return '<span class="value-muted">—</span>';
+      const tone = field.includes("回撤") && Number(value) !== 0 ? "ret-neg" : "value-muted";
+      return `<span class="${tone}">${B.pct(value)}</span>`;
+    }
     if (weightHeaders.includes(field)) return B.pct(row[field]);
     if (field === "夏普比率") return B.fmt(row[field]);
     if (field === "最近调仓日" && !row[field]) return '<span class="value-muted">无历史调仓事件</span>';
@@ -378,15 +385,16 @@
         ${filterControl("策略代码", '<input id="strategyCodeInput" class="control" type="search" placeholder="输入策略代码">', "仅匹配源端策略代码，支持部分代码查询")}
         ${filterControl("其他关键词", '<input id="searchInput" class="control" type="search" placeholder="机构、渠道、风险、分类、状态">', "匹配机构、渠道及分类状态；不包含策略名称和代码")}
         ${filterControl("产品范围", `<select id="productStatusSelect" class="control">
-          <option value="recommended" selected>默认优选（基准、业绩、仓位完整且未终止）</option>
-          <option value="active">当前运作（含数据不完整）</option>
+          <option value="recommended">默认优选（基准、业绩、仓位完整且未终止）</option>
+          <option value="active" selected>当前运作（含数据不完整）</option>
           <option value="stopped">已终止/已下架/历史留档</option>
           <option value="all">全部产品</option>
         </select>`, "这是可切换的初始预设；改选后直接从全库重新筛选")}
         ${filterControl("对客状态", `<select id="clientScopeSelect" class="control">
           <option value="">全部对客状态</option>
-          <option value="client">对客展示</option>
+          <option value="client" selected>对客展示</option>
           <option value="nonClient">非对客/隐藏</option>
+          <option value="unknown">App货架未核验</option>
         </select>`, "排除明确非对客、隐藏或不展示状态")}
         ${filterControl("基准风险资产权重", multiSelect("benchmarkBucketSelect", "基准风险资产权重", orderedBenchmarkBuckets()), "支持多选，按基准风险资产合计权重 L0—L10 分档")}
         ${filterControl("投顾机构", multiSelect("institutionSelect", "投顾机构", unique("投顾机构")), "支持多选，精确匹配已选机构")}
@@ -397,9 +405,9 @@
           <option value="name">按策略名称</option>
           <option value="return">按累计收益率</option>
           <option value="week">按近一周收益</option>
-          <option value="month" selected>按近一月收益</option>
+          <option value="month">按近一月收益</option>
           <option value="quarter">按近三月收益</option>
-          <option value="year">按近1年收益</option>
+          <option value="year" selected>按近1年收益</option>
           <option value="drawdown">按最大回撤</option>
           <option value="volatility">按波动率</option>
           <option value="sharpe">按夏普比率</option>
@@ -415,7 +423,7 @@
           <span><b>研报产品类型</b> 投研可比池，适合同类业绩和风险比较。</span>
           <span><b>业务分类</b> 运营货架口径，适合产品线和销售场景管理。</span>
           <span><b>对客状态</b> 用于区分可对客展示产品和仅保留核验样本。</span>
-          <span><b>产品范围</b> 初始为“默认优选”，即基准、业绩走势、历史仓位完整且未终止；切换为当前运作、已终止或全部产品时，直接从全库重新筛选，不再叠加默认优选条件。</span>
+          <span><b>产品范围</b> 初始为“当前运作”及“对客展示”，数据缺失的产品仍保留在列表；可切换默认优选、已终止或全部产品，也可清除对客条件。显式链接筛选优先于初始预设。</span>
           <span><b>广发证券渠道</b> “财富管家”是当前产品目录，投顾机构列显示实际提供服务的基金投顾机构；“贝塔牛理财”是历史接口留档，不等同于当前财富管家产品。</span>
         </div>
       </details>
@@ -458,11 +466,19 @@
     return sorted[index] + (sorted[Math.min(index + 1, sorted.length - 1)] - sorted[index]) * (position - index);
   }
 
+  function drawdownRange(row, field) {
+    const interval = field.replace(/最大回撤$/, "");
+    const meta = row.区间回撤口径?.[interval];
+    return meta?.区间完整
+      ? `${meta.实际起始日} 至 ${meta.截至日}（${meta.净值点数} 个披露净值）`
+      : field === "最大回撤" ? "全历史" : field === "当前回撤" ? "最新净值相对历史高点" : "独立风险口径";
+  }
+
   function renderStrategyScatter(rows) {
     scatterObserver?.disconnect();
     const mount = B.byId("strategyScatterMount");
     const xFields = [...returnHeaders, "近6月", "年化收益"].filter((field, i, list) => list.indexOf(field) === i && allStrategies.some(row => numberValue(row, field) !== null));
-    const yFields = ["最大回撤", "当前回撤", "波动率"];
+    const yFields = ["近一周最大回撤", "近一月最大回撤", "近三月最大回撤", "近6月最大回撤", "近1年最大回撤", "今年以来最大回撤", "最大回撤", "当前回撤", "波动率"];
     if (!xFields.includes(state.scatterX)) state.scatterX = xFields[0] || "近1年";
     const points = rows.map(row => {
       const y = numberValue(row, state.scatterY);
@@ -482,7 +498,7 @@
     <div class="strategy-scatter-canvas-wrap"><canvas id="strategyScatterCanvas" tabindex="0" role="img" aria-label="策略收益风险点阵。用左右方向键或下方按钮选择产品，详情卡提供数值及详情链接。" data-point-count="${points.length}" data-missing-count="${missing}"></canvas><div id="strategyScatterTooltip" class="strategy-scatter-tooltip" hidden></div>${points.length ? "" : '<div class="strategy-scatter-empty">当前筛选下没有同时具备两个指标的策略；缺失产品仍保留在下方列表。</div>'}</div>
     <div class="strategy-scatter-bottom"><p class="small">缺指标 ${missing} 只，保留在列表中。虚线为全部可绘制样本中位数；右下方为相对高收益、低风险区域。聚焦只调整视窗，不改变列表或统计样本。</p><div><button id="strategyScatterPrev" type="button" ${points.length ? "" : "disabled"}>上一只</button><button id="strategyScatterNext" type="button" ${points.length ? "" : "disabled"}>下一只</button></div></div>
     <div id="strategyScatterDetail" class="strategy-scatter-detail" aria-live="polite"></div>
-    <details class="strategy-scatter-method"><summary>日期与统计口径</summary><p class="small">点阵直接使用当前策略列表数据，不联网重算。最大回撤和波动率沿用全历史统计口径，并非 X 轴所选区间的风险指标；切换收益区间不会改变该风险口径。各策略最新业绩日见详情卡。空值不按 0 处理，指标齐全不代表产品适合投资。</p></details>`;
+    <details class="strategy-scatter-method"><summary>日期与统计口径</summary><p class="small">默认 X 轴近1年收益、Y 轴近1年最大回撤；两轴可独立切换。各区间最大回撤按策略最新可用披露净值日向前取对应区间，从区间起点重置高点，以正数幅度展示；不足完整区间或净值间隔超过45天时留空，不用全历史回撤替代。全历史最大回撤、当前回撤和波动率保留独立口径。区间回撤范围见选中详情；空值不按 0 处理，指标齐全不代表产品适合投资。</p></details>`;
     const canvas = B.byId("strategyScatterCanvas"), ctx = canvas.getContext("2d");
     const tooltip = B.byId("strategyScatterTooltip");
     if (businessQuery.highlightColor) mount.querySelector('.strategy-scatter-legend').innerHTML = `<span><i style="background:${businessQuery.highlightColor}"></i>筛选命中产品 ${points.length}</span><span><i class="is-picked"></i>当前选中</span><small id="strategyScatterViewport"></small>`;
@@ -494,7 +510,7 @@
     const detail = () => {
       const point = points.find(item => item.id === state.scatterSelectedId);
       B.byId("strategyScatterDetail").innerHTML = point
-        ? `<div><strong>${B.esc(point.row.策略名称)}</strong><span>${B.esc(B.strategyInstitutionText(point.row))} · ${B.esc(benchmarkBucket(point.row))}</span></div><dl><div><dt>${B.esc(state.scatterX)}</dt><dd>${format(point.x)}</dd></div><div><dt>${B.esc(state.scatterY)}幅度</dt><dd>${format(point.y)}</dd></div><div><dt>最新业绩日</dt><dd>${B.esc(point.row.最新业绩日期 || point.row.最新业绩日 || "未披露")}</dd></div></dl><a class="link" href="./strategy.html?id=${encodeURIComponent(point.id)}">查看策略详情 ↗</a>`
+        ? `<div><strong>${B.esc(point.row.策略名称)}</strong><span>${B.esc(B.strategyInstitutionText(point.row))} · ${B.esc(benchmarkBucket(point.row))}</span></div><dl><div><dt>${B.esc(state.scatterX)}</dt><dd>${format(point.x)}</dd></div><div><dt>${B.esc(state.scatterY)}幅度</dt><dd class="${point.y > 0 ? "ret-neg" : "value-muted"}">${format(point.y)}</dd></div><div><dt>最新业绩日</dt><dd>${B.esc(point.row.最新业绩日期 || point.row.最新业绩日 || "未披露")}</dd></div><div><dt>回撤计算区间</dt><dd>${B.esc(drawdownRange(point.row, state.scatterY))}</dd></div></dl><a class="link" href="./strategy.html?id=${encodeURIComponent(point.id)}">查看策略详情 ↗</a>`
         : '<span class="small">点击点阵中的策略，或用上一只 / 下一只查看指标与详情。也可通过下方列表查看缺指标产品。</span>';
     };
     const draw = () => {
@@ -595,7 +611,8 @@
       if (state.hiddenStrategyScope === "gf" && !isGfStrategy(row)) return false;
       if (state.hiddenStrategyScope === "nonGf" && isGfStrategy(row)) return false;
       if (clientScope === "client" && !isClientFacing(row)) return false;
-      if (clientScope === "nonClient" && isClientFacing(row)) return false;
+      if (clientScope === "nonClient" && String(row?.天天当前对客展示 || "") !== "否") return false;
+      if (clientScope === "unknown" && String(row?.天天当前对客展示 || "") !== "未知") return false;
       if (benchmarkBucketValues.length && !benchmarkBucketValues.includes(benchmarkBucket(row))) return false;
       if (institutions.length && !institutions.includes(row.投顾机构)) return false;
       if (channel && row.渠道 !== channel) return false;
@@ -652,7 +669,7 @@
 
   function setControlFromParam(controlId, paramName = controlId) {
     const value = B.params().get(paramName);
-    if (!value) return;
+    if (value === null) return;
     const el = B.byId(controlId);
     if (!el) return;
     if (el.matches("[data-multi-filter]")) {
@@ -752,18 +769,20 @@
     B.byId("searchInput").value = "";
     B.byId("strategyNameInput").value = "";
     B.byId("strategyCodeInput").value = "";
-    B.byId("productStatusSelect").value = "recommended";
-    B.byId("clientScopeSelect").value = "";
+    B.byId("productStatusSelect").value = "active";
+    B.byId("clientScopeSelect").value = "client";
     setMultiValues("benchmarkBucketSelect", []);
     setMultiValues("institutionSelect", []);
     B.byId("channelSelect").value = "";
     setMultiValues("reportTypeSelect", []);
     setMultiValues("businessSelect", []);
-    B.byId("sortSelect").value = "month";
+    B.byId("sortSelect").value = "year";
     B.byId("pageSizeSelect").value = "10";
     state.hiddenStrategyScope = "";
     clearIncomingGlobalFilters();
-    applySortPreset("month");
+    applySortPreset("year");
+    state.scatterX = "近1年";
+    state.scatterY = "近1年最大回撤";
     state.pageSize = 10;
     resetPageAndRender();
   });

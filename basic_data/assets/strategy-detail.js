@@ -17,6 +17,10 @@
     return;
   }
   const overview = B.state.summary?.overview || {};
+  const officialStart = detail.curves?.披露业绩?.points?.[0]?.日期;
+  const replayStart = detail.curves?.模拟业绩?.points?.[0]?.日期;
+  const qiemanReplayLimited = id.startsWith("qieman__") && officialStart && replayStart
+    && (Date.parse(replayStart) - Date.parse(officialStart)) > 31 * 86400000;
   const dataRefreshTime = overview.数据刷新时间 || overview.生成时间 || "";
   const ranges = [
     ["all", "成立以来"],
@@ -502,7 +506,7 @@
   function drawdownText(value) {
     const n = num(value);
     if (n === null) return "未披露";
-    const drawdown = n > 0 ? -n : n;
+    const drawdown = n;
     return `${drawdown.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}%`;
   }
   function returnTone(value) {
@@ -660,7 +664,7 @@
   }
   function primaryMetricCard(labelName, fieldName, options = {}) {
     const value = detail.summary[fieldName];
-    const tone = options.risk ? "is-risk" : returnTone(value);
+    const tone = options.risk ? (num(value) === null || num(value) === 0 ? "is-zero" : "is-risk") : returnTone(value);
     const note = options.note || (options.rank === false ? "风险指标" : `同类 ${returnRank(fieldName, value)}`);
     return `<div class="strategy-primary-metric ${tone}">
       <span>${B.esc(labelName)}</span>
@@ -673,7 +677,7 @@
       ${primaryMetricCard("今年以来", "今年以来")}
       ${primaryMetricCard("近1年", "近1年")}
       ${primaryMetricCard("成立以来", "累计收益率")}
-      ${primaryMetricCard("最大回撤", "最大回撤", { risk: true, rank: false })}
+      ${primaryMetricCard("最大回撤", "最大回撤", { risk: true, rank: false, note: "历史最大跌幅（正数幅度）" })}
     </div>`;
   }
   function riskMetricsPanel() {
@@ -1473,12 +1477,12 @@
       <a class="strategy-back-link" href="./strategies.html">← 返回策略列表</a>
       <div class="strategy-identity-row">
         <div class="strategy-identity">
-          <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${isStoppedSummary() ? `<span class="strategy-lifecycle-badge is-stopped">${B.esc(isLegacyArchive ? "历史接口留档" : "已下架")}</span>` : ""}${B.statusBadge(detail.summary.数据完整性)}</div>
+          <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${isStoppedSummary() ? `<span class="strategy-lifecycle-badge is-stopped">${B.esc(isLegacyArchive ? "历史接口留档" : "已下架")}</span>` : ""}${B.statusBadge(qiemanReplayLimited ? "回放区间有限" : detail.summary.数据完整性)}</div>
           <p>销售渠道 ${B.esc(profileMap.渠道 || detail.summary.渠道 || "未披露")} ｜ 投顾管理人 ${B.esc(profileMap.投顾机构 || detail.summary.投顾机构 || "未披露")}</p>
         </div>
         <div class="strategy-status-list ${isStoppedSummary() ? "is-stopped" : ""}">
           <span>对客 ${B.esc(classificationMap.天天当前对客展示 || detail.summary.天天当前对客展示 || "未披露")}</span>
-          <span>${B.esc(detail.summary.运作状态 || "运作状态未披露")}</span>
+          <span>${B.esc(detail.summary.运作状态 === "stargate_keyword_discovered" ? "官方目录可查询 · App货架未核验" : (detail.summary.运作状态 || "运作状态未披露"))}</span>
           <span>${B.esc(classificationMap.研报产品类型 || detail.summary.研报产品类型 || "类型未披露")}</span>
           <span>${B.esc(classificationMap.业务分类 || detail.summary.业务分类 || "业务分类未披露")}</span>
           <span>${B.esc(classificationMap.基准风险资产权重 || "基准风险资产权重未披露")}</span>
@@ -1488,6 +1492,7 @@
       ${ownershipFacts()}
       ${overviewFacts()}
       ${primaryMetricGrid()}
+      ${qiemanReplayLimited ? `<p class="desc" data-qieman-replay-coverage>官方净值始于 ${B.esc(officialStart)}；可核验的历史调仓与自建回放仅从 ${B.esc(replayStart)} 起，更早仓位尚未取得。</p>` : ""}
       <div class="strategy-overview-foot">数据刷新 ${B.esc(dataRefreshTime || "未披露")}｜策略代码 ${B.esc(profileMap.策略代码 || detail.summary.策略代码 || "未披露")}｜页面版本 ${B.esc(window.MinimalPublish?.buildId || "本地完整版")}</div>
     </section>
     <nav class="strategy-section-nav" aria-label="策略详情页内导航">

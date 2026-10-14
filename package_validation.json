@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-14T00:41:13+08:00",
+  "generatedAt": "2026-10-14T12:56:14+08:00",
   "status": "ready",
   "checks": {
     "strategySummaryCount": 2202,
@@ -48,8 +48,8 @@
     "holdingSnapshotSourceRowCount": 663132,
     "holdingSnapshotPublishedRowCount": 198556,
     "holdingSnapshotStrategyCount": 2103,
-    "strategy-lookthroughFileCount": 16772,
-    "strategy-lookthroughBytes": 1214052133
+    "strategy-lookthroughFileCount": 19534,
+    "strategy-lookthroughBytes": 1327257043
   },
   "policy": {
     "blockingZeroChecks": [
@@ -95,7 +95,7 @@
   ],
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-14T00:47:34+08:00",
+    "validatedAt": "2026-10-14T13:02:46+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
