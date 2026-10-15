@@ -634,12 +634,15 @@
       <div class="target-profit-operation-facts">
         ${targetProfitFact("当前运作状态", currentStatus)}
         ${targetProfitFact("目标止盈收益率", targetProfit.目标止盈收益率_百分比, { percent: true })}
+        ${targetProfitFact("目标收益口径", targetProfit.目标收益口径, { wide: true })}
+        ${targetProfitFact("冷静期", isBlank(targetProfit.冷静期天数) ? null : `${targetProfit.冷静期天数}天`)}
         ${stageFacts.map(([labelName, value]) => targetProfitFact(labelName, value)).join("")}
+        ${targetProfit.止盈观察等待条款 ? targetProfitFact("止盈观察等待条款", targetProfit.止盈观察等待条款, { wide: true }) : ""}
         ${targetProfitFact("建议持有时长", targetProfit.建议持有时长)}
         ${targetProfitFact("到期是否继续持有", targetProfit.到期是否继续持有, { boolean: true })}
         ${targetProfitFact("交易确认周期", confirmationParts.join(" · ") || "未披露", { wide: true })}
       </div>
-      <div class="target-profit-operation-note"><strong>日期边界：</strong>计划运作结束日不代表实际止盈日；实际止盈日未获渠道明确披露时保留“未披露”。</div>
+      <div class="target-profit-operation-note"><strong>日期边界：</strong>计划运作结束日不代表实际止盈日。等待止盈条款不等于冷静期；未获渠道明确披露的期限保留“未披露”。</div>
       <details class="target-profit-operation-source">
         <summary>查看状态判定与源端字段</summary>
         ${B.valueList([
@@ -650,6 +653,8 @@
           { 字段: "持仓模块停止标记", 值: targetProfitBoolean(targetProfit.持仓模块停止标记) },
           { 字段: "源端服务器时间", 值: targetProfit.源端服务器时间 },
           { 字段: "目标收益口径", 值: targetProfit.目标收益口径 },
+          { 字段: "目标收益来源", 值: targetProfit.目标收益来源说明 },
+          { 字段: "自动止盈条件", 值: targetProfit.目标收益证据 },
         ])}
       </details>
     </section>`;
@@ -1541,8 +1546,6 @@
           <div class="strategy-subsection-title"><h3>选中调仓明细与贡献分析</h3><p>点击左侧时间点切换</p></div>
           <div id="holdingHead" class="holding-head"></div>
           <div id="rebalanceResearch"></div>
-          <div id="holdingTable"></div>
-          <div id="holdingCards"></div>
           <div class="strategy-contribution-block">
             <div class="panel-head">
               <div><h3>调仓贡献曲线</h3><p id="contributionDesc" class="desc"></p></div>
@@ -1550,6 +1553,8 @@
             </div>
             <div id="contributionChart" class="chart strategy-contribution-chart"></div>
           </div>
+          <div id="holdingTable"></div>
+          <div id="holdingCards"></div>
         </div>
       </div>
     </section>

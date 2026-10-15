@@ -302,7 +302,7 @@ window.BasicData = (() => {
     active: { param: "clientActive", label: "对客未终止" },
   };
   const INSTITUTION_OVERVIEW_DEFAULT_FILTERS = Object.freeze({
-    benchmark: true,
+    benchmark: false,
     performance: true,
     history: false,
     active: true,
@@ -316,8 +316,8 @@ window.BasicData = (() => {
   }
   function initialGlobalStrategyFilters() {
     const query = params();
-    // Institution overview starts from the business-ready scope while keeping
-    // historical holdings optional. Other pages only inherit filters when an
+    // Institution overview requires performance and active client status;
+    // benchmark and historical holdings remain optional. Other pages inherit filters when an
     // institution link explicitly carries query parameters; top-navigation
     // visits must start from their own full data universe.
     return Object.fromEntries(Object.entries(GLOBAL_STRATEGY_FILTERS).map(([key, config]) => [
@@ -473,7 +473,7 @@ window.BasicData = (() => {
     if (!points.length || range === "all") return null;
     const last = new Date(points[points.length - 1].日期);
     if (range === "ytd") return new Date(last.getFullYear(), 0, 1);
-    const days = { "1y": 365, "6m": 183, "3m": 92, "1m": 31 }[range] || 0;
+    const days = { "1w": 7, "1y": 365, "6m": 183, "3m": 92, "1m": 31 }[range] || 0;
     return new Date(last.getTime() - days * 86400000);
   }
   function pointAtOrBefore(points, dateText) {

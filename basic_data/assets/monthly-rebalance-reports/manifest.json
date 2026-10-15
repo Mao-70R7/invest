@@ -1,7 +1,7 @@
 {
   "contractVersion": 1,
-  "generatedAt": "2026-10-14T17:17:29+08:00",
-  "dataUpdatedTo": "2026-10-12",
+  "generatedAt": "2026-10-15T23:46:58+08:00",
+  "dataUpdatedTo": "2026-10-16",
   "latestMonth": "2026-09",
   "monthCount": 12,
   "months": [
@@ -9,73 +9,73 @@
       "month": "2026-09",
       "page": "monthly-rebalance-report-202609.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-09.json",
-      "sourceSha256": "58c4e7b3ed3e913bc80b350d9c175c755326049b85d364c66439de8ff4bf318f"
+      "sourceSha256": "1808077d392c1e0c1c2768825fb32776e3a95a8efc1d14c0573d2179d8513a37"
     },
     {
       "month": "2026-08",
       "page": "monthly-rebalance-report-202608.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-08.json",
-      "sourceSha256": "b575c99073217c9291fa45e4716498e2967066d80c473f79304143b438386a3f"
+      "sourceSha256": "f42e15f0c826e34a8cb8b160a768fb32bed9c4e6734945d8e35e435904af468d"
     },
     {
       "month": "2026-07",
       "page": "monthly-rebalance-report-202607.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-07.json",
-      "sourceSha256": "b6418926849bc269878cade153c4e90c236e9ac52a6c29596b5671a10181785c"
+      "sourceSha256": "21cd7b567979c38fe273bc0bc3ef379fc6bc3716e87498d819938abcdc21ea18"
     },
     {
       "month": "2026-06",
       "page": "monthly-rebalance-report-202606.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-06.json",
-      "sourceSha256": "0f3476a82a2b132860028a1b5a583f443de0ab6e586acdce516995d5151a1a4a"
+      "sourceSha256": "08acda79ad6829ded8191af430f577218b3c2f9aebf91041a75cbf40e70da017"
     },
     {
       "month": "2026-05",
       "page": "monthly-rebalance-report-202605.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-05.json",
-      "sourceSha256": "9d53c2b17dc1948b92b7cd2833a1384aef606309955fa3850278db6154fdfc87"
+      "sourceSha256": "cfdb8539287621af44c1c3e4d80cdccd0e677d0d7eda7407160321ae6a94a075"
     },
     {
       "month": "2026-04",
       "page": "monthly-rebalance-report-202604.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-04.json",
-      "sourceSha256": "334ce40057edf775b4cb1188d93dbb35853134bbdf11557a529257e47f262bf3"
+      "sourceSha256": "b49a4c264ce7e98384dea7b861c734395f76ef4384da89e81e95daf7b10fa734"
     },
     {
       "month": "2026-03",
       "page": "monthly-rebalance-report-202603.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-03.json",
-      "sourceSha256": "742c3da238785139d21fde7b3941444003e8a138bb207dec5de71405e0cda522"
+      "sourceSha256": "0f0976639083c9e8cb1a6ec48632e8d8146861f6ba0c544255c243641664b668"
     },
     {
       "month": "2026-02",
       "page": "monthly-rebalance-report-202602.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-02.json",
-      "sourceSha256": "17bb6a138bd01fef6e87d5ea4935df5621f9c621f4d092e39ea9aaf15e36415f"
+      "sourceSha256": "7bfbb3892df537c6e902e5885cc13a08bea18a1a64156193c15efe8fcca0e2bc"
     },
     {
       "month": "2026-01",
       "page": "monthly-rebalance-report-202601.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-01.json",
-      "sourceSha256": "9677b51d12271375c7d11bd3a0374a78603522342b00316767b967c4a89ea18c"
+      "sourceSha256": "f11ef436632cf33f50965aaa04cc9e83c4f77bf62bde33334a54455483943fd6"
     },
     {
       "month": "2025-12",
       "page": "monthly-rebalance-report-202512.html",
       "snapshot": "assets/monthly-rebalance-reports/2025-12.json",
-      "sourceSha256": "84cdc7f86fedc379d145e586fa54f04445e75fda01e1edc2b0cf8c64e24e0ad9"
+      "sourceSha256": "54a5d4cd5cfed19b200734006351d7bfb0daef51a8525d44d67c83547f2f44a8"
     },
     {
       "month": "2025-11",
       "page": "monthly-rebalance-report-202511.html",
       "snapshot": "assets/monthly-rebalance-reports/2025-11.json",
-      "sourceSha256": "1def6d1525149bc49690b8397ace2fa4cc4b307312465d2e7bea199350bf4099"
+      "sourceSha256": "eaedb3e05ce213acf5ac0d45d1e027a7dc36b9aadbe9d42ab772a1b1593a7c3c"
     },
     {
       "month": "2025-10",
       "page": "monthly-rebalance-report-202510.html",
       "snapshot": "assets/monthly-rebalance-reports/2025-10.json",
-      "sourceSha256": "75f2445e53c7d5773d708970525f62e749fe835ecbbef1fd2f805e1e64f69f58"
+      "sourceSha256": "b9d21de12200cccaa668c8f0c9e57547e3d58f7b127578a59c7758a10f11072d"
     }
   ],
   "eligibleStrategyIds": [
@@ -401,7 +401,6 @@
     "qieman__ZH140203",
     "qieman__ZH142724",
     "qieman__ZH142725",
-    "qieman__ZH143366",
     "qieman__ZH144152",
     "qieman__ZH144564",
     "qieman__ZH144575",
@@ -495,6 +494,7 @@
     "qieman__ZH152697",
     "qieman__ZH152820",
     "qieman__ZH152825",
+    "qieman__ZH152971",
     "qieman__ZH153288",
     "qieman__ZH153289",
     "qieman__ZH153290",
@@ -669,9 +669,10 @@
     "qieman__ZH175422",
     "qieman__ZH175554",
     "qieman__ZH175641",
+    "qieman__ZH175642",
+    "qieman__ZH175723",
     "qieman__ZH175837",
     "qieman__ZH176006",
-    "qieman__ZH176103",
     "qieman__ZH176129",
     "qieman__ZH176131",
     "qieman__ZH176372",
@@ -707,7 +708,6 @@
     "qieman__ZH178102",
     "qieman__ZH178103",
     "qieman__ZH178217",
-    "qieman__ZH178228",
     "qieman__ZH178285",
     "qieman__ZH178302",
     "qieman__ZH178383",
@@ -881,6 +881,7 @@
     "ttfund__A3BTEVU",
     "ttfund__A3KWSCA",
     "ttfund__A42Q2XZ",
+    "ttfund__A76IS0D",
     "ttfund__ABGPHLV",
     "ttfund__ADRHAIP",
     "ttfund__AEBR89C",
@@ -969,6 +970,7 @@
     "ttfund__F6C4IMP",
     "ttfund__F6HD2SW",
     "ttfund__FD0O1WC",
+    "ttfund__FEJCLJJ",
     "ttfund__FFNEFQ1",
     "ttfund__FGNY3LQ",
     "ttfund__FI7B1IK",
@@ -1299,6 +1301,7 @@
     "ttfund__VEEM5AA",
     "ttfund__VFFLXPR",
     "ttfund__VGIGJXY",
+    "ttfund__VHYF8KR",
     "ttfund__VJBKU2J",
     "ttfund__VORCBP0",
     "ttfund__VPMHSD3",

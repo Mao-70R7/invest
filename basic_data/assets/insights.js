@@ -222,6 +222,7 @@
     { key: "1w", label: "近1周", metric: "近一周", days: 7, monthCount: 1 },
     { key: "1m", label: "近1月", metric: "近一月", days: 31, monthCount: 1 },
     { key: "3m", label: "近3月", metric: "近三月", days: 92, monthCount: 3 },
+    { key: "6m", label: "近6月", metric: "近6月", days: 183, monthCount: 6 },
     { key: "1y", label: "近1年", metric: "近1年", days: 365, monthCount: 12 },
     { key: "ytd", label: "今年以来", metric: "今年以来", ytd: true },
     { key: "all", label: "成立以来", metric: "累计收益率" }
@@ -659,7 +660,9 @@
   }
 
   function strategyLink(row) {
-    return strategyLinkById(row?.统一策略ID || "", row?.策略名称 || "未命名策略");
+    const link = strategyLinkById(row?.统一策略ID || "", row?.策略名称 || "未命名策略");
+    const gf = /^(广发基金|广发基金管理有限公司)$/.test(raw(row?.投顾机构).trim());
+    return gf && (compareStandalone || state.tab === "compare") ? `<span class="compare-gf-strategy">${link}</span>` : link;
   }
 
   function strategyLinkById(id, name = "未命名策略") {
@@ -4323,12 +4326,25 @@
     </section>`;
   }
 
+  function compareBestValue(rows, row, field, html) {
+    const lower = ["最大回撤", "波动率", "年化投顾费率", "起投金额"].includes(field);
+    const higher = ["近一周", "近一月", "近三月", "近6月", "近1年", "今年以来", "累计收益率", "年化收益", "夏普比率"].includes(field);
+    if (!lower && !higher) return html;
+    const get = (item) => num(compareProfileValue(item, compareDetail(item.统一策略ID), field));
+    const values = rows.map(get).filter((v) => v !== null && Number.isFinite(v));
+    const value = get(row);
+    const score = (v) => field === "最大回撤" ? Math.abs(v) : v;
+    const best = lower ? Math.min(...values.map(score)) : Math.max(...values.map(score));
+    return values.length >= 2 && value !== null && Math.abs(score(value) - best) < 1e-9
+      ? `<span class="compare-best" title="本组已披露可比值最优（含并列）">${html}<small>最优</small></span>` : html;
+  }
+
   function compareCoreTable(rows) {
-    const headers = ["策略名称", "投顾机构", "渠道", "研报产品类型", "风险等级", returnMetric(), "近6月", "近1年", "最大回撤", "波动率", "夏普比率", "年化收益", "年化换手率", "最近调仓日", "最新持仓日", "数据完整性"];
+    const headers = [...new Set(["策略名称", "投顾机构", "渠道", "研报产品类型", "风险等级", ...dateRanges.map((r) => r.metric), "最大回撤", "波动率", "夏普比率", "年化收益", "年化换手率", "最近调仓日", "最新持仓日", "数据完整性"])];
     return tableBlock(headers, rows, (row, h) => {
       if (h === "策略名称") return strategyLink(row);
       if (h === "数据完整性") return B.statusBadge(row[h]);
-      if (["最大回撤", "波动率", "年化收益", "年化换手率", "近6月", "近1年", returnMetric()].includes(h)) return B.valueHtml(h, row[h]);
+      if (["最大回撤", "波动率", "年化收益", "年化换手率", "夏普比率", ...dateRanges.map((r) => r.metric)].includes(h)) return compareBestValue(rows, row, h, B.valueHtml(h, row[h]));
       return B.fmt(row[h]);
     });
   }
@@ -4346,7 +4362,8 @@
       const detail = compareDetail(row.统一策略ID);
       const snapshot = currentSnapshot(detail);
       const fee = compareFeeText(row, detail);
-      const minAmount = compareProfileValue(row, detail, "起投金额") || "未披露";
+      const minAmount = compareProfileValue(row, detail, "起投金额") ?? "未披露";
+      const benchmark = compareProfileValue(row, detail, "业绩基准说明") || compareProfileValue(row, detail, "业绩基准") || "未披露";
       const holdingDate = snapshot?.日期 || row.最新持仓日 || "未披露";
       const holdingSource = snapshot?.说明 || "详情加载中";
       const tags = [row.风险等级, row.研报产品类型 || row.业务分类, row.市场地域, row.主动被动].filter((item) => raw(item) && raw(item) !== "未披露").slice(0, 4);
@@ -4357,15 +4374,16 @@
         </div>
         <div class="compare-advisor-tags">${tags.map((tag) => `<span>${B.esc(tag)}</span>`).join("") || "<span>未披露标签</span>"}</div>
         <div class="compare-advisor-kpis">
-          <span>${B.label(metric)}<b>${signedPct(row[metric])}</b></span>
-          <span>${B.label("最大回撤")}<b>${pct(row.最大回撤)}</b></span>
-          <span>${B.label("夏普比率")}<b>${ratioText(row.夏普比率)}</b></span>
+          ${dateRanges.map((r) => `<span>${B.label(r.metric)}<b>${compareBestValue(rows, row, r.metric, signedPct(row[r.metric]))}</b></span>`).join("")}
+          <span>${B.label("最大回撤")}<b>${compareBestValue(rows, row, "最大回撤", B.valueHtml("最大回撤", row.最大回撤))}</b></span>
+          <span>${B.label("夏普比率")}<b>${compareBestValue(rows, row, "夏普比率", ratioText(row.夏普比率))}</b></span>
         </div>
         <div class="compare-advisor-meta">
-          <span>${B.label("投顾费率")}<b>${B.esc(fee)}</b></span>
-          <span>${B.label("起投金额")}<b>${B.esc(minAmount)}</b></span>
+          <span>${B.label("投顾费率")}<b>${compareBestValue(rows, row, "年化投顾费率", B.esc(fee))}</b></span>
+          <span>${B.label("起投金额")}<b>${compareBestValue(rows, row, "起投金额", B.esc(minAmount))}</b></span>
           <span>${B.label("最新持仓日")}<b>${B.esc(holdingDate)}</b></span>
         </div>
+        <p class="compare-benchmark"><strong>业绩基准：</strong>${B.esc(benchmark)}</p>
         <p>${B.esc(holdingSource)}</p>
       </article>`;
     }).join("")}</div>`;
@@ -4714,9 +4732,9 @@
       if (h === "年化投顾费率") {
         const structured = compareProfileValue(row, detail, "年化投顾费率");
         const rawFee = compareProfileValue(row, detail, "投顾费率");
-        return num(structured) !== null ? pct(structured) : B.esc(rawFee || "未披露");
+        return compareBestValue(rows, row, h, num(structured) !== null ? pct(structured) : B.esc(rawFee || "未披露"));
       }
-      if (h === "起投金额" || h === "建议持有时长") return B.fmt(compareProfileValue(row, detail, h));
+      if (h === "起投金额" || h === "建议持有时长") return compareBestValue(rows, row, h, B.fmt(compareProfileValue(row, detail, h)));
       if (h === "费率读法") {
         const status = raw(compareProfileValue(row, detail, "费率状态") || row.费率状态);
         return status.includes("缺失") ? "未披露费率，不参与定价优劣判断" : "可进入同类费率和让利空间比较";
@@ -4782,9 +4800,12 @@
 
   function compareExposureConfigBlock(rows, fields, options = {}) {
     const fieldList = Array.isArray(fields) ? fields : [fields];
+    const fixedAssets = fieldList[0] === "研报大类资产";
+    const assetRank = (name) => /权益|股票|A股|港股|美股/.test(name) ? 0 : /债/.test(name) ? 1 : /货币|现金/.test(name) ? 2 : /商品|黄金/.test(name) ? 3 : /另类|REIT/i.test(name) ? 4 : 5;
+    const assetNames = [...new Set(rows.flatMap((row) => [...latestExposureMapWithFallback(row.统一策略ID, fieldList).map.keys()]))].sort((a, b) => assetRank(a) - assetRank(b) || a.localeCompare(b, "zh-CN"));
     const cards = rows.map((row) => {
       const exposure = latestExposureMapWithFallback(row.统一策略ID, fieldList);
-      const entries = [...exposure.map.entries()]
+      const entries = fixedAssets && exposure.map.size ? assetNames.map((name) => ({ name, value: num(exposure.map.get(name)) || 0 })) : [...exposure.map.entries()]
         .map(([name, value]) => ({ name, value: num(value) || 0 }))
         .filter((item) => item.value > 0.0001)
         .sort((a, b) => b.value - a.value)
@@ -4793,7 +4814,7 @@
       return `<article class="compare-asset-row compare-exposure-row">
         <div class="compare-row-title"><strong>${strategyLink(row)}</strong><span>${B.esc(exposure.field || fieldList[0])}</span></div>
         <div class="compare-stack-bar is-thick">${entries.map((item) => `<i style="width:${Math.max(0, item.value / total * 100).toFixed(2)}%;background:${compareColorFor(item.name)}" title="${B.esc(item.name)} ${weightPoint(item.value)}"></i>`).join("")}</div>
-        <div class="compare-asset-legend">${entries.slice(0, 6).map((item) => `<span><i style="background:${compareColorFor(item.name)}"></i>${B.esc(item.name)} <b>${weightPoint(item.value)}</b></span>`).join("") || '<span>暂无可用拆分</span>'}</div>
+        <div class="compare-asset-legend">${(fixedAssets ? entries : entries.slice(0, 6)).map((item) => `<span><i style="background:${compareColorFor(item.name)}"></i>${B.esc(item.name)} <b>${weightPoint(item.value)}</b></span>`).join("") || '<span>暂无可用拆分</span>'}</div>
       </article>`;
     }).join("");
     return `<div class="compare-asset-list compare-exposure-list">${cards}</div>`;
@@ -5486,7 +5507,7 @@
       ${selected.length ? `
         <section class="panel">
           <div class="panel-head"><div><h2>投顾对比总览</h2><p class="desc">按天天投顾对比页的阅读顺序，把每只策略的风险、收益、费率、持仓日期和当前仓位来源放在同一屏。</p></div><span class="pill">最多 ${compareMaxCount} 只</span></div>
-          ${compareAdvisorSummaryBlock(selected)}
+          ${compareAdvisorSummaryBlock(selected)}<p class="desc">“最优”按本组已披露数据比较，含并列：收益、夏普越高越优；回撤幅度、波动、费率、起投金额越低越优。日期、基准、资产权重不评优；缺失值不参与。各策略数据日期与历史长度可能不同。</p>
         </section>
         <section class="panel">
           <div class="panel-head"><div><h2>核心指标对比</h2><p class="desc">按当前时间区间、同一字段口径横向比较，字段旁问号可查看计算说明。</p></div><span class="pill">详情待加载 ${countText(loadingCount)} 个</span></div>
@@ -5500,7 +5521,7 @@
         <section class="panel chart-panel">
           <div class="panel-head">
             <div><h2>业绩曲线对比</h2><p class="desc">默认显示官方披露曲线，并叠加与本组策略最相关的指数基准；可在图例中打开自建回放曲线。</p></div>
-            <div class="chart-actions">${compareBenchmarkSelect(selected)}</div>
+            <div class="chart-actions"><label>收益区间 <select id="compareRangeSelect" class="control compact-control">${dateRanges.map((r) => `<option value="${r.key}" ${state.range === r.key ? "selected" : ""}>${r.label}</option>`).join("")}</select></label>${compareBenchmarkSelect(selected)}</div>
           </div>
           <div class="source-method"><strong>${B.label("对比基准")}</strong> ${B.esc(compareBenchmarkNote(selected))}</div>
           <div id="compareReturnChart" class="chart compare-return-chart"></div>
@@ -5773,6 +5794,8 @@
     const comparePeerMode = B.byId("comparePeerMode");
     const compareScatterX = B.byId("compareScatterX");
     const compareBenchmarkSelectEl = B.byId("compareBenchmarkSelect");
+    const compareRangeSelect = B.byId("compareRangeSelect");
+    if (compareRangeSelect) compareRangeSelect.addEventListener("change", () => { state.range = compareRangeSelect.value; scheduleRender(); });
     const compareClear = B.byId("compareClear");
     if (compareSearch) {
       compareSearch.addEventListener("compositionstart", () => { compareSearchComposing = true; });

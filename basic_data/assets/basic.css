@@ -3171,3 +3171,12 @@ tbody tr:hover { background:#f6f8f7; }
   .ai-field-options { width:100%; max-width:100%; }
   .ai-field-options > button, .strategy-multi-options label { min-height:44px; }
 }
+
+/* Comparison: consistent metrics, provider identity and asset order. */
+.compare-gf-strategy a.link { color:#B72F32 !important; font-weight:800 !important; }
+.compare-advisor-meta { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.compare-advisor-kpis > span .compare-best { border:0; padding:0; }
+.compare-best { display:inline-block; background:#fff2d6 !important; border-radius:4px; padding:2px 5px; font-weight:700; }
+.compare-best small { display:inline-block; margin-left:4px; color:#17324D; font-size:10px; }
+.compare-advisor-card p.compare-benchmark { max-height:none; overflow:visible; }
+.compare-advisor-grid { grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr)); }
