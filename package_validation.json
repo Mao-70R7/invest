@@ -96,15 +96,15 @@
   ],
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-14T18:25:10+08:00",
-    "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
+    "validatedAt": "2026-10-15T18:13:09+08:00",
+    "databasePath": "E:\\天眼系统\\数据库备份\\analysis_zh_current_20261014T124052252595+0800_20261014T101000_qieman_nav_repair_delivery.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
     "inputSnapshotAudit": null,
     "errorCount": 0
   },
-  "presentationRefreshedAt": "2026-10-14T18:10:25+08:00",
-  "presentationChangeType": "monthly_rebalance_module",
+  "presentationRefreshedAt": "2026-10-15T18:04:40+08:00",
+  "presentationChangeType": "client_visibility_unknown_included",
   "monthlyRebalanceValidation": {
     "status": "passed",
     "monthCount": 12,
@@ -113,7 +113,7 @@
   },
   "pageVersionValidation": {
     "status": "passed",
-    "buildId": "minimal-1325b33d042f",
+    "buildId": "minimal-aa8a0c0624f4",
     "pageCount": 19
   }
 }

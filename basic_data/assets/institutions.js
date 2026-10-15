@@ -223,7 +223,7 @@
           ${filterButton("benchmark", "有基准", "披露可追溯基准")}
           ${filterButton("performance", "有业绩走势", "至少两个官方净值点")}
           ${filterButton("history", "有历史仓位", "完整快照或调仓后仓位")}
-          ${filterButton("active", "对客未终止", "当前对客且未终止")}
+          ${filterButton("active", "对客未终止", "含状态未知，排除明确非对客或已终止")}
         </div>
       </section>
 
@@ -256,7 +256,7 @@
         </article>
       </section>
 
-      <details class="panel institution-method"><summary>统计口径与数据边界</summary><div><p><b>默认范围：</b>默认要求有基准、有业绩走势且对客未终止；有历史仓位作为可选条件，默认不勾选。</p><p><b>销售渠道：</b>暂停更新的南方基金不进入销售渠道数量、策略数量、调仓走势和分档统计；切换到投顾管理人后，仍可按既有历史数据查询相关管理人。</p><p><b>基准风险资产权重：</b>按业绩基准中的权益、商品和另类风险资产合计权重划分 L0—L10；缺基准或无法可靠拆分时保留“未分档”。</p><p><b>有历史仓位：</b>只认基金权重全部精确且合计 99%—101% 的官方历史快照或完整调仓后仓位；发车新增资金分配比例不是存量仓位。</p><p><b>走势：</b>普通调仓与发车信号合并，按日期和策略去重；区间总数为窗口内去重策略数，不是折线点位求和。</p><p><b>投顾管理人缺失：</b>源端明确披露管理人时保留披露值；为空或明确标记未披露时，以销售渠道的业务名称兜底。qieman/且慢渠道统一显示为“盈米基金”。</p></div></details>`;
+      <details class="panel institution-method"><summary>统计口径与数据边界</summary><div><p><b>默认范围：</b>默认要求有基准、有业绩走势且对客未终止；有历史仓位作为可选条件，默认不勾选。</p><p><b>对客状态未知：</b>按对客纳入默认筛选，来源状态仍保留未知；明确非对客、已终止和历史留档仍排除。</p><p><b>销售渠道：</b>暂停更新的南方基金不进入销售渠道数量、策略数量、调仓走势和分档统计；切换到投顾管理人后，仍可按既有历史数据查询相关管理人。</p><p><b>基准风险资产权重：</b>按业绩基准中的权益、商品和另类风险资产合计权重划分 L0—L10；缺基准或无法可靠拆分时保留“未分档”。</p><p><b>有历史仓位：</b>只认基金权重全部精确且合计 99%—101% 的官方历史快照或完整调仓后仓位；发车新增资金分配比例不是存量仓位。</p><p><b>走势：</b>普通调仓与发车信号合并，按日期和策略去重；区间总数为窗口内去重策略数，不是折线点位求和。</p><p><b>投顾管理人缺失：</b>源端明确披露管理人时保留披露值；为空或明确标记未披露时，以销售渠道的业务名称兜底。qieman/且慢渠道统一显示为“盈米基金”。</p></div></details>`;
 
     root.querySelectorAll("[data-days]").forEach((button) => button.addEventListener("click", () => { state.days = Number(button.dataset.days); state.selectedDate = ""; render(); }));
     root.querySelectorAll("[data-dimension]").forEach((button) => button.addEventListener("click", () => { state.dimension = button.dataset.dimension; state.selectedDate = ""; render(); }));

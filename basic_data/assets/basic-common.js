@@ -352,6 +352,10 @@ window.BasicData = (() => {
     });
     return target.href;
   }
+  function clientActiveForDisplay(row, stopped = false) {
+    const status = String(row?.对客未终止 || "").trim().toLowerCase();
+    return !stopped && !["否", "非对客", "false", "0"].includes(status);
+  }
   function strategyFilterFacts(row) {
     const clean = (value) => String(value || "").trim();
     const stopped = Number(row?.是否历史接口留档 || 0) === 1
@@ -363,7 +367,7 @@ window.BasicData = (() => {
       benchmark: clean(row?.有基准) ? row.有基准 === "是" : Boolean(clean(row?.业绩基准 || row?.业绩基准说明)),
       performance: clean(row?.有业绩走势) ? row.有业绩走势 === "是" : Boolean(clean(row?.最新业绩日期 || row?.收益数据截至)),
       history: clean(row?.有历史仓位) ? row.有历史仓位 === "是" : Number(row?.完整历史仓位快照数 || row?.完整调仓后仓位数 || 0) > 0,
-      active: clean(row?.对客未终止) ? row.对客未终止 === "是" : !stopped,
+      active: clientActiveForDisplay(row, stopped),
     };
   }
   function matchesGlobalStrategyFilters(row, filters = globalStrategyFilters) {
