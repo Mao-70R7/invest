@@ -744,7 +744,42 @@
       </dl>
     </article>`).join("") : '<div class="empty">暂无持仓明细</div>'}</div>`;
   }
+  function sharedModelTable(rows) {
+    return `<div class="table-wrap"><table class="compact-table"><thead><tr><th>基金代码</th><th>基金名称</th><th class="num">模型占比</th></tr></thead><tbody>${[...rows].sort((a,b)=>b[2]-a[2]).map(row=>`<tr><td>${B.esc(row[0])}</td><td>${fundLink({基金代码:row[0],基金名称:row[1]},row[1])}</td><td class="num">${B.pct(row[2])}</td></tr>`).join("")}</tbody></table></div>`;
+  }
+  function sharedModelBoundary(p, date) {
+    if(p.knownPeriodStart && date<p.knownPeriodStart)return "该日早于本期起始运作日，仅展示系列模型参考。";
+    if(p.knownPeriodStop && date>p.knownPeriodStop)return "该日晚于本期实际止盈日，仅展示系列模型参考。";
+    if(p.periodApplication==="ended_period_reference")return "本期已止盈；以下为系列模型参考，不表示止盈后的账户持仓。";
+    if(!p.knownPeriodStart)return "本期完整运作起止日期尚待核实；以下为系列模型参考。";
+    return "按用户确认的同系列共享规则展示；客户账户实仓仍以实际为准。";
+  }
+  function sharedModelHoldingSection() {
+    const p=detail.sharedSeriesHoldings;
+    return `<section id="strategy-holding" class="panel strategy-section strategy-current-holding" data-shared-model="${B.esc(p.seriesCode)}">
+      <div class="panel-head strategy-section-head"><div><h2>共享模型仓位</h2><p class="desc">用户提供：${B.esc(p.sourceFile)}；${B.esc(p.seriesCode)}。各期同日采用相同模型，不表示客户实际账户持仓。</p></div><div class="strategy-section-meta"><span>${p.dateCount} 个仓位日期</span><span>${p.activeDates.length} 个主动配置日期（含首个可用配置）</span></div></div>
+      <p id="sharedModelBoundary" class="desc">${B.esc(sharedModelBoundary(p,p.snapshotDate))}</p>
+      <div class="chart-actions" style="display:flex;flex-wrap:wrap;gap:12px;margin:16px 0"><label>仓位日期 <select id="sharedModelDate" aria-label="共享模型仓位日期"><option value="${B.esc(p.snapshotDate)}">${B.esc(p.snapshotDate)}</option></select></label><label><input type="checkbox" id="sharedModelActiveOnly"> 仅看主动配置日期</label><span id="sharedModelStatus" role="status">${p.changeflag===1?"主动调仓配置":"被动涨跌后仓位"}；${p.latestHoldings.length} 只基金，合计 ${B.pct(p.latestHoldings.reduce((n,r)=>n+r[2],0))}</span></div>
+      <div id="sharedModelTable">${sharedModelTable(p.latestHoldings)}</div>
+      <p class="desc" style="margin-top:14px">CHANGEFLAG=0：被动涨跌后的当日仓位，不作为调仓事件；CHANGEFLAG=1：主动配置。首个可用配置缺少前一日记录，不计算此前的调仓幅度。下方穿透图使用文件最新模型日占比；历史日期选择仅切换本表，不重复净值漂移。</p>
+      <p class="desc" style="font-size:12px;margin-top:12px">注：以上数据按照标准组合成分基金占比计算，受账户再平衡、持仓基金红利再投资、调仓、成分基金交易限制等因素影响，客户实际持仓可能有不同，数据仅供参考，请以实际为准。</p>
+    </section>`;
+  }
+  async function bindSharedModelHistory() {
+    const p=detail.sharedSeriesHoldings;if(!p)return;
+    const status=B.byId("sharedModelStatus"),select=B.byId("sharedModelDate"),filter=B.byId("sharedModelActiveOnly");
+    try {
+      const response=await fetch(p.historyFile);if(!response.ok)throw new Error("共享仓位历史读取失败");
+      let bytes=new Uint8Array(await response.arrayBuffer());if(bytes[0]===31&&bytes[1]===139)bytes=new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer());
+      const digest=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",bytes)),x=>x.toString(16).padStart(2,"0")).join("");if(digest!==p.historySha256)throw new Error("共享仓位历史校验失败");
+      const history=JSON.parse(new TextDecoder().decode(bytes));if(history.sourceSha256!==p.sourceSha256||history.seriesCode!==p.seriesCode||history.snapshots.length!==p.dateCount)throw new Error("共享仓位来源或日期范围不一致");
+      function draw(){const snapshot=history.snapshots.find(x=>x.date===select.value);if(!snapshot)return;const rows=snapshot.holdings.map(([code,weight])=>[code,history.fundNames[code],weight]);B.byId("sharedModelTable").innerHTML=sharedModelTable(rows);status.textContent=(snapshot.changeflag===1?"主动调仓配置":"被动涨跌后仓位")+"；"+rows.length+" 只基金，合计 "+B.pct(rows.reduce((n,r)=>n+r[2],0));B.byId("sharedModelBoundary").textContent=sharedModelBoundary(p,snapshot.date);}
+      function options(){const previous=select.value;select.replaceChildren();for(const snapshot of [...history.snapshots].reverse()){if(filter.checked&&snapshot.changeflag!==1)continue;const option=document.createElement("option");option.value=snapshot.date;option.textContent=snapshot.date+(snapshot.changeflag===1?" · 主动配置":" · 被动涨跌");select.appendChild(option);}if([...select.options].some(x=>x.value===previous))select.value=previous;draw();}
+      select.addEventListener("change",draw);filter.addEventListener("change",options);options();
+    }catch(error){status.textContent=error.message+"；已保留最新模型仓位。";select.disabled=true;filter.disabled=true;}
+  }
   function currentHoldingSection() {
+    if(detail.sharedSeriesHoldings)return sharedModelHoldingSection();
     const snapshot = currentHoldingSnapshot();
     const rows = portfolioFundRows();
     const totalWeight = rows.reduce((acc, row) => acc + (num(row.权重) || 0), 0);
@@ -1480,7 +1515,7 @@
   root.innerHTML = `
     <section id="strategy-overview" class="panel strategy-overview strategy-section">
       <a class="strategy-back-link" href="./strategies.html">← 返回策略列表</a>
-      ${id.startsWith("gfbank_cgb__") ? `<p class="desc source-note-list" data-bank-source-note>${B.esc(detail.summary.业绩完整性说明 || "银行来源覆盖尚未完整验收")} 未披露不等于零持仓或零调仓。</p>` : ""}
+      ${id.startsWith("gfbank_cgb__") ? `<p class="desc source-note-list" data-bank-source-note>${B.esc(detail.summary.业绩完整性说明 || "银行来源覆盖尚未完整验收")} 未披露不等于零持仓或零调仓。${detail.sharedSeriesHoldings?"本页另列用户提供的共享模型仓位及穿透，不改变官方业绩的披露边界。":""}</p>` : ""}
       <div class="strategy-identity-row">
         <div class="strategy-identity">
           <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${isStoppedSummary() ? `<span class="strategy-lifecycle-badge is-stopped">${B.esc(isLegacyArchive ? "历史接口留档" : "已下架")}</span>` : ""}${B.statusBadge(qiemanReplayLimited ? "回放区间有限" : detail.summary.数据完整性)}</div>
@@ -1538,7 +1573,7 @@
     </section>
     <section id="strategy-rebalance" class="panel strategy-section strategy-rebalance-section">
       <div class="panel-head strategy-section-head">
-        <div><h2>调仓记录</h2><p class="desc">先看最近一次调仓摘要，再按时间线查看历史调仓明细与调仓后表现。</p></div>
+        <div><h2>${detail.sharedSeriesHoldings?"官方独立调仓记录":"调仓记录"}</h2><p class="desc">${detail.sharedSeriesHoldings?"用户模型主动配置日期已在共享仓位区列示；这里保留官方独立调仓记录，不混作客户实际调仓。":"先看最近一次调仓摘要，再按时间线查看历史调仓明细与调仓后表现。"}</p></div>
       </div>
       ${latestRebalanceSummary()}
       <div class="strategy-rebalance-workspace">
@@ -1579,6 +1614,7 @@
   renderPerformanceTabs();
   renderMainChart();
   renderPositions();
+  bindSharedModelHistory();
   const lookthroughFrame = document.getElementById("strategyLookthroughFrame");
   window.addEventListener("message", (event) => {
     if (!lookthroughFrame || event.source !== lookthroughFrame.contentWindow || event.origin !== location.origin) return;
