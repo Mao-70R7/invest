@@ -202,9 +202,9 @@ body.lookthrough-embedded{background:transparent}
 @media(max-width:760px){.lookthrough-page main{padding:18px 12px 28px}.lookthrough-page main h1{font-size:25px}.lookthrough-page .toolbar{display:flex;flex-wrap:wrap}.lookthrough-page .toolbar input,.lookthrough-page .toolbar select{width:100%}.lookthrough-embedded main{padding:0}.lookthrough-embedded .card{padding:14px 10px}}
 
 </style><!-- tianyan-web-assistant -->
-<link rel="stylesheet" href="./assets/tianyan-assistant.css?v=minimal-e97856bf04a3">
-<script src="./assets/tianyan-assistant-config.js?v=minimal-e97856bf04a3"></script>
-<script defer src="./assets/tianyan-assistant.js?v=minimal-e97856bf04a3"></script>
+<link rel="stylesheet" href="./assets/tianyan-assistant.css?v=minimal-85eeb908a4f0">
+<script src="./assets/tianyan-assistant-config.js?v=minimal-85eeb908a4f0"></script>
+<script defer src="./assets/tianyan-assistant.js?v=minimal-85eeb908a4f0"></script>
 <!-- /tianyan-web-assistant -->
 </head><body class="lookthrough-page"><script>
 const lookthroughEmbedded=new URLSearchParams(location.search).get('embed')==='charts';
@@ -221,7 +221,7 @@ if(lookthroughEmbedded)document.body.classList.add('lookthrough-embedded');
     <nav class="nav" aria-label="主导航"><div class="nav-group"><div class="nav-group-title">产品分析</div><a class="nav-link " href="./institutions.html">机构总览</a>
 <a class="nav-link " href="./strategies.html">策略列表</a>
 <a class="nav-link " href="./strategy-lookthrough.html">资产穿透分析</a>
-<a class="nav-link " href="./monthly-rebalance-report.html?v=minimal-e97856bf04a3">调仓月报</a></div>
+<a class="nav-link " href="./monthly-rebalance-report.html?v=minimal-85eeb908a4f0">调仓月报</a></div>
 <div class="nav-group"><div class="nav-group-title">基金与排名</div><a class="nav-link " href="./mixed-performance-scatter.html">全市场产品排名</a></div>
 <a class="nav-link private-fund-link" href="https://gfinvest.site/private_fund/products.html">天眼私募 <span aria-hidden="true">↗</span></a>
 <button type="button" class="nav-link ty-assistant-trigger" data-tianyan-assistant>AI助手</button></nav>
@@ -259,6 +259,12 @@ function industryView(s){const total=Number(s.stockSampleContribution||0),stock=
 function detailsView(s){document.getElementById('quality').innerHTML=[['策略持仓日',s.holdingDate||'—'],['持基数量',s.holdingDate?s.holdingCount+' 只':'—'],['季报覆盖仓位',fmt(s.reportCoverageWeight)],['债券细项样本',fmt(s.bondSampleContribution)]].map(([label,value])=>'<div><small>'+esc(label)+'</small><b>'+esc(value)+'</b></div>').join('');document.getElementById('holdings').innerHTML=s.holdings.length?s.holdings.map(h=>{const url=typeof h.reportUrl==='string'&&h.reportUrl.startsWith('https://fundf10.eastmoney.com/')?'<a href="'+esc(h.reportUrl)+'" target="_blank" rel="noopener">东财 F10</a>':'—';return '<tr><td>'+esc(h.fundName)+'<br><span class="muted">'+esc(h.fundCode)+'</span></td><td class="num">'+fmt(h.weight)+'</td><td>'+esc(h.fundClassMinor||'—')+'</td><td>'+esc(h.reportDate||'—')+'</td><td class="num">'+fmt(h.assets['股票'])+'</td><td class="num">'+fmt(h.assets['债券'])+'</td><td class="num">'+fmt(h.assets['现金'])+'</td><td class="num">'+fmt(h.unexplainedContribution)+'</td><td>'+url+'</td></tr>'}).join(''):'<tr><td colspan="9" class="empty">当前策略无法计算基金级穿透</td></tr>'}
 function render(id){const s=strategies.find(x=>x.id===id);if(!s)return;document.getElementById('title').textContent=s.name+' · 持仓穿透分析';document.getElementById('fresh').textContent=s.holdingDate?((s.holdingStatus||'').startsWith('parent_shared')?'共享母策略仓位 · ':'仓位 · ')+s.holdingDate+' · 季报 '+(Object.keys(s.reportPeriods||{}).join('、')||'—'):'尚无可核验的基金仓位';const old=s.ageDays!=null&&s.ageDays>180?'仓位距观察日 '+s.ageDays+' 天，请勿视为实时配置。':'';document.getElementById('lead').innerHTML=s.holdingDate?'<strong>'+esc(s.name)+'</strong> '+((s.holdingStatus||'').startsWith('parent_shared')?'复用母策略模型，':'')+(s.allocationBasis==='official_rebalance_target'?'调仓模型包含 ':s.allocationBasis==='parent_strategy_reference'?'母策略参考配置包含 ':'持有 ')+s.holdingCount+' 只基金；已核验总资产构成贡献：债券 '+fmt(s.metrics['债券'])+'、股票 '+fmt(s.metrics['股票'])+'、现金 '+fmt(s.metrics['现金'])+'。已披露债券细项 '+fmt(s.bondSampleContribution)+'，未覆盖部分保留在债券大类。'+esc(old):'<strong>'+esc(s.name)+'</strong> 缺少可核验的期次独立基金仓位，无法计算穿透分布。';document.getElementById('metrics').innerHTML=[['穿透配置日',s.holdingDate||'—',(s.holdingStatus||'').startsWith('parent_shared')?'母策略共享模型':(s.allocationLabel||'产品仓位时点')],['持基数量',s.holdingDate?s.holdingCount:'—','精确权重'],['季报覆盖',fmt(s.reportCoverageWeight),'占持基权重'],['股票行业样本',fmt(s.stockSampleContribution),'占策略资产构成']].map(x=>'<div class="metric"><small>'+esc(x[0])+'</small><b>'+esc(x[1])+'</b><span>'+esc(x[2])+'</span></div>').join('');if(s.holdingDate){assetView(s);typeView(s);industryView(s)}else{for(const k of ['assetChart','typeChart','industryChart'])document.getElementById(k).innerHTML='<div class="empty">缺少基金级仓位，无法计算</div>';for(const k of ['assetLegend','typeLegend','industryLegend','assetFoot','industryFoot'])document.getElementById(k).innerHTML=''}detailsView(s);const rejected=s.sampleQualityIssues||[];if(rejected.length)document.getElementById('lead').innerHTML+='<br><strong>细项口径提示：</strong>'+esc(rejected.map(q=>q.fundCode+' '+q.fundName).join('、'))+' 的证券样本与同季资产表冲突，已暂停其细项聚合，原始数据仍可在明细CSV复核。'}
 // All values remain contributions to the original strategy, never rebased.
+const LOOKTHROUGH_EXPORT_DISCLAIMER='注：以上数据按照标准组合成分基金占比计算，受账户再平衡、持仓基金红利再投资、调仓、成分基金交易限制等因素影响，客户实际持仓可能有不同，数据仅供参考，请以实际为准。';
+function appendLookthroughExportDisclaimer(root){
+ const footer=document.createElement('footer');footer.dataset.lookthroughExportDisclaimer='true';
+ footer.style.cssText='display:block;box-sizing:border-box;width:100%;margin:24px 0 0;padding:16px 0 0;border-top:1px solid #dcd8cd;color:#687383;font:12px/1.75 "Microsoft YaHei",Arial,sans-serif;white-space:normal;overflow-wrap:anywhere;text-align:left;';
+ footer.textContent=LOOKTHROUGH_EXPORT_DISCLAIMER;root.appendChild(footer);return footer;
+}
 let interactionStrategy=null,interactionSelection=null,interactionPicks=[],interactionExportUrl=null;
 const interactionSum=m=>Object.values(m||{}).reduce((a,v)=>a+Number(v||0),0);
 const pickKey=p=>JSON.stringify([p.scope,p.kind,p.asset,p.major,p.minor,p.keys,p.pairs]);
@@ -484,6 +490,7 @@ async function exportLookthroughImage(button){
   const width=industry?1520:fund?1000:1040,pad=44,canvas=document.createElement('canvas'),ctx=canvas.getContext('2d'),paint=lookthroughExportPainter(ctx),contentWidth=width-pad*2;
   const subtitle=card.querySelector('.card-header .sub')?.textContent||(s.assetCompositionContractVersion?'内环：基金总资产大类 · 外环：同季细项 · 资产金额÷基金总资产':'内环：基金资产大类 · 外环：同季细项 · 比例占单只基金净值');
   const notes=[...card.querySelectorAll('.note-line')].map(lookthroughExportRow),explain=card.querySelector('.explain')?.textContent||'',footnotes=[card.querySelector('.foot')?.textContent,s.weightProjection?.assumptions||'原始披露配置；缺失不补零。',s.assetCompositionContractVersion?'资产构成使用基金原报告总资产分母；未核验权重单列；原始净值口径另存。未递归ETF/FOF。':'资产为最新基金报告构成，非实时基金内部资产；未递归ETF/FOF；杠杆分量保留。'].filter(Boolean);
+  footnotes.push(LOOKTHROUGH_EXPORT_DISCLAIMER);
   if(s.parentReference)footnotes.unshift('母策略参考：'+s.parentReference.parentName+'（'+s.parentReference.parentId+'）；非本期独立实际仓位。');
   if(industry&&card.querySelector('details:not([open])'))footnotes.unshift(card.querySelector('details summary').textContent+'；展开页面分组后导出可包含其明细。');
   const titleHeight=paint.wrap(title,contentWidth,30,true).length*45,productHeight=paint.wrap(s.name,contentWidth,18).length*27,subtitleHeight=paint.wrap(subtitle,contentWidth,15).length*23;
@@ -644,6 +651,7 @@ async function businessExportNode(button){
  const header=document.createElement('header');header.className='business-export-header';const date=(s.weightDate||s.holdingDate||'—').replaceAll('-','.');header.innerHTML='<h1>'+esc(s.name)+'-持仓穿透分析</h1><span>日期：'+esc(date)+'</span>';holder.appendChild(header);
  const body=document.createElement('div');body.className=composite?'business-export-grid':'business-export-single';
  for(const source of sections){const clone=source.cloneNode(true);clone.querySelectorAll('button,a,[tabindex]').forEach(node=>{if(node.matches('button'))node.remove();else node.removeAttribute('tabindex');});clone.removeAttribute('id');clone.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));body.appendChild(clone);}holder.appendChild(body);
+ appendLookthroughExportDisclaimer(holder);
  const css=[...document.querySelectorAll('style')].map(n=>n.textContent).join('\n');
  const frame=document.createElement('iframe');frame.style.cssText='position:fixed;left:-20000px;top:0;width:'+holder.style.width+';height:8000px;border:0;';document.body.appendChild(frame);
  await new Promise(resolve=>{frame.onload=resolve;frame.srcdoc='<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><style>'+css+'</style></head><body class="business-export-document">'+holder.outerHTML+'</body></html>';});
