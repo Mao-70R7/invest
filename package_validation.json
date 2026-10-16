@@ -109,13 +109,14 @@
   },
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-16T12:01:02+08:00",
+    "validatedAt": "2026-10-16T15:12:04+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
-    "inputSnapshotAudit": null,
-    "errorCount": 0
+    "errorCount": 0,
+    "acceptedBaseCommit": "84a6a3cd81cf0f4f6dbc39f9cb97434293df59ad",
+    "reusedEquivalentFinancialInputs": true
   },
-  "presentationRefreshedAt": "2026-10-16T15:02:47+08:00",
-  "presentationChangeType": "lookthrough_export_disclosure"
+  "presentationRefreshedAt": "2026-10-16T16:01:28+08:00",
+  "presentationChangeType": "lookthrough_summary_correction"
 }

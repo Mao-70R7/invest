@@ -202,9 +202,9 @@ body.lookthrough-embedded{background:transparent}
 @media(max-width:760px){.lookthrough-page main{padding:18px 12px 28px}.lookthrough-page main h1{font-size:25px}.lookthrough-page .toolbar{display:flex;flex-wrap:wrap}.lookthrough-page .toolbar input,.lookthrough-page .toolbar select{width:100%}.lookthrough-embedded main{padding:0}.lookthrough-embedded .card{padding:14px 10px}}
 
 </style><!-- tianyan-web-assistant -->
-<link rel="stylesheet" href="./assets/tianyan-assistant.css?v=minimal-a827c8130a0c">
-<script src="./assets/tianyan-assistant-config.js?v=minimal-a827c8130a0c"></script>
-<script defer src="./assets/tianyan-assistant.js?v=minimal-a827c8130a0c"></script>
+<link rel="stylesheet" href="./assets/tianyan-assistant.css?v=minimal-788ae487f0aa">
+<script src="./assets/tianyan-assistant-config.js?v=minimal-788ae487f0aa"></script>
+<script defer src="./assets/tianyan-assistant.js?v=minimal-788ae487f0aa"></script>
 <!-- /tianyan-web-assistant -->
 </head><body class="lookthrough-page"><script>
 const lookthroughEmbedded=new URLSearchParams(location.search).get('embed')==='charts';
@@ -221,7 +221,7 @@ if(lookthroughEmbedded)document.body.classList.add('lookthrough-embedded');
     <nav class="nav" aria-label="主导航"><div class="nav-group"><div class="nav-group-title">产品分析</div><a class="nav-link " href="./institutions.html">机构总览</a>
 <a class="nav-link " href="./strategies.html">策略列表</a>
 <a class="nav-link " href="./strategy-lookthrough.html">资产穿透分析</a>
-<a class="nav-link " href="./monthly-rebalance-report.html?v=minimal-a827c8130a0c">调仓月报</a></div>
+<a class="nav-link " href="./monthly-rebalance-report.html?v=minimal-788ae487f0aa">调仓月报</a></div>
 <div class="nav-group"><div class="nav-group-title">基金与排名</div><a class="nav-link " href="./mixed-performance-scatter.html">全市场产品排名</a></div>
 <a class="nav-link private-fund-link" href="https://gfinvest.site/private_fund/products.html">天眼私募 <span aria-hidden="true">↗</span></a>
 <button type="button" class="nav-link ty-assistant-trigger" data-tianyan-assistant>AI助手</button></nav>
@@ -234,7 +234,7 @@ if(lookthroughEmbedded)document.body.classList.add('lookthrough-embedded');
 <section id="fundTypeDistributionPanel" class="card"><div class="card-header"><h2>2 · 基金类型分布</h2><p class="sub">内环：基金类型大类；外环：基金细分类 · 权重占整个策略</p></div><div id="typeChart" class="chart-row"></div><div id="typeLegend" class="legend"></div><p class="foot">基金类型是底层基金的产品标签，不等同于季报资产穿透。分类来自基金标准分类字典。</p></section></div>
 <section id="equityStyleDistributionPanel" class="card wide"><div class="card-header"><h2>3 · 权益行业分布</h2><p class="sub">内环：来源行业分组；外环：来源行业细项（跨市场分类体系未统一） · 圆环以已披露股票持仓样本为分母</p></div><div class="industry-body"><div id="industryChart" class="industry-plot"></div><div id="industryLegend" class="industry-grid"></div></div><p id="industryFoot" class="foot"></p></section>
 
-<section class="card wide"><h2>全策略覆盖</h2><p class="sub">目录 2697 条 · 可计算 2212 条 · 暂不可计算 485 条 · 按渠道策略记录展示，未跨渠道合并</p><p class="foot">已停止、清算和治理缺失均单独标注；其中最新披露仓位 1225 条、官方调仓模型 894 条、历史精确仓位 11 条、母策略参考 9 条。最新权重可用 1924 条；缺净值或新调仓未核验时单独标注。可计算只表示所标注的配置输入通过，不代表实时仓位、正常运行或证券明细完整。</p></section>
+<section class="card wide"><h2>全策略覆盖</h2><p class="sub">目录 2697 条 · 可计算 2212 条 · 暂不可计算 485 条 · 按渠道策略记录展示，未跨渠道合并</p><p class="foot">已停止、清算和治理缺失均单独标注；其中最新披露仓位 1225 条、官方调仓模型 894 条、历史精确仓位 11 条、母策略参考 9 条。用户提供共享模型 73 条；最新权重可用 1997 条；缺净值或新调仓未核验时单独标注。可计算只表示所标注的配置输入通过，不代表实时仓位、正常运行或证券明细完整。</p></section>
 <section class="card wide"><h2>范围、时点与口径</h2><div class="method"><div><p>覆盖策略目录全部渠道。优先取观察日前最新库内精确基金仓位；当前输入不完整时使用最近完整历史精确仓位或经原始响应校验的完整官方调仓模型，日期和来源分别标注；每基金取观察日前最新有效季末资产报告，不以策略仓位日限制基金报告期。持仓日期与基金报告期分开显示；配置权重按基金净值漂移至最新共同估值日，源端有同日最新占比时直接使用；原始配置与推算结果分别保存。</p><p>精确权重、六位基金代码、同日唯一业务键及100%±0.02个百分点是输入门槛。当前输入缺口持续保留；官方调仓模型须原始事件日期与哈希一致、基金名单无重复且各分组及总权重闭合。不能核验的调仓记录不参与计算。缺失不补零；目标盈期次自身无可用配置且母策略参考关系明确时，可单独展示母策略参考配置，保留原缺口、母策略名称、渠道、来源和日期，不改写期次实际仓位。停止策略保留历史仓位和治理状态，治理缺失不推定正常。</p></div><div><p>资产构成＝最新持基权重×原始基金报告资产金额÷基金总资产。原报告项目金额须与总资产闭合；未取得完整总资产表时，该基金整项权重列入暂未核验，不归一化已知分量。原始占净资产比例单独保留，净资产杠杆不混入构成图。这是基金资产结构按持基配置权重加权的分布，不等同于汇总所有底层资产实际金额后的组合总资产结构，也不代表净资产风险暴露。基金类型是产品标签，不等同于经济资产。</p><p>股票、债券只使用与所选资产报告同季明细；逐基金检查证券业务键和比例舍入上限，冲突基金不聚合。完整股票表和债券品种表按原始金额/基金总资产加权。权益图以全部股票为分母，缺明细和缺有效历史行业单列；申万行业按报告日有效期匹配，造纸Ⅱ、工程机械Ⅱ优先归入周期；ETF联接、FOF未做递归，不宣称完整底层穿透。构成来源为基金原始定期报告PDF（东财镜像），基金代码、截止期、金额、总资产比例及原文散列独立核验；证券明细另沿用F10和已验证PDF，缺净资产/总资产分母时不混算。</p></div></div><p class="foot">证券原始CSV按基金与报告期保存，排除原因与有效标记同步保存。页面只加载所选策略数据。</p><div class="links"><a href="assets/strategy-lookthrough/strategy_coverage.csv">策略覆盖与原因</a><a href="assets/strategy-lookthrough/holding_fund_details.csv">全部基金级明细</a><a href="assets/strategy-lookthrough/build_evidence.json">生成与校验回执</a><a href="assets/strategy-lookthrough/基金报告时效明细.csv">全量基金报告时效与核验明细</a><a href="assets/strategy-lookthrough/Wind标准基金分类映射明细.csv">Wind标准基金分类映射与依据</a><span id="download"></span></div></section>
 <section id="fundSourcesPanel" class="card wide"><h2>4 · 基金级仓位与来源</h2><p class="sub">当前所选产品的底层基金、基金季报资产及原始来源。股票、债券、现金列占单只基金净值。</p><div id="quality" class="quality"></div><details class="fund-source-details"><summary>基金级仓位与来源明细（点击展开）</summary><div class="table-wrap"><table><thead><tr><th>底层基金</th><th class="num">策略权重</th><th>基金细类</th><th>季报期</th><th class="num">股票</th><th class="num">债券</th><th class="num">现金</th><th class="num">未解释贡献</th><th>来源</th></tr></thead><tbody id="holdings"></tbody></table></div></details></section>
 </main><script>
