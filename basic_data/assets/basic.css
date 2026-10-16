@@ -3180,3 +3180,15 @@ tbody tr:hover { background:#f6f8f7; }
 .compare-best small { display:inline-block; margin-left:4px; color:#17324D; font-size:10px; }
 .compare-advisor-card p.compare-benchmark { max-height:none; overflow:visible; }
 .compare-advisor-grid { grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr)); }
+
+/* Editable manager identity colors; independent from return color semantics. */
+.strategy-scatter-palette { margin:8px 0 12px; border:1px solid #DCE2E7; padding:10px 12px; border-radius:4px; }
+.strategy-scatter-palette summary { cursor:pointer; color:#17324D; font-size:12px; font-weight:650; }
+.strategy-scatter-palette-controls { display:flex; align-items:end; flex-wrap:wrap; gap:12px; margin:12px 0; }
+.strategy-scatter-palette-controls label { display:grid; gap:5px; color:#52616D; font-size:12px; }
+.strategy-scatter-palette input[type=color] { width:44px; height:36px; padding:2px; border:1px solid #CBD5E1; background:#fff; cursor:pointer; }
+.strategy-scatter-palette button { min-height:36px; padding:4px 10px; border:1px solid #CBD5E1; background:#fff; color:#17324D; border-radius:4px; cursor:pointer; }
+.strategy-scatter-color-rules { display:flex; flex-wrap:wrap; gap:10px 18px; }
+.strategy-scatter-color-rules label { display:flex; gap:7px; align-items:center; font-size:12px; color:#17324D; }
+.strategy-scatter-color-rules button { border:0; color:#66717E; background:transparent; }
+@media(max-width:600px){.strategy-scatter-palette-controls{gap:8px;}.strategy-scatter-palette-controls label:first-child{flex-basis:100%;}.strategy-scatter-palette-controls select{width:100%;min-width:0;}}

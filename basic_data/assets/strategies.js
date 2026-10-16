@@ -5,6 +5,52 @@
   const allStrategies = summary.strategies || [];
   const benchmarkBucket = (row) => row?.基准风险资产权重 || "未分档";
   const isUnbucketed = (row) => benchmarkBucket(row) === "未分档";
+  // BEGIN STRATEGY_SCATTER_INSTITUTION_V1
+  const SCATTER_PALETTE_KEY = "tianyan.strategyScatter.managerPalette.v1";
+  function scatterManagerKey(row) {
+    const manager = String(row?.投顾机构 || "").trim();
+    return ["广发基金", "广发基金管理有限公司"].includes(manager) ? "广发基金" : manager || "未披露管理人";
+  }
+  function defaultScatterPalette() {
+    return { version: 1, other: "#929AA2", rules: [{ manager: "广发基金", color: "#B72F32" }] };
+  }
+  function normalizeScatterPalette(raw) {
+    if (raw?.version !== 1 || !Array.isArray(raw.rules)) return defaultScatterPalette();
+    const validColor = value => /^#[0-9a-f]{6}$/i.test(String(value || ""));
+    const rules = new Map();
+    raw.rules.slice(0, 100).forEach(rule => {
+      const manager = scatterManagerKey({ 投顾机构: rule?.manager });
+      if (manager !== "未披露管理人" && manager.length <= 160 && validColor(rule?.color)) rules.set(manager, { manager, color: rule.color });
+    });
+    return { version: 1, other: validColor(raw.other) ? raw.other : "#929AA2", rules: [...rules.values()] };
+  }
+  function readScatterPalette() {
+    try { return normalizeScatterPalette(JSON.parse(window.localStorage.getItem(SCATTER_PALETTE_KEY))); }
+    catch { return defaultScatterPalette(); }
+  }
+  function saveScatterPalette(palette) {
+    state.scatterPalette = normalizeScatterPalette(palette);
+    try { window.localStorage.setItem(SCATTER_PALETTE_KEY, JSON.stringify(state.scatterPalette)); } catch { /* Session settings remain usable. */ }
+  }
+  function scatterFocusDomain(values, protectedValues, focus, positive = false) {
+    const finite = values.filter(Number.isFinite);
+    if (!finite.length) return [0, 1];
+    const trim = focus && finite.length >= 20;
+    let lo = scatterQuantile(finite, trim ? .02 : 0), hi = scatterQuantile(finite, trim ? .98 : 1);
+    // Focus never clips any GF Fund manager product or the selected product.
+    protectedValues.filter(Number.isFinite).forEach(value => { lo = Math.min(lo, value); hi = Math.max(hi, value); });
+    const padding = (hi - lo || Math.max(Math.abs(hi) * .2, 1)) * .09;
+    return [positive ? Math.max(0, lo - padding) : lo - padding, hi + padding];
+  }
+  function scatterPaletteEditor(palette, managers) {
+    const options = managers.map(name => `<option value="${B.esc(name)}">${B.esc(name)}</option>`).join("");
+    return `<details class="strategy-scatter-palette"${state.scatterPaletteOpen ? " open" : ""}><summary>机构配色 · 按投顾管理人设置</summary>
+      <div class="strategy-scatter-palette-controls"><label>投顾管理人<select id="strategyScatterManager" class="control">${options}</select></label><label>颜色<input id="strategyScatterManagerColor" type="color" value="#547995" aria-label="新增机构颜色"></label><button id="strategyScatterSaveColor" type="button">添加 / 更新配色</button><label>其他机构<input id="strategyScatterOtherColor" type="color" value="${palette.other}" aria-label="其他机构颜色"></label><button id="strategyScatterResetColors" type="button">恢复默认</button></div>
+      <div class="strategy-scatter-color-rules">${palette.rules.map(rule => `<label><input type="color" value="${rule.color}" data-scatter-manager-color="${B.esc(rule.manager)}" aria-label="${B.esc(rule.manager)}配色"><span>${B.esc(rule.manager)}</span><button type="button" data-scatter-remove-manager="${B.esc(rule.manager)}" aria-label="移除${B.esc(rule.manager)}配色">移除</button></label>`).join("")}</div>
+      <p class="small">机构颜色只表示管理归属，保存在本浏览器；不表示收益好坏。广发基金仅按管理人识别，不包含其他机构在广发证券或广发银行渠道销售的策略。</p></details>`;
+  }
+  // END STRATEGY_SCATTER_INSTITUTION_V1
+
   const state = {
     page: 1,
     pageSize: 10,
@@ -18,6 +64,8 @@
     scatterX: "近1年",
     scatterY: "近1年最大回撤",
     scatterFocus: true,
+    scatterPalette: readScatterPalette(),
+    scatterPaletteOpen: false,
     scatterSelectedId: "",
   };
   const compareMaxCount = 5;
@@ -138,7 +186,7 @@
   }
 
   function isGfStrategy(row) {
-    return row?.是否广发 === "是" || row?.是否广发策略 === "是" || /广发基金|广发投顾|广发银行|广发证券/.test(`${row?.投顾机构 || ""} ${row?.渠道 || ""}`);
+    return scatterManagerKey(row) === "广发基金";
   }
 
   function isClientFacing(row) {
@@ -482,10 +530,18 @@
     if (!xFields.includes(state.scatterX)) state.scatterX = xFields[0] || "近1年";
     const points = rows.map(row => {
       const y = numberValue(row, state.scatterY);
-      return { row, id: String(row.统一策略ID), x: numberValue(row, state.scatterX), y: y === null ? null : Math.abs(y), gf: isGfStrategy(row) };
+      return { row, id: String(row.统一策略ID), x: numberValue(row, state.scatterX), y: y === null ? null : Math.abs(y), gf: isGfStrategy(row), manager: scatterManagerKey(row) };
     }).filter(point => point.x !== null && point.y !== null);
     if (!points.some(point => point.id === state.scatterSelectedId)) state.scatterSelectedId = "";
     const missing = rows.length - points.length;
+    const palette = state.scatterPalette;
+    const managerColors = new Map(palette.rules.map(rule => [rule.manager, rule.color]));
+    const managers = [...new Set(allStrategies.map(scatterManagerKey))].filter(name => name !== "未披露管理人").sort((a,b) => a === "广发基金" ? -1 : b === "广发基金" ? 1 : a.localeCompare(b,"zh-CN"));
+    const managerCounts = new Map();
+    points.forEach(point => managerCounts.set(point.manager, (managerCounts.get(point.manager) || 0) + 1));
+    const matchedCount = points.filter(point => managerColors.has(point.manager)).length;
+    const paletteLegend = palette.rules.map(rule => `<span><i style="background:${rule.color}"></i>${B.esc(rule.manager)} ${managerCounts.get(rule.manager) || 0}</span>`).join("") + `<span><i style="background:${palette.other}"></i>其他机构 ${points.length-matchedCount}</span><span><i class="is-picked"></i>当前选中</span>`;
+
     B.byId("strategyScatterCount").textContent = `可绘制 ${points.length.toLocaleString("zh-CN")} · 指标暂缺 ${missing.toLocaleString("zh-CN")}`;
     const selectOptions = (fields, selected) => fields.map(field => `<option value="${B.esc(field)}" ${field === selected ? "selected" : ""}>${B.esc(field)}${field === "最大回撤" ? "幅度（全历史）" : field === "波动率" ? "（全历史）" : ""}</option>`).join("");
     mount.innerHTML = `<div class="strategy-scatter-controls">
@@ -493,16 +549,18 @@
       <label>Y 轴 · 风险指标<select id="strategyScatterY" class="control">${selectOptions(yFields, state.scatterY)}</select></label>
       <div class="strategy-scatter-view"><button id="strategyScatterFocus" type="button" aria-pressed="${state.scatterFocus}">聚焦主分布</button><button id="strategyScatterAll" type="button" aria-pressed="${!state.scatterFocus}">全样本</button></div>
     </div>
-    <div class="strategy-scatter-legend"><span><i class="is-gf"></i>广发策略 ${points.filter(point => point.gf).length}</span><span><i></i>其他策略 ${points.filter(point => !point.gf).length}</span><span><i class="is-picked"></i>当前选中</span><small id="strategyScatterViewport"></small></div>
+    <div class="strategy-scatter-legend">${paletteLegend}<small id="strategyScatterViewport"></small></div>
+    ${scatterPaletteEditor(palette, managers)}
     <p class="strategy-scatter-note" id="strategyScatterMedian"></p>
     <div class="strategy-scatter-canvas-wrap"><canvas id="strategyScatterCanvas" tabindex="0" role="img" aria-label="策略收益风险点阵。用左右方向键或下方按钮选择产品，详情卡提供数值及详情链接。" data-point-count="${points.length}" data-missing-count="${missing}"></canvas><div id="strategyScatterTooltip" class="strategy-scatter-tooltip" hidden></div>${points.length ? "" : '<div class="strategy-scatter-empty">当前筛选下没有同时具备两个指标的策略；缺失产品仍保留在下方列表。</div>'}</div>
-    <div class="strategy-scatter-bottom"><p class="small">缺指标 ${missing} 只，保留在列表中。虚线为全部可绘制样本中位数；右下方为相对高收益、低风险区域。聚焦只调整视窗，不改变列表或统计样本。</p><div><button id="strategyScatterPrev" type="button" ${points.length ? "" : "disabled"}>上一只</button><button id="strategyScatterNext" type="button" ${points.length ? "" : "disabled"}>下一只</button></div></div>
+    <div class="strategy-scatter-bottom"><p class="small">缺指标 ${missing} 只，保留在列表中。虚线为全部可绘制样本中位数；右下方为相对高收益、低风险区域。主分布视窗保留当前筛选内全部指标完整的广发基金管理策略及当前选中产品；缺指标仍留在列表。聚焦和配色只影响展示，不改变列表或统计样本。</p><div><button id="strategyScatterPrev" type="button" ${points.length ? "" : "disabled"}>上一只</button><button id="strategyScatterNext" type="button" ${points.length ? "" : "disabled"}>下一只</button></div></div>
     <div id="strategyScatterDetail" class="strategy-scatter-detail" aria-live="polite"></div>
     <details class="strategy-scatter-method"><summary>日期与统计口径</summary><p class="small">默认 X 轴近1年收益、Y 轴近1年最大回撤；两轴可独立切换。各区间最大回撤按策略最新可用披露净值日向前取对应区间，从区间起点重置高点，以正数幅度展示；不足完整区间或净值间隔超过45天时留空，不用全历史回撤替代。全历史最大回撤、当前回撤和波动率保留独立口径。区间回撤范围见选中详情；空值不按 0 处理，指标齐全不代表产品适合投资。</p></details>`;
     const canvas = B.byId("strategyScatterCanvas"), ctx = canvas.getContext("2d");
     const tooltip = B.byId("strategyScatterTooltip");
-    if (businessQuery.highlightColor) mount.querySelector('.strategy-scatter-legend').innerHTML = `<span><i style="background:${businessQuery.highlightColor}"></i>筛选命中产品 ${points.length}</span><span><i class="is-picked"></i>当前选中</span><small id="strategyScatterViewport"></small>`;
     mount.querySelector('canvas').dataset.queryHighlight = businessQuery.highlightColor || '';
+    mount.querySelector('canvas').dataset.managerColorCount = String(palette.rules.length);
+    mount.querySelector('canvas').dataset.gfPointCount = String(points.filter(point => point.gf).length);
     const medianX = scatterQuantile(points.map(point => point.x), .5), medianY = scatterQuantile(points.map(point => point.y), .5);
     const format = value => value === null ? "--" : `${value.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}%`;
     B.byId("strategyScatterMedian").textContent = points.length ? `样本中位数：${state.scatterX} ${format(medianX)} / ${state.scatterY}幅度 ${format(medianY)}` : "当前无有效坐标";
@@ -523,21 +581,16 @@
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
       ctx.clearRect(0, 0, width, height);
       const pad = { left: 58, right: 18, top: 34, bottom: 42 }, pw = width - pad.left - pad.right, ph = height - pad.top - pad.bottom;
-      const domain = (values, positive) => {
-        if (!values.length) return [0, 1];
-        const trim = state.scatterFocus && values.length >= 20;
-        let lo = scatterQuantile(values, trim ? .02 : 0), hi = scatterQuantile(values, trim ? .98 : 1);
-        const margin = (hi - lo || Math.max(Math.abs(hi) * .2, 1)) * .09;
-        lo -= margin; hi += margin;
-        return [positive ? Math.max(0, lo) : lo, hi];
-      };
-      const [xmin, xmax] = domain(points.map(point => point.x), false), [ymin, ymax] = domain(points.map(point => point.y), true);
+      const protectedPoints = points.filter(point => point.gf || point.id === state.scatterSelectedId);
+      const [xmin, xmax] = scatterFocusDomain(points.map(point => point.x), protectedPoints.map(point => point.x), state.scatterFocus);
+      const [ymin, ymax] = scatterFocusDomain(points.map(point => point.y), protectedPoints.map(point => point.y), state.scatterFocus, true);
       const sx = value => pad.left + (value - xmin) / (xmax - xmin) * pw;
       const sy = value => pad.top + ph - (value - ymin) / (ymax - ymin) * ph;
       ctx.fillStyle = "#ffffff"; ctx.fillRect(pad.left, pad.top, pw, ph);
       if (medianX !== null && medianY !== null) {
         ctx.fillStyle = "rgba(179,63,70,.045)";
-        ctx.fillRect(sx(medianX), sy(medianY), pad.left + pw - sx(medianX), pad.top + ph - sy(medianY));
+        const mx = Math.max(pad.left, Math.min(pad.left+pw, sx(medianX))), my = Math.max(pad.top, Math.min(pad.top+ph, sy(medianY)));
+        ctx.fillRect(mx, my, pad.left + pw - mx, pad.top + ph - my);
       }
       ctx.font = '11px "Microsoft YaHei",sans-serif'; ctx.lineWidth = 1;
       const ticks = width < 500 ? 3 : 4;
@@ -554,14 +607,20 @@
       ctx.textAlign = "center"; ctx.fillText(`${state.scatterX} (%)`, pad.left + pw / 2, height - 5);
       hitPoints = points.filter(point => point.x >= xmin && point.x <= xmax && point.y >= ymin && point.y <= ymax).map(point => ({ ...point, px: sx(point.x), py: sy(point.y) }));
       // Selected and highlighted products are painted last, without changing the sample.
-      hitPoints.slice().sort((a, b) => Number(a.gf) - Number(b.gf)).forEach(point => {
-        ctx.fillStyle = businessQuery.highlightColor || (point.gf ? "#b33f46" : "rgba(117,137,149,.40)");
-        ctx.beginPath(); ctx.arc(point.px, point.py, businessQuery.highlightColor || point.gf ? 3.5 : 2.5, 0, Math.PI * 2); ctx.fill();
+      hitPoints.slice().sort((a, b) => Number(managerColors.has(a.manager)) - Number(managerColors.has(b.manager)) || Number(a.gf) - Number(b.gf)).forEach(point => {
+        ctx.fillStyle = managerColors.get(point.manager) || palette.other;
+        ctx.globalAlpha = managerColors.has(point.manager) ? .95 : .38;
+        ctx.beginPath(); ctx.arc(point.px, point.py, managerColors.has(point.manager) ? 3.5 : 2.5, 0, Math.PI * 2); ctx.fill();
+        if (businessQuery.highlightColor) { ctx.strokeStyle=businessQuery.highlightColor;ctx.lineWidth=1.1;ctx.stroke(); }
       });
+      ctx.globalAlpha = 1;
       const selected = hitPoints.find(point => point.id === state.scatterSelectedId);
       if (selected) { ctx.strokeStyle = "#173344"; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(selected.px, selected.py, 7, 0, Math.PI * 2); ctx.stroke(); }
       canvas.dataset.visibleCount = String(hitPoints.length);
-      B.byId("strategyScatterViewport").textContent = `${state.scatterFocus ? "主分布" : "全样本"}视图 · 视窗内 ${hitPoints.length} / 视窗外 ${points.length - hitPoints.length}`;
+      canvas.dataset.gfVisibleCount = String(hitPoints.filter(point => point.gf).length);
+      canvas.dataset.focusDomain = JSON.stringify({ x: [xmin,xmax], y: [ymin,ymax] });
+
+      B.byId("strategyScatterViewport").textContent = `${state.scatterFocus ? "主分布" : "全样本"}视图 · 视窗内 ${hitPoints.length} / 视窗外 ${points.length - hitPoints.length} · 广发基金 ${hitPoints.filter(point => point.gf).length}/${points.filter(point => point.gf).length}`;
     };
     const pick = id => { state.scatterSelectedId = id; detail(); draw(); };
     const step = direction => {
@@ -590,6 +649,20 @@
     B.byId("strategyScatterY").onchange = event => { state.scatterY = event.target.value; renderStrategyScatter(state.rows); };
     B.byId("strategyScatterFocus").onclick = () => { state.scatterFocus = true; renderStrategyScatter(state.rows); };
     B.byId("strategyScatterAll").onclick = () => { state.scatterFocus = false; renderStrategyScatter(state.rows); };
+    mount.querySelector(".strategy-scatter-palette").ontoggle = event => { state.scatterPaletteOpen = event.target.open; };
+    const updatePalette = palette => { saveScatterPalette(palette); renderStrategyScatter(state.rows); };
+    const managerSelect = B.byId("strategyScatterManager"), managerColor = B.byId("strategyScatterManagerColor");
+    managerSelect.onchange = () => { managerColor.value = managerColors.get(managerSelect.value) || "#547995"; };
+    managerSelect.onchange();
+    B.byId("strategyScatterSaveColor").onclick = () => {
+      const manager = managerSelect.value;
+      if (!manager) return;
+      updatePalette({ ...palette, rules: [...palette.rules.filter(rule => rule.manager !== manager), { manager, color: managerColor.value }] });
+    };
+    B.byId("strategyScatterOtherColor").onchange = event => updatePalette({ ...palette, other: event.target.value });
+    B.byId("strategyScatterResetColors").onclick = () => updatePalette(defaultScatterPalette());
+    mount.querySelectorAll("[data-scatter-manager-color]").forEach(input => { input.onchange = () => updatePalette({ ...palette, rules: palette.rules.map(rule => rule.manager === input.dataset.scatterManagerColor ? { ...rule, color: input.value } : rule) }); });
+    mount.querySelectorAll("[data-scatter-remove-manager]").forEach(button => { button.onclick = () => updatePalette({ ...palette, rules: palette.rules.filter(rule => rule.manager !== button.dataset.scatterRemoveManager) }); });
     detail(); draw();
     if (window.ResizeObserver) { scatterObserver = new ResizeObserver(draw); scatterObserver.observe(canvas.parentElement); }
   }
