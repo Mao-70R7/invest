@@ -190,10 +190,8 @@
   }
 
   function isClientFacing(row) {
-    const current = String(row?.天天当前对客展示 || "");
-    const status = String(row?.天天展示状态 || "");
-    if (current) return current === "是";
-    return current === "是" && !/非对客|不对客|隐藏|未展示|不展示/.test(status);
+    // Unknown source status follows the shared client display policy.
+    return B.strategyFilterFacts(row).active;
   }
 
   function isStoppedStrategy(row) {
@@ -443,7 +441,7 @@
           <option value="client" selected>对客展示</option>
           <option value="nonClient">非对客/隐藏</option>
           <option value="unknown">App货架未核验</option>
-        </select>`, "排除明确非对客、隐藏或不展示状态")}
+        </select>`, "状态未知默认按对客展示；来源状态仍保留未知，排除明确非对客及已终止产品")}
         ${filterControl("基准风险资产权重", multiSelect("benchmarkBucketSelect", "基准风险资产权重", orderedBenchmarkBuckets()), "支持多选，按基准风险资产合计权重 L0—L10 分档")}
         ${filterControl("投顾机构", multiSelect("institutionSelect", "投顾机构", unique("投顾机构")), "支持多选，精确匹配已选机构")}
         ${filterControl("渠道", `<select id="channelSelect" class="control"><option value="">全部渠道</option>${options(unique("渠道"))}</select>`, "精确匹配数据来源渠道")}

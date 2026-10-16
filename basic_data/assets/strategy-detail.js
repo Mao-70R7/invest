@@ -1480,6 +1480,7 @@
   root.innerHTML = `
     <section id="strategy-overview" class="panel strategy-overview strategy-section">
       <a class="strategy-back-link" href="./strategies.html">← 返回策略列表</a>
+      ${id.startsWith("gfbank_cgb__") ? `<p class="desc source-note-list" data-bank-source-note>${B.esc(detail.summary.业绩完整性说明 || "银行来源覆盖尚未完整验收")} 未披露不等于零持仓或零调仓。</p>` : ""}
       <div class="strategy-identity-row">
         <div class="strategy-identity">
           <div class="strategy-title-line"><h1>${B.esc(detail.summary.策略名称)}</h1>${isStoppedSummary() ? `<span class="strategy-lifecycle-badge is-stopped">${B.esc(isLegacyArchive ? "历史接口留档" : "已下架")}</span>` : ""}${B.statusBadge(qiemanReplayLimited ? "回放区间有限" : detail.summary.数据完整性)}</div>
@@ -1541,7 +1542,7 @@
       </div>
       ${latestRebalanceSummary()}
       <div class="strategy-rebalance-workspace">
-        <aside class="strategy-rebalance-timeline"><div class="strategy-subsection-title"><h3>历史时间线</h3><p>${historicalSnapshots().length.toLocaleString("zh-CN")} 次调仓</p></div><div id="rebalanceList" class="rebalance-list"></div></aside>
+        <aside class="strategy-rebalance-timeline"><div class="strategy-subsection-title"><h3>历史时间线</h3><p>${id.startsWith("gfbank_cgb__") && !historicalSnapshots().length ? "未取得调仓记录" : historicalSnapshots().length.toLocaleString("zh-CN") + " 次调仓"}</p></div><div id="rebalanceList" class="rebalance-list"></div></aside>
         <div class="position-detail strategy-rebalance-detail">
           <div class="strategy-subsection-title"><h3>选中调仓明细与贡献分析</h3><p>点击左侧时间点切换</p></div>
           <div id="holdingHead" class="holding-head"></div>

@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-16T00:49:13+08:00",
+  "generatedAt": "2026-10-16T11:53:31+08:00",
   "status": "ready",
   "checks": {
     "monthlyRebalanceMonthCount": 12,
-    "strategySummaryCount": 2201,
-    "strategyDetailCount": 2201,
+    "strategySummaryCount": 2576,
+    "strategyDetailCount": 2576,
     "strategyDetailMissingCount": 0,
     "strategyDetailParseErrorCount": 0,
-    "strategyDetailDeclaredIncompleteCount": 314,
-    "strategyDetailWithoutHoldingCount": 62,
-    "strategyDetailWithoutCurveCount": 64,
+    "strategyDetailDeclaredIncompleteCount": 689,
+    "strategyDetailWithoutHoldingCount": 437,
+    "strategyDetailWithoutCurveCount": 425,
     "strategyDetailReferencedFundCount": 6364,
     "selectedFundCount": 0,
     "enhancedFundDetailCount": 0,
@@ -18,10 +18,10 @@
     "brokenFundDetailCount": 0,
     "forbiddenFundDetailPageCount": 0,
     "forbiddenFundDetailFileCount": 0,
-    "strategyDetailSourceCount": 2201,
+    "strategyDetailSourceCount": 2576,
     "strategyDetailDeclaredCompleteCount": 1887,
-    "activeStrategyCount": 1770,
-    "activeStrategyWithoutCurveCount": 62,
+    "activeStrategyCount": 2014,
+    "activeStrategyWithoutCurveCount": 292,
     "currentHoldingStrategyCount": 2114,
     "currentHoldingFundReferenceCount": 37480,
     "currentHoldingRankMissingReferenceCount": 201,
@@ -75,12 +75,12 @@
   "warnings": [
     {
       "type": "source_strategy_data_incomplete",
-      "count": 314,
+      "count": 689,
       "note": "源数据已明确标记不完整，发布集保留真实缺失状态，不做推测补齐。"
     },
     {
       "type": "active_strategy_without_curve",
-      "count": 62,
+      "count": 292,
       "note": "活跃策略没有任何可画曲线时保留真实缺失状态；正常披露策略应为0。"
     },
     {
@@ -98,7 +98,7 @@
   ],
   "pageVersionValidation": {
     "status": "passed",
-    "buildId": "minimal-a0926f58bcd1",
+    "buildId": "minimal-e97856bf04a3",
     "pageCount": 19
   },
   "monthlyRebalanceValidation": {
@@ -109,13 +109,11 @@
   },
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-16T01:00:16+08:00",
+    "validatedAt": "2026-10-16T12:01:02+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
     "inputSnapshotAudit": null,
     "errorCount": 0
-  },
-  "presentationRefreshedAt": "2026-10-16T08:51:37+08:00",
-  "presentationChangeType": "strategy_ui_controls"
+  }
 }
