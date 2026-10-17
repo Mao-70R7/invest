@@ -98,7 +98,7 @@
   ],
   "pageVersionValidation": {
     "status": "passed",
-    "buildId": "minimal-b42feeb60823",
+    "buildId": "minimal-e1fb5aad8474",
     "pageCount": 19
   },
   "monthlyRebalanceValidation": {
@@ -109,11 +109,13 @@
   },
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-17T17:20:34+08:00",
+    "validatedAt": "2026-10-17T23:39:33+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
     "inputSnapshotAudit": null,
     "errorCount": 0
-  }
+  },
+  "presentationRefreshedAt": "2026-10-17T22:11:16+08:00",
+  "presentationChangeType": "lookthrough_export_disclosure"
 }

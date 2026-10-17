@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildId": "minimal-b42feeb60823",
-  "generatedAt": "2026-10-17T17:12:23+08:00",
+  "buildId": "minimal-e1fb5aad8474",
+  "generatedAt": "2026-10-17T22:11:16+08:00",
   "pageSet": [
     "机构总览",
     "策略列表",
@@ -76,8 +76,8 @@
     "preservedPublishFileCount": 0,
     "preservedPublishBytes": 0
   },
-  "fileCount": 5697,
-  "totalBytes": 337676951,
+  "fileCount": 5699,
+  "totalBytes": 337774985,
   "files": [
     {
       "path": ".gitattributes",
@@ -14172,7 +14172,7 @@
     {
       "path": "basic_data/compare.html",
       "size": 3164,
-      "sha256": "82f952ca5abf6af94221b5b837cc769f77de69bf650377cc3061fd9e94aee8e1"
+      "sha256": "59d7d6bb9c7104148c5885c3c6a9968c7d12bda2f2fd6397d510bbaa89332628"
     },
     {
       "path": "basic_data/data/basic_summary_core.js.gz",
@@ -14316,8 +14316,8 @@
     },
     {
       "path": "basic_data/data/details/02/gfbank_cgb__ui-name-085071cfb46504f0.js.gz",
-      "size": 5044,
-      "sha256": "524e203fd7560a900531cbd28060d30aa21f270eb4053ba378515bacc12726eb"
+      "size": 6055,
+      "sha256": "6fc7517e4408e44ffa592db26c621221741d70b2c7b92d41398de9ace93bf369"
     },
     {
       "path": "basic_data/data/details/02/gfbank_cgb__ui-name-265e4caf5e9cdf83.js.gz",
@@ -14416,8 +14416,8 @@
     },
     {
       "path": "basic_data/data/details/04/gfbank_cgb__ui-name-39b07467b0ce5895.js.gz",
-      "size": 5046,
-      "sha256": "ab17c0a3559ceb5e2dbc60110662810a6cc79affd107d3fa2f192567533058bd"
+      "size": 6054,
+      "sha256": "1defbb15ceafd81e62e38bd27612136f83a30d1190daf63b55a8885471ff4397"
     },
     {
       "path": "basic_data/data/details/04/gfsec_robot__technology.theme.js.gz",
@@ -14591,8 +14591,8 @@
     },
     {
       "path": "basic_data/data/details/07/gfbank_cgb__ui-name-d77073150ee6c9fb.js.gz",
-      "size": 5054,
-      "sha256": "765c2f1085a2e80979a50a23b76b5a882698dcddcaaa9d8bbb870546a5f0539a"
+      "size": 6061,
+      "sha256": "877016aed2b66d715224bb0bd73724b6b7a84d535073247903b99fe29e13d08a"
     },
     {
       "path": "basic_data/data/details/07/gfsec_fima__target_gffund_10029.js.gz",
@@ -14621,8 +14621,8 @@
     },
     {
       "path": "basic_data/data/details/08/gfbank_cgb__ui-name-253bbcde2177ea0f.js.gz",
-      "size": 5054,
-      "sha256": "0de14de9d991e13a088cfc5bac2b3d6c319b7b8d1496c4151799cfef04d031b3"
+      "size": 6062,
+      "sha256": "80dc30720af5415ef561e37059884bdd351e5cdd657b7c33331948c4a1c49dc1"
     },
     {
       "path": "basic_data/data/details/08/gfbank_cgb__ui-name-9fde0329d1b074a6.js.gz",
@@ -14931,8 +14931,8 @@
     },
     {
       "path": "basic_data/data/details/10/gfbank_cgb__ui-name-cadfc8fa6dbbded2.js.gz",
-      "size": 5052,
-      "sha256": "a104b5ab0c477a72568367b06d61d0b1403f7205f316d2f72dd67e02244bdea5"
+      "size": 6061,
+      "sha256": "d3d62fe750e260f2ee3b124e3d8d34b4b4877d7daa34c328a9af5450f4f7d261"
     },
     {
       "path": "basic_data/data/details/10/gffunds__ZY00000057.js.gz",
@@ -15306,8 +15306,8 @@
     },
     {
       "path": "basic_data/data/details/18/gfbank_cgb__ui-name-44680557bd2603cf.js.gz",
-      "size": 5053,
-      "sha256": "06c9bb2506258fba88ac2caba643205123322264164aec3cd2041811aad56236"
+      "size": 6062,
+      "sha256": "186b3797a9c8b86bea35fe8436c05d098c7cf9ded4eb98efd124e5a7e570b954"
     },
     {
       "path": "basic_data/data/details/18/gfbank_cgb__ui-name-d78fcb4ad78a9cbd.js.gz",
@@ -15676,8 +15676,8 @@
     },
     {
       "path": "basic_data/data/details/1d/gfbank_cgb__ui-name-a8748018dc182047.js.gz",
-      "size": 5053,
-      "sha256": "b31fc71e0878a35bef36549352a4600763021f50760992df8a4d30e8aa6b9dfd"
+      "size": 6062,
+      "sha256": "f54ffc229a0a66a7ad7b5a20d90ab9d5d3276b92b480c07c7ff731903704ee13"
     },
     {
       "path": "basic_data/data/details/1d/gfbank_cgb__ui-name-a887b70cce30daaa.js.gz",
@@ -15751,8 +15751,8 @@
     },
     {
       "path": "basic_data/data/details/1e/gfbank_cgb__ui-name-b2e94d9cbd026351.js.gz",
-      "size": 5052,
-      "sha256": "0a91f8a23d262f441f2bf0516acb44decd030baa9ddb2ae65e5e0d0658148d57"
+      "size": 6061,
+      "sha256": "7e39d7658086b9743e1a26df7616abf52dbe86ea5318be38b41a64cd4c719332"
     },
     {
       "path": "basic_data/data/details/1e/huaxia_tougu__SF1018.js.gz",
@@ -16481,8 +16481,8 @@
     },
     {
       "path": "basic_data/data/details/2d/gfbank_cgb__ui-name-a2e2f6c684126a67.js.gz",
-      "size": 5054,
-      "sha256": "39afa367e05b0e8805bd562416728560442323147c1a697d39a5c53e0a68c6ba"
+      "size": 6062,
+      "sha256": "3c8e4a6ae9df44f9cea4b04daf2f80f8576146570741bf871c537b28dee19cd9"
     },
     {
       "path": "basic_data/data/details/2d/gfbank_cgb__ui-name-ecc3df21fb6bf933.js.gz",
@@ -16541,8 +16541,8 @@
     },
     {
       "path": "basic_data/data/details/2e/gfbank_cgb__ui-name-7cf0906c9b2fb369.js.gz",
-      "size": 5044,
-      "sha256": "e12d06a48fd4a86beb23d570b2be82122b22819d9e4e7fe4ce1b8503535d79ad"
+      "size": 6054,
+      "sha256": "fff61236ae40c66e54bbe97bff956cbd8553d0382afcd1f2edefba18c558a998"
     },
     {
       "path": "basic_data/data/details/2e/gfbank_cgb__ui-name-7fb9944855d1e0b0.js.gz",
@@ -16601,8 +16601,8 @@
     },
     {
       "path": "basic_data/data/details/2f/gfbank_cgb__ui-name-16e04a6d4e192a81.js.gz",
-      "size": 5053,
-      "sha256": "f903f4ed7cfc5e0c3c93521185dbb3f705774cfcf96f2a14deb53b72fbd7d385"
+      "size": 6062,
+      "sha256": "b7b70fb11b7d319abf8a56be4c2d4102db4f239c5f7d6e8090e05dda8c971914"
     },
     {
       "path": "basic_data/data/details/2f/gffunds__GFJJ000078.js.gz",
@@ -16646,8 +16646,8 @@
     },
     {
       "path": "basic_data/data/details/30/gfbank_cgb__ui-name-b805d60ecd190af7.js.gz",
-      "size": 5054,
-      "sha256": "f77b23ebfa683b9daeb57ac571e4389cae30e60e207f48079067ef11bdbbed06"
+      "size": 6064,
+      "sha256": "97b20f37fede0bfa7a8973f1aad8ed3c9785c2489631c1d7344c60c965a1f551"
     },
     {
       "path": "basic_data/data/details/30/gfbank_cgb__ui-name-cc1a4f40cbf10ce7.js.gz",
@@ -16821,8 +16821,8 @@
     },
     {
       "path": "basic_data/data/details/34/gfbank_cgb__ui-name-caabc4f7b26148ef.js.gz",
-      "size": 5046,
-      "sha256": "521396c367c35cdc65f303e9877ee4ec9009a5815cea0e3691efe4ccdb776cfb"
+      "size": 6055,
+      "sha256": "a58fa521b10bf6a27e957e10fd63b11308d60c059b2e8f41ad1404c3533a98fb"
     },
     {
       "path": "basic_data/data/details/34/gfbank_cgb__ui-name-d25c4662dd39bf6c.js.gz",
@@ -16991,8 +16991,8 @@
     },
     {
       "path": "basic_data/data/details/37/gfbank_cgb__ui-name-7524aadcf9d7a2ca.js.gz",
-      "size": 5047,
-      "sha256": "3092e25278db1da41209d49b6d42b44d3dff4110ad794f2737c1ad92b05871bb"
+      "size": 6053,
+      "sha256": "45a372fd441ab78e14fdb05d1872af841d63daa13ea2beba4682bf9774332640"
     },
     {
       "path": "basic_data/data/details/37/gfbank_cgb__ui-name-a6cfa645345fc4be.js.gz",
@@ -17306,8 +17306,8 @@
     },
     {
       "path": "basic_data/data/details/3d/gfbank_cgb__ui-name-87f0876a25e676a5.js.gz",
-      "size": 5047,
-      "sha256": "553a296ae15fce704691b6a33f24a8e3502bb85b94ae9274f61fdb90dfb20ee4"
+      "size": 6053,
+      "sha256": "39f66d037790ef2fd21e7ffd9da432c1994de30e4c69ec22db2f671d6bdfa508"
     },
     {
       "path": "basic_data/data/details/3d/gfbank_cgb__ui-name-fd05cc5b033e26a2.js.gz",
@@ -17576,8 +17576,8 @@
     },
     {
       "path": "basic_data/data/details/41/gfbank_cgb__ui-name-f623fac1e805df9c.js.gz",
-      "size": 5055,
-      "sha256": "f632672f4149bc7f5f48794b727f1d8e09bea2175bba6dfd1d189c9c2c8bab7d"
+      "size": 6061,
+      "sha256": "923bbbfe612b9a8c13f6b4930a4774c4cabb58b089864fb95e3170a8f380e9a5"
     },
     {
       "path": "basic_data/data/details/41/gfsec_robot__allocation.risk2p36.js.gz",
@@ -17831,8 +17831,8 @@
     },
     {
       "path": "basic_data/data/details/47/gfbank_cgb__ui-name-7b4440815a2508c0.js.gz",
-      "size": 5053,
-      "sha256": "a73237ccc0b71ca2604a2dc685c7c83d1fff005ceb4455f7728fb1e06653da44"
+      "size": 6064,
+      "sha256": "fa0d347ceabaa531bf736de03fdee8ec21f097bb9d001a9072aad3956c1e62bb"
     },
     {
       "path": "basic_data/data/details/47/gfbank_cgb__ui-name-cb70eeadbc79ea9c.js.gz",
@@ -17981,8 +17981,8 @@
     },
     {
       "path": "basic_data/data/details/4a/gfbank_cgb__ui-name-34c5c404e09a049a.js.gz",
-      "size": 5052,
-      "sha256": "d5f310720f457d8df4749da2536e375f54adf250fad48e5c8517b62abb815415"
+      "size": 6065,
+      "sha256": "b816bd7ca1f40e69efff7dc11bae22ff317aeb3fd63cb452cdda95b07dca02ff"
     },
     {
       "path": "basic_data/data/details/4a/gfbank_cgb__ui-name-761a8105ed55182f.js.gz",
@@ -18256,8 +18256,8 @@
     },
     {
       "path": "basic_data/data/details/50/gfbank_cgb__ui-name-ac9c961c2fd45c33.js.gz",
-      "size": 5053,
-      "sha256": "01dfe22b20202a6d685705f5b449af8462009a501db7e36676d40d3c7c973f51"
+      "size": 6063,
+      "sha256": "916e563b8d5e1f936fa3ad45f0978a5819a461e65d77532ddab0ce71a299cbc1"
     },
     {
       "path": "basic_data/data/details/50/gffunds__GFJJ000002.js.gz",
@@ -18306,8 +18306,8 @@
     },
     {
       "path": "basic_data/data/details/51/gfbank_cgb__ui-name-134a89e8ee152922.js.gz",
-      "size": 5054,
-      "sha256": "ca65ed68f20ffbeadf1d5318689fe076593fbbb4efcdc68bc7b5e9c86cb15c12"
+      "size": 6059,
+      "sha256": "a3b941930accc6997d6429d13ff65434eb5414ed9310c0f6f4d128760201e4fc"
     },
     {
       "path": "basic_data/data/details/51/gffunds__GFJJ000003.js.gz",
@@ -18616,8 +18616,8 @@
     },
     {
       "path": "basic_data/data/details/58/gfbank_cgb__ui-name-e7f34d46bf912428.js.gz",
-      "size": 5064,
-      "sha256": "0abe408b784e681cdddb2ca89a554c836107ee99703957daf374d8f3e1a3a9fa"
+      "size": 6074,
+      "sha256": "15b160e40a8b90285a895229cf799b7a7b3048729d907cc31afafc1c5132078b"
     },
     {
       "path": "basic_data/data/details/58/gffunds__GFJJ000769.js.gz",
@@ -18721,8 +18721,8 @@
     },
     {
       "path": "basic_data/data/details/5a/gfbank_cgb__ui-name-4ea56084d4c29fe5.js.gz",
-      "size": 4662,
-      "sha256": "f775ba2dbe26bfead44abdc05a75e8c64d8b43158af44992cdfa49380e137490"
+      "size": 5677,
+      "sha256": "531b323fae6b5de7b0d9cd14271786768d35b499d9a8020de62deb725406b061"
     },
     {
       "path": "basic_data/data/details/5a/howbuy__zszh007.js.gz",
@@ -18971,8 +18971,8 @@
     },
     {
       "path": "basic_data/data/details/5e/gfbank_cgb__ui-name-e3bd5cda35ba8128.js.gz",
-      "size": 5045,
-      "sha256": "5b55f90b14001873445a306edc8e515457fa6e77dfc623f55cb57cb579ada3d9"
+      "size": 6056,
+      "sha256": "d8d73aca53732e99d30a7d1846eed5b4e5d1b730393e55dac7e9f33ceb18c0c3"
     },
     {
       "path": "basic_data/data/details/5e/gfbank_cgb__ui-name-f3708b47dbf12562.js.gz",
@@ -19141,8 +19141,8 @@
     },
     {
       "path": "basic_data/data/details/61/gfbank_cgb__ui-name-7152f61a047f15f6.js.gz",
-      "size": 5053,
-      "sha256": "f9f83f38d3a3a872811a28449afa3c0e8db76f0f0352faa414f4aa86b8ec550b"
+      "size": 6062,
+      "sha256": "2af522a53fb8a3d0aa8aa60bd03cdeb3ff72d9a2fd8ad142cc26587fae36f6fd"
     },
     {
       "path": "basic_data/data/details/61/qieman__ZH000138.js.gz",
@@ -19356,8 +19356,8 @@
     },
     {
       "path": "basic_data/data/details/65/gfbank_cgb__ui-name-e54cad752c459f03.js.gz",
-      "size": 5053,
-      "sha256": "5f5926f2278b76bd4ab67608db2c7dc7c61fd71571518d364da36a148d0f0066"
+      "size": 6061,
+      "sha256": "c7246abadf3bb90ff8386a1f8a69d9f69447385843ae855283522a8b32d6cddf"
     },
     {
       "path": "basic_data/data/details/65/gfsec_robot__metal.theme.js.gz",
@@ -19411,8 +19411,8 @@
     },
     {
       "path": "basic_data/data/details/66/gfbank_cgb__ui-name-f2f3dde62a1518cb.js.gz",
-      "size": 5055,
-      "sha256": "99e99a111a80a1760a2e6839e3b2c5f260b5535a9224cb54046cef3dab18339e"
+      "size": 6064,
+      "sha256": "66ed2d2bb7c8f23e02a915106402d74d382d423bf3293788ffeca35a5d26ed96"
     },
     {
       "path": "basic_data/data/details/66/gffunds__ZY00000080.js.gz",
@@ -19486,8 +19486,8 @@
     },
     {
       "path": "basic_data/data/details/67/gfbank_cgb__ui-name-8e1aec9113ab77f4.js.gz",
-      "size": 5048,
-      "sha256": "2c80a22647c86e7f00ee12fb36938bcdba511689fb3a435804ad0cdba5d25850"
+      "size": 6054,
+      "sha256": "ca63e9c2cf3b80e6cc78ff41a25729fbe48c230ea4047a36e1903f9f667848ff"
     },
     {
       "path": "basic_data/data/details/67/gffunds__ZY00000081.js.gz",
@@ -19551,8 +19551,8 @@
     },
     {
       "path": "basic_data/data/details/68/gfbank_cgb__ui-name-b2317351768ad814.js.gz",
-      "size": 5044,
-      "sha256": "413ee3d628db7eae7da55179e5db5ffa789684772c782826205fc600c16bd4de"
+      "size": 6053,
+      "sha256": "48024f4c8e8905c6eb26115b0904674c0e9cdbb0eb1fdeaf7445ed975e5284f9"
     },
     {
       "path": "basic_data/data/details/68/gffunds__ZY00000082.js.gz",
@@ -19636,8 +19636,8 @@
     },
     {
       "path": "basic_data/data/details/69/gfbank_cgb__ui-name-bf78ad6014c62f71.js.gz",
-      "size": 5053,
-      "sha256": "48ac733b03eed04d610b8ccbf7826f00276156b396ee1c89b7a95d5c649c6c0b"
+      "size": 6062,
+      "sha256": "7733c1af3a82931b7e1360b560292b2b3afc5f494b81e19f6d25b44111074558"
     },
     {
       "path": "basic_data/data/details/69/gffunds__ZY00000083.js.gz",
@@ -19936,8 +19936,8 @@
     },
     {
       "path": "basic_data/data/details/70/gfbank_cgb__ui-name-4be8f3ecac1a521c.js.gz",
-      "size": 5044,
-      "sha256": "a2a2cf74fa88e9fba293baa787eeac6fde9929990490ef9be85e92d1ca20a879"
+      "size": 6054,
+      "sha256": "8e980648af8fe65dd80ef054f1498e58b7006b4fd56aa3744d7e7642adaf35d8"
     },
     {
       "path": "basic_data/data/details/70/huaxia_tougu__SF10LE.js.gz",
@@ -20006,8 +20006,8 @@
     },
     {
       "path": "basic_data/data/details/71/gfbank_cgb__ui-name-65d3d9c2366cd143.js.gz",
-      "size": 5053,
-      "sha256": "a4ce1a6968dad839d25b5805b3f341e05d5db408e560d5ae65519287a4f69710"
+      "size": 6063,
+      "sha256": "5a5d23fb2e82cf5f31024d929c18d662f5eb81c0d7fc1026a9d6c2b7759d2e03"
     },
     {
       "path": "basic_data/data/details/71/gfsec_robot__usselected.theme.js.gz",
@@ -20491,8 +20491,8 @@
     },
     {
       "path": "basic_data/data/details/7a/gfbank_cgb__ui-name-9631a01bb67a1cf2.js.gz",
-      "size": 5055,
-      "sha256": "b34ecb68d789549c608ef823962b44dbd1149e2860c6ec641f4a7e4b46257b10"
+      "size": 6061,
+      "sha256": "f19eb4540ad3d1385f179ed59613036b149388dc2f1a7e3bcd7b13a1f20d282c"
     },
     {
       "path": "basic_data/data/details/7a/gffunds__GFJJ001508.js.gz",
@@ -20991,8 +20991,8 @@
     },
     {
       "path": "basic_data/data/details/85/gfbank_cgb__ui-name-9cf3376ace19354d.js.gz",
-      "size": 5094,
-      "sha256": "52c78f1f6022c1b4b631a97ca70192050c7eeeac7ac74eec5dc31b1586a7f94f"
+      "size": 6086,
+      "sha256": "fdd45d41c22d834676917a51d2924f8d816cff45a78e35d36134120971eb33ac"
     },
     {
       "path": "basic_data/data/details/85/gfbank_cgb__ui-name-d8ea1bc0aefd5fab.js.gz",
@@ -21246,8 +21246,8 @@
     },
     {
       "path": "basic_data/data/details/8b/gfbank_cgb__ui-name-67df481815cb9022.js.gz",
-      "size": 5054,
-      "sha256": "1a44bb52e3d7bdc2ad7f0c851143e9eccb6fa96ba4909e4523ee406c863c5bcd"
+      "size": 6060,
+      "sha256": "fa0930ebbf31de7c1653909dc83e6cc9a39b6aaea602039681a63bbabed324e5"
     },
     {
       "path": "basic_data/data/details/8b/qieman__ZH171506.js.gz",
@@ -21301,8 +21301,8 @@
     },
     {
       "path": "basic_data/data/details/8d/gfbank_cgb__ui-name-4173b1a1ee9f5b80.js.gz",
-      "size": 5054,
-      "sha256": "1fafe663385711d1b91bd6efcf11ec308cfcbcf95fad54f369fc6b366412734c"
+      "size": 6064,
+      "sha256": "fe45baa46bfdb156ea29ef85fdcd6eff76140be4ab3ddf3ef66363765975e866"
     },
     {
       "path": "basic_data/data/details/8d/ttfund__4PYO86B.js.gz",
@@ -21416,13 +21416,13 @@
     },
     {
       "path": "basic_data/data/details/90/gfbank_cgb__ui-name-b1714eca978818d4.js.gz",
-      "size": 5046,
-      "sha256": "55488424d89b5c340d85b2c86be08112b427bd2b587a59c70d38fe391042356f"
+      "size": 6054,
+      "sha256": "f0f14f06cd2c88e795f0b93bd092ed0ed0ebc454037f262afd89a65af23bdfb3"
     },
     {
       "path": "basic_data/data/details/90/gfbank_cgb__ui-name-e04fc4b8110f451c.js.gz",
-      "size": 5045,
-      "sha256": "59ff8f5078a2b56aadced139355d2043748425491b7216a4ac594da3e4d2d1b2"
+      "size": 6055,
+      "sha256": "1baf6d8c2d9bae092a5bfe137b89cbacfba5a743a5d3c285067cd75910fe86b5"
     },
     {
       "path": "basic_data/data/details/90/gffunds__GFJJ000783.js.gz",
@@ -21591,8 +21591,8 @@
     },
     {
       "path": "basic_data/data/details/94/gfbank_cgb__ui-name-6468a20c158ca18f.js.gz",
-      "size": 5052,
-      "sha256": "6a269650b65f5abcfc2e1d50cb618677e96178a2f0abc124217fa64f9bf73b73"
+      "size": 6063,
+      "sha256": "22e216edf2043996def6abd232fadb16baee01a9df5a49f07fd6bf6c6cb9fad8"
     },
     {
       "path": "basic_data/data/details/94/gfbank_cgb__ui-name-bacb6bba14272794.js.gz",
@@ -21801,8 +21801,8 @@
     },
     {
       "path": "basic_data/data/details/98/gfbank_cgb__ui-name-d5155544f3d91087.js.gz",
-      "size": 5046,
-      "sha256": "6341dd92965e28482373037102fe558a3e4b7e92db7dfbc9bdc43a3ad2723085"
+      "size": 6054,
+      "sha256": "911df42ea1cf61faf4834d0b1988c4c74e08002e6ba2d3c53b0ff3b95544d8b9"
     },
     {
       "path": "basic_data/data/details/98/gfsec_robot__allocation.risk2p6.js.gz",
@@ -21846,8 +21846,8 @@
     },
     {
       "path": "basic_data/data/details/99/gfbank_cgb__ui-name-a896b349bcaeeb8b.js.gz",
-      "size": 5053,
-      "sha256": "fd5396fd230e1caada016e314aac4cb9a4c8350259abe1d6958df74c36e2894f"
+      "size": 6064,
+      "sha256": "77fdbdefe450cd0a76735eab8f54630aa33b128ced13b6c7eed6a8507422d128"
     },
     {
       "path": "basic_data/data/details/99/gfsec_fima__regular_nffund_SFGZPH.js.gz",
@@ -22071,8 +22071,8 @@
     },
     {
       "path": "basic_data/data/details/9d/gfbank_cgb__ui-name-ca5269dc32d1b476.js.gz",
-      "size": 5053,
-      "sha256": "582ff4bff93b8b94c251d4d01c723100e4cbb09b1aecd8692cd515325791a201"
+      "size": 6063,
+      "sha256": "8289c4392d11ddd42c62402a522374c98815914abfb7ac52d73e577d278c2d29"
     },
     {
       "path": "basic_data/data/details/9d/qieman__ZH124940.js.gz",
@@ -22446,8 +22446,8 @@
     },
     {
       "path": "basic_data/data/details/a6/gfbank_cgb__ui-name-cec54c93096e9c26.js.gz",
-      "size": 5044,
-      "sha256": "683a2679f725c75c34947dbf3509f1d4735828c0c26c642bca30d8540ae87357"
+      "size": 6054,
+      "sha256": "b0e25441efe7c8a42566cca4a8785b4f5a3eb8b9f417bc5fa73b2e1acadca8da"
     },
     {
       "path": "basic_data/data/details/a6/gffunds__GFJJ001081.js.gz",
@@ -22871,8 +22871,8 @@
     },
     {
       "path": "basic_data/data/details/b0/gfbank_cgb__ui-name-52038587a23e645e.js.gz",
-      "size": 5044,
-      "sha256": "89ef158bc241ad6fcdebd42c80b3a04c0299fcc2f0ade7ef21938e877e09cd23"
+      "size": 6052,
+      "sha256": "de855d9fcd009842d2b60eec41a99a839bac2c96ce2f18af1b305ccd5ef08737"
     },
     {
       "path": "basic_data/data/details/b0/gffunds__ZY00000024.js.gz",
@@ -23036,8 +23036,8 @@
     },
     {
       "path": "basic_data/data/details/b4/gfbank_cgb__ui-name-d958a49fb79f9ff0.js.gz",
-      "size": 5049,
-      "sha256": "7a9f8fab2f418b9be383653c5d6db4783e8d8dc6750f7a65a5a8a3940b374def"
+      "size": 6055,
+      "sha256": "d22a4d4bbf66097e7ee1184e6245f45a1ba4af902b9c8326556415e3cdf1b8f8"
     },
     {
       "path": "basic_data/data/details/b4/gffunds__ZY00000028.js.gz",
@@ -23116,8 +23116,8 @@
     },
     {
       "path": "basic_data/data/details/b6/gfbank_cgb__ui-name-ca54b635652dda1c.js.gz",
-      "size": 5053,
-      "sha256": "1b30a16b18a82714d255f1631f5f3258029741fb384df5be4aa858eccf97b5ea"
+      "size": 6061,
+      "sha256": "b29e37222f3b9f6d33ece1c14b510980b144bc3ad65ae56b63945a3d3f94a544"
     },
     {
       "path": "basic_data/data/details/b6/gfbank_cgb__ui-name-e5772474670a186a.js.gz",
@@ -23211,8 +23211,8 @@
     },
     {
       "path": "basic_data/data/details/b8/gfbank_cgb__ui-name-a3b18132b9db8aec.js.gz",
-      "size": 5048,
-      "sha256": "b08ec66160e45183add0ea23653ade6e336c609997048e568f6f0d374e9c5cb1"
+      "size": 6055,
+      "sha256": "44e96c3f6cce9c992435a6afb2e3390cc26c14c9284a9309d0665c12b1142dbd"
     },
     {
       "path": "basic_data/data/details/b8/gffunds__GFJJ000835.js.gz",
@@ -23406,8 +23406,8 @@
     },
     {
       "path": "basic_data/data/details/bb/gfbank_cgb__ui-name-f87a04dca8bdec24.js.gz",
-      "size": 5043,
-      "sha256": "e768db171642ab64849e1d66589574d7fd0598b4cf99396cf220d899c7e894f3"
+      "size": 6055,
+      "sha256": "6c610c095271e974eb9dd3175dad486a96312557e4d8d795aa33954611b7344f"
     },
     {
       "path": "basic_data/data/details/bb/qieman__ZH147147.js.gz",
@@ -23596,8 +23596,8 @@
     },
     {
       "path": "basic_data/data/details/be/gfbank_cgb__ui-name-fd4c1751a80e32bc.js.gz",
-      "size": 5046,
-      "sha256": "dcfd23305f9cff15def044b53fa840ec20c988cc38419dccbf93809b202a79b8"
+      "size": 6055,
+      "sha256": "4546a49e733fc530693ac0b5d736972c2c5a20a5c3d0460928898033d87b6d44"
     },
     {
       "path": "basic_data/data/details/be/howbuy__GJ018.js.gz",
@@ -23751,8 +23751,8 @@
     },
     {
       "path": "basic_data/data/details/c0/gfbank_cgb__ui-name-7c851fc7005cd35c.js.gz",
-      "size": 5047,
-      "sha256": "947c9312c99e4e252b4d8a05ac6709a4a128d0b8ce6b9810632762bdbf32cf25"
+      "size": 6054,
+      "sha256": "897f2dfb958cc567fc722e7a918bac53c0bb1123a9ac676efda0e70efceba833"
     },
     {
       "path": "basic_data/data/details/c0/gfbank_cgb__ui-name-f305d767d66989de.js.gz",
@@ -23846,8 +23846,8 @@
     },
     {
       "path": "basic_data/data/details/c1/gfbank_cgb__ui-name-33a7cae4ea4fd4fc.js.gz",
-      "size": 5047,
-      "sha256": "69e6a2058452f82746488a2ae56ffb121e0bd0f1aa002a855b3778a54e007dff"
+      "size": 6054,
+      "sha256": "d30ba8f2f46e1da008af4ff7d9ef3803465e314d16cd3b9a7740dc9d7e190746"
     },
     {
       "path": "basic_data/data/details/c1/gfbank_cgb__ui-name-863cda2d7e2500a1.js.gz",
@@ -23856,8 +23856,8 @@
     },
     {
       "path": "basic_data/data/details/c1/gfbank_cgb__ui-name-92a24b3d134f0d6c.js.gz",
-      "size": 5062,
-      "sha256": "5eafc11866cd639e7b00429bcd5585f76df542bd0d8ab53401785a4190f92f4e"
+      "size": 6072,
+      "sha256": "7d3efb00646cc71982401ad59f47225ef69841036bd05532e9a2374daedac7fd"
     },
     {
       "path": "basic_data/data/details/c1/gfbank_cgb__ui-name-d61ca4e17fb14a2b.js.gz",
@@ -24056,8 +24056,8 @@
     },
     {
       "path": "basic_data/data/details/c4/gfbank_cgb__ui-name-749ce305978bda57.js.gz",
-      "size": 5054,
-      "sha256": "6617181f8e1c776d2a9e41c8e0f1b3a8f4b3b91e2aa086926e9876a939e3b204"
+      "size": 6063,
+      "sha256": "da8a6b376a12742ab3afc79901452bbcac4f994acf3cb9c2f50a24ae30e186ec"
     },
     {
       "path": "basic_data/data/details/c4/gfbank_cgb__ui-name-cbd061f56b3d20d5.js.gz",
@@ -24146,8 +24146,8 @@
     },
     {
       "path": "basic_data/data/details/c5/gfbank_cgb__ui-name-49769efcfc78e507.js.gz",
-      "size": 5053,
-      "sha256": "822462c73911aafe7e11e2bade425700282e1e654da9f871e47421e5cc4079f5"
+      "size": 6065,
+      "sha256": "7941c0255bb4492b490193d7e13910e19f70c80aea2a8e122e4ec35cf420d685"
     },
     {
       "path": "basic_data/data/details/c5/gfbank_cgb__ui-name-b808521c36ba54a5.js.gz",
@@ -24336,8 +24336,8 @@
     },
     {
       "path": "basic_data/data/details/c9/gfbank_cgb__ui-name-9f34fde38f422002.js.gz",
-      "size": 5054,
-      "sha256": "690101e131e5c8ffba530464eaa9f173594eaeb0726a4de2cd1cdda5453848d0"
+      "size": 6060,
+      "sha256": "e92c31ecc5dbb0bf359edb024053650f74c7bc041058590314f033308d2c7ac6"
     },
     {
       "path": "basic_data/data/details/c9/gfbank_cgb__ui-name-b911b8978775fddd.js.gz",
@@ -24456,8 +24456,8 @@
     },
     {
       "path": "basic_data/data/details/cc/gfbank_cgb__ui-name-f6af868bf25d68b1.js.gz",
-      "size": 5048,
-      "sha256": "36e2fa508b348561e8334d751288d1851826bcf63a17988a6e42672b712aaecb"
+      "size": 6054,
+      "sha256": "664b725c7ae11845d8863dbfd85bcaa2b45d389f537f52b6c395cd477be73195"
     },
     {
       "path": "basic_data/data/details/cc/gffunds__ZY00000031.js.gz",
@@ -24486,13 +24486,13 @@
     },
     {
       "path": "basic_data/data/details/cd/gfbank_cgb__ui-name-711bb569b2a48b51.js.gz",
-      "size": 5053,
-      "sha256": "60294583b4127b2f55e34d155a2552ab50b30cb5e468aaccdc2b68e19bef6534"
+      "size": 6063,
+      "sha256": "64edafd2a50b98190de1ec5949eb54dd3262f30a71a09fe6e498018c200ffc22"
     },
     {
       "path": "basic_data/data/details/cd/gfbank_cgb__ui-name-f2ad9cc0ddcd8726.js.gz",
-      "size": 5055,
-      "sha256": "acd5fbd2adc20e38bb43df4c244eb288169e5f877bc67ebd22b89a6326cee69d"
+      "size": 6061,
+      "sha256": "dd0ed84388d5fee3033161bfbaa984812ad219f4da933652821178dcbfefaece"
     },
     {
       "path": "basic_data/data/details/cd/gffunds__GFJJ002221.js.gz",
@@ -24846,8 +24846,8 @@
     },
     {
       "path": "basic_data/data/details/d5/gfbank_cgb__ui-name-a69551ebd30f9518.js.gz",
-      "size": 5045,
-      "sha256": "c63c91ee60a478628d0c7047007f6bfb5072f1093d16f96be144dac26b66e20a"
+      "size": 6055,
+      "sha256": "9ddfade773c3f1c759aa6af46a8efd03b235759169545fceb5a7d6b878d4c10e"
     },
     {
       "path": "basic_data/data/details/d5/gffunds__GFJJ000601.js.gz",
@@ -25261,13 +25261,13 @@
     },
     {
       "path": "basic_data/data/details/db/gfbank_cgb__ui-name-4cee4ca6bee8d3ee.js.gz",
-      "size": 5047,
-      "sha256": "cf6776dc1c870a280dd5cb7f4acdb3b966c4da548364ea7d34a086e8dcd92d32"
+      "size": 6054,
+      "sha256": "d5a1a05e2ad2574ce17d29f2f3da8dcaf463e3e2980c89f6387db047a07f61ec"
     },
     {
       "path": "basic_data/data/details/db/gfbank_cgb__ui-name-f9e92f1060143741.js.gz",
-      "size": 5053,
-      "sha256": "4777c11376ce536e115a4847b9ebb436ae7414b7fbb433b6074c874367e8246d"
+      "size": 6061,
+      "sha256": "f7a1ea5b8eeb2efaee83125010daf20ae8f47a71d1dd3114d1fe66630190cc03"
     },
     {
       "path": "basic_data/data/details/db/gfbank_cgb__ui-name-ff04694b44c8830c.js.gz",
@@ -25336,8 +25336,8 @@
     },
     {
       "path": "basic_data/data/details/dc/gfbank_cgb__ui-name-2e9bbfff4007bdd8.js.gz",
-      "size": 5054,
-      "sha256": "69f267bd11efdadf755d59807e3b635d70490e9b6341620875179f44e4501009"
+      "size": 6063,
+      "sha256": "b03a3c409cdf538fb7b60b778ce6a2afd0e03749e9d7426010d81704162cb099"
     },
     {
       "path": "basic_data/data/details/dc/howbuy__yhtg004.js.gz",
@@ -25481,8 +25481,8 @@
     },
     {
       "path": "basic_data/data/details/de/gfbank_cgb__ui-name-7fc39c6c23348924.js.gz",
-      "size": 5049,
-      "sha256": "0694875003d3306903635539482f90e96375c1e78b176e6c8864e4e5973217ec"
+      "size": 6054,
+      "sha256": "7d6eb6703828972dd1bf0919973cf7ec5049f737ffb2298523fb99824aaf3817"
     },
     {
       "path": "basic_data/data/details/de/howbuy__yfdtg002.js.gz",
@@ -25591,8 +25591,8 @@
     },
     {
       "path": "basic_data/data/details/e0/gfbank_cgb__ui-name-dd6b47cdc3c92438.js.gz",
-      "size": 5054,
-      "sha256": "a1be608a20708baf844b912dd503eb204ddb8163bfd18738f734cd0dbc46ad72"
+      "size": 6064,
+      "sha256": "04e66400a7db8296988ab4de246d191fb7e726ec7730ad5a92b1c8067af76f94"
     },
     {
       "path": "basic_data/data/details/e0/howbuy__yfdtg004.js.gz",
@@ -25806,8 +25806,8 @@
     },
     {
       "path": "basic_data/data/details/e4/gfbank_cgb__ui-name-d72a057b83b452af.js.gz",
-      "size": 5053,
-      "sha256": "db431cff302913776eeeb7ceb25712aa186da642d23b041f6793f524bf4023ae"
+      "size": 6062,
+      "sha256": "80910206c439bd515d8fb23ab1e9a0807b2b784a354dbb14b93214f5248fa9a5"
     },
     {
       "path": "basic_data/data/details/e4/gfsec_fima__regular_gffund_GFAXHB.js.gz",
@@ -25901,8 +25901,8 @@
     },
     {
       "path": "basic_data/data/details/e7/gfbank_cgb__ui-name-6886130d02db3dfc.js.gz",
-      "size": 5053,
-      "sha256": "bb3f2c0fda10321e8e46853fca8ab170d25b63e237d0aca7d02df5df7edc407f"
+      "size": 6066,
+      "sha256": "de1fc73f3dba36f70e8dce9d499805ae0b1a5669b2d1eea7dcdae8904c5230ce"
     },
     {
       "path": "basic_data/data/details/e7/gfsec_fima__target_gffund_10018.js.gz",
@@ -25951,8 +25951,8 @@
     },
     {
       "path": "basic_data/data/details/e8/gfbank_cgb__ui-name-c3d5a5dce89cd7ef.js.gz",
-      "size": 5054,
-      "sha256": "b307c379239bb578ec854ff8fb9d0a12e9f0bee6ca76b96c2607b89ad26a6df7"
+      "size": 6061,
+      "sha256": "368af9e9895f5b3743526d22a5b3be2042912fca787705d1bec55d7e85df6592"
     },
     {
       "path": "basic_data/data/details/e8/qieman__ZH154805.js.gz",
@@ -26051,8 +26051,8 @@
     },
     {
       "path": "basic_data/data/details/eb/gfbank_cgb__ui-name-deae74b5ce2ae51c.js.gz",
-      "size": 5053,
-      "sha256": "b7d5019bf027675d7a39bab56f4dfc42f6efb0e40475a54a9a67a11c1dc38312"
+      "size": 6064,
+      "sha256": "6d3db05ff8852a6916c7ebd5626cb159ff317ef965bf8ce377cc4f28355ca016"
     },
     {
       "path": "basic_data/data/details/eb/gffunds__ZY00000041.js.gz",
@@ -26286,8 +26286,8 @@
     },
     {
       "path": "basic_data/data/details/f1/gfbank_cgb__ui-name-318f3c7b1a8a34e2.js.gz",
-      "size": 5053,
-      "sha256": "c7bb35dc3c8aa0d6a7b76ae29385854a21e7acccfab655cc9cb6995bce1dbc4a"
+      "size": 6063,
+      "sha256": "c3f30bfe075e421560079080fd45d6b82d076e512c6b1fed3480898124edf69e"
     },
     {
       "path": "basic_data/data/details/f1/gffunds__GFJJ001422.js.gz",
@@ -26321,13 +26321,13 @@
     },
     {
       "path": "basic_data/data/details/f2/gfbank_cgb__ui-name-7da16ed5b5403523.js.gz",
-      "size": 5046,
-      "sha256": "ad6a1fed5df70edc8fd8d430357c868a2b964d9bdf4641ac460c024948ee62d3"
+      "size": 6054,
+      "sha256": "d667345c2ceaac72f02fdfbb6a51fc0a34ced25bb1aeadc0136a5dffdf3b1374"
     },
     {
       "path": "basic_data/data/details/f2/gfbank_cgb__ui-name-c232085b8e3a40b7.js.gz",
-      "size": 5053,
-      "sha256": "e7b66380019bf33931b3a702f1e5c0462dd7623008562b9f2cd47bcefd11a0aa"
+      "size": 6062,
+      "sha256": "dd5ac1ac34261b352b6db848e0ff21523d0d910435b40ab4234c720b0e14a0b7"
     },
     {
       "path": "basic_data/data/details/f2/gfbank_cgb__ui-name-e42e943cbf5b02b1.js.gz",
@@ -26661,8 +26661,8 @@
     },
     {
       "path": "basic_data/data/details/f9/gfbank_cgb__ui-name-0383a64e5a0f6e34.js.gz",
-      "size": 5043,
-      "sha256": "86d5e6eb781d704c8e34e8c4c59fb1b49710a05f5d1b4fd546c371a3329fd320"
+      "size": 6053,
+      "sha256": "2e8ebfb25a0a5da4450d7a6bab067d717143a0e02af68f93064af69dd0a36c32"
     },
     {
       "path": "basic_data/data/details/f9/gfsec_fima__target_zofund_10036.js.gz",
@@ -26716,8 +26716,8 @@
     },
     {
       "path": "basic_data/data/details/fa/gfbank_cgb__ui-name-46d19eedf0a42387.js.gz",
-      "size": 5045,
-      "sha256": "5b8b114adc73abda49345290ef167ec31a47486e8951ae0e292e8f27837e9a3b"
+      "size": 6053,
+      "sha256": "6fc2ed071ad17630e0a26e8acee0685df9fcf88695267aedbe31d78ed05a501e"
     },
     {
       "path": "basic_data/data/details/fa/gfbank_cgb__ui-name-8a252715e4593c43.js.gz",
@@ -26766,8 +26766,8 @@
     },
     {
       "path": "basic_data/data/details/fb/gfbank_cgb__ui-name-8634fbae3b2087c0.js.gz",
-      "size": 5044,
-      "sha256": "fa9591c33fa79018d6e3c320a4d98a3b8923ea02098872fff034bab013bcd5e5"
+      "size": 6053,
+      "sha256": "d7c2da63f1960d574e8c61ddf115fc252c28405a196abcb02affd200265828d8"
     },
     {
       "path": "basic_data/data/details/fb/howbuy__tzzhwjx.js.gz",
@@ -27078,6 +27078,16 @@
       "path": "basic_data/data/fund_index_pack.js.gz",
       "size": 2188344,
       "sha256": "2f5e2a3b343dbfda965d54491a5ac708d250b2dd55b0c6b6563535fe5838761b"
+    },
+    {
+      "path": "basic_data/data/gfbank_shared_holdings_GFYH001562_9e815eaa8637.json.gz",
+      "size": 12142,
+      "sha256": "e307b5533dbb5cfba2b631cf61c47154dce82b33eaa26ea3c3f9861b7b77bc3f"
+    },
+    {
+      "path": "basic_data/data/gfbank_shared_holdings_GFYH001562_9e815eaa8637_636734203652.json.gz",
+      "size": 12144,
+      "sha256": "ac76e5965014516d3fe5a8276fa997fccf47f1fc3c3bd5bc1d2a3f0d1db8a11b"
     },
     {
       "path": "basic_data/data/holding_snapshot_pack.js.gz",
@@ -28397,92 +28407,92 @@
     {
       "path": "basic_data/institutions.html",
       "size": 3148,
-      "sha256": "cadafab70007ca1415078a022767c848d2836e0826413c23f2ecc484c7e35311"
+      "sha256": "9dbf97fd7dca3bfcb0ca0ff2b68588cf14330f473fded55edf0eb2c84509748a"
     },
     {
       "path": "basic_data/mixed-performance-scatter.html",
       "size": 3247,
-      "sha256": "36f7cc0198786f64e990983b0816d7a415d406466afeb503834bbf3b842a9968"
+      "sha256": "7147d0a08528e59470cbcb2b7d57c77920f50442f73675f485f3345ffe4900c4"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202510.html",
       "size": 180174,
-      "sha256": "c1930eb1c3823e1b0444702d54922b9691f7043fd51afcd4093aec77d34db969"
+      "sha256": "29f06432208349658b167a0fa23757f672e0fc67e1016f8e8c3a5b3ab1687760"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202511.html",
       "size": 187468,
-      "sha256": "0d3d824b660a4c8d93763d68528e42984ff7598b5c18a727e5b05749de48f466"
+      "sha256": "c94698bf79782084c1deaefa207fb6695011ff4f02975352be02c05be72ac268"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202512.html",
       "size": 204020,
-      "sha256": "c672a12d228c94ea749f78804c5d2b10e61bbee39447f29fcd8e7b71a2d1e8d9"
+      "sha256": "5809d26c31635065ad66e419e889feb205ff098c96259e9300b1721de985a1be"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202601.html",
       "size": 189666,
-      "sha256": "b0d770beb63b731b1303e4700c4267faace9771e152f56f93044af3fa6514030"
+      "sha256": "e980271963483767c9b6a76de1759955314b0bec7e0e36f22e30946faf8ea573"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202602.html",
       "size": 193216,
-      "sha256": "17bac9c3d29afd02c89248ea37c0b53377005e64670b23c55bf71ebd5ddd0ffe"
+      "sha256": "1422ed15d967700c8112b1388ccc95a1efdf90f0c23aeb43a728bcd135487d73"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202603.html",
       "size": 219634,
-      "sha256": "35dc4c971ec66e76109e6a8efb6f0f37d6a783beee8c661c55c3ead873115d74"
+      "sha256": "868c23bae9f4559322a1c4349e46cdc9d1ee8b9badee3329c5ad95522dc0adf5"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202604.html",
       "size": 199670,
-      "sha256": "44957cd1ac719becd57e53e4f89720e1baa7ae421a9d8a3f6b03ea6b11692462"
+      "sha256": "97bc6534f28fdc287c9c3129c691612970feeb44e8fa183d87978601d54c3a18"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202605.html",
       "size": 188310,
-      "sha256": "366b30e1a369a693f2c0c984349c8c5332d44a51e71eef6d5e6094299726ef73"
+      "sha256": "339236b45c588c64303d89d89478ef3ce90c3de4a4b0477c1e78025f65b6778f"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202606.html",
       "size": 239498,
-      "sha256": "5dbdacdec6e696785401c8b162ed317aa359b5e465be41567824f101a20c051b"
+      "sha256": "ed751568e7f7e23f80f7e6cb6b8111532f1f84b6ffe33f913da5baed30166bca"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202607.html",
       "size": 195613,
-      "sha256": "af432ce02464debe8b239bf5a6e4fcf8eeb8668d6b7efd5c6e95d4e6d0a13258"
+      "sha256": "3809d21eb1dce1312bf8c2ba5cee538898e5dd8813b69c7b027a58fd460e4fa4"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202608.html",
       "size": 207662,
-      "sha256": "9cf402d5a442d04fc4fbc0173cb49851a78900678338e322d830453952004a80"
+      "sha256": "a4f3b653894101d6a30ea3ad784f1aaf581c9b47618836d5b5ecce016f46decd"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202609.html",
       "size": 175192,
-      "sha256": "fdd30313dd789c1c5695dcd58db44529bd0529dc910c64f5e5c0eebf44756f85"
+      "sha256": "6a1c6845668b5d4a2491f9dd70fd804af3d8771f8d2bf1c66747c79e2edcad8f"
     },
     {
       "path": "basic_data/monthly-rebalance-report.html",
       "size": 175192,
-      "sha256": "fdd30313dd789c1c5695dcd58db44529bd0529dc910c64f5e5c0eebf44756f85"
+      "sha256": "6a1c6845668b5d4a2491f9dd70fd804af3d8771f8d2bf1c66747c79e2edcad8f"
     },
     {
       "path": "basic_data/strategies.html",
       "size": 3087,
-      "sha256": "c8b8540f8b6344fd1e93175957626b87d2b69481d50d2bef80e45bbebece29cc"
+      "sha256": "62b1da65d4c61b76f33b59f8a34e01e16e8357a1071111dae5fcbb204190b3d1"
     },
     {
       "path": "basic_data/strategy-lookthrough.html",
       "size": 1360735,
-      "sha256": "5c5398f01036eb84fde6d5559e6bdd9a9a4f4d2430d194afc236cf1c2c41735b"
+      "sha256": "c52be0a902eea1f287d9ecd5790560162606137aec65a30de8059f05588fd953"
     },
     {
       "path": "basic_data/strategy.html",
       "size": 3209,
-      "sha256": "1b82d7c2828f1fe5c21b5c2be5d316d0d998929f13298a13ac645dc098129b29"
+      "sha256": "77149c1546366aefbb4923716a4d19798431178094773da19c5183a7fdcc786f"
     },
     {
       "path": "cloud-functions/ai-api/[[default]].js",
@@ -28511,8 +28521,8 @@
     },
     {
       "path": "package_validation.json",
-      "size": 4485,
-      "sha256": "04e3436320161f92a0e6c79fb6d16e59df98100828743cf6a0355e5e8b6c1e5a"
+      "size": 4606,
+      "sha256": "df240c967c72985b88b696923e9293684275af835344485e1c90e08373429f2e"
     },
     {
       "path": "README.md",
@@ -28552,7 +28562,7 @@
     {
       "path": "version.json",
       "size": 151,
-      "sha256": "e385bebdf58bd85f29fc8f6ab86e1b5b34af916c593d4f9d3ed522d3b1484890"
+      "sha256": "ec3885ee9fe5a0254536f1ec2928409c0357e6e3c16e3936be775d599738e146"
     },
     {
       "path": "停止最小发布集.cmd",
@@ -28564,5 +28574,13 @@
       "size": 58,
       "sha256": "fde8860405e951900cdc0080196dc927fb16da60ffe7464e5d2c068490a4fac5"
     }
-  ]
+  ],
+  "dataBuildId": "minimal-b42feeb60823",
+  "modelDataSourceSha256": "9e815eaa86374524776b891a62d1a66178a13d775533602e5412d6e0bee61897",
+  "conflictRecovery": {
+    "sourceRunId": "20261017T072145+0800",
+    "localParent": "34d38e9e87f9a4d6e0f4cb6a2ccd080b9139750c",
+    "remoteParent": "9f25a4ab3bfe5431a00d8a60bba42b3e014ca30c",
+    "bankIssuesRetained": 73
+  }
 }
