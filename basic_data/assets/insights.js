@@ -4886,6 +4886,12 @@
   }
 
   function latestExposureMap(strategyId, field) {
+    if (state.tab === "compare") {
+      const record = compareExposureRecord(strategyId);
+      if (record?.status !== "ready") return new Map();
+      const groups = field === "研报大类资产" ? record.assetGroups : record.industryGroups;
+      return new Map((groups || []).filter(g => !["未分类", "未穿透权益", "暂未核验"].includes(g.name)).map(g => [g.name, g.value]));
+    }
     const rows = holdingSnapshotRows().filter((row) => row.统一策略ID === strategyId && row.分类字段 === field);
     const latestDate = rows.map((row) => row.快照日期).filter(Boolean).sort().at(-1);
     const map = new Map();
@@ -4905,27 +4911,71 @@
     return { map: new Map(), field: fields[0] };
   }
 
+  // BEGIN COMPARE_EXPOSURE_SOURCE_V1
+  const compareIndustryOrder = ["科技（TMT）", "周期", "先进制造", "金融地产", "消费", "医药医疗", "未分类", "未穿透权益"];
+  const compareAssetOrder = ["固定收益", "股票", "现金及货币工具", "基金投资", "商品及黄金", "存托凭证", "其他资产", "暂未核验"];
+  const compareExposureColors = ["#17324D", "#356c98", "#63829B", "#779995", "#8A7F68", "#9CAEBB", "#B6BDC5", "#D3D9DF"];
+  function compareExposureRecord(id) {
+    const pack = loadedHoldingSnapshotPack();
+    return Number(pack?.compareExposureVersion) === 1 ? pack.compareExposures?.[id] || null : null;
+  }
+  function compareExposurePct(value) {
+    const n = num(value);
+    return n === null ? "—" : `${n.toFixed(2)}%`;
+  }
+  function compareExposureComparable(a, b, industry) {
+    const x = compareExposureRecord(a), y = compareExposureRecord(b);
+    if (x?.status !== "ready" || y?.status !== "ready" || !x.weightDate || x.weightDate !== y.weightDate) return false;
+    if (industry) return [x,y].every(r => num(r.equity)>0 && [r.unclassifiedIndustry,r.unpenetratedIndustry,r.approximateIndustry].every(v=>num(v) !== null && num(v)<0.00001));
+    return [x,y].every(r => !(r.assetGroups || []).some(g=>g.name === "暂未核验" && g.value>0.00001));
+  }
+  function compareExposureDateNote(record) {
+    if (!record) return "未取得已核验穿透数据，请重新加载或查看资产穿透报告。";
+    const periods = Object.keys(record.reportPeriods || {}).sort().join("、") || "未披露";
+    return `配置日期 ${record.weightDate || record.holdingDate || "未披露"}（${record.weightLabel || "来源配置"}），基金报告期 ${periods}。${record.latestWeightsAvailable === false ? `最新权重尚不可用，使用已核验历史配置；${(record.reasons || []).join("；")}。` : ""}${num(record.laterReportWeight) > 0 ? "包含晚于配置基准的基金报告，仅作所示配置的报告结构分析，不作为该历史时点的回测。" : ""}`;
+  }
   function compareExposureConfigBlock(rows, fields, options = {}) {
-    const fieldList = Array.isArray(fields) ? fields : [fields];
-    const fixedAssets = fieldList[0] === "研报大类资产";
-    const assetRank = (name) => /权益|股票|A股|港股|美股/.test(name) ? 0 : /债/.test(name) ? 1 : /货币|现金/.test(name) ? 2 : /商品|黄金/.test(name) ? 3 : /另类|REIT/i.test(name) ? 4 : 5;
-    const assetNames = [...new Set(rows.flatMap((row) => [...latestExposureMapWithFallback(row.统一策略ID, fieldList).map.keys()]))].sort((a, b) => assetRank(a) - assetRank(b) || a.localeCompare(b, "zh-CN"));
-    const cards = rows.map((row) => {
-      const exposure = latestExposureMapWithFallback(row.统一策略ID, fieldList);
-      const entries = fixedAssets && exposure.map.size ? assetNames.map((name) => ({ name, value: num(exposure.map.get(name)) || 0 })) : [...exposure.map.entries()]
-        .map(([name, value]) => ({ name, value: num(value) || 0 }))
-        .filter((item) => item.value > 0.0001)
-        .sort((a, b) => b.value - a.value)
-        .slice(0, options.limit || 8);
-      const total = Math.max(1, entries.reduce((acc, item) => acc + item.value, 0));
+    const field = Array.isArray(fields) ? fields[0] : fields;
+    const industry = field !== "研报大类资产";
+    const order = industry ? compareIndustryOrder : compareAssetOrder;
+    const records = rows.map(row => ({row, record: compareExposureRecord(row.统一策略ID)}));
+    const names = [...new Set(records.flatMap(({record}) => (record?.status === "ready" ? (industry ? record.industryGroups : record.assetGroups) : []).map(g => g.name)))];
+    names.sort((a,b) => (order.includes(a) ? order.indexOf(a) : 99) - (order.includes(b) ? order.indexOf(b) : 99) || a.localeCompare(b, "zh-CN"));
+    const color = name => compareExposureColors[Math.max(0, names.indexOf(name)) % compareExposureColors.length];
+    const cards = records.map(({row,record}) => {
+      const link = `./strategy-lookthrough.html#${encodeURIComponent(row.统一策略ID)}`;
+      if (record?.status !== "ready") return `<article class="compare-asset-row"><div class="compare-row-title"><strong>${strategyLink(row)}</strong></div><p>已核验穿透数据暂不可用；无法确认行业占比，不按零处理。</p><a class="link" href="${link}">查看穿透依据与缺口</a></article>`;
+      const groups = industry ? record.industryGroups : record.assetGroups;
+      const map = new Map(groups.map(g => [g.name,g.value]));
+      const entries = names.filter(name=>map.has(name)).map(name=>({name,value:map.get(name)}));
+      const equity = num(record.equity);
+      const fundInvestment = (record.assetGroups || []).find(g=>g.name === "基金投资")?.value;
+      const complement = industry && equity !== null ? Math.max(0,100-equity) : 0;
       return `<article class="compare-asset-row compare-exposure-row">
-        <div class="compare-row-title"><strong>${strategyLink(row)}</strong><span>${B.esc(exposure.field || fieldList[0])}</span></div>
-        <div class="compare-stack-bar is-thick">${entries.map((item) => `<i style="width:${Math.max(0, item.value / total * 100).toFixed(2)}%;background:${compareColorFor(item.name)}" title="${B.esc(item.name)} ${weightPoint(item.value)}"></i>`).join("")}</div>
-        <div class="compare-asset-legend">${(fixedAssets ? entries : entries.slice(0, 6)).map((item) => `<span><i style="background:${compareColorFor(item.name)}"></i>${B.esc(item.name)} <b>${weightPoint(item.value)}</b></span>`).join("") || '<span>暂无可用拆分</span>'}</div>
+        <div class="compare-row-title"><strong>${strategyLink(row)}</strong><a class="link" href="${link}">穿透来源 ↗</a></div>
+        <p class="desc">${B.esc(compareExposureDateNote(record))}</p>
+        ${industry ? `<p>股票占组合 <b>${compareExposurePct(equity)}</b>；行业已核验 ${compareExposurePct(record.verifiedIndustry)}，境外报告近似 ${compareExposurePct(record.approximateIndustry)}。</p>` : ""}
+        <div class="compare-stack-bar is-thick" aria-label="${industry ? "行业占策略总资产" : "资产占策略总资产"}">${entries.map(item=>`<i style="width:${Math.max(0,item.value).toFixed(5)}%;background:${color(item.name)}" title="${B.esc(item.name)} ${compareExposurePct(item.value)}"></i>`).join("")}${complement>0?`<i style="width:${complement.toFixed(5)}%;background:#EDF0F3" title="非股票及资产待核验部分 ${compareExposurePct(complement)}"></i>`:""}</div>
+        <div class="compare-asset-legend">${entries.map(item=>`<span><i style="background:${color(item.name)}"></i>${B.esc(item.name)} <b style="color:#17324D">${compareExposurePct(item.value)}</b></span>`).join("") || `<span>${equity === 0 ? "已核验股票配置为 0.00%，行业不适用。" : "尚无可核验行业分类。"}</span>`}</div>
+        ${industry ? `<p class="desc">待分类 ${compareExposurePct(record.unclassifiedIndustry)}；行业未穿透 ${compareExposurePct(record.unpenetratedIndustry)}。${num(fundInvestment)>0 ? `基金投资 ${compareExposurePct(fundInvestment)} 未递归穿透，未并入股票行业。` : ""} ${B.esc(record.industryBasis || "")}</p>` : ""}
       </article>`;
     }).join("");
-    return `<div class="compare-asset-list compare-exposure-list">${cards}</div>`;
+    if (!industry) return `<div class="compare-asset-list compare-exposure-list">${cards}</div>`;
+    const detailMaps = records.map(({record}) => {
+      const map = new Map();
+      if (record?.status === "ready") for (const group of record.industryGroups || []) for (const child of group.children || []) map.set(`${group.name} / ${child.name}`, child.value);
+      return map;
+    });
+    const detailNames = [...new Set(detailMaps.flatMap(map=>[...map.keys()]))].sort((a,b)=> {
+      const ga=a.split(" / ")[0],gb=b.split(" / ")[0];
+      return (order.indexOf(ga) < 0 ? 99 : order.indexOf(ga)) - (order.indexOf(gb) < 0 ? 99 : order.indexOf(gb)) || a.localeCompare(b,"zh-CN");
+    });
+    const details = `<details class="fold-block"><summary>完整行业明细（${detailNames.length} 项，全部保留）</summary><div class="table-wrap"><table><thead><tr><th>业务板块 / 原报告行业</th>${rows.map(row=>`<th>${strategyLink(row)}</th>`).join("")}</tr></thead><tbody>${detailNames.map(name=>`<tr><th>${B.esc(name)}</th>${detailMaps.map(map=>`<td style="color:#17324D;font-variant-numeric:tabular-nums">${map.has(name)?compareExposurePct(map.get(name)):"—"}</td>`).join("")}</tr>`).join("") || `<tr><td colspan="${rows.length+1}">尚无可核验行业明细，请查看各策略缺口说明。</td></tr>`}</tbody></table></div></details>`;
+    if (options.detailOnly) return details.replace('<details class="fold-block">', '<details class="fold-block" open>');
+    return `<p class="desc">所有数值均占策略总资产，不把已识别行业归一到100%。各策略按所标配置日期独立展示；“—”表示未取得该行业有效披露，不按零补齐。境外近似和缺口保留原标注。</p><div class="compare-asset-list compare-exposure-list">${cards}</div>`;
   }
+  // END COMPARE_EXPOSURE_SOURCE_V1
+
 
   function overlapValue(a, b) {
     let total = 0;
@@ -4992,8 +5042,8 @@
           策略B: b.row.策略名称,
           持仓重合度: sumOverlap(fundOverlap),
           共同基金数: fundOverlap.length || commonFunds.length,
-          资产重合度: sumOverlap(assetOverlap),
-          行业重合度: sumOverlap(industryOverlap),
+          资产重合度: compareExposureComparable(a.row.统一策略ID, b.row.统一策略ID, false) ? sumOverlap(assetOverlap) : null,
+          行业重合度: compareExposureComparable(a.row.统一策略ID, b.row.统一策略ID, true) ? sumOverlap(industryOverlap) : null,
           共同基金: fundOverlap.slice(0, 5).map((item) => item.name || item.key).join("、"),
           持仓重合明细: fundOverlap,
           资产重合明细: assetOverlap,
@@ -5038,7 +5088,7 @@
 
   function overlapHeatCell(value, context) {
     if (context.isSelf) return '<td class="overlap-cell is-self">自身</td>';
-    if (value === null || value === undefined) return '<td class="overlap-cell is-empty">待加载</td>';
+    if (value === null || value === undefined) return '<td class="overlap-cell is-empty">—（待核验）</td>';
     const clamped = Math.max(0, Math.min(100, Number(value) || 0));
     const alpha = 0.08 + clamped / 100 * 0.72;
     const color = clamped >= 55 ? "#fff" : "#17324d";
@@ -5074,7 +5124,7 @@
       ? "基金重合度按共同持有基金逐只取两边权重较小值后求和；下表列出主要共同基金及两边权重。"
       : metric === "资产重合度"
         ? "资产重合度按经济大类资产拆分结果逐类取两边暴露较小值后求和，一只基金可按规则拆到多个资产类别。"
-        : "行业重合度优先使用经济行业/研报A股行业拆分，缺失时回退权益行业大类，逐行业取两边暴露较小值后求和。";
+        : "资产和行业均使用已核验穿透模型；仅配置同日且覆盖充分时计算，行业还须排除待分类、未穿透和境外近似。其余保留待核验，不当作零。";
     const tableRows = rows.slice(0, 12).map((item) => `<tr>
       <td>${isFund ? fundLink({ 基金代码: item.code, 基金名称: item.name }) : B.esc(item.name || item.key)}</td>
       <td>${weightPoint(item.策略A权重)}</td>
@@ -5609,7 +5659,7 @@
     ensureCompareDetails();
     const loadingCount = state.compareSelectedIds.filter((id) => !compareDetail(id)).length;
     const detailsReady = loadingCount === 0 && ensureCompareHoldingPack();
-    const overlapRows = pairwiseOverlapRows(selected);
+    const overlapRows = detailsReady ? pairwiseOverlapRows(selected) : [];
     return `
       ${compareStandalone ? "" : compareSelectorBlock()}
       ${selected.length ? `
@@ -5656,16 +5706,16 @@
         </section>
         ${detailsReady ? `
         <section class="panel">
-          <div class="panel-head"><div><h2>大类资产配置对比</h2><p class="desc">按最新持仓快照的基金经济大类资产拆分展示，支持一只基金按规则拆到多个资产大类。</p></div></div>
+          <div class="panel-head"><div><h2>大类资产配置对比</h2><p class="desc">复用已核验资产穿透报告，按各策略所标配置日期展示；基金投资、暂未核验部分独立保留。</p></div></div>
           ${compareExposureConfigBlock(selected, "研报大类资产")}
         </section>
         <section class="panel">
-          <div class="panel-head"><div><h2>行业配置对比</h2><p class="desc">按最新持仓快照的经济行业/研报A股行业拆分展示，用于观察权益行业暴露和行业集中度。</p></div></div>
+          <div class="panel-head"><div><h2>行业配置对比</h2><p class="desc">复用已核验穿透报告的全部股票行业，包含境外报告行业近似；不将行业缺口与非股票资产放大归一。</p></div></div>
           ${compareExposureConfigBlock(selected, "研报A股行业")}
         </section>
         <section class="panel">
-          <div class="panel-head"><div><h2>权益主题配置对比</h2><p class="desc">按权益行业主题拆分展示，缺少主题拆分时退回权益行业大类。</p></div></div>
-          ${compareExposureConfigBlock(selected, ["权益行业主题", "权益行业大类"])}
+          <div class="panel-head"><div><h2>完整行业明细对比</h2><p class="desc">展示全部已核验行业及明确缺口，与上方业务板块口径一致；各列数值均占策略总资产。</p></div></div>
+          ${compareExposureConfigBlock(selected, "研报A股行业", { detailOnly: true })}
         </section>
         <section class="panel">
           <div class="panel-head"><div><h2>仓位重合度</h2><p class="desc">仅比较当前对比篮子中的已选策略；基金、资产和行业三个角度衡量是否同质化。</p></div></div>
