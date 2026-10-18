@@ -317,7 +317,6 @@
   };
   const globalBenchmarks = summary.globalBenchmarks || [];
   const compareDetailStore = new Map();
-  const compareLoadTasks = new Map();
   const compareMaxCount = 5;
   const comparePalette = ["#d92d20", "#1570ef", "#039855", "#7a5af8", "#dc6803", "#0e9384", "#c11574", "#4e5ba6", "#b42318", "#175cd3"];
   let compareSearchTimer = null;
@@ -1899,6 +1898,7 @@
 
   function ensureHoldingSnapshotPack() {
     if (loadedHoldingSnapshotPack()) return true;
+    if (state.tab === "compare") return ensureCompareHoldingPack();
     const meta = insight.持仓日期分类快照 || {};
     if (!holdingSnapshotPackPromise) {
       const minimalScript = window.MinimalPublish ? "./data/holding_snapshot_pack.js" : "";
@@ -4206,24 +4206,131 @@
     return compareDetailStore.get(id) || B.state.details?.[id] || null;
   }
 
-  function ensureCompareDetails(ids = state.compareSelectedIds) {
-    ids.forEach((id) => {
-      if (!id || compareDetail(id) || compareLoadTasks.has(id)) return;
-      const row = masterStrategyById.get(id) || allStrategyById.get(id);
-      if (!row?.detailFile) return;
-      const task = B.loadScript(row.detailFile)
-        .then(() => {
-          if (B.state.details?.[id]) compareDetailStore.set(id, B.state.details[id]);
-          compareLoadTasks.delete(id);
-          if (state.tab === "compare") scheduleRender();
-        })
-        .catch((error) => {
-          compareLoadTasks.set(id, { error: error?.message || String(error) });
-          if (state.tab === "compare") scheduleRender();
+  // BEGIN COMPARE_DETAIL_LOADING_V1
+  function createCompareDetailLoader({ read, find, load, selected, changed, timer = setTimeout, cancel = clearTimeout }) {
+    const records = new Map();
+    let active = 0;
+    const maxAttempts = 3;
+    function notify() { changed(); }
+    function drain() {
+      for (const [id, record] of records) {
+        if (record.status !== "queued") continue;
+        if (!selected().includes(id)) { records.delete(id); continue; }
+        if (active >= 3) break;
+        active += 1;
+        record.status = "loading";
+        record.attempts += 1;
+        let watchdog;
+        const timeout = new Promise((_, reject) => {
+          watchdog = timer(() => reject(new Error("请求超时")), 15000);
         });
-      compareLoadTasks.set(id, task);
-    });
+        Promise.race([
+          Promise.resolve().then(() => load(record.src, {
+            timeoutMs: 12000, retry: false, reload: record.attempts > 1 || record.manual, compressedOnly: true
+          })), timeout
+        ]).then(() => {
+          const detail = read(id);
+          if (!detail || detail.id !== id) throw new Error("返回内容缺少对应策略详情");
+          record.status = "ready";
+          record.error = "";
+        }).catch((error) => {
+          record.error = error?.name === "AbortError" ? "请求超时" : "数据暂时未能加载";
+          if (record.attempts < maxAttempts && selected().includes(id)) {
+            record.status = "retrying";
+            record.timer = timer(() => {
+              record.timer = null;
+              record.status = "queued";
+              drain();
+              notify();
+            }, record.attempts === 1 ? 1000 : 3000);
+          } else record.status = "failed";
+        }).finally(() => {
+          cancel(watchdog);
+          active -= 1;
+          drain();
+          notify();
+        });
+      }
+    }
+    function ensure(ids) {
+      for (const id of ids) {
+        if (!id || read(id) || records.has(id)) continue;
+        const src = find(id)?.detailFile;
+        records.set(id, src ? { status: "queued", attempts: 0, src }
+          : { status: "failed", attempts: 0, error: "发布包缺少详情索引" });
+      }
+      drain();
+    }
+    function retry(id) {
+      const record = records.get(id);
+      if (!selected().includes(id) || read(id) || record?.status !== "failed") return;
+      records.set(id, { status: "queued", attempts: 0, src: record.src || find(id)?.detailFile, manual: true });
+      if (!records.get(id).src) { records.delete(id); ensure([id]); }
+      else drain();
+      notify();
+    }
+    function status(id) {
+      return read(id) ? { status: "ready" } : records.get(id) || { status: "queued", attempts: 0 };
+    }
+    return { ensure, retry, status };
   }
+
+  let compareDetailLoader;
+  function getCompareDetailLoader() {
+    if (!compareDetailLoader) compareDetailLoader = createCompareDetailLoader({
+      read: compareDetail,
+      find: (id) => masterStrategyById.get(id) || allStrategyById.get(id),
+      load: (src, options) => B.loadScript(src, options),
+      selected: () => state.compareSelectedIds,
+      changed: () => { if (state.tab === "compare" || compareStandalone) scheduleRender(); }
+    });
+    return compareDetailLoader;
+  }
+  function ensureCompareDetails(ids = state.compareSelectedIds) {
+    getCompareDetailLoader().ensure(ids);
+  }
+  let compareHoldingLoader;
+  function getCompareHoldingLoader() {
+    if (!compareHoldingLoader) compareHoldingLoader = createCompareDetailLoader({
+      read: () => loadedHoldingSnapshotPack() ? { id: "holding-snapshots" } : null,
+      find: () => ({ detailFile: insight.持仓日期分类快照?.externalScript || `./data/holding_snapshot_pack.js?v=${encodeURIComponent(window.MinimalPublish?.buildId || "local")}` }),
+      load: (src, options) => B.loadScript(src, options),
+      selected: () => state.tab === "compare" ? ["holding-snapshots"] : [],
+      changed: () => { holdingSnapshotRowsCache = null; if (state.tab === "compare") scheduleRender(); }
+    });
+    return compareHoldingLoader;
+  }
+  function ensureCompareHoldingPack() {
+    if (loadedHoldingSnapshotPack()) return true;
+    if (state.compareSelectedIds.every((id) => compareDetail(id))) getCompareHoldingLoader().ensure(["holding-snapshots"]);
+    return false;
+  }
+  function compareDetailStatusText(id) {
+    const record = getCompareDetailLoader().status(id);
+    if (record.status === "ready") return "详情已加载";
+    if (record.status === "failed") return `${record.error}，请点击重试`;
+    if (record.status === "retrying") return `第 ${record.attempts} 次加载未成功，即将自动重试`;
+    if (record.status === "queued") return "等待加载详情";
+    return `详情加载中（第 ${record.attempts}/3 次，单次最长 15 秒）`;
+  }
+  function compareDetailLoadBlock(rows) {
+    const ready = rows.filter((row) => compareDetail(row.统一策略ID)).length;
+    const holdingsReady = ready === rows.length && ensureCompareHoldingPack();
+    if (ready === rows.length && holdingsReady) return "";
+    const holdingState = getCompareHoldingLoader().status("holding-snapshots");
+    return `<section class="panel" role="status" aria-live="polite" aria-label="策略详情加载状态">
+      <h2>策略详情已加载 ${ready}/${rows.length}</h2>
+      <p class="desc">收益指标可先查看；曲线随详情到达显示。持仓及历史分析待详情就绪后计算，加载失败不代表没有行情或没有调仓。</p>
+      ${rows.map((row) => {
+        const id = row.统一策略ID;
+        const record = getCompareDetailLoader().status(id);
+        return `<p>${strategyLink(row)}：${B.esc(compareDetailStatusText(id))} ${record.status === "failed" ? `<button type="button" class="btn" data-compare-retry="${B.esc(id)}">重试该策略</button>` : ""}</p>`;
+      }).join("")}
+      ${ready === rows.length ? `<p>资产配置与仓位重合分析：${holdingState.status === "failed" ? '数据加载失败，请重试。<button type="button" class="btn" data-compare-holding-retry>重试分析数据</button>' : '分析数据加载中，失败后将自动重试。'}</p>` : ""}
+    </section>`;
+  }
+  // END COMPARE_DETAIL_LOADING_V1
+
 
   function compareCandidateRows() {
     const scoped = strategyRows();
@@ -4365,7 +4472,7 @@
       const minAmount = compareProfileValue(row, detail, "起投金额") ?? "未披露";
       const benchmark = compareProfileValue(row, detail, "业绩基准说明") || compareProfileValue(row, detail, "业绩基准") || "未披露";
       const holdingDate = snapshot?.日期 || row.最新持仓日 || "未披露";
-      const holdingSource = snapshot?.说明 || "详情加载中";
+      const holdingSource = snapshot?.说明 || (detail ? "暂无当前持仓说明" : compareDetailStatusText(row.统一策略ID));
       const tags = [row.风险等级, row.研报产品类型 || row.业务分类, row.市场地域, row.主动被动].filter((item) => raw(item) && raw(item) !== "未披露").slice(0, 4);
       return `<article class="compare-advisor-card">
         <div class="compare-advisor-head">
@@ -5427,7 +5534,7 @@
       defaultVisible.push(key);
     }
     if (!Object.keys(series).length) {
-      el.innerHTML = '<div class="empty">选择策略后加载收益曲线</div>';
+      el.innerHTML = `<div class="empty">${rows.some((row) => !compareDetail(row.统一策略ID)) ? '策略曲线正在加载，请查看上方加载状态；失败后可重试。' : '所选策略暂无可用收益曲线。'}</div>`;
       return;
     }
     const names = Object.keys(series);
@@ -5501,10 +5608,12 @@
     if (!state.compareSelectedPointId && selected[0]?.统一策略ID) state.compareSelectedPointId = selected[0].统一策略ID;
     ensureCompareDetails();
     const loadingCount = state.compareSelectedIds.filter((id) => !compareDetail(id)).length;
+    const detailsReady = loadingCount === 0 && ensureCompareHoldingPack();
     const overlapRows = pairwiseOverlapRows(selected);
     return `
       ${compareStandalone ? "" : compareSelectorBlock()}
       ${selected.length ? `
+        ${compareDetailLoadBlock(selected)}
         <section class="panel">
           <div class="panel-head"><div><h2>投顾对比总览</h2><p class="desc">按天天投顾对比页的阅读顺序，把每只策略的风险、收益、费率、持仓日期和当前仓位来源放在同一屏。</p></div><span class="pill">最多 ${compareMaxCount} 只</span></div>
           ${compareAdvisorSummaryBlock(selected)}<p class="desc">“最优”按本组已披露数据比较，含并列：收益、夏普越高越优；回撤幅度、波动、费率、起投金额越低越优。日期、基准、资产权重不评优；缺失值不参与。各策略数据日期与历史长度可能不同。</p>
@@ -5545,6 +5654,7 @@
             </div>
           </div>`}
         </section>
+        ${detailsReady ? `
         <section class="panel">
           <div class="panel-head"><div><h2>大类资产配置对比</h2><p class="desc">按最新持仓快照的基金经济大类资产拆分展示，支持一只基金按规则拆到多个资产大类。</p></div></div>
           ${compareExposureConfigBlock(selected, "研报大类资产")}
@@ -5585,6 +5695,7 @@
           <div class="panel-head"><div><h2>最近调仓与贡献对比</h2><p class="desc">展示最近一次历史调仓的披露原因、AI投研总结、基金级变化和收益贡献。</p></div></div>
           ${compareRebalanceBlock(selected)}
         </section>
+        ` : `<section class="panel"><p class="desc">持仓及历史分析等待策略详情加载完成；未加载数据不参与计算。</p></section>`}
       ` : `
         <section class="panel"><div class="empty">尚未收到需要对比的策略，请返回<a class="link" href="./strategies.html">策略列表</a>勾选 2—${compareMaxCount} 只策略。</div></section>
       `}
@@ -5795,6 +5906,12 @@
     const compareScatterX = B.byId("compareScatterX");
     const compareBenchmarkSelectEl = B.byId("compareBenchmarkSelect");
     const compareRangeSelect = B.byId("compareRangeSelect");
+    root.querySelectorAll("[data-compare-retry]").forEach((button) => {
+      button.addEventListener("click", () => getCompareDetailLoader().retry(button.dataset.compareRetry));
+    });
+    root.querySelectorAll("[data-compare-holding-retry]").forEach((button) => {
+      button.addEventListener("click", () => getCompareHoldingLoader().retry("holding-snapshots"));
+    });
     if (compareRangeSelect) compareRangeSelect.addEventListener("change", () => { state.range = compareRangeSelect.value; scheduleRender(); });
     const compareClear = B.byId("compareClear");
     if (compareSearch) {

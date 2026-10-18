@@ -7,6 +7,7 @@
 
   const originalLoadScript = B.loadScript.bind(B);
   const pending = new Map();
+  const activeLoads = new Set();
   let deferredDataScripts = [];
   let deferredDataPromise = null;
   const fileProtocol = window.location.protocol === "file:";
@@ -129,11 +130,13 @@
     return new Response(stream).text();
   }
 
-  async function loadCompressedScript(src, compressedUrl) {
+  async function loadCompressedScript(src, compressedUrl, options = {}) {
     let source;
-    for (let attempt = 0; attempt < 2; attempt += 1) {
+    const maxAttempts = options.retry === false ? 1 : 2;
+    const timeoutMs = Math.max(1000, Math.min(30000, Number(options.timeoutMs) || 30000));
+    for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
       try {
-        source = await withNetworkTimeout(compressedUrl, { cache: attempt ? "reload" : "default" }, 30000,
+        source = await withNetworkTimeout(compressedUrl, { cache: attempt || options.reload ? "reload" : "default" }, timeoutMs,
           async (response) => {
             if (!response.ok) {
               const error = new Error(`压缩数据加载失败 (${response.status}): ${compressedUrl.pathname}`);
@@ -145,7 +148,7 @@
         break;
       } catch (error) {
         const transient = error?.retryable || error?.name === "AbortError" || error?.name === "TypeError";
-        if (attempt || !transient) throw error;
+        if (attempt + 1 >= maxAttempts || !transient) throw error;
       }
     }
     const script = document.createElement("script");
@@ -153,27 +156,29 @@
     document.head.appendChild(script);
   }
 
-  function loadCompressed(src, detailOnly = false) {
+  function loadCompressed(src, detailOnly = false, options = {}) {
     const compressedUrl = compressedScriptUrl(src, detailOnly);
     if (!compressedUrl) return originalLoadScript(src);
     if (fileProtocol) {
       return Promise.reject(new Error("压缩数据必须通过 HTTP 访问。"));
     }
     const key = compressedUrl.href;
+    if (options.reload && !activeLoads.has(key)) pending.delete(key);
     if (!pending.has(key)) {
-      pending.set(key, loadCompressedScript(src, compressedUrl).catch((error) => {
+      activeLoads.add(key);
+      pending.set(key, loadCompressedScript(src, compressedUrl, options).catch((error) => {
         pending.delete(key);
         throw error;
-      }));
+      }).finally(() => activeLoads.delete(key)));
     }
     return pending.get(key);
   }
 
-  B.loadScript = function loadMinimalPublishScript(src) {
+  B.loadScript = function loadMinimalPublishScript(src, options = {}) {
     const compressedUrl = compressedScriptUrl(src, false);
     if (!compressedUrl) return originalLoadScript(src);
-    return loadCompressed(src, false).catch((error) => {
-      if (/404/.test(String(error?.message || error))) return originalLoadScript(src);
+    return loadCompressed(src, false, options).catch((error) => {
+      if (!options.compressedOnly && /404/.test(String(error?.message || error))) return originalLoadScript(src);
       throw error;
     });
   };

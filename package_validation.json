@@ -115,5 +115,7 @@
     "checksComplete": true,
     "inputSnapshotAudit": null,
     "errorCount": 0
-  }
+  },
+  "presentationRefreshedAt": "2026-10-18T20:41:24+08:00",
+  "presentationChangeType": "compare_detail_loading"
 }
