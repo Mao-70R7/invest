@@ -4914,7 +4914,20 @@
   // BEGIN COMPARE_EXPOSURE_SOURCE_V1
   const compareIndustryOrder = ["科技（TMT）", "周期", "先进制造", "金融地产", "消费", "医药医疗", "未分类", "未穿透权益"];
   const compareAssetOrder = ["固定收益", "股票", "现金及货币工具", "基金投资", "商品及黄金", "存托凭证", "其他资产", "暂未核验"];
-  const compareExposureColors = ["#17324D", "#356c98", "#63829B", "#779995", "#8A7F68", "#9CAEBB", "#B6BDC5", "#D3D9DF"];
+  // Fixed category identities: never shift colors when products/categories change.
+  const compareAssetColors = Object.freeze({
+    "固定收益": "#1570EF", "股票": "#D92D20", "现金及货币工具": "#039855",
+    "基金投资": "#7A5AF8", "商品及黄金": "#D99000", "存托凭证": "#D444A5",
+    "其他资产": "#475467", "暂未核验": "#A8AFBA"
+  });
+  const compareIndustryColors = Object.freeze({
+    "科技（TMT）": "#1570EF", "周期": "#E87912", "先进制造": "#7A5AF8",
+    "金融地产": "#009B8E", "消费": "#D444A5", "医药医疗": "#D92D20",
+    "未分类": "#7C8797", "未穿透权益": "#C8CFD9"
+  });
+  function compareExposureColor(name, industry) {
+    return (industry ? compareIndustryColors : compareAssetColors)[name] || "#475467";
+  }
   function compareExposureRecord(id) {
     const pack = loadedHoldingSnapshotPack();
     return Number(pack?.compareExposureVersion) === 1 ? pack.compareExposures?.[id] || null : null;
@@ -4941,7 +4954,7 @@
     const records = rows.map(row => ({row, record: compareExposureRecord(row.统一策略ID)}));
     const names = [...new Set(records.flatMap(({record}) => (record?.status === "ready" ? (industry ? record.industryGroups : record.assetGroups) : []).map(g => g.name)))];
     names.sort((a,b) => (order.includes(a) ? order.indexOf(a) : 99) - (order.includes(b) ? order.indexOf(b) : 99) || a.localeCompare(b, "zh-CN"));
-    const color = name => compareExposureColors[Math.max(0, names.indexOf(name)) % compareExposureColors.length];
+    const color = name => compareExposureColor(name, industry);
     const cards = records.map(({row,record}) => {
       const link = `./strategy-lookthrough.html#${encodeURIComponent(row.统一策略ID)}`;
       if (record?.status !== "ready") return `<article class="compare-asset-row"><div class="compare-row-title"><strong>${strategyLink(row)}</strong></div><p>已核验穿透数据暂不可用；无法确认行业占比，不按零处理。</p><a class="link" href="${link}">查看穿透依据与缺口</a></article>`;
@@ -4960,7 +4973,7 @@
         ${industry ? `<p class="desc">待分类 ${compareExposurePct(record.unclassifiedIndustry)}；行业未穿透 ${compareExposurePct(record.unpenetratedIndustry)}。${num(fundInvestment)>0 ? `基金投资 ${compareExposurePct(fundInvestment)} 未递归穿透，未并入股票行业。` : ""} ${B.esc(record.industryBasis || "")}</p>` : ""}
       </article>`;
     }).join("");
-    if (!industry) return `<div class="compare-asset-list compare-exposure-list">${cards}</div>`;
+    if (!industry) return `<p class="desc">同一资产类别在各策略中使用固定颜色；颜色仅区分类别，不代表收益或优劣。</p><div class="compare-asset-list compare-exposure-list">${cards}</div>`;
     const detailMaps = records.map(({record}) => {
       const map = new Map();
       if (record?.status === "ready") for (const group of record.industryGroups || []) for (const child of group.children || []) map.set(`${group.name} / ${child.name}`, child.value);
@@ -4972,7 +4985,7 @@
     });
     const details = `<details class="fold-block"><summary>完整行业明细（${detailNames.length} 项，全部保留）</summary><div class="table-wrap"><table><thead><tr><th>业务板块 / 原报告行业</th>${rows.map(row=>`<th>${strategyLink(row)}</th>`).join("")}</tr></thead><tbody>${detailNames.map(name=>`<tr><th>${B.esc(name)}</th>${detailMaps.map(map=>`<td style="color:#17324D;font-variant-numeric:tabular-nums">${map.has(name)?compareExposurePct(map.get(name)):"—"}</td>`).join("")}</tr>`).join("") || `<tr><td colspan="${rows.length+1}">尚无可核验行业明细，请查看各策略缺口说明。</td></tr>`}</tbody></table></div></details>`;
     if (options.detailOnly) return details.replace('<details class="fold-block">', '<details class="fold-block" open>');
-    return `<p class="desc">所有数值均占策略总资产，不把已识别行业归一到100%。各策略按所标配置日期独立展示；“—”表示未取得该行业有效披露，不按零补齐。境外近似和缺口保留原标注。</p><div class="compare-asset-list compare-exposure-list">${cards}</div>`;
+    return `<p class="desc">所有数值均占策略总资产，不把已识别行业归一到100%。各策略按所标配置日期独立展示；“—”表示未取得该行业有效披露，不按零补齐。境外近似和缺口保留原标注。同一行业固定配色，颜色仅区分类别，不代表收益或优劣。</p><div class="compare-asset-list compare-exposure-list">${cards}</div>`;
   }
   // END COMPARE_EXPOSURE_SOURCE_V1
 
