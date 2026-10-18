@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-18T19:57:24+08:00",
+  "generatedAt": "2026-10-19T05:12:24+08:00",
   "status": "ready",
   "checks": {
     "monthlyRebalanceMonthCount": 12,
@@ -50,9 +50,9 @@
     "holdingSnapshotPublishedRowCount": 201828,
     "holdingSnapshotStrategyCount": 2142,
     "strategy-lookthroughFileCount": 5477,
-    "strategy-lookthroughBytes": 1334845708,
+    "strategy-lookthroughBytes": 1334838194,
     "monthly-rebalance-reportsFileCount": 14,
-    "monthly-rebalance-reportsBytes": 21469341
+    "monthly-rebalance-reportsBytes": 21468444
   },
   "policy": {
     "blockingZeroChecks": [
@@ -98,7 +98,7 @@
   ],
   "pageVersionValidation": {
     "status": "passed",
-    "buildId": "minimal-c6c3fc3a1c87",
+    "buildId": "minimal-c35779b9dab7",
     "pageCount": 19
   },
   "monthlyRebalanceValidation": {
@@ -109,13 +109,11 @@
   },
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-18T20:06:39+08:00",
+    "validatedAt": "2026-10-19T05:23:38+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
     "inputSnapshotAudit": null,
     "errorCount": 0
-  },
-  "presentationRefreshedAt": "2026-10-18T22:54:53+08:00",
-  "presentationChangeType": "compare_detail_loading"
+  }
 }
