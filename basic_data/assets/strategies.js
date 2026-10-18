@@ -42,10 +42,22 @@
     const padding = (hi - lo || Math.max(Math.abs(hi) * .2, 1)) * .09;
     return [positive ? Math.max(0, lo - padding) : lo - padding, hi + padding];
   }
+  function scatterManagerMatches(name, query) {
+    const normalize = value => String(value || "").normalize("NFKC").toLocaleLowerCase("zh-CN").replace(/\s+/g, "");
+    const tokens = String(query || "").trim().split(/\s+/).filter(Boolean);
+    return tokens.every(token => normalize(name).includes(normalize(token)));
+  }
+  function scatterManagerOptions(managers) {
+    const matched = managers.filter(name => scatterManagerMatches(name, state.scatterManagerQuery));
+    return matched.map(name => `<label><input type="checkbox" value="${B.esc(name)}" data-scatter-pick-manager${state.scatterManagerSelection?.has(name) ? " checked" : ""}><span>${B.esc(name)}</span></label>`).join("") || '<p class="small">未找到匹配机构，请更换关键词。</p>';
+  }
+  function scatterManagerChips() {
+    return [...(state.scatterManagerSelection || [])].map(name => `<button type="button" data-scatter-unpick-manager="${B.esc(name)}" aria-label="取消选择${B.esc(name)}">${B.esc(name)} <span aria-hidden="true">×</span></button>`).join("");
+  }
   function scatterPaletteEditor(palette, managers) {
-    const options = managers.map(name => `<option value="${B.esc(name)}">${B.esc(name)}</option>`).join("");
     return `<details class="strategy-scatter-palette"${state.scatterPaletteOpen ? " open" : ""}><summary>机构配色 · 按投顾管理人设置</summary>
-      <div class="strategy-scatter-palette-controls"><label>投顾管理人<select id="strategyScatterManager" class="control">${options}</select></label><label>颜色<input id="strategyScatterManagerColor" type="color" value="#547995" aria-label="新增机构颜色"></label><button id="strategyScatterSaveColor" type="button">添加 / 更新配色</button><label>其他机构<input id="strategyScatterOtherColor" type="color" value="${palette.other}" aria-label="其他机构颜色"></label><button id="strategyScatterResetColors" type="button">恢复默认</button></div>
+      <div class="strategy-scatter-palette-controls"><div class="strategy-scatter-manager-picker"><label for="strategyScatterManagerSearch">投顾管理人 · 可多选</label><input id="strategyScatterManagerSearch" type="search" class="control" value="${B.esc(state.scatterManagerQuery || "")}" placeholder="输入中文关键词，如：广发、基金" autocomplete="off" aria-controls="strategyScatterManagerOptions"><div id="strategyScatterManagerOptions" class="strategy-scatter-manager-options" role="group" aria-label="匹配的投顾管理人">${scatterManagerOptions(managers)}</div><div class="strategy-scatter-manager-selection"><span id="strategyScatterManagerCount" aria-live="polite">已选 ${state.scatterManagerSelection?.size || 0} 家</span><button id="strategyScatterClearManagers" type="button">清空选择</button></div><div id="strategyScatterManagerChips" class="strategy-scatter-manager-chips">${scatterManagerChips()}</div></div><label>统一颜色<input id="strategyScatterManagerColor" type="color" value="${state.scatterManagerDraftColor || "#547995"}" aria-label="所选机构统一颜色"></label><button id="strategyScatterSaveColor" type="button"${state.scatterManagerSelection?.size ? "" : " disabled"}>应用到所选机构</button><label>其他机构<input id="strategyScatterOtherColor" type="color" value="${palette.other}" aria-label="其他机构颜色"></label><button id="strategyScatterResetColors" type="button">恢复默认</button></div>
+      <p id="strategyScatterPaletteNotice" class="small" role="status">${B.esc(state.scatterPaletteNotice || "可搜索并勾选多家机构，统一应用颜色；更换关键词会保留已选机构。")}</p>
       <div class="strategy-scatter-color-rules">${palette.rules.map(rule => `<label><input type="color" value="${rule.color}" data-scatter-manager-color="${B.esc(rule.manager)}" aria-label="${B.esc(rule.manager)}配色"><span>${B.esc(rule.manager)}</span><button type="button" data-scatter-remove-manager="${B.esc(rule.manager)}" aria-label="移除${B.esc(rule.manager)}配色">移除</button></label>`).join("")}</div>
       <p class="small">机构颜色只表示管理归属，保存在本浏览器；不表示收益好坏。广发基金仅按管理人识别，不包含其他机构在广发证券或广发银行渠道销售的策略。</p></details>`;
   }
@@ -66,6 +78,10 @@
     scatterFocus: true,
     scatterPalette: readScatterPalette(),
     scatterPaletteOpen: false,
+    scatterManagerQuery: "",
+    scatterManagerSelection: new Set(),
+    scatterManagerDraftColor: "#547995",
+    scatterPaletteNotice: "",
     scatterSelectedId: "",
   };
   const compareMaxCount = 5;
@@ -649,16 +665,44 @@
     B.byId("strategyScatterAll").onclick = () => { state.scatterFocus = false; renderStrategyScatter(state.rows); };
     mount.querySelector(".strategy-scatter-palette").ontoggle = event => { state.scatterPaletteOpen = event.target.open; };
     const updatePalette = palette => { saveScatterPalette(palette); renderStrategyScatter(state.rows); };
-    const managerSelect = B.byId("strategyScatterManager"), managerColor = B.byId("strategyScatterManagerColor");
-    managerSelect.onchange = () => { managerColor.value = managerColors.get(managerSelect.value) || "#547995"; };
-    managerSelect.onchange();
+    const managerSearch = B.byId("strategyScatterManagerSearch"), managerColor = B.byId("strategyScatterManagerColor");
+    const renderManagerSelection = () => {
+      B.byId("strategyScatterManagerOptions").innerHTML = scatterManagerOptions(managers);
+      B.byId("strategyScatterManagerChips").innerHTML = scatterManagerChips();
+      B.byId("strategyScatterManagerCount").textContent = `已选 ${state.scatterManagerSelection.size} 家`;
+      B.byId("strategyScatterSaveColor").disabled = !state.scatterManagerSelection.size;
+    };
+    managerSearch.oninput = () => {
+      state.scatterManagerQuery = managerSearch.value;
+      B.byId("strategyScatterManagerOptions").innerHTML = scatterManagerOptions(managers);
+    };
+    B.byId("strategyScatterManagerOptions").onchange = event => {
+      const input = event.target.closest("[data-scatter-pick-manager]");
+      if (!input) return;
+      if (input.checked) state.scatterManagerSelection.add(input.value);
+      else state.scatterManagerSelection.delete(input.value);
+      B.byId("strategyScatterManagerChips").innerHTML = scatterManagerChips();
+      B.byId("strategyScatterManagerCount").textContent = `已选 ${state.scatterManagerSelection.size} 家`;
+      B.byId("strategyScatterSaveColor").disabled = !state.scatterManagerSelection.size;
+    };
+    B.byId("strategyScatterManagerChips").onclick = event => {
+      const button = event.target.closest("[data-scatter-unpick-manager]");
+      if (!button) return;
+      state.scatterManagerSelection.delete(button.dataset.scatterUnpickManager);
+      renderManagerSelection();
+      managerSearch.focus();
+    };
+    B.byId("strategyScatterClearManagers").onclick = () => { state.scatterManagerSelection.clear(); renderManagerSelection(); managerSearch.focus(); };
+    managerColor.oninput = () => { state.scatterManagerDraftColor = managerColor.value; };
     B.byId("strategyScatterSaveColor").onclick = () => {
-      const manager = managerSelect.value;
-      if (!manager) return;
-      updatePalette({ ...palette, rules: [...palette.rules.filter(rule => rule.manager !== manager), { manager, color: managerColor.value }] });
+      const selected = state.scatterManagerSelection;
+      if (!selected.size) return;
+      state.scatterManagerDraftColor = managerColor.value;
+      state.scatterPaletteNotice = `已将 ${selected.size} 家机构统一设为 ${managerColor.value.toUpperCase()}，配色保存在本浏览器。`;
+      updatePalette({ ...palette, rules: [...palette.rules.filter(rule => !selected.has(rule.manager)), ...[...selected].map(manager => ({ manager, color: managerColor.value }))] });
     };
     B.byId("strategyScatterOtherColor").onchange = event => updatePalette({ ...palette, other: event.target.value });
-    B.byId("strategyScatterResetColors").onclick = () => updatePalette(defaultScatterPalette());
+    B.byId("strategyScatterResetColors").onclick = () => { state.scatterPaletteNotice = "已恢复默认配色。"; updatePalette(defaultScatterPalette()); };
     mount.querySelectorAll("[data-scatter-manager-color]").forEach(input => { input.onchange = () => updatePalette({ ...palette, rules: palette.rules.map(rule => rule.manager === input.dataset.scatterManagerColor ? { ...rule, color: input.value } : rule) }); });
     mount.querySelectorAll("[data-scatter-remove-manager]").forEach(button => { button.onclick = () => updatePalette({ ...palette, rules: palette.rules.filter(rule => rule.manager !== button.dataset.scatterRemoveManager) }); });
     detail(); draw();
