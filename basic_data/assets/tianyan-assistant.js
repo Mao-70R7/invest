@@ -5,6 +5,8 @@
   const api = (config.apiBase || "").replace(/\/$/, "");
   const storageKey = "tianyan_assistant_session_v1";
   let session = null, busy = false, timer = null, opener = null, opened = false, connecting = null;
+  let submitting = false, workerOnline = null, taskConnectionOk = true, activeTasks = [], generation = 0, refreshId = 0;
+  const active = task => ["queued", "processing"].includes(task.status);
   try { session = JSON.parse(sessionStorage.getItem(storageKey) || "null"); } catch (_) {}
   const el = (tag, className, text) => {
     const node = document.createElement(tag);
@@ -41,36 +43,46 @@
   document.body.append(overlay);
 
   function persist() {
-    if (session) sessionStorage.setItem(storageKey, JSON.stringify(session));
-    else sessionStorage.removeItem(storageKey);
+    try {
+      if (session) sessionStorage.setItem(storageKey, JSON.stringify(session));
+      else sessionStorage.removeItem(storageKey);
+    } catch (_) {} // Storage restrictions must never lock the composer.
   }
   function showNotice(text) { notice.textContent = text; notice.hidden = !text; }
   function controls() {
-    send.disabled = busy || !session; input.disabled = busy || !session; logout.disabled = busy || !session;
-    send.textContent = busy ? "处理中" : session ? "发送" : "连接中";
+    busy = submitting || (workerOnline === true && taskConnectionOk && activeTasks.some(active));
+    send.disabled = busy; input.disabled = false; logout.disabled = false;
+    send.textContent = submitting ? "发送中" : busy ? "处理中" : "发送";
   }
   async function connect() {
     if (session && session.expires_at * 1000 > Date.now()) return;
     if (connecting) return connecting;
     session = null; persist(); controls();
-    connecting = request("/v1/sessions", "POST", {}).then(value => { session = value; persist(); controls(); }).finally(() => { connecting = null; });
-    return connecting;
+    const version = generation;
+    const pending = request("/v1/sessions", "POST", {}).then(value => {
+      if (version !== generation) return;
+      session = value; persist(); controls();
+    }).finally(() => { if (connecting === pending) connecting = null; });
+    connecting = pending; return pending;
   }
   async function request(path, method = "GET", body) {
     const headers = {};
-    if (session) headers.Authorization = "Bearer " + session.token;
+    const owner = session;
+    if (owner) headers.Authorization = "Bearer " + owner.token;
     if (body) headers["Content-Type"] = "application/json";
-    const controller = new AbortController(); const timeout = setTimeout(() => controller.abort(), 20000);
+    const controller = new AbortController(); const timeout = setTimeout(() => controller.abort(), path === "/v1/health" ? 6000 : 12000);
     try {
       const response = await fetch(api + path, { method, headers, body: body ? JSON.stringify(body) : undefined, signal: controller.signal, cache: "no-store" });
-      const value = await response.json();
+      let value;
+      try { value = await response.json(); }
+      catch (error) { if (error.name === "AbortError") throw error; throw new Error("助手服务返回异常，问题内容已保留，请重试或新建对话。"); }
       if (!response.ok) {
-        if (response.status === 401 && path !== "/v1/sessions") { session = null; persist(); controls(); }
+        if (response.status === 401 && path !== "/v1/sessions" && session === owner) { session = null; persist(); controls(); }
         throw new Error(value.error || "请求未完成");
       }
       return value;
     } catch (error) {
-      if (error instanceof TypeError || error.name === "AbortError") throw new Error("暂时无法连接助手。已提交的任务会保留，请稍后重新打开对话。");
+      if (error instanceof TypeError || error.name === "AbortError") throw new Error("助手连接超时或暂时不可用。问题内容已保留，可重试或点击新对话。");
       throw error;
     } finally { clearTimeout(timeout); }
   }
@@ -142,18 +154,27 @@
   }
   async function refresh() {
     if (!session || !opened) return;
+    clearTimeout(timer);
+    const owner = session, version = generation, id = ++refreshId;
+    const current = () => (!session || session === owner) && generation === version && refreshId === id;
     try {
-      const [list, health] = await Promise.all([request("/v1/tasks"), request("/v1/health")]);
-      setHealth(health.worker_online === true);
-      const tasks = list.tasks.reverse(); busy = tasks.some(t => ["queued", "processing"].includes(t.status));
+      const [list, health] = await Promise.allSettled([request("/v1/tasks"), request("/v1/health")]);
+      if (!current()) return;
+      setHealth(health.status === "fulfilled" && health.value.worker_online === true);
+      if (list.status === "rejected") throw list.reason;
+      taskConnectionOk = true;
+      const tasks = list.value.tasks.slice().reverse(); activeTasks = tasks.filter(active);
       if (session.pending && tasks.some(t => t.client_message_id === session.pending.client_message_id)) { delete session.pending; persist(); }
-      render(tasks); controls(); showNotice("");
-      state.textContent = health.worker_online ? (busy ? "本地助手正在处理，请稍等" : "助手在线 · 可以继续提问") : "后台不在线，请联系mjx启动ai助手服务";
-      timer = setTimeout(refresh, busy ? 3000 : 15000);
+      controls(); render(tasks);
+      showNotice(workerOnline ? "" : "后台暂不可用，您可以继续编辑问题或点击新对话。服务恢复后重试。");
+      state.textContent = workerOnline ? (busy ? "本地助手正在处理，可先编辑下一题或新建对话" : "助手在线 · 可以继续提问") : "后台不在线，请联系mjx启动ai助手服务";
+      if (opened) timer = setTimeout(refresh, activeTasks.length ? 3000 : 15000);
     } catch (error) {
+      if (generation !== version || refreshId !== id || (session && session !== owner)) return;
+      taskConnectionOk = false; setHealth(false); controls();
       showNotice(error.message);
       if (!session && opened) { try { await connect(); timer = setTimeout(refresh, 100); } catch (connectionError) { showNotice(connectionError.message); timer = setTimeout(open, 6000); } }
-      else if (session) timer = setTimeout(refresh, 6000);
+      else if (session && opened) timer = setTimeout(refresh, 6000);
     }
   }
   async function open() {
@@ -176,15 +197,38 @@
     }
   });
   form.onsubmit = async event => {
-    event.preventDefault(); if (busy || !session || !input.value.trim()) return;
-    busy = true; controls(); clearTimeout(timer);
-    const payload = session.pending && session.pending.question === input.value.trim() ? session.pending : { question: input.value.trim(), client_message_id: crypto.randomUUID() };
-    session.pending = payload; persist();
-    try { await request("/v1/tasks", "POST", payload); delete session.pending; persist(); input.value = ""; await refresh(); }
-    catch (error) { busy = false; controls(); showNotice(error.message); if (session) timer = setTimeout(refresh, 4000); else timer = setTimeout(open, 1000); }
+    event.preventDefault(); if (busy || !input.value.trim()) return;
+    const version = generation, question = input.value.trim();
+    submitting = true; controls(); clearTimeout(timer); ++refreshId;
+    let owner = null;
+    try {
+      await connect(); if (generation !== version) return;
+      owner = session;
+      const health = await request("/v1/health"); if (generation !== version || session !== owner) return;
+      setHealth(health.worker_online === true);
+      if (!workerOnline) throw new Error("后台暂不可用，本次问题尚未发送，内容已保留。服务恢复后可重试，也可点击新对话。");
+      const payload = session.pending && session.pending.question === question ? session.pending : { question, client_message_id: crypto.randomUUID() };
+      session.pending = payload; persist();
+      const task = await request("/v1/tasks", "POST", payload);
+      if (generation !== version || session !== owner) return;
+      delete session.pending; persist();
+      // The user may already be drafting their next question while sending.
+      if (input.value.trim() === question) input.value = "";
+      activeTasks = active(task) ? [task] : []; taskConnectionOk = true; submitting = false; controls(); await refresh();
+    } catch (error) {
+      if (generation !== version || (owner && session && owner !== session)) return;
+      taskConnectionOk = false; setHealth(false); showNotice(error.message);
+      if (opened) timer = setTimeout(session ? refresh : open, 4000);
+    } finally {
+      if (generation === version) { submitting = false; controls(); }
+    }
   };
   input.onkeydown = event => { if (event.key === "Enter" && !event.shiftKey && !event.isComposing) { event.preventDefault(); form.requestSubmit(); } };
-  logout.onclick = () => { clearTimeout(timer); session = null; persist(); busy = false; input.value = ""; showNotice(""); open(); };
+  logout.onclick = () => {
+    clearTimeout(timer); ++generation; ++refreshId; connecting = null;
+    session = null; activeTasks = []; submitting = false; workerOnline = null; taskConnectionOk = true; persist();
+    showNotice(""); controls(); open();
+  };
   const existingTriggers = [...document.querySelectorAll("[data-tianyan-assistant]")];
   if (existingTriggers.length) {
     for (const trigger of existingTriggers) { trigger.type = "button"; trigger.onclick = open; }
@@ -205,6 +249,7 @@
   healthBadge.append(statusDot,statusLabel);heading.append(healthBadge);
   indicators.push({trigger:healthBadge,dot:statusDot,label:statusLabel});
   function setHealth(online){
+    workerOnline = online; controls();
     for(const {trigger,label} of indicators){trigger.dataset.online=String(online);label.textContent=online?'在线':'离线';trigger.title=online?'AI助手后台在线':'后台不在线，请联系mjx启动ai助手服务';}
     healthBadge.setAttribute('aria-label',online?'AI助手后台在线':'后台不在线，请联系mjx启动ai助手服务');
     if(!online)state.textContent='后台不在线，请联系mjx启动ai助手服务';

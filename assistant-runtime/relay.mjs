@@ -39,6 +39,26 @@ export function createHandler(config,store,clock=()=>Date.now()/1000,fetcher=fet
     const lock=await get('locks/worker');
     if(lock?.owner===owner)await put('locks/worker',{owner,expires:clock()+60});
   };
+  // Recover abandoned sessions on visitor requests too: a stopped worker cannot
+  // execute claim-time cleanup. Preserve the question and terminal audit record.
+  const reconcileActive = async sid => {
+    const lock=await get(`active/${sid}`);if(!lock)return;
+    const key=taskKey(sid,lock.id),task=await get(key);
+    const release=async()=>{if((await get(`active/${sid}`))?.id===lock.id)await store.delete(`active/${sid}`);};
+    if(!task){if(clock()-lock.created_at>30)await release();return;}
+    if(terminal.has(task.status)){await release();return;}
+    const seen=await get('meta/worker'),offline=!seen || clock()-seen.seen>=45;
+    const queueExpired=task.status==='queued' && ((offline && clock()-task.created_at>=120) || clock()-task.created_at>=1800);
+    const leaseExpired=task.status==='processing' && offline && (task.lease_until||0)<=clock();
+    if(!queueExpired && !leaseExpired)return;
+    // Re-read before closing; do not overwrite an answer or refreshed lease.
+    const latest=await get(key);
+    if(!latest || latest.status!==task.status || latest.lease!==task.lease || latest.lease_until!==task.lease_until)return;
+    Object.assign(latest,{status:'failed',stage:'等待超时',answer:'后台服务中断或等待超时，本次未能完成。原问题已保留，您可以重新提问。',lease_until:0});
+    await put(key,latest);await archive(latest,'answer');
+    if(mirror){await mirror.enqueue(latest,'question');await mirror.enqueue(latest,'answer');}
+    await store.delete(`queue/${latest.id}`);await release();
+  };
   const history = async sid => (await records(`tasks/${sid}/`)).sort((a,b)=>b.created_at-a.created_at);
   const jsonBody = async (request,max=300000) => {
     const text=await request.text();check(Buffer.byteLength(text)<=max,413,'请求内容超出上限');
@@ -88,7 +108,7 @@ export function createHandler(config,store,clock=()=>Date.now()/1000,fetcher=fet
       const token=(request.headers.get('authorization')||'').replace(/^Bearer /,'');
       if(path==='/v1/health' && request.method==='GET'){
         const seen=await get('meta/worker');
-        return respond({ok:true,version:'tianyan-blob-relay-v3',public_access:!!config.publicAccess,feishu_mirror:!!mirror,worker_online:!!seen && clock()-seen.seen<45,queued:(await list('queue/')).length});
+        return respond({ok:true,version:'tianyan-blob-relay-v3-recovery1',session_recovery:true,public_access:!!config.publicAccess,feishu_mirror:!!mirror,worker_online:!!seen && clock()-seen.seen<45,queued:(await list('queue/')).length});
       }
       if(path==='/v1/sessions' && request.method==='POST'){
         const body=await jsonBody(request,80000);
@@ -174,6 +194,7 @@ export function createHandler(config,store,clock=()=>Date.now()/1000,fetcher=fet
       }
       const session=token?await get(`sessions/${digest(token)}`):null;
       check(session && session.expires>clock(),401,'会话已过期，请重新连接');
+      if(path==='/v1/tasks' || /^\/v1\/tasks\/[a-f0-9]{32}$/.test(path))await reconcileActive(session.id);
       if(path==='/v1/tasks' && request.method==='GET')return respond({tasks:await Promise.all((await history(session.id)).slice(0,20).map(publicTask))});
       if(path==='/v1/tasks' && request.method==='POST'){
         const body=await jsonBody(request,80000),question=String(body.question||'').trim(),client=String(body.client_message_id||'');

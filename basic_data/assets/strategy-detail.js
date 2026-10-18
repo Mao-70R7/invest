@@ -1453,6 +1453,20 @@
     </section>`;
   }
 
+  function financialstreetSourceSection() {
+    if (!id.startsWith("financial_street__")) return "";
+    const summary = detail.summary || {};
+    const checks = (detail.qualityChecks || []).filter(row => String(row.项目 || "").startsWith("金融街"));
+    return `<section class="panel strategy-section" data-financialstreet-source-quality>
+      <div class="panel-head"><div><h2>金融街来源覆盖与缺失说明</h2><p class="desc">以金融街已披露记录为准；未披露及日期口径差异分别保留。</p></div></div>
+      <p class="desc">${B.esc(summary.发布数据状态 || "待核验")}｜官方业绩 ${B.esc(summary.官方业绩首日 || "未披露")} 至 ${B.esc(summary.官方业绩末日 || "未披露")}</p>
+      <div class="quality-grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))">
+        ${checks.map(row => `<div class="quality-card"><h3>${B.esc(row.项目)}</h3><span class="pill" data-source-quality-state style="color:#66717E;background:#F5F7F9">${B.esc(row.结论)}</span><p>${B.esc(row.说明)}</p></div>`).join("")}
+      </div>
+      <p class="desc" style="overflow-wrap:anywhere">原因标记 ${B.esc(summary.数据缺失原因码 || "待核验")}｜${B.esc(summary.数据缺失原因说明 || "来源覆盖待核验")}</p>
+    </section>`;
+  }
+
   function otherInformationSection() {
     const secondaryModules = [governanceSection(), targetSeriesSection(), signalSection(), entityGraphSection()].filter(Boolean).join("");
     const benchmarkBucket = classificationMap.基准风险资产权重 || "未披露";
@@ -1536,6 +1550,7 @@
       ${qiemanReplayLimited ? `<p class="desc" data-qieman-replay-coverage>官方净值始于 ${B.esc(officialStart)}；可核验的历史调仓与自建回放仅从 ${B.esc(replayStart)} 起，更早仓位尚未取得。</p>` : ""}
       <div class="strategy-overview-foot">数据刷新 ${B.esc(dataRefreshTime || "未披露")}｜策略代码 ${B.esc(profileMap.策略代码 || detail.summary.策略代码 || "未披露")}｜页面版本 ${B.esc(window.MinimalPublish?.buildId || "本地完整版")}</div>
     </section>
+    ${financialstreetSourceSection()}
     <nav class="strategy-section-nav" aria-label="策略详情页内导航">
       <a class="is-active" data-strategy-section-link href="#strategy-overview">概览</a>
       ${isTargetProfitStrategy() ? '<a data-strategy-section-link href="#strategy-target-profit">目标盈</a>' : ""}
