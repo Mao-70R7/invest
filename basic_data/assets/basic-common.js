@@ -484,20 +484,29 @@ window.BasicData = (() => {
     }
     return selected;
   }
-  function transformSeries(seriesMap, range = "all", alreadyReturn = false, visibility = {}) {
+  function transformSeries(seriesMap, range = "all", alreadyReturn = false, visibility = {}, calendarWindow = null) {
     const raw = Object.entries(seriesMap || {}).filter(([name]) => visibility[name] !== false).map(([name, payload]) => {
       const points = Array.isArray(payload) ? payload : (payload?.points || []);
       const mode = payload?.模式 || points[0]?.模式 || "nav";
       const allTimeValueMode = range === "all" ? String(payload?.allTimeValueMode || "") : "";
-      const start = alreadyReturn ? null : rangeStartDate(points, range);
+      const start = calendarWindow ? null : (alreadyReturn ? null : rangeStartDate(points, range));
       const filtered = points
         .filter((p) => p.日期 && p.数值 !== null && p.数值 !== undefined && (!start || new Date(p.日期) >= start))
         .map((p) => ({ 日期: String(p.日期), 数值: Number(p.数值) }))
-        .filter((p) => Number.isFinite(p.数值))
+        .filter((p) => Number.isFinite(p.数值) && (!calendarWindow ||
+          ((!calendarWindow.start || p.日期 >= calendarWindow.start) && p.日期 <= calendarWindow.end)))
         .sort((a, b) => a.日期.localeCompare(b.日期));
       return { name, points: filtered, mode: alreadyReturn ? "return" : mode, allTimeValueMode };
     }).filter((item) => item.points.length);
     if (!raw.length) return {};
+    // A stale comparison series must never clear or extend the other curves.
+    if (calendarWindow) {
+      return Object.fromEntries(raw.filter(item => item.points.length >= 2).map(item => [item.name,
+        item.points.map(point => ({ 日期: point.日期, 数值: item.allTimeValueMode
+          ? (item.allTimeValueMode === "unit_nav" ? (point.数值 - 1) * 100 : point.数值)
+          : returnFromBase(point.数值, item.points[0].数值, item.mode) }))
+          .filter(point => Number.isFinite(point.数值))]));
+    }
     const commonStart = raw.map((item) => item.points[0].日期).sort().at(-1);
     const commonEnd = raw.map((item) => item.points[item.points.length - 1].日期).sort()[0];
     if (!commonStart || !commonEnd || commonStart > commonEnd) return {};
@@ -554,10 +563,15 @@ window.BasicData = (() => {
       names.forEach((name) => { if (!(name in el.__seriesVisibility)) el.__seriesVisibility[name] = defaultVisibleSeries ? defaultVisibleSeries.has(name) : true; });
     }
     Object.keys(el.__seriesVisibility).forEach((name) => { if (!names.includes(name)) delete el.__seriesVisibility[name]; });
-    const transformed = transformSeries(seriesMap, range, !!options.alreadyReturn, el.__seriesVisibility);
+    const transformed = transformSeries(seriesMap, range, !!options.alreadyReturn, el.__seriesVisibility, options.calendarWindow);
     const series = Object.entries(transformed);
+    const coverage = options.calendarWindow ? `<div class="source-method compare-curve-coverage"><strong>绘图口径：</strong>${esc(options.calendarWindow.start || "全部历史")} 至 ${esc(options.calendarWindow.end)}。各曲线以区间内首个有效点归零，起止日期不同请结合日期比较；长缺口断开，不延长停更曲线。${names.filter(name => el.__seriesVisibility[name] !== false).map(name => {
+      const points = transformed[name] || [];
+      const original = Array.isArray(seriesMap[name]) ? seriesMap[name] : (seriesMap[name]?.points || []);
+      return `<div>${esc(name)}：${points.length ? `${esc(points[0].日期)} 至 ${esc(points.at(-1).日期)}` : `所选区间无足够数据（原始数据截至 ${esc(original.at(-1)?.日期 || "—")}）；可切换“全部”查看历史，或勾选回放。`}</div>`;
+    }).join("")}</div>` : "";
     if (!series.length) {
-      el.innerHTML = `${chartLegendHtml(names, el.__seriesVisibility, seriesStyles)}<div class="empty">暂无可绘制曲线</div>`;
+      el.innerHTML = `${chartLegendHtml(names, el.__seriesVisibility, seriesStyles)}${coverage}<div class="empty">暂无可绘制曲线</div>`;
       el.querySelectorAll(".legend-toggle").forEach((input) => {
         input.addEventListener("change", () => {
           el.__seriesVisibility[input.dataset.seriesName] = input.checked;
@@ -599,11 +613,11 @@ window.BasicData = (() => {
     const paths = series.map(([name, rows]) => {
       const color = seriesColor(name);
       const style = seriesStyles[name] || {};
-      const d = rows.map((row, i) => `${i ? "L" : "M"}${xOf(row.日期).toFixed(1)},${yOf(row.数值).toFixed(1)}`).join(" ");
+      const d = rows.map((row, i) => `${i && !(options.maxGapDays && (Date.parse(row.日期) - Date.parse(rows[i - 1].日期)) / 86400000 > options.maxGapDays) ? "L" : "M"}${xOf(row.日期).toFixed(1)},${yOf(row.数值).toFixed(1)}`).join(" ");
       return `<path data-series-name="${esc(name)}" d="${d}" fill="none" stroke="${esc(color)}" stroke-width="${esc(style.width || 2.4)}"${style.dash ? ` stroke-dasharray="${esc(style.dash)}"` : ""} stroke-linejoin="round" stroke-linecap="round"/>`;
     }).join("");
     const legend = chartLegendHtml(names, el.__seriesVisibility, seriesStyles);
-    el.innerHTML = `${legend}<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(options.title || "收益曲线")}">${xTicks}${grid}${zero}<line x1="${pad.left}" y1="${height-pad.bottom}" x2="${width-pad.right}" y2="${height-pad.bottom}" stroke="#d0d7de"/>${paths}<g class="hover-layer" visibility="hidden"><line class="hover-line" x1="0" y1="${pad.top}" x2="0" y2="${height - pad.bottom}"/><g class="hover-points"></g></g></svg><div class="chart-tooltip" hidden></div>`;
+    el.innerHTML = `${legend}${coverage}<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(options.title || "收益曲线")}">${xTicks}${grid}${zero}<line x1="${pad.left}" y1="${height-pad.bottom}" x2="${width-pad.right}" y2="${height-pad.bottom}" stroke="#d0d7de"/>${paths}<g class="hover-layer" visibility="hidden"><line class="hover-line" x1="0" y1="${pad.top}" x2="0" y2="${height - pad.bottom}"/><g class="hover-points"></g></g></svg><div class="chart-tooltip" hidden></div>`;
     el.querySelectorAll(".legend-toggle").forEach((input) => {
       input.addEventListener("change", () => {
         el.__seriesVisibility[input.dataset.seriesName] = input.checked;

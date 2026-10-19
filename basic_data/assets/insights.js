@@ -5509,8 +5509,22 @@
     return new Set(points.map(point => point.日期)).size >= 2 ? { ...series, 模式: mode, points } : null;
   }
 
-  function compareRangePoints(series) {
+  function compareCalendarWindow(rows) {
+    const dates = rows.map(row => {
+      const curves = compareDetail(row.统一策略ID)?.curves || {};
+      return (compareUsableSeries(curves.披露业绩) || compareUsableSeries(curves.模拟业绩))?.points.at(-1).日期;
+    }).filter(Boolean).sort();
+    const end = dates.at(-1);
+    if (!end) return null;
+    const days = { "1w": 7, "1y": 365, "6m": 183, "3m": 92, "1m": 31 }[state.range] || 0;
+    const start = state.range === "all" ? null : state.range === "ytd" ? `${end.slice(0, 4)}-01-01`
+      : new Date(Date.parse(end + "T00:00:00Z") - days * 86400000).toISOString().slice(0, 10);
+    return { start, end };
+  }
+
+  function compareRangePoints(series, window = null) {
     const points = compareUsableSeries(series)?.points || [];
+    if (window) return points.filter(point => (!window.start || point.日期 >= window.start) && point.日期 <= window.end);
     if (!points.length || state.range === "all") return points;
     const last = new Date(points.at(-1).日期 + "T00:00:00Z");
     const days = { "1w": 7, "1y": 365, "6m": 183, "3m": 92, "1m": 31 }[state.range] || 0;
@@ -5520,14 +5534,14 @@
   }
 
   function compareBenchmarkCompatible(rows, series) {
+    const window = compareCalendarWindow(rows);
+    if (!window) return false;
+    const baseline = compareRangePoints(series, window);
     const strategyPoints = rows.map(row => {
       const curves = compareDetail(row.统一策略ID)?.curves || {};
-      return compareRangePoints(compareUsableSeries(curves.披露业绩) || curves.模拟业绩);
+      return compareRangePoints(compareUsableSeries(curves.披露业绩) || curves.模拟业绩, window);
     }).filter(points => points.length >= 2);
-    if (!strategyPoints.length) return false;
-    const start = strategyPoints.map(points => points[0].日期).sort().at(-1);
-    const end = strategyPoints.map(points => points.at(-1).日期).sort()[0];
-    return start < end && compareRangePoints(series).filter(point => point.日期 >= start && point.日期 <= end).length >= 2;
+    return strategyPoints.some(points => baseline.filter(point => point.日期 >= points[0].日期 && point.日期 <= points.at(-1).日期).length >= 2);
   }
 
   function bestCompareBenchmark(rows) {
@@ -5611,7 +5625,8 @@
       el.innerHTML = `<div class="empty">${rows.some((row) => !compareDetail(row.统一策略ID)) ? '策略曲线正在加载，请查看上方加载状态；失败后可重试。' : '所选策略暂无可用收益曲线。'}</div>`;
       return;
     }
-    B.drawReturnChart(el, series, { range: state.range, title: "策略对比收益曲线", defaultVisibleSeries: defaultVisible, seriesStyles });
+    B.drawReturnChart(el, series, { range: state.range, title: "策略对比收益曲线", defaultVisibleSeries: defaultVisible, seriesStyles,
+      calendarWindow: compareCalendarWindow(rows), maxGapDays: 45 });
   }
 
   function escapeRegExp(text) {
