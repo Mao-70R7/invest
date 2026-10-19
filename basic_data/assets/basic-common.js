@@ -531,15 +531,18 @@ window.BasicData = (() => {
     });
     return Object.fromEntries(entries.filter(([, rows]) => rows.length));
   }
-  function chartLegendHtml(names, visibility) {
+  function chartLegendHtml(names, visibility, seriesStyles = {}) {
     if (!names.length) return "";
     return `<div class="legend">${names.map((name) => {
       const checked = visibility[name] !== false ? "checked" : "";
-      return `<label class="legend-item"><input class="legend-toggle" type="checkbox" data-series-name="${esc(name)}" ${checked}><i style="background:${colorForSeries(name)}"></i><span>${esc(name)}</span></label>`;
+      return `<label class="legend-item"><input class="legend-toggle" type="checkbox" data-series-name="${esc(name)}" ${checked}><i style="background:${esc(seriesStyles[name]?.color || colorForSeries(name))}"></i><span>${esc(name)}</span></label>`;
     }).join("")}</div>`;
   }
   function drawReturnChart(el, seriesMap, options = {}) {
     const range = options.range || "all";
+    // Keep identity styles in the redraw options, including legend and hover.
+    const seriesStyles = options.seriesStyles || {};
+    const seriesColor = (name) => seriesStyles[name]?.color || colorForSeries(name);
     const names = Object.keys(seriesMap || {});
     const defaultVisibleSeries = Array.isArray(options.defaultVisibleSeries) ? new Set(options.defaultVisibleSeries) : null;
     const visibilityKey = `${names.join("|")}::${defaultVisibleSeries ? [...defaultVisibleSeries].join("|") : "all"}`;
@@ -554,7 +557,7 @@ window.BasicData = (() => {
     const transformed = transformSeries(seriesMap, range, !!options.alreadyReturn, el.__seriesVisibility);
     const series = Object.entries(transformed);
     if (!series.length) {
-      el.innerHTML = `${chartLegendHtml(names, el.__seriesVisibility)}<div class="empty">暂无可绘制曲线</div>`;
+      el.innerHTML = `${chartLegendHtml(names, el.__seriesVisibility, seriesStyles)}<div class="empty">暂无可绘制曲线</div>`;
       el.querySelectorAll(".legend-toggle").forEach((input) => {
         input.addEventListener("change", () => {
           el.__seriesVisibility[input.dataset.seriesName] = input.checked;
@@ -594,11 +597,12 @@ window.BasicData = (() => {
     }).join("");
     const zero = min < 0 && max > 0 ? `<line x1="${pad.left}" y1="${yOf(0)}" x2="${width - pad.right}" y2="${yOf(0)}" stroke="#cbd5e1" stroke-dasharray="4 4"/>` : "";
     const paths = series.map(([name, rows]) => {
-      const color = colorForSeries(name);
+      const color = seriesColor(name);
+      const style = seriesStyles[name] || {};
       const d = rows.map((row, i) => `${i ? "L" : "M"}${xOf(row.日期).toFixed(1)},${yOf(row.数值).toFixed(1)}`).join(" ");
-      return `<path d="${d}" fill="none" stroke="${color}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>`;
+      return `<path data-series-name="${esc(name)}" d="${d}" fill="none" stroke="${esc(color)}" stroke-width="${esc(style.width || 2.4)}"${style.dash ? ` stroke-dasharray="${esc(style.dash)}"` : ""} stroke-linejoin="round" stroke-linecap="round"/>`;
     }).join("");
-    const legend = chartLegendHtml(names, el.__seriesVisibility);
+    const legend = chartLegendHtml(names, el.__seriesVisibility, seriesStyles);
     el.innerHTML = `${legend}<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(options.title || "收益曲线")}">${xTicks}${grid}${zero}<line x1="${pad.left}" y1="${height-pad.bottom}" x2="${width-pad.right}" y2="${height-pad.bottom}" stroke="#d0d7de"/>${paths}<g class="hover-layer" visibility="hidden"><line class="hover-line" x1="0" y1="${pad.top}" x2="0" y2="${height - pad.bottom}"/><g class="hover-points"></g></g></svg><div class="chart-tooltip" hidden></div>`;
     el.querySelectorAll(".legend-toggle").forEach((input) => {
       input.addEventListener("change", () => {
@@ -618,7 +622,7 @@ window.BasicData = (() => {
       const guideX = xOf(nearestDate);
       const rows = series.map(([name, values]) => {
         const exact = values.find((row) => row.日期 === nearestDate);
-        return { name, value: exact?.数值, color: colorForSeries(name), disclosed: !!exact };
+        return { name, value: exact?.数值, color: seriesColor(name), disclosed: !!exact };
       });
       const disclosedRows = rows.filter((row) => row.disclosed && Number.isFinite(row.value));
       hoverLayer.setAttribute("visibility", "visible");

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "buildId": "minimal-c35779b9dab7",
-  "generatedAt": "2026-10-19T05:12:28+08:00",
+  "generatedAt": "2026-10-19T09:24:40+08:00",
   "pageSet": [
     "机构总览",
     "策略列表",
@@ -77,7 +77,7 @@
     "preservedPublishBytes": 0
   },
   "fileCount": 5743,
-  "totalBytes": 340961668,
+  "totalBytes": 340958942,
   "files": [
     {
       "path": ".gitattributes",
@@ -136,13 +136,13 @@
     },
     {
       "path": "basic_data/assets/basic-common.js",
-      "size": 48796,
-      "sha256": "bbce41a6e1afcf2d5543e3e6cdfd9463f31ead204ee01aa5e33bc347cf984280"
+      "size": 48558,
+      "sha256": "9843181e93d87801b2149a7c7732484b00046ad4cd204ec5af78c25cbe91d30e"
     },
     {
       "path": "basic_data/assets/basic.css",
-      "size": 243035,
-      "sha256": "615e281f6d2f4d560e3c33f1ba52578d020194ce2a70b843b9ce0135495f0469"
+      "size": 239842,
+      "sha256": "4d1e0a8daf7a5c3cb60dedae1749765b654c1663aa735f01ab9e946389db40ea"
     },
     {
       "path": "basic_data/assets/business-query.js",
@@ -151,8 +151,8 @@
     },
     {
       "path": "basic_data/assets/insights.js",
-      "size": 369296,
-      "sha256": "b68c2756fb56673df115286011503d2cb9f40a2ad97c7ece32d71cd4e19d4ba5"
+      "size": 370096,
+      "sha256": "203358f5c04a872147b1937ab89b59f3cf2939f62e451790e4980931f28391c9"
     },
     {
       "path": "basic_data/assets/institutions.js",
@@ -14181,8 +14181,8 @@
     },
     {
       "path": "basic_data/compare.html",
-      "size": 3164,
-      "sha256": "5105057cf63989067284940dff8ee14163b1f76e640a13db833a7dbc58a4c9f5"
+      "size": 3156,
+      "sha256": "a108413382545f16ba8d1908c09aa8a0361e7158273b33d693e27b0d5f513a4f"
     },
     {
       "path": "basic_data/data/basic_summary_core.js.gz",
@@ -28626,13 +28626,13 @@
     },
     {
       "path": "basic_data/institutions.html",
-      "size": 3148,
-      "sha256": "5c346f05088d484cce86176eac705ffa9eda7d6118c9edc9c7e7739e849b3051"
+      "size": 3126,
+      "sha256": "0e7440c6d2783f34bc38805f6aa3911be0b15f12cb7b216b619cdc058fd4302d"
     },
     {
       "path": "basic_data/mixed-performance-scatter.html",
-      "size": 3247,
-      "sha256": "61ef0ea53a54fef6ff02d51730ca870d759827a5e3e43083ea2cfafc6629873f"
+      "size": 3224,
+      "sha256": "009660f4113fb773040c150c6dece7c1e33b18c1ced321d70bf31d34ce2e3199"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202510.html",
@@ -28701,8 +28701,8 @@
     },
     {
       "path": "basic_data/strategies.html",
-      "size": 3087,
-      "sha256": "8aa216226063a6de0b09f0bd35298e1613542a0ed94fc8e00c44700aefc29e10"
+      "size": 3067,
+      "sha256": "6681103c941bfa7adad154d4d9a8113c0aabb95b3f17edb2284767fdcd483e7e"
     },
     {
       "path": "basic_data/strategy-lookthrough.html",
@@ -28711,8 +28711,8 @@
     },
     {
       "path": "basic_data/strategy.html",
-      "size": 3209,
-      "sha256": "b43b355673fb8354b900a55deabd117fd0b010cb415f637d19af069b386fbfc7"
+      "size": 3187,
+      "sha256": "643478d8048581caa3c5a1bf2d4a4f2ce712a8facc0b1d5ae19efcea4c9022eb"
     },
     {
       "path": "cloud-functions/ai-api/[[default]].js",
@@ -28742,7 +28742,7 @@
     {
       "path": "package_validation.json",
       "size": 4485,
-      "sha256": "ea2ae8fbd8d97a083f117a0f996db62e27983a139a97906387f83f0071899181"
+      "sha256": "71a1fb17fe07899cff73a02993b7c14f7e864ff03bd1e1268bdf95ab72273887"
     },
     {
       "path": "README.md",
@@ -28794,5 +28794,6 @@
       "size": 58,
       "sha256": "fde8860405e951900cdc0080196dc927fb16da60ffe7464e5d2c068490a4fac5"
     }
-  ]
+  ],
+  "uiRevision": "8143e3299801"
 }

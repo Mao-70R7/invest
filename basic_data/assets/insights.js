@@ -355,7 +355,7 @@
     "风险收益散点": "横轴为最大回撤或波动率，纵轴为当前时间区间收益；样本为当前筛选和同类口径下的可比策略，已选策略高亮显示。",
     "风险收益点选": "点击散点只在图下方展示产品介绍、同类位置和加入按钮，不直接跳转；策略名称本身可进入策略详情页。",
     "重合度明细": "点击重合度矩阵中的非自身单元格后展示明细。基金重合度列出共同基金及两边权重；资产和行业重合度列出共同暴露分类及两边比例。",
-    "对比基准": "策略对比曲线可叠加全局指数基准。默认按已选策略披露收益曲线与可用指数日收益相关性选择；有效样本不足时按策略组合资产结构选择股票、债券、货币或混合基准。",
+    "对比基准": "手动选择优先；自动时按对比篮子顺序采用第一只具备有效基准曲线的策略基准，否则使用沪深300。只采用与策略曲线日期重叠的基准；基准缺失不影响策略自身曲线，也不改写原始披露基准。",
     "大类资产配置对比": "按 holding_snapshot_pack 最新持仓快照的经济大类资产分类聚合；一只基金可按拆分规则进入多个资产大类，页面展示每只策略的权重结构。",
     "行业配置对比": "按 holding_snapshot_pack 最新持仓快照的经济行业/主题分类聚合。行业暴露来自基金经济暴露快照、基金分类和拆分规则，不等同于基金公司披露的完整股票明细行业持仓。",
     "权益主题配置对比": "按 holding_snapshot_pack 最新持仓快照的权益行业主题分类聚合，用于观察权益方向主题集中度；缺少主题拆分的数据不强行归类。",
@@ -4984,7 +4984,7 @@
       return (order.indexOf(ga) < 0 ? 99 : order.indexOf(ga)) - (order.indexOf(gb) < 0 ? 99 : order.indexOf(gb)) || a.localeCompare(b,"zh-CN");
     });
     const details = `<details class="fold-block"><summary>完整行业明细（${detailNames.length} 项，全部保留）</summary><div class="table-wrap"><table><thead><tr><th>业务板块 / 原报告行业</th>${rows.map(row=>`<th>${strategyLink(row)}</th>`).join("")}</tr></thead><tbody>${detailNames.map(name=>`<tr><th>${B.esc(name)}</th>${detailMaps.map(map=>`<td style="color:#17324D;font-variant-numeric:tabular-nums">${map.has(name)?compareExposurePct(map.get(name)):"—"}</td>`).join("")}</tr>`).join("") || `<tr><td colspan="${rows.length+1}">尚无可核验行业明细，请查看各策略缺口说明。</td></tr>`}</tbody></table></div></details>`;
-    if (options.detailOnly) return details.replace('<details class="fold-block">', '<details class="fold-block" open>');
+    if (options.detailOnly) return details.slice(details.indexOf('<div class="table-wrap">'), -"</details>".length);
     return `<p class="desc">所有数值均占策略总资产，不把已识别行业归一到100%。各策略按所标配置日期独立展示；“—”表示未取得该行业有效披露，不按零补齐。境外近似和缺口保留原标注。同一行业固定配色，颜色仅区分类别，不代表收益或优劣。</p><div class="compare-asset-list compare-exposure-list">${cards}</div>`;
   }
   // END COMPARE_EXPOSURE_SOURCE_V1
@@ -5498,44 +5498,62 @@
     return globalBenchmarks.find((row) => row.code === code) || null;
   }
 
-  function assetDefaultBenchmark(rows) {
-    const avg = (field) => rows.length ? sum(rows, field) / rows.length : 0;
-    const equity = avg("权益基金权重");
-    const bond = avg("债券基金权重");
-    const cash = avg("货币基金权重");
-    const qdii = avg("QDII权重");
-    const reportTypes = rows.map((row) => raw(row.研报产品类型 || row.业务分类)).join(" ");
-    const preferred = cash >= 70 ? ["H11025.CSI", "H11015.CSI"]
-      : /短债/.test(reportTypes) ? ["H11015.CSI", "H11023.CSI"]
-      : bond + cash >= 80 ? ["H11023.CSI", "H11001.CSI", "930609.CSI"]
-      : qdii >= 20 ? ["000906.SH", "930950.CSI", "000300.SH"]
-      : equity >= 70 ? ["930950.CSI", "000906.SH", "000300.SH"]
-      : equity >= 35 ? ["000906.SH", "000300.SH", "H11023.CSI"]
-      : ["000906.SH", "H11023.CSI", "000300.SH"];
-    return preferred.map(benchmarkByCode).find(Boolean) || globalBenchmarks[0] || null;
+  function compareUsableSeries(series) {
+    const original = Array.isArray(series) ? series : series?.points;
+    if (!Array.isArray(original)) return null;
+    const mode = series?.模式 || series?.mode || original[0]?.模式 || "nav";
+    const points = original.map(point => ({ 日期: pointDate(point), 数值: pointValue(point) }))
+      .filter(point => /^\d{4}-\d{2}-\d{2}$/.test(point.日期) && Number.isFinite(Date.parse(point.日期))
+        && point.数值 !== null && (mode === "nav" ? point.数值 > 0 : point.数值 > -100))
+      .sort((a, b) => a.日期.localeCompare(b.日期));
+    return new Set(points.map(point => point.日期)).size >= 2 ? { ...series, 模式: mode, points } : null;
+  }
+
+  function compareRangePoints(series) {
+    const points = compareUsableSeries(series)?.points || [];
+    if (!points.length || state.range === "all") return points;
+    const last = new Date(points.at(-1).日期 + "T00:00:00Z");
+    const days = { "1w": 7, "1y": 365, "6m": 183, "3m": 92, "1m": 31 }[state.range] || 0;
+    const start = state.range === "ytd" ? `${last.getUTCFullYear()}-01-01`
+      : new Date(last.getTime() - days * 86400000).toISOString().slice(0, 10);
+    return points.filter(point => point.日期 >= start);
+  }
+
+  function compareBenchmarkCompatible(rows, series) {
+    const strategyPoints = rows.map(row => {
+      const curves = compareDetail(row.统一策略ID)?.curves || {};
+      return compareRangePoints(compareUsableSeries(curves.披露业绩) || curves.模拟业绩);
+    }).filter(points => points.length >= 2);
+    if (!strategyPoints.length) return false;
+    const start = strategyPoints.map(points => points[0].日期).sort().at(-1);
+    const end = strategyPoints.map(points => points.at(-1).日期).sort()[0];
+    return start < end && compareRangePoints(series).filter(point => point.日期 >= start && point.日期 <= end).length >= 2;
   }
 
   function bestCompareBenchmark(rows) {
-    if (!globalBenchmarks.length) return null;
-    const strategyDeltas = averageStrategyDeltaMap(rows);
-    let best = null;
-    globalBenchmarks.forEach((benchmark) => {
-      const score = pearsonFromMaps(strategyDeltas, seriesDeltaMap({ 模式: "nav", points: benchmark.points || [] }));
-      if (score.corr === null) return;
-      if (!best || score.corr > best.corr) best = { ...benchmark, corr: score.corr, count: score.count, method: "相关性" };
-    });
-    if (best && best.count >= 30 && best.corr >= 0.15) return best;
-    const fallback = assetDefaultBenchmark(rows);
-    return fallback ? { ...fallback, corr: best?.corr ?? null, count: best?.count ?? 0, method: "资产结构" } : null;
+    for (const row of rows) {
+      const detail = compareDetail(row.统一策略ID);
+      const series = compareUsableSeries(detail?.curves?.基准业绩);
+      const description = raw(compareProfileValue(row, detail, "业绩基准说明") || compareProfileValue(row, detail, "业绩基准"));
+      const disclosed = description && !/^(未披露|暂无|无|--|—|-|不适用)$/.test(description);
+      if (series && (disclosed || row.有基准 === true || row.有基准 === 1) && compareBenchmarkCompatible(rows, series)) {
+        return { name: description || `${row.策略名称}基准`, code: row.统一策略ID, series,
+          sourceStrategyName: row.策略名称, method: "已选策略基准" };
+      }
+    }
+    const fallback = benchmarkByCode("000300.SH");
+    const series = compareUsableSeries(fallback && { 模式: "nav", points: fallback.points });
+    return series && compareBenchmarkCompatible(rows, series) ? { ...fallback, series, method: "沪深300默认基准" } : null;
   }
 
   function selectedCompareBenchmark(rows) {
-    return benchmarkByCode(state.compareBenchmarkCode) || bestCompareBenchmark(rows);
+    const selected = benchmarkByCode(state.compareBenchmarkCode);
+    const series = compareUsableSeries(selected && { 模式: "nav", points: selected.points });
+    return series && compareBenchmarkCompatible(rows, series) ? { ...selected, series, method: "手动选择" } : bestCompareBenchmark(rows);
   }
 
   function compareBenchmarkSelect(rows) {
     const auto = bestCompareBenchmark(rows);
-    if (!globalBenchmarks.length) return "";
     return `<select id="compareBenchmarkSelect" class="control compact-control benchmark-select">
       <option value="">自动：${B.esc(auto ? `${auto.name}｜${auto.method}` : "无可用基准")}</option>
       ${globalBenchmarks.map((row) => `<option value="${B.esc(row.code)}" ${row.code === state.compareBenchmarkCode ? "selected" : ""}>${B.esc(row.name)}｜${B.esc(row.code)}</option>`).join("")}
@@ -5544,65 +5562,56 @@
 
   function compareBenchmarkNote(rows) {
     const selected = selectedCompareBenchmark(rows);
-    if (!selected) return "暂无可用指数基准。";
-    const corrText = selected.corr !== null && selected.corr !== undefined ? `，日收益相关性 ${selected.corr.toFixed(2)}，共同样本 ${countText(selected.count)}` : "";
-    return `${state.compareBenchmarkCode ? "手动选择" : `默认${selected.method || "自动选择"}`}：${selected.name}（${selected.code}）${corrText}。`;
+    const skipped = state.compareBenchmarkCode && selected?.method !== "手动选择" ? "所选指数无有效重叠数据，已回退。" : "";
+    if (!selected) return skipped + "基准暂无可用重叠数据，仅展示可用策略曲线；不补零、不改写策略原始基准。";
+    return skipped + `${selected.method}：${selected.name}${selected.sourceStrategyName ? `（来源：${selected.sourceStrategyName}）` : `（${selected.code}）`}。仅作本图对比，不改写策略原始基准。`;
   }
 
-  function styleCompareReturnChart(el, names) {
-    const baseNames = [...new Set(names.map((name) => raw(name).split("｜")[0]))];
-    const colorMap = new Map(baseNames.map((name, index) => [name, comparePalette[index % comparePalette.length]]));
-    const visibleNames = names.filter((name) => !el.__seriesVisibility || el.__seriesVisibility[name] !== false);
-    el.querySelectorAll("svg path").forEach((pathEl, index) => {
-      const name = visibleNames[index] || "";
-      const base = raw(name).split("｜")[0];
-      const isBenchmark = name.startsWith("指数基准");
-      pathEl.setAttribute("stroke", isBenchmark ? "#101828" : (colorMap.get(base) || compareColorFor(base)));
-      pathEl.setAttribute("stroke-width", isBenchmark ? "3.2" : (name.includes("回放") ? "3.0" : "4.0"));
-      if (name.includes("回放")) pathEl.setAttribute("stroke-dasharray", "8 5");
-      if (isBenchmark) pathEl.setAttribute("stroke-dasharray", "3 4");
+  function compareReturnChartModel(rows) {
+    const series = {};
+    const defaultVisible = [];
+    const seriesStyles = {};
+    rows.forEach((row) => {
+      const detail = compareDetail(row.统一策略ID);
+      if (!detail?.curves) return;
+      const label = row.策略名称 || row.统一策略ID;
+      const name = rows.filter(item => (item.策略名称 || item.统一策略ID) === label).length > 1 ? `${label}（${row.统一策略ID}）` : label;
+      const color = compareSelectedColor(row.统一策略ID);
+      const disclosed = compareUsableSeries(detail.curves.披露业绩);
+      const replay = compareUsableSeries(detail.curves.模拟业绩);
+      if (disclosed) {
+        const key = `${name}｜披露`;
+        series[key] = disclosed;
+        seriesStyles[key] = { color, width: 4 };
+        defaultVisible.push(key);
+      }
+      if (replay) {
+        const key = `${name}｜回放`;
+        series[key] = replay;
+        seriesStyles[key] = { color, width: 3, dash: "8 5" };
+        if (!disclosed) defaultVisible.push(key);
+      }
     });
-    el.querySelectorAll(".legend-item").forEach((item) => {
-      const input = item.querySelector(".legend-toggle");
-      const dot = item.querySelector("i");
-      const name = input?.dataset.seriesName || "";
-      const base = raw(name).split("｜")[0];
-      if (dot) dot.style.background = name.startsWith("指数基准") ? "#101828" : (colorMap.get(base) || compareColorFor(base));
-      if (name.includes("回放")) dot.style.border = "2px dashed currentColor";
-      if (name.startsWith("指数基准")) dot.style.border = "2px dotted currentColor";
-    });
+    const benchmark = selectedCompareBenchmark(rows);
+    if (benchmark?.series) {
+      const key = `对比基准：${benchmark.name}`;
+      series[key] = benchmark.series;
+      seriesStyles[key] = { color: "#101828", width: 3.2, dash: "3 4" };
+      defaultVisible.push(key);
+    }
+    return { series, defaultVisible, seriesStyles };
   }
 
   function drawCompareCharts() {
     const el = B.byId("compareReturnChart");
     if (!el) return;
     const rows = compareSelectedRows();
-    const series = {};
-    const defaultVisible = [];
-    rows.forEach((row) => {
-      const detail = compareDetail(row.统一策略ID);
-      if (!detail?.curves) return;
-      const name = row.策略名称 || row.统一策略ID;
-      if (detail.curves.披露业绩) {
-        const key = `${name}｜披露`;
-        series[key] = detail.curves.披露业绩;
-        defaultVisible.push(key);
-      }
-      if (detail.curves.模拟业绩) series[`${name}｜回放`] = detail.curves.模拟业绩;
-    });
-    const benchmark = selectedCompareBenchmark(rows);
-    if (benchmark?.points?.length) {
-      const key = `指数基准：${benchmark.name}`;
-      series[key] = { 模式: "nav", points: benchmark.points };
-      defaultVisible.push(key);
-    }
+    const { series, defaultVisible, seriesStyles } = compareReturnChartModel(rows);
     if (!Object.keys(series).length) {
       el.innerHTML = `<div class="empty">${rows.some((row) => !compareDetail(row.统一策略ID)) ? '策略曲线正在加载，请查看上方加载状态；失败后可重试。' : '所选策略暂无可用收益曲线。'}</div>`;
       return;
     }
-    const names = Object.keys(series);
-    B.drawReturnChart(el, series, { range: state.range, title: "策略对比收益曲线", defaultVisibleSeries: defaultVisible });
-    styleCompareReturnChart(el, names);
+    B.drawReturnChart(el, series, { range: state.range, title: "策略对比收益曲线", defaultVisibleSeries: defaultVisible, seriesStyles });
   }
 
   function escapeRegExp(text) {
@@ -5692,7 +5701,7 @@
         ${compareAiSummaryBlock(selected, overlapRows)}
         <section class="panel chart-panel">
           <div class="panel-head">
-            <div><h2>业绩曲线对比</h2><p class="desc">默认显示官方披露曲线，并叠加与本组策略最相关的指数基准；可在图例中打开自建回放曲线。</p></div>
+            <div><h2>业绩曲线对比</h2><p class="desc">优先显示官方披露曲线，无可用披露曲线时显示自建回放；基准优先采用已选策略的有效基准，否则使用沪深300。可在图例中切换曲线。</p></div>
             <div class="chart-actions"><label>收益区间 <select id="compareRangeSelect" class="control compact-control">${dateRanges.map((r) => `<option value="${r.key}" ${state.range === r.key ? "selected" : ""}>${r.label}</option>`).join("")}</select></label>${compareBenchmarkSelect(selected)}</div>
           </div>
           <div class="source-method"><strong>${B.label("对比基准")}</strong> ${B.esc(compareBenchmarkNote(selected))}</div>
@@ -5726,10 +5735,11 @@
           <div class="panel-head"><div><h2>行业配置对比</h2><p class="desc">复用已核验穿透报告的全部股票行业，包含境外报告行业近似；不将行业缺口与非股票资产放大归一。</p></div></div>
           ${compareExposureConfigBlock(selected, "研报A股行业")}
         </section>
-        <section class="panel">
-          <div class="panel-head"><div><h2>完整行业明细对比</h2><p class="desc">展示全部已核验行业及明确缺口，与上方业务板块口径一致；各列数值均占策略总资产。</p></div></div>
+        <details class="panel fold-block compare-industry-details">
+          <summary>完整行业明细对比</summary>
+          <p class="desc">展示全部已核验行业及明确缺口，与上方业务板块口径一致；各列数值均占策略总资产。</p>
           ${compareExposureConfigBlock(selected, "研报A股行业", { detailOnly: true })}
-        </section>
+        </details>
         <section class="panel">
           <div class="panel-head"><div><h2>仓位重合度</h2><p class="desc">仅比较当前对比篮子中的已选策略；基金、资产和行业三个角度衡量是否同质化。</p></div></div>
           ${compareOverlapHeatmaps(selected, overlapRows)}

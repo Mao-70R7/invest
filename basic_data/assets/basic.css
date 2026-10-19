@@ -811,7 +811,7 @@ tr:last-child td { border-bottom: 0; }
 .strategy-compare-button { min-height:36px; border:1px solid var(--brand-dark); border-radius:7px; background:var(--brand-dark); color:#fff; padding:7px 16px; font:inherit; font-size:13px; font-weight:800; cursor:pointer; }
 .strategy-compare-button:hover:not(:disabled) { filter:brightness(.94); box-shadow:0 2px 7px rgba(23,48,68,.16); }
 .strategy-compare-button:disabled { border-color:#cbd5dc; background:#dce4e8; color:#7b8993; cursor:not-allowed; }
-.compare-result-grid { grid-template-columns:minmax(0,1fr); }
+.insight-grid.compare-result-grid { grid-template-columns:minmax(0,1fr); }
 .sort-head { display:inline-flex; align-items:center; gap:5px; border:0; background:transparent; color:inherit; font:inherit; font-weight:650; cursor:pointer; padding:0; text-align:left; }
 .sort-head:hover { color:var(--brand-dark); }
 .sort-arrow { color:#94a3b8; font-size:10px; min-width:10px; }

@@ -109,7 +109,7 @@
   },
   "sourceValidation": {
     "status": "passed",
-    "validatedAt": "2026-10-19T05:23:38+08:00",
+    "validatedAt": "2026-10-19T09:33:52+08:00",
     "databasePath": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "dbIndependentRecompute": true,
     "checksComplete": true,
