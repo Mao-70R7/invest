@@ -17,6 +17,7 @@
     return;
   }
   const overview = B.state.summary?.overview || {};
+  B.applyBenchmarkReference(detail,B.state.summary?.globalBenchmarks || []);
   const officialStart = detail.curves?.披露业绩?.points?.[0]?.日期;
   const replayStart = detail.curves?.模拟业绩?.points?.[0]?.日期;
   const qiemanReplayLimited = id.startsWith("qieman__") && officialStart && replayStart
@@ -983,6 +984,10 @@
   }
   function mainChartSeries() {
     const series = { ...(detail.curves || {}) };
+    if (detail.benchmarkDisplayReference?.fallback) {
+      series['沪深300参考基准'] = series['基准业绩'];
+      delete series['基准业绩'];
+    }
     const strategyId = String(detail.summary?.统一策略ID || "");
     if (strategyId.startsWith("gfbank_cgb__")) {
       ["披露业绩", "基准业绩"].forEach((name) => {
@@ -1117,11 +1122,12 @@
     }
     const primaryName = officialPoints.length >= 2 ? "披露业绩" : "模拟业绩";
     const series = mainChartSeries();
-    const benchmarkPayload = series["基准业绩"];
+    const benchmarkName = detail.benchmarkDisplayReference?.fallback ? '沪深300参考基准' : '基准业绩';
+    const benchmarkPayload = series[benchmarkName];
     const benchmarkPoints = Array.isArray(benchmarkPayload) ? benchmarkPayload : (benchmarkPayload?.points || []);
     const defaultSeries = [
       primaryName,
-      ...(benchmarkPoints.length >= 2 ? ["基准业绩"] : []),
+      ...(benchmarkPoints.length >= 2 ? [benchmarkName] : []),
       ...(selectedName ? [selectedName] : []),
     ];
     B.drawReturnChart(chartHost, series, { range: activeRange, title: "净值曲线", defaultVisibleSeries: defaultSeries, maxGapDays: 45 });
@@ -1204,6 +1210,10 @@
     const selected = selectedContributionGlobalBenchmark();
     const selectedName = selectedContributionGlobalBenchmarkSeriesName();
     const series = { ...(target.payload.series || {}) };
+    if (detail.benchmarkDisplayReference?.fallback && series['基准业绩']) {
+      series['沪深300参考基准']=series['基准业绩'];
+      delete series['基准业绩'];
+    }
     if (selected && Array.isArray(selected.points) && selected.points.length) {
       series[selectedName] = { 模式: "nav", points: selected.points };
     }

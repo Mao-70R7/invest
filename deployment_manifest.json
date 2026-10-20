@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildId": "minimal-b8ba5b356cbc",
-  "generatedAt": "2026-10-20T23:53:07+08:00",
+  "buildId": "minimal-edf1ce8b3365",
+  "generatedAt": "2026-10-21T00:49:35+08:00",
   "pageSet": [
     "机构总览",
     "策略列表",
@@ -76,8 +76,8 @@
     "preservedPublishFileCount": 0,
     "preservedPublishBytes": 0
   },
-  "fileCount": 5771,
-  "totalBytes": 354285115,
+  "fileCount": 5776,
+  "totalBytes": 362958672,
   "files": [
     {
       "path": ".gitattributes",
@@ -136,8 +136,8 @@
     },
     {
       "path": "basic_data/assets/basic-common.js",
-      "size": 51056,
-      "sha256": "34befb314d5f22b44f622689885d8e9e141d91e3007b109657a9a1517ce6b05d"
+      "size": 54565,
+      "sha256": "523a702f53cf08273b8a646155874c358040720ccf31039650879dea7f2222d8"
     },
     {
       "path": "basic_data/assets/basic.css",
@@ -151,8 +151,8 @@
     },
     {
       "path": "basic_data/assets/insights.js",
-      "size": 378883,
-      "sha256": "6c319b589277eea8f3580f0dbbe86a496ea71c811c20c8c51d5e91630a1d77e3"
+      "size": 379001,
+      "sha256": "7e5c39d394c64e04a72ead31283bb9f0010940f11f6b75db5a075483d1633ce0"
     },
     {
       "path": "basic_data/assets/institutions.js",
@@ -246,8 +246,8 @@
     },
     {
       "path": "basic_data/assets/strategy-detail.js",
-      "size": 109578,
-      "sha256": "7fbf1b2e4338f6026458861bd9bb04d8c42dce88b872466cb5b77c9f08e3fcbc"
+      "size": 110122,
+      "sha256": "4103c728793eb83525d28d9391309d3f8ceeb25739bde6add92addcb4397e797"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/00095381da42032b991bdb7e.json.gz",
@@ -1131,8 +1131,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/129bea38f4c7d93f1ad4873b.json.gz",
-      "size": 36373,
-      "sha256": "d003fc1f4df15e580242d0605902f03ca46d3d0d342bae43bcb1ef204a73e8ab"
+      "size": 31986,
+      "sha256": "fdd6bafad9f767dce5085d90eb3c9ff58ea772749548221b219adbcc60d08700"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/12adbdd942e4dab2a506fb6a.json.gz",
@@ -2791,8 +2791,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/30c6262f11a9a6e4364ea7b1.json.gz",
-      "size": 21058,
-      "sha256": "65d8dde960b27334c37c1af1f9b55140960df6e944c2904b0b14110bf0704413"
+      "size": 17800,
+      "sha256": "557293132a0ba4a44a5793149885b2a9d10ccb6d455b0a31a1768e63995e4cea"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/30ddb1050f507a519af73701.json.gz",
@@ -6981,8 +6981,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/829df5b860cb43a011507ef9.json.gz",
-      "size": 44059,
-      "sha256": "66a355f286aa9f37239b057096f6bada390c74080816f0ae66440c7510395ac8"
+      "size": 36857,
+      "sha256": "58b5d1c3a888489ff65e979fa026e846a160443e5127d22964e557e37843ab66"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/82bcc3a1acf85a5e9a3f8305.json.gz",
@@ -8336,8 +8336,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/995542d5d6e01c2b9cf08f42.json.gz",
-      "size": 17876,
-      "sha256": "71e1b399e6791cb61efae156d049e971c7df91b1db8cb4d9f7a0950dc0bc7114"
+      "size": 14531,
+      "sha256": "907f34d19aae5f8530848b54ba4d94ee839093e313d2fd65afcca5c1d34f9dab"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/995c17dc7a074bd294d33d68.json.gz",
@@ -9496,8 +9496,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/b12ab34817126d186e2fe773.json.gz",
-      "size": 36512,
-      "sha256": "e425d06c451cb3df248c57e2a8e2355797d995e9b8782e4f5f80313911feaf34"
+      "size": 31005,
+      "sha256": "bec20db46228f6c6fde25228dfd0f77190384e8f81f124147eaab0f0436f756a"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/b13663dae904146a4b83ddfd.json.gz",
@@ -9916,8 +9916,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/b7d4e422113d28c24c2ca5c1.json.gz",
-      "size": 25203,
-      "sha256": "f8a9ac25832fe10f8dc70c27b4bcad882ce577f05d8c1d3b583376d2c1ceefcf"
+      "size": 19023,
+      "sha256": "36590c4c7fd233521fbb71224f182192971ebb97b83d593bae45f3d93fe3a3dd"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/b7d74698dd2cfc7369b78673.json.gz",
@@ -9971,8 +9971,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/b90e77ba0f7a9691910f5e19.json.gz",
-      "size": 37659,
-      "sha256": "95ea6274af79035b6d1f68e29a46c44c9bb9363fce1080de86265e2d43983b65"
+      "size": 36127,
+      "sha256": "23a0093ff6d1951468746b6642b5fbf8983560138282f9a4506be6f27bff08bf"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/b91fe756d6a617bb3c988d32.json.gz",
@@ -10376,8 +10376,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/build_evidence.json",
-      "size": 2055725,
-      "sha256": "d0676b850526b808f78043bb6b1e82967457c0f07b3bc2c3bd34f37a8190069d"
+      "size": 2064577,
+      "sha256": "557e1b73ddf8f5c3b0c107e2f933fdbfcaf98063f3e75f3f4bea6ab08719045a"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/c03a3b721adc4bc743fa6c9f.json.gz",
@@ -10811,8 +10811,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/c82ac9415daadd364c9c7d7a.json.gz",
-      "size": 38544,
-      "sha256": "363ba591b7d20dbcef6cee625a7202678d276d6c1a63c56f049a8fa3bf8432aa"
+      "size": 35968,
+      "sha256": "9772ce1ad88816543a8ca43ff30553bcf8032da0f61c30141d37dc857acdc3ed"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/c8338363a4fe59f262caff4b.json.gz",
@@ -11576,8 +11576,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/d74e1c679e3d522433e1a585.json.gz",
-      "size": 47755,
-      "sha256": "804a074393dd822d52f14e4d798145f402f20cc242fe78556ab0e7ba29bc0da0"
+      "size": 42319,
+      "sha256": "0515ea0623ab0039c790eec3a4115663cd64997940f60bbc1d2d59ba0ce120d0"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/d74ecd7268e2cecf2faa576c.json.gz",
@@ -13146,8 +13146,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/f613cb72e2568e3c9f6f17ae.json.gz",
-      "size": 51799,
-      "sha256": "b2f8c90433c37e71a1e262b2697702108b6dc4688bd76d505c0d56cc0a690c2d"
+      "size": 44302,
+      "sha256": "78f7d258799685b5d1669a2df40add8c3be863402656c3706f32cb7cbd05d66c"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/f63c86614aa939819f144d90.json.gz",
@@ -13846,8 +13846,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/index_estimates_manifest.json",
-      "size": 22362,
-      "sha256": "d41be11314684a3e67eab08842211d45b98f39238456930b3252cd11c7af5443"
+      "size": 26638,
+      "sha256": "4f070ab310a831dee8f64b22222f15433cb8670624e6eb97ebdb351aec784740"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/industry_source_evidence.json",
@@ -13861,333 +13861,333 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/packed_storage_manifest.json",
-      "size": 761785,
-      "sha256": "73c5480db6dad91fc82cf49e202825d5fcd4b0a5b017c2cb5f67c532a1a93738"
+      "size": 763798,
+      "sha256": "15e8777ec94181c3cdd7cfad15caac52ecc22536c74363e1665a9427e5dabd3c"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/00.json.gz",
-      "size": 154539,
-      "sha256": "7b3b4f06b767b0febfc70a1e9c6f3ff92663032c67a213a56004d858b1850bae"
+      "size": 154553,
+      "sha256": "570c68d58f488a714d4a5525bd305e721fc409281cdede8cd0cfa2924c759192"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/01.json.gz",
-      "size": 191091,
-      "sha256": "9bf11d9cf621c7b76c21f69c8ad976242d54c827824eda304f61986995aa2eeb"
+      "size": 190504,
+      "sha256": "2b039d9ff0a8e40f8374dd6a8eebb41d50d2db97b6e890a6b7173da9bc02cac1"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/02.json.gz",
-      "size": 219584,
-      "sha256": "bf345a5904f0f8183576a6c7d8bfa5fb59ef04c2c38b29f0797e75f5800ab759"
+      "size": 219704,
+      "sha256": "3d68dd053b1bb73da4c7cd38df08269a88bb80151dac7d8ccc530139e1cae344"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/03.json.gz",
-      "size": 195191,
-      "sha256": "f5beb0c095dcf9ecfab12d070dc08863916d2f16fa512d89c99a86574c74500b"
+      "size": 195440,
+      "sha256": "e26c7fd6474327bf6207e1c9229d4c706af9641236f13389d63ccaa8e67da99c"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/04.json.gz",
-      "size": 264106,
-      "sha256": "475cbde6ae40880191ec09289e9a83e5b3384e61ea999aacdee9fc8b603615a1"
+      "size": 262898,
+      "sha256": "fba95278815576bb72d9943d494af10d7e6c55291cd43eeb468ab673cbaa9007"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/05.json.gz",
-      "size": 317524,
-      "sha256": "f2d9d7fcc4505a883775c2bad6c08a2c31e1272c007b850cd6a4c361ad6a36b3"
+      "size": 317400,
+      "sha256": "a3f4882a2e6e6abe363ab2f284ca69d11ce5e37e809f66ce84d5953c5be62fe5"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/06.json.gz",
-      "size": 353657,
-      "sha256": "d1dce60a37487f02021b4ecb52553d0a5042caec421dafd048a66f32ccc3b28d"
+      "size": 353197,
+      "sha256": "459003b271e735b400641577a4612051ca1e1f5acd12e738fd0cd8869dda230c"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/07.json.gz",
-      "size": 318879,
-      "sha256": "ffd78955ae48b51b3003673915a437ab4657b68e8936205ed86c913287990cbb"
+      "size": 319030,
+      "sha256": "21d43fcaf05198e955728e58c7edeb88dd93f5fa660eec70a049caa50de66d2d"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/08.json.gz",
-      "size": 382264,
-      "sha256": "5580fecb54a85913a2a17b8a3063044418c10ad32bc157cd5fdf910699301abf"
+      "size": 383632,
+      "sha256": "c39c4d3db041088ce62249ceae81a4e24b1a983fb340f31251497df3c548e2eb"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/09.json.gz",
-      "size": 374948,
-      "sha256": "2d7f7a3c8bf68552dcc88dd26f27390ea3e696b6699554fba96c6b039acabe16"
+      "size": 373754,
+      "sha256": "6d8a6cc0760dd8efed7040717906fcbb6eb5b6160a7a969ff5b6bc0f65d7e393"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/0a.json.gz",
-      "size": 389712,
-      "sha256": "4971410b76b819ff4b5458bf9714689b216c7d710b492b0a38c51f66aff9668f"
+      "size": 389042,
+      "sha256": "d5e54973ac65bbe2cb6c1d05c7f3ac96772469f6e28c10514a9bcd6e35012b89"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/0b.json.gz",
-      "size": 461877,
-      "sha256": "cd3f725a7916099e1ac93bdb81bd23bd9490a82875a9a5f7a730e63100fa75a3"
+      "size": 461732,
+      "sha256": "d1a2a2e41a10966b48fb406fab6d2bb6f08f211276d049f60cdc27a29effe979"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/0c.json.gz",
-      "size": 521263,
-      "sha256": "7e8dfbd5f22138eedc36a70fb6a97cbc19a7995e9db18d963631de16470c6af5"
+      "size": 520903,
+      "sha256": "37b0484a79ccee459f378c6ab37efa0ed8c1c5bd4a02f2cdf81036c7deb72065"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/0d.json.gz",
-      "size": 486319,
-      "sha256": "e0466cfea75a31ff7822032bac09852098cd519d3bfb1063f7bd0194dd301db1"
+      "size": 486441,
+      "sha256": "5be998c1d06bc5a568be23127736fff8d5f3f9e5e40f005735f691578b710814"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/0e.json.gz",
-      "size": 449744,
-      "sha256": "306e63b60d5511cfc1e097b976ad5314b9865c092b6652420f339c592c66a897"
+      "size": 451049,
+      "sha256": "94855935693dfd8f0759a845594edd54e83fcca3cb53feab9992644d82be0d15"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/0f.json.gz",
-      "size": 508604,
-      "sha256": "c06e3a4d973c4bdba7547c4b357cff3978d770700376692d25c6355e92d046a3"
+      "size": 507649,
+      "sha256": "495fc3ab99836151e2291e36f657f6765890b339da8053b406a9b346b0bec72d"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/10.json.gz",
-      "size": 455951,
-      "sha256": "e4a41a8e21609318f4ed014e3ec0b057ab1b5b28b59fb5fbbd35bfb6a9a6380a"
+      "size": 455798,
+      "sha256": "27d4555ba8a037d7a688d987193e2a4803c2a77950d89718cc46d720edd84fe7"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/11.json.gz",
-      "size": 433607,
-      "sha256": "9dfb1c09790ba346423158a6637101ed188b0032715e7923a6072cf38f509092"
+      "size": 433005,
+      "sha256": "bc732ba151181cc5d849d08a021e2b1a7c7a16732759cce475badc759e55613a"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/12.json.gz",
-      "size": 473817,
-      "sha256": "6602bb3d570a832a41101c35bce4bca5257fd2a7cb6d4bdf06f94f107ddf787b"
+      "size": 473264,
+      "sha256": "0a211b9a40a93b7c0d6078c1e64cb37464c0850b4f67d06dadc3d805fc6ca1f5"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/13.json.gz",
-      "size": 301418,
-      "sha256": "ea64174cc89c6221393fff14afc65745f1cab57a952caa204ed6dbe54221f68f"
+      "size": 300871,
+      "sha256": "0f18a27dccccae26a84dc9cbe80c30479ec3d3d0b1ebed64b63be8f994ecafae"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/14.json.gz",
-      "size": 349698,
-      "sha256": "453f6b54d0cc50268babe20bd81355e2fa71c85b6d31df76be1873e7f5af20fa"
+      "size": 350132,
+      "sha256": "e514f5c18c717953367e4f896e928a52dc9fa7cdac34fcf4e253cd693add1dcb"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/15.json.gz",
-      "size": 374414,
-      "sha256": "264787d1aebdfb16674a3ce05b915e22e5cc90e76cfa5499b5dace19cdb16769"
+      "size": 377661,
+      "sha256": "69e95ff38359815eacba727babddcc3c7684b2d9189fac58ad465e73b5412ac8"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/16.json.gz",
-      "size": 211304,
-      "sha256": "8daeef801a1531b624e37dfc95be09de00211bc8de6563f80ca89404e7d9f9c4"
+      "size": 211783,
+      "sha256": "181cbd1dc2a838179f5dbf07519187ec0103aa3cfec0c2d83c11a15720584b76"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/17.json.gz",
-      "size": 196315,
-      "sha256": "acc450e742d7856c91c7b761e18f4a50d66267b68ecc1a0310b83342e8569f0e"
+      "size": 195704,
+      "sha256": "a57d19fba3b19920658739e9c73980f9bf99a66feb4f11c8a66214b9683cc3ca"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/18.json.gz",
-      "size": 178045,
-      "sha256": "526dca19e9624b394d332120ab37a784e60fe55cc2c018517a3ea8f6bc646c46"
+      "size": 176918,
+      "sha256": "caa4fe570f95d080024c28c767abc70081ab77f4b4e3d99105aa5cf836460d56"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/19.json.gz",
-      "size": 309165,
-      "sha256": "b2b8f2e6c803da311d007251cb2b2182628e9e91832a626e124879e0eb8b640a"
+      "size": 309513,
+      "sha256": "e308042f6ec9c338158746c83f027a988ff9aaf702bf702acd5deb6d47a8446b"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/1a.json.gz",
-      "size": 124012,
-      "sha256": "7e7fe806ff8145d909800cc391096307dea83a4d46d03d27d5eb69ef29e7b3c1"
+      "size": 124268,
+      "sha256": "9e0459a87f005f007ce361aa798c7f4a3e862747628875f504904a1c3ac9ab7e"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/1b.json.gz",
-      "size": 112928,
-      "sha256": "fea539cfffa5c65877c769f6f9499de7dfd739ecca33cd619296209036cb292f"
+      "size": 112675,
+      "sha256": "e14b76c82faa7deb4c4f02a0056e79f001eac4fa1c7227646e1e021495872b24"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/1c.json.gz",
-      "size": 127969,
-      "sha256": "c76f7a80c01687e967d75dd61d15f550b047d53145c1efc4567a9dc14f14c2cf"
+      "size": 128306,
+      "sha256": "e8719871e197b67ddccea49ed5a9c1c74635e47abf1bbcaa84f3d71b8eb76174"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/1d.json.gz",
-      "size": 171476,
-      "sha256": "52965985692af69038e2e80eb1d1b446af73a3a172881e09ecbc88ed161b9518"
+      "size": 171427,
+      "sha256": "bdd5c9986684c876be3e80a85a58e0b83765176354a3c4095b095dd9c2a64185"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/1e.json.gz",
-      "size": 148986,
-      "sha256": "293b27059a68ed42e2704f711f6d81a72ffffdcf2bc410b0d72e7848cc2390f7"
+      "size": 149386,
+      "sha256": "087c25d9a483503481cf60a1213d48c7d1fc58b4b1bf93ca0629fa28247b0fb6"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/1f.json.gz",
-      "size": 139344,
-      "sha256": "4c4bcf5c015d701f429c0759b49abb370a713950121dd7484c792b0d0831f940"
+      "size": 139022,
+      "sha256": "76afd3957e98218b6ffefe7c4b7c81f6cd01cb3eea0243b26affb839ee3f5285"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/20.json.gz",
-      "size": 166421,
-      "sha256": "b31b6a24e61d1a04e2030a963c5a307e5ae4246018d4b4caa9abdee3cb980687"
+      "size": 167734,
+      "sha256": "f5b97c8281bce698335c897f07e0a319f409e48c612b9da8f67468b2cd584146"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/21.json.gz",
-      "size": 208191,
-      "sha256": "69009dd089c51dde9bca1d042ba32f45217f8da223c80cb5cd1ee1db6697ae79"
+      "size": 211147,
+      "sha256": "26571ec9e1e106883bd2680205e5863c2b8a8586f764cb7c0620dbea7c976f9c"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/22.json.gz",
-      "size": 172142,
-      "sha256": "ccbae576166e9a9c3758a0bbe40b095805793af391b01ac07a603e66a73dd2fe"
+      "size": 171975,
+      "sha256": "d417df7e75bd2708b3ce01d96fbc8bb0997d71da35dd889bc8209e00e8c8af5b"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/23.json.gz",
-      "size": 215270,
-      "sha256": "b9a8a4af6133967711742e239491959d5d03367f0db005b3f2fcf2e4941482e0"
+      "size": 216042,
+      "sha256": "6b6469ec060a24c35e5020beddb600ce81eacec2fcb98aea361f858f26d616a4"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/24.json.gz",
-      "size": 334679,
-      "sha256": "ea52572138ce9df0bd2e557087c0b2a354c3fe2feb0188eba91ab019d7d4af90"
+      "size": 334974,
+      "sha256": "66940751478f40c709fc4ff14f486e0c7f5beee435fc59efc18811781cbe08f8"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/25.json.gz",
-      "size": 327264,
-      "sha256": "6736aa5f23e3e8f0f9483f2ca3ed2875e54574d9720c46bd24f9d3536c8734e7"
+      "size": 326138,
+      "sha256": "27c7b4d8bac2423fd6dce54b6f1a1412c9557bfe535f87fa39b63c58bed911a6"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/26.json.gz",
-      "size": 348641,
-      "sha256": "fe359933cf0fb1c541581c4e12efe205ca1764b5deb7e041b2a112655d68925f"
+      "size": 347663,
+      "sha256": "39a99d5a598472af9e75444443865527228ba073ad6a7e19c088340ac210e80f"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/27.json.gz",
-      "size": 348318,
-      "sha256": "31a06889d3540e273124278d1dbfc0a8a4ec92eec1c6f516da6f39b3d3c5dbb4"
+      "size": 348671,
+      "sha256": "7a429402b32374eb4da0afaf4dbb27423c47840426cd81b072e71cb9daea6a73"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/28.json.gz",
-      "size": 345884,
-      "sha256": "4979b8710989ea5df117457cf7f55464c1727270ea4221df7997564fcbed6715"
+      "size": 345064,
+      "sha256": "253ffc014e8d618a64bbb7273bc7ceeebdbcdfd9894cd5c1a4ad82a2d00180a3"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/29.json.gz",
-      "size": 360989,
-      "sha256": "ebbe02e70deba5755a030e714991fc5457b360d2ead254b6a5316582b6f08582"
+      "size": 360569,
+      "sha256": "b70984cb3b39e0d3905164500ffbfc6bd2d54d33e721452d412795b416635a2b"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/2a.json.gz",
-      "size": 364797,
-      "sha256": "231640ba45b3706074cfa217376db94f75499425df31a9800a977349bf30a4ce"
+      "size": 365129,
+      "sha256": "8fdd7a7ad676b48746df1af58e01042c58af2c55e1bcb5455915c8f3a1f229dc"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/2b.json.gz",
-      "size": 372531,
-      "sha256": "2f7c8347c11b12fcab5b51267c75d8505624062ec765dfc71ce096af35123942"
+      "size": 372809,
+      "sha256": "c4941f1375867513928d0a6887b11d7263fa9cb129e995271b0be0fa4efd30b1"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/2c.json.gz",
-      "size": 435155,
-      "sha256": "4860beb976b50239ff5378b76f58e7c8c6036fcabf1d4dd94dc4e048b1687531"
+      "size": 433456,
+      "sha256": "5902f6aa23336aa31908df464002e1c3101eaba25a454ba3c05a33a2f6a52edd"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/2d.json.gz",
-      "size": 424057,
-      "sha256": "214ad44549967cb0511c7ced7673109278a6f6d4bfffb88d54398857291d63c1"
+      "size": 423774,
+      "sha256": "a0811189f1905f518bff8ed2ca52d81b740dc3f3272ff9d00bc146881aff88c4"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/2e.json.gz",
-      "size": 585745,
-      "sha256": "a4e474c1031bcd3c40b3d57471f46ada783f25db30211ac5ff5b62b79026f0a9"
+      "size": 585828,
+      "sha256": "acdfc74eb39af952e5bfc54e0b6656b5cd42d10b1cb5f1cbc92894eb5af091a6"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/2f.json.gz",
-      "size": 482531,
-      "sha256": "01affe585e93bafd0d15ca4abe74bd6df959b6491c46a86d105161462484ff85"
+      "size": 483957,
+      "sha256": "ccd2361a43b63b7f7c7f4feac824910dadd87f2f0dbe1c2407cad7b417d41d20"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/30.json.gz",
-      "size": 483631,
-      "sha256": "a5ab07bcd520278e56ee59db91205cef4fc71ece04da4d9de5274e3119567a38"
+      "size": 485337,
+      "sha256": "6b8c93f9d67f26969b8626748ec3f25fd6523499490ebb92bb8da47ad5ae03d8"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/31.json.gz",
-      "size": 415198,
-      "sha256": "6027069ad6e74bbfd34ae7c0715db01e9b5d605d8d38b8d748629966afcd474d"
+      "size": 414570,
+      "sha256": "253ef47692aeb909f46ca3ecc26599201ec58bd4c3c6cc45dd18649fc21e2197"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/32.json.gz",
-      "size": 361789,
-      "sha256": "91217065bfd18577a6f7b8d9e04f699439256d54dd60674c89958877e88e61b0"
+      "size": 362055,
+      "sha256": "5e147ec959cd9dba81cdf52fd15b5a8895e6f2b9a74c4a0ba0aa3ca80b5689dd"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/33.json.gz",
-      "size": 274260,
-      "sha256": "87da0a50a865e141ce412018b661c1b0f6e7156adb8223ba157b411bb3c789d9"
+      "size": 274182,
+      "sha256": "ba29a6bff6a98d242d6170b765692c2392379a8fa0b46d771910c0ff57b35375"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/34.json.gz",
-      "size": 269776,
-      "sha256": "a9428eaef3425866fbd970c069fa44031691c954f95b183cbfc45a8f99fb3616"
+      "size": 270086,
+      "sha256": "f5f45c40c839a24b1a337d17e3763cbf2c186059ae25f3d43488d3876e33d066"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/35.json.gz",
-      "size": 302126,
-      "sha256": "aadc1583ea3c09b011b1d1bff2ce0f3c64648378d14f298a5cd46ea7470ba37c"
+      "size": 301281,
+      "sha256": "e3eae6738881dc73755668e90a6defff96d59154b40698a5cb2a44aa2d75a81d"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/36.json.gz",
-      "size": 290533,
-      "sha256": "773b8d89e826fd86681f626f0af32c63999823399cdcdf386d4afd9a9921c7ea"
+      "size": 291966,
+      "sha256": "9dba2bc312b702449f9284190a2522f7262260ef3365208d16a5abdec8423011"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/37.json.gz",
-      "size": 270501,
-      "sha256": "81e67dc26825812c1d34bb4ff416a60e54ce89d3dcebf9ee66cebd317e35cc5b"
+      "size": 270280,
+      "sha256": "bca25ec2962fbc970a43126fa0165653fbbf61ec64d297a722c1f622217ebbe7"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/38.json.gz",
-      "size": 241869,
-      "sha256": "3fc31bbcb82392377a38a9af28251e258beefa3804ca9c18fce1c6b79f8bcfa8"
+      "size": 241798,
+      "sha256": "a5cbc40cf745f7d04189b7d858effdb680f26ad877c087389056be53ecbefa8f"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/39.json.gz",
-      "size": 207131,
-      "sha256": "b42084a0f777f622ef90dec25f4cff2950946dcc623674e9b16271600b217e1d"
+      "size": 206890,
+      "sha256": "f7ec63500c6129b700afc5cb36351dd5f42196876fa3286be7a9334b29cf78e3"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/3a.json.gz",
-      "size": 243607,
-      "sha256": "03d123aa354d0781b0c6061a6824e697c447de4b8943470e9d837ab9b5698257"
+      "size": 244595,
+      "sha256": "92b9852f82a59037266a619eb6be0c13923689d9241dafdda83cbafb1fc39657"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/3b.json.gz",
-      "size": 131759,
-      "sha256": "b4c4a501d946f8e65f81b1826ec62788b829fcf25768ce322c76a254b8032999"
+      "size": 132127,
+      "sha256": "691af35838a5a2323a03ce640932c67fcbe735d2c2cba43bcf6c406d3a241701"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/3c.json.gz",
-      "size": 156408,
-      "sha256": "3d2a34fd28588f782cc947d9796d6ea0b5c080ea39b1589e756b555abd5a1984"
+      "size": 157397,
+      "sha256": "90db9a178a9b6e784e34795532c24551f6fbafaa7a424cd3c7c8380c78243121"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/3d.json.gz",
-      "size": 190934,
-      "sha256": "bdcbe1be6abfac0349069e99d3d576fafa41dbf5286e9a006876ef4e21258557"
+      "size": 190744,
+      "sha256": "59fa76452fec85a188b4a211dc552ec0da7a54c2f4abc7d378ea0318e557ae3b"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/3e.json.gz",
-      "size": 125881,
-      "sha256": "127339898b61a74a5b310aa25c4bee2feec28a32c5f5bfa8d386bab467537a34"
+      "size": 124367,
+      "sha256": "e73b24581abd5b4a2c69d718ad1013204cb3e6cae09c8b49cc0bd5bb972fd959"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/3f.json.gz",
-      "size": 164122,
-      "sha256": "62cfa32a2f2decc050e3d778041da3239ca57e857c36dbaf2b20630d17f5a7a4"
+      "size": 163837,
+      "sha256": "3b7031bb02f7cb643db044405e0ef054a30647971fbaa4b3f42071b59b84c590"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/index.json",
-      "size": 1617471,
-      "sha256": "b1e150d6037b634de3880cfa45ce5fd2922c77cd4bbe45c0c15e03d0c3dab344"
+      "size": 1618611,
+      "sha256": "d011c217f06a449cb124e34c67214412519639190fc6556a51c03e2d85818767"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/large-270979239e5afe7c7e7951a69843b1ff260be7ed56fd35d531edebc7711367e9-0000.json.gz",
@@ -14213,6 +14213,31 @@
       "path": "basic_data/assets/strategy-lookthrough/source-csv/large-270979239e5afe7c7e7951a69843b1ff260be7ed56fd35d531edebc7711367e9-0004.json.gz",
       "size": 399081,
       "sha256": "78b400ae34f259149d65e5e02b888bd61a8970c74c922906985491ffccfc92c8"
+    },
+    {
+      "path": "basic_data/assets/strategy-lookthrough/source-csv/large-579e627529d1d8d1fea8b160664d514f43bc6bf741fffed061c73f0c27f06a4a-0000.json.gz",
+      "size": 1857591,
+      "sha256": "5748785012ce49e95c0701be23f4018ac1217fd92291ac5c2bb49c8a8fd9ba9f"
+    },
+    {
+      "path": "basic_data/assets/strategy-lookthrough/source-csv/large-579e627529d1d8d1fea8b160664d514f43bc6bf741fffed061c73f0c27f06a4a-0001.json.gz",
+      "size": 2009495,
+      "sha256": "2013212679000a290c0fd6830df65b968af1b67adf6f6371d8132f0adf3002a1"
+    },
+    {
+      "path": "basic_data/assets/strategy-lookthrough/source-csv/large-579e627529d1d8d1fea8b160664d514f43bc6bf741fffed061c73f0c27f06a4a-0002.json.gz",
+      "size": 2074911,
+      "sha256": "3f67c7d733f77781ea7ce1e2c7e0c0bae46e603a45a0ffe0b9181af25c0919ec"
+    },
+    {
+      "path": "basic_data/assets/strategy-lookthrough/source-csv/large-579e627529d1d8d1fea8b160664d514f43bc6bf741fffed061c73f0c27f06a4a-0003.json.gz",
+      "size": 1949715,
+      "sha256": "0a628a73cd4a292c36bc766e71a92ca378790448f7fee50d82f3ddcffb1f63e6"
+    },
+    {
+      "path": "basic_data/assets/strategy-lookthrough/source-csv/large-579e627529d1d8d1fea8b160664d514f43bc6bf741fffed061c73f0c27f06a4a-0004.json.gz",
+      "size": 443684,
+      "sha256": "2bfae2540c33b25dd001e0dbbd7f46a66e6ee4e5f70b34fa29bf98892dec5a6f"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/source-csv/large-d10a78b1bdca48d3a3e9642c1904e4f264ad9e107e4136b9a47f8c378b2c1181-0000.json.gz",
@@ -14241,13 +14266,13 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/strategy_coverage.csv",
-      "size": 1007983,
-      "sha256": "799e99a7f7eb6e43ce9710d6df2ac832062d5293ae30aee75cb07db4e9ea803d"
+      "size": 1008200,
+      "sha256": "cfc1c552450168049543f152ac0a050c0de581353561eb20d822417da7a459e3"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/validation.json",
-      "size": 1139,
-      "sha256": "a49a91e3f42adc5eb43dd2ef940126756f1dcfd80c0635bab59c29adcd6beea5"
+      "size": 1137,
+      "sha256": "fdcc0cf12f4aa86562f1bb8b2f46a7411ae260f0e03bf78e541a90f5e58245d3"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/wind_fund_classification_evidence.json",
@@ -14256,8 +14281,8 @@
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/Wind标准基金分类映射明细.csv",
-      "size": 9862078,
-      "sha256": "96abe11170eb7d48835e7920cc44bc93505ac5823f98161ae4973222923e6ff6"
+      "size": 9859818,
+      "sha256": "14a5e868fda577b9fc587a587caa919791762fd3cecac573b99206d7b2841600"
     },
     {
       "path": "basic_data/assets/strategy-lookthrough/基金报告时效明细.csv",
@@ -14302,17 +14327,17 @@
     {
       "path": "basic_data/compare.html",
       "size": 3212,
-      "sha256": "4727fc97776d73a7d9c85ce2d655b70fe7c7bcc2bb4bf6ba0fba7fb71bb136a2"
+      "sha256": "7984fbd21ead687cfc1d6dcfd79d9b801adc8240237bd247005023626cf75cec"
     },
     {
       "path": "basic_data/data/basic_summary_core.js.gz",
-      "size": 3154596,
-      "sha256": "76dcf482ffeedfa99b51f7a6c310c4dda4f9cb5d82c75403aba2abb46f7a6ef7"
+      "size": 3366449,
+      "sha256": "4392cbb19831483f434f8e1f0c67aa46c8228e2855ea53800b58fb454200fcbc"
     },
     {
       "path": "basic_data/data/data_pack_manifest.js",
-      "size": 5690,
-      "sha256": "599591b6159a60b42ef7a9d6d5ed40256cdb4b500ed07e1111f2cce6f77a570c"
+      "size": 5949,
+      "sha256": "99227e4323548a82f40c4d48de6b5b4ca5d7d5b90eda59ac204299d62f4bc4c8"
     },
     {
       "path": "basic_data/data/data_quality_pack.js.gz",
@@ -16581,8 +16606,8 @@
     },
     {
       "path": "basic_data/data/details/2c/qieman__SI000229.js.gz",
-      "size": 31833,
-      "sha256": "9cfe222ae2bcc46ef5bcd7552641d680ab0d7b24cd34e66c8cb0f44d83b5dee9"
+      "size": 30258,
+      "sha256": "1c965c1b7addd76f129d63182eef5686381c157e79ef2274cb2c2518c8b093a6"
     },
     {
       "path": "basic_data/data/details/2c/ttfund__GGHVLYL.js.gz",
@@ -16866,8 +16891,8 @@
     },
     {
       "path": "basic_data/data/details/31/ttfund__XQR30UU.js.gz",
-      "size": 106441,
-      "sha256": "da5564945ff8eeade45b16143fecfa87b91b58d03fa1491919028c7dac575b98"
+      "size": 94760,
+      "sha256": "17fef0037a150c82df8a048d5cc65a11a746a72ef39e820c3e56e9f6f0682995"
     },
     {
       "path": "basic_data/data/details/31/ttfund__ZUUTKTY.js.gz",
@@ -20561,8 +20586,8 @@
     },
     {
       "path": "basic_data/data/details/77/ttfund__UJZVSUO.js.gz",
-      "size": 94043,
-      "sha256": "294d1e4ad235bde699dd3d98b160e129cd256927978312a9d908c6209128c146"
+      "size": 85924,
+      "sha256": "67b68e8dcf9c7d489aeaf4d9a011585c65690c909cde2f7944dd618292997247"
     },
     {
       "path": "basic_data/data/details/78/fullgoal__HQXZXZH001.js.gz",
@@ -21011,8 +21036,8 @@
     },
     {
       "path": "basic_data/data/details/80/ttfund__D4XUZVN.js.gz",
-      "size": 13657,
-      "sha256": "8f9bb22893efbc19af09de6e529b5cbb9be96b3ab7b5a20c3202cb925fc39bc3"
+      "size": 13849,
+      "sha256": "f5d230cd398d1e09f733980c0902b31ba33ae8ab08e302b63e1fcf938c57c64d"
     },
     {
       "path": "basic_data/data/details/81/financial_street__HXDBBBH.js.gz",
@@ -22106,8 +22131,8 @@
     },
     {
       "path": "basic_data/data/details/99/ttfund__YRYNQVQ.js.gz",
-      "size": 102698,
-      "sha256": "0ffb7778ee1444d4190ebd5a18e2a96cc280a3e53ee86e75cf19947e0d24375e"
+      "size": 90199,
+      "sha256": "d2c6b28a3cb4075b60c7fd1fb454d4038d7b488657de7b8c1ad3e3639c7905ee"
     },
     {
       "path": "basic_data/data/details/99/zocaifu__8100000160.js.gz",
@@ -24486,8 +24511,8 @@
     },
     {
       "path": "basic_data/data/details/c6/qieman__ZH184679.js.gz",
-      "size": 13676,
-      "sha256": "3ef70cbb74c6059f362e187de347188676deddb0ec6a351e6c29e15a2a241f74"
+      "size": 13148,
+      "sha256": "2813cd671011b57964ced4765424501cf3369f7ce36f7a3d938bba833d249692"
     },
     {
       "path": "basic_data/data/details/c6/ttfund__1ZIJUEE.js.gz",
@@ -25686,8 +25711,8 @@
     },
     {
       "path": "basic_data/data/details/dc/howbuy__zozh005.js.gz",
-      "size": 64327,
-      "sha256": "82c6ccefcc9f949b3c33148f13907dc9074586f6c4084936d0645586600bd762"
+      "size": 59861,
+      "sha256": "abe6fec76b4ccc0bb364c9cf42cfaa199d83ab995ad1fc1e9aef8d9a97566316"
     },
     {
       "path": "basic_data/data/details/dc/qieman__ZH159017.js.gz",
@@ -26091,8 +26116,8 @@
     },
     {
       "path": "basic_data/data/details/e2/ttfund__BYRTWBK.js.gz",
-      "size": 65905,
-      "sha256": "f6305de6fd3d69d450bfb4a07dd205dc06fbca2959d3ae1e1c1cecb0bd2f0586"
+      "size": 60834,
+      "sha256": "1b10a41fd608115c8bc4d217173bf95c9f6a16a3921517cf6be2a3640d121ed9"
     },
     {
       "path": "basic_data/data/details/e2/ttfund__JW6THOY.js.gz",
@@ -26261,8 +26286,8 @@
     },
     {
       "path": "basic_data/data/details/e7/qieman__ZH160524.js.gz",
-      "size": 46158,
-      "sha256": "9433e18f2dab6aaff2d3d831a6bac8ac082d1258c64656e8e61e0472d3d42e5c"
+      "size": 41336,
+      "sha256": "b39fff001cd09e1be72162a8ef85a2f6604c6796c69c2a0c782c7162720de260"
     },
     {
       "path": "basic_data/data/details/e7/ttfund__2WU9ZWR.js.gz",
@@ -26606,8 +26631,8 @@
     },
     {
       "path": "basic_data/data/details/ef/ttfund__Z1D7TIS.js.gz",
-      "size": 87839,
-      "sha256": "8576fb2558b69e73be959c3cca9b67b937513994622f7220e62f2c8e859adb6b"
+      "size": 74615,
+      "sha256": "eb25983d8f3c82f2b113c617dde939a5e606d98bd5dc376b69e3ea4a9f751964"
     },
     {
       "path": "basic_data/data/details/f0/financial_street__HXWJXMB21.js.gz",
@@ -27451,13 +27476,13 @@
     },
     {
       "path": "basic_data/data/holding_snapshot_pack.js.gz",
-      "size": 2478850,
-      "sha256": "119b17249c112730429324393494e75eff7291359013fcb396a1981ebe472ccd"
+      "size": 2479066,
+      "sha256": "338f31e484873cb7c567b5e7639ef2308c2d48786d07ce3dfa9d701ca7282c52"
     },
     {
       "path": "basic_data/data/institution_overview_pack.js.gz",
-      "size": 1912015,
-      "sha256": "0d5879d3d851f1b94df7e9ea4f6e292802c1f0cf4c6b2e835bd03e46fa015421"
+      "size": 1913284,
+      "sha256": "cb17e166bce49101d329256eaac939d635a8015477afb4d177ea99df1383fcc4"
     },
     {
       "path": "basic_data/data/mixed_performance_scatter_pack.js.gz",
@@ -28751,13 +28776,13 @@
     },
     {
       "path": "basic_data/data/strategy_detail_index_pack.js.gz",
-      "size": 1535037,
-      "sha256": "a6d3695476e027e2d5c1a1e5920a11b58f9e1d053a705c3ec2b987631e57a549"
+      "size": 1747020,
+      "sha256": "77873703da09a6dc1b3d4d000f49475841948069c07bb985169eff188250edf9"
     },
     {
       "path": "basic_data/data/strategy_list_pack.js.gz",
-      "size": 1207319,
-      "sha256": "4d453006318d7eabcc3be2e9fc03fd9f32064be57c1bda3f1b43fa4e0f118b4b"
+      "size": 1208727,
+      "sha256": "78f2fadc139b4e548344f899d2ed7eb13c1cc8757f3e815eff66c29fc7217e0b"
     },
     {
       "path": "basic_data/index.html",
@@ -28767,92 +28792,92 @@
     {
       "path": "basic_data/institutions.html",
       "size": 3180,
-      "sha256": "f143cbf393300bd757ae7d05b2ec5120c35003a504551b8ff4ca3ad4b59a5513"
+      "sha256": "8247e2a910ee68e046c58ff888b57895fadab39db38ef794d6d55179bb80dd0e"
     },
     {
       "path": "basic_data/mixed-performance-scatter.html",
       "size": 3279,
-      "sha256": "68bd639906232974210a29d6c3ff562cbefb8c8ea1969f744198506aa76b2743"
+      "sha256": "ee6cc5e58dce5083fcd9e29ea126528ef48d18f70d4e298872c629c87053f049"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202510.html",
       "size": 180174,
-      "sha256": "03015a28058d84304340646d782354367decf630022ab6a3df364d1db2567820"
+      "sha256": "758f4fe8d97f957cf2b2d6298dd90da01fdc883722fa4292f68e1348a8a737b4"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202511.html",
       "size": 187468,
-      "sha256": "4692dfbcd7c33c2f72eca9725a236f735659e2f1a9857684d72c6312affd691c"
+      "sha256": "f98ec30bf9032526ed69b9394001ec80f4669aa14bf07c77b8c03f387c1ead95"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202512.html",
       "size": 204020,
-      "sha256": "0a49af8a88c4f226852e48031aac61b3896bc1b4ffa3be98a9b61b7ca7beafa1"
+      "sha256": "6a981e98e872eb81f369b0be0388b217d2b62ed14859bed07417e7107e8a3843"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202601.html",
       "size": 189666,
-      "sha256": "417d23e030bee9091b30da50d2061115669957dad5675e0d5f55ad2b688c5c1b"
+      "sha256": "f7d419354edf2b23377af46a69dd556edee9629d31f7d20a790f15c3b9deeb10"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202602.html",
       "size": 193193,
-      "sha256": "f061bb3c60359fd86a15a2e3dd8b8faaec1b2225b9f379f9f9a6f609a9240e86"
+      "sha256": "c632519028be0b7caa86eb2bbe81bd942b1cdb808ff6b2eb329a48202d903f96"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202603.html",
       "size": 219634,
-      "sha256": "00ff04003eda86e94785c331b4ba9f9a772a27bfab31c5fc7115e24e52d4bd9f"
+      "sha256": "1ce93e1bee2ac68e0cff85f726b924c8c0a6df6fca0c47828f6f773352caa2a3"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202604.html",
       "size": 199670,
-      "sha256": "cc21b3cd686c938abf8f02a692c3b3acc7ec0c8a3fd98ffb7c37ea92b5b3f260"
+      "sha256": "361c2bd0fa7ebb0368cd32167e1656d57645847a86872d42e67d03b824a39836"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202605.html",
       "size": 188310,
-      "sha256": "001251c1f548671599f8e46c4da1fc10a2d69016d845012d6ba8097036b34d43"
+      "sha256": "a3076fa96164dc55517fb5fe0b0d709dc9030d836368424f321ce856a9280a8c"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202606.html",
       "size": 239498,
-      "sha256": "03104ad8d1189ee53aeab42a9265992bf75b2ed61045473ae4b312ca6e2b4955"
+      "sha256": "97c4a2e1cbaf075dd99f2d7a05c44cb9eb1fbb0924b25113ad45838a24fdbd6a"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202607.html",
       "size": 195613,
-      "sha256": "8beb2c8e04db9daa16f702a81a211e11b4e651d4b9d65a8869f227b9c0066ba3"
+      "sha256": "8b506933763c6a1e905a7ea2fab5865440192435e578e1a91e3746a9975dcd7a"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202608.html",
       "size": 207662,
-      "sha256": "07734ac5ed60f003786c4adb72adcd124c528ee0835ac9570f68d1dcdf28e8a3"
+      "sha256": "c3f9fb8a0cdeb081aa9b598ff14543a3aa99c5fd6f252661b600bfabe7c416e2"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202609.html",
       "size": 175192,
-      "sha256": "00d09617b020853543681b2053b0e769f4f04bed6197a36fb36c06b91dbc169b"
+      "sha256": "777449ef10e3fefd9dd0e73e6887db45c9572881ded507d1e25a12a35750a930"
     },
     {
       "path": "basic_data/monthly-rebalance-report.html",
       "size": 175192,
-      "sha256": "00d09617b020853543681b2053b0e769f4f04bed6197a36fb36c06b91dbc169b"
+      "sha256": "777449ef10e3fefd9dd0e73e6887db45c9572881ded507d1e25a12a35750a930"
     },
     {
       "path": "basic_data/strategies.html",
       "size": 3119,
-      "sha256": "b236b441ef81935c35cbfd21168df742daee1910dadef22792f57437c1c2e944"
+      "sha256": "d8a9808d8c7284e635d7f049417e53ffd89a25226ae1a95f26c0895b795bb6ab"
     },
     {
       "path": "basic_data/strategy-lookthrough.html",
-      "size": 1494438,
-      "sha256": "72d868f1ee0751bdab6e21eaa161da690ed1990a394a8c30c80ea2963a46826c"
+      "size": 1494587,
+      "sha256": "0bab5a3755e4059e16cd4f6bdd3f8c338143c7b3239c24df5a4461a27b123278"
     },
     {
       "path": "basic_data/strategy.html",
       "size": 3241,
-      "sha256": "842f29ab75742caba7e1a4d715652dad1c48c6ea63949e654c80e671af44c6d7"
+      "sha256": "9916e32664404669bca9f1c7b63119db40e236eedbf05e60f0d9503841f5ce1b"
     },
     {
       "path": "cloud-functions/ai-api/[[default]].js",
@@ -28881,8 +28906,8 @@
     },
     {
       "path": "package_validation.json",
-      "size": 8779,
-      "sha256": "b7bfb91ad0dab4196d1a8a3bc9af488bc22841f5eb92b5f8867a77120e677aee"
+      "size": 6897,
+      "sha256": "3d7274c1113c7020a9151d415d9088c0c8fd7fe784e03779c87aa5edfdc24a48"
     },
     {
       "path": "README.md",
@@ -28922,7 +28947,7 @@
     {
       "path": "version.json",
       "size": 151,
-      "sha256": "51eac91c97ce19829ac85cda355cd54a38279d181fb88a5f28bf537477155520"
+      "sha256": "cbbac1300f20640d0fecabeb011211d899f969e86c4166e1738e5fe0b69f4e9b"
     },
     {
       "path": "停止最小发布集.cmd",
@@ -28938,80 +28963,20 @@
   "uiRevision": "7ee6d93fc0e4",
   "scopedRelease": {
     "scopeIds": [
-      "gffunds__GFJJ000001",
-      "gffunds__GFJJ000002",
-      "gffunds__GFJJ000003",
-      "gffunds__GFJJ000004",
-      "gffunds__GFJJ000005",
-      "gffunds__GFJJ000006",
-      "gffunds__GFJJ000007",
-      "gffunds__GFJJ000008",
-      "gffunds__GFJJ000011",
-      "gffunds__GFJJ000078",
-      "gffunds__GFJJ000219",
-      "gffunds__GFJJ000578",
-      "gffunds__GFJJ000579",
-      "gffunds__GFJJ000598",
-      "gffunds__GFJJ000600",
-      "gffunds__GFJJ000601",
-      "gffunds__GFJJ000602",
-      "gffunds__GFJJ000603",
-      "gffunds__GFJJ000758",
-      "gffunds__GFJJ000759",
-      "gffunds__GFJJ000763",
-      "gffunds__GFJJ000767",
-      "gffunds__GFJJ000768",
-      "gffunds__GFJJ000769",
-      "gffunds__GFJJ000782",
-      "gffunds__GFJJ000783",
-      "gffunds__GFJJ000834",
-      "gffunds__GFJJ000835",
-      "gffunds__GFJJ000900",
-      "gffunds__GFJJ001081",
-      "gffunds__GFJJ001201",
-      "gffunds__GFJJ001204",
-      "gffunds__GFJJ001221",
-      "gffunds__GFJJ001222",
-      "gffunds__GFJJ001236",
-      "gffunds__GFJJ001261",
-      "gffunds__GFJJ001325",
-      "gffunds__GFJJ001326",
-      "gffunds__GFJJ001384",
-      "gffunds__GFJJ001387",
-      "gffunds__GFJJ001394",
-      "gffunds__GFJJ001400",
-      "gffunds__GFJJ001411",
-      "gffunds__GFJJ001422",
-      "gffunds__GFJJ001482",
-      "gffunds__GFJJ001501",
-      "gffunds__GFJJ001502",
-      "gffunds__GFJJ001503",
-      "gffunds__GFJJ001507",
-      "gffunds__GFJJ001508",
-      "gffunds__GFJJ001509",
-      "gffunds__GFJJ001510",
-      "gffunds__GFJJ001563",
-      "gffunds__GFJJ001564",
-      "gffunds__GFJJ001569",
-      "gffunds__GFJJ001577",
-      "gffunds__GFJJ001581",
-      "gffunds__GFJJ001664",
-      "gffunds__GFJJ001665",
-      "gffunds__GFJJ001681",
-      "gffunds__GFJJ002101",
-      "gffunds__GFJJ002221",
-      "gffunds__GFJJ002222",
-      "gffunds__GFJJ002301",
-      "gffunds__GFJJ002302",
-      "gffunds__GFJJ002414",
-      "gffunds__GFJJ002941",
-      "gffunds__GFJJ002942",
-      "gffunds__GFJJ002982",
-      "gffunds__GFJJ003101"
+      "howbuy__zozh005",
+      "qieman__SI000229",
+      "qieman__ZH160524",
+      "qieman__ZH184679",
+      "ttfund__BYRTWBK",
+      "ttfund__D4XUZVN",
+      "ttfund__UJZVSUO",
+      "ttfund__XQR30UU",
+      "ttfund__YRYNQVQ",
+      "ttfund__Z1D7TIS"
     ],
-    "retainedBaseCommit": "087ec711d501348f58c69e94ae1a3772b347198b",
-    "noCollection": true,
-    "runId": "20261020T2350_overview_dependencies",
-    "changeType": "overview_aggregation_only"
+    "retainedBaseCommit": "46744e5c3c36c1ce3166c27aadad7c0f18fa9bb1",
+    "noStrategyCollection": true,
+    "runId": "20261021T0010_rebalance_followup",
+    "changeType": "strategy_snapshot_refresh"
   }
 }

@@ -5573,7 +5573,8 @@
   function bestCompareBenchmark(rows) {
     for (const row of rows) {
       const detail = compareDetail(row.统一策略ID);
-      const series = compareUsableSeries(detail?.curves?.基准业绩);
+      const reference = detail && B.benchmarkCurveReference(detail,globalBenchmarks);
+      const series = reference && !reference.fallback ? compareUsableSeries(reference.payload) : null;
       const description = raw(compareProfileValue(row, detail, "业绩基准说明") || compareProfileValue(row, detail, "业绩基准"));
       const disclosed = description && !/^(未披露|暂无|无|--|—|-|不适用)$/.test(description);
       if (series && (disclosed || row.有基准 === true || row.有基准 === 1) && compareBenchmarkCompatible(rows, series)) {

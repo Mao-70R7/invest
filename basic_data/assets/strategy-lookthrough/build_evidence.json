@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOf": "2026-10-20",
-  "generatedAt": "2026-10-20T20:55:03+08:00",
+  "generatedAt": "2026-10-21T00:38:47+08:00",
   "strategyCount": 2703,
   "calculatedCount": 2218,
   "blockedCount": 485,
@@ -24,7 +24,7 @@
     "天天基金/投顾": 1130,
     "中欧财富": 48
   },
-  "holdingFundRows": 40222,
+  "holdingFundRows": 40220,
   "weightTolerancePp": 0.02,
   "sourceDb": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
   "sourceMode": "read_only_query_only_consistent_transaction",
@@ -13148,9 +13148,9 @@
       "allocationLabel": "最新库内披露仓位",
       "weightBasis": "source_latest",
       "weightLabel": "源端最新仓位占比",
-      "weightDate": "2026-10-16",
+      "weightDate": "2026-10-19",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "howbuy__zozh004",
@@ -23618,11 +23618,11 @@
       "governanceStatus": null,
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-16",
+      "weightBasis": "source_latest",
+      "weightLabel": "源端最新仓位占比",
+      "weightDate": "2026-10-19",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "qieman__ZH121407",
@@ -23654,9 +23654,9 @@
       "allocationLabel": "最新库内披露仓位",
       "weightBasis": "source_latest",
       "weightLabel": "源端最新仓位占比",
-      "weightDate": "2026-10-15",
+      "weightDate": "2026-10-19",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "qieman__ZH175554",
@@ -25301,11 +25301,11 @@
       "governanceStatus": null,
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-16",
+      "weightBasis": "source_latest",
+      "weightLabel": "源端最新仓位占比",
+      "weightDate": "2026-10-19",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "southern__4226",
@@ -27290,11 +27290,11 @@
       "governanceStatus": "正常运行",
       "allocationBasis": "official_rebalance_target",
       "allocationLabel": "最近完整官方调仓配置（模型权重）",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-16",
-      "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "weightBasis": "disclosed_fallback",
+      "weightLabel": "披露配置（最新权重不可推算）",
+      "weightDate": "2026-10-19",
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "ttfund__KOPAYYD",
@@ -29806,11 +29806,11 @@
       "governanceStatus": "正常运行",
       "allocationBasis": "official_rebalance_target",
       "allocationLabel": "最近完整官方调仓配置（模型权重）",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-16",
+      "weightBasis": "source_latest",
+      "weightLabel": "最新源端模型配置占比",
+      "weightDate": "2026-10-19",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "ttfund__IWNVGBF",
@@ -29906,13 +29906,13 @@
       "canCalculate": true,
       "fileStem": "b90e77ba0f7a9691910f5e19",
       "governanceStatus": "正常运行",
-      "allocationBasis": "latest_observed_current",
-      "allocationLabel": "最新库内披露仓位",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-16",
+      "allocationBasis": "official_rebalance_target",
+      "allocationLabel": "最近完整官方调仓配置（模型权重）",
+      "weightBasis": "source_latest",
+      "weightLabel": "最新源端模型配置占比",
+      "weightDate": "2026-10-19",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "ttfund__XCS0IJK",
@@ -37813,11 +37813,11 @@
       "governanceStatus": "正常运行",
       "allocationBasis": "official_rebalance_target",
       "allocationLabel": "最近完整官方调仓配置（模型权重）",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-15",
-      "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "weightBasis": "disclosed_fallback",
+      "weightLabel": "披露配置（最新权重不可推算）",
+      "weightDate": "2026-10-19",
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "ttfund__VFFLXPR",
@@ -40567,11 +40567,11 @@
       "governanceStatus": "正常运行",
       "allocationBasis": "official_rebalance_target",
       "allocationLabel": "最近完整官方调仓配置（模型权重）",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-16",
+      "weightBasis": "source_latest",
+      "weightLabel": "最新源端模型配置占比",
+      "weightDate": "2026-10-19",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "ttfund__UJZVSUO",
@@ -40584,11 +40584,11 @@
       "governanceStatus": "正常运行",
       "allocationBasis": "official_rebalance_target",
       "allocationLabel": "最近完整官方调仓配置（模型权重）",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-16",
+      "weightBasis": "source_latest",
+      "weightLabel": "最新源端模型配置占比",
+      "weightDate": "2026-10-19",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-19T04:13:19+08:00"
+      "modelGeneratedAt": "2026-10-21T00:38:47+08:00"
     },
     {
       "id": "ttfund__U6FTIIZ",
@@ -46037,15 +46037,15 @@
   },
   "latestWeightContractVersion": 1,
   "weightBasisCounts": {
-    "nav_drift": 1393,
-    "source_latest": 623,
-    "disclosed_fallback": 202
+    "nav_drift": 1385,
+    "source_latest": 629,
+    "disclosed_fallback": 204
   },
-  "latestWeightsAvailableCount": 2007,
+  "latestWeightsAvailableCount": 2005,
   "allocationSourceContractVersion": 3,
-  "currentExactCalculatedCount": 1232,
+  "currentExactCalculatedCount": 1231,
   "historicalExactCalculatedCount": 10,
-  "officialModelCalculatedCount": 894,
+  "officialModelCalculatedCount": 895,
   "parentReferenceCalculatedCount": 9,
   "userSharedModelCalculatedCount": 73,
   "sourceRecoveryMethod": "Latest source allocation preferred; use newer verified allocation when present, then NAV drift to latest common valuation date. Preserve original source, dates, missing NAV and lifecycle; explicit parent reference stays a reference. No current-holding DB writes.",
@@ -46823,85 +46823,185 @@
         "strategy": "gffunds__GFJJ002222",
         "fundCode": "023402",
         "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "howbuy__zozh005",
+        "fundCode": "019416",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__ZH184679",
+        "fundCode": "016720",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__ZH184679",
+        "fundCode": "018736",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__ZH184679",
+        "fundCode": "000290",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__ZH184679",
+        "fundCode": "007910",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__ZH184679",
+        "fundCode": "270023",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "007882",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "013416",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "012857",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "004753",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "008888",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "001595",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "017141",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "009052",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "009051",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "008279",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "008280",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "160517",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "qieman__SI000229",
+        "fundCode": "161121",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__BYRTWBK",
+        "fundCode": "019416",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__YRYNQVQ",
+        "fundCode": "014979",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__YRYNQVQ",
+        "fundCode": "016631",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__YRYNQVQ",
+        "fundCode": "000376",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__YRYNQVQ",
+        "fundCode": "001618",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__YRYNQVQ",
+        "fundCode": "007818",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__YRYNQVQ",
+        "fundCode": "008280",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__YRYNQVQ",
+        "fundCode": "017472",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__Z1D7TIS",
+        "fundCode": "007722",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__Z1D7TIS",
+        "fundCode": "000217",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__Z1D7TIS",
+        "fundCode": "019480",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__UJZVSUO",
+        "fundCode": "023918",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "ttfund__UJZVSUO",
+        "fundCode": "000217",
+        "reason": "target_index_mapping_unverified"
       }
     ],
     "missingPolicy": "retain reported fund investment; never zero or rescale"
   },
   "incrementalBuild": {
     "scopeIds": [
-      "gffunds__GFJJ000001",
-      "gffunds__GFJJ000002",
-      "gffunds__GFJJ000003",
-      "gffunds__GFJJ000004",
-      "gffunds__GFJJ000005",
-      "gffunds__GFJJ000006",
-      "gffunds__GFJJ000007",
-      "gffunds__GFJJ000008",
-      "gffunds__GFJJ000011",
-      "gffunds__GFJJ000078",
-      "gffunds__GFJJ000219",
-      "gffunds__GFJJ000578",
-      "gffunds__GFJJ000579",
-      "gffunds__GFJJ000598",
-      "gffunds__GFJJ000600",
-      "gffunds__GFJJ000601",
-      "gffunds__GFJJ000602",
-      "gffunds__GFJJ000603",
-      "gffunds__GFJJ000758",
-      "gffunds__GFJJ000759",
-      "gffunds__GFJJ000763",
-      "gffunds__GFJJ000767",
-      "gffunds__GFJJ000768",
-      "gffunds__GFJJ000769",
-      "gffunds__GFJJ000782",
-      "gffunds__GFJJ000783",
-      "gffunds__GFJJ000834",
-      "gffunds__GFJJ000835",
-      "gffunds__GFJJ000900",
-      "gffunds__GFJJ001081",
-      "gffunds__GFJJ001201",
-      "gffunds__GFJJ001204",
-      "gffunds__GFJJ001221",
-      "gffunds__GFJJ001222",
-      "gffunds__GFJJ001236",
-      "gffunds__GFJJ001261",
-      "gffunds__GFJJ001325",
-      "gffunds__GFJJ001326",
-      "gffunds__GFJJ001384",
-      "gffunds__GFJJ001387",
-      "gffunds__GFJJ001394",
-      "gffunds__GFJJ001400",
-      "gffunds__GFJJ001411",
-      "gffunds__GFJJ001422",
-      "gffunds__GFJJ001482",
-      "gffunds__GFJJ001501",
-      "gffunds__GFJJ001502",
-      "gffunds__GFJJ001503",
-      "gffunds__GFJJ001507",
-      "gffunds__GFJJ001508",
-      "gffunds__GFJJ001509",
-      "gffunds__GFJJ001510",
-      "gffunds__GFJJ001563",
-      "gffunds__GFJJ001564",
-      "gffunds__GFJJ001569",
-      "gffunds__GFJJ001577",
-      "gffunds__GFJJ001581",
-      "gffunds__GFJJ001664",
-      "gffunds__GFJJ001665",
-      "gffunds__GFJJ001681",
-      "gffunds__GFJJ002101",
-      "gffunds__GFJJ002221",
-      "gffunds__GFJJ002222",
-      "gffunds__GFJJ002301",
-      "gffunds__GFJJ002302",
-      "gffunds__GFJJ002414",
-      "gffunds__GFJJ002941",
-      "gffunds__GFJJ002942",
-      "gffunds__GFJJ002982",
-      "gffunds__GFJJ003101"
+      "howbuy__zozh005",
+      "qieman__SI000229",
+      "qieman__ZH160524",
+      "qieman__ZH184679",
+      "ttfund__BYRTWBK",
+      "ttfund__D4XUZVN",
+      "ttfund__UJZVSUO",
+      "ttfund__XQR30UU",
+      "ttfund__YRYNQVQ",
+      "ttfund__Z1D7TIS"
     ],
     "baseGeneratedAt": "2026-10-20T20:55:03+08:00",
-    "baseEvidenceSha256": "df7ddeeebb9f89a89b5f13d92680be298be50a87f496c297c2bb0a7d51883aa2",
+    "baseEvidenceSha256": "d0676b850526b808f78043bb6b1e82967457c0f07b3bc2c3bd34f37a8190069d",
     "retainedStrategySha256": {
       "cmfchina__5.0": "f8a4140e1eecf5f6903982c8c46173dca8a55f29bb2dd99ccb1c253e7c213f02",
       "cmfchina__4": "87659b18c8e38c78514d2638ff4b693d545d4642ed92fb0d65dfe5a5552ccbde",
@@ -47422,6 +47522,21 @@
       "gfbank_cgb__ui-name-1c772b29ff2a52da": "249ee521eb10e0f9865e420276e8fe79472043d90abcceeef9c4106b60884188",
       "gfbank_cgb__ui-name-6545a56e1b1f4065": "830e98fdcbdce9b249068f7dee7af17ec6f66832755fe26ce7be3449a685a4a2",
       "gfbank_cgb__ui-name-402f627a177bd24e": "c9a9962924f8301868328f21b3e91fa4306d92956ee8fd5a6388ea7d76ee6809",
+      "gffunds__GFJJ001664": "9eac51571b7a2fad40d0989d791b413e35c0cb5557da915beccb028ff29b391b",
+      "gffunds__GFJJ000006": "bdf35200a0f36ae2fb326d5c6e98b466fe01accab131994ad126304b055eab96",
+      "gffunds__GFJJ000578": "7b6dcd384c7db1f45b3d44adaf59cc49e330784da7685e1d81c38bffd3c41eba",
+      "gffunds__GFJJ000767": "867dd71c158475dbbb0283d7b63a522c4c8958750e679f6866cc7ddb7c92e824",
+      "gffunds__GFJJ001400": "dd078cd1c81e38a2cbe1bc1240616540ce1ca17fd6d98b5595a089d8845189df",
+      "gffunds__GFJJ002302": "18dc500199381e517acf3e9c5acb3e4a128825d7857d147ba317776928657140",
+      "gffunds__GFJJ002414": "e58d595886db78f814c223882b85578f5ea70dff5548e001ba6746e976706089",
+      "gffunds__GFJJ001222": "e6d5a055b2b02a45f9317eb741af8a786ba4a7c307e8c80b2dbe66ce40d04a80",
+      "gffunds__GFJJ001501": "bc9c4c85fd56e097a6134b4c29a2233853a4ad263ebc5ef378ce123167d601a5",
+      "gffunds__GFJJ001236": "361d5178698101120eb1876295cdadcaddeff3a462d915c70be7f6d2fb745c95",
+      "gffunds__GFJJ001482": "c8539b9461878d2804a6b75e157aabfa7dc7bc7f7ee687dc3315744e95d7f188",
+      "gffunds__GFJJ002221": "51dbecf377891633168cf9f2f423d8b2e34afaf99bc2cf3dd7f1eaf0461cfa55",
+      "gffunds__GFJJ001201": "ccf5d061fd46bb279f0d3a9def822249efa18374e53a897da75fd9d8ac05aa19",
+      "gffunds__GFJJ000579": "2302a3b8799798c91cdd9c5ce676be5d15a7607db3117f70dc7847e1163abb72",
+      "gffunds__GFJJ000008": "ca83c95c8e58a5bfd7092893addb3d14224751d505f73a44c9c52c55db66c370",
       "gffunds__ZY00000015": "8caf5286789ca9b8c0cd97be09f3edf94fdb0928b93e66e1d9212f185c9fb1da",
       "gffunds__ZY00000017": "fc022e0034b060f048c98c6629c759ec54b3baceb9dce6045306845b4e259436",
       "gffunds__ZY00000018": "0ab4a24fe1df82b6e953aef2d763af7a4eb96cc6663f32fe9099af4982b9ec78",
@@ -47444,6 +47559,7 @@
       "gffunds__ZY00000035": "260a242b44eb7c0f04518de623062dd32e19d124282c09f8c4ff79878b911d87",
       "gffunds__ZY00000036": "8ff525e94f9bc7d0680f364a03aea3cc6291897925c2b1ed7d0cfa67d0132145",
       "gffunds__ZY00000037": "60d71f17b3cc017b5f4dcc612b96dcc1c02b12b5bc037887113863c1065a3003",
+      "gffunds__GFJJ000004": "d5055e3afe163db6a5a93bcf3e4ab9aab9799b054053cc21ac44281c1af182fc",
       "gffunds__ZY00000064": "d047bf5dfd97a9b23e3f01ffaaef5acc80f0523526d59bbe699b49799f0a9c44",
       "gffunds__ZY00000068": "7e2d239e7bd42b680a5417f4516be0be57345c5a8b963385a38cbc4650b68ad9",
       "gffunds__ZY00000073": "5c1aff43424ae16d753d33d24708d5ca601560b1e03bdccbe0f281b3cbabaf26",
@@ -47501,7 +47617,57 @@
       "gffunds__ZY00000093": "d865d60bba8a27a55f87d28fb6838e530b1fe2d8564f4bb19e670a245738a154",
       "gffunds__ZY00000094": "8f8220f68dbf501fa2f62ef7aba9ce551100830ffb0d6b7db51f180a9ff2373c",
       "gffunds__ZY00000056": "a93741125155ee8beb438a80ef80b47290f60bdf36fc6628027e4d6a11f77d89",
+      "gffunds__GFJJ000900": "9b1c020b381b94609656c859ac6528d1f7c5141e93031738fe0d1516ed45fdc6",
       "gffunds__ZY00000014": "cb9d1158427992b4aaf92a7e9e37fe9e2e70138345c5ba1e451f96228c448de1",
+      "gffunds__GFJJ002101": "03a35847eac0386cf99b6f3d421c516da04cd8f6666e94927db51dbf3aa360e5",
+      "gffunds__GFJJ001507": "45d0071978c18044dcbf884deef47e41a5037398c99a7be15920db27a4b2a799",
+      "gffunds__GFJJ001387": "1bd41acb81166fa8ebde91caa4820c1803b1954b437e614683bf8a27595ebcb3",
+      "gffunds__GFJJ001204": "91fe82af89756667181569afe3ed3b90dcaa81fd9d87b5eebe5616515a73aec5",
+      "gffunds__GFJJ001581": "1cd24d7904f68f2f8c07007e5ed884302d61e747ac4ecd5a2ec2928415804517",
+      "gffunds__GFJJ001563": "750f2a839b308a5d17a353ee1b77809e84ecccadc80500c4e0262f21bd10c36c",
+      "gffunds__GFJJ001665": "3860918e688807de4e3c0971880747ba8eece1c1719ac8e9536d6bcaae7eb2e6",
+      "gffunds__GFJJ001681": "0bfe7576d272d2d0eabc00f665d3bde56673eb33d89dfa23946f11965b7e29bd",
+      "gffunds__GFJJ002301": "69607c731eae775d87d0835179ad4aa80f8c183f54787afb08c479fcc136f79d",
+      "gffunds__GFJJ001261": "0043e485c393fd2964a16002df8b5e39b2f85aea2924c54ccd73a7652df6310f",
+      "gffunds__GFJJ001422": "1c7d0d3da63762b56474e4b74f6b3bcbb02fe585f33ed5f632726012a7e547f5",
+      "gffunds__GFJJ001384": "b45936835055710fe8b5bfb563a9b815f6e989deaa4374a19e8d79c48ed47ebf",
+      "gffunds__GFJJ001394": "17fb51111b30877917542343afe11dc0ceac4682f883d1abb7996dbc515511bd",
+      "gffunds__GFJJ001564": "3f4a6914337982a9bb8f71cb814c717120ba69757b1dbfff1d878f394058b625",
+      "gffunds__GFJJ001569": "1096725c5cb0b70b1c160186b93ed2a055ea447163d09c7ff3c5ee64a56504c6",
+      "gffunds__GFJJ001411": "ab62719ecaf870ea1fd46b07bb515ddb4ab9175e5e1f22fe323fcc1b4d3a26ab",
+      "gffunds__GFJJ001577": "70cb678d84b625a54a2114f448f020edbb89349dfe5f9f4e0c8954240bf410b2",
+      "gffunds__GFJJ001503": "b41c8402074a1e8f2ec60a6ce7c8787b6e0272c7d2011b45be0b33ca98d3d33b",
+      "gffunds__GFJJ001325": "770719a6a88ea4b0707f50d5ae1878db6a18c7adc12417d542c5b48383f3daad",
+      "gffunds__GFJJ001081": "b0ba009ae15825b7c26576ead282eabcf70fbf0cb4062e57e593a6f47d91dcea",
+      "gffunds__GFJJ001326": "b184ef41f196e03b991c34db72419241a1d6b87567a5be8ed055881493e3407a",
+      "gffunds__GFJJ000763": "aa81c71727abf4f60698b7f1c50737f9be1552f4ab3b19d8fed6994abe15e2a8",
+      "gffunds__GFJJ001510": "38dd9fe76a7b309d98e42a2bbc4111cd3bc20319c5ebf1235db852040c091af7",
+      "gffunds__GFJJ000001": "d06ca9ff02d1fc7f89b6d245218b35e25030220ab67ea401c1ef22590b76f8ea",
+      "gffunds__GFJJ001221": "027dd7d61c61316ec363cef25798970cde1a7933645cc67acb0209c1ac8c5e45",
+      "gffunds__GFJJ000598": "244219a15bcc099a4345ff6759bbf2f45ea858c76d8a152515f1e6a6c8c65473",
+      "gffunds__GFJJ000600": "162e028012aac34db4a08ecfb004db2b43d8567ab21b0bf9da553148a05d1d35",
+      "gffunds__GFJJ000601": "ff66b53ecb835b7e543607e4342423e50b80c454aca55a1007c89a81eb5b3d95",
+      "gffunds__GFJJ000602": "0abd69d5c924f830da5b677a8799b456dd05ddc6e8829b3b0b3cfc426aa2e851",
+      "gffunds__GFJJ000603": "047bb21017ef5b536615e55a266909ca96cabb8b1c3d6450a9a0271d8dffa631",
+      "gffunds__GFJJ001502": "148dea65012af44cba84ea6ae398762ff5e4473fea6f3e167ed5bc0dc4f50666",
+      "gffunds__GFJJ000011": "d94a2ef3c7af885bf163d23223cd1d45fa0528f496a140d24912c1967193fe1e",
+      "gffunds__GFJJ001508": "b62e0a323a9e13014a0a71536b631a72d436645a8b1798520bd02ee195c733cd",
+      "gffunds__GFJJ000002": "0a67250f4eaccb2841e621990597b0f39a0ab40f30efa08970615e7693d26332",
+      "gffunds__GFJJ000834": "de230bc755742708fd04c0060b03e428235278cf8c2087dec4ab10141ed4d3ea",
+      "gffunds__GFJJ000783": "0571aca401db8e929f1a6bea3fbee65a86885b1bba6870e3915bca606c06e907",
+      "gffunds__GFJJ000758": "1bb273ce94c58714084feb91d49844bc2f6ab864c5cec9f19c3a738298fb2d02",
+      "gffunds__GFJJ000835": "820700d109a7c9e052c1d6025d04d679154963dff3a9c4d4440ce8fefc8df55a",
+      "gffunds__GFJJ000005": "addc09e98e8afb03c98407b796dbe7f427d7c6bfb4cc507c42ef5aeb37849944",
+      "gffunds__GFJJ000759": "a29bc0c4e0315171e4d666e3116853072f8de4306f1f4db0e8780495071ba718",
+      "gffunds__GFJJ000768": "c3c97b506479bb03c908c35022de22e5c0a7d6de227c7886250c41c11b543283",
+      "gffunds__GFJJ000782": "8a6b56c82103d64c1235c96e2bd65f2973df76c1ae792cbe910920106b258d30",
+      "gffunds__GFJJ000769": "276e71e9c646794125c680cae1ce411db638b45ae85bbaf9a685fe6d6fa360f5",
+      "gffunds__GFJJ000007": "e4e3583e3839417011b5478d35cf31b15b3b5f3102fa1e9ce500fee21ffac6e4",
+      "gffunds__GFJJ001509": "75bd638db85747635f3b09f2ba4484dc999fdeab01ded4d5e09d3fef0c80ab72",
+      "gffunds__GFJJ000219": "051458974063dc7574f66cfdf6abb80360d880d72478ae75bfddf9c2eae68bfc",
+      "gffunds__GFJJ000003": "0f4a0865090c7a66ee5858ad1d360997885d2045c48a575fb9158d518e30056a",
+      "gffunds__GFJJ000078": "7cd02d91d0bc22d7b658ca17bc474ba465f0061f81507b4234ad04192966253d",
+      "gffunds__GFJJ002222": "ef910fdb13070cebc5ab576a11a6c7209bf189f4323b027f34d68fbbcb732047",
       "gfsec_fima__regular:gffund:GFXFZZ": "52dca970a263746fc9392cc66f59455a2708a5c9a01ed44254a69e4d90db2f10",
       "gfsec_fima__regular:zofund:ZOYSH": "549f44ccc63b46511861a304607aac89edcf9fb6ca10d515f6053b0f3e28c4b4",
       "gfsec_fima__regular:zofund:ZOSJL": "12f3427ecbecb0c81b74b768a3c4a2ab00ac6e942ecddf6be0794b0c45dd07a6",
@@ -47607,7 +47773,6 @@
       "harvestwm__harvest_d834d517ad95": "cfbf39341c60dd5eac338de8241b14aba4ba11e13be05f2f6553769c4bab4071",
       "harvestwm__harvest_a5a5c2b7f4ed": "d7e0e4d4c3671136c4b41eace9d0b2e9045dd1d7dbf0a6c290745f9757787843",
       "harvestwm__harvest_6e0c6b249e76": "7768f89fe14ae1f562b46f93b0cf755ba5a56fe46077e64b8261956e9e558bd2",
-      "howbuy__zozh005": "e27eac2717e8dbfae281c853b3b16deecec073b74e5687cf167cf4317c18ee1f",
       "howbuy__zozh004": "4d99cca1118e12e334304ae111ed9bc1bca837fc4c188004dcf989dddd48ad2b",
       "howbuy__zozh003": "b11cb29d01b2ae53a16f53b3a2803c60b43b7f2238fddde552078c2b3b38d79c",
       "howbuy__zozh006": "77721203425f0065f362625267d05f06550fc5e6433c994aded0a8f9b04f4225",
@@ -48223,9 +48388,7 @@
       "qieman__ZH125035": "e40823d48068c7132140f9917fe410edbc0cbe98396e9d27bbb31ee2d4f9fc4e",
       "qieman__ZH120972": "7991ac9efcb32173cae6d49dcb2a5d98205d2d7cce23b9c5c5d807253dc4606a",
       "qieman__SI000220": "93b3658d94fc0aa21e12b42d2dc4ccf4aeccd208a70099aa4bd57a6d98c10003",
-      "qieman__ZH160524": "25ae7a1d815771a6455c56c14cd22acee5a97467fd1ebc425464461a83a246aa",
       "qieman__ZH121407": "b9502266217ba9bee6d72edd7654e53b645916152816f69bb0af5d4493f53e68",
-      "qieman__ZH184679": "36df37453fcd0129ac15c7befec4a4a27218a8cfd0f98703711fbb29ad9d886b",
       "qieman__ZH175554": "7e2cbe79ec8456edf41984c3c26c8e4d74d1ed168a5f1ca887d544257c6f570c",
       "qieman__ZH120392": "be054b2d9665fb3c53f5fedee47fe72d1fd8803d0d49e3c9a8bb5251823979ec",
       "qieman__ZH153951": "fbe91372727f4367f2f18600890dce6d8342024959c2f4cde191cd22613ac794",
@@ -48322,7 +48485,6 @@
       "qieman__ZH167286": "351e86dc360606da76a42e735e87623b5e29b6aa8383e66d53b9999e03253ead",
       "qieman__ZH164310": "43124caf846ff260829e45ec253db03819b30b3931f8cf4079364aa0caa7c9bf",
       "qieman__ZH164309": "e6d6cb4432855c909e18128ee97476b4a5ed2596e2a21b2703e5da3525558a89",
-      "qieman__SI000229": "bc0893c6fa560ca1aa214f5f0ea14b92f8405c8178129b3b1fa86c1f9ef88948",
       "southern__4226": "634c5cb1618b8ebf6b674a880670e662a508050705eabc0ce24d787cc4015c86",
       "southern__7705": "fa39a43da4b2687f3a1cfef0b74518955add46aee8a0edef760c0820c2cb83de",
       "southern__7847": "b4b23235037afd53974acbf78c8ab55ee63dcdd1f71789b4f4d02f6ceef9ee7c",
@@ -48439,7 +48601,6 @@
       "ttfund__MYVG95V": "fecae12ece9db069a3458fdc5e95baf74701f245bd33dfada7369c9ecd092a78",
       "ttfund__FYOR0DY": "35d032adca16ffa9adc816d3886823e219df48ae670c296552449c457441c8a1",
       "ttfund__ZO0ZUHT": "98aec61f19afd7da53f691cee5aa9edbb29dbcea50aadb671f725fdf5eb58cd6",
-      "ttfund__BYRTWBK": "152966aacf3df94f225a8721f9f47c4e1100191d180bd5507e16dc6af68885ea",
       "ttfund__KOPAYYD": "df7435650562a73556cb40e7c3c1590356e84652a0e9795b1a846cb8d165b8f3",
       "ttfund__AEBR89C": "99653625dea41ea5b2c7ead7bf787bdef85f3df5afea6413c3706749b76ec5ad",
       "ttfund__O0QRRTT": "8c6bb2e4bb78165766589e303fa4880f1af86887735742f5759f07a1a53cf598",
@@ -48587,13 +48748,11 @@
       "ttfund__JG1WMK1": "8a9f8e975d7c088e14a4c681326ce0f89f75342e7712c2bd47268416ccb9a286",
       "ttfund__8FDZ9ZR": "5e797a36d810874e80e4adddc98c130f691137affaf63c616705ff59b6d080fe",
       "ttfund__BLTOWCU": "ef0dafc7b53317d7bfb6021320dd4fb1b5accac59e0d156dc6216307e1755fca",
-      "ttfund__YRYNQVQ": "bd0472673369c00e62d853322104cddd540c39269d732017a63f2b5600dce968",
       "ttfund__IWNVGBF": "a7db7ee063846176907a06c85b25c6f6f857fe5e9365d82ef834e29c318398a3",
       "ttfund__3NFKQFZ": "e9279356e8b9b0ddf7591d36277cff661c92c6cd32e899db10f443b3f8cb552a",
       "ttfund__XMMUGXC": "1850e01a985b8b08749a50fc97c9897e613ceefd79c462838b015ac9f1759108",
       "ttfund__NHTF6B3": "aa719a5ce9fa5368a037dea06056e99109bb1aa88dad1635974deab0db6b864e",
       "ttfund__FT9Q97V": "484dc9e61784d7a0747544920bbf1a2a1266b55840d07e1bd545d85f825e2984",
-      "ttfund__D4XUZVN": "d93b6484ec7d9aa104d31fa7cde38cbf1987886e83b421dd7082f0f6e97e9c37",
       "ttfund__XCS0IJK": "7bd9172f4046930da5320a07f65a28699a8629d6812bd39efe0c5d2b2f34da30",
       "ttfund__V4EMGXQ": "689e79ab9d41fa860de78e4954cb5dd8277541a97b85ea42a61b83b816570e07",
       "ttfund__EC1JK09": "b31c13df4303a94b93f0e61deaf579fe3d83bb18450edd742b4bcad527d9908e",
@@ -49058,7 +49217,6 @@
       "ttfund__1ZNYOLX": "a0bdac3464562b83c2a4ce17d05e15eef482a27863459a0cf58c2bdcf13dbbf2",
       "ttfund__H0GRDBP": "26621805b15a567e889cb918075810c47eb4fd2305ed21745b4f57bfa9a01f38",
       "ttfund__IF5A1JH": "6e35f672b08ff9fc992fe1ec52264de97fa284785f5e64dc083978cad9cf48ec",
-      "ttfund__Z1D7TIS": "84b7011c8c1729320ecae051c1244f4398eb4ec4b3d201cb937cd0492303ba96",
       "ttfund__VFFLXPR": "ac184a2fe88fa69ef7ad9134d9ed01277e21724498080e6c443850f07eb1b7f4",
       "ttfund__NJTPUQZ": "87e4d1262087fac5c9df0895f4085e70b63a388555d73a3c6675a919ddadd686",
       "ttfund__N6BWWYZ": "236ce85c391c57d38e2db50ae65eb01460b625d63fccbe46723b85af3d5561c4",
@@ -49220,8 +49378,6 @@
       "ttfund__FTHXFK5": "01acc94e0e2eadad10c2d4b6e17f9166546b756ce041b04701c69f90e1d611e7",
       "ttfund__KX6QVNZ": "20f3f4e1e38fb718febd6661593c94144c62bb3d3104fb939c82e077bd5b28d1",
       "ttfund__8TWSRVW": "dd7dc02a6832ead5d3c0daf52f79693dcdc758b5fbf85bbd26de6a176f05d116",
-      "ttfund__XQR30UU": "de9f19e9b5a5b973e3a9c3e1f1370af2b74b5c411737978b1f9aebb337801bd0",
-      "ttfund__UJZVSUO": "1b8987965eddb3b3d119c1d1850dd8737349ed00bbaa26cefb7fdf0f0f86e70a",
       "ttfund__U6FTIIZ": "b3172ef21731bc72afe34dc5583fa26356bc73a83c89bc3b8388f2711144e0c5",
       "ttfund__AXTL7IZ": "a14fd24c5cf60d0af5e4a7e8f1158a64ffcefd9110d148452d4bab1fcd43b337",
       "ttfund__UYMHJYY": "18c527c3cd08206c4e83a004b58671d458dc7f5a69c001a4164317a09087e60f",
@@ -49535,7 +49691,11 @@
       "zocaifu__8100666666": "e87654d073aa999e8ccd34519b5818785a55416ea80f0471fc0c073b2ddbe532",
       "zocaifu__8100000795": "15fcd58e9d8b2bc25a49576157b81187883ee83c2f4d03ed1fa1d26e7cc1d712",
       "zocaifu__8100000078": "d11add5885767d4c965c6c09330dbfbedd17831c0860ed9abe5daab1d01f2c55",
-      "zocaifu__8100000001": "1d492de20744e814e90d8b9288ce03acfbd0b79c81637c41c5c8963097b526a5"
+      "zocaifu__8100000001": "1d492de20744e814e90d8b9288ce03acfbd0b79c81637c41c5c8963097b526a5",
+      "gffunds__GFJJ003101": "906703d371dd1133f4e408f75959ccbb41d70e57bcafab2cd38d3c37a24e8abd",
+      "gffunds__GFJJ002982": "4333f7157ca5d80b3758669fba587c2247957dbdcf539a413006f034d92c7bb6",
+      "gffunds__GFJJ002941": "821dadf5f17598077e732b974a1e7cd5245ef4073d9a966476b4fd4b6048964f",
+      "gffunds__GFJJ002942": "59b747a07fb3e013f5e784215619194f13f5ec13fcaeaa4864151505f280e503"
     },
     "noCollection": true
   }

@@ -772,6 +772,166 @@
       "strategy": "gffunds__GFJJ002222",
       "fundCode": "023402",
       "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "howbuy__zozh005",
+      "fundCode": "019416",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH184679",
+      "fundCode": "016720",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH184679",
+      "fundCode": "018736",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH184679",
+      "fundCode": "000290",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH184679",
+      "fundCode": "007910",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH184679",
+      "fundCode": "270023",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "007882",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "013416",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "012857",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "004753",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "008888",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "001595",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "017141",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "009052",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "009051",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "008279",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "008280",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "160517",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000229",
+      "fundCode": "161121",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__BYRTWBK",
+      "fundCode": "019416",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__YRYNQVQ",
+      "fundCode": "014979",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__YRYNQVQ",
+      "fundCode": "016631",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__YRYNQVQ",
+      "fundCode": "000376",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__YRYNQVQ",
+      "fundCode": "001618",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__YRYNQVQ",
+      "fundCode": "007818",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__YRYNQVQ",
+      "fundCode": "008280",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__YRYNQVQ",
+      "fundCode": "017472",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__Z1D7TIS",
+      "fundCode": "007722",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__Z1D7TIS",
+      "fundCode": "000217",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__Z1D7TIS",
+      "fundCode": "019480",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__UJZVSUO",
+      "fundCode": "023918",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__UJZVSUO",
+      "fundCode": "000217",
+      "reason": "target_index_mapping_unverified"
     }
   ],
   "missingPolicy": "retain reported fund investment; never zero or rescale"

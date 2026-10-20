@@ -653,6 +653,41 @@ window.BasicData = (() => {
     });
     svg.addEventListener("mouseleave", () => { tip.hidden = true; hoverLayer.setAttribute("visibility", "hidden"); });
   }
+  function benchmarkCurveReference(detail, pool = []) {
+    const cleanPoints = (payload) => (Array.isArray(payload) ? payload : payload?.points || []).filter(p => p?.日期 && p.数值 !== null && p.数值 !== undefined && Number.isFinite(Number(p.数值)));
+    const useful = (payload) => cleanPoints(payload).length >= 2;
+    const moving = (payload) => new Set(cleanPoints(payload).map(p => Number(p.数值).toPrecision(12))).size > 1;
+    const curves = detail.curves || {};
+    const current = curves.基准业绩;
+    const text = String(detail.summary?.业绩基准 || detail.benchmarkMeta?.业绩基准说明 || '').trim();
+    const declared = text && !/^(未披露|暂无|无|--|—|-|不适用)$/.test(text);
+    const cash = declared && /^(现金|货币|存款|无风险利率).*(100|全部)|^(现金|货币|无风险利率)$/.test(text);
+    if (!detail.benchmarkMeta?.展示参考基准 && useful(current) && (moving(current) || cash)) return {fallback:false,payload:current,label:'基准业绩'};
+    const primary = useful(curves.披露业绩) ? cleanPoints(curves.披露业绩) : cleanPoints(curves.模拟业绩);
+    const first = primary[0]?.日期, last = primary.at(-1)?.日期;
+    let candidate = curves.沪深300业绩;
+    if (!useful(candidate) || !moving(candidate)) candidate = pool.find(row => row.code === '000300.SH');
+    const points = cleanPoints(candidate).filter(p => (!first || p.日期 >= first) && (!last || p.日期 <= last));
+    const payload = {模式:candidate?.模式 || points[0]?.模式 || 'nav',points};
+    if (points.length < 2 || !moving(payload)) return {fallback:true,payload:{模式:'nav',points:[]},label:'沪深300参考基准',status:'missing',note:'原基准未披露或无有效日度曲线，且沪深300在该区间没有足够真实行情；保留缺失，不画零收益直线。'};
+    return {fallback:true,payload,label:'沪深300参考基准',status:'ready',note:'未取得有效业绩基准曲线，默认显示沪深300参考基准；该参考不代表策略官方披露基准，不改写其基准公式、分类或官方业绩。'};
+  }
+  function applyBenchmarkReference(detail, pool = []) {
+    if (detail.benchmarkDisplayReference) return detail.benchmarkDisplayReference;
+    const reference = benchmarkCurveReference(detail,pool);
+    if (!reference.fallback) return reference;
+    detail.curves = {...detail.curves,基准业绩:reference.payload};
+    detail.benchmarkDisplayReference = {fallback:true,label:reference.label,status:reference.status};
+    detail.curveSources = {...detail.curveSources,基准业绩:reference.note};
+    detail.curveWarnings = [...(detail.curveWarnings || []),reference.note];
+    for (const payload of Object.values(detail.contributionCurves || {})) {
+      if (!payload?.series) continue;
+      const regional = {...reference.payload,points:reference.payload.points.filter(p => (!payload.起始日期 || p.日期 >= payload.起始日期) && (!payload.结束日期 || p.日期 <= payload.结束日期))};
+      const local = benchmarkCurveReference({summary:detail.summary,curves:{披露业绩:payload.series.调仓后仓位实际 || payload.series.调仓前仓位模拟 || regional,基准业绩:payload.series.基准业绩,沪深300业绩:payload.series.沪深300业绩 || regional}},pool);
+      if (local.fallback) payload.series = {...payload.series,基准业绩:local.payload};
+    }
+    return reference;
+  }
   const qualityScopeMap = {
     overview: ["首页", "负责人总览", "内网静态部署", "全局"],
     strategies: ["策略列表", "排名样本"],
@@ -711,5 +746,5 @@ window.BasicData = (() => {
     hidePageLoading();
     scheduleInternalTestNotice();
   });
-  return { state, byId, esc, fmt, pct, pctSigned, valueHtml, toneClass, statusBadge, label, table, valueList, metricValue, metric, params, loadScript, showPageLoading, updatePageLoading, hidePageLoading, ensureInternalTestNotice, drawReturnChart, isDerivedField, fieldSourceText, showInfoModal, showHtmlModal, pageQualityIssues, renderGlobalQualityGate, strategyListHeaders, strategyListFieldGroups, strategyListInstitutionField, strategyInstitutionText, strategyListHeaderLabel, globalStrategyFilters, globalStrategyFilterDefinitions: GLOBAL_STRATEGY_FILTERS, hasExplicitGlobalStrategyFilters, setGlobalStrategyFilter, withGlobalStrategyFilters, strategyFilterFacts, matchesGlobalStrategyFilters };
+  return { benchmarkCurveReference, applyBenchmarkReference, state, byId, esc, fmt, pct, pctSigned, valueHtml, toneClass, statusBadge, label, table, valueList, metricValue, metric, params, loadScript, showPageLoading, updatePageLoading, hidePageLoading, ensureInternalTestNotice, drawReturnChart, isDerivedField, fieldSourceText, showInfoModal, showHtmlModal, pageQualityIssues, renderGlobalQualityGate, strategyListHeaders, strategyListFieldGroups, strategyListInstitutionField, strategyInstitutionText, strategyListHeaderLabel, globalStrategyFilters, globalStrategyFilterDefinitions: GLOBAL_STRATEGY_FILTERS, hasExplicitGlobalStrategyFilters, setGlobalStrategyFilter, withGlobalStrategyFilters, strategyFilterFacts, matchesGlobalStrategyFilters };
 })();
