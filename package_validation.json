@@ -185,7 +185,7 @@
       "gffunds__GFJJ003101"
     ],
     "retainedPublishedBytesVerified": true,
-    "validatedAt": "2026-10-20T23:15:20+08:00"
+    "validatedAt": "2026-10-20T23:20:45+08:00"
   },
   "scopeIds": [
     "gffunds__GFJJ000001",
@@ -263,6 +263,6 @@
   "retainedBuildId": "minimal-447b4e07645d",
   "scopedManualAudit": {
     "runId": "20261020T2240_gffunds_overview_audit",
-    "sha256": "e1b19bc924a44c9a30f3213906cc15ab227b73f1dd4d20af06121616e7cdb15a"
+    "sha256": "e160e6c82aa1596999d2573fd57d6d6332f07b899040b52aaa3e114a93dad8f3"
   }
 }
