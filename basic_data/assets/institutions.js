@@ -219,7 +219,7 @@
     root.innerHTML = `
       <section class="panel institution-controls institution-global-controls">
         <div class="institution-global-title"><div><span class="eyebrow">数据筛选范围</span><h1>机构总览</h1><p>条件仅作用于本页；点击本页“查看策略、查看排名或分档”链接时会随链接带入，直接使用顶部菜单不会继承。</p></div><span class="institution-global-count">当前 ${count(rows.length)} 个策略</span></div>
-        <p class="institution-unbucketed">策略清单刷新：${B.esc(overview.数据刷新时间 || "未披露")}。${overview.广发基金数据更新至 ? `广发基金本批数据截至 ${B.esc(overview.广发基金数据更新至)}；其他渠道沿用各自来源快照。` : ""}下方“最近调整日”仅指调仓事件日期，不表示净值、持仓或发布更新时间。</p>
+        <p class="institution-unbucketed">策略清单刷新：${B.esc(overview.数据刷新时间 || "未披露")}。${overview.广发基金数据更新至 ? `广发基金本批数据截至 ${B.esc(overview.广发基金数据更新至)}；收益和持仓沿用各策略来源快照。调仓事件汇总已独立同步已入库记录。` : ""}下方“最近调整日”仅指调仓事件日期，不表示净值、持仓或发布更新时间。</p>
         <div class="institution-filters" aria-label="全局策略数据条件">
           ${filterButton("benchmark", "有基准", "披露可追溯基准")}
           ${filterButton("performance", "有业绩走势", "至少两个官方净值点")}

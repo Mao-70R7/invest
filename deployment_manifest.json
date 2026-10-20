@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildId": "minimal-7491cd626f26",
-  "generatedAt": "2026-10-20T23:19:45+08:00",
+  "buildId": "minimal-b8ba5b356cbc",
+  "generatedAt": "2026-10-20T23:53:07+08:00",
   "pageSet": [
     "机构总览",
     "策略列表",
@@ -77,7 +77,7 @@
     "preservedPublishBytes": 0
   },
   "fileCount": 5771,
-  "totalBytes": 354287610,
+  "totalBytes": 354285115,
   "files": [
     {
       "path": ".gitattributes",
@@ -156,8 +156,8 @@
     },
     {
       "path": "basic_data/assets/institutions.js",
-      "size": 21722,
-      "sha256": "b13e97175ba83aa24d6724a99efc8428754f33dd78dfc6fbdd08f910f1854031"
+      "size": 21779,
+      "sha256": "065371cbec0d19cd9128ef442e60f8f20ba4acdd5d796205d9c31eed26c3ed01"
     },
     {
       "path": "basic_data/assets/minimal-publish-runtime.js",
@@ -14302,17 +14302,17 @@
     {
       "path": "basic_data/compare.html",
       "size": 3212,
-      "sha256": "10384514a7fdefebb3b6c3393bdc2069c927ba41c5c625c92997423a3004d14f"
+      "sha256": "4727fc97776d73a7d9c85ce2d655b70fe7c7bcc2bb4bf6ba0fba7fb71bb136a2"
     },
     {
       "path": "basic_data/data/basic_summary_core.js.gz",
-      "size": 3156297,
-      "sha256": "74f0497744d90831cdca0683d62a1feb3f7ba6c62c9bbbaf09e969efaa38365f"
+      "size": 3154596,
+      "sha256": "76dcf482ffeedfa99b51f7a6c310c4dda4f9cb5d82c75403aba2abb46f7a6ef7"
     },
     {
       "path": "basic_data/data/data_pack_manifest.js",
       "size": 5690,
-      "sha256": "cc3faac4861a20a13bc7712fbbde0f1ec1fbbe1baea3841f0db8f550b1101914"
+      "sha256": "599591b6159a60b42ef7a9d6d5ed40256cdb4b500ed07e1111f2cce6f77a570c"
     },
     {
       "path": "basic_data/data/data_quality_pack.js.gz",
@@ -27456,8 +27456,8 @@
     },
     {
       "path": "basic_data/data/institution_overview_pack.js.gz",
-      "size": 1913602,
-      "sha256": "2ef4bf72fe996073a329137d397c5737a1c76872c9add553f272178f616a9283"
+      "size": 1912015,
+      "sha256": "0d5879d3d851f1b94df7e9ea4f6e292802c1f0cf4c6b2e835bd03e46fa015421"
     },
     {
       "path": "basic_data/data/mixed_performance_scatter_pack.js.gz",
@@ -28751,13 +28751,13 @@
     },
     {
       "path": "basic_data/data/strategy_detail_index_pack.js.gz",
-      "size": 1534646,
-      "sha256": "60c96bc7bce2ed7af341ba287429289d4b7812d245cd10573feb934315d05c4a"
+      "size": 1535037,
+      "sha256": "a6d3695476e027e2d5c1a1e5920a11b58f9e1d053a705c3ec2b987631e57a549"
     },
     {
       "path": "basic_data/data/strategy_list_pack.js.gz",
-      "size": 1206979,
-      "sha256": "745bf01eb6c3f59ae2ac3f8a64782266fca840a58b4ba58aa43f1766b5d14f52"
+      "size": 1207319,
+      "sha256": "4d453006318d7eabcc3be2e9fc03fd9f32064be57c1bda3f1b43fa4e0f118b4b"
     },
     {
       "path": "basic_data/index.html",
@@ -28767,92 +28767,92 @@
     {
       "path": "basic_data/institutions.html",
       "size": 3180,
-      "sha256": "7f50eae10be1da39908e092cdb667ad78039f4efdc0e62c44189b8b773ec64d8"
+      "sha256": "f143cbf393300bd757ae7d05b2ec5120c35003a504551b8ff4ca3ad4b59a5513"
     },
     {
       "path": "basic_data/mixed-performance-scatter.html",
       "size": 3279,
-      "sha256": "2b41f8d9cd32dae687c675987045a9930bced696b6a77fd1dccc8c6f9ba05158"
+      "sha256": "68bd639906232974210a29d6c3ff562cbefb8c8ea1969f744198506aa76b2743"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202510.html",
       "size": 180174,
-      "sha256": "2249c5ff4ff69e57f9b21ee6d7495e4b15f8ad67f53ee987271a431d57b06f51"
+      "sha256": "03015a28058d84304340646d782354367decf630022ab6a3df364d1db2567820"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202511.html",
       "size": 187468,
-      "sha256": "a0687313ca8468a36054aa2d3e3e582c05a6160fde1a3aaaa5a8ddbd05900a2b"
+      "sha256": "4692dfbcd7c33c2f72eca9725a236f735659e2f1a9857684d72c6312affd691c"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202512.html",
       "size": 204020,
-      "sha256": "b5470d2e6b79faa05772312652c38f2d2baff3d0c2ef1e114f8dfc42699d7737"
+      "sha256": "0a49af8a88c4f226852e48031aac61b3896bc1b4ffa3be98a9b61b7ca7beafa1"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202601.html",
       "size": 189666,
-      "sha256": "476445eaca22ed3805bb9194849a2a8ca6fdc2eee08836e2f53898dfe2a18cef"
+      "sha256": "417d23e030bee9091b30da50d2061115669957dad5675e0d5f55ad2b688c5c1b"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202602.html",
       "size": 193193,
-      "sha256": "e2a49e16b68a8a3ad3816fa27303c540485bca90a585745b56a9c281c6b89486"
+      "sha256": "f061bb3c60359fd86a15a2e3dd8b8faaec1b2225b9f379f9f9a6f609a9240e86"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202603.html",
       "size": 219634,
-      "sha256": "a1968cf1b1055c2a070db5ae4f895ae94a66ce24349362d4e54553bf86091dd5"
+      "sha256": "00ff04003eda86e94785c331b4ba9f9a772a27bfab31c5fc7115e24e52d4bd9f"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202604.html",
       "size": 199670,
-      "sha256": "7667459e7868ad50de5815bea14f57f8e0613985e87208a5d43dd9786a64c0b5"
+      "sha256": "cc21b3cd686c938abf8f02a692c3b3acc7ec0c8a3fd98ffb7c37ea92b5b3f260"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202605.html",
       "size": 188310,
-      "sha256": "49888286c79f649bd00c558c1252634cead9d7b4ca50fe6c21e2bc0db0c4d0e4"
+      "sha256": "001251c1f548671599f8e46c4da1fc10a2d69016d845012d6ba8097036b34d43"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202606.html",
       "size": 239498,
-      "sha256": "76f70c19ccfbc9490fb3082f68d49d94a37f1847ec141d88cf8cd4c9707e76fa"
+      "sha256": "03104ad8d1189ee53aeab42a9265992bf75b2ed61045473ae4b312ca6e2b4955"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202607.html",
       "size": 195613,
-      "sha256": "c8af960559cb5b61d32e0c7599cbe5863d66461bfc1ce6a89cd5c97dab501314"
+      "sha256": "8beb2c8e04db9daa16f702a81a211e11b4e651d4b9d65a8869f227b9c0066ba3"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202608.html",
       "size": 207662,
-      "sha256": "ba63a1490e751a4912556326dc449694a85dad97ed9d5ee2712cd61c113b33bc"
+      "sha256": "07734ac5ed60f003786c4adb72adcd124c528ee0835ac9570f68d1dcdf28e8a3"
     },
     {
       "path": "basic_data/monthly-rebalance-report-202609.html",
       "size": 175192,
-      "sha256": "583ac54507aa8b8c75788da6392654becab23471f453c87d22fd3d20727525fc"
+      "sha256": "00d09617b020853543681b2053b0e769f4f04bed6197a36fb36c06b91dbc169b"
     },
     {
       "path": "basic_data/monthly-rebalance-report.html",
       "size": 175192,
-      "sha256": "583ac54507aa8b8c75788da6392654becab23471f453c87d22fd3d20727525fc"
+      "sha256": "00d09617b020853543681b2053b0e769f4f04bed6197a36fb36c06b91dbc169b"
     },
     {
       "path": "basic_data/strategies.html",
       "size": 3119,
-      "sha256": "9df9d365a9824c5a2d6400c66141ae20e67efb3b87148c1bc64869accad34809"
+      "sha256": "b236b441ef81935c35cbfd21168df742daee1910dadef22792f57437c1c2e944"
     },
     {
       "path": "basic_data/strategy-lookthrough.html",
       "size": 1494438,
-      "sha256": "00dbc8ed54402234db018a9487d8d2b6b311be1083fb236a9b8a33b43f830760"
+      "sha256": "72d868f1ee0751bdab6e21eaa161da690ed1990a394a8c30c80ea2963a46826c"
     },
     {
       "path": "basic_data/strategy.html",
       "size": 3241,
-      "sha256": "1d55bd44b442e5c3fc2255b58079b2ce56df42e6278172d628f60996a91df38c"
+      "sha256": "842f29ab75742caba7e1a4d715652dad1c48c6ea63949e654c80e671af44c6d7"
     },
     {
       "path": "cloud-functions/ai-api/[[default]].js",
@@ -28881,8 +28881,8 @@
     },
     {
       "path": "package_validation.json",
-      "size": 8774,
-      "sha256": "16072801ff59f09b798baf805929dcce9a578cdf58f25c57ef076f9fb8f434e9"
+      "size": 8779,
+      "sha256": "b7bfb91ad0dab4196d1a8a3bc9af488bc22841f5eb92b5f8867a77120e677aee"
     },
     {
       "path": "README.md",
@@ -28922,7 +28922,7 @@
     {
       "path": "version.json",
       "size": 151,
-      "sha256": "b0ccb08a7f95923d8a6634b4aeb6933c7479cfebf08069c4d16e9f2ab1bb5206"
+      "sha256": "51eac91c97ce19829ac85cda355cd54a38279d181fb88a5f28bf537477155520"
     },
     {
       "path": "停止最小发布集.cmd",
@@ -29009,9 +29009,9 @@
       "gffunds__GFJJ002982",
       "gffunds__GFJJ003101"
     ],
-    "retainedBaseCommit": "f6ef43d1e7e453b7bad5b5caff4ef50d04dbfe38",
+    "retainedBaseCommit": "087ec711d501348f58c69e94ae1a3772b347198b",
     "noCollection": true,
-    "runId": "20261020T2240_gffunds_overview",
+    "runId": "20261020T2350_overview_dependencies",
     "changeType": "overview_aggregation_only"
   }
 }
