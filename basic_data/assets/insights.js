@@ -5278,7 +5278,10 @@
   }
 
   function compareRiskScatter(rows) {
-    const peers = comparePeerRows().filter((row) => num(row[returnMetric()]) !== null && num(row[state.compareScatterX]) !== null).slice(0, 240);
+    const validPoint = (row) => num(row[returnMetric()]) !== null && num(row[state.compareScatterX]) !== null;
+    const backgroundSample = comparePeerRows().filter(validPoint).slice(0, 240);
+    // Selected products must remain present even outside the background sample.
+    const peers = [...new Map([...backgroundSample, ...rows.filter(validPoint)].map(row => [row.统一策略ID, row])).values()];
     if (!peers.length) return '<div class="empty">当前同类口径下暂无可画散点</div>';
     const selected = new Set(state.compareSelectedIds);
     const width = 900;
@@ -5299,17 +5302,40 @@
     const medianX = median(xs);
     const categoryRows = [...new Map(peers.map((row) => [row.研报产品类型 || row.业务分类 || "未分类", row])).entries()].slice(0, 8);
     const orderedPeers = [...peers].sort((a, b) => (selected.has(a.统一策略ID) ? 1 : 0) - (selected.has(b.统一策略ID) ? 1 : 0));
+    const selectedPositionCounts = new Map();
     const points = orderedPeers.map((row) => {
       const isSelected = selected.has(row.统一策略ID);
       const isPointSelected = state.compareSelectedPointId === row.统一策略ID;
       const cls = ["compare-scatter-point", isSelected ? "is-selected" : "is-background", isPointSelected ? "is-point-selected" : "", isGf(row) ? "is-gf" : ""].filter(Boolean).join(" ");
-      return `<circle class="${cls}" data-compare-point-id="${B.esc(row.统一策略ID)}" cx="${xOf(num(row[state.compareScatterX]) || 0).toFixed(1)}" cy="${yOf(num(row[returnMetric()]) || 0).toFixed(1)}" r="${isPointSelected ? 9 : isSelected ? 7.5 : 3.8}" fill="${isSelected ? compareSelectedColor(row.统一策略ID) : comparePeerScatterColor(row)}">
+      const cx=xOf(num(row[state.compareScatterX]) || 0).toFixed(1),cy=yOf(num(row[returnMetric()]) || 0).toFixed(1),position=cx+','+cy;
+      const overlap=isSelected?(selectedPositionCounts.get(position)||0):0;
+      if(isSelected)selectedPositionCounts.set(position,overlap+1);
+      const color=isSelected?compareSelectedColor(row.统一策略ID):comparePeerScatterColor(row);
+      const radius=isSelected?7.5+overlap*3.5+(isPointSelected?1.5:0):3.8;
+      return `<circle class="${cls}" data-compare-point-id="${B.esc(row.统一策略ID)}" cx="${cx}" cy="${cy}" r="${radius}" fill="${overlap?'none':color}" ${overlap?`style="stroke:${color};stroke-width:2.5;pointer-events:stroke"`:''}>
           <title>${B.esc(row.策略名称)}｜${state.compareScatterX}${pct(row[state.compareScatterX])}｜${rangeLabel()}${signedPctText(row[returnMetric()])}</title>
         </circle>`;
     }).join("");
-    const selectedLabels = rows.filter((row) => selected.has(row.统一策略ID) && num(row[state.compareScatterX]) !== null && num(row[returnMetric()]) !== null)
-      .map((row) => `<text class="compare-scatter-label" x="${Math.min(width - pad.right - 8, xOf(num(row[state.compareScatterX]) || 0) + 10).toFixed(1)}" y="${Math.max(pad.top + 14, yOf(num(row[returnMetric()]) || 0) - 10).toFixed(1)}" fill="${compareSelectedColor(row.统一策略ID)}">${B.esc(raw(row.策略名称).slice(0, 10))}</text>`).join("");
-    const selectedLegend = rows.map((row) => `<span class="is-selected-strategy"><i style="background:${compareSelectedColor(row.统一策略ID)}"></i>${strategyLink(row)}</span>`).join("");
+    const selectedCoordinates = rows.filter(validPoint).map(row => ({row, x:xOf(num(row[state.compareScatterX])), y:yOf(num(row[returnMetric()]))}));
+    const occupiedLabels = [];
+    const selectedLabels = selectedCoordinates.map(({row,x,y}) => {
+      let label;
+      for (const radius of [28,48,70,96]) {
+        for (let step=0;step<16;step++) {
+          const angle=(-Math.PI/2)+(step*Math.PI/8);
+          const candidate={x:Math.max(pad.left+12,Math.min(width-pad.right-12,x+radius*Math.cos(angle))),y:Math.max(pad.top+12,Math.min(height-pad.bottom-12,y+radius*Math.sin(angle)))};
+          if (selectedCoordinates.some(p=>Math.abs(p.x-candidate.x)<23&&Math.abs(p.y-candidate.y)<23)) continue;
+          if (occupiedLabels.some(p=>Math.abs(p.x-candidate.x)<26&&Math.abs(p.y-candidate.y)<24)) continue;
+          label=candidate;break;
+        }
+        if(label)break;
+      }
+      if(!label)return '';
+      occupiedLabels.push(label);
+      const color=compareSelectedColor(row.统一策略ID),number=state.compareSelectedIds.indexOf(row.统一策略ID)+1;
+      return `<g class="compare-scatter-number" aria-hidden="true"><line x1="${x}" y1="${y}" x2="${label.x}" y2="${label.y}" stroke="${color}" stroke-width="1.1"/><circle cx="${label.x}" cy="${label.y}" r="10" fill="#fff" stroke="${color}" stroke-width="1.5"/><text x="${label.x}" y="${label.y+4}" text-anchor="middle" fill="${color}">${number}</text></g>`;
+    }).join("");
+    const selectedLegend = rows.map((row) => `<span class="is-selected-strategy"><b class="compare-point-number" style="color:${compareSelectedColor(row.统一策略ID)}">${state.compareSelectedIds.indexOf(row.统一策略ID)+1}</b><i style="background:${compareSelectedColor(row.统一策略ID)}"></i>${strategyLink(row)}</span>`).join("");
     return `<div class="compare-scatter-wrap">
       <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="策略风险收益散点">
         <rect x="${pad.left}" y="${pad.top}" width="${width - pad.left - pad.right}" height="${height - pad.top - pad.bottom}" fill="#fff"/>
@@ -5327,8 +5353,8 @@
         <text class="axis-text" x="${width - pad.right}" y="${height - 30}" text-anchor="end">${maxX.toFixed(1)}%</text>
         <text class="axis-text" x="8" y="${yOf(maxY) + 4}">${maxY.toFixed(1)}%</text>
         <text class="axis-text" x="8" y="${yOf(minY) + 4}">${minY.toFixed(1)}%</text>
-        ${points}
         ${selectedLabels}
+        ${points}
       </svg>
       <div class="compare-scatter-legend">${selectedLegend || '<span><i class="is-selected"></i>已选策略</span>'}<span class="is-peer-sample"><i></i>背景同类样本</span>${categoryRows.map(([label, row]) => `<span class="is-peer-category"><i style="background:${comparePeerScatterColor(row)}"></i>${B.esc(label)}</span>`).join("")}</div>
       ${compareScatterDetail(peers)}
