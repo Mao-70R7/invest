@@ -219,6 +219,7 @@
     root.innerHTML = `
       <section class="panel institution-controls institution-global-controls">
         <div class="institution-global-title"><div><span class="eyebrow">数据筛选范围</span><h1>机构总览</h1><p>条件仅作用于本页；点击本页“查看策略、查看排名或分档”链接时会随链接带入，直接使用顶部菜单不会继承。</p></div><span class="institution-global-count">当前 ${count(rows.length)} 个策略</span></div>
+        <p class="institution-unbucketed">策略清单刷新：${B.esc(overview.数据刷新时间 || "未披露")}。${overview.广发基金数据更新至 ? `广发基金本批数据截至 ${B.esc(overview.广发基金数据更新至)}；其他渠道沿用各自来源快照。` : ""}下方“最近调整日”仅指调仓事件日期，不表示净值、持仓或发布更新时间。</p>
         <div class="institution-filters" aria-label="全局策略数据条件">
           ${filterButton("benchmark", "有基准", "披露可追溯基准")}
           ${filterButton("performance", "有业绩走势", "至少两个官方净值点")}
@@ -230,7 +231,7 @@
       <section class="institution-top-grid">
         <article class="panel institution-trend-card">
           <div class="institution-card-head"><div><span class="eyebrow">市场调仓走势</span><h2>调仓总览</h2><p>普通调仓与发车信号合并后，按日去重统计；选择点位可查看对应策略。</p></div><div class="institution-range" role="group" aria-label="走势图区间">${[[7, "近一周"], [14, "近两周"], [30, "近一月"]].map(([days, label]) => `<button type="button" data-days="${days}" class="${state.days === days ? "is-active" : ""}">${label}</button>`).join("")}</div></div>
-          <div class="institution-trend-body"><div class="institution-trend-kpis"><div><span>调仓策略总数</span><strong>${count(trendData.strategyCount)}</strong><small>窗口内去重</small></div><div><span>投顾管理机构数</span><strong>${count(trendData.managerCount)}</strong><small>发生过调整</small></div><div><span>数据截至</span><strong class="is-date">${B.esc(trendData.anchor)}</strong><small>${state.days} 个自然日</small></div></div><div class="institution-chart-wrap">${lineChart(trendData.points)}</div></div>
+          <div class="institution-trend-body"><div class="institution-trend-kpis"><div><span>调仓策略总数</span><strong>${count(trendData.strategyCount)}</strong><small>窗口内去重</small></div><div><span>投顾管理机构数</span><strong>${count(trendData.managerCount)}</strong><small>发生过调整</small></div><div><span>最近调整日</span><strong class="is-date">${B.esc(trendData.anchor)}</strong><small>${state.days} 个自然日</small></div></div><div class="institution-chart-wrap">${lineChart(trendData.points)}</div></div>
           ${adjustmentList(rows)}
         </article>
         <article class="panel institution-market-buckets">
