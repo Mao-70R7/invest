@@ -580,7 +580,7 @@ window.BasicData = (() => {
       });
       return;
     }
-    const width = Math.max(920, Math.round(el.getBoundingClientRect().width || el.clientWidth || 960));
+    const width = Math.max(options.minWidth || 920, Math.round(el.getBoundingClientRect().width || el.clientWidth || 960));
     const height = options.height || 310;
     const pad = { left: 44, right: 8, top: 22, bottom: 46 };
     const allValues = series.flatMap(([, rows]) => rows.map((row) => row.数值));

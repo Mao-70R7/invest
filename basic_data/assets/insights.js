@@ -5284,7 +5284,7 @@
     const peers = [...new Map([...backgroundSample, ...rows.filter(validPoint)].map(row => [row.统一策略ID, row])).values()];
     if (!peers.length) return '<div class="empty">当前同类口径下暂无可画散点</div>';
     const selected = new Set(state.compareSelectedIds);
-    const width = 900;
+    const width = Math.max(320, Math.min(900, document.documentElement.clientWidth - 64));
     const height = 380;
     const pad = { left: 62, right: 30, top: 24, bottom: 48 };
     const xs = peers.map((row) => num(row[state.compareScatterX]) || 0);
@@ -5651,7 +5651,7 @@
       el.innerHTML = `<div class="empty">${rows.some((row) => !compareDetail(row.统一策略ID)) ? '策略曲线正在加载，请查看上方加载状态；失败后可重试。' : '所选策略暂无可用收益曲线。'}</div>`;
       return;
     }
-    B.drawReturnChart(el, series, { range: state.range, title: "策略对比收益曲线", defaultVisibleSeries: defaultVisible, seriesStyles,
+    B.drawReturnChart(el, series, { minWidth: 320, range: state.range, title: "策略对比收益曲线", defaultVisibleSeries: defaultVisible, seriesStyles,
       calendarWindow: compareCalendarWindow(rows), maxGapDays: 45 });
   }
 
