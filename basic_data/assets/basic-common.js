@@ -496,7 +496,8 @@ window.BasicData = (() => {
         .filter((p) => Number.isFinite(p.数值) && (!calendarWindow ||
           ((!calendarWindow.start || p.日期 >= calendarWindow.start) && p.日期 <= calendarWindow.end)))
         .sort((a, b) => a.日期.localeCompare(b.日期));
-      return { name, points: filtered, mode: alreadyReturn ? "return" : mode, allTimeValueMode };
+      const explicitGaps = points.filter(p => p.日期 && (p.数值 === null || p.数值 === undefined)).map(p => String(p.日期));
+      return { name, points: filtered, mode: alreadyReturn ? "return" : mode, allTimeValueMode, preserveGaps: !!payload?.preserveGaps, explicitGaps };
     }).filter((item) => item.points.length);
     if (!raw.length) return {};
     // A stale comparison series must never clear or extend the other curves.
@@ -505,7 +506,7 @@ window.BasicData = (() => {
         item.points.map(point => ({ 日期: point.日期, 数值: item.allTimeValueMode
           ? (item.allTimeValueMode === "unit_nav" ? (point.数值 - 1) * 100 : point.数值)
           : returnFromBase(point.数值, item.points[0].数值, item.mode) }))
-          .filter(point => Number.isFinite(point.数值))]));
+          .filter(point => Number.isFinite(point.数值)).concat(item.preserveGaps ? item.explicitGaps.filter(d => (!calendarWindow.start || d >= calendarWindow.start) && d <= calendarWindow.end).map(d => ({日期:d,数值:null})) : []).sort((a,b)=>a.日期.localeCompare(b.日期))]));
     }
     const commonStart = raw.map((item) => item.points[0].日期).sort().at(-1);
     const commonEnd = raw.map((item) => item.points[item.points.length - 1].日期).sort()[0];
@@ -516,6 +517,14 @@ window.BasicData = (() => {
     }));
     const dates = [...dateSet].sort();
     const entries = raw.map((item) => {
+      if (item.preserveGaps) {
+        const points = item.points.filter(p => p.日期 >= commonStart && p.日期 <= commonEnd);
+        const base = points[0];
+        if (!base) return [item.name, []];
+        const rows = points.map(p => ({日期:p.日期,数值:returnFromBase(p.数值,base.数值,item.mode)}));
+        rows.push(...item.explicitGaps.filter(d => d >= commonStart && d <= commonEnd).map(d => ({日期:d,数值:null})));
+        return [item.name, rows.sort((a,b)=>a.日期.localeCompare(b.日期))];
+      }
       if (item.allTimeValueMode) {
         const rows = item.points
           .filter((point) => point.日期 >= commonStart && point.日期 <= commonEnd)
@@ -583,7 +592,7 @@ window.BasicData = (() => {
     const width = Math.max(options.minWidth || 920, Math.round(el.getBoundingClientRect().width || el.clientWidth || 960));
     const height = options.height || 310;
     const pad = { left: 44, right: 8, top: 22, bottom: 46 };
-    const allValues = series.flatMap(([, rows]) => rows.map((row) => row.数值));
+    const allValues = series.flatMap(([, rows]) => rows.map((row) => row.数值)).filter(v => v !== null && Number.isFinite(v));
     const allDates = [...new Set(series.flatMap(([, rows]) => rows.map((row) => row.日期)))].sort();
     const minDate = new Date(allDates[0]).getTime();
     const maxDate = new Date(allDates[allDates.length - 1]).getTime();
@@ -613,7 +622,7 @@ window.BasicData = (() => {
     const paths = series.map(([name, rows]) => {
       const color = seriesColor(name);
       const style = seriesStyles[name] || {};
-      const d = rows.map((row, i) => `${i && !(options.maxGapDays && (Date.parse(row.日期) - Date.parse(rows[i - 1].日期)) / 86400000 > options.maxGapDays) ? "L" : "M"}${xOf(row.日期).toFixed(1)},${yOf(row.数值).toFixed(1)}`).join(" ");
+      const d = rows.map((row, i) => row.数值 === null ? "" : `${i && rows[i-1].数值 !== null && !(options.maxGapDays && (Date.parse(row.日期) - Date.parse(rows[i - 1].日期)) / 86400000 > options.maxGapDays) ? "L" : "M"}${xOf(row.日期).toFixed(1)},${yOf(row.数值).toFixed(1)}`).join(" ");
       return `<path data-series-name="${esc(name)}" d="${d}" fill="none" stroke="${esc(color)}" stroke-width="${esc(style.width || 2.4)}"${style.dash ? ` stroke-dasharray="${esc(style.dash)}"` : ""} stroke-linejoin="round" stroke-linecap="round"/>`;
     }).join("");
     const legend = chartLegendHtml(names, el.__seriesVisibility, seriesStyles);
@@ -659,6 +668,7 @@ window.BasicData = (() => {
     const moving = (payload) => new Set(cleanPoints(payload).map(p => Number(p.数值).toPrecision(12))).size > 1;
     const curves = detail.curves || {};
     const current = curves.基准业绩;
+    if (detail.benchmarkMeta?.口径核验?.禁止替代原基准) return {fallback:false,payload:current || {模式:'nav',points:[]},label:'基准缺失',status:'missing'};
     const text = String(detail.summary?.业绩基准 || detail.benchmarkMeta?.业绩基准说明 || '').trim();
     const declared = text && !/^(未披露|暂无|无|--|—|-|不适用)$/.test(text);
     const cash = declared && /^(现金|货币|存款|无风险利率).*(100|全部)|^(现金|货币|无风险利率)$/.test(text);

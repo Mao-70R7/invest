@@ -580,6 +580,16 @@
     if (value === null || value === undefined || value === "") return "未披露";
     return flagOn(value) ? "是" : "否";
   }
+  function benchmarkIntegrityNotice() {
+    const meta = detail.benchmarkMeta || {};
+    if (meta.口径核验?.禁止替代原基准) return `<p class="source-method" data-benchmark-integrity><strong>原基准缺失：</strong>${B.esc((meta.口径核验.公式阻断原因 || []).join("；"))}</p>`;
+    const points = detail.curves?.基准业绩?.points || [];
+    const latest = points.filter(p => p.数值 !== null).at(-1)?.日期;
+    const selected = selectedGlobalBenchmark();
+    if (selected?.gapNote) return `<p class="source-method" data-benchmark-integrity>${B.esc(selected.name)}：${B.esc(selected.gapNote)}</p>`;
+    if (meta.官方基准原始证据 && latest) return `<p class="source-method" data-benchmark-integrity><strong>官方基准截至 ${B.esc(latest)}</strong>；策略净值截至 ${B.esc(detail.curves?.披露业绩?.points?.at(-1)?.日期 || "未披露")}，图表按共同区间比较。</p>`;
+    return "";
+  }
   function isTargetProfitStrategy() {
     const summary = detail.summary || {};
     return flagOn(targetProfit.是否目标盈)
@@ -845,7 +855,7 @@
     const meta = detail.benchmarkMeta || {};
     const metaText = meta.基准公式解析 ? `${meta.基准公式解析}${(meta.缺失组件 || []).length ? `；缺失：${meta.缺失组件.join("、")}` : ""}` : "";
     const selected = selectedGlobalBenchmark();
-    const globalText = selected ? `<p><b>全局基准：</b>${B.esc(selected.name)}（${B.esc(selected.code)}），区间 ${B.esc(selected.start || "未披露")} 至 ${B.esc(selected.end || "未披露")}；数据来源：${B.esc(selected.source || "指数日度行情")}</p>` : "";
+    const globalText = selected ? `<p><b>全局基准：</b>${B.esc(selected.name)}（${B.esc(selected.code)}），区间 ${B.esc(selected.start || "未披露")} 至 ${B.esc(selected.end || "未披露")}；数据来源：${B.esc(selected.source || "指数日度行情")}${selected.gapNote ? `；${B.esc(selected.gapNote)}` : ""}</p>` : "";
     const warnings = (detail.curveWarnings || []).map((text) => `<p class="warn"><b>${B.label("曲线数据提示")}：</b>${B.esc(text)}</p>`).join("");
     return `<div class="source-note-list">${warnings}${curveRows.map((name) => `<p><b>${B.esc(name)}：</b>${B.esc(sources[name] || "未生成来源说明")}</p>`).join("")}${globalText}${metaText ? `<p><b>基准公式解析：</b>${B.esc(metaText)}</p>` : ""}</div>`;
   }
@@ -1007,7 +1017,7 @@
     }
     const selected = selectedGlobalBenchmark();
     if (selected && Array.isArray(selected.points) && selected.points.length) {
-      series[selectedGlobalBenchmarkSeriesName()] = { 模式: "nav", points: selected.points };
+      series[selectedGlobalBenchmarkSeriesName()] = { 模式: "nav", points: selected.points, preserveGaps: !!selected.preserveGaps };
     }
     return series;
   }
@@ -1109,6 +1119,8 @@
     const selectedName = selectedGlobalBenchmarkSeriesName();
     const chartHost = B.byId("navChart");
     if (!chartHost) return;
+    const integrityHost = B.byId("chartBenchmarkIntegrity");
+    if (integrityHost) integrityHost.innerHTML = benchmarkIntegrityNotice();
     const officialPoints = officialCurvePoints;
     const simulatedPoints = simulatedCurvePoints;
     if (!hasDrawableStrategyCurve) {
@@ -1557,6 +1569,7 @@
       ${stoppedStrategyBanner()}
       ${ownershipFacts()}
       ${overviewFacts()}
+      ${benchmarkIntegrityNotice()}
       ${primaryMetricGrid()}
       ${qiemanReplayLimited ? `<p class="desc" data-qieman-replay-coverage>官方净值始于 ${B.esc(officialStart)}；可核验的历史调仓与自建回放仅从 ${B.esc(replayStart)} 起，更早仓位尚未取得。</p>` : ""}
       <div class="strategy-overview-foot">数据刷新 ${B.esc(dataRefreshTime || "未披露")}｜策略代码 ${B.esc(profileMap.策略代码 || detail.summary.策略代码 || "未披露")}｜页面版本 ${B.esc(window.MinimalPublish?.buildId || "本地完整版")}</div>
@@ -1583,6 +1596,7 @@
           ${globalBenchmarkSelectHtml()}
           <div id="rangeTabs"></div>
         </div>
+        <div id="chartBenchmarkIntegrity">${benchmarkIntegrityNotice()}</div>
         <div id="navChart" class="chart strategy-main-chart"></div>
         <details class="strategy-source-details"><summary>数据来源与计算口径</summary><div id="sourceCards">${sourceCards()}</div></details>
       </div>
