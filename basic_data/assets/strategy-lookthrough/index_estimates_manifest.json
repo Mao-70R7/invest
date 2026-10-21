@@ -99,26 +99,6 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "gffunds__GFJJ001400",
-      "fundCode": "000071",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gffunds__GFJJ001400",
-      "fundCode": "012804",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gffunds__GFJJ001400",
-      "fundCode": "110031",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gffunds__GFJJ001400",
-      "fundCode": "501305",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
       "strategy": "gffunds__GFJJ002302",
       "fundCode": "007722",
       "reason": "target_index_mapping_unverified"
@@ -301,21 +281,6 @@
     {
       "strategy": "gffunds__GFJJ001387",
       "fundCode": "022005",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gffunds__GFJJ001204",
-      "fundCode": "021737",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gffunds__GFJJ001204",
-      "fundCode": "501305",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gffunds__GFJJ001204",
-      "fundCode": "008114",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -561,16 +526,6 @@
     {
       "strategy": "gffunds__GFJJ001394",
       "fundCode": "050025",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gffunds__GFJJ002982",
-      "fundCode": "023402",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gffunds__GFJJ002982",
-      "fundCode": "021738",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -931,6 +886,51 @@
     {
       "strategy": "ttfund__UJZVSUO",
       "fundCode": "000217",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gffunds__GFJJ001400",
+      "fundCode": "000071",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gffunds__GFJJ001400",
+      "fundCode": "012804",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gffunds__GFJJ001400",
+      "fundCode": "110031",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gffunds__GFJJ001400",
+      "fundCode": "501305",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gffunds__GFJJ001204",
+      "fundCode": "021737",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gffunds__GFJJ001204",
+      "fundCode": "501305",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gffunds__GFJJ001204",
+      "fundCode": "008114",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gffunds__GFJJ002982",
+      "fundCode": "023402",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gffunds__GFJJ002982",
+      "fundCode": "021738",
       "reason": "target_index_mapping_unverified"
     }
   ],

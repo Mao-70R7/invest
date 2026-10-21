@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-10-20",
-  "generatedAt": "2026-10-21T00:38:47+08:00",
-  "strategyCount": 2703,
+  "asOf": "2026-10-21",
+  "generatedAt": "2026-10-21T10:29:27+08:00",
+  "strategyCount": 2717,
   "calculatedCount": 2218,
-  "blockedCount": 485,
+  "blockedCount": 499,
   "channelCounts": {
     "招商基金/招财乐投顾": 4,
     "中信建投": 60,
@@ -13,7 +13,7 @@
     "富国基金": 25,
     "汇添富基金/现金宝投顾": 8,
     "广发银行发现精彩": 375,
-    "广发基金": 150,
+    "广发基金": 164,
     "广发证券（gfsec_fima）": 52,
     "广发证券（gfsec_robot）": 49,
     "嘉实财富": 4,
@@ -8936,11 +8936,11 @@
       "governanceStatus": "正常运行",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-16",
+      "weightBasis": "source_latest",
+      "weightLabel": "源端最新仓位占比",
+      "weightDate": "2026-10-21",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-20T20:55:03+08:00"
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
     },
     {
       "id": "gffunds__GFJJ002302",
@@ -10574,11 +10574,11 @@
       "governanceStatus": "正常运行",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
-      "weightBasis": "nav_drift",
-      "weightLabel": "净值漂移推算",
-      "weightDate": "2026-10-19",
+      "weightBasis": "source_latest",
+      "weightLabel": "源端最新仓位占比",
+      "weightDate": "2026-10-21",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-20T20:55:03+08:00"
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
     },
     {
       "id": "gffunds__GFJJ001581",
@@ -11195,7 +11195,7 @@
       "weightLabel": "净值漂移推算",
       "weightDate": "2026-10-19",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-20T20:55:03+08:00"
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
     },
     {
       "id": "gffunds__GFJJ000768",
@@ -45959,9 +45959,9 @@
       "allocationLabel": "最新库内披露仓位",
       "weightBasis": "source_latest",
       "weightLabel": "源端最新仓位占比",
-      "weightDate": "2026-10-20",
+      "weightDate": "2026-10-21",
       "latestWeightsAvailable": true,
-      "modelGeneratedAt": "2026-10-20T20:55:03+08:00"
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
     },
     {
       "id": "gffunds__GFJJ002941",
@@ -45996,6 +45996,244 @@
       "weightDate": "2026-10-20",
       "latestWeightsAvailable": true,
       "modelGeneratedAt": "2026-10-20T20:55:03+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ001663",
+      "name": "全天候增长组合",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "04aa3ecdf19cfd9e8cbf9336",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ002103",
+      "name": "全天候平衡组合",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "6d606bdac711275625036705",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ001662",
+      "name": "全天候理财组合",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "0891e921c99fd93eb9573de5",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ001262",
+      "name": "全天候稳健组合",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "6a0c3fc2be0c291de28af157",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ002102",
+      "name": "全天候稳进组合",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "2d3d0127f47ea3adb6c9440f",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ000012",
+      "name": "幸福小太阳",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "a8d4fcf5f3e59e1a320bcc80",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ001721",
+      "name": "广发全球进取优选",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "b588c087e20ea3b0f313cdb5",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ002194",
+      "name": "广发捕牛先锋",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "0c5eaecc80c1384c735fd7b4",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ001331",
+      "name": "广发添益稳健",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "70258b317b3168301a6dd13c",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ001412",
+      "name": "广发科技精选",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "9d1a1898a83d896b8b75fe35",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ000009",
+      "name": "牛基稳步走",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "4bdedace03a681e7c81e4161",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ001181",
+      "name": "积极优选养老组合",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "7ca6d71537ce2027972cc3f5",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ000939",
+      "name": "积极养老组合",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "2ddfc5325d088a336af31c3c",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
+    },
+    {
+      "id": "gffunds__GFJJ001421",
+      "name": "红利甄选",
+      "channelId": "gffunds",
+      "channelName": "广发基金",
+      "advisor": "广发基金",
+      "canCalculate": false,
+      "fileStem": "721f58ca2e2efe103d685356",
+      "governanceStatus": null,
+      "allocationBasis": "latest_observed_current",
+      "allocationLabel": "最新库内披露仓位",
+      "weightBasis": "unavailable",
+      "weightLabel": "缺少可用基金配置",
+      "weightDate": null,
+      "latestWeightsAvailable": false,
+      "modelGeneratedAt": "2026-10-21T10:29:27+08:00"
     }
   ],
   "sourceFreshnessSnapshot": {
@@ -46037,8 +46275,8 @@
   },
   "latestWeightContractVersion": 1,
   "weightBasisCounts": {
-    "nav_drift": 1385,
-    "source_latest": 629,
+    "nav_drift": 1383,
+    "source_latest": 631,
     "disclosed_fallback": 204
   },
   "latestWeightsAvailableCount": 2005,
@@ -46147,26 +46385,6 @@
       {
         "strategy": "gffunds__GFJJ000578",
         "fundCode": "000217",
-        "reason": "target_index_mapping_unverified"
-      },
-      {
-        "strategy": "gffunds__GFJJ001400",
-        "fundCode": "000071",
-        "reason": "target_index_mapping_unverified"
-      },
-      {
-        "strategy": "gffunds__GFJJ001400",
-        "fundCode": "012804",
-        "reason": "target_index_mapping_unverified"
-      },
-      {
-        "strategy": "gffunds__GFJJ001400",
-        "fundCode": "110031",
-        "reason": "target_index_mapping_unverified"
-      },
-      {
-        "strategy": "gffunds__GFJJ001400",
-        "fundCode": "501305",
         "reason": "target_index_mapping_unverified"
       },
       {
@@ -46352,21 +46570,6 @@
       {
         "strategy": "gffunds__GFJJ001387",
         "fundCode": "022005",
-        "reason": "target_index_mapping_unverified"
-      },
-      {
-        "strategy": "gffunds__GFJJ001204",
-        "fundCode": "021737",
-        "reason": "target_index_mapping_unverified"
-      },
-      {
-        "strategy": "gffunds__GFJJ001204",
-        "fundCode": "501305",
-        "reason": "target_index_mapping_unverified"
-      },
-      {
-        "strategy": "gffunds__GFJJ001204",
-        "fundCode": "008114",
         "reason": "target_index_mapping_unverified"
       },
       {
@@ -46612,16 +46815,6 @@
       {
         "strategy": "gffunds__GFJJ001394",
         "fundCode": "050025",
-        "reason": "target_index_mapping_unverified"
-      },
-      {
-        "strategy": "gffunds__GFJJ002982",
-        "fundCode": "023402",
-        "reason": "target_index_mapping_unverified"
-      },
-      {
-        "strategy": "gffunds__GFJJ002982",
-        "fundCode": "021738",
         "reason": "target_index_mapping_unverified"
       },
       {
@@ -46983,25 +47176,78 @@
         "strategy": "ttfund__UJZVSUO",
         "fundCode": "000217",
         "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "gffunds__GFJJ001400",
+        "fundCode": "000071",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "gffunds__GFJJ001400",
+        "fundCode": "012804",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "gffunds__GFJJ001400",
+        "fundCode": "110031",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "gffunds__GFJJ001400",
+        "fundCode": "501305",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "gffunds__GFJJ001204",
+        "fundCode": "021737",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "gffunds__GFJJ001204",
+        "fundCode": "501305",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "gffunds__GFJJ001204",
+        "fundCode": "008114",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "gffunds__GFJJ002982",
+        "fundCode": "023402",
+        "reason": "target_index_mapping_unverified"
+      },
+      {
+        "strategy": "gffunds__GFJJ002982",
+        "fundCode": "021738",
+        "reason": "target_index_mapping_unverified"
       }
     ],
     "missingPolicy": "retain reported fund investment; never zero or rescale"
   },
   "incrementalBuild": {
     "scopeIds": [
-      "howbuy__zozh005",
-      "qieman__SI000229",
-      "qieman__ZH160524",
-      "qieman__ZH184679",
-      "ttfund__BYRTWBK",
-      "ttfund__D4XUZVN",
-      "ttfund__UJZVSUO",
-      "ttfund__XQR30UU",
-      "ttfund__YRYNQVQ",
-      "ttfund__Z1D7TIS"
+      "gffunds__GFJJ000009",
+      "gffunds__GFJJ000012",
+      "gffunds__GFJJ000759",
+      "gffunds__GFJJ000939",
+      "gffunds__GFJJ001181",
+      "gffunds__GFJJ001204",
+      "gffunds__GFJJ001262",
+      "gffunds__GFJJ001331",
+      "gffunds__GFJJ001400",
+      "gffunds__GFJJ001412",
+      "gffunds__GFJJ001421",
+      "gffunds__GFJJ001662",
+      "gffunds__GFJJ001663",
+      "gffunds__GFJJ001721",
+      "gffunds__GFJJ002102",
+      "gffunds__GFJJ002103",
+      "gffunds__GFJJ002194",
+      "gffunds__GFJJ002982"
     ],
-    "baseGeneratedAt": "2026-10-20T20:55:03+08:00",
-    "baseEvidenceSha256": "d0676b850526b808f78043bb6b1e82967457c0f07b3bc2c3bd34f37a8190069d",
+    "baseGeneratedAt": "2026-10-21T00:38:47+08:00",
+    "baseEvidenceSha256": "557e1b73ddf8f5c3b0c107e2f933fdbfcaf98063f3e75f3f4bea6ab08719045a",
     "retainedStrategySha256": {
       "cmfchina__5.0": "f8a4140e1eecf5f6903982c8c46173dca8a55f29bb2dd99ccb1c253e7c213f02",
       "cmfchina__4": "87659b18c8e38c78514d2638ff4b693d545d4642ed92fb0d65dfe5a5552ccbde",
@@ -47526,7 +47772,6 @@
       "gffunds__GFJJ000006": "bdf35200a0f36ae2fb326d5c6e98b466fe01accab131994ad126304b055eab96",
       "gffunds__GFJJ000578": "7b6dcd384c7db1f45b3d44adaf59cc49e330784da7685e1d81c38bffd3c41eba",
       "gffunds__GFJJ000767": "867dd71c158475dbbb0283d7b63a522c4c8958750e679f6866cc7ddb7c92e824",
-      "gffunds__GFJJ001400": "dd078cd1c81e38a2cbe1bc1240616540ce1ca17fd6d98b5595a089d8845189df",
       "gffunds__GFJJ002302": "18dc500199381e517acf3e9c5acb3e4a128825d7857d147ba317776928657140",
       "gffunds__GFJJ002414": "e58d595886db78f814c223882b85578f5ea70dff5548e001ba6746e976706089",
       "gffunds__GFJJ001222": "e6d5a055b2b02a45f9317eb741af8a786ba4a7c307e8c80b2dbe66ce40d04a80",
@@ -47622,7 +47867,6 @@
       "gffunds__GFJJ002101": "03a35847eac0386cf99b6f3d421c516da04cd8f6666e94927db51dbf3aa360e5",
       "gffunds__GFJJ001507": "45d0071978c18044dcbf884deef47e41a5037398c99a7be15920db27a4b2a799",
       "gffunds__GFJJ001387": "1bd41acb81166fa8ebde91caa4820c1803b1954b437e614683bf8a27595ebcb3",
-      "gffunds__GFJJ001204": "91fe82af89756667181569afe3ed3b90dcaa81fd9d87b5eebe5616515a73aec5",
       "gffunds__GFJJ001581": "1cd24d7904f68f2f8c07007e5ed884302d61e747ac4ecd5a2ec2928415804517",
       "gffunds__GFJJ001563": "750f2a839b308a5d17a353ee1b77809e84ecccadc80500c4e0262f21bd10c36c",
       "gffunds__GFJJ001665": "3860918e688807de4e3c0971880747ba8eece1c1719ac8e9536d6bcaae7eb2e6",
@@ -47658,7 +47902,6 @@
       "gffunds__GFJJ000758": "1bb273ce94c58714084feb91d49844bc2f6ab864c5cec9f19c3a738298fb2d02",
       "gffunds__GFJJ000835": "820700d109a7c9e052c1d6025d04d679154963dff3a9c4d4440ce8fefc8df55a",
       "gffunds__GFJJ000005": "addc09e98e8afb03c98407b796dbe7f427d7c6bfb4cc507c42ef5aeb37849944",
-      "gffunds__GFJJ000759": "a29bc0c4e0315171e4d666e3116853072f8de4306f1f4db0e8780495071ba718",
       "gffunds__GFJJ000768": "c3c97b506479bb03c908c35022de22e5c0a7d6de227c7886250c41c11b543283",
       "gffunds__GFJJ000782": "8a6b56c82103d64c1235c96e2bd65f2973df76c1ae792cbe910920106b258d30",
       "gffunds__GFJJ000769": "276e71e9c646794125c680cae1ce411db638b45ae85bbaf9a685fe6d6fa360f5",
@@ -47773,6 +48016,7 @@
       "harvestwm__harvest_d834d517ad95": "cfbf39341c60dd5eac338de8241b14aba4ba11e13be05f2f6553769c4bab4071",
       "harvestwm__harvest_a5a5c2b7f4ed": "d7e0e4d4c3671136c4b41eace9d0b2e9045dd1d7dbf0a6c290745f9757787843",
       "harvestwm__harvest_6e0c6b249e76": "7768f89fe14ae1f562b46f93b0cf755ba5a56fe46077e64b8261956e9e558bd2",
+      "howbuy__zozh005": "e25c469a0cc25bd3f99d3e67d3a3d20b21633f4ae8c1de2b1874129561065a3d",
       "howbuy__zozh004": "4d99cca1118e12e334304ae111ed9bc1bca837fc4c188004dcf989dddd48ad2b",
       "howbuy__zozh003": "b11cb29d01b2ae53a16f53b3a2803c60b43b7f2238fddde552078c2b3b38d79c",
       "howbuy__zozh006": "77721203425f0065f362625267d05f06550fc5e6433c994aded0a8f9b04f4225",
@@ -48388,7 +48632,9 @@
       "qieman__ZH125035": "e40823d48068c7132140f9917fe410edbc0cbe98396e9d27bbb31ee2d4f9fc4e",
       "qieman__ZH120972": "7991ac9efcb32173cae6d49dcb2a5d98205d2d7cce23b9c5c5d807253dc4606a",
       "qieman__SI000220": "93b3658d94fc0aa21e12b42d2dc4ccf4aeccd208a70099aa4bd57a6d98c10003",
+      "qieman__ZH160524": "cffd4df59e8ba807728c1814122bfc2b9e44ae234bdcc1f07fe34c4f02152737",
       "qieman__ZH121407": "b9502266217ba9bee6d72edd7654e53b645916152816f69bb0af5d4493f53e68",
+      "qieman__ZH184679": "e3ed3f5e45fca77436a66fff98627fdf1cb66cb06163b3e1a7e9fc320325627d",
       "qieman__ZH175554": "7e2cbe79ec8456edf41984c3c26c8e4d74d1ed168a5f1ca887d544257c6f570c",
       "qieman__ZH120392": "be054b2d9665fb3c53f5fedee47fe72d1fd8803d0d49e3c9a8bb5251823979ec",
       "qieman__ZH153951": "fbe91372727f4367f2f18600890dce6d8342024959c2f4cde191cd22613ac794",
@@ -48485,6 +48731,7 @@
       "qieman__ZH167286": "351e86dc360606da76a42e735e87623b5e29b6aa8383e66d53b9999e03253ead",
       "qieman__ZH164310": "43124caf846ff260829e45ec253db03819b30b3931f8cf4079364aa0caa7c9bf",
       "qieman__ZH164309": "e6d6cb4432855c909e18128ee97476b4a5ed2596e2a21b2703e5da3525558a89",
+      "qieman__SI000229": "3ab1e3a703fbcc57a0b6dfa12a06b0d443b3063950f7b5d6b62e75afe49495cd",
       "southern__4226": "634c5cb1618b8ebf6b674a880670e662a508050705eabc0ce24d787cc4015c86",
       "southern__7705": "fa39a43da4b2687f3a1cfef0b74518955add46aee8a0edef760c0820c2cb83de",
       "southern__7847": "b4b23235037afd53974acbf78c8ab55ee63dcdd1f71789b4f4d02f6ceef9ee7c",
@@ -48601,6 +48848,7 @@
       "ttfund__MYVG95V": "fecae12ece9db069a3458fdc5e95baf74701f245bd33dfada7369c9ecd092a78",
       "ttfund__FYOR0DY": "35d032adca16ffa9adc816d3886823e219df48ae670c296552449c457441c8a1",
       "ttfund__ZO0ZUHT": "98aec61f19afd7da53f691cee5aa9edbb29dbcea50aadb671f725fdf5eb58cd6",
+      "ttfund__BYRTWBK": "a67b72f133d3e6a2e414300878d3c13ddd3252b8c6af75ddf99fb771adfd35cf",
       "ttfund__KOPAYYD": "df7435650562a73556cb40e7c3c1590356e84652a0e9795b1a846cb8d165b8f3",
       "ttfund__AEBR89C": "99653625dea41ea5b2c7ead7bf787bdef85f3df5afea6413c3706749b76ec5ad",
       "ttfund__O0QRRTT": "8c6bb2e4bb78165766589e303fa4880f1af86887735742f5759f07a1a53cf598",
@@ -48748,11 +48996,13 @@
       "ttfund__JG1WMK1": "8a9f8e975d7c088e14a4c681326ce0f89f75342e7712c2bd47268416ccb9a286",
       "ttfund__8FDZ9ZR": "5e797a36d810874e80e4adddc98c130f691137affaf63c616705ff59b6d080fe",
       "ttfund__BLTOWCU": "ef0dafc7b53317d7bfb6021320dd4fb1b5accac59e0d156dc6216307e1755fca",
+      "ttfund__YRYNQVQ": "7aad55304d45709cdbd93413d9b78acf569e81d92c99d93da22e0d0bf4daa2fb",
       "ttfund__IWNVGBF": "a7db7ee063846176907a06c85b25c6f6f857fe5e9365d82ef834e29c318398a3",
       "ttfund__3NFKQFZ": "e9279356e8b9b0ddf7591d36277cff661c92c6cd32e899db10f443b3f8cb552a",
       "ttfund__XMMUGXC": "1850e01a985b8b08749a50fc97c9897e613ceefd79c462838b015ac9f1759108",
       "ttfund__NHTF6B3": "aa719a5ce9fa5368a037dea06056e99109bb1aa88dad1635974deab0db6b864e",
       "ttfund__FT9Q97V": "484dc9e61784d7a0747544920bbf1a2a1266b55840d07e1bd545d85f825e2984",
+      "ttfund__D4XUZVN": "1e82721a17afee1f5c3d2b33847adcbb3c7fe9d09d05fc91ec878c243e6ca4a2",
       "ttfund__XCS0IJK": "7bd9172f4046930da5320a07f65a28699a8629d6812bd39efe0c5d2b2f34da30",
       "ttfund__V4EMGXQ": "689e79ab9d41fa860de78e4954cb5dd8277541a97b85ea42a61b83b816570e07",
       "ttfund__EC1JK09": "b31c13df4303a94b93f0e61deaf579fe3d83bb18450edd742b4bcad527d9908e",
@@ -49217,6 +49467,7 @@
       "ttfund__1ZNYOLX": "a0bdac3464562b83c2a4ce17d05e15eef482a27863459a0cf58c2bdcf13dbbf2",
       "ttfund__H0GRDBP": "26621805b15a567e889cb918075810c47eb4fd2305ed21745b4f57bfa9a01f38",
       "ttfund__IF5A1JH": "6e35f672b08ff9fc992fe1ec52264de97fa284785f5e64dc083978cad9cf48ec",
+      "ttfund__Z1D7TIS": "89f514572615e4928233055eacfe3ff6de20512abbaa01b087dd3ff6a77cc5f7",
       "ttfund__VFFLXPR": "ac184a2fe88fa69ef7ad9134d9ed01277e21724498080e6c443850f07eb1b7f4",
       "ttfund__NJTPUQZ": "87e4d1262087fac5c9df0895f4085e70b63a388555d73a3c6675a919ddadd686",
       "ttfund__N6BWWYZ": "236ce85c391c57d38e2db50ae65eb01460b625d63fccbe46723b85af3d5561c4",
@@ -49378,6 +49629,8 @@
       "ttfund__FTHXFK5": "01acc94e0e2eadad10c2d4b6e17f9166546b756ce041b04701c69f90e1d611e7",
       "ttfund__KX6QVNZ": "20f3f4e1e38fb718febd6661593c94144c62bb3d3104fb939c82e077bd5b28d1",
       "ttfund__8TWSRVW": "dd7dc02a6832ead5d3c0daf52f79693dcdc758b5fbf85bbd26de6a176f05d116",
+      "ttfund__XQR30UU": "107d01053cc10ed34ff906612444d584be6e3fb1d212f973b48eaff81dec4930",
+      "ttfund__UJZVSUO": "353d69d45df3eaea5802d6a695e01c9a4577a112b4b16df4d43d598a799fbde4",
       "ttfund__U6FTIIZ": "b3172ef21731bc72afe34dc5583fa26356bc73a83c89bc3b8388f2711144e0c5",
       "ttfund__AXTL7IZ": "a14fd24c5cf60d0af5e4a7e8f1158a64ffcefd9110d148452d4bab1fcd43b337",
       "ttfund__UYMHJYY": "18c527c3cd08206c4e83a004b58671d458dc7f5a69c001a4164317a09087e60f",
@@ -49693,7 +49946,6 @@
       "zocaifu__8100000078": "d11add5885767d4c965c6c09330dbfbedd17831c0860ed9abe5daab1d01f2c55",
       "zocaifu__8100000001": "1d492de20744e814e90d8b9288ce03acfbd0b79c81637c41c5c8963097b526a5",
       "gffunds__GFJJ003101": "906703d371dd1133f4e408f75959ccbb41d70e57bcafab2cd38d3c37a24e8abd",
-      "gffunds__GFJJ002982": "4333f7157ca5d80b3758669fba587c2247957dbdcf539a413006f034d92c7bb6",
       "gffunds__GFJJ002941": "821dadf5f17598077e732b974a1e7cd5245ef4073d9a966476b4fd4b6048964f",
       "gffunds__GFJJ002942": "59b747a07fb3e013f5e784215619194f13f5ec13fcaeaa4864151505f280e503"
     },

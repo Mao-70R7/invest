@@ -570,7 +570,7 @@
       ${overviewFact("成立日期", detail.summary.成立日期)}
       ${overviewFact("最新业绩日期", detail.summary.最新业绩日期 || detail.summary.收益数据截至 || "未披露")}
       ${overviewFact("最新持仓日", detail.holdingMeta.最新持仓日 || "未披露")}
-      ${overviewFact("投顾费率", profileMap.投顾费率 || detail.summary.年化投顾费率 || "未披露")}
+      ${overviewFact(detail.enterpriseTerms?.termsContractVersion === 2 ? "企业版投顾费率" : "投顾费率", detail.enterpriseTerms?.termsContractVersion === 2 ? (detail.enterpriseTerms.advisoryFeeDisplay || "未披露") : (profileMap.投顾费率 || detail.summary.年化投顾费率 || "未披露"), detail.enterpriseTerms?.feeParseStatus === "holding_day_tiers")}
       ${overviewFact("策略分类", strategyClass, true)}
       ${overviewFact("业绩基准", benchmark, true)}
     </div>`;

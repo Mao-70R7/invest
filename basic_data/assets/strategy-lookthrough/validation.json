@@ -2,33 +2,33 @@
   "schemaVersion": 1,
   "compressedStorageAudit": {
     "status": "passed",
-    "fileCount": 2782,
-    "compressedBytes": 133835915,
-    "strategyCount": 2703
+    "fileCount": 2801,
+    "compressedBytes": 142164504,
+    "strategyCount": 2717
   },
-  "generatedAt": "2026-10-21T00:52:37+08:00",
+  "generatedAt": "2026-10-21T10:56:35+08:00",
   "status": "passed",
-  "strategyCount": 10,
-  "calculatedCount": 10,
-  "fundRowsChecked": 153,
-  "securitySourceFilesChecked": 182,
+  "strategyCount": 18,
+  "calculatedCount": 4,
+  "fundRowsChecked": 66,
+  "securitySourceFilesChecked": 76,
   "dbIndependentRecompute": true,
   "assetCompositionAudit": {
     "contractVersion": 1,
     "errors": [],
-    "verifiedFunds": 133,
+    "verifiedFunds": 60,
     "unverifiedFunds": 0,
-    "strategiesChecked": 10,
-    "fullCompositionStrategies": 10,
-    "sourcePdfsChecked": 126
+    "strategiesChecked": 4,
+    "fullCompositionStrategies": 4,
+    "sourcePdfsChecked": 60
   },
   "businessLookthroughAudit": {
     "version": 2,
     "errors": [],
-    "strategiesChecked": 10,
+    "strategiesChecked": 4,
     "partialEquityStrategies": 1,
-    "historicalIndustryGapStrategies": 5,
-    "completeSourceFilesChecked": 177,
+    "historicalIndustryGapStrategies": 4,
+    "completeSourceFilesChecked": 73,
     "historicalOriginalResponsesChecked": 5417
   },
   "allocationSourceErrorCount": 0,
