@@ -11,6 +11,7 @@
     return;
   }
   await B.loadScript(item.detailFile);
+  if (window.MinimalPublish?.loadDetailFunds) await window.MinimalPublish.loadDetailFunds(id);
   const detail = B.state.details[id];
   if (!detail) {
     root.innerHTML = '<section class="panel"><div class="empty">策略详情文件加载失败。</div></section>';
@@ -1623,14 +1624,16 @@
   `;
   const globalBenchmarkSelect = B.byId("globalBenchmarkSelect");
   if (globalBenchmarkSelect) {
-    globalBenchmarkSelect.addEventListener("change", () => {
+    globalBenchmarkSelect.addEventListener("change", async () => {
+      if (window.MinimalPublish?.loadDetailBenchmarks) await window.MinimalPublish.loadDetailBenchmarks();
       selectedGlobalBenchmarkCode = globalBenchmarkSelect.value;
       renderMainChart();
     });
   }
   const contributionGlobalBenchmarkSelect = B.byId("contributionGlobalBenchmarkSelect");
   if (contributionGlobalBenchmarkSelect) {
-    contributionGlobalBenchmarkSelect.addEventListener("change", () => {
+    contributionGlobalBenchmarkSelect.addEventListener("change", async () => {
+      if (window.MinimalPublish?.loadDetailBenchmarks) await window.MinimalPublish.loadDetailBenchmarks();
       selectedContributionGlobalBenchmarkCode = contributionGlobalBenchmarkSelect.value;
       renderContribution(snapshots[activeSnapshotIndex] || null);
     });

@@ -113,6 +113,7 @@
   function compressedScriptUrl(src, detailOnly = false) {
     const url = new URL(src, document.baseURI);
     const path = url.pathname.replace(/\\/g, "/");
+    if (/\/performance-static\/[^/]+\.[a-f0-9]{20}\.js\.gz$/.test(path)) return url;
     const isDetail = /\/data\/(details|fund_details)\/(?:[^/]+\/)*[^/]+\.js$/i.test(path);
     if (detailOnly && !isDetail) return null;
     if (!detailOnly && !/\/data\/(?:[^/]+\/)*[^/]+\.js$/i.test(path)) return null;
@@ -195,6 +196,10 @@
   }
 
   async function startPage(options = {}) {
+    const performance = window.__MINIMAL_PERFORMANCE__;
+    if (performance?.bootstrap && /strategy\.html$/.test(location.pathname)) {
+      options = {...options, renderer: performance.renderer || options.renderer, dataScripts: [performance.bootstrap, ...(options.dataScripts || []).filter(src => !/strategy_detail_index_pack|fund_index_pack/.test(src))]};
+    }
     const dataScripts = Array.isArray(options.dataScripts) ? options.dataScripts : [];
     deferredDataScripts = Array.isArray(options.deferredDataScripts) ? options.deferredDataScripts : [];
     deferredDataPromise = null;
@@ -246,6 +251,24 @@
   }
 
   window.MinimalPublish = Object.freeze({
+    loadDetailFunds: async (id) => {
+      const config = window.__MINIMAL_PERFORMANCE__;
+      if (!config) return;
+      const file = config.fundContexts[shardKey(id)];
+      if (!file) throw new Error("策略基金上下文缺失");
+      await loadCompressed(file);
+    },
+    loadDetailBenchmarks: async () => {
+      const config = window.__MINIMAL_PERFORMANCE__;
+      if (!config) return;
+      await loadCompressed(config.benchmarks);
+      const pool = B.state.summary.globalBenchmarks;
+      for (const row of window.__DETAIL_BENCHMARKS__ || []) {
+        const current = pool.find(x => x.code === row.code);
+        if (current) Object.assign(current, row);
+        else throw new Error("全局基准身份不一致");
+      }
+    },
     version: 2,
     buildId,
     compressedDetails: true,

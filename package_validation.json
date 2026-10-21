@@ -115,5 +115,6 @@
     "checksComplete": true,
     "inputSnapshotAudit": null,
     "errorCount": 0
-  }
+  },
+  "performanceContractVersion": 1
 }
