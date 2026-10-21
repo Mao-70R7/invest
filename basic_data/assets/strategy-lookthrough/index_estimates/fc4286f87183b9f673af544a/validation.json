@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "ruleId": "LOOKTHROUGH_INDEX_PROXY_INVALID",
+  "errorCount": 0,
+  "errors": [],
+  "strategyCount": 1,
+  "constituentRows": 0,
+  "sourceHashChecks": true,
+  "noDatabaseWrite": true,
+  "modelSha256": "8b2713090827fc2b3890f720a8f737baf3289afc829d5f1f1d8ca864e042fb4e",
+  "basis": "index_proxy_estimate",
+  "warnings": [
+    "Index proxy is not reported ETF holdings; dates differ",
+    "TQQQ separately retained",
+    "Unmapped industry and source rounding retained"
+  ],
+  "industryGapContribution": 0,
+  "roundingContribution": 0.0,
+  "remainingFundInvestment": 10.601730048465715
+}

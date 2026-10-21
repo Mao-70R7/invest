@@ -10,7 +10,7 @@
   "holdingDate": "2026-10-20",
   "holdingCount": 18,
   "weightSum": 100.0,
-  "ageDays": 0,
+  "ageDays": 1,
   "reportCoverageWeight": 99.99999999999999,
   "reportPeriods": {
     "2026-06-30": 99.99999999999999
@@ -720,7 +720,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:14+08:00",
         "announcementResponseSha256": "6711d8de18b213690408d84f463154695f13876bce153cf20ed0c6c17ddf86e6",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_000037_6711d8de18b213690408d84f463154695f13876bce153cf20ed0c6c17ddf86e6.json",
         "announcement": {
           "FUNDCODE": "000037",
           "TITLE": "广发景宁纯债债券型证券投资基金2026年中期报告",
@@ -820,8 +820,8 @@
         "pdfSha256": "fd5320031bda8dbd32a0229deeb075d1635eb2117b1dbe0ce014337ff733ecb7",
         "pdfBytes": 1338422,
         "textSha256": "307ddd5385a43977e04de43f18cb0cb9c9489df971be3bdb09da03502b0a2e20",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768981.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\fd5320031bda8dbd32a0229deeb075d1635eb2117b1dbe0ce014337ff733ecb7.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -897,8 +897,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828768981_1.pdf",
           "pdfSha256": "fd5320031bda8dbd32a0229deeb075d1635eb2117b1dbe0ce014337ff733ecb7",
           "textSha256": "307ddd5385a43977e04de43f18cb0cb9c9489df971be3bdb09da03502b0a2e20",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\fd5320031bda8dbd32a0229deeb075d1635eb2117b1dbe0ce014337ff733ecb7.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768981.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:14+08:00"
         },
@@ -1014,7 +1014,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:33+08:00",
         "announcementResponseSha256": "4d4e48f5d989c7a6d7956e52c5f9693ed702a06ad9ffd2e90dfd1e6d6f10a380",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_004388_4d4e48f5d989c7a6d7956e52c5f9693ed702a06ad9ffd2e90dfd1e6d6f10a380.json",
         "announcement": {
           "FUNDCODE": "004388",
           "TITLE": "鹏华丰享债券型证券投资基金2026年中期报告",
@@ -1114,8 +1114,8 @@
         "pdfSha256": "cb560a500413802c970d7a3d5f3ed801de75bf2a74916d813ea4a9cb6fafd4c4",
         "pdfBytes": 1621866,
         "textSha256": "07de83f463094f518019529fd023a21f7f90dfdeb6896c64e5d1006a60c6aad5",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608281828579294.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\cb560a500413802c970d7a3d5f3ed801de75bf2a74916d813ea4a9cb6fafd4c4.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -1199,8 +1199,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608281828579294_1.pdf",
           "pdfSha256": "cb560a500413802c970d7a3d5f3ed801de75bf2a74916d813ea4a9cb6fafd4c4",
           "textSha256": "07de83f463094f518019529fd023a21f7f90dfdeb6896c64e5d1006a60c6aad5",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\cb560a500413802c970d7a3d5f3ed801de75bf2a74916d813ea4a9cb6fafd4c4.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608281828579294.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:33+08:00"
         },
@@ -1314,7 +1314,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:40+08:00",
         "announcementResponseSha256": "44ac65b9db4d5e59d589396ee87ffd0f919fc9a7bf1b496fcec774803959d86d",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_006337_44ac65b9db4d5e59d589396ee87ffd0f919fc9a7bf1b496fcec774803959d86d.json",
         "announcement": {
           "FUNDCODE": "006337",
           "TITLE": "华安安浦债券型证券投资基金2026年中期报告",
@@ -1414,8 +1414,8 @@
         "pdfSha256": "153977d5b86498cb6bb247b600947f5c35e08bcd25e07d3e13ec72285bc59ac0",
         "pdfBytes": 1750788,
         "textSha256": "852ea1ec9772e18eec66da8dc050397cc769b3f9322d14517109fbd842ce40bd",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828778217.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\153977d5b86498cb6bb247b600947f5c35e08bcd25e07d3e13ec72285bc59ac0.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -1499,8 +1499,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828778217_1.pdf",
           "pdfSha256": "153977d5b86498cb6bb247b600947f5c35e08bcd25e07d3e13ec72285bc59ac0",
           "textSha256": "852ea1ec9772e18eec66da8dc050397cc769b3f9322d14517109fbd842ce40bd",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\153977d5b86498cb6bb247b600947f5c35e08bcd25e07d3e13ec72285bc59ac0.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828778217.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:40+08:00"
         },
@@ -1616,7 +1616,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:47+08:00",
         "announcementResponseSha256": "4e685d55c3a94973c02b7c8c959a11514e8228dd74603977bd8473751fedeb4e",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_008207_4e685d55c3a94973c02b7c8c959a11514e8228dd74603977bd8473751fedeb4e.json",
         "announcement": {
           "FUNDCODE": "008207",
           "TITLE": "国泰合融纯债债券型证券投资基金2026年中期报告",
@@ -1716,8 +1716,8 @@
         "pdfSha256": "70a883843a8fa9e9b513a6c4c2943ed352d41c0d25efdf865cf707a098d4bf22",
         "pdfBytes": 1249746,
         "textSha256": "584c1c7a84ce704999d46879ba23bab7ec6095d45513df5f41d77d4dc61b1008",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828771599.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\70a883843a8fa9e9b513a6c4c2943ed352d41c0d25efdf865cf707a098d4bf22.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -1805,8 +1805,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828771599_1.pdf",
           "pdfSha256": "70a883843a8fa9e9b513a6c4c2943ed352d41c0d25efdf865cf707a098d4bf22",
           "textSha256": "584c1c7a84ce704999d46879ba23bab7ec6095d45513df5f41d77d4dc61b1008",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\70a883843a8fa9e9b513a6c4c2943ed352d41c0d25efdf865cf707a098d4bf22.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828771599.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:47+08:00"
         },
@@ -1920,7 +1920,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:29+08:00",
         "announcementResponseSha256": "fe0a4e6eba0d46a97fe73c36be4b14174a004c9536b226e27aa8674d311b4e00",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_003039_fe0a4e6eba0d46a97fe73c36be4b14174a004c9536b226e27aa8674d311b4e00.json",
         "announcement": {
           "FUNDCODE": "003039",
           "TITLE": "广发集富纯债债券型证券投资基金2026年中期报告",
@@ -2020,8 +2020,8 @@
         "pdfSha256": "2ce3622da9c509c95c483385df9d02b9b29cbea4ddb2e9f4a71a17224ab9e298",
         "pdfBytes": 1289119,
         "textSha256": "fedefd3ebc5a2a18c96b96142f29a263cc0fdd839be96747134164c3268f347e",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768467.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\2ce3622da9c509c95c483385df9d02b9b29cbea4ddb2e9f4a71a17224ab9e298.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -2085,8 +2085,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828768467_1.pdf",
           "pdfSha256": "2ce3622da9c509c95c483385df9d02b9b29cbea4ddb2e9f4a71a17224ab9e298",
           "textSha256": "fedefd3ebc5a2a18c96b96142f29a263cc0fdd839be96747134164c3268f347e",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\2ce3622da9c509c95c483385df9d02b9b29cbea4ddb2e9f4a71a17224ab9e298.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768467.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:29+08:00"
         },
@@ -2196,7 +2196,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:17+08:00",
         "announcementResponseSha256": "fe0b7ec74646f25ece74f52c2c637b834c32f2df373775ea68ef3a144d4ac29e",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_000217_fe0b7ec74646f25ece74f52c2c637b834c32f2df373775ea68ef3a144d4ac29e.json",
         "announcement": {
           "FUNDCODE": "000217",
           "TITLE": "华安易富黄金交易型开放式证券投资基金联接基金2026年中期报告",
@@ -2296,8 +2296,8 @@
         "pdfSha256": "4cc63d2ba881bf85aa926bf408f23df2ad10aaf75d528881943137cdab6a19f3",
         "pdfBytes": 1767008,
         "textSha256": "a2a3e5762bdc12e3846ac528c276bd7076a52c1850e65da3c2df01d7e7cae7e7",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828785367.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\4cc63d2ba881bf85aa926bf408f23df2ad10aaf75d528881943137cdab6a19f3.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -2364,8 +2364,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828785367_1.pdf",
           "pdfSha256": "4cc63d2ba881bf85aa926bf408f23df2ad10aaf75d528881943137cdab6a19f3",
           "textSha256": "a2a3e5762bdc12e3846ac528c276bd7076a52c1850e65da3c2df01d7e7cae7e7",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\4cc63d2ba881bf85aa926bf408f23df2ad10aaf75d528881943137cdab6a19f3.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828785367.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:17+08:00"
         },
@@ -2481,7 +2481,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:34+08:00",
         "announcementResponseSha256": "0752ddb535dc04be5cf0b5d1c7c7cf40be55dfefb1f8e15313cd6ccf97d89a9a",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_004920_0752ddb535dc04be5cf0b5d1c7c7cf40be55dfefb1f8e15313cd6ccf97d89a9a.json",
         "announcement": {
           "FUNDCODE": "004920",
           "TITLE": "富国泓利纯债债券型发起式证券投资基金二0二六年中期报告",
@@ -2581,8 +2581,8 @@
         "pdfSha256": "1317e4e16193f1aec8e7d8c272c5f1d695b7d2f1aae5eef3d48e301fa0f9c92a",
         "pdfBytes": 1158409,
         "textSha256": "d43b98c88b3da0d471c5fba93a419fed273d522f82471e502504238937613a0c",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828787466.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\1317e4e16193f1aec8e7d8c272c5f1d695b7d2f1aae5eef3d48e301fa0f9c92a.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -2662,8 +2662,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828787466_1.pdf",
           "pdfSha256": "1317e4e16193f1aec8e7d8c272c5f1d695b7d2f1aae5eef3d48e301fa0f9c92a",
           "textSha256": "d43b98c88b3da0d471c5fba93a419fed273d522f82471e502504238937613a0c",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\1317e4e16193f1aec8e7d8c272c5f1d695b7d2f1aae5eef3d48e301fa0f9c92a.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828787466.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:34+08:00"
         },
@@ -2779,7 +2779,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:35+08:00",
         "announcementResponseSha256": "b3ff014e0cfbb679415a743d788d4ea74e1e63f645d3536cf25d930a62daf08f",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_005079_b3ff014e0cfbb679415a743d788d4ea74e1e63f645d3536cf25d930a62daf08f.json",
         "announcement": {
           "FUNDCODE": "005079",
           "TITLE": "兴银鑫日享短债债券型证券投资基金2026年中期报告",
@@ -2879,8 +2879,8 @@
         "pdfSha256": "78916191ac8d221061cd9b9163a73cd671f96e5e4cebb31a3d76d35221c7b2c1",
         "pdfBytes": 400136,
         "textSha256": "d61e564793cfe6750c9cfbadeaba30706455d556a7b74e140cd03887c32e4708",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828788234.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\78916191ac8d221061cd9b9163a73cd671f96e5e4cebb31a3d76d35221c7b2c1.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -2960,8 +2960,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828788234_1.pdf",
           "pdfSha256": "78916191ac8d221061cd9b9163a73cd671f96e5e4cebb31a3d76d35221c7b2c1",
           "textSha256": "d61e564793cfe6750c9cfbadeaba30706455d556a7b74e140cd03887c32e4708",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\78916191ac8d221061cd9b9163a73cd671f96e5e4cebb31a3d76d35221c7b2c1.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828788234.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:35+08:00"
         },
@@ -3077,7 +3077,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:45+08:00",
         "announcementResponseSha256": "e170b67d0e0835e8e39582840d9620954fa092a4523a6af333dcdfe603310442",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_007542_e170b67d0e0835e8e39582840d9620954fa092a4523a6af333dcdfe603310442.json",
         "announcement": {
           "FUNDCODE": "007542",
           "TITLE": "永赢开泰中高等级中短债债券型证券投资基金2026年中期报告",
@@ -3177,8 +3177,8 @@
         "pdfSha256": "0ef880843b1076d340ad67b060db5f4923f25d18b60cbff582c9e1bc05933654",
         "pdfBytes": 1344549,
         "textSha256": "cb4037218ae15b0e3bea129f586e784bc7206ddc22cc58af496766ec07259834",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828774074.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\0ef880843b1076d340ad67b060db5f4923f25d18b60cbff582c9e1bc05933654.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -3262,8 +3262,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828774074_1.pdf",
           "pdfSha256": "0ef880843b1076d340ad67b060db5f4923f25d18b60cbff582c9e1bc05933654",
           "textSha256": "cb4037218ae15b0e3bea129f586e784bc7206ddc22cc58af496766ec07259834",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\0ef880843b1076d340ad67b060db5f4923f25d18b60cbff582c9e1bc05933654.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828774074.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:45+08:00"
         },
@@ -3377,7 +3377,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:44+08:00",
         "announcementResponseSha256": "41b1c38e75d496630689ed4bc6f44cb1555dfef9c4ef022ae9a38ad61c9c83bc",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_007360_41b1c38e75d496630689ed4bc6f44cb1555dfef9c4ef022ae9a38ad61c9c83bc.json",
         "announcement": {
           "FUNDCODE": "007360",
           "TITLE": "易方达中短期美元债债券型证券投资基金(QDII)2026年中期报告",
@@ -3477,8 +3477,8 @@
         "pdfSha256": "f6ee633136cdbc7bc74904e5e5197d9000092d623b571644ea75914d95c536d7",
         "pdfBytes": 1667567,
         "textSha256": "68b82f3b7d80de88526b30e78d26739b820ea89bb3d978645eec6cbbec73933b",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828748030.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\f6ee633136cdbc7bc74904e5e5197d9000092d623b571644ea75914d95c536d7.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -3538,8 +3538,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828748030_1.pdf",
           "pdfSha256": "f6ee633136cdbc7bc74904e5e5197d9000092d623b571644ea75914d95c536d7",
           "textSha256": "68b82f3b7d80de88526b30e78d26739b820ea89bb3d978645eec6cbbec73933b",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\f6ee633136cdbc7bc74904e5e5197d9000092d623b571644ea75914d95c536d7.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828748030.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:44+08:00"
         },
@@ -3666,7 +3666,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:31+08:00",
         "announcementResponseSha256": "03f8af617c4626983369b5a7d29bc27f3e2305ffccc7f2a7c06bb13941710c5d",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_003864_03f8af617c4626983369b5a7d29bc27f3e2305ffccc7f2a7c06bb13941710c5d.json",
         "announcement": {
           "FUNDCODE": "003864",
           "TITLE": "招商招祥纯债债券型证券投资基金2026年中期报告",
@@ -3766,8 +3766,8 @@
         "pdfSha256": "41cb19ba75b68dc405d9cf081aad13fb20155f546e16112aec7471cafe5dd8ba",
         "pdfBytes": 625848,
         "textSha256": "3953935acd350f47a95ac16368d9c00f4f9ffc22f158775ef2316a08a3e1aaee",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828788319.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\41cb19ba75b68dc405d9cf081aad13fb20155f546e16112aec7471cafe5dd8ba.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -3847,8 +3847,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828788319_1.pdf",
           "pdfSha256": "41cb19ba75b68dc405d9cf081aad13fb20155f546e16112aec7471cafe5dd8ba",
           "textSha256": "3953935acd350f47a95ac16368d9c00f4f9ffc22f158775ef2316a08a3e1aaee",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\41cb19ba75b68dc405d9cf081aad13fb20155f546e16112aec7471cafe5dd8ba.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828788319.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:31+08:00"
         },
@@ -3960,7 +3960,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:46+08:00",
         "announcementResponseSha256": "fa5c7a1731f52fc8cefdb251bedf365d9c89b05e7d3e1b131416918c3e461d08",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_007722_fa5c7a1731f52fc8cefdb251bedf365d9c89b05e7d3e1b131416918c3e461d08.json",
         "announcement": {
           "FUNDCODE": "007722",
           "TITLE": "天弘标普500发起式证券投资基金(QDII-FOF)2026年中期报告",
@@ -4060,8 +4060,8 @@
         "pdfSha256": "97fe12d928940b76fc15df06fe09d01148100854887a75f121374b72a9dc75ee",
         "pdfBytes": 1345505,
         "textSha256": "ed8fbc7b82ba1e8f8f9587c725186f61aa766463b461c846e43791cafb27efb9",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828773808.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\97fe12d928940b76fc15df06fe09d01148100854887a75f121374b72a9dc75ee.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -4132,8 +4132,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828773808_1.pdf",
           "pdfSha256": "97fe12d928940b76fc15df06fe09d01148100854887a75f121374b72a9dc75ee",
           "textSha256": "ed8fbc7b82ba1e8f8f9587c725186f61aa766463b461c846e43791cafb27efb9",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\97fe12d928940b76fc15df06fe09d01148100854887a75f121374b72a9dc75ee.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828773808.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:46+08:00"
         },
@@ -4242,7 +4242,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:58:21+08:00",
         "announcementResponseSha256": "46afd689322c2fb994ad3a27fe034abd4b9cc4d98388bda73af76d05fe6ad60e",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_021778_46afd689322c2fb994ad3a27fe034abd4b9cc4d98388bda73af76d05fe6ad60e.json",
         "announcement": {
           "FUNDCODE": "021778",
           "TITLE": "广发纳斯达克100交易型开放式指数证券投资基金联接基金(QDII)2026年中期报告",
@@ -4342,8 +4342,8 @@
         "pdfSha256": "012f3553df7c161863f8248cc369f76804e63602bf89cd3265e9bfe5e182faff",
         "pdfBytes": 1537540,
         "textSha256": "70badbf1dcb49e9cbc2a822470d3ba8afb095c0cbf5d67690344096905aa5c35",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768649.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\012f3553df7c161863f8248cc369f76804e63602bf89cd3265e9bfe5e182faff.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -4497,8 +4497,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828768649_1.pdf",
           "pdfSha256": "012f3553df7c161863f8248cc369f76804e63602bf89cd3265e9bfe5e182faff",
           "textSha256": "70badbf1dcb49e9cbc2a822470d3ba8afb095c0cbf5d67690344096905aa5c35",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\012f3553df7c161863f8248cc369f76804e63602bf89cd3265e9bfe5e182faff.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768649.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:58:21+08:00"
         },
@@ -5010,7 +5010,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:58:01+08:00",
         "announcementResponseSha256": "f543c378781c709230f1ac2b07f25019bdee1d68e9b531dbdf5c851daa7b9488",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_013642_f543c378781c709230f1ac2b07f25019bdee1d68e9b531dbdf5c851daa7b9488.json",
         "announcement": {
           "FUNDCODE": "013642",
           "TITLE": "博道成长智航股票型证券投资基金2026年中期报告",
@@ -5110,8 +5110,8 @@
         "pdfSha256": "c83aa693ade5c76afd0596029238aa2278c3e86f571b5e7c412a84cd0a3e8309",
         "pdfBytes": 896668,
         "textSha256": "d215c555526e75f9b86444622c0929a46a0159746ebb77694e4ec3c724b25093",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828785436.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\c83aa693ade5c76afd0596029238aa2278c3e86f571b5e7c412a84cd0a3e8309.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -5331,8 +5331,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828785436_1.pdf",
           "pdfSha256": "c83aa693ade5c76afd0596029238aa2278c3e86f571b5e7c412a84cd0a3e8309",
           "textSha256": "d215c555526e75f9b86444622c0929a46a0159746ebb77694e4ec3c724b25093",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\c83aa693ade5c76afd0596029238aa2278c3e86f571b5e7c412a84cd0a3e8309.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828785436.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:58:01+08:00"
         },
@@ -6084,7 +6084,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:58:26+08:00",
         "announcementResponseSha256": "5fc22b92b1cdf4ed0f823543f4ba792e257334455378fe33e1c8851f19dafda7",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_025192_5fc22b92b1cdf4ed0f823543f4ba792e257334455378fe33e1c8851f19dafda7.json",
         "announcement": {
           "FUNDCODE": "025192",
           "TITLE": "广发稳健策略混合型证券投资基金2026年中期报告",
@@ -6184,8 +6184,8 @@
         "pdfSha256": "bc10d953007cd521fb8d15c556e8235bfe7f8f3297f4ff26fccd836573c16e40",
         "pdfBytes": 1794640,
         "textSha256": "fadbf6c9702036728dd551da848d8fca8ccc345b1dc38100eb2777a0c094c7f3",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768758.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\bc10d953007cd521fb8d15c556e8235bfe7f8f3297f4ff26fccd836573c16e40.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -6411,8 +6411,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828768758_1.pdf",
           "pdfSha256": "bc10d953007cd521fb8d15c556e8235bfe7f8f3297f4ff26fccd836573c16e40",
           "textSha256": "fadbf6c9702036728dd551da848d8fca8ccc345b1dc38100eb2777a0c094c7f3",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\bc10d953007cd521fb8d15c556e8235bfe7f8f3297f4ff26fccd836573c16e40.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768758.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:58:26+08:00"
         },
@@ -7024,7 +7024,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:58:07+08:00",
         "announcementResponseSha256": "be7288926308fdfe32f9155e4f20bd236086e4eda2f7699cb49a415494e4dc59",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_016277_be7288926308fdfe32f9155e4f20bd236086e4eda2f7699cb49a415494e4dc59.json",
         "announcement": {
           "FUNDCODE": "016277",
           "TITLE": "招商中证800指数增强型证券投资基金2026年中期报告",
@@ -7124,8 +7124,8 @@
         "pdfSha256": "f995db09bb48f36e22cd5092ff4152bdce3b6611f5b3dc3ba9537940697d5a3d",
         "pdfBytes": 687175,
         "textSha256": "63f03ef143f87fd483dc381396241e8783fea8b32a79fcce26366303286ad7eb",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828786898.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\f995db09bb48f36e22cd5092ff4152bdce3b6611f5b3dc3ba9537940697d5a3d.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -7363,8 +7363,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828786898_1.pdf",
           "pdfSha256": "f995db09bb48f36e22cd5092ff4152bdce3b6611f5b3dc3ba9537940697d5a3d",
           "textSha256": "63f03ef143f87fd483dc381396241e8783fea8b32a79fcce26366303286ad7eb",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\f995db09bb48f36e22cd5092ff4152bdce3b6611f5b3dc3ba9537940697d5a3d.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828786898.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:58:07+08:00"
         },
@@ -8036,7 +8036,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:58:27+08:00",
         "announcementResponseSha256": "fe69ca9d2846f2243dcda96a3087cbbc3e96b039fde09468b01377625f1a0692",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_025645_fe69ca9d2846f2243dcda96a3087cbbc3e96b039fde09468b01377625f1a0692.json",
         "announcement": {
           "FUNDCODE": "025645",
           "TITLE": "广发量化多因子灵活配置混合型证券投资基金2026年中期报告",
@@ -8136,8 +8136,8 @@
         "pdfSha256": "b2b214d882b98d5f6caed7975fa71eb4747d1dd3fe451ed063c31d8b77c7f909",
         "pdfBytes": 2424069,
         "textSha256": "272b1ac21d485cc85c95a6155cc537b44b3d1e3150a2be5cea0342a37e18806e",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828770767.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\b2b214d882b98d5f6caed7975fa71eb4747d1dd3fe451ed063c31d8b77c7f909.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -8365,8 +8365,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828770767_1.pdf",
           "pdfSha256": "b2b214d882b98d5f6caed7975fa71eb4747d1dd3fe451ed063c31d8b77c7f909",
           "textSha256": "272b1ac21d485cc85c95a6155cc537b44b3d1e3150a2be5cea0342a37e18806e",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\b2b214d882b98d5f6caed7975fa71eb4747d1dd3fe451ed063c31d8b77c7f909.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828770767.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:58:27+08:00"
         },
@@ -8484,7 +8484,7 @@
         "reportDate": "2026-06-30",
         "capturedAt": "2026-10-20T04:57:25+08:00",
         "announcementResponseSha256": "7444fbb51910db78d5358f2f7e9b9a6003681bf5d1346101d30418cdb26a0bc8",
-        "rawAnnouncementPath": "private-source-proof",
+        "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_002183_7444fbb51910db78d5358f2f7e9b9a6003681bf5d1346101d30418cdb26a0bc8.json",
         "announcement": {
           "FUNDCODE": "002183",
           "TITLE": "广发天天红发起式货币市场基金2026年中期报告",
@@ -8560,8 +8560,8 @@
         "pdfSha256": "61c1c219c3385ca72e19535a09458a09384a04969e96f0301db2c5b3b12c3014",
         "pdfBytes": 1237677,
         "textSha256": "675aaa94824f7fe1eaf0b697a6ca0eb8a7859be67307a4a71dcfb69ab1e73d56",
-        "rawPdfPath": "private-source-proof",
-        "rawTextPath": "private-source-proof",
+        "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768567.pdf",
+        "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\61c1c219c3385ca72e19535a09458a09384a04969e96f0301db2c5b3b12c3014.txt.gz",
         "textExtractor": {
           "contract": "page_get_text_default_join_newline_v1",
           "binding": "1.28.2",
@@ -8641,8 +8641,8 @@
           "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828768567_1.pdf",
           "pdfSha256": "61c1c219c3385ca72e19535a09458a09384a04969e96f0301db2c5b3b12c3014",
           "textSha256": "675aaa94824f7fe1eaf0b697a6ca0eb8a7859be67307a4a71dcfb69ab1e73d56",
-          "rawTextPath": "private-source-proof",
-          "rawPdfPath": "private-source-proof",
+          "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\61c1c219c3385ca72e19535a09458a09384a04969e96f0301db2c5b3b12c3014.txt.gz",
+          "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768567.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
           "sourceCapturedAt": "2026-10-20T04:57:25+08:00"
         },
@@ -9834,7 +9834,7 @@
   "sharedModel": false,
   "parentStrategyId": null,
   "fileStem": "index_estimates/924eca9a1d20de8969272bc5/model",
-  "generatedAt": "2026-10-20T20:55:03+08:00",
+  "generatedAt": "2026-10-21T13:09:05+08:00",
   "inputHoldings": [
     {
       "基金代码": "005079",
@@ -10209,7 +10209,7 @@
   "allocationRecoveryRejectedEvents": [],
   "weightProjection": {
     "baseDate": "2026-10-20",
-    "requestedAsOf": "2026-10-20",
+    "requestedAsOf": "2026-10-21",
     "weightDate": "2026-10-20",
     "basis": "source_latest",
     "label": "源端最新仓位占比",
@@ -10230,16 +10230,16 @@
     "version": 1,
     "basis": "index_proxy_estimate",
     "asOf": "2026-10-20",
-    "baseModel": "private-source-proof",
-    "baseSha256": "3860918e688807de4e3c0971880747ba8eece1c1719ac8e9536d6bcaae7eb2e6",
-    "mappingFile": "private-source-proof",
-    "sourceDir": "private-source-proof",
-    "database": "private-source-proof",
+    "baseModel": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\quality_repair_20261021T122410__report_build__node\\basic_data\\assets\\strategy-lookthrough\\924eca9a1d20de8969272bc5.json",
+    "baseSha256": "de9f268654d9d945a35d48e06d73598a17cde47840e85f34cc2619de3230df81",
+    "mappingFile": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\quality_repair_20261021T122410__report_build__node\\basic_data\\assets\\strategy-lookthrough\\index_estimates\\924eca9a1d20de8969272bc5\\mappings.json",
+    "sourceDir": "E:\\天眼系统\\运行状态\\outputs\\gffunds_single_strategy\\GFJJ003101_20261020\\index_proxy",
+    "database": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "databaseBinding": {
       "size": 26797404160,
-      "mtimeNs": 1792494395622252000
+      "mtimeNs": 1792547825177121300
     },
-    "industryHistory": "private-source-proof",
+    "industryHistory": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\quality_repair_20261021T122410__report_build__node\\basic_data\\assets\\strategy-lookthrough\\industry_source_evidence.json",
     "industryHistorySha256": "c95bdedc6f5038e09e40bc240c5c209a8589c81e8a320f179cd074cd6d645591",
     "indices": [
       {
@@ -10256,7 +10256,7 @@
           "path": "运行状态\\outputs\\gffunds_single_strategy\\GFJJ003101_20261020\\index_proxy\\NDX.pdf",
           "capturedAt": "2026-10-20T16:56:35.831209+08:00"
         },
-        "file": "private-source-proof"
+        "file": "E:\\天眼系统\\运行状态\\outputs\\gffunds_single_strategy\\GFJJ003101_20261020\\index_proxy\\NDX.pdf"
       }
     ],
     "mappings": [
@@ -10317,8 +10317,7 @@
       "capturedAt": "2026-10-20T16:59:03.136215+08:00"
     },
     "noDatabaseWrite": true,
-    "leveragedFundPolicy": "TQQQ retained separately; no 1x or 3x amount substituted into capital-allocation pie",
-    "sourceProofKey": "48752dfac4c68cb5e2d61e5fe674c5eb2bf1a6b49c485b11956671efc2773ffd"
+    "leveragedFundPolicy": "TQQQ retained separately; no 1x or 3x amount substituted into capital-allocation pie"
   },
   "reportedFileStem": "924eca9a1d20de8969272bc5"
 }

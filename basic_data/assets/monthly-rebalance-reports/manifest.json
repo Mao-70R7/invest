@@ -1,7 +1,7 @@
 {
   "contractVersion": 1,
-  "generatedAt": "2026-10-19T02:51:21+08:00",
-  "dataUpdatedTo": "2026-10-16",
+  "generatedAt": "2026-10-21T12:48:34+08:00",
+  "dataUpdatedTo": "2026-10-19",
   "latestMonth": "2026-09",
   "monthCount": 12,
   "months": [
@@ -15,67 +15,67 @@
       "month": "2026-08",
       "page": "monthly-rebalance-report-202608.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-08.json",
-      "sourceSha256": "f508715994e3d58bf8b15703e12b4383d396141cc851f2c61ad4c81336a99750"
+      "sourceSha256": "1aa9f51d17fa5cfe5f93357b294237c4641aad4ac825ec888de5a80b036ac00b"
     },
     {
       "month": "2026-07",
       "page": "monthly-rebalance-report-202607.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-07.json",
-      "sourceSha256": "458f635f3f38b5077a5a62c2b0a8ea6640fbdf193f32704f299964aa27a4c333"
+      "sourceSha256": "0b8a3e69bfa5383e8929e9321a40ce4d00117b7c547422cd5b965996e21335cb"
     },
     {
       "month": "2026-06",
       "page": "monthly-rebalance-report-202606.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-06.json",
-      "sourceSha256": "08acda79ad6829ded8191af430f577218b3c2f9aebf91041a75cbf40e70da017"
+      "sourceSha256": "d5c4c2b5b2370cea126febcc4399f4652c57cc8a06822c6bd6ab7b0779ed21d2"
     },
     {
       "month": "2026-05",
       "page": "monthly-rebalance-report-202605.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-05.json",
-      "sourceSha256": "a77fbe2733c2f894f33fa212b46ebc8dc182ce6bda93e56bcb11bbbfdf2f30f5"
+      "sourceSha256": "c7bf2c27c04b99b59550fe765ec0bd896190b5934584d277db658537781619e0"
     },
     {
       "month": "2026-04",
       "page": "monthly-rebalance-report-202604.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-04.json",
-      "sourceSha256": "b49a4c264ce7e98384dea7b861c734395f76ef4384da89e81e95daf7b10fa734"
+      "sourceSha256": "1756be2bcc4bd9fe8621991e50626765e392a461c0a0e5eab0d09506212f4531"
     },
     {
       "month": "2026-03",
       "page": "monthly-rebalance-report-202603.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-03.json",
-      "sourceSha256": "0f0976639083c9e8cb1a6ec48632e8d8146861f6ba0c544255c243641664b668"
+      "sourceSha256": "7d6aeb52845829cc9846885be1f7154b6c6869ad64e884f41e52b5bcd1dd1575"
     },
     {
       "month": "2026-02",
       "page": "monthly-rebalance-report-202602.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-02.json",
-      "sourceSha256": "79f31538f2912c76c6e7bc2b34f7e8123838d66dd14132b86262e29b9bce9590"
+      "sourceSha256": "39e1d84402db6ac92be8a5ab6e19e0e698cbb9ba02d2f5d4990f91eba27a29af"
     },
     {
       "month": "2026-01",
       "page": "monthly-rebalance-report-202601.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-01.json",
-      "sourceSha256": "f11ef436632cf33f50965aaa04cc9e83c4f77bf62bde33334a54455483943fd6"
+      "sourceSha256": "aacebf261ebaf321704258a6bbeb96790a7a8315d742671badbb01419909553e"
     },
     {
       "month": "2025-12",
       "page": "monthly-rebalance-report-202512.html",
       "snapshot": "assets/monthly-rebalance-reports/2025-12.json",
-      "sourceSha256": "9e3ea710f265876b7045908b1b86a150b634c045ee9c02ad8291537c006def4c"
+      "sourceSha256": "1acb50aef087b33fc5384b4b50c4669ab4626e3152067bc605d6890e9ffc46f3"
     },
     {
       "month": "2025-11",
       "page": "monthly-rebalance-report-202511.html",
       "snapshot": "assets/monthly-rebalance-reports/2025-11.json",
-      "sourceSha256": "eaedb3e05ce213acf5ac0d45d1e027a7dc36b9aadbe9d42ab772a1b1593a7c3c"
+      "sourceSha256": "7bcf1dc4a0cdceac10000d106759cca7adbb23ee3aadaeba512f1c09bb58c00e"
     },
     {
       "month": "2025-10",
       "page": "monthly-rebalance-report-202510.html",
       "snapshot": "assets/monthly-rebalance-reports/2025-10.json",
-      "sourceSha256": "e251e64c4fd8ddbd3acd09ce00cfb76f92beb5106bc957829b5ae4458c9245c2"
+      "sourceSha256": "4470137d9d0f7465f0198d51b60413f85f0e880177736c8a6386150cf0e65ed6"
     }
   ],
   "eligibleStrategyIds": [
@@ -290,6 +290,7 @@
     "qieman__ZH047198",
     "qieman__ZH048865",
     "qieman__ZH050171",
+    "qieman__ZH054245",
     "qieman__ZH056000",
     "qieman__ZH056007",
     "qieman__ZH056011",
@@ -760,6 +761,7 @@
     "qieman__ZH188368",
     "qieman__ZH189167",
     "qieman__ZH190198",
+    "qieman__ZH191182",
     "southern__79",
     "ttfund__05KGBJQ",
     "ttfund__06HU6E1",
