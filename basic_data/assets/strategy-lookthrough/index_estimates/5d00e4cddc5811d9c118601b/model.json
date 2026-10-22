@@ -6,11 +6,11 @@
   "isParent": true,
   "holdingStatus": "issue_source_rows",
   "sourceUrl": "https://data.howbuy.com/cgi/fund/v717z/clcpday.json?h5req=1&_sc_=1&corpId=000003&zhdm=GJ003&source=1&dayyh=1&grayscale=0&ssdtType=1&withoutQuarter=1",
-  "sourceUpdatedAt": "2026-10-22T11:09:56.368069+08:00",
+  "sourceUpdatedAt": "2026-10-22T23:40:54.541265+08:00",
   "holdingDate": "2026-10-22",
   "holdingCount": 17,
   "weightSum": 100.0,
-  "ageDays": 0,
+  "ageDays": 1,
   "reportCoverageWeight": 100.00000000000003,
   "reportPeriods": {
     "2026-06-30": 100.00000000000003
@@ -507,7 +507,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "400030",
       "fundName": "东方添益债券",
@@ -562,7 +562,7 @@
       "assetCompositionSource": {
         "fundCode": "400030",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:32+08:00",
+        "capturedAt": "2026-10-23T03:22:05+08:00",
         "announcementResponseSha256": "708cf2e41b846bce2046b6b9449289971199b164c0974796f7feb095c606c1e5",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_400030_708cf2e41b846bce2046b6b9449289971199b164c0974796f7feb095c606c1e5.json",
         "announcement": {
@@ -576,7 +576,7 @@
           "ID": "AN202608311828753690"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828753690_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 36799734036.24,
         "amounts": {
@@ -744,7 +744,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\db5b65e9633ff0879fc78b90b1d7800fe6772833c65074a20a313e263a39fe2a.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828753690.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:32+08:00"
+          "sourceCapturedAt": "2026-10-23T03:22:05+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -801,7 +801,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "003157",
       "fundName": "招商招悦纯债C",
@@ -858,7 +858,7 @@
       "assetCompositionSource": {
         "fundCode": "003157",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:39:24+08:00",
+        "capturedAt": "2026-10-23T03:20:42+08:00",
         "announcementResponseSha256": "fe3023c862a12f4c686d63ee3778593c7ed72faed44bbf9a817f7a607c380fdb",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_003157_fe3023c862a12f4c686d63ee3778593c7ed72faed44bbf9a817f7a607c380fdb.json",
         "announcement": {
@@ -872,7 +872,7 @@
           "ID": "AN202608311828788146"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828788146_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 13113062177.96,
         "amounts": {
@@ -1052,7 +1052,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\5ea40fb890fd6212d6488bcf0c0e27cd35a02959f7c47539bbbb2db6a487f8b0.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828788146.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:39:24+08:00"
+          "sourceCapturedAt": "2026-10-23T03:20:42+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1109,7 +1109,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "007888",
       "fundName": "农银金盈债券A",
@@ -1164,7 +1164,7 @@
       "assetCompositionSource": {
         "fundCode": "007888",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:39:41+08:00",
+        "capturedAt": "2026-10-23T03:21:07+08:00",
         "announcementResponseSha256": "90877254c7430261a4771ed28696bf2cdb9c930edf17437988f89af6e66ccb02",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_007888_90877254c7430261a4771ed28696bf2cdb9c930edf17437988f89af6e66ccb02.json",
         "announcement": {
@@ -1178,7 +1178,7 @@
           "ID": "AN202608281828586542"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608281828586542_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 13169391259.82,
         "amounts": {
@@ -1338,7 +1338,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\b39e9e9db61d2b0546f3cece99329ca9a69b38035c2baba1ac827a27520e3a84.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608281828586542.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:39:41+08:00"
+          "sourceCapturedAt": "2026-10-23T03:21:07+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1395,7 +1395,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "700006",
       "fundName": "平安添利债券C",
@@ -1454,7 +1454,7 @@
       "assetCompositionSource": {
         "fundCode": "700006",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:36+08:00",
+        "capturedAt": "2026-10-23T03:22:09+08:00",
         "announcementResponseSha256": "e234d8a3c00177367e67c117711e05f9a6a3bc7a3e9206bfc5c4b94e82cc5e86",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_700006_e234d8a3c00177367e67c117711e05f9a6a3bc7a3e9206bfc5c4b94e82cc5e86.json",
         "announcement": {
@@ -1468,7 +1468,7 @@
           "ID": "AN202608271828519164"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608271828519164_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 7380467903.2,
         "amounts": {
@@ -1640,7 +1640,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\a143a05d78f5b47f744a834be2fd9773499d2b645cefd4900f469e23fc27b2b6.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608271828519164.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:36+08:00"
+          "sourceCapturedAt": "2026-10-23T03:22:09+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1697,7 +1697,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "519783",
       "fundName": "交银裕隆纯债债券C",
@@ -1752,7 +1752,7 @@
       "assetCompositionSource": {
         "fundCode": "519783",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:35+08:00",
+        "capturedAt": "2026-10-23T03:22:08+08:00",
         "announcementResponseSha256": "7ad7320301c2befd3788d48547d1ae838f37004699e457ffd2a38f1f1569bb21",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_519783_7ad7320301c2befd3788d48547d1ae838f37004699e457ffd2a38f1f1569bb21.json",
         "announcement": {
@@ -1766,7 +1766,7 @@
           "ID": "AN202608311828772057"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828772057_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 11021819227.18,
         "amounts": {
@@ -1942,7 +1942,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\c921a80ff4e3e70cff1bc74d5cd7edf592ef3a7f77ccf33a4bd94fa4cf4dae93.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828772057.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:35+08:00"
+          "sourceCapturedAt": "2026-10-23T03:22:08+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1999,7 +1999,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "019518",
       "fundName": "富国全球债券(QDII)人民币C",
@@ -2052,7 +2052,7 @@
       "assetCompositionSource": {
         "fundCode": "019518",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:12+08:00",
+        "capturedAt": "2026-10-23T03:21:43+08:00",
         "announcementResponseSha256": "ac2cda37863ca24fb169ce7e9808a19c33f24376451b9ba61872814c7ca180f8",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_019518_ac2cda37863ca24fb169ce7e9808a19c33f24376451b9ba61872814c7ca180f8.json",
         "announcement": {
@@ -2066,7 +2066,7 @@
           "ID": "AN202608311828787972"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828787972_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 5961452896.51,
         "amounts": {
@@ -2218,7 +2218,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\803ed55187d9adcefb4216ffd3051e61de7a6b018671067a0a0f8c819189f00a.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828787972.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:12+08:00"
+          "sourceCapturedAt": "2026-10-23T03:21:43+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -2274,7 +2274,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "000217",
       "fundName": "华安黄金ETF联接C",
@@ -2323,7 +2323,7 @@
       "assetCompositionSource": {
         "fundCode": "000217",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:39:11+08:00",
+        "capturedAt": "2026-10-23T03:20:24+08:00",
         "announcementResponseSha256": "fe0b7ec74646f25ece74f52c2c637b834c32f2df373775ea68ef3a144d4ac29e",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_000217_fe0b7ec74646f25ece74f52c2c637b834c32f2df373775ea68ef3a144d4ac29e.json",
         "announcement": {
@@ -2337,7 +2337,7 @@
           "ID": "AN202608311828785367"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828785367_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 39910955487.01,
         "amounts": {
@@ -2496,7 +2496,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\4cc63d2ba881bf85aa926bf408f23df2ad10aaf75d528881943137cdab6a19f3.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828785367.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:39:11+08:00"
+          "sourceCapturedAt": "2026-10-23T03:20:24+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -2551,7 +2551,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "022435",
       "fundName": "南方中证A500ETF联接C",
@@ -3064,7 +3064,7 @@
       "assetCompositionSource": {
         "fundCode": "022435",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:19+08:00",
+        "capturedAt": "2026-10-23T03:21:51+08:00",
         "announcementResponseSha256": "5501a41b6d73e63d648c7cd9f8223f814007ab868ec059d1e76f7784031e5891",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_022435_5501a41b6d73e63d648c7cd9f8223f814007ab868ec059d1e76f7784031e5891.json",
         "announcement": {
@@ -3078,7 +3078,7 @@
           "ID": "AN202608311828756011"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828756011_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 5740960624.38,
         "amounts": {
@@ -3401,7 +3401,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\adef6e84f2fbc44b61aeb4082b23d90f20e0a842c2f4337629b3f921d56c6b77.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828756011.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:19+08:00"
+          "sourceCapturedAt": "2026-10-23T03:21:51+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -3460,7 +3460,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "007466",
       "fundName": "华泰柏瑞中证红利低波ETF联接A",
@@ -3771,7 +3771,7 @@
       "assetCompositionSource": {
         "fundCode": "007466",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:39:40+08:00",
+        "capturedAt": "2026-10-23T03:21:05+08:00",
         "announcementResponseSha256": "c890cb08c4ff4932bc8cdfe26baea55531a475b5cee0218432a377bc7e19fd83",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_007466_c890cb08c4ff4932bc8cdfe26baea55531a475b5cee0218432a377bc7e19fd83.json",
         "announcement": {
@@ -3785,7 +3785,7 @@
           "ID": "AN202608291828684586"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608291828684586_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 13156553460.6,
         "amounts": {
@@ -4067,7 +4067,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\34eb6e1a2171abb75c833f76d5153e7a5d3b3977e192df31ac353d8041e67fb5.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608291828684586.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:39:40+08:00"
+          "sourceCapturedAt": "2026-10-23T03:21:05+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -4132,7 +4132,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "016128",
       "fundName": "景顺长城中证红利低波动100ETF联接A",
@@ -4181,7 +4181,7 @@
       "assetCompositionSource": {
         "fundCode": "016128",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:03+08:00",
+        "capturedAt": "2026-10-23T03:21:33+08:00",
         "announcementResponseSha256": "4d961a7361c4bda3f69288b274c3b49034e89d23c42150fd2accdc77b4366fe0",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_016128_4d961a7361c4bda3f69288b274c3b49034e89d23c42150fd2accdc77b4366fe0.json",
         "announcement": {
@@ -4195,7 +4195,7 @@
           "ID": "AN202608281828563698"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608281828563698_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 553734389.39,
         "amounts": {
@@ -4347,7 +4347,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\30ffc30fc9c620b824debea479ec5933b1ced033d9429bb40bca18fcdbd3275d.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608281828563698.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:03+08:00"
+          "sourceCapturedAt": "2026-10-23T03:21:33+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -4402,7 +4402,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "016453",
       "fundName": "南方纳斯达克100指数发起(QDII)C",
@@ -4451,7 +4451,7 @@
       "assetCompositionSource": {
         "fundCode": "016453",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:04+08:00",
+        "capturedAt": "2026-10-23T03:21:34+08:00",
         "announcementResponseSha256": "e22c4515881113de008d00d288a2760825448cd81c078229d3bae7632fce78f4",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_016453_e22c4515881113de008d00d288a2760825448cd81c078229d3bae7632fce78f4.json",
         "announcement": {
@@ -4465,7 +4465,7 @@
           "ID": "AN202608311828755858"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828755858_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 14347747645.31,
         "amounts": {
@@ -4697,7 +4697,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\30ad74363a4b78957899c30120a4c3fc5aba428bce3d2204a3071b4ae3b33570.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828755858.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:04+08:00"
+          "sourceCapturedAt": "2026-10-23T03:21:34+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": {
@@ -4846,7 +4846,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "003474",
       "fundName": "南方天天利货币B",
@@ -4899,7 +4899,7 @@
       "assetCompositionSource": {
         "fundCode": "003474",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:39:25+08:00",
+        "capturedAt": "2026-10-23T03:20:44+08:00",
         "announcementResponseSha256": "6a6ffbc06698737d5e381040bbdff300f21566200b3207310baca511a7dc2334",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_003474_6a6ffbc06698737d5e381040bbdff300f21566200b3207310baca511a7dc2334.json",
         "announcement": {
@@ -4913,7 +4913,7 @@
           "ID": "AN202608311828755087"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828755087_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 150164717164.71,
         "amounts": {
@@ -5053,7 +5053,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\b63ddaa6b50365674eeb74aeb161a49a5a5b57e1629ee6ed25de5d222eee66a6.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828755087.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:39:25+08:00"
+          "sourceCapturedAt": "2026-10-23T03:20:44+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -5110,7 +5110,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "007339",
       "fundName": "易方达沪深300ETF联接C",
@@ -5619,7 +5619,7 @@
       "assetCompositionSource": {
         "fundCode": "007339",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:39:39+08:00",
+        "capturedAt": "2026-10-23T03:21:04+08:00",
         "announcementResponseSha256": "afac86cba046649a86410bc2fdd878663021d96d99d8dac97195162cc90fe2a9",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_007339_afac86cba046649a86410bc2fdd878663021d96d99d8dac97195162cc90fe2a9.json",
         "announcement": {
@@ -5633,7 +5633,7 @@
           "ID": "AN202608311828748489"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828748489_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 22292366109.26,
         "amounts": {
@@ -5948,7 +5948,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\94451915553b4874b0977974f771580299625865636632229f583c53bfdcd142.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828748489.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:39:39+08:00"
+          "sourceCapturedAt": "2026-10-23T03:21:04+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -6007,7 +6007,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "019449",
       "fundName": "摩根日本精选股票(QDII)C",
@@ -6076,7 +6076,7 @@
       "assetCompositionSource": {
         "fundCode": "019449",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:12+08:00",
+        "capturedAt": "2026-10-23T03:21:43+08:00",
         "announcementResponseSha256": "8780f741cf568e63e4c156ed9eacb309adbab1b67f16616c6bfad6b81ced274b",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_019449_8780f741cf568e63e4c156ed9eacb309adbab1b67f16616c6bfad6b81ced274b.json",
         "announcement": {
@@ -6090,7 +6090,7 @@
           "ID": "AN202608311828783102"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828783102_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 3610307494.5,
         "amounts": {
@@ -6315,7 +6315,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\3b4628f5601903278b2da1bad51f8d0d36cd4b7abaf1829ecf3ed73c20eadf8c.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828783102.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:12+08:00"
+          "sourceCapturedAt": "2026-10-23T03:21:43+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": {
@@ -6464,7 +6464,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "006075",
       "fundName": "博时标普500ETF联接C(人民币)",
@@ -6513,7 +6513,7 @@
       "assetCompositionSource": {
         "fundCode": "006075",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:39:33+08:00",
+        "capturedAt": "2026-10-23T03:20:56+08:00",
         "announcementResponseSha256": "67f325be2beef51683c39deaad3fae0ac002777ac0812c6e27841bf1a46b7454",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_006075_67f325be2beef51683c39deaad3fae0ac002777ac0812c6e27841bf1a46b7454.json",
         "announcement": {
@@ -6527,7 +6527,7 @@
           "ID": "AN202608311828772288"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828772288_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 10110306371.5,
         "amounts": {
@@ -6679,7 +6679,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\ab1aa46360c4c071e2492e87b2867eaaab5b96ec07976a9a8188d348370656b8.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828772288.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:39:33+08:00"
+          "sourceCapturedAt": "2026-10-23T03:20:56+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -6734,7 +6734,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "164824",
       "fundName": "工银印度基金人民币",
@@ -6783,7 +6783,7 @@
       "assetCompositionSource": {
         "fundCode": "164824",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:29+08:00",
+        "capturedAt": "2026-10-23T03:22:02+08:00",
         "announcementResponseSha256": "043b251ba727d1d8f46370fc99a997c9c6c7d5a41fde1a734dfd0fe30bf664f6",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_164824_043b251ba727d1d8f46370fc99a997c9c6c7d5a41fde1a734dfd0fe30bf664f6.json",
         "announcement": {
@@ -6797,7 +6797,7 @@
           "ID": "AN202608301828737021"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608301828737021_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 2216652789.17,
         "amounts": {
@@ -6949,7 +6949,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\eb5c7522512cdaca8c31c3a077272e803412373cf86c2270f6d9396bd75467a3.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608301828737021.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:29+08:00"
+          "sourceCapturedAt": "2026-10-23T03:22:02+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -7004,7 +7004,7 @@
       "parentId": "howbuy__GJ003",
       "isParent": true,
       "holdingDate": "2026-10-22",
-      "holdingSnapshotId": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff",
+      "holdingSnapshotId": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c",
       "holdingConfidence": "official_exact",
       "fundCode": "019450",
       "fundName": "摩根欧洲动力策略股票(QDII)C",
@@ -7165,7 +7165,7 @@
       "assetCompositionSource": {
         "fundCode": "019450",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-22T03:40:12+08:00",
+        "capturedAt": "2026-10-23T03:21:43+08:00",
         "announcementResponseSha256": "5522f6882b3c8f5dbc09727499273e65a78b09fe83b9b638569896567f646151",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_019450_5522f6882b3c8f5dbc09727499273e65a78b09fe83b9b638569896567f646151.json",
         "announcement": {
@@ -7179,7 +7179,7 @@
           "ID": "AN202608311828784909"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828784909_1.pdf",
-        "announcementCheckedAsOf": "2026-10-22",
+        "announcementCheckedAsOf": "2026-10-23",
         "basis": "fund_total_assets",
         "totalAssets": 889382865.21,
         "amounts": {
@@ -7404,7 +7404,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\fa3f3ca11ac5d00ef3b155079595389ad27f9fa1c1dd369cb059e6d557c29299.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828784909.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-22T03:40:12+08:00"
+          "sourceCapturedAt": "2026-10-23T03:21:43+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": {
@@ -8492,7 +8492,7 @@
   "sharedModel": false,
   "parentStrategyId": null,
   "fileStem": "index_estimates/5d00e4cddc5811d9c118601b/model",
-  "generatedAt": "2026-10-22T14:54:43+08:00",
+  "generatedAt": "2026-10-23T03:23:56+08:00",
   "inputHoldings": [
     {
       "基金代码": "400030",
@@ -8502,7 +8502,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "519783",
@@ -8512,7 +8512,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "007888",
@@ -8522,7 +8522,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "000217",
@@ -8532,7 +8532,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "007466",
@@ -8542,7 +8542,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "022435",
@@ -8552,7 +8552,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "003474",
@@ -8562,7 +8562,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "016453",
@@ -8572,7 +8572,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "006075",
@@ -8582,7 +8582,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "019518",
@@ -8592,7 +8592,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "164824",
@@ -8602,7 +8602,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "700006",
@@ -8612,7 +8612,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "003157",
@@ -8622,7 +8622,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "019449",
@@ -8632,7 +8632,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "019450",
@@ -8642,7 +8642,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "007339",
@@ -8652,7 +8652,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "016128",
@@ -8662,7 +8662,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     }
   ],
   "allocationBasis": "latest_observed_current",
@@ -8678,7 +8678,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "519783",
@@ -8688,7 +8688,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "007888",
@@ -8698,7 +8698,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "000217",
@@ -8708,7 +8708,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "007466",
@@ -8718,7 +8718,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "022435",
@@ -8728,7 +8728,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "003474",
@@ -8738,7 +8738,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "016453",
@@ -8748,7 +8748,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "006075",
@@ -8758,7 +8758,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "019518",
@@ -8768,7 +8768,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "164824",
@@ -8778,7 +8778,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "700006",
@@ -8788,7 +8788,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "003157",
@@ -8798,7 +8798,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "019449",
@@ -8808,7 +8808,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "019450",
@@ -8818,7 +8818,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "007339",
@@ -8828,7 +8828,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     },
     {
       "基金代码": "016128",
@@ -8838,7 +8838,7 @@
       "披露日期": null,
       "是否精确权重": 1,
       "置信度": "official_exact",
-      "原始快照ID": "86272e55158f697eb94108fb800cc1e1c892800abe47630db52563b334ad9aff"
+      "原始快照ID": "cae7430c923a957265599ce685dc501b2659afcbc7b69f600fa5c52209d1449c"
     }
   ],
   "allocationSourceProof": null,
@@ -8847,14 +8847,14 @@
   "allocationRecoveryRejectedEvents": [],
   "weightProjection": {
     "baseDate": "2026-10-22",
-    "requestedAsOf": "2026-10-22",
+    "requestedAsOf": "2026-10-23",
     "weightDate": "2026-10-22",
     "basis": "source_latest",
     "label": "源端最新仓位占比",
     "available": true,
     "status": "source_observed",
     "reasons": [
-      "源端占比直接使用；净值滚动未执行：缺少基准日之后净值：400030,519783,007888,000217,007466,022435,003474,016453,006075,019518,164824,700006,003157,019449,019450,007339,016128"
+      "源端占比直接使用；净值滚动未执行：缺少基准日之后净值：016453,006075,019518,164824,019450"
     ],
     "funds": [],
     "assumptions": "直接使用源端配置占比，未进行净值滚动；不是客户账户实时仓位",
@@ -8868,17 +8868,17 @@
     "version": 1,
     "basis": "index_proxy_estimate",
     "asOf": "2026-10-22",
-    "baseModel": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T102534+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\5d00e4cddc5811d9c118601b.json",
-    "baseSha256": "e454fcf828eefdaa75761d4c8c2445cd6f001b386a651b686014adaaa13e34c3",
-    "mappingFile": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T102534+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\index_estimates\\5d00e4cddc5811d9c118601b\\mappings.json",
+    "baseModel": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T230250+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\5d00e4cddc5811d9c118601b.json",
+    "baseSha256": "ce6ba29e484d297216e781c2e6e06391fdd96c58ab613b806e1f48300261c515",
+    "mappingFile": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T230250+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\index_estimates\\5d00e4cddc5811d9c118601b\\mappings.json",
     "sourceDir": "E:\\天眼系统\\运行状态\\outputs\\gffunds_single_strategy\\GFJJ003101_20261020\\index_proxy",
     "database": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "databaseBinding": {
-      "size": 26838470656,
-      "mtimeNs": 1792649895450747800
+      "size": 26856468480,
+      "mtimeNs": 1792695629711015300
     },
-    "industryHistory": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T102534+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\industry_source_evidence.json",
-    "industryHistorySha256": "af8ed34c3d36c9f68c33e8f318ca2bbde4c40ee7b204b5739fdf099861433f6a",
+    "industryHistory": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T230250+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\industry_source_evidence.json",
+    "industryHistorySha256": "6926c448665882bf15d6cca68d24f8e05eca0c603064ae105ac56d15dc8d60c6",
     "indices": [
       {
         "code": "H30269",

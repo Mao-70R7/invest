@@ -7,7 +7,7 @@
   "constituentRows": 50,
   "sourceHashChecks": true,
   "noDatabaseWrite": true,
-  "modelSha256": "58bffd598060b910877669d41948752ed9215da6394242fdc063c43f8da30ed5",
+  "modelSha256": "2833dc9eff5e70992ce8bb40a27df63cd185f99f21336c47634941bfc6de245d",
   "basis": "index_proxy_estimate",
   "warnings": [
     "Index proxy is not reported ETF holdings; dates differ",
