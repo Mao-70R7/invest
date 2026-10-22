@@ -1,7 +1,7 @@
 {
   "contractVersion": 1,
-  "generatedAt": "2026-10-21T12:48:34+08:00",
-  "dataUpdatedTo": "2026-10-19",
+  "generatedAt": "2026-10-22T14:29:56+08:00",
+  "dataUpdatedTo": "2026-10-21",
   "latestMonth": "2026-09",
   "monthCount": 12,
   "months": [
@@ -9,31 +9,31 @@
       "month": "2026-09",
       "page": "monthly-rebalance-report-202609.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-09.json",
-      "sourceSha256": "19f8e7f10b220304922f70ef3680a05daa7315095bc004da3654744feaa1533f"
+      "sourceSha256": "e644068e7049e9d861f7ece506aeb325113d39ad49bd7f5280ff8b5cd072970b"
     },
     {
       "month": "2026-08",
       "page": "monthly-rebalance-report-202608.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-08.json",
-      "sourceSha256": "1aa9f51d17fa5cfe5f93357b294237c4641aad4ac825ec888de5a80b036ac00b"
+      "sourceSha256": "37ba9a3011190422a23b8c7c82ccc7d93f460626d245a612b938c8dfdbb68b8e"
     },
     {
       "month": "2026-07",
       "page": "monthly-rebalance-report-202607.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-07.json",
-      "sourceSha256": "0b8a3e69bfa5383e8929e9321a40ce4d00117b7c547422cd5b965996e21335cb"
+      "sourceSha256": "ed0da3c0e05f89ec4ff0d42865d6f01f37a9ad3e6cb6788a2723707ec40cc26c"
     },
     {
       "month": "2026-06",
       "page": "monthly-rebalance-report-202606.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-06.json",
-      "sourceSha256": "d5c4c2b5b2370cea126febcc4399f4652c57cc8a06822c6bd6ab7b0779ed21d2"
+      "sourceSha256": "d0447ea384137bfe000bfc62f7a88787aa74c36141da6e9301c65426ade70ace"
     },
     {
       "month": "2026-05",
       "page": "monthly-rebalance-report-202605.html",
       "snapshot": "assets/monthly-rebalance-reports/2026-05.json",
-      "sourceSha256": "c7bf2c27c04b99b59550fe765ec0bd896190b5934584d277db658537781619e0"
+      "sourceSha256": "eace9dcb4cecb121b0ef7ec193a88453dff25e0af1ecc41f9e000658bd3d8165"
     },
     {
       "month": "2026-04",
@@ -124,6 +124,10 @@
     "gffunds__GFJJ002301",
     "gffunds__GFJJ002302",
     "gffunds__GFJJ002414",
+    "gffunds__GFJJ002941",
+    "gffunds__GFJJ002942",
+    "gffunds__GFJJ002982",
+    "gffunds__GFJJ003101",
     "gffunds__ZY00000014",
     "howbuy__GJ003",
     "howbuy__GJ009",

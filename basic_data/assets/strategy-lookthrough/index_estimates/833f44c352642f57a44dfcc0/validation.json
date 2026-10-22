@@ -7,7 +7,7 @@
   "constituentRows": 50,
   "sourceHashChecks": true,
   "noDatabaseWrite": true,
-  "modelSha256": "3df19120fbe7426e3509a872dfc34d6bcdf569b53f49f1117171c79bf201f484",
+  "modelSha256": "60f61db882530dbcd8cf3d268adb1bfbee97ebbc7c63755851ba3afc95915067",
   "basis": "index_proxy_estimate",
   "warnings": [
     "Index proxy is not reported ETF holdings; dates differ",
@@ -15,6 +15,6 @@
     "Unmapped industry and source rounding retained"
   ],
   "industryGapContribution": 0,
-  "roundingContribution": 0.0001089120127182733,
-  "remainingFundInvestment": 54.71606565093798
+  "roundingContribution": 0.00010927082909917475,
+  "remainingFundInvestment": 54.60101937953534
 }

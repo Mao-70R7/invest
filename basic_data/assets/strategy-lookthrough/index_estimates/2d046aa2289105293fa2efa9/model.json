@@ -6,11 +6,11 @@
   "isParent": true,
   "holdingStatus": "issue_source_rows",
   "sourceUrl": "https://gfwx.gffunds.com.cn/html5app/invest-advisor/strategy-detail?showNavBar=true&source_page=other_page&advId=GFJJ000578",
-  "sourceUpdatedAt": "2026-10-20T19:01:15+08:00",
+  "sourceUpdatedAt": "2026-10-22T11:20:26+08:00",
   "holdingDate": "2026-10-20",
   "holdingCount": 21,
   "weightSum": 100.0,
-  "ageDays": 1,
+  "ageDays": 2,
   "reportCoverageWeight": 100.00000000000001,
   "reportPeriods": {
     "2026-06-30": 100.00000000000001
@@ -686,7 +686,7 @@
       "fundClassSource": "天天基金_fundcode_search",
       "reportDate": "2026-06-30",
       "reportSource": "东财F10资产配置",
-      "reportSnapshotId": "eastmoney_f10_all_market-asset_allocation-000037-0-a1ea8b47c00c12ac",
+      "reportSnapshotId": "eastmoney_f10_all_market-asset_allocation-000037-0-4e5f7558b695e08c",
       "reportUrl": "https://fundf10.eastmoney.com/zcpz_000037.html",
       "assets": {
         "股票": 0.0,
@@ -733,7 +733,7 @@
       "assetCompositionSource": {
         "fundCode": "000037",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:14+08:00",
+        "capturedAt": "2026-10-22T03:39:09+08:00",
         "announcementResponseSha256": "6711d8de18b213690408d84f463154695f13876bce153cf20ed0c6c17ddf86e6",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_000037_6711d8de18b213690408d84f463154695f13876bce153cf20ed0c6c17ddf86e6.json",
         "announcement": {
@@ -747,7 +747,7 @@
           "ID": "AN202608311828768981"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828768981_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 34806931012.53,
         "amounts": {
@@ -915,7 +915,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\fd5320031bda8dbd32a0229deeb075d1635eb2117b1dbe0ce014337ff733ecb7.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768981.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:14+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:09+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1027,7 +1027,7 @@
       "assetCompositionSource": {
         "fundCode": "003280",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:29+08:00",
+        "capturedAt": "2026-10-22T03:39:24+08:00",
         "announcementResponseSha256": "a45ca012e58ae200b5839bc2322713251f27d391925f9e9363df607d7f47f573",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_003280_a45ca012e58ae200b5839bc2322713251f27d391925f9e9363df607d7f47f573.json",
         "announcement": {
@@ -1041,7 +1041,7 @@
           "ID": "AN202608281828578966"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608281828578966_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 20528849352.9,
         "amounts": {
@@ -1213,7 +1213,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\43976bf56a2f1e890dcfffc90f0a4f27b505f94d160243aad7e89aba5c755257.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608281828578966.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:29+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:24+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1323,7 +1323,7 @@
       "assetCompositionSource": {
         "fundCode": "006337",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:40+08:00",
+        "capturedAt": "2026-10-22T03:39:34+08:00",
         "announcementResponseSha256": "44ac65b9db4d5e59d589396ee87ffd0f919fc9a7bf1b496fcec774803959d86d",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_006337_44ac65b9db4d5e59d589396ee87ffd0f919fc9a7bf1b496fcec774803959d86d.json",
         "announcement": {
@@ -1337,7 +1337,7 @@
           "ID": "AN202608311828778217"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828778217_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 10943788962.66,
         "amounts": {
@@ -1513,7 +1513,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\153977d5b86498cb6bb247b600947f5c35e08bcd25e07d3e13ec72285bc59ac0.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828778217.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:40+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:34+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1627,7 +1627,7 @@
       "assetCompositionSource": {
         "fundCode": "009532",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:51+08:00",
+        "capturedAt": "2026-10-22T03:39:47+08:00",
         "announcementResponseSha256": "c1f19cd21fa6ce24750312be052829fb555c3b7a67a337fb103e9d5724d03e29",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_009532_c1f19cd21fa6ce24750312be052829fb555c3b7a67a337fb103e9d5724d03e29.json",
         "announcement": {
@@ -1641,7 +1641,7 @@
           "ID": "AN202608311828769810"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828769810_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 18911413587.27,
         "amounts": {
@@ -1809,7 +1809,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\6ea4b493672645aef6e401f11099e1bcb8ddb27d2cd3d4d24f6c3ec2f56a38ae.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828769810.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:51+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:47+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1921,7 +1921,7 @@
       "assetCompositionSource": {
         "fundCode": "005079",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:35+08:00",
+        "capturedAt": "2026-10-22T03:39:30+08:00",
         "announcementResponseSha256": "b3ff014e0cfbb679415a743d788d4ea74e1e63f645d3536cf25d930a62daf08f",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_005079_b3ff014e0cfbb679415a743d788d4ea74e1e63f645d3536cf25d930a62daf08f.json",
         "announcement": {
@@ -1935,7 +1935,7 @@
           "ID": "AN202608311828788234"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828788234_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 10494872702.54,
         "amounts": {
@@ -2107,7 +2107,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\78916191ac8d221061cd9b9163a73cd671f96e5e4cebb31a3d76d35221c7b2c1.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828788234.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:35+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:30+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -2219,7 +2219,7 @@
       "assetCompositionSource": {
         "fundCode": "006824",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:42+08:00",
+        "capturedAt": "2026-10-22T03:39:37+08:00",
         "announcementResponseSha256": "c946fd2dc107118196efe6b6081213eaf567168a41d88c759587ac7b99e51950",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_006824_c946fd2dc107118196efe6b6081213eaf567168a41d88c759587ac7b99e51950.json",
         "announcement": {
@@ -2233,7 +2233,7 @@
           "ID": "AN202608281828562078"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608281828562078_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 6981132207.41,
         "amounts": {
@@ -2405,7 +2405,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\a16f2439bd181ba9e82b2532a02de2db7fcf844b1f0d4b79158cf678d2037919.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608281828562078.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:42+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:37+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -2517,7 +2517,7 @@
       "assetCompositionSource": {
         "fundCode": "006804",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:42+08:00",
+        "capturedAt": "2026-10-22T03:39:37+08:00",
         "announcementResponseSha256": "bfb423c36718539c539e79ccfc771fa1f1f905fe27a117caf889468124150e53",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_006804_bfb423c36718539c539e79ccfc771fa1f1f905fe27a117caf889468124150e53.json",
         "announcement": {
@@ -2531,7 +2531,7 @@
           "ID": "AN202608311828782598"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828782598_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 8796039746.23,
         "amounts": {
@@ -2703,7 +2703,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\1e68989773dd11863b2a379489d4009df288b3d71ac892743cfac2c975fc81a3.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828782598.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:42+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:37+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -2815,7 +2815,7 @@
       "assetCompositionSource": {
         "fundCode": "006829",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:42+08:00",
+        "capturedAt": "2026-10-22T03:39:37+08:00",
         "announcementResponseSha256": "1ed91987d6408c6226168c2366425c014c73a0e907b8f10771c2067a078b56ad",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_006829_1ed91987d6408c6226168c2366425c014c73a0e907b8f10771c2067a078b56ad.json",
         "announcement": {
@@ -2829,7 +2829,7 @@
           "ID": "AN202608291828684386"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608291828684386_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 6453447948.73,
         "amounts": {
@@ -2997,7 +2997,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\976818ad0ae63143d32df7b506124156a9fe2e3af346055bda441950bd0c4384.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608291828684386.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:42+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:37+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -3111,7 +3111,7 @@
       "assetCompositionSource": {
         "fundCode": "004920",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:34+08:00",
+        "capturedAt": "2026-10-22T03:39:29+08:00",
         "announcementResponseSha256": "0752ddb535dc04be5cf0b5d1c7c7cf40be55dfefb1f8e15313cd6ccf97d89a9a",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_004920_0752ddb535dc04be5cf0b5d1c7c7cf40be55dfefb1f8e15313cd6ccf97d89a9a.json",
         "announcement": {
@@ -3125,7 +3125,7 @@
           "ID": "AN202608311828787466"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828787466_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 5849640907.15,
         "amounts": {
@@ -3297,7 +3297,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\1317e4e16193f1aec8e7d8c272c5f1d695b7d2f1aae5eef3d48e301fa0f9c92a.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828787466.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:34+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:29+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -3917,7 +3917,7 @@
       "assetCompositionSource": {
         "fundCode": "001442",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:22+08:00",
+        "capturedAt": "2026-10-22T03:39:17+08:00",
         "announcementResponseSha256": "99cbcd0033acf4688e602b42056b496d05825d24a3d01bec2aadd62e8e9ed777",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_001442_99cbcd0033acf4688e602b42056b496d05825d24a3d01bec2aadd62e8e9ed777.json",
         "announcement": {
@@ -3931,7 +3931,7 @@
           "ID": "AN202608311828747862"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828747862_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 2934059057.02,
         "amounts": {
@@ -4227,7 +4227,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\d4ff1833f06bc08df3b3c87fccfe327059c5ed852e87ca4a6d16a015b5bbe254.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828747862.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:22+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:17+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -4593,7 +4593,7 @@
       "assetCompositionSource": {
         "fundCode": "001204",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:21+08:00",
+        "capturedAt": "2026-10-22T03:39:16+08:00",
         "announcementResponseSha256": "18a0bd4d3c337e2b81e451643f8077005637e44473060d28d6782dab58c8cf0e",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_001204_18a0bd4d3c337e2b81e451643f8077005637e44473060d28d6782dab58c8cf0e.json",
         "announcement": {
@@ -4607,7 +4607,7 @@
           "ID": "AN202608311828758059"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828758059_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 2027864270.07,
         "amounts": {
@@ -4915,7 +4915,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\f9e5f6f691895ad196e606782811a32140531cdf1726a9f5934863250e3c240e.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828758059.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:21+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:16+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -5031,7 +5031,7 @@
       "assetCompositionSource": {
         "fundCode": "006597",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:41+08:00",
+        "capturedAt": "2026-10-22T03:39:36+08:00",
         "announcementResponseSha256": "b04c24b48d9a67345cb94d02bf9452f5fdb10a9cbc653a3540fd0c585156cab6",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_006597_b04c24b48d9a67345cb94d02bf9452f5fdb10a9cbc653a3540fd0c585156cab6.json",
         "announcement": {
@@ -5045,7 +5045,7 @@
           "ID": "AN202608311828771142"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828771142_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 9930206183.0,
         "amounts": {
@@ -5221,7 +5221,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\c485688729add53bbbaa198885dfea8c12294220b74ffd7f743eecc196f5d476.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828771142.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:41+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:36+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -5967,7 +5967,7 @@
       "assetCompositionSource": {
         "fundCode": "025192",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:26+08:00",
+        "capturedAt": "2026-10-22T03:40:23+08:00",
         "announcementResponseSha256": "5fc22b92b1cdf4ed0f823543f4ba792e257334455378fe33e1c8851f19dafda7",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_025192_5fc22b92b1cdf4ed0f823543f4ba792e257334455378fe33e1c8851f19dafda7.json",
         "announcement": {
@@ -5981,7 +5981,7 @@
           "ID": "AN202608311828768758"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828768758_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 531733071.65,
         "amounts": {
@@ -6299,7 +6299,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\bc10d953007cd521fb8d15c556e8235bfe7f8f3297f4ff26fccd836573c16e40.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768758.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:26+08:00"
+          "sourceCapturedAt": "2026-10-22T03:40:23+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -6411,7 +6411,7 @@
       "assetCompositionSource": {
         "fundCode": "002400",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:26+08:00",
+        "capturedAt": "2026-10-22T03:39:21+08:00",
         "announcementResponseSha256": "5005e2fa9c63fafde257aa7e118dc7a9a360744e9b6adc690652723903b7a93e",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_002400_5005e2fa9c63fafde257aa7e118dc7a9a360744e9b6adc690652723903b7a93e.json",
         "announcement": {
@@ -6425,7 +6425,7 @@
           "ID": "AN202608311828755103"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828755103_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 5962110733.27,
         "amounts": {
@@ -6577,7 +6577,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\0eb58f2205a6740ab97858adf0c6224639e4f343e41b0dc7e9722615e867e22e.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828755103.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:26+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:21+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -6686,7 +6686,7 @@
       "assetCompositionSource": {
         "fundCode": "019480",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:16+08:00",
+        "capturedAt": "2026-10-22T03:40:12+08:00",
         "announcementResponseSha256": "0cb854c2d56d236a3e981a82d4b05dd98bf1359e244636a285eef75c925f53e7",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_019480_0cb854c2d56d236a3e981a82d4b05dd98bf1359e244636a285eef75c925f53e7.json",
         "announcement": {
@@ -6700,7 +6700,7 @@
           "ID": "AN202608311828775550"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828775550_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 5100238959.37,
         "amounts": {
@@ -6859,7 +6859,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\8b0c95182e3b56dca187f6b5bb55e5587c74406e12a23576d7ad887ea42d3202.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828775550.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:16+08:00"
+          "sourceCapturedAt": "2026-10-22T03:40:12+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -7464,7 +7464,7 @@
       "assetCompositionSource": {
         "fundCode": "016277",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:07+08:00",
+        "capturedAt": "2026-10-22T03:40:03+08:00",
         "announcementResponseSha256": "be7288926308fdfe32f9155e4f20bd236086e4eda2f7699cb49a415494e4dc59",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_016277_be7288926308fdfe32f9155e4f20bd236086e4eda2f7699cb49a415494e4dc59.json",
         "announcement": {
@@ -7478,7 +7478,7 @@
           "ID": "AN202608311828786898"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828786898_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 531762212.25,
         "amounts": {
@@ -7808,7 +7808,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\f995db09bb48f36e22cd5092ff4152bdce3b6611f5b3dc3ba9537940697d5a3d.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828786898.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:07+08:00"
+          "sourceCapturedAt": "2026-10-22T03:40:03+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -8312,7 +8312,7 @@
       "assetCompositionSource": {
         "fundCode": "013642",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:01+08:00",
+        "capturedAt": "2026-10-22T03:39:57+08:00",
         "announcementResponseSha256": "f543c378781c709230f1ac2b07f25019bdee1d68e9b531dbdf5c851daa7b9488",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_013642_f543c378781c709230f1ac2b07f25019bdee1d68e9b531dbdf5c851daa7b9488.json",
         "announcement": {
@@ -8326,7 +8326,7 @@
           "ID": "AN202608311828785436"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828785436_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 10609072454.77,
         "amounts": {
@@ -8638,7 +8638,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\c83aa693ade5c76afd0596029238aa2278c3e86f571b5e7c412a84cd0a3e8309.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828785436.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:01+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:57+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -9306,7 +9306,7 @@
       "assetCompositionSource": {
         "fundCode": "025645",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:27+08:00",
+        "capturedAt": "2026-10-22T03:40:24+08:00",
         "announcementResponseSha256": "fe69ca9d2846f2243dcda96a3087cbbc3e96b039fde09468b01377625f1a0692",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_025645_fe69ca9d2846f2243dcda96a3087cbbc3e96b039fde09468b01377625f1a0692.json",
         "announcement": {
@@ -9320,7 +9320,7 @@
           "ID": "AN202608311828770767"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828770767_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 3171621237.74,
         "amounts": {
@@ -9640,7 +9640,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\b2b214d882b98d5f6caed7975fa71eb4747d1dd3fe451ed063c31d8b77c7f909.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828770767.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:27+08:00"
+          "sourceCapturedAt": "2026-10-22T03:40:24+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -9754,7 +9754,7 @@
       "assetCompositionSource": {
         "fundCode": "002183",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:25+08:00",
+        "capturedAt": "2026-10-22T03:39:20+08:00",
         "announcementResponseSha256": "7444fbb51910db78d5358f2f7e9b9a6003681bf5d1346101d30418cdb26a0bc8",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_002183_7444fbb51910db78d5358f2f7e9b9a6003681bf5d1346101d30418cdb26a0bc8.json",
         "announcement": {
@@ -9768,7 +9768,7 @@
           "ID": "AN202608311828768567"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828768567_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 211002348564.48,
         "amounts": {
@@ -9916,7 +9916,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\61c1c219c3385ca72e19535a09458a09384a04969e96f0301db2c5b3b12c3014.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768567.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:25+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:20+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -10022,7 +10022,7 @@
       "assetCompositionSource": {
         "fundCode": "021778",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:21+08:00",
+        "capturedAt": "2026-10-22T03:40:18+08:00",
         "announcementResponseSha256": "46afd689322c2fb994ad3a27fe034abd4b9cc4d98388bda73af76d05fe6ad60e",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_021778_46afd689322c2fb994ad3a27fe034abd4b9cc4d98388bda73af76d05fe6ad60e.json",
         "announcement": {
@@ -10036,7 +10036,7 @@
           "ID": "AN202608311828768649"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828768649_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 20967876068.96,
         "amounts": {
@@ -10282,7 +10282,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\012f3553df7c161863f8248cc369f76804e63602bf89cd3265e9bfe5e182faff.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828768649.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:21+08:00"
+          "sourceCapturedAt": "2026-10-22T03:40:18+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -10394,7 +10394,7 @@
       "assetCompositionSource": {
         "fundCode": "000217",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:17+08:00",
+        "capturedAt": "2026-10-22T03:39:11+08:00",
         "announcementResponseSha256": "fe0b7ec74646f25ece74f52c2c637b834c32f2df373775ea68ef3a144d4ac29e",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_000217_fe0b7ec74646f25ece74f52c2c637b834c32f2df373775ea68ef3a144d4ac29e.json",
         "announcement": {
@@ -10408,7 +10408,7 @@
           "ID": "AN202608311828785367"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828785367_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 39910955487.01,
         "amounts": {
@@ -10567,7 +10567,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\4cc63d2ba881bf85aa926bf408f23df2ad10aaf75d528881943137cdab6a19f3.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828785367.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:17+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:11+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -11788,7 +11788,7 @@
   "sharedModel": false,
   "parentStrategyId": null,
   "fileStem": "index_estimates/2d046aa2289105293fa2efa9/model",
-  "generatedAt": "2026-10-21T13:09:05+08:00",
+  "generatedAt": "2026-10-22T14:54:43+08:00",
   "inputHoldings": [
     {
       "基金代码": "001204",
@@ -12223,15 +12223,13 @@
   "allocationRecoveryRejectedEvents": [],
   "weightProjection": {
     "baseDate": "2026-10-20",
-    "requestedAsOf": "2026-10-21",
+    "requestedAsOf": "2026-10-22",
     "weightDate": "2026-10-20",
     "basis": "source_latest",
     "label": "源端最新仓位占比",
     "available": true,
     "status": "source_observed",
-    "reasons": [
-      "源端占比直接使用；净值滚动未执行：缺少基准日之后净值：001204,005079,006824,006337,000217,002400,019480,013642,006597,004920,006804,002183,000037,009532,025192,021778,025645,016277,001442,003280,006829"
-    ],
+    "reasons": [],
     "funds": [],
     "assumptions": "直接使用源端配置占比，未进行净值滚动；不是客户账户实时仓位",
     "parentReference": false
@@ -12244,17 +12242,17 @@
     "version": 1,
     "basis": "index_proxy_estimate",
     "asOf": "2026-10-20",
-    "baseModel": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\quality_repair_20261021T122410__report_build__node\\basic_data\\assets\\strategy-lookthrough\\2d046aa2289105293fa2efa9.json",
-    "baseSha256": "cb20302ed8f97bb40325bd73bfce655c8b036ef410e9e9b056eb0566f53cbd76",
-    "mappingFile": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\quality_repair_20261021T122410__report_build__node\\basic_data\\assets\\strategy-lookthrough\\index_estimates\\2d046aa2289105293fa2efa9\\mappings.json",
+    "baseModel": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T102534+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\2d046aa2289105293fa2efa9.json",
+    "baseSha256": "778d951f55c5a5e17e3b3efed75369eec1e6967b1262983c7dc565686f016ddd",
+    "mappingFile": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T102534+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\index_estimates\\2d046aa2289105293fa2efa9\\mappings.json",
     "sourceDir": "E:\\天眼系统\\运行状态\\outputs\\gffunds_single_strategy\\GFJJ003101_20261020\\index_proxy",
     "database": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "databaseBinding": {
-      "size": 26797404160,
-      "mtimeNs": 1792547825177121300
+      "size": 26838470656,
+      "mtimeNs": 1792649895450747800
     },
-    "industryHistory": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\quality_repair_20261021T122410__report_build__node\\basic_data\\assets\\strategy-lookthrough\\industry_source_evidence.json",
-    "industryHistorySha256": "c95bdedc6f5038e09e40bc240c5c209a8589c81e8a320f179cd074cd6d645591",
+    "industryHistory": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T102534+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\industry_source_evidence.json",
+    "industryHistorySha256": "af8ed34c3d36c9f68c33e8f318ca2bbde4c40ee7b204b5739fdf099861433f6a",
     "indices": [
       {
         "code": "NDX",

@@ -5,391 +5,391 @@
     {
       "strategy": "financial_street__GFJR003262",
       "file": "index_estimates/180ee4f5752faf95f18f542a/model.json",
-      "sha256": "693b732b2439808318fa79bb3b39f161415f383669344c49b1a374d73623d9a1",
+      "sha256": "ffdab0c8da05662bd87755542b507c1521b28810dab3df1a5acab72b216b03bf",
       "status": "passed"
     },
     {
       "strategy": "fullgoal__WGFDZX001",
       "file": "index_estimates/881aef250783ffb39e2a10c0/model.json",
-      "sha256": "6a61d9fbf6b2abfd84acfb7d7e1ccf5a3e2a3a30baf517f7063b1adfbcef0fcf",
+      "sha256": "0a051ede02793a6ce6bb6d73cb61d3a06f84dc578bb2615b5ed17622c392617a",
       "status": "passed"
     },
     {
       "strategy": "fullgoal__WGFDZXZH001",
       "file": "index_estimates/1b456ae7908879ca9c6dc795/model.json",
-      "sha256": "e24a338135325966e5a26fc7437a817df9c40c663a183f4ef331329f370a4a64",
+      "sha256": "3eb4d8b7f4cf2566506ebb5024ded493a253bbb90b52e13eb800e6e021266868",
       "status": "passed"
     },
     {
       "strategy": "fullgoal__HLDBZXZH001",
       "file": "index_estimates/833f44c352642f57a44dfcc0/model.json",
-      "sha256": "3ff3fe00d1c3ec9332628409e5ae1d6f41b8109914566d1fdfcd265d258dece2",
+      "sha256": "49185597f7eeefd73801ac4399836e581dd6883d2d9d9ffe513f9cb72a712ba2",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ000578",
       "file": "index_estimates/2d046aa2289105293fa2efa9/model.json",
-      "sha256": "ec20acf441586157837bbbd9fccf3bd5cc4a1f8b4be3679ab0910136745c06f8",
+      "sha256": "1c163a43b1ed20790cf0190fcb91978f461d93ba705423d8852aa23e759d98ab",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ002414",
       "file": "index_estimates/2a0817f2e2ad6c4bd404f8ea/model.json",
-      "sha256": "d3ddfe0e50d7c3b64c9fc3871e9c71662bd47650504adefa11c329b2980cc3b4",
+      "sha256": "ff8d4fcd95bf3cf1c3824f31786ea38cddf09f72df296d13f8d291c25a08a3f6",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ001236",
       "file": "index_estimates/beb2f33160d1ac229b2b9358/model.json",
-      "sha256": "fb5f85beb456911bfcc1b23134ee008edc105da1508618e2af6841440c56ab5e",
+      "sha256": "ca2c522b810e721b12ef8a756417801026238c36d681e208895f4a9422a2be57",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ001482",
       "file": "index_estimates/e7ef80d13b795a3337374197/model.json",
-      "sha256": "74c31fa9a2d335becfc5f1889c3313ffecad4a60cd97badde93598766977c701",
+      "sha256": "47993eea07e7b52f6a6630a7d45a1c16cd09f44c5cb88daeb09f8b757aa9fe54",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ002221",
       "file": "index_estimates/dbbbbb08fbe52e610d60793a/model.json",
-      "sha256": "36952c5ffa7fb7bbf0efe997648979769e5a058d0a7685c7c79a51fa0b3014b5",
+      "sha256": "7c0ba0982579bd132c527eda54ecdbcacdfe38276253cca23a3211f433d6cf8c",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ003101",
       "file": "index_estimates/c49f40f868ab61bebaf5ea17/model.json",
-      "sha256": "aa6e9f90fe11e11870ec4ccb1a0106043ab7039247c9d2b52f6fe5e4bc892240",
+      "sha256": "1076d07a06440177958422cd290ab90a3415a83bd3db8e90e3f8362d904daf57",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ000004",
       "file": "index_estimates/d1f4fbea2d9868b6ce0d1b16/model.json",
-      "sha256": "86d31b7bf03aeb8cd90cb6227efae99da7fb732dd10086a34d73f9aa076c0a64",
+      "sha256": "de80adf182b4841375ccc41248d8faf397dfe00f4e55baa840c02d18aa8b44c7",
       "status": "passed"
     },
     {
       "strategy": "gffunds__ZY00000064",
       "file": "index_estimates/32c469184a68643ddb8a4c8c/model.json",
-      "sha256": "dd8d19e2c088dda7019ec5d0b816d18ee6b70af7c337650c063af631a3fde801",
+      "sha256": "3555095070fd1a703b94c48cac79aabc5569ef41055246c0be5e3e6901a548cf",
       "status": "passed"
     },
     {
       "strategy": "gffunds__ZY00000068",
       "file": "index_estimates/9b9d00df763814aba34acb86/model.json",
-      "sha256": "7ee6e4c34cdadd675d07a44c5599c1fee1aca46b227fc683cbc7a17357558e73",
+      "sha256": "42d1684aec77f335c0a406529408d63c0dab6d0b7459bfda65aa3d1bc600ede3",
       "status": "passed"
     },
     {
       "strategy": "gffunds__ZY00000073",
       "file": "index_estimates/494af4c7f58d6c60e45de607/model.json",
-      "sha256": "2c0f57aca6e396e3d4191925388309b59edc142b73f94f898ef2903540c1d46c",
+      "sha256": "ef25bb69d0a9696ffb1dd882a7a22dd62366aab8a46ccaba1b74f848c69e791a",
       "status": "passed"
     },
     {
       "strategy": "gffunds__ZY00000076",
       "file": "index_estimates/53da3d898f5fa1d7dc437203/model.json",
-      "sha256": "7259e65ff6644f4ed909eb47b5dd9e5d8f004aa8e6fe8c11e42c4084dcca5510",
+      "sha256": "3c3f6a264816b0bc88853236101c4ff5ff5b4ec78493f3eed682a9abdfd0f88a",
       "status": "passed"
     },
     {
       "strategy": "gffunds__ZY00000080",
       "file": "index_estimates/f6e976c1e600de991710f84b/model.json",
-      "sha256": "c0f9af4b3ee385a339775d0e60da96b4705061429aafd4309a1471fc34e5100c",
+      "sha256": "f66dddb747ce42e9a4f5914e35c4a51c605c521ae83ec5939884fea426510eab",
       "status": "passed"
     },
     {
       "strategy": "gffunds__ZY00000086",
       "file": "index_estimates/392762d4df6cc228381b36c3/model.json",
-      "sha256": "1adf416259c91bafaa3a002fe0f882862829cb3428204832ca7c1b4869a0d634",
+      "sha256": "f05f0fb6d95569294214606db6505af18a2945216aeff2300e10a5db73cea0d8",
       "status": "passed"
     },
     {
       "strategy": "gffunds__ZY00000089",
       "file": "index_estimates/b19f49f4b38920de8fdcb17f/model.json",
-      "sha256": "472acc49167b64f1ceb61b9bd484850c5a6796616804dc64b9bf4df1dad1d723",
+      "sha256": "e54de4ff8b0de75c7101550696f29d21e27483c01df1d18764d5aac171e70899",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ002101",
       "file": "index_estimates/bf3ee7d36de995fda9d5ae4b/model.json",
-      "sha256": "53d989657a4b80806a2ab63fb7cd48ddd9c7a9d9739de4168cae5f152d35d972",
+      "sha256": "e056f21f8760646ad2c655ea1d903bd2f5fbaaba85ee2b614e15045ed727fd60",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ001665",
       "file": "index_estimates/924eca9a1d20de8969272bc5/model.json",
-      "sha256": "a04de7443bb6eeacc8f5feb46c9523f6ca519c97094bd0050cfec13e29e3fd47",
+      "sha256": "e15ea962d81d98833ebf8132048e346fb9018ad6e12c5593503a04618c806428",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ001664",
       "file": "index_estimates/a4ecf037820450da62139713/model.json",
-      "sha256": "15072c33046429017d6574afc1f49e542a791ef6f8543d763628ddc11ba2cd6c",
+      "sha256": "393696956349396dbd49fc80f43efe362bc2047d4090ef348fb33ac827ffbcd4",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ001681",
       "file": "index_estimates/e4cad93dbdb8b432e02f4632/model.json",
-      "sha256": "2e684ba719631d309a85fd15a836c81354183fd212fd9c4fbcd8e89c0d066586",
+      "sha256": "e03106fee0ea8d8919635ff1763dcaecea27cd08eed2eb37bd842248aa2842fd",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ001394",
       "file": "index_estimates/f87077b205602bc49c3b4415/model.json",
-      "sha256": "b09563b8ab8bfd527117b53b788cf3f9a5c276b521b423aee112af4700683a29",
+      "sha256": "2ee6b1077e62503cf1f63a8150f40026938b9178d23ff6ec3b01650523dbb355",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ001564",
       "file": "index_estimates/775a95aa0d5a959f94d48e6a/model.json",
-      "sha256": "5b93c400d3b52fe88f947884a3c48baf85b176e10c3192d1571a003620c30f9e",
+      "sha256": "c0fa674ee89ecaf31f2d6d48a3f187dc18d371447fe49ab69c84f3334c0b04ac",
       "status": "passed"
     },
     {
       "strategy": "gffunds__GFJJ001502",
       "file": "index_estimates/553bcf0ec41d46751d313bf6/model.json",
-      "sha256": "a8917fb23a4896f8bd373163815c0c27ef8de9f5d1ec27097d4d0c36c0215b34",
+      "sha256": "26eed9d487faf63816ac21b84de10fc103c605c364afb3f1e5c56231203e7dd7",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__regular:gffund:GFXFZZ",
       "file": "index_estimates/6d1d2f55d51508c1077a308a/model.json",
-      "sha256": "388f6621265cdd36218a105f6598077ba556d8802f434f4d98429645169fd1ea",
+      "sha256": "555f3b363ac65ee7e4e34c9d679d319f9fc9203f05c73a0f7b39434de44cbd43",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__regular:gffund:GFAXHB",
       "file": "index_estimates/5c59a0f647c8a5e29e38ff4a/model.json",
-      "sha256": "0a990d5b0f06a8fc495f55a86ed1128acd87e418144c58ccc983db65919ccc60",
+      "sha256": "2f64bc484773cf48b13941f998c2be2cfb488e5f372ed9045a39eb23d932c250",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__target:gffund:10018",
       "file": "index_estimates/d3a5006f102dd2c0da25db96/model.json",
-      "sha256": "6e4a0dec26736c0ef36f153d373ecb04970822ef70b59e63a8b4fb62ab55c69a",
+      "sha256": "118f0c7ad4f5d54e790edc4ad0e88597784def5975b3733e867d8cde66990cf9",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__target:gffund:10020",
       "file": "index_estimates/72a20f214ef897afb8b20d95/model.json",
-      "sha256": "21cafb6fe617a6b9cd623b3afec9701496963317e7566045d97908fe9f4b5c3b",
+      "sha256": "deca396227ed6ee03c78226ec0b05ac736890fcf98a112e93e9bb24e86f02e44",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__target:gffund:10024",
       "file": "index_estimates/f401b07ce96744beccb1f16e/model.json",
-      "sha256": "e6c544132b31035395af84fbeb83d873c7a4f9917a223b5b482c2fe9e1fba90e",
+      "sha256": "67ada4e997e83755dd4432be561e1470990d7aa7916c0e1bbef1825a2e5a87ca",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__target:gffund:10027",
       "file": "index_estimates/b51c6c6572f43912cbaa648b/model.json",
-      "sha256": "17d347847cdef6d6b1ebae710c216a6c0e632ed783f796004e76bea10cee208e",
+      "sha256": "5db3946c991fd0feb402ae214644881bc1938aa12a3034e45ca12f4ec10b8868",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__target:gffund:10029",
       "file": "index_estimates/e254e5149301f9386324f429/model.json",
-      "sha256": "ca70aba80867512749ec91bfe307f9d061f453188b0743b8ef556928096cdece",
+      "sha256": "f249a359274fd3d4c02d47f511e07ca0817884a43967e99ea2cbe281e3d2520b",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__target:gffund:10032",
       "file": "index_estimates/577181dc42ebc6249481f962/model.json",
-      "sha256": "1706cd1e9712bf75e01312b9582f2ee80b198efcbdfa05856c6e76dfc3074f21",
+      "sha256": "3a24e014155ec45be07f86ba749b6a8c59544231adbe1fd4204d283ecd1e0b26",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__target:gffund:10035",
       "file": "index_estimates/98f631451cb776494ffd7a36/model.json",
-      "sha256": "e01f2bcd189fd9e59cbf74579848e23d735f0b0cd1cf5a2f2566b2447675e044",
+      "sha256": "9d2f3017c350908134aeedf2af23ad31da35f3265ff81345bc72ad8d3ba2b01a",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__target:gffund:10038",
       "file": "index_estimates/f7b4bd59c96aece82afada11/model.json",
-      "sha256": "d67d8cf8164c081427310daefd6e0032a8f9792cc5d1f50aa1bbdd014114d1be",
+      "sha256": "a5041d1311e0050fb26bb800e511d7791f8b36bd01e358076e9e104fbbe60203",
       "status": "passed"
     },
     {
       "strategy": "gfsec_fima__target:gffund:10041",
       "file": "index_estimates/d876f92606adcbd8daabd4b9/model.json",
-      "sha256": "53ffc7f2db4ec0af1cc6526b379f5a98d2439684df020927d1305d6072b6e920",
+      "sha256": "9da6e148dbb7ce484bc688d614ae065d4578fb07b4a4cf79d7e5d2570a67eda9",
       "status": "passed"
     },
     {
       "strategy": "howbuy__GJ003",
       "file": "index_estimates/5d00e4cddc5811d9c118601b/model.json",
-      "sha256": "17aa26c6e16de777abc1dcd480d69b0ed5689a1c7d2b8de179181ee8b224f881",
+      "sha256": "09d83e3482a83aaf5978a3a96b905e5a980594307dab1c33ea0b8b5613977ecf",
       "status": "passed"
     },
     {
       "strategy": "qieman__ZH058775",
       "file": "index_estimates/c622d08e1b091383ecdaf96c/model.json",
-      "sha256": "fb96a087a7352a03f60a45797a0c9baccdbb51c612eb5fe58842ad5a85f486e2",
+      "sha256": "c674dfdbaabd5f96899045bad81fd13f5a648e435a5487b1b6f2ae6875c82b12",
       "status": "passed"
     },
     {
       "strategy": "qieman__ZH160573",
       "file": "index_estimates/64fce38b91d19e422a716792/model.json",
-      "sha256": "1d4c6152731803c8003044246ef1ab65a10e7f2be1c851d9c8fb29e5ff3419ad",
+      "sha256": "cff4a1329d17b5860a167bd86ca8788156724d76f0e2ebe0ae855d8b44c889cd",
       "status": "passed"
     },
     {
       "strategy": "qieman__ZH176386",
       "file": "index_estimates/18a8e2fcf646fed57235d5b7/model.json",
-      "sha256": "9dcc54b8a169378d1efef38480d6b916b618c72c0e17f0dfb68046fd73b737cb",
+      "sha256": "089919015d42094b5cdf88c1397c07b0af03ce623870b4a36a77ea6e8074e5b2",
       "status": "passed"
     },
     {
       "strategy": "qieman__ZH164292",
       "file": "index_estimates/f95c1a9005cf0356846454b5/model.json",
-      "sha256": "69517bbcf75ed7e6a9e4c90e7969ecdf9df59a5172615dbf29628fa21c10dab0",
+      "sha256": "c907978c39117b838d4be1c6539d296a3ae4f2f55b32d8137f91847ca8b37e61",
       "status": "passed"
     },
     {
       "strategy": "qieman__ZH040237",
       "file": "index_estimates/9222730091aa468ee91e129f/model.json",
-      "sha256": "b1b234547205885bc19a4c42f48c3cd2d1dc13eb53c1d27bc6a1a4c77f1e75c4",
+      "sha256": "d9124e098cb3da3df0fb75bbee2c0c48224f516cb1f4c8e33d7fd26daaa98a86",
       "status": "passed"
     },
     {
       "strategy": "qieman__LONG_WIN",
       "file": "index_estimates/daa647be04ee303e69da551c/model.json",
-      "sha256": "a2e0edc85e3f9dab101c1a97a2c396ecc04755ea73efd5c805260afc3f5f76d8",
+      "sha256": "52d6d36a35ed28618b618a75bf1564a3e6a89189cfd8670ae45c6aff6c84bc3b",
       "status": "passed"
     },
     {
       "strategy": "qieman__LONG_WIN_S",
       "file": "index_estimates/b8064715d2723b3c646e7306/model.json",
-      "sha256": "f902a336da98d1aeec76c8bb3ff482f6e3a6f77827427b9d5cb6d3ef64b1d242",
+      "sha256": "6321e77077e1d3ba834fde8d7899e226f2576d6caa91bd35cbcee170d4b1bfeb",
       "status": "passed"
     },
     {
       "strategy": "qieman__SI000208",
       "file": "index_estimates/7e3eaae97c5a06704253a745/model.json",
-      "sha256": "fc176ec5a131eb39904acd7a078232f2041932ea198bb621dd6ff8abbd1c1036",
+      "sha256": "0c187b19afb4969bfaec0a244392ba123ba28565f6fd0e91f93b7375d198acdd",
       "status": "passed"
     },
     {
       "strategy": "ttfund__4CCAB0D",
       "file": "index_estimates/9bd7c596246fdc18d2f85ed3/model.json",
-      "sha256": "5e472ceac03ee0f7ae7ddbbedb86b3963cbe7fa216e4ea85c02b3038d0cf0960",
+      "sha256": "a371c72135be55d5ef9e83222e4e135d22f60e83362c434857a755de8f8cc0ee",
       "status": "passed"
     },
     {
       "strategy": "ttfund__YZ9E10P",
       "file": "index_estimates/4767626bf39018db1d7a83b2/model.json",
-      "sha256": "719f10d3eb1f9bf376f7f83ffe5009e3124fa15eed9886ccce8c852c356aaca1",
+      "sha256": "abb4ebfa423f3953951d2c4b8f65b6ec0d78df2942958de51e520c5f76ca9300",
       "status": "passed"
     },
     {
       "strategy": "ttfund__EXIG5UK",
       "file": "index_estimates/8dff7fdc22456f4870776ed9/model.json",
-      "sha256": "a3cc154ff650608e99f61b902540969d0b7ebed6c416c2e6f0c952fac5cbf132",
+      "sha256": "77ad9be8fa1fbd9f3ecb96311c1dae2fffe29866f48126921c2bb4475adae8e9",
       "status": "passed"
     },
     {
       "strategy": "ttfund__JJIQOQR",
       "file": "index_estimates/6868ddab24e125f820351f9f/model.json",
-      "sha256": "8f4a2b7b43e534873d354786f91bd1c3d77f115bac9ddb38badee59d8fa2c8d7",
+      "sha256": "7c877611beff3a750af078c3b49f0f4bbc69123bd7568fae4bafc89859302361",
       "status": "passed"
     },
     {
       "strategy": "ttfund__130G7UY",
       "file": "index_estimates/33cbded51f8f639607772277/model.json",
-      "sha256": "3f5814e633c78f55968cc0ddd5fa41e10a30400649f822641f67e9d795edeb56",
+      "sha256": "cf9799c1ad74ac3ef597df04f0efb9d518343ca3389d6e6ba22118e11b7fe78b",
       "status": "passed"
     },
     {
       "strategy": "ttfund__FT9Q97V",
       "file": "index_estimates/ef03256468d69418c53049a2/model.json",
-      "sha256": "cb0eb9ece5811778c07d277082fd8cb862e52e24a32674463a7fba044bcf1581",
+      "sha256": "722f3d5544291f4f4b4fd93e09c91591ced7df882da5688b587ee9cc4c45bed4",
       "status": "passed"
     },
     {
       "strategy": "ttfund__TL20OXV",
       "file": "index_estimates/cff412fb56b309c1345613ff/model.json",
-      "sha256": "16cce7faf59a417c2a066ab2be87fc233f1dd3e85494dfe04f595bd98cf42fa5",
+      "sha256": "9d98011886de118e1a48e93d0d0bd678a2bdbb95b347a5f494c5994299bc196a",
       "status": "passed"
     },
     {
       "strategy": "ttfund__C2HW45S",
       "file": "index_estimates/fc4286f87183b9f673af544a/model.json",
-      "sha256": "c639025289f02b19aa7162f998a81e23e4116a0aa4caa00c0cf285f72459607e",
+      "sha256": "a18a292c7c11531a80ed878913b4ce767a055daf12fa7d259d32acfb4c821e26",
       "status": "passed"
     },
     {
       "strategy": "ttfund__6MMD0AI",
       "file": "index_estimates/bdb07028666aa3b5863733e9/model.json",
-      "sha256": "ff36589cd10561abd46b87df01cb55d5ca927ef05f922209a38f5eafbaa9f123",
+      "sha256": "0ae691176cf504ada3c62eb49ba0a7e395c6b0e59c55a4c52c86056098082a82",
       "status": "passed"
     },
     {
       "strategy": "ttfund__7EHVOEI",
       "file": "index_estimates/ae46341796502ab32bce51b6/model.json",
-      "sha256": "611c0851d7fdc31b58ecf70577a280fe95a5725a09a43287a00a52b71075bd17",
+      "sha256": "2489a1183ede0f3a5695b275a791b4ae29580156975b37be6eb858a671f31acc",
       "status": "passed"
     },
     {
       "strategy": "ttfund__XLBBK9I",
       "file": "index_estimates/0889fde0f000a9195b4e6797/model.json",
-      "sha256": "8cc14259d503d543b839116151063a5576d3d1a799e7193c3929fdc6836ea77d",
+      "sha256": "3ba58ca9a174f9f0df19d15b44c7a752e956caa6cf018d1bdd5d6d34185126bd",
       "status": "passed"
     },
     {
       "strategy": "ttfund__N6BWWYZ",
       "file": "index_estimates/22e6ed213dc6011663e6e150/model.json",
-      "sha256": "9fa61475d8be17b39b4c0dc66b40b1090c0a4df106d680eb8b6d88438ae2e3a1",
+      "sha256": "d5e1dbd7dabcce6a237f324d2a82d610bf4a628bb15a7bac00a51355a6ef2d7a",
       "status": "passed"
     },
     {
       "strategy": "ttfund__BTAQW7H",
       "file": "index_estimates/06dc466625a79ae2e1cdc432/model.json",
-      "sha256": "5f7fccb9fd5a3ec472e3b58e62e4fcf3996be4edaa592bce6286ab28bff92c73",
+      "sha256": "8ac0e83f31c6e45eb26b4cf83a830961089d9fcb6cecdf49bf6f6035df79ea49",
       "status": "passed"
     },
     {
       "strategy": "ttfund__X1YG1QQ",
       "file": "index_estimates/989a75cb7d76df1414819a78/model.json",
-      "sha256": "9cc8f509ad804e5a83ef4209e0058376b7108a959d8d2c4ec75e48ee4d14d998",
+      "sha256": "5ac78c61a7f1e7cd84e9401feaffc416aacb4c3e1d91b7ed56e1f12433c7d9fb",
       "status": "passed"
     },
     {
       "strategy": "ttfund__2VBD0WY",
       "file": "index_estimates/317021cc91cbd65b3823ba87/model.json",
-      "sha256": "8abe0d459921aa6c633622e92076ce1428b84ee1d99a3d9415a82338a2e25a10",
+      "sha256": "23d613ee099919e3476d4c2a388c309532b0bda338c835d5a15c30d0883b10d8",
       "status": "passed"
     },
     {
       "strategy": "ttfund__UFPW1GJ",
       "file": "index_estimates/bda27d29b2906f052ea1b2b1/model.json",
-      "sha256": "376287975cc8f771ad247522d837c5f4d67d872d6f325d2e52ed83fd49f193ea",
+      "sha256": "8627c66cfd833b75dc4dde099c9d5cdefa0c62d6a2609fe87921b9351ee039e5",
       "status": "passed"
     },
     {
       "strategy": "ttfund__XIOJ8QJ",
       "file": "index_estimates/3360486d98cef8f49725cc06/model.json",
-      "sha256": "87ad487429ff814074d96e76040712d789601332b7ef9a0e453b372176081272",
+      "sha256": "3b21797592569a938955f310e63a11378b96c6e010fba7ed35bd5c1381ca941a",
       "status": "passed"
     },
     {
       "strategy": "ttfund__L2RLC6M",
       "file": "index_estimates/15d42fe329c13f05751d21d2/model.json",
-      "sha256": "52633a25208a25294c9ea012a2f173e26b71d73ce255585a5d3f78d9ddcca135",
+      "sha256": "a63a7bfdd9275a497efb045fb88d88154ebb17a67610130023086962f81321ef",
       "status": "passed"
     },
     {
       "strategy": "ttfund__TCFQM3R",
       "file": "index_estimates/5f70f423f83b244bc7c5c414/model.json",
-      "sha256": "d31d7137b0b6d0ab629d784e575621d725d02c45fcd7a6debefe50670a670f50",
+      "sha256": "a1b1e44cfddb57c4a89083131a03ecfa85e8ab0e9ce52746c5ba26315a9baf92",
       "status": "passed"
     },
     {
       "strategy": "ttfund__ERR4QWX",
       "file": "index_estimates/beaf342165dd524523edaf07/model.json",
-      "sha256": "85b111e8c128fc238b46671ce19803ec6236a69c812d8c0e2d39e4bbad31d2a6",
+      "sha256": "ffa9e7ffc83011af07fcead850f687540b349b5f77e0d9142bf789d833a806b2",
       "status": "passed"
     }
   ],
@@ -476,12 +476,12 @@
     },
     {
       "strategy": "financial_street__HXDYQTH",
-      "fundCode": "008280",
+      "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "financial_street__HXDYQTH",
-      "fundCode": "004877",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -931,12 +931,12 @@
     },
     {
       "strategy": "financial_street__HXDYXMB08",
-      "fundCode": "019512",
+      "fundCode": "202801",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "financial_street__HXDYXMB08",
-      "fundCode": "202801",
+      "fundCode": "019512",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -961,22 +961,22 @@
     },
     {
       "strategy": "financial_street__HXDYXMB08",
-      "fundCode": "001593",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "financial_street__HXDYXMB08",
       "fundCode": "007818",
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "financial_street__HXZSXF",
-      "fundCode": "008280",
+      "strategy": "financial_street__HXDYXMB08",
+      "fundCode": "001593",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "financial_street__HXZSXF",
       "fundCode": "004877",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "financial_street__HXZSXF",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -996,12 +996,12 @@
     },
     {
       "strategy": "financial_street__HXZSXF",
-      "fundCode": "004433",
+      "fundCode": "005693",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "financial_street__HXZSXF",
-      "fundCode": "005693",
+      "fundCode": "004433",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -1221,12 +1221,12 @@
     },
     {
       "strategy": "financial_street__HXWJXMB11",
-      "fundCode": "012538",
+      "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "financial_street__HXWJXMB11",
-      "fundCode": "004877",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -5161,17 +5161,17 @@
     },
     {
       "strategy": "gfsec_fima__regular:zofund:ZODYPZ",
-      "fundCode": "009034",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gfsec_fima__regular:zofund:ZODYPZ",
       "fundCode": "019512",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__regular:zofund:ZODYPZ",
       "fundCode": "023591",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__regular:zofund:ZODYPZ",
+      "fundCode": "009034",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -5366,12 +5366,12 @@
     },
     {
       "strategy": "gfsec_fima__target:zofund:10010",
-      "fundCode": "008280",
+      "fundCode": "016186",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:zofund:10010",
-      "fundCode": "016186",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -5551,12 +5551,12 @@
     },
     {
       "strategy": "gfsec_fima__target:zofund:10012",
-      "fundCode": "008280",
+      "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:zofund:10012",
-      "fundCode": "004877",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -5676,12 +5676,12 @@
     },
     {
       "strategy": "gfsec_fima__target:zofund:10014",
-      "fundCode": "017654",
+      "fundCode": "016186",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:zofund:10014",
-      "fundCode": "016186",
+      "fundCode": "017654",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -5786,12 +5786,12 @@
     },
     {
       "strategy": "gfsec_fima__target:hxfund:10019",
-      "fundCode": "008320",
+      "fundCode": "019512",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:hxfund:10019",
-      "fundCode": "019512",
+      "fundCode": "008320",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -5876,17 +5876,17 @@
     },
     {
       "strategy": "gfsec_fima__target:zofund:10021",
-      "fundCode": "008280",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "gfsec_fima__target:zofund:10021",
       "fundCode": "023918",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:zofund:10021",
       "fundCode": "004877",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10021",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -5956,12 +5956,12 @@
     },
     {
       "strategy": "gfsec_fima__target:zofund:10022",
-      "fundCode": "008280",
+      "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:zofund:10022",
-      "fundCode": "004877",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -6091,12 +6091,12 @@
     },
     {
       "strategy": "gfsec_fima__target:zofund:10025",
-      "fundCode": "008280",
+      "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:zofund:10025",
-      "fundCode": "004877",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -6221,12 +6221,12 @@
     },
     {
       "strategy": "gfsec_fima__target:hxfund:10028",
-      "fundCode": "021143",
+      "fundCode": "025498",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:hxfund:10028",
-      "fundCode": "025498",
+      "fundCode": "021143",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -6311,12 +6311,12 @@
     },
     {
       "strategy": "gfsec_fima__target:hxfund:10031",
-      "fundCode": "023591",
+      "fundCode": "019512",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:hxfund:10031",
-      "fundCode": "019512",
+      "fundCode": "023591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -6501,12 +6501,12 @@
     },
     {
       "strategy": "gfsec_fima__target:zofund:10036",
-      "fundCode": "011609",
+      "fundCode": "007818",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:zofund:10036",
-      "fundCode": "007818",
+      "fundCode": "011609",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -6521,12 +6521,12 @@
     },
     {
       "strategy": "gfsec_fima__target:zofund:10036",
-      "fundCode": "008280",
+      "fundCode": "012738",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:zofund:10036",
-      "fundCode": "012738",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -6621,12 +6621,12 @@
     },
     {
       "strategy": "gfsec_fima__target:zofund:10039",
-      "fundCode": "023918",
+      "fundCode": "016186",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "gfsec_fima__target:zofund:10039",
-      "fundCode": "016186",
+      "fundCode": "023918",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -6642,6 +6642,61 @@
     {
       "strategy": "gfsec_fima__target:zofund:10039",
       "fundCode": "007818",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "009034",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "161815",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "019512",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "023591",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "021458",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "004744",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "005693",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "007818",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "008280",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "016186",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "gfsec_fima__target:zofund:10042",
+      "fundCode": "023918",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -6961,6 +7016,21 @@
     },
     {
       "strategy": "howbuy__ghflzh003",
+      "fundCode": "017611",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "howbuy__ghflzh004",
+      "fundCode": "007467",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "howbuy__ghflzh004",
+      "fundCode": "015740",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "howbuy__ghflzh004",
       "fundCode": "017611",
       "reason": "target_index_mapping_unverified"
     },
@@ -7406,12 +7476,12 @@
     },
     {
       "strategy": "howbuy__yhtg005",
-      "fundCode": "018103",
+      "fundCode": "020411",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "howbuy__yhtg005",
-      "fundCode": "020411",
+      "fundCode": "018103",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -7436,17 +7506,7 @@
     },
     {
       "strategy": "howbuy__yhtg006",
-      "fundCode": "015873",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "howbuy__yhtg006",
       "fundCode": "019087",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "howbuy__yhtg006",
-      "fundCode": "019260",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -7456,7 +7516,17 @@
     },
     {
       "strategy": "howbuy__yhtg006",
+      "fundCode": "019260",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "howbuy__yhtg006",
       "fundCode": "025193",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "howbuy__yhtg006",
+      "fundCode": "015873",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -7906,22 +7976,17 @@
     },
     {
       "strategy": "huaxia_tougu__SF1014",
-      "fundCode": "004742",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "huaxia_tougu__SF1014",
       "fundCode": "014111",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "huaxia_tougu__SF1014",
-      "fundCode": "002984",
+      "fundCode": "004742",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "huaxia_tougu__SF1014",
-      "fundCode": "014994",
+      "fundCode": "002984",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -7932,6 +7997,11 @@
     {
       "strategy": "huaxia_tougu__SF1014",
       "fundCode": "018345",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "huaxia_tougu__SF1014",
+      "fundCode": "014994",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -7956,12 +8026,12 @@
     },
     {
       "strategy": "huaxia_tougu__SF1016",
-      "fundCode": "013125",
+      "fundCode": "011612",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "huaxia_tougu__SF1016",
-      "fundCode": "011612",
+      "fundCode": "013125",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -8871,12 +8941,12 @@
     },
     {
       "strategy": "qieman__SI000090",
-      "fundCode": "001133",
+      "fundCode": "001344",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000090",
-      "fundCode": "001344",
+      "fundCode": "001133",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -9161,12 +9231,12 @@
     },
     {
       "strategy": "qieman__ZH161816",
-      "fundCode": "000218",
+      "fundCode": "020292",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH161816",
-      "fundCode": "020292",
+      "fundCode": "000218",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -9586,12 +9656,12 @@
     },
     {
       "strategy": "qieman__ZH160350",
-      "fundCode": "007937",
+      "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH160350",
-      "fundCode": "004877",
+      "fundCode": "007937",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -9616,12 +9686,12 @@
     },
     {
       "strategy": "qieman__ZH160350",
-      "fundCode": "005693",
+      "fundCode": "007911",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH160350",
-      "fundCode": "007911",
+      "fundCode": "005693",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -9656,12 +9726,12 @@
     },
     {
       "strategy": "qieman__ZH160573",
-      "fundCode": "013308",
+      "fundCode": "110031",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH160573",
-      "fundCode": "110031",
+      "fundCode": "013308",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -9691,12 +9761,12 @@
     },
     {
       "strategy": "qieman__ZH176386",
-      "fundCode": "110031",
+      "fundCode": "270023",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH176386",
-      "fundCode": "270023",
+      "fundCode": "110031",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -9841,22 +9911,22 @@
     },
     {
       "strategy": "qieman__ZH152825",
-      "fundCode": "025683",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH152825",
       "fundCode": "270023",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH152825",
-      "fundCode": "022184",
+      "fundCode": "025683",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH152825",
       "fundCode": "014565",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH152825",
+      "fundCode": "022184",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -9981,12 +10051,12 @@
     },
     {
       "strategy": "qieman__ZH158745",
-      "fundCode": "013309",
+      "fundCode": "270023",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH158745",
-      "fundCode": "270023",
+      "fundCode": "013309",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -10271,12 +10341,12 @@
     },
     {
       "strategy": "qieman__ZH161423",
-      "fundCode": "022425",
+      "fundCode": "024195",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH161423",
-      "fundCode": "024195",
+      "fundCode": "022425",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -11350,11 +11420,6 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "qieman__ZH006358",
-      "fundCode": "002903",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
       "strategy": "qieman__ZH120109",
       "fundCode": "022680",
       "reason": "target_index_mapping_unverified"
@@ -12021,12 +12086,12 @@
     },
     {
       "strategy": "qieman__ZH038532",
-      "fundCode": "008591",
+      "fundCode": "010989",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH038532",
-      "fundCode": "010989",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -12386,12 +12451,12 @@
     },
     {
       "strategy": "qieman__ZH171750",
-      "fundCode": "501012",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH171750",
-      "fundCode": "005064",
+      "fundCode": "501012",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -12916,12 +12981,12 @@
     },
     {
       "strategy": "qieman__ZH175422",
-      "fundCode": "005064",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH175422",
-      "fundCode": "012538",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -12952,21 +13017,6 @@
     {
       "strategy": "qieman__ZH175641",
       "fundCode": "012538",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH175641",
-      "fundCode": "501012",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH175641",
-      "fundCode": "005064",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH175641",
-      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -12976,6 +13026,21 @@
     },
     {
       "strategy": "qieman__ZH175641",
+      "fundCode": "005064",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH175641",
+      "fundCode": "501012",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH175641",
+      "fundCode": "008591",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH175641",
       "fundCode": "004433",
       "reason": "target_index_mapping_unverified"
     },
@@ -12996,12 +13061,12 @@
     },
     {
       "strategy": "qieman__ZH175837",
-      "fundCode": "501012",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH175837",
-      "fundCode": "012538",
+      "fundCode": "501012",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -13051,12 +13116,12 @@
     },
     {
       "strategy": "qieman__ZH176006",
-      "fundCode": "008591",
+      "fundCode": "004433",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH176006",
-      "fundCode": "004433",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -13161,12 +13226,12 @@
     },
     {
       "strategy": "qieman__ZH177035",
-      "fundCode": "008591",
+      "fundCode": "004433",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH177035",
-      "fundCode": "004433",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -13252,11 +13317,6 @@
     {
       "strategy": "qieman__ZH177928",
       "fundCode": "004643",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH177928",
-      "fundCode": "008190",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -13266,6 +13326,11 @@
     },
     {
       "strategy": "qieman__ZH177928",
+      "fundCode": "008190",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH177928",
       "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
@@ -13296,12 +13361,12 @@
     },
     {
       "strategy": "qieman__ZH178099",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH178099",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -13536,12 +13601,12 @@
     },
     {
       "strategy": "qieman__ZH181183",
-      "fundCode": "016186",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH181183",
-      "fundCode": "004643",
+      "fundCode": "016186",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -13606,12 +13671,12 @@
     },
     {
       "strategy": "qieman__ZH183641",
-      "fundCode": "005064",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH183641",
-      "fundCode": "004643",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -13670,6 +13735,11 @@
       "reason": "target_index_mapping_unverified"
     },
     {
+      "strategy": "qieman__ZH190198",
+      "fundCode": "501012",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
       "strategy": "qieman__ZH172001",
       "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
@@ -13681,12 +13751,12 @@
     },
     {
       "strategy": "qieman__ZH173057",
-      "fundCode": "501012",
+      "fundCode": "012738",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH173057",
-      "fundCode": "012738",
+      "fundCode": "501012",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14041,12 +14111,12 @@
     },
     {
       "strategy": "qieman__ZH138090",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138090",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14086,12 +14156,12 @@
     },
     {
       "strategy": "qieman__ZH138094",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138094",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14121,12 +14191,12 @@
     },
     {
       "strategy": "qieman__ZH138098",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138098",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14201,12 +14271,12 @@
     },
     {
       "strategy": "qieman__ZH138105",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138105",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14296,12 +14366,12 @@
     },
     {
       "strategy": "qieman__ZH138144",
-      "fundCode": "005064",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138144",
-      "fundCode": "004643",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14331,12 +14401,12 @@
     },
     {
       "strategy": "qieman__ZH138146",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138146",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14401,12 +14471,12 @@
     },
     {
       "strategy": "qieman__ZH138154",
-      "fundCode": "005064",
+      "fundCode": "008190",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138154",
-      "fundCode": "008190",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14436,12 +14506,12 @@
     },
     {
       "strategy": "qieman__ZH138167",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138167",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14471,12 +14541,12 @@
     },
     {
       "strategy": "qieman__ZH138141",
-      "fundCode": "005064",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138141",
-      "fundCode": "004643",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14531,22 +14601,22 @@
     },
     {
       "strategy": "qieman__ZH138150",
-      "fundCode": "008591",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH138150",
       "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138150",
-      "fundCode": "005064",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138150",
       "fundCode": "008190",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH138150",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14612,16 +14682,6 @@
     {
       "strategy": "qieman__ZH138151",
       "fundCode": "004643",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH138151",
-      "fundCode": "005064",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH138151",
-      "fundCode": "008190",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14631,7 +14691,12 @@
     },
     {
       "strategy": "qieman__ZH138151",
-      "fundCode": "004433",
+      "fundCode": "005064",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH138151",
+      "fundCode": "008190",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14640,6 +14705,11 @@
       "reason": "target_index_mapping_unverified"
     },
     {
+      "strategy": "qieman__ZH138151",
+      "fundCode": "004433",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
       "strategy": "qieman__ZH138156",
       "fundCode": "501012",
       "reason": "target_index_mapping_unverified"
@@ -14691,22 +14761,22 @@
     },
     {
       "strategy": "qieman__ZH138160",
-      "fundCode": "008591",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH138160",
       "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138160",
-      "fundCode": "005064",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138160",
       "fundCode": "008190",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH138160",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14731,22 +14801,22 @@
     },
     {
       "strategy": "qieman__ZH138162",
-      "fundCode": "008591",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH138162",
       "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138162",
-      "fundCode": "005064",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138162",
       "fundCode": "008190",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH138162",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14776,12 +14846,12 @@
     },
     {
       "strategy": "qieman__ZH138163",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138163",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14821,12 +14891,12 @@
     },
     {
       "strategy": "qieman__ZH138166",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138166",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14936,12 +15006,12 @@
     },
     {
       "strategy": "qieman__ZH138173",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138173",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -14991,12 +15061,12 @@
     },
     {
       "strategy": "qieman__ZH138171",
-      "fundCode": "013478",
+      "fundCode": "010770",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138171",
-      "fundCode": "010770",
+      "fundCode": "013478",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15071,12 +15141,12 @@
     },
     {
       "strategy": "qieman__ZH138148",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138148",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15126,12 +15196,12 @@
     },
     {
       "strategy": "qieman__ZH138149",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138149",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15166,12 +15236,12 @@
     },
     {
       "strategy": "qieman__ZH138158",
-      "fundCode": "005064",
+      "fundCode": "008190",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138158",
-      "fundCode": "008190",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15196,12 +15266,12 @@
     },
     {
       "strategy": "qieman__ZH138165",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138165",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15266,12 +15336,12 @@
     },
     {
       "strategy": "qieman__ZH138174",
-      "fundCode": "008591",
+      "fundCode": "004643",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH138174",
-      "fundCode": "004643",
+      "fundCode": "008591",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15336,12 +15406,12 @@
     },
     {
       "strategy": "qieman__SI000149",
-      "fundCode": "013402",
+      "fundCode": "016971",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000149",
-      "fundCode": "016971",
+      "fundCode": "013402",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15361,12 +15431,12 @@
     },
     {
       "strategy": "qieman__SI000149",
-      "fundCode": "012537",
+      "fundCode": "001629",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000149",
-      "fundCode": "001629",
+      "fundCode": "012537",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15376,12 +15446,12 @@
     },
     {
       "strategy": "qieman__SI000149",
-      "fundCode": "012862",
+      "fundCode": "011608",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000149",
-      "fundCode": "011608",
+      "fundCode": "012862",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15646,12 +15716,12 @@
     },
     {
       "strategy": "qieman__SI000153",
-      "fundCode": "019292",
+      "fundCode": "020788",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000153",
-      "fundCode": "020788",
+      "fundCode": "019292",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15701,12 +15771,12 @@
     },
     {
       "strategy": "qieman__ZH056011",
-      "fundCode": "020466",
+      "fundCode": "011610",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH056011",
-      "fundCode": "011610",
+      "fundCode": "020466",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15821,7 +15891,7 @@
     },
     {
       "strategy": "qieman__SI000164",
-      "fundCode": "022457",
+      "fundCode": "006448",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15831,7 +15901,7 @@
     },
     {
       "strategy": "qieman__SI000164",
-      "fundCode": "006448",
+      "fundCode": "022457",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -15946,12 +16016,12 @@
     },
     {
       "strategy": "qieman__ZH013136",
-      "fundCode": "000218",
+      "fundCode": "020292",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH013136",
-      "fundCode": "020292",
+      "fundCode": "000218",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -16057,6 +16127,11 @@
     {
       "strategy": "qieman__SI000193",
       "fundCode": "018738",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000193",
+      "fundCode": "002610",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -16331,12 +16406,12 @@
     },
     {
       "strategy": "qieman__ZH178383",
-      "fundCode": "016020",
+      "fundCode": "013403",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH178383",
-      "fundCode": "013403",
+      "fundCode": "016020",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -16376,7 +16451,7 @@
     },
     {
       "strategy": "qieman__SI000222",
-      "fundCode": "008713",
+      "fundCode": "020273",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -16386,12 +16461,12 @@
     },
     {
       "strategy": "qieman__SI000222",
-      "fundCode": "013478",
+      "fundCode": "021716",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000222",
-      "fundCode": "021716",
+      "fundCode": "013478",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -16411,17 +16486,12 @@
     },
     {
       "strategy": "qieman__SI000222",
-      "fundCode": "020273",
+      "fundCode": "008713",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000222",
       "fundCode": "013304",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__SI000222",
-      "fundCode": "023929",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -17151,12 +17221,12 @@
     },
     {
       "strategy": "qieman__ZH159580",
-      "fundCode": "164212",
+      "fundCode": "000041",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH159580",
-      "fundCode": "000041",
+      "fundCode": "164212",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -17346,12 +17416,12 @@
     },
     {
       "strategy": "qieman__SI000100",
-      "fundCode": "012831",
+      "fundCode": "014846",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000100",
-      "fundCode": "014846",
+      "fundCode": "012831",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -17381,12 +17451,12 @@
     },
     {
       "strategy": "qieman__SI000100",
-      "fundCode": "012754",
+      "fundCode": "001061",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000100",
-      "fundCode": "001061",
+      "fundCode": "012754",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -17396,12 +17466,12 @@
     },
     {
       "strategy": "qieman__SI000100",
-      "fundCode": "012537",
+      "fundCode": "017894",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000100",
-      "fundCode": "017894",
+      "fundCode": "012537",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -17486,12 +17556,12 @@
     },
     {
       "strategy": "qieman__SI000120",
-      "fundCode": "000217",
+      "fundCode": "012630",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000120",
-      "fundCode": "012630",
+      "fundCode": "000217",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -17571,12 +17641,12 @@
     },
     {
       "strategy": "qieman__ZH144732",
-      "fundCode": "000217",
+      "fundCode": "007722",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH144732",
-      "fundCode": "007722",
+      "fundCode": "000217",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -17641,12 +17711,12 @@
     },
     {
       "strategy": "qieman__ZH156488",
-      "fundCode": "013403",
+      "fundCode": "000834",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH156488",
-      "fundCode": "000834",
+      "fundCode": "013403",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -17931,12 +18001,12 @@
     },
     {
       "strategy": "qieman__ZH187297",
-      "fundCode": "008115",
+      "fundCode": "270023",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH187297",
-      "fundCode": "270023",
+      "fundCode": "008115",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -18196,12 +18266,12 @@
     },
     {
       "strategy": "qieman__ZH152697",
-      "fundCode": "024616",
+      "fundCode": "021030",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH152697",
-      "fundCode": "021030",
+      "fundCode": "024616",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -18216,12 +18286,12 @@
     },
     {
       "strategy": "qieman__ZH152820",
-      "fundCode": "025497",
+      "fundCode": "024616",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH152820",
-      "fundCode": "024616",
+      "fundCode": "025497",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -18232,6 +18302,11 @@
     {
       "strategy": "qieman__ZH152820",
       "fundCode": "018103",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH152820",
+      "fundCode": "019087",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -18247,11 +18322,6 @@
     {
       "strategy": "qieman__ZH152820",
       "fundCode": "015873",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH152820",
-      "fundCode": "019087",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -18636,12 +18706,12 @@
     },
     {
       "strategy": "qieman__ZH166025",
-      "fundCode": "021961",
+      "fundCode": "017937",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH166025",
-      "fundCode": "017937",
+      "fundCode": "021961",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -18666,22 +18736,22 @@
     },
     {
       "strategy": "qieman__SI000232",
-      "fundCode": "012857",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__SI000232",
       "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000232",
-      "fundCode": "025197",
+      "fundCode": "012857",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000232",
       "fundCode": "008254",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000232",
+      "fundCode": "025197",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -18791,12 +18861,12 @@
     },
     {
       "strategy": "qieman__ZH173005",
-      "fundCode": "020341",
+      "fundCode": "023591",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH173005",
-      "fundCode": "023591",
+      "fundCode": "020341",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -19151,12 +19221,12 @@
     },
     {
       "strategy": "qieman__ZH038714",
-      "fundCode": "021277",
+      "fundCode": "014564",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH038714",
-      "fundCode": "014564",
+      "fundCode": "021277",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -19211,12 +19281,12 @@
     },
     {
       "strategy": "qieman__ZH038713",
-      "fundCode": "021277",
+      "fundCode": "014564",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH038713",
-      "fundCode": "014564",
+      "fundCode": "021277",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -19242,16 +19312,16 @@
     {
       "strategy": "qieman__ZH038740",
       "fundCode": "013308",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH038740",
-      "fundCode": "012922",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH038740",
       "fundCode": "004877",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH038740",
+      "fundCode": "012922",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -19426,12 +19496,12 @@
     },
     {
       "strategy": "qieman__ZH177334",
-      "fundCode": "016665",
+      "fundCode": "164212",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH177334",
-      "fundCode": "164212",
+      "fundCode": "016665",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -19471,17 +19541,17 @@
     },
     {
       "strategy": "qieman__ZH177334",
+      "fundCode": "010989",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH177334",
       "fundCode": "008190",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH177334",
       "fundCode": "008591",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH177334",
-      "fundCode": "010989",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -19726,6 +19796,11 @@
     },
     {
       "strategy": "qieman__SI000224",
+      "fundCode": "016970",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000224",
       "fundCode": "024248",
       "reason": "target_index_mapping_unverified"
     },
@@ -19736,22 +19811,17 @@
     },
     {
       "strategy": "qieman__SI000224",
-      "fundCode": "016970",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__SI000224",
       "fundCode": "012348",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000224",
-      "fundCode": "020903",
+      "fundCode": "024418",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000224",
-      "fundCode": "024418",
+      "fundCode": "020903",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -19781,12 +19851,12 @@
     },
     {
       "strategy": "qieman__SI000224",
-      "fundCode": "100055",
+      "fundCode": "012920",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000224",
-      "fundCode": "012920",
+      "fundCode": "100055",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -19806,12 +19876,12 @@
     },
     {
       "strategy": "qieman__SI000224",
-      "fundCode": "050030",
+      "fundCode": "019670",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000224",
-      "fundCode": "019670",
+      "fundCode": "050030",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -19846,12 +19916,12 @@
     },
     {
       "strategy": "qieman__SI000224",
-      "fundCode": "021894",
+      "fundCode": "016452",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000224",
-      "fundCode": "016452",
+      "fundCode": "021894",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -20026,22 +20096,22 @@
     },
     {
       "strategy": "qieman__ZH175328",
-      "fundCode": "025683",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "qieman__ZH175328",
       "fundCode": "270023",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH175328",
-      "fundCode": "022184",
+      "fundCode": "025683",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH175328",
       "fundCode": "014565",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__ZH175328",
+      "fundCode": "022184",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -20146,12 +20216,12 @@
     },
     {
       "strategy": "qieman__LONG_WIN",
-      "fundCode": "012348",
+      "fundCode": "000369",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__LONG_WIN",
-      "fundCode": "000369",
+      "fundCode": "012348",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -20211,12 +20281,12 @@
     },
     {
       "strategy": "qieman__LONG_WIN_S",
-      "fundCode": "000071",
+      "fundCode": "162412",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__LONG_WIN_S",
-      "fundCode": "162412",
+      "fundCode": "000071",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -20481,12 +20551,12 @@
     },
     {
       "strategy": "qieman__ZH120726",
-      "fundCode": "012762",
+      "fundCode": "000834",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__ZH120726",
-      "fundCode": "000834",
+      "fundCode": "012762",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -20581,12 +20651,12 @@
     },
     {
       "strategy": "qieman__SI000231",
-      "fundCode": "023144",
+      "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000231",
-      "fundCode": "004877",
+      "fundCode": "023144",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -20596,12 +20666,12 @@
     },
     {
       "strategy": "qieman__SI000231",
-      "fundCode": "008701",
+      "fundCode": "519696",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000231",
-      "fundCode": "519696",
+      "fundCode": "008701",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -20616,12 +20686,12 @@
     },
     {
       "strategy": "qieman__SI000207",
-      "fundCode": "023144",
+      "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000207",
-      "fundCode": "004877",
+      "fundCode": "023144",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -20631,12 +20701,12 @@
     },
     {
       "strategy": "qieman__SI000207",
-      "fundCode": "008701",
+      "fundCode": "519696",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "qieman__SI000207",
-      "fundCode": "519696",
+      "fundCode": "008701",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -20692,6 +20762,16 @@
     {
       "strategy": "qieman__SI000237",
       "fundCode": "016823",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000237",
+      "fundCode": "021536",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "qieman__SI000237",
+      "fundCode": "519696",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -21031,12 +21111,12 @@
     },
     {
       "strategy": "southern__7705",
-      "fundCode": "004342",
+      "fundCode": "008282",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "southern__7705",
-      "fundCode": "008282",
+      "fundCode": "004342",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -21256,12 +21336,12 @@
     },
     {
       "strategy": "southern__7879",
-      "fundCode": "021004",
+      "fundCode": "023591",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "southern__7879",
-      "fundCode": "023591",
+      "fundCode": "021004",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -21381,7 +21461,7 @@
     },
     {
       "strategy": "southern__7915",
-      "fundCode": "022501",
+      "fundCode": "008282",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -21391,12 +21471,12 @@
     },
     {
       "strategy": "southern__7915",
-      "fundCode": "021021",
+      "fundCode": "022501",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "southern__7915",
-      "fundCode": "008282",
+      "fundCode": "021021",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -21686,12 +21766,12 @@
     },
     {
       "strategy": "ttfund__JY48YPE",
-      "fundCode": "012895",
+      "fundCode": "017560",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__JY48YPE",
-      "fundCode": "017560",
+      "fundCode": "012895",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -21931,12 +22011,12 @@
     },
     {
       "strategy": "ttfund__LSQS6O2",
-      "fundCode": "022435",
+      "fundCode": "005919",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__LSQS6O2",
-      "fundCode": "005919",
+      "fundCode": "022435",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -21956,12 +22036,12 @@
     },
     {
       "strategy": "ttfund__05KGBJQ",
-      "fundCode": "000217",
+      "fundCode": "002611",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__05KGBJQ",
-      "fundCode": "002611",
+      "fundCode": "000217",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -22001,12 +22081,12 @@
     },
     {
       "strategy": "ttfund__QIDD6LN",
-      "fundCode": "160216",
+      "fundCode": "011036",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__QIDD6LN",
-      "fundCode": "011036",
+      "fundCode": "160216",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -22086,22 +22166,22 @@
     },
     {
       "strategy": "ttfund__GBPNYBY",
-      "fundCode": "002611",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__GBPNYBY",
       "fundCode": "014118",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__GBPNYBY",
-      "fundCode": "011613",
+      "fundCode": "002611",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__GBPNYBY",
       "fundCode": "023591",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__GBPNYBY",
+      "fundCode": "011613",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -22126,12 +22206,12 @@
     },
     {
       "strategy": "ttfund__GBPNYBY",
-      "fundCode": "012832",
+      "fundCode": "001630",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__GBPNYBY",
-      "fundCode": "001630",
+      "fundCode": "012832",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -22451,12 +22531,12 @@
     },
     {
       "strategy": "ttfund__MYVG95V",
-      "fundCode": "012538",
+      "fundCode": "011036",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__MYVG95V",
-      "fundCode": "011036",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -23006,12 +23086,12 @@
     },
     {
       "strategy": "ttfund__7P08UFE",
-      "fundCode": "000218",
+      "fundCode": "020292",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__7P08UFE",
-      "fundCode": "020292",
+      "fundCode": "000218",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -23036,12 +23116,12 @@
     },
     {
       "strategy": "ttfund__IRQKYJO",
-      "fundCode": "000218",
+      "fundCode": "020292",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__IRQKYJO",
-      "fundCode": "020292",
+      "fundCode": "000218",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -23241,17 +23321,17 @@
     },
     {
       "strategy": "ttfund__UHXS9XD",
+      "fundCode": "014519",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__UHXS9XD",
       "fundCode": "501305",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__UHXS9XD",
       "fundCode": "019260",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__UHXS9XD",
-      "fundCode": "014519",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -23276,6 +23356,11 @@
     },
     {
       "strategy": "ttfund__XPB10ZJ",
+      "fundCode": "501305",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__XPB10ZJ",
       "fundCode": "020411",
       "reason": "target_index_mapping_unverified"
     },
@@ -23286,17 +23371,12 @@
     },
     {
       "strategy": "ttfund__XPB10ZJ",
-      "fundCode": "501305",
+      "fundCode": "014519",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__XPB10ZJ",
       "fundCode": "019260",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__XPB10ZJ",
-      "fundCode": "014519",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -23611,11 +23691,6 @@
     },
     {
       "strategy": "ttfund__3EZFMT7",
-      "fundCode": "014673",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__3EZFMT7",
       "fundCode": "021030",
       "reason": "target_index_mapping_unverified"
     },
@@ -23626,17 +23701,22 @@
     },
     {
       "strategy": "ttfund__3EZFMT7",
+      "fundCode": "014673",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__3EZFMT7",
       "fundCode": "008284",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__3EZFMT7",
-      "fundCode": "020500",
+      "fundCode": "000290",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__3EZFMT7",
-      "fundCode": "000290",
+      "fundCode": "020500",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -23791,12 +23871,12 @@
     },
     {
       "strategy": "ttfund__EXIG5UK",
-      "fundCode": "007910",
+      "fundCode": "017894",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__EXIG5UK",
-      "fundCode": "017894",
+      "fundCode": "007910",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -23996,17 +24076,17 @@
     },
     {
       "strategy": "ttfund__BYK8SG2",
+      "fundCode": "019330",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__BYK8SG2",
       "fundCode": "008088",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__BYK8SG2",
       "fundCode": "024037",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__BYK8SG2",
-      "fundCode": "019330",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -24156,12 +24236,12 @@
     },
     {
       "strategy": "ttfund__JJIQOQR",
-      "fundCode": "000216",
+      "fundCode": "202801",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__JJIQOQR",
-      "fundCode": "202801",
+      "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -24396,12 +24476,12 @@
     },
     {
       "strategy": "ttfund__SF1017",
-      "fundCode": "025497",
+      "fundCode": "023917",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__SF1017",
-      "fundCode": "023917",
+      "fundCode": "025497",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -24426,12 +24506,12 @@
     },
     {
       "strategy": "ttfund__SF1018",
-      "fundCode": "025497",
+      "fundCode": "007467",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__SF1018",
-      "fundCode": "007467",
+      "fundCode": "025497",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -24486,12 +24566,12 @@
     },
     {
       "strategy": "ttfund__SF1016",
-      "fundCode": "013402",
+      "fundCode": "001617",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__SF1016",
-      "fundCode": "001617",
+      "fundCode": "013402",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -24601,7 +24681,12 @@
     },
     {
       "strategy": "ttfund__YRYNQVQ",
-      "fundCode": "000376",
+      "fundCode": "007818",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__YRYNQVQ",
+      "fundCode": "017472",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -24611,17 +24696,12 @@
     },
     {
       "strategy": "ttfund__YRYNQVQ",
-      "fundCode": "007818",
+      "fundCode": "000376",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__YRYNQVQ",
       "fundCode": "008280",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__YRYNQVQ",
-      "fundCode": "017472",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -24651,12 +24731,12 @@
     },
     {
       "strategy": "ttfund__V4EMGXQ",
-      "fundCode": "000217",
+      "fundCode": "015577",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__V4EMGXQ",
-      "fundCode": "015577",
+      "fundCode": "000217",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -24691,12 +24771,12 @@
     },
     {
       "strategy": "ttfund__RPIRIAF",
-      "fundCode": "008702",
+      "fundCode": "016453",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__RPIRIAF",
-      "fundCode": "016453",
+      "fundCode": "008702",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -24761,17 +24841,17 @@
     },
     {
       "strategy": "ttfund__SL0KYER",
+      "fundCode": "019331",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__SL0KYER",
       "fundCode": "012664",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__SL0KYER",
       "fundCode": "007191",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__SL0KYER",
-      "fundCode": "019331",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -25076,16 +25156,11 @@
     },
     {
       "strategy": "ttfund__JH3QU0T",
-      "fundCode": "000216",
+      "fundCode": "007911",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__JH3QU0T",
-      "fundCode": "007911",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__YEWBDDR",
       "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
@@ -25095,7 +25170,7 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "ttfund__TRTX6QU",
+      "strategy": "ttfund__YEWBDDR",
       "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
@@ -25105,7 +25180,7 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "ttfund__PNDHISE",
+      "strategy": "ttfund__TRTX6QU",
       "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
@@ -25115,7 +25190,7 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "ttfund__WG8YTQU",
+      "strategy": "ttfund__PNDHISE",
       "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
@@ -25125,7 +25200,7 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "ttfund__XII04WJ",
+      "strategy": "ttfund__WG8YTQU",
       "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
@@ -25135,7 +25210,7 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "ttfund__OD6JMX3",
+      "strategy": "ttfund__XII04WJ",
       "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
@@ -25145,7 +25220,7 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "ttfund__ZGFLR91",
+      "strategy": "ttfund__OD6JMX3",
       "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
@@ -25155,13 +25230,18 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "ttfund__ARPIXW4",
+      "strategy": "ttfund__ZGFLR91",
       "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__ARPIXW4",
       "fundCode": "007911",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__ARPIXW4",
+      "fundCode": "000216",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -25206,12 +25286,12 @@
     },
     {
       "strategy": "ttfund__XY7G38A",
-      "fundCode": "018230",
+      "fundCode": "019548",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__XY7G38A",
-      "fundCode": "019548",
+      "fundCode": "018230",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -25921,12 +26001,12 @@
     },
     {
       "strategy": "ttfund__BI2AB5W",
-      "fundCode": "012831",
+      "fundCode": "004752",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__BI2AB5W",
-      "fundCode": "004752",
+      "fundCode": "012831",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -25996,12 +26076,12 @@
     },
     {
       "strategy": "ttfund__KECU258",
-      "fundCode": "020516",
+      "fundCode": "016453",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__KECU258",
-      "fundCode": "016453",
+      "fundCode": "020516",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -26031,12 +26111,12 @@
     },
     {
       "strategy": "ttfund__9E5D4W4",
-      "fundCode": "015740",
+      "fundCode": "007467",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__9E5D4W4",
-      "fundCode": "007467",
+      "fundCode": "015740",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -26666,12 +26746,12 @@
     },
     {
       "strategy": "ttfund__YA1NMFE",
-      "fundCode": "023639",
+      "fundCode": "023930",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__YA1NMFE",
-      "fundCode": "023930",
+      "fundCode": "023639",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -26686,12 +26766,12 @@
     },
     {
       "strategy": "ttfund__YA1NMFE",
-      "fundCode": "020640",
+      "fundCode": "023565",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__YA1NMFE",
-      "fundCode": "023565",
+      "fundCode": "020640",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -26706,17 +26786,12 @@
     },
     {
       "strategy": "ttfund__6FCHB1Q",
-      "fundCode": "012538",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__6FCHB1Q",
       "fundCode": "020904",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__6FCHB1Q",
-      "fundCode": "008282",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -26726,12 +26801,12 @@
     },
     {
       "strategy": "ttfund__6FCHB1Q",
-      "fundCode": "023639",
+      "fundCode": "008282",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__6FCHB1Q",
-      "fundCode": "017223",
+      "fundCode": "023639",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -26746,6 +26821,11 @@
     },
     {
       "strategy": "ttfund__6FCHB1Q",
+      "fundCode": "017223",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__6FCHB1Q",
       "fundCode": "017472",
       "reason": "target_index_mapping_unverified"
     },
@@ -26756,12 +26836,12 @@
     },
     {
       "strategy": "ttfund__Q9YN9J3",
-      "fundCode": "025498",
+      "fundCode": "023920",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__Q9YN9J3",
-      "fundCode": "023920",
+      "fundCode": "025498",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -26901,22 +26981,22 @@
     },
     {
       "strategy": "ttfund__IJ4S8CC",
-      "fundCode": "501012",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__IJ4S8CC",
       "fundCode": "004877",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__IJ4S8CC",
-      "fundCode": "019035",
+      "fundCode": "501012",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__IJ4S8CC",
       "fundCode": "018156",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__IJ4S8CC",
+      "fundCode": "019035",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -27111,12 +27191,12 @@
     },
     {
       "strategy": "ttfund__TIISSUK",
-      "fundCode": "004432",
+      "fundCode": "019827",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__TIISSUK",
-      "fundCode": "019827",
+      "fundCode": "004432",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -27176,12 +27256,12 @@
     },
     {
       "strategy": "ttfund__WR8T4KO",
-      "fundCode": "013277",
+      "fundCode": "018064",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__WR8T4KO",
-      "fundCode": "018064",
+      "fundCode": "013277",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -27516,17 +27596,12 @@
     },
     {
       "strategy": "ttfund__7WGOB5I",
-      "fundCode": "008280",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__7WGOB5I",
       "fundCode": "010770",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__7WGOB5I",
-      "fundCode": "011609",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -27535,6 +27610,11 @@
       "reason": "target_index_mapping_unverified"
     },
     {
+      "strategy": "ttfund__7WGOB5I",
+      "fundCode": "011609",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
       "strategy": "ttfund__PJBXR7V",
       "fundCode": "021694",
       "reason": "target_index_mapping_unverified"
@@ -27596,17 +27676,12 @@
     },
     {
       "strategy": "ttfund__PJBXR7V",
-      "fundCode": "008280",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__PJBXR7V",
       "fundCode": "010770",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__PJBXR7V",
-      "fundCode": "011609",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -27615,6 +27690,11 @@
       "reason": "target_index_mapping_unverified"
     },
     {
+      "strategy": "ttfund__PJBXR7V",
+      "fundCode": "011609",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
       "strategy": "ttfund__BBUCVSF",
       "fundCode": "021694",
       "reason": "target_index_mapping_unverified"
@@ -27676,22 +27756,22 @@
     },
     {
       "strategy": "ttfund__BBUCVSF",
-      "fundCode": "008280",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__BBUCVSF",
       "fundCode": "010770",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__BBUCVSF",
-      "fundCode": "011609",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__BBUCVSF",
       "fundCode": "011036",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__BBUCVSF",
+      "fundCode": "011609",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -27756,22 +27836,22 @@
     },
     {
       "strategy": "ttfund__IJO91I8",
-      "fundCode": "008280",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__IJO91I8",
       "fundCode": "010770",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__IJO91I8",
-      "fundCode": "011609",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__IJO91I8",
       "fundCode": "011036",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__IJO91I8",
+      "fundCode": "011609",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -27836,22 +27916,22 @@
     },
     {
       "strategy": "ttfund__ZL0GPL0",
-      "fundCode": "008280",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__ZL0GPL0",
       "fundCode": "010770",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__ZL0GPL0",
-      "fundCode": "011609",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__ZL0GPL0",
       "fundCode": "011036",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__ZL0GPL0",
+      "fundCode": "011609",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28001,12 +28081,12 @@
     },
     {
       "strategy": "ttfund__ZI62B79",
-      "fundCode": "012538",
+      "fundCode": "011036",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__ZI62B79",
-      "fundCode": "011036",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28076,12 +28156,12 @@
     },
     {
       "strategy": "ttfund__PRZMUXK",
-      "fundCode": "012538",
+      "fundCode": "011036",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__PRZMUXK",
-      "fundCode": "011036",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28151,12 +28231,12 @@
     },
     {
       "strategy": "ttfund__TTAFL1U",
-      "fundCode": "012538",
+      "fundCode": "011036",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__TTAFL1U",
-      "fundCode": "011036",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28226,12 +28306,12 @@
     },
     {
       "strategy": "ttfund__0YTHP0U",
-      "fundCode": "012538",
+      "fundCode": "011036",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__0YTHP0U",
-      "fundCode": "011036",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28301,12 +28381,12 @@
     },
     {
       "strategy": "ttfund__XMJTD2L",
-      "fundCode": "012538",
+      "fundCode": "011036",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__XMJTD2L",
-      "fundCode": "011036",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28376,12 +28456,12 @@
     },
     {
       "strategy": "ttfund__DGV1C4Y",
-      "fundCode": "012538",
+      "fundCode": "011036",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__DGV1C4Y",
-      "fundCode": "011036",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28451,12 +28531,12 @@
     },
     {
       "strategy": "ttfund__M0AXQ3L",
-      "fundCode": "012538",
+      "fundCode": "011036",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__M0AXQ3L",
-      "fundCode": "011036",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28731,12 +28811,12 @@
     },
     {
       "strategy": "ttfund__V3NPGGK",
-      "fundCode": "002611",
+      "fundCode": "014118",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__V3NPGGK",
-      "fundCode": "014118",
+      "fundCode": "002611",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28766,12 +28846,12 @@
     },
     {
       "strategy": "ttfund__V3NPGGK",
-      "fundCode": "012832",
+      "fundCode": "001630",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__V3NPGGK",
-      "fundCode": "001630",
+      "fundCode": "012832",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -28981,12 +29061,12 @@
     },
     {
       "strategy": "ttfund__ZDRK77O",
-      "fundCode": "006381",
+      "fundCode": "011613",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__ZDRK77O",
-      "fundCode": "011613",
+      "fundCode": "006381",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -29081,12 +29161,12 @@
     },
     {
       "strategy": "ttfund__X6MZKOX",
-      "fundCode": "017140",
+      "fundCode": "012538",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__X6MZKOX",
-      "fundCode": "012538",
+      "fundCode": "017140",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -30061,12 +30141,12 @@
     },
     {
       "strategy": "ttfund__MRK40XS",
-      "fundCode": "016496",
+      "fundCode": "010770",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__MRK40XS",
-      "fundCode": "010770",
+      "fundCode": "016496",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -30101,12 +30181,12 @@
     },
     {
       "strategy": "ttfund__YHHNLWT",
-      "fundCode": "018587",
+      "fundCode": "014847",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__YHHNLWT",
-      "fundCode": "014847",
+      "fundCode": "018587",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -30296,12 +30376,12 @@
     },
     {
       "strategy": "ttfund__XLLWA2Z",
-      "fundCode": "013402",
+      "fundCode": "016708",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__XLLWA2Z",
-      "fundCode": "016708",
+      "fundCode": "013402",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -30556,22 +30636,22 @@
     },
     {
       "strategy": "ttfund__IMLMBLP",
-      "fundCode": "019512",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__IMLMBLP",
       "fundCode": "020957",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__IMLMBLP",
-      "fundCode": "021277",
+      "fundCode": "019512",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__IMLMBLP",
       "fundCode": "004877",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__IMLMBLP",
+      "fundCode": "021277",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -30816,12 +30896,12 @@
     },
     {
       "strategy": "ttfund__SOJLAE9",
-      "fundCode": "017470",
+      "fundCode": "008971",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__SOJLAE9",
-      "fundCode": "008971",
+      "fundCode": "017470",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -31031,12 +31111,12 @@
     },
     {
       "strategy": "ttfund__852XEBX",
-      "fundCode": "161130",
+      "fundCode": "016970",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__852XEBX",
-      "fundCode": "016970",
+      "fundCode": "161130",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -31131,12 +31211,12 @@
     },
     {
       "strategy": "ttfund__TJEHNIM",
-      "fundCode": "013309",
+      "fundCode": "006075",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__TJEHNIM",
-      "fundCode": "006075",
+      "fundCode": "013309",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -31226,12 +31306,12 @@
     },
     {
       "strategy": "ttfund__GCKA3QB",
-      "fundCode": "000218",
+      "fundCode": "023591",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__GCKA3QB",
-      "fundCode": "023591",
+      "fundCode": "000218",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -31451,12 +31531,12 @@
     },
     {
       "strategy": "ttfund__ZHDNUFS",
-      "fundCode": "005064",
+      "fundCode": "020406",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__ZHDNUFS",
-      "fundCode": "020406",
+      "fundCode": "005064",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -31836,12 +31916,12 @@
     },
     {
       "strategy": "ttfund__3ZG4OHZ",
-      "fundCode": "008975",
+      "fundCode": "018896",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__3ZG4OHZ",
-      "fundCode": "018896",
+      "fundCode": "008975",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33086,12 +33166,12 @@
     },
     {
       "strategy": "ttfund__9SUQGWT",
-      "fundCode": "024418",
+      "fundCode": "008087",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__9SUQGWT",
-      "fundCode": "008087",
+      "fundCode": "024418",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33101,12 +33181,12 @@
     },
     {
       "strategy": "ttfund__9SUQGWT",
-      "fundCode": "013172",
+      "fundCode": "018490",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__9SUQGWT",
-      "fundCode": "018490",
+      "fundCode": "013172",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33136,12 +33216,12 @@
     },
     {
       "strategy": "ttfund__JYG2I0G",
-      "fundCode": "021075",
+      "fundCode": "018301",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__JYG2I0G",
-      "fundCode": "018301",
+      "fundCode": "021075",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33176,17 +33256,17 @@
     },
     {
       "strategy": "ttfund__M5UAZFC",
-      "fundCode": "008280",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__M5UAZFC",
       "fundCode": "023918",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__M5UAZFC",
-      "fundCode": "007475",
+      "fundCode": "008280",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__M5UAZFC",
+      "fundCode": "008087",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33196,7 +33276,7 @@
     },
     {
       "strategy": "ttfund__M5UAZFC",
-      "fundCode": "008087",
+      "fundCode": "007475",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33266,22 +33346,22 @@
     },
     {
       "strategy": "ttfund__FTPYRQA",
-      "fundCode": "000218",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__FTPYRQA",
       "fundCode": "270023",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__FTPYRQA",
-      "fundCode": "004433",
+      "fundCode": "000218",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__FTPYRQA",
       "fundCode": "020973",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__FTPYRQA",
+      "fundCode": "004433",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33366,12 +33446,12 @@
     },
     {
       "strategy": "ttfund__ZBBI02E",
-      "fundCode": "025497",
+      "fundCode": "000369",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__ZBBI02E",
-      "fundCode": "000369",
+      "fundCode": "025497",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33391,16 +33471,6 @@
     },
     {
       "strategy": "ttfund__ZBBI02E",
-      "fundCode": "016440",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__ZBBI02E",
-      "fundCode": "018229",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__ZBBI02E",
       "fundCode": "017894",
       "reason": "target_index_mapping_unverified"
     },
@@ -33411,12 +33481,22 @@
     },
     {
       "strategy": "ttfund__ZBBI02E",
-      "fundCode": "015016",
+      "fundCode": "016440",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__ZBBI02E",
+      "fundCode": "018229",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__ZBBI02E",
       "fundCode": "160141",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__ZBBI02E",
+      "fundCode": "015016",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33451,12 +33531,12 @@
     },
     {
       "strategy": "ttfund__AYVXSHV",
-      "fundCode": "016128",
+      "fundCode": "025682",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__AYVXSHV",
-      "fundCode": "025682",
+      "fundCode": "016128",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33466,7 +33546,7 @@
     },
     {
       "strategy": "ttfund__AYVXSHV",
-      "fundCode": "021457",
+      "fundCode": "050020",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33476,12 +33556,12 @@
     },
     {
       "strategy": "ttfund__AYVXSHV",
-      "fundCode": "021961",
+      "fundCode": "021457",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__AYVXSHV",
-      "fundCode": "050020",
+      "fundCode": "021961",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33521,12 +33601,12 @@
     },
     {
       "strategy": "ttfund__WDQXDYE",
-      "fundCode": "021962",
+      "fundCode": "006748",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__WDQXDYE",
-      "fundCode": "006748",
+      "fundCode": "021962",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33856,12 +33936,12 @@
     },
     {
       "strategy": "ttfund__ZKJJOUX",
-      "fundCode": "018200",
+      "fundCode": "021030",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__ZKJJOUX",
-      "fundCode": "021030",
+      "fundCode": "018200",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33886,17 +33966,17 @@
     },
     {
       "strategy": "ttfund__D7523P9",
-      "fundCode": "015873",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__D7523P9",
       "fundCode": "019087",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__D7523P9",
       "fundCode": "020411",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__D7523P9",
+      "fundCode": "015873",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -33926,17 +34006,17 @@
     },
     {
       "strategy": "ttfund__RD4QA7I",
-      "fundCode": "015873",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__RD4QA7I",
       "fundCode": "019087",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__RD4QA7I",
       "fundCode": "020411",
+      "reason": "target_index_mapping_unverified"
+    },
+    {
+      "strategy": "ttfund__RD4QA7I",
+      "fundCode": "015873",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -34036,12 +34116,12 @@
     },
     {
       "strategy": "ttfund__06HU6E1",
-      "fundCode": "020411",
+      "fundCode": "501312",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__06HU6E1",
-      "fundCode": "501312",
+      "fundCode": "020411",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -34066,12 +34146,12 @@
     },
     {
       "strategy": "ttfund__06HU6E1",
-      "fundCode": "206006",
+      "fundCode": "019670",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "ttfund__06HU6E1",
-      "fundCode": "019670",
+      "fundCode": "206006",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -34236,12 +34316,12 @@
     },
     {
       "strategy": "zocaifu__8100000973",
-      "fundCode": "023918",
+      "fundCode": "005693",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "zocaifu__8100000973",
-      "fundCode": "005693",
+      "fundCode": "023918",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -34346,12 +34426,12 @@
     },
     {
       "strategy": "zocaifu__8100000799",
-      "fundCode": "008280",
+      "fundCode": "001630",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "zocaifu__8100000799",
-      "fundCode": "001630",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -34416,12 +34496,12 @@
     },
     {
       "strategy": "zocaifu__8100000879",
-      "fundCode": "008280",
+      "fundCode": "014118",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "zocaifu__8100000879",
-      "fundCode": "014118",
+      "fundCode": "008280",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -34626,12 +34706,12 @@
     },
     {
       "strategy": "zocaifu__8100001314",
-      "fundCode": "012553",
+      "fundCode": "016665",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "zocaifu__8100001314",
-      "fundCode": "016665",
+      "fundCode": "012553",
       "reason": "target_index_mapping_unverified"
     },
     {
@@ -34906,12 +34986,12 @@
     },
     {
       "strategy": "zocaifu__8100001373",
-      "fundCode": "008888",
+      "fundCode": "018301",
       "reason": "target_index_mapping_unverified"
     },
     {
       "strategy": "zocaifu__8100001373",
-      "fundCode": "018301",
+      "fundCode": "008888",
       "reason": "target_index_mapping_unverified"
     },
     {

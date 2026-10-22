@@ -6,99 +6,99 @@
   "isParent": true,
   "holdingStatus": "issue_source_rows",
   "sourceUrl": "fund://mp.1234567.com.cn/weex/funda91a99886abf7e/pages/strategyDetail/index?id=C2HW45S&showKycPopup=1",
-  "sourceUpdatedAt": "2026-10-20T01:27:37+08:00",
+  "sourceUpdatedAt": "2026-10-22T12:00:05+08:00",
   "holdingDate": "2026-10-13",
   "holdingCount": 13,
   "weightSum": 100.0,
-  "ageDays": 8,
+  "ageDays": 9,
   "reportCoverageWeight": 100.00000000000001,
   "reportPeriods": {
     "2026-06-30": 100.00000000000001
   },
   "laterReportWeight": 0.0,
-  "lowBreakdownWeight": 32.353949718251855,
+  "lowBreakdownWeight": 32.33322791464328,
   "metrics": {
-    "股票": 1.3835163563717234,
-    "债券": 84.97554415557497,
-    "现金": 1.4900785985254397,
-    "基金": 10.601730048465715,
+    "股票": 1.3881478359518375,
+    "债券": 85.01640040372037,
+    "现金": 1.4912313252013902,
+    "基金": 10.556514330300892,
     "商品": 0.0,
     "存托凭证": 0.0,
-    "其他": 1.5491308410621565
+    "其他": 1.547706104825509
   },
   "unexplained": 0.0,
-  "grossExcess": 7.192189783529905,
+  "grossExcess": 7.199967842846216,
   "fundTypeMajor": {
-    "债券类": 86.06458064953594,
-    "权益类": 9.84819398270093,
-    "海外/QDII": 3.1059759206552626,
-    "现金类": 0.9812494471078639
+    "债券类": 86.10949884111406,
+    "权益类": 9.778927767870247,
+    "海外/QDII": 3.1312072692366955,
+    "现金类": 0.980366121779005
   },
   "fundTypeMinor": [
     {
       "major": "债券类",
       "minor": "指数型-固收",
-      "value": 86.06458064953594
+      "value": 86.10949884111406
     },
     {
       "major": "权益类",
       "minor": "指数型-其他",
-      "value": 5.428939867733904
+      "value": 5.366347654085841
     },
     {
       "major": "海外/QDII",
       "minor": "指数型-海外股票",
-      "value": 3.1059759206552626
+      "value": 3.1312072692366955
     },
     {
       "major": "权益类",
       "minor": "指数型-股票",
-      "value": 4.419254114967026
+      "value": 4.412580113784407
     },
     {
       "major": "现金类",
       "minor": "货币型-普通货币",
-      "value": 0.9812494471078639
+      "value": 0.980366121779005
     }
   ],
   "stockIndustryMajor": {
-    "银行": 0.056131272322949996,
+    "银行": 0.05610590075227646,
     "普钢": 0.0,
-    "石油石化": 0.006530185816193962,
-    "非银金融": 0.022104434802103938,
-    "机械设备": 0.021072932504074982,
-    "通信": 0.11331211878446935,
-    "汽车": 0.016203623675069036,
-    "电力设备": 0.11225258856128917,
-    "基础化工": 0.018792179678646926,
-    "有色金属": 0.08011858159252949,
-    "国防军工": 0.019293972994834846,
-    "建筑材料": 0.01527243176909223,
-    "电子": 0.26785834841783196,
-    "医药生物": 0.04474365757193913,
-    "食品饮料": 0.029703499661187478,
+    "石油石化": 0.0065554540107500905,
+    "非银金融": 0.022144492821588282,
+    "机械设备": 0.02125284948821369,
+    "通信": 0.11346545042774071,
+    "汽车": 0.01625192840734811,
+    "电力设备": 0.1125842989429961,
+    "基础化工": 0.018796323432321342,
+    "有色金属": 0.08022593961578553,
+    "国防军工": 0.019423712632804926,
+    "建筑材料": 0.015342799132701642,
+    "电子": 0.26877680331461995,
+    "医药生物": 0.04485862248853981,
+    "食品饮料": 0.029742270023184775,
     "工程咨询服务Ⅱ": 0.0,
     "综合Ⅱ": 0.0,
-    "家用电器": 0.015836930115625782,
-    "公用事业": 0.011122231932704,
+    "家用电器": 0.01586871948891418,
+    "公用事业": 0.011111932428746689,
     "油气开采Ⅱ": 0.0,
-    "交通运输": 0.019174719509587084,
+    "交通运输": 0.019176019647428096,
     "煤炭": 0.0,
     "基础建设": 0.0,
     "房屋建设Ⅱ": 0.0,
     "商贸零售": 0.0,
-    "计算机": 0.03275624361924677,
-    "传媒": 0.013456661262210524,
-    "纺织服饰": 0.003190545403395015,
-    "钢铁": 0.0016298644998362023,
-    "环境治理": 0.0036054578329709932,
-    "其他电子Ⅱ": 0.005334101999463935
+    "计算机": 0.03283007134564242,
+    "传媒": 0.013483748928019717,
+    "纺织服饰": 0.003187646761421264,
+    "钢铁": 0.001648976367501198,
+    "环境治理": 0.003647735600835983,
+    "其他电子Ⅱ": 0.005396649930003921
   },
   "stockIndustryMinor": [
     {
       "major": "银行",
       "minor": "银行Ⅱ",
-      "value": 0.056131272322949996
+      "value": 0.05610590075227646
     },
     {
       "major": "普钢",
@@ -108,12 +108,12 @@
     {
       "major": "石油石化",
       "minor": "炼化及贸易",
-      "value": 0.006530185816193962
+      "value": 0.0065554540107500905
     },
     {
       "major": "非银金融",
       "minor": "证券Ⅱ",
-      "value": 0.012396810745588105
+      "value": 0.01242466644952158
     },
     {
       "major": "机械设备",
@@ -128,17 +128,17 @@
     {
       "major": "汽车",
       "minor": "商用车",
-      "value": 0.0035560679996426234
+      "value": 0.0035977666200026144
     },
     {
       "major": "电力设备",
       "minor": "电网设备",
-      "value": 0.007141732069664597
+      "value": 0.007185165228090835
     },
     {
       "major": "基础化工",
       "minor": "农化制品",
-      "value": 0.007154556359128214
+      "value": 0.007148056374096167
     },
     {
       "major": "汽车",
@@ -148,7 +148,7 @@
     {
       "major": "有色金属",
       "minor": "小金属",
-      "value": 0.001481694999851093
+      "value": 0.0014990694250010892
     },
     {
       "major": "国防军工",
@@ -163,62 +163,62 @@
     {
       "major": "基础化工",
       "minor": "化学制品",
-      "value": 0.0016792543331645724
+      "value": 0.0016989453483345679
     },
     {
       "major": "建筑材料",
       "minor": "玻璃玻纤",
-      "value": 0.010827346769538952
+      "value": 0.010845590857698373
     },
     {
       "major": "电子",
       "minor": "元件",
-      "value": 0.06783469749451303
+      "value": 0.06792139059620647
     },
     {
       "major": "医药生物",
       "minor": "化学制药",
-      "value": 0.01800116856422984
+      "value": 0.018050765455997854
     },
     {
       "major": "电子",
       "minor": "半导体",
-      "value": 0.1641596061477486
+      "value": 0.16473939827427164
     },
     {
       "major": "电力设备",
       "minor": "其他电源设备Ⅱ",
-      "value": 0.003753627332956102
+      "value": 0.003797642543336093
     },
     {
       "major": "通信",
       "minor": "通信设备",
-      "value": 0.11331211878446935
+      "value": 0.11346545042774071
     },
     {
       "major": "有色金属",
       "minor": "贵金属",
-      "value": 0.014451918309816965
+      "value": 0.014466245420319795
     },
     {
       "major": "有色金属",
       "minor": "工业金属",
-      "value": 0.02996589791729376
+      "value": 0.02996156744716144
     },
     {
       "major": "食品饮料",
       "minor": "白酒Ⅱ",
-      "value": 0.018667185685843895
+      "value": 0.018649836670445293
     },
     {
       "major": "建筑材料",
       "minor": "水泥",
-      "value": 0.0024694916664184884
+      "value": 0.0024984490416684823
     },
     {
       "major": "汽车",
       "minor": "汽车零部件",
-      "value": 0.012647555675426412
+      "value": 0.012654161787345497
     },
     {
       "major": "工程咨询服务Ⅱ",
@@ -233,17 +233,17 @@
     {
       "major": "家用电器",
       "minor": "白色家电",
-      "value": 0.01218208244932642
+      "value": 0.012171014907244825
     },
     {
       "major": "国防军工",
       "minor": "航空装备Ⅱ",
-      "value": 0.004480970487776028
+      "value": 0.0044968680788689775
     },
     {
       "major": "公用事业",
       "minor": "电力",
-      "value": 0.011122231932704
+      "value": 0.011111932428746689
     },
     {
       "major": "食品饮料",
@@ -258,7 +258,7 @@
     {
       "major": "基础化工",
       "minor": "化学原料",
-      "value": 0.0064777740008323025
+      "value": 0.006471888879249232
     },
     {
       "major": "交通运输",
@@ -268,7 +268,7 @@
     {
       "major": "电力设备",
       "minor": "光伏设备",
-      "value": 0.01926394232259031
+      "value": 0.01928949812820212
     },
     {
       "major": "煤炭",
@@ -278,7 +278,7 @@
     {
       "major": "非银金融",
       "minor": "保险Ⅱ",
-      "value": 0.005514606678252155
+      "value": 0.0055094017571578014
     },
     {
       "major": "基础建设",
@@ -298,7 +298,7 @@
     {
       "major": "交通运输",
       "minor": "航运港口",
-      "value": 0.013953827031304331
+      "value": 0.013959870401466028
     },
     {
       "major": "商贸零售",
@@ -308,17 +308,17 @@
     {
       "major": "计算机",
       "minor": "计算机设备",
-      "value": 0.004350743731902293
+      "value": 0.004346791038301724
     },
     {
       "major": "医药生物",
       "minor": "生物制品",
-      "value": 0.0032872285974372877
+      "value": 0.003284242117827969
     },
     {
       "major": "医药生物",
       "minor": "医疗服务",
-      "value": 0.018911395744061976
+      "value": 0.018926468678043977
     },
     {
       "major": "食品饮料",
@@ -328,7 +328,7 @@
     {
       "major": "有色金属",
       "minor": "能源金属",
-      "value": 0.034219070365567664
+      "value": 0.0342990573233032
     },
     {
       "major": "基础化工",
@@ -338,141 +338,141 @@
     {
       "major": "电子",
       "minor": "光学光电子",
-      "value": 0.010517257970686292
+      "value": 0.010552632281285371
     },
     {
       "major": "非银金融",
       "minor": "多元金融",
-      "value": 0.004193017378263675
+      "value": 0.004210424614908897
     },
     {
       "major": "机械设备",
       "minor": "自动化设备",
-      "value": 0.013862016838132993
+      "value": 0.01395737828654172
     },
     {
       "major": "传媒",
       "minor": "游戏Ⅱ",
-      "value": 0.013456661262210524
+      "value": 0.013483748928019717
     },
     {
       "major": "电力设备",
       "minor": "电池",
-      "value": 0.07686937237576211
+      "value": 0.0770622476467375
     },
     {
       "major": "计算机",
       "minor": "软件开发",
-      "value": 0.02331834705452239
+      "value": 0.02333647528150363
     },
     {
       "major": "食品饮料",
       "minor": "休闲食品",
-      "value": 0.00827048330895488
+      "value": 0.00829417042607078
     },
     {
       "major": "交通运输",
       "minor": "物流",
-      "value": 0.0052208924782827515
+      "value": 0.005216149245962068
     },
     {
       "major": "基础化工",
       "minor": "专业工程",
-      "value": 0.0034805949855218343
+      "value": 0.003477432830641378
     },
     {
       "major": "电子",
       "minor": "消费电子",
-      "value": 0.01927183730549454
+      "value": 0.019417197520352005
     },
     {
       "major": "电力设备",
       "minor": "风电设备",
-      "value": 0.00522391446031604
+      "value": 0.005249745396629556
     },
     {
       "major": "纺织服饰",
       "minor": "饰品",
-      "value": 0.003190545403395015
+      "value": 0.003187646761421264
     },
     {
       "major": "国防军工",
       "minor": "军工电子Ⅱ",
-      "value": 0.014813002507058817
+      "value": 0.01492684455393595
     },
     {
       "major": "钢铁",
       "minor": "普钢",
-      "value": 0.0016298644998362023
+      "value": 0.001648976367501198
     },
     {
       "major": "机械设备",
       "minor": "通用设备",
-      "value": 0.003654847666299363
+      "value": 0.0036977045816693533
     },
     {
       "major": "计算机",
       "minor": "IT服务Ⅱ",
-      "value": 0.005087152832822087
+      "value": 0.005146805025837073
     },
     {
       "major": "环境治理",
       "minor": "环境治理",
-      "value": 0.0036054578329709932
+      "value": 0.003647735600835983
     },
     {
       "major": "建筑材料",
       "minor": "装修建材",
-      "value": 0.001975593333134791
+      "value": 0.0019987592333347856
     },
     {
       "major": "家用电器",
       "minor": "家电零部件Ⅱ",
-      "value": 0.00217315266644827
+      "value": 0.0021986351566682643
     },
     {
       "major": "家用电器",
       "minor": "黑色家电",
-      "value": 0.001481694999851093
+      "value": 0.0014990694250010892
     },
     {
       "major": "电子",
       "minor": "电子化学品Ⅱ",
-      "value": 0.006074949499389482
+      "value": 0.006146184642504465
     },
     {
       "major": "其他电子Ⅱ",
       "minor": "其他电子Ⅱ",
-      "value": 0.005334101999463935
+      "value": 0.005396649930003921
     },
     {
       "major": "医药生物",
       "minor": "医疗器械",
-      "value": 0.004543864666210019
+      "value": 0.004597146236670006
     },
     {
       "major": "机械设备",
       "minor": "专用设备",
-      "value": 0.0035560679996426234
+      "value": 0.003597766620002614
     },
     {
       "major": "食品饮料",
       "minor": "食品加工",
-      "value": 0.0027658306663887076
+      "value": 0.0027982629266687003
     }
   ],
-  "stockSampleContribution": 0.9294965843272528,
+  "stockSampleContribution": 0.9318783459893849,
   "stockSampleRows": 300,
-  "stockSampleRawContribution": 0.9365166198622646,
+  "stockSampleRawContribution": 0.9389139711951453,
   "stockSampleRawRows": 300,
   "sampleQualityIssues": [],
   "bondTypeMajor": {
-    "利率债/政策性金融债": 38.499557195044964,
-    "金融债": 0.17324801494906442,
-    "可转债": 4.938983332836977e-05
+    "利率债/政策性金融债": 38.51615471426018,
+    "金融债": 0.1730920562779741,
+    "可转债": 4.996898083336964e-05
   },
-  "bondSampleContribution": 38.67285459982736,
-  "bondSampleRawContribution": 44.712865578790634,
+  "bondSampleContribution": 38.68929673951899,
+  "bondSampleRawContribution": 44.73536045308231,
   "bondSampleRows": 47,
   "holdings": [
     {
@@ -485,7 +485,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "006961",
       "fundName": "南方中债7-10年国开行债券指数A",
-      "weight": 19.973987437750147,
+      "weight": 19.99962392665435,
       "fundClassMajor": "债券类",
       "fundClassMinor": "指数型-固收",
       "fundClassSource": "天天基金_fundcode_search",
@@ -508,7 +508,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 15.746126653652338
+          "利率债/政策性金融债": 15.76633670948113
         },
         "stockRows": 0
       },
@@ -525,7 +525,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 19.86812530433007
+          "利率债/政策性金融债": 19.893625919843082
         },
         "stockRows": 0
       },
@@ -534,7 +534,7 @@
       "assetCompositionSource": {
         "fundCode": "006961",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:42+08:00",
+        "capturedAt": "2026-10-22T03:39:37+08:00",
         "announcementResponseSha256": "a0e35b4482f1eb8614f14ca41c3e2123cb46e9d5b91cd702bdac3cf01be319eb",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_006961_a0e35b4482f1eb8614f14ca41c3e2123cb46e9d5b91cd702bdac3cf01be319eb.json",
         "announcement": {
@@ -548,7 +548,7 @@
           "ID": "AN202608311828755681"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828755681_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 24645605123.07,
         "amounts": {
@@ -659,31 +659,31 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 19.91088549020267,
-          "现金及货币工具": 0.00039067301900206865,
-          "其他资产": 0.06271127452847663
+          "固定收益": 19.93644098814885,
+          "现金及货币工具": 0.00039117444539717535,
+          "其他资产": 0.06279176406010513
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.00039067301900206865
+              "value": 0.00039117444539717535
             }
           ],
           "固定收益": [
             {
               "name": "国家债券",
-              "value": 0.7570587053971118
+              "value": 0.7580303855466678
             },
             {
               "name": "金融债券",
-              "value": 19.153826784805556
+              "value": 19.17841060260218
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.06271127452847663
+              "value": 0.06279176406010513
             }
           ]
         },
@@ -704,7 +704,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\64d5c643711bed9a86e52e77bf32fb57b0d1182e88ae00e179338f7294ff1862.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828755681.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:42+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:37+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -739,8 +739,8 @@
       },
       "bondVarietiesCsv": "006961_2026-06-30_bond_varieties.csv",
       "baseWeight": 19.89,
-      "weightChange": 0.08398743775014594,
-      "weightDate": "2026-10-16",
+      "weightChange": 0.10962392665435061,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -765,7 +765,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "018266",
       "fundName": "富国中债7-10年政策性金融债ETF发起式联接A",
-      "weight": 19.89005295822983,
+      "weight": 19.919195334910082,
       "fundClassMajor": "债券类",
       "fundClassMinor": "指数型-固收",
       "fundClassSource": "天天基金_fundcode_search",
@@ -788,7 +788,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 2.2772153165591282
+          "利率债/政策性金融债": 2.280551831885486
         },
         "stockRows": 0
       },
@@ -805,16 +805,16 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 2.880079668351679
+          "利率债/政策性金融债": 2.8842994844949796
         },
         "stockRows": 0
       },
-      "rawNavUnexplainedContribution": 15.08859417411315,
+      "rawNavUnexplainedContribution": 15.110701581062788,
       "assetBasis": "fund_total_assets",
       "assetCompositionSource": {
         "fundCode": "018266",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:13+08:00",
+        "capturedAt": "2026-10-22T03:40:09+08:00",
         "announcementResponseSha256": "c8ef86faf07264d2f0673a8ba44b19dfb9e338a9adf13790f58f4df79bd84725",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_018266_c8ef86faf07264d2f0673a8ba44b19dfb9e338a9adf13790f58f4df79bd84725.json",
         "announcement": {
@@ -828,7 +828,7 @@
           "ID": "AN202608311828784151"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828784151_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 6167473032.55,
         "amounts": {
@@ -939,30 +939,30 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 19.455127312963143,
-          "现金及货币工具": 0.42256762140005777,
+          "固定收益": 19.483632448153447,
+          "现金及货币工具": 0.4231867562420605,
           "基金投资": 3.552713678800501e-15,
-          "其他资产": 0.01235802386662675
+          "其他资产": 0.012376130514572892
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.42256762140005777
+              "value": 0.4231867562420605
             }
           ],
           "固定收益": [
             {
               "name": "国家债券",
-              "value": 0.7040801458110855
+              "value": 0.7051117453179044
             },
             {
               "name": "金融债券",
-              "value": 2.6692432996177886
+              "value": 2.6731542039201583
             },
             {
               "name": "政策性金融债（指数估算）",
-              "value": 16.08180386753427
+              "value": 16.105366498915384
             }
           ],
           "基金投资": [
@@ -974,7 +974,7 @@
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.01235802386662675
+              "value": 0.012376130514572892
             }
           ]
         },
@@ -995,7 +995,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\481d94b9eadb2f1203d7335e61fb7f5e3ef721ac4d064054b7dea4ff69084257.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828784151.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:13+08:00"
+          "sourceCapturedAt": "2026-10-22T03:40:09+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1030,8 +1030,8 @@
       },
       "bondVarietiesCsv": "018266_2026-06-30_bond_varieties.csv",
       "baseWeight": 19.81,
-      "weightChange": 0.08005295822983172,
-      "weightDate": "2026-10-16",
+      "weightChange": 0.10919533491008337,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -1049,7 +1049,7 @@
         "target": "511520",
         "index": "中债-7-10年政策性金融债指数",
         "amount": 4986617777.04,
-        "contribution": 16.08180386753427,
+        "contribution": 16.105366498915384,
         "basis": "index_proxy_estimate",
         "reportDate": "2026-06-30"
       }
@@ -1064,7 +1064,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "006409",
       "fundName": "富国中债-1-3年国开行债券指数A",
-      "weight": 19.772936848832774,
+      "weight": 19.76768097428763,
       "fundClassMajor": "债券类",
       "fundClassMinor": "指数型-固收",
       "fundClassSource": "天天基金_fundcode_search",
@@ -1087,7 +1087,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 9.206787489775039
+          "利率债/政策性金融债": 9.204340219529856
         },
         "stockRows": 0
       },
@@ -1104,16 +1104,16 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 9.504850743233915
+          "利率债/政策性金融债": 9.502324244340064
         },
         "stockRows": 0
       },
-      "rawNavUnexplainedContribution": 0.7375305444614605,
+      "rawNavUnexplainedContribution": 0.7373345003409265,
       "assetBasis": "fund_total_assets",
       "assetCompositionSource": {
         "fundCode": "006409",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:40+08:00",
+        "capturedAt": "2026-10-22T03:39:35+08:00",
         "announcementResponseSha256": "7ff0a4b35f9cc866037165a4d916e2c1c7e61975dd13c896d5542c0f2f6fa6dc",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_006409_7ff0a4b35f9cc866037165a4d916e2c1c7e61975dd13c896d5542c0f2f6fa6dc.json",
         "announcement": {
@@ -1127,7 +1127,7 @@
           "ID": "AN202608311828782605"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828782605_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 4766148245.05,
         "amounts": {
@@ -1238,27 +1238,27 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 18.436174184083413,
-          "现金及货币工具": 0.002291201138574181,
-          "其他资产": 1.3344714636107884
+          "固定收益": 18.431273636463967,
+          "现金及货币工具": 0.0022905921108999357,
+          "其他资产": 1.3341167457127627
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.002291201138574181
+              "value": 0.0022905921108999357
             }
           ],
           "固定收益": [
             {
               "name": "金融债券",
-              "value": 18.436174184083413
+              "value": 18.431273636463967
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 1.3344714636107884
+              "value": 1.3341167457127627
             }
           ]
         },
@@ -1279,7 +1279,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\022a582caef281a292a81b352552ddea07bd5f35b46da4d512fd5e19111795d7.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828782605.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:40+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:35+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1314,8 +1314,8 @@
       },
       "bondVarietiesCsv": "006409_2026-06-30_bond_varieties.csv",
       "baseWeight": 19.74,
-      "weightChange": 0.03293684883277592,
-      "weightDate": "2026-10-16",
+      "weightChange": 0.027680974287630278,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -1340,7 +1340,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "002659",
       "fundName": "兴业中债1-3政策性金融债A",
-      "weight": 19.727957643801204,
+      "weight": 19.71958104444243,
       "fundClassMajor": "债券类",
       "fundClassMinor": "指数型-固收",
       "fundClassSource": "天天基金_fundcode_search",
@@ -1363,7 +1363,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 7.807206190375052
+          "利率债/政策性金融债": 7.803891207671372
         },
         "stockRows": 0
       },
@@ -1380,7 +1380,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 7.808325635416518
+          "利率债/政策性金融债": 7.805010177390314
         },
         "stockRows": 0
       },
@@ -1389,7 +1389,7 @@
       "assetCompositionSource": {
         "fundCode": "002659",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:27+08:00",
+        "capturedAt": "2026-10-22T03:39:22+08:00",
         "announcementResponseSha256": "e3169e5125bfd3a2cbd7d7f9ee91d6d9b7c17577611173f1cbb1b0a1c5957c5f",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_002659_e3169e5125bfd3a2cbd7d7f9ee91d6d9b7c17577611173f1cbb1b0a1c5957c5f.json",
         "announcement": {
@@ -1403,7 +1403,7 @@
           "ID": "AN202608291828679507"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608291828679507_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 3538287863.29,
         "amounts": {
@@ -1514,31 +1514,31 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 19.61820752057185,
-          "现金及货币工具": 0.10932840347185811,
-          "其他资产": 0.00042171975749639854
+          "固定收益": 19.609877521719245,
+          "现金及货币工具": 0.10928198203021912,
+          "其他资产": 0.0004215406929670636
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.10932840347185811
+              "value": 0.10928198203021912
             }
           ],
           "固定收益": [
             {
               "name": "国家债券",
-              "value": 0.16472175063700709
+              "value": 0.16465180887538758
             },
             {
               "name": "金融债券",
-              "value": 19.453485769934844
+              "value": 19.445225712843857
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.00042171975749639854
+              "value": 0.0004215406929670636
             }
           ]
         },
@@ -1559,7 +1559,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\9450a22093d0be74395aa6502a114a20decf1a4a99ff4b2a8f18ae45b99892c0.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608291828679507.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:27+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:22+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1594,8 +1594,8 @@
       },
       "bondVarietiesCsv": "002659_2026-06-30_bond_varieties.csv",
       "baseWeight": 19.69,
-      "weightChange": 0.037957643801203034,
-      "weightDate": "2026-10-16",
+      "weightChange": 0.029581044442430482,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -1620,7 +1620,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "007165",
       "fundName": "华夏中债1-3年政金债指数A",
-      "weight": 6.699645760921988,
+      "weight": 6.703417560819556,
       "fundClassMajor": "债券类",
       "fundClassMinor": "指数型-固收",
       "fundClassSource": "天天基金_fundcode_search",
@@ -1643,7 +1643,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 3.073507753278879
+          "利率债/政策性金融债": 3.075238091962845
         },
         "stockRows": 0
       },
@@ -1660,7 +1660,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 4.005718200455257
+          "利率债/政策性金融债": 4.007973359614013
         },
         "stockRows": 0
       },
@@ -1669,7 +1669,7 @@
       "assetCompositionSource": {
         "fundCode": "007165",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:43+08:00",
+        "capturedAt": "2026-10-22T03:39:38+08:00",
         "announcementResponseSha256": "a51721651e0c529315935d2e130bee907097270000ffd2912c15cb8ddd587f69",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_007165_a51721651e0c529315935d2e130bee907097270000ffd2912c15cb8ddd587f69.json",
         "announcement": {
@@ -1683,7 +1683,7 @@
           "ID": "AN202608311828781864"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828781864_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 3911254332.62,
         "amounts": {
@@ -1794,31 +1794,31 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 6.694316399779065,
-          "现金及货币工具": 0.005246272112614578,
-          "其他资产": 8.308903030839122e-05
+          "固定收益": 6.698085199326386,
+          "现金及货币工具": 0.005249225684985881,
+          "其他资产": 8.313580818399685e-05
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.005246272112614578
+              "value": 0.005249225684985881
             }
           ],
           "固定收益": [
             {
               "name": "国家债券",
-              "value": 0.6748522607414306
+              "value": 0.6752321924242047
             },
             {
               "name": "金融债券",
-              "value": 6.019464139037635
+              "value": 6.0228530069021815
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 8.308903030839122e-05
+              "value": 8.313580818399685e-05
             }
           ]
         },
@@ -1839,7 +1839,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\7f7bec97f03d1f4bbd6280391766de1bc90b6be61879ad1358937f31f5dd804c.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828781864.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:43+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:38+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -1874,8 +1874,8 @@
       },
       "bondVarietiesCsv": "007165_2026-06-30_bond_varieties.csv",
       "baseWeight": 6.68,
-      "weightChange": 0.01964576092198822,
-      "weightDate": "2026-10-16",
+      "weightChange": 0.02341756081955637,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -1900,7 +1900,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "009505",
       "fundName": "富国上海金ETF联接C",
-      "weight": 5.428939867733904,
+      "weight": 5.366347654085841,
       "fundClassMajor": "权益类",
       "fundClassMinor": "指数型-其他",
       "fundClassSource": "天天基金_fundcode_search",
@@ -1923,7 +1923,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 0.23556642832536656
+          "利率债/政策性金融债": 0.2328504976705282
         },
         "stockRows": 0
       },
@@ -1940,16 +1940,16 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 0.23995914215383857
+          "利率债/政策性金融债": 0.23719256631059416
         },
         "stockRows": 0
       },
-      "rawNavUnexplainedContribution": 5.123833447167258,
+      "rawNavUnexplainedContribution": 5.064758915926216,
       "assetBasis": "fund_total_assets",
       "assetCompositionSource": {
         "fundCode": "009505",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:51+08:00",
+        "capturedAt": "2026-10-22T03:39:47+08:00",
         "announcementResponseSha256": "b57442534c6a63038638dc8bbf2ce5aebad2d6c37dfbab91a0a11d30b098f522",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_009505_b57442534c6a63038638dc8bbf2ce5aebad2d6c37dfbab91a0a11d30b098f522.json",
         "announcement": {
@@ -1963,7 +1963,7 @@
           "ID": "AN202608311828787792"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828787792_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 4482767675.91,
         "amounts": {
@@ -2074,34 +2074,34 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 0.2358466336844061,
-          "现金及货币工具": 0.06318491062014199,
-          "基金投资": 5.022831820857867,
-          "其他资产": 0.10707650257148871
+          "固定收益": 0.23312747244051618,
+          "现金及货币工具": 0.06245642890525416,
+          "基金投资": 4.964921773940981,
+          "其他资产": 0.10584197879908974
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.06318491062014199
+              "value": 0.06245642890525416
             }
           ],
           "固定收益": [
             {
               "name": "国家债券",
-              "value": 0.2358466336844061
+              "value": 0.23312747244051618
             }
           ],
           "基金投资": [
             {
               "name": "基金投资未细分",
-              "value": 5.022831820857867
+              "value": 4.964921773940981
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.10707650257148871
+              "value": 0.10584197879908974
             }
           ]
         },
@@ -2122,7 +2122,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\b881fcbc3586c7da0903d0f710793c0d9c4221d09778dd39820d6a274d0f1b77.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828787792.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:51+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:47+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -2169,8 +2169,8 @@
       },
       "bondVarietiesCsv": "009505_2026-06-30_bond_varieties.csv",
       "baseWeight": 5.45,
-      "weightChange": -0.021060132266096154,
-      "weightDate": "2026-10-16",
+      "weightChange": -0.08365234591415938,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -2195,7 +2195,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "019547",
       "fundName": "招商纳斯达克100ETF发起式联接(QDII)A",
-      "weight": 2.407238445407852,
+      "weight": 2.4265654053456664,
       "fundClassMajor": "海外/QDII",
       "fundClassMinor": "指数型-海外股票",
       "fundClassSource": "天天基金_fundcode_search",
@@ -2233,16 +2233,16 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 0.002647962289948637
+          "利率债/政策性金融债": 0.002669221945880233
         },
         "stockRows": 0
       },
-      "rawNavUnexplainedContribution": 2.248119984166393,
+      "rawNavUnexplainedContribution": 2.266169432052318,
       "assetBasis": "fund_total_assets",
       "assetCompositionSource": {
         "fundCode": "019547",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:16+08:00",
+        "capturedAt": "2026-10-22T03:40:12+08:00",
         "announcementResponseSha256": "bfa0b03feb17ca3d2f462e1599e86dcdfa0c48180ac8b14c7dc6029194695a19",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_019547_bfa0b03feb17ca3d2f462e1599e86dcdfa0c48180ac8b14c7dc6029194695a19.json",
         "announcement": {
@@ -2256,7 +2256,7 @@
           "ID": "AN202608311828787051"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828787051_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 3734394409.54,
         "amounts": {
@@ -2367,34 +2367,34 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 0.002611005393568855,
-          "现金及货币工具": 0.15492302072093445,
-          "基金投资": 2.245865338405628,
-          "其他资产": 0.0038390808877204197
+          "固定收益": 0.002631968334209483,
+          "现金及货币工具": 0.1561668489011592,
+          "基金投资": 2.2638966844502604,
+          "其他资产": 0.003869903660037198
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.15492302072093445
+              "value": 0.1561668489011592
             }
           ],
           "固定收益": [
             {
               "name": "固定收益未细分",
-              "value": 0.002611005393568855
+              "value": 0.002631968334209483
             }
           ],
           "基金投资": [
             {
               "name": "基金投资未细分",
-              "value": 2.245865338405628
+              "value": 2.2638966844502604
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.0038390808877204197
+              "value": 0.003869903660037198
             }
           ]
         },
@@ -2415,7 +2415,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\201a7aedf98f8e002697caec07d41ad0092a92e7958d88629248d8b791dd4374.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828787051.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:16+08:00"
+          "sourceCapturedAt": "2026-10-22T03:40:12+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -2449,8 +2449,8 @@
         "isWindDirectData": false
       },
       "baseWeight": 2.51,
-      "weightChange": -0.10276155459214786,
-      "weightDate": "2026-10-16",
+      "weightChange": -0.08343459465433334,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -2475,7 +2475,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "022463",
       "fundName": "富国中证A500ETF发起式联接A",
-      "weight": 2.0402752451297927,
+      "weight": 2.036403980204521,
       "fundClassMajor": "权益类",
       "fundClassMinor": "指数型-股票",
       "fundClassSource": "天天基金_fundcode_search",
@@ -2496,25 +2496,25 @@
       "unexplainedContribution": 0.0,
       "interactionBreakdown": {
         "stockMajor": {
-          "银行": 0.0005910930177813954,
+          "银行": 0.0005899714643670842,
           "普钢": 0.0,
           "石油石化": 0.0,
-          "非银金融": 0.00039406201185426365,
+          "非银金融": 0.00039331430957805614,
           "机械设备": 0.0,
-          "通信": 0.00019703100592713182,
+          "通信": 0.00019665715478902807,
           "汽车": 0.0,
           "电力设备": 0.0,
           "基础化工": 0.0,
-          "有色金属": 0.00019703100592713182,
+          "有色金属": 0.00019665715478902807,
           "国防军工": 0.0,
           "建筑材料": 0.0,
-          "电子": 0.0013792170414899227,
-          "医药生物": 0.00039406201185426365,
-          "食品饮料": 0.00039406201185426365,
+          "电子": 0.0013766000835231963,
+          "医药生物": 0.00039331430957805614,
+          "食品饮料": 0.00039331430957805614,
           "工程咨询服务Ⅱ": 0.0,
           "综合Ⅱ": 0.0,
           "家用电器": 0.0,
-          "公用事业": 0.00019703100592713182,
+          "公用事业": 0.00019665715478902807,
           "油气开采Ⅱ": 0.0,
           "交通运输": 0.0,
           "煤炭": 0.0,
@@ -2527,7 +2527,7 @@
           {
             "major": "银行",
             "minor": "银行Ⅱ",
-            "value": 0.0005910930177813954
+            "value": 0.0005899714643670842
           },
           {
             "major": "普钢",
@@ -2542,7 +2542,7 @@
           {
             "major": "非银金融",
             "minor": "证券Ⅱ",
-            "value": 0.00019703100592713182
+            "value": 0.00019665715478902807
           },
           {
             "major": "机械设备",
@@ -2602,17 +2602,17 @@
           {
             "major": "电子",
             "minor": "元件",
-            "value": 0.00019703100592713182
+            "value": 0.00019665715478902807
           },
           {
             "major": "医药生物",
             "minor": "化学制药",
-            "value": 0.00019703100592713182
+            "value": 0.00019665715478902807
           },
           {
             "major": "电子",
             "minor": "半导体",
-            "value": 0.001182186035562791
+            "value": 0.0011799429287341684
           },
           {
             "major": "电力设备",
@@ -2622,7 +2622,7 @@
           {
             "major": "通信",
             "minor": "通信设备",
-            "value": 0.00019703100592713182
+            "value": 0.00019665715478902807
           },
           {
             "major": "有色金属",
@@ -2632,12 +2632,12 @@
           {
             "major": "有色金属",
             "minor": "工业金属",
-            "value": 0.00019703100592713182
+            "value": 0.00019665715478902807
           },
           {
             "major": "食品饮料",
             "minor": "白酒Ⅱ",
-            "value": 0.00039406201185426365
+            "value": 0.00039331430957805614
           },
           {
             "major": "建筑材料",
@@ -2672,7 +2672,7 @@
           {
             "major": "公用事业",
             "minor": "电力",
-            "value": 0.00019703100592713182
+            "value": 0.00019665715478902807
           },
           {
             "major": "食品饮料",
@@ -2707,7 +2707,7 @@
           {
             "major": "非银金融",
             "minor": "保险Ⅱ",
-            "value": 0.00019703100592713182
+            "value": 0.00019665715478902807
           },
           {
             "major": "基础建设",
@@ -2747,7 +2747,7 @@
           {
             "major": "医药生物",
             "minor": "医疗服务",
-            "value": 0.00019703100592713182
+            "value": 0.00019665715478902807
           },
           {
             "major": "食品饮料",
@@ -2766,7 +2766,7 @@
           }
         ],
         "bondTypes": {
-          "利率债/政策性金融债": 0.10442643314137984
+          "利率债/政策性金融债": 0.10422829203818486
         },
         "stockRows": 100
       },
@@ -2781,25 +2781,25 @@
       },
       "rawNavBreakdown": {
         "stockMajor": {
-          "银行": 0.0006120825735389378,
+          "银行": 0.0006109211940613563,
           "普钢": 0.0,
           "石油石化": 0.0,
-          "非银金融": 0.0004080550490259586,
+          "非银金融": 0.00040728079604090425,
           "机械设备": 0.0,
-          "通信": 0.0002040275245129793,
+          "通信": 0.00020364039802045212,
           "汽车": 0.0,
           "电力设备": 0.0,
           "基础化工": 0.0,
-          "有色金属": 0.0002040275245129793,
+          "有色金属": 0.00020364039802045212,
           "国防军工": 0.0,
           "建筑材料": 0.0,
-          "电子": 0.001428192671590855,
-          "医药生物": 0.0004080550490259586,
-          "食品饮料": 0.0004080550490259586,
+          "电子": 0.0014254827861431647,
+          "医药生物": 0.00040728079604090425,
+          "食品饮料": 0.00040728079604090425,
           "工程咨询服务Ⅱ": 0.0,
           "综合Ⅱ": 0.0,
           "家用电器": 0.0,
-          "公用事业": 0.0002040275245129793,
+          "公用事业": 0.00020364039802045212,
           "油气开采Ⅱ": 0.0,
           "交通运输": 0.0,
           "煤炭": 0.0,
@@ -2812,7 +2812,7 @@
           {
             "major": "银行",
             "minor": "银行Ⅱ",
-            "value": 0.0006120825735389378
+            "value": 0.0006109211940613563
           },
           {
             "major": "普钢",
@@ -2827,7 +2827,7 @@
           {
             "major": "非银金融",
             "minor": "证券Ⅱ",
-            "value": 0.0002040275245129793
+            "value": 0.00020364039802045212
           },
           {
             "major": "机械设备",
@@ -2887,17 +2887,17 @@
           {
             "major": "电子",
             "minor": "元件",
-            "value": 0.0002040275245129793
+            "value": 0.00020364039802045212
           },
           {
             "major": "医药生物",
             "minor": "化学制药",
-            "value": 0.0002040275245129793
+            "value": 0.00020364039802045212
           },
           {
             "major": "电子",
             "minor": "半导体",
-            "value": 0.0012241651470778759
+            "value": 0.0012218423881227127
           },
           {
             "major": "电力设备",
@@ -2907,7 +2907,7 @@
           {
             "major": "通信",
             "minor": "通信设备",
-            "value": 0.0002040275245129793
+            "value": 0.00020364039802045212
           },
           {
             "major": "有色金属",
@@ -2917,12 +2917,12 @@
           {
             "major": "有色金属",
             "minor": "工业金属",
-            "value": 0.0002040275245129793
+            "value": 0.00020364039802045212
           },
           {
             "major": "食品饮料",
             "minor": "白酒Ⅱ",
-            "value": 0.0004080550490259586
+            "value": 0.00040728079604090425
           },
           {
             "major": "建筑材料",
@@ -2957,7 +2957,7 @@
           {
             "major": "公用事业",
             "minor": "电力",
-            "value": 0.0002040275245129793
+            "value": 0.00020364039802045212
           },
           {
             "major": "食品饮料",
@@ -2992,7 +2992,7 @@
           {
             "major": "非银金融",
             "minor": "保险Ⅱ",
-            "value": 0.0002040275245129793
+            "value": 0.00020364039802045212
           },
           {
             "major": "基础建设",
@@ -3032,7 +3032,7 @@
           {
             "major": "医药生物",
             "minor": "医疗服务",
-            "value": 0.0002040275245129793
+            "value": 0.00020364039802045212
           },
           {
             "major": "食品饮料",
@@ -3051,16 +3051,16 @@
           }
         ],
         "bondTypes": {
-          "利率债/政策性金融债": 0.108134587991879
+          "利率债/政策性金融债": 0.1079294109508396
         },
         "stockRows": 100
       },
-      "rawNavUnexplainedContribution": 1.9115338771621029,
+      "rawNavUnexplainedContribution": 1.9079068890536157,
       "assetBasis": "fund_total_assets",
       "assetCompositionSource": {
         "fundCode": "022463",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:23+08:00",
+        "capturedAt": "2026-10-22T03:40:20+08:00",
         "announcementResponseSha256": "4626f2ce49413fe97064b139dff0e7680bea012070788010be0e3803929710c1",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_022463_4626f2ce49413fe97064b139dff0e7680bea012070788010be0e3803929710c1.json",
         "announcement": {
@@ -3074,7 +3074,7 @@
           "ID": "AN202608311828787890"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828787890_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 2287949380.78,
         "amounts": {
@@ -3185,61 +3185,61 @@
       },
       "businessLookthrough": {
         "assets": {
-          "股票": 0.007201207355120454,
-          "固定收益": 0.10443806226181643,
-          "现金及货币工具": 0.01258895845866421,
-          "基金投资": 1.9051664904610677,
-          "其他资产": 0.010880526593123921
+          "股票": 0.007187543619543585,
+          "固定收益": 0.10423989909326228,
+          "现金及货币工具": 0.01256507188088846,
+          "基金投资": 1.9015515839777732,
+          "其他资产": 0.010859881633053464
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.01258895845866421
+              "value": 0.01256507188088846
             }
           ],
           "股票": [
             {
               "name": "消费",
-              "value": 0.0006443702742349214
+              "value": 0.000643147631335397
             },
             {
               "name": "科技（TMT）",
-              "value": 0.002018515352375764
+              "value": 0.0020146853751688023
             },
             {
               "name": "金融地产",
-              "value": 0.001207174103998108
+              "value": 0.001204883584236787
             },
             {
               "name": "周期",
-              "value": 0.0021055928020825023
+              "value": 0.0021015976021304056
             },
             {
               "name": "医药医疗",
-              "value": 0.00035268293307816096
+              "value": 0.00035201374441264804
             },
             {
               "name": "先进制造",
-              "value": 0.0008728718893509983
+              "value": 0.0008712156822595452
             }
           ],
           "固定收益": [
             {
               "name": "国家债券",
-              "value": 0.10443806226181643
+              "value": 0.10423989909326228
             }
           ],
           "基金投资": [
             {
               "name": "基金投资未细分",
-              "value": 1.9051664904610677
+              "value": 1.9015515839777732
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.010880526593123921
+              "value": 0.010859881633053464
             }
           ]
         },
@@ -3247,129 +3247,129 @@
           "消费": [
             {
               "name": "食品饮料",
-              "value": 0.0005148919706586105
+              "value": 0.0005139150028543534
             },
             {
               "name": "家用电器",
-              "value": 4.88499784423146e-05
+              "value": 4.875728937568233e-05
             },
             {
               "name": "商贸零售",
-              "value": 4.132718877200854e-05
+              "value": 4.124877361859478e-05
             },
             {
               "name": "纺织服饰",
-              "value": 1.3654451805562636e-05
+              "value": 1.3628543536335302e-05
             },
             {
               "name": "轻工制造（除造纸Ⅱ）",
-              "value": 1.533450582866086e-05
+              "value": 1.530540978649568e-05
             },
             {
               "name": "社会服务",
-              "value": 1.0312178727764258e-05
+              "value": 1.029261216393557e-05
             }
           ],
           "科技（TMT）": [
             {
               "name": "电子",
-              "value": 0.0016017121409128603
+              "value": 0.001598673015654492
             },
             {
               "name": "通信",
-              "value": 0.0002998664576641155
+              "value": 0.00029929748418733017
             },
             {
               "name": "计算机",
-              "value": 0.00011693675379878785
+              "value": 0.0001167148753269802
             }
           ],
           "金融地产": [
             {
               "name": "非银金融",
-              "value": 0.00044498959551921366
+              "value": 0.0004441452620806953
             },
             {
               "name": "银行",
-              "value": 0.0007054372060299141
+              "value": 0.0007040986933369802
             },
             {
               "name": "房地产",
-              "value": 5.674730244898014e-05
+              "value": 5.663962881911137e-05
             }
           ],
           "周期": [
             {
               "name": "有色金属",
-              "value": 0.000598420261654133
+              "value": 0.0005972848053596731
             },
             {
               "name": "公用事业",
-              "value": 0.00029378830043405314
+              "value": 0.0002932308597918455
             },
             {
               "name": "建筑材料",
-              "value": 9.61269126719194e-05
+              "value": 9.594451926873042e-05
             },
             {
               "name": "交通运输",
-              "value": 0.00030615150052759545
+              "value": 0.0003055706016666987
             },
             {
               "name": "煤炭",
-              "value": 0.00010807634149862652
+              "value": 0.00010787127497581592
             },
             {
               "name": "石油石化",
-              "value": 0.00014321479623650467
+              "value": 0.00014294305720581566
             },
             {
               "name": "工程机械Ⅱ",
-              "value": 8.767670464491369e-05
+              "value": 8.751034485974966e-05
             },
             {
               "name": "基础化工",
-              "value": 0.00023962706840279318
+              "value": 0.00023917239452128246
             },
             {
               "name": "建筑装饰",
-              "value": 0.00017933417423627668
+              "value": 0.0001789939014714717
             },
             {
               "name": "钢铁",
-              "value": 5.317674177568646e-05
+              "value": 5.307584300932254e-05
             }
           ],
           "医药医疗": [
             {
               "name": "医药生物",
-              "value": 0.00035268293307816096
+              "value": 0.00035201374441264804
             }
           ],
           "先进制造": [
             {
               "name": "国防军工",
-              "value": 0.00022267671443726715
+              "value": 0.00022225420254514208
             },
             {
               "name": "电力设备",
-              "value": 0.00036485351551300414
+              "value": 0.0003641612341059542
             },
             {
               "name": "汽车",
-              "value": 0.000207317239652849
+              "value": 0.00020692387117955696
             },
             {
               "name": "机械设备（除工程机械Ⅱ）",
-              "value": 4.27611202312134e-05
+              "value": 4.2679984303445034e-05
             },
             {
               "name": "综合",
-              "value": 2.395592955228805e-05
+              "value": 2.391047502351826e-05
             },
             {
               "name": "环保",
-              "value": 1.1307369964376582e-05
+              "value": 1.128591510192866e-05
             }
           ]
         },
@@ -3389,11 +3389,11 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\9382c58fd9f9df02dde5100428753f3c3bd512d7e08fa6711d34eb3ab9f591a6.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828787890.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:23+08:00"
+          "sourceCapturedAt": "2026-10-22T03:40:20+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
-        "stockDetailGapContribution": 5e-42,
+        "stockDetailGapContribution": 0.0,
         "productDefinition": null,
         "fundTypeBasis": "source_product_dictionary",
         "supplementalTags": {
@@ -3425,8 +3425,8 @@
       "fullStockCsv": "022463_2026-06-30_complete_stock.csv",
       "bondVarietiesCsv": "022463_2026-06-30_bond_varieties.csv",
       "baseWeight": 2.1,
-      "weightChange": -0.05972475487020734,
-      "weightDate": "2026-10-16",
+      "weightChange": -0.06359601979547902,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -3452,7 +3452,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "000638",
       "fundName": "富国富钱包货币A",
-      "weight": 0.9812494471078639,
+      "weight": 0.980366121779005,
       "fundClassMajor": "现金类",
       "fundClassMinor": "货币型-普通货币",
       "fundClassSource": "天天基金_fundcode_search",
@@ -3475,8 +3475,8 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "金融债": 0.17324801494906442,
-          "利率债/政策性金融债": 0.044358187402417454
+          "金融债": 0.1730920562779741,
+          "利率债/政策性金融债": 0.04431825595523009
         },
         "stockRows": 0
       },
@@ -3493,17 +3493,17 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "金融债": 0.18280677199619505,
-          "利率债/政策性金融债": 0.0468055986270451
+          "金融债": 0.18264220848742863,
+          "利率债/政策性金融债": 0.04676346400885854
         },
         "stockRows": 0
       },
-      "rawNavUnexplainedContribution": 0.11490431025633092,
+      "rawNavUnexplainedContribution": 0.11480087286032155,
       "assetBasis": "fund_total_assets",
       "assetCompositionSource": {
         "fundCode": "000638",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:57:18+08:00",
+        "capturedAt": "2026-10-22T03:39:13+08:00",
         "announcementResponseSha256": "dfe00851086d4e5d1b0711ca47a66dfa5f28af022ddbde1033e3e59ab0ea64b2",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_000638_dfe00851086d4e5d1b0711ca47a66dfa5f28af022ddbde1033e3e59ab0ea64b2.json",
         "announcement": {
@@ -3517,7 +3517,7 @@
           "ID": "AN202608311828782527"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828782527_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 263368908115.33,
         "amounts": {
@@ -3604,43 +3604,43 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 0.45828734400928345,
-          "现金及货币工具": 0.5226364367359866,
-          "其他资产": 0.00032566636259385653
+          "固定收益": 0.4578747916047424,
+          "现金及货币工具": 0.5221659569780472,
+          "其他资产": 0.0003253731962153333
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "买入返售金融资产",
-              "value": 0.15989339406161313
+              "value": 0.15974945728253198
             },
             {
               "name": "存款与结算备付金",
-              "value": 0.36274304267437346
+              "value": 0.3624164996955152
             }
           ],
           "固定收益": [
             {
               "name": "金融债券",
-              "value": 0.07965313540032416
+              "value": 0.07958143127633253
             },
             {
               "name": "企业短期融资券",
-              "value": 0.004454464968717818
+              "value": 0.004450455038577239
             },
             {
               "name": "中期票据",
-              "value": 0.0008365833382850985
+              "value": 0.0008358302420621282
             },
             {
               "name": "同业存单",
-              "value": 0.37334316030195636
+              "value": 0.37300707504777053
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.00032566636259385653
+              "value": 0.0003253731962153333
             }
           ]
         },
@@ -3661,7 +3661,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\a9659bd1b2692bd374c09e107153585d4dfe5e15f81cb826aad98bab9a8291b3.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828782527.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:57:18+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:13+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -3696,8 +3696,8 @@
       },
       "bondVarietiesCsv": "000638_2026-06-30_bond_varieties.csv",
       "baseWeight": 0.98,
-      "weightChange": 0.0012494471078638991,
-      "weightDate": "2026-10-16",
+      "weightChange": 0.00036612177900496867,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -3722,7 +3722,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "013291",
       "fundName": "富国沪深300指数增强C",
-      "weight": 0.9742450375140901,
+      "weight": 0.9733599262865702,
       "fundClassMajor": "权益类",
       "fundClassMinor": "指数型-股票",
       "fundClassSource": "天天基金_fundcode_search",
@@ -3743,217 +3743,217 @@
       "unexplainedContribution": 0.0,
       "interactionBreakdown": {
         "stockMajor": {
-          "电子": 0.17441648205226082,
-          "家用电器": 0.01218208244932642,
-          "汽车": 0.01121525050890369,
-          "基础化工": 0.017112925345482352,
-          "非银金融": 0.016919558957397805,
-          "有色金属": 0.0656478887547035,
-          "机械设备": 0.0053175756723250235,
-          "电力设备": 0.07792665439807218,
-          "银行": 0.05346580630537707,
-          "计算机": 0.024557531286737388,
-          "石油石化": 0.004060694149775473,
-          "传媒": 0.01034510176252323,
-          "医药生物": 0.032002137227992423,
-          "公用事业": 0.010925200926776868,
-          "通信": 0.09281586628058225,
-          "食品饮料": 0.024074115316526017,
-          "交通运输": 0.01769302450973599,
-          "建筑材料": 0.008604804269762312,
-          "国防军工": 0.00763797232933958,
-          "纺织服饰": 0.003190545403395015
+          "电子": 0.1742580229576957,
+          "家用电器": 0.012171014907244825,
+          "汽车": 0.011205061343177777,
+          "基础化工": 0.017097378083986776,
+          "非银金融": 0.01690418737117337,
+          "有色金属": 0.06558824700015267,
+          "机械设备": 0.005312744602368773,
+          "电力设备": 0.0778558572638042,
+          "银行": 0.05341723209290785,
+          "计算机": 0.024535220527303062,
+          "石油石化": 0.004057004969081608,
+          "传媒": 0.01033570313551743,
+          "医药生物": 0.03197306297061934,
+          "公用事业": 0.01091527527395766,
+          "通信": 0.09273154215043676,
+          "食品饮料": 0.024052243745269538,
+          "交通运输": 0.017676950222427008,
+          "建筑材料": 0.00859698672019674,
+          "国防军工": 0.007631033156129692,
+          "纺织服饰": 0.003187646761421264
         },
         "stockMinor": [
           {
             "major": "电子",
             "minor": "光学光电子",
-            "value": 0.006961189971043669
+            "value": 0.006954865661282757
           },
           {
             "major": "家用电器",
             "minor": "白色家电",
-            "value": 0.01218208244932642
+            "value": 0.012171014907244825
           },
           {
             "major": "汽车",
             "minor": "汽车零部件",
-            "value": 0.01121525050890369
+            "value": 0.011205061343177777
           },
           {
             "major": "基础化工",
             "minor": "农化制品",
-            "value": 0.007154556359128214
+            "value": 0.007148056374096167
           },
           {
             "major": "非银金融",
             "minor": "多元金融",
-            "value": 0.002513763045099103
+            "value": 0.002511479266574329
           },
           {
             "major": "非银金融",
             "minor": "证券Ⅱ",
-            "value": 0.009088220239973677
+            "value": 0.009079963502230266
           },
           {
             "major": "有色金属",
             "minor": "工业金属",
-            "value": 0.027941443078216947
+            "value": 0.027916058001537736
           },
           {
             "major": "有色金属",
             "minor": "贵金属",
-            "value": 0.012278765643368694
+            "value": 0.012267610263651531
           },
           {
             "major": "机械设备",
             "minor": "自动化设备",
-            "value": 0.0053175756723250235
+            "value": 0.005312744602368773
           },
           {
             "major": "电力设备",
             "minor": "电网设备",
-            "value": 0.003190545403395015
+            "value": 0.003187646761421264
           },
           {
             "major": "电子",
             "minor": "半导体",
-            "value": 0.10519131511799319
+            "value": 0.10509574777049499
           },
           {
             "major": "银行",
             "minor": "银行Ⅱ",
-            "value": 0.05346580630537707
+            "value": 0.05341723209290785
           },
           {
             "major": "电子",
             "minor": "元件",
-            "value": 0.05588288615643389
+            "value": 0.05583211600307547
           },
           {
             "major": "计算机",
             "minor": "计算机设备",
-            "value": 0.004350743731902293
+            "value": 0.004346791038301724
           },
           {
             "major": "有色金属",
             "minor": "能源金属",
-            "value": 0.025427680033117846
+            "value": 0.025404578734963403
           },
           {
             "major": "石油石化",
             "minor": "炼化及贸易",
-            "value": 0.004060694149775473
+            "value": 0.004057004969081608
           },
           {
             "major": "传媒",
             "minor": "游戏Ⅱ",
-            "value": 0.01034510176252323
+            "value": 0.01033570313551743
           },
           {
             "major": "基础化工",
             "minor": "化学原料",
-            "value": 0.0064777740008323025
+            "value": 0.006471888879249232
           },
           {
             "major": "医药生物",
             "minor": "化学制药",
-            "value": 0.012568815225495513
+            "value": 0.012557396332871645
           },
           {
             "major": "电力设备",
             "minor": "电池",
-            "value": 0.05607625254451844
+            "value": 0.05602530671588888
           },
           {
             "major": "公用事业",
             "minor": "电力",
-            "value": 0.010925200926776868
+            "value": 0.01091527527395766
           },
           {
             "major": "计算机",
             "minor": "软件开发",
-            "value": 0.020206787554835095
+            "value": 0.02018842948900134
           },
           {
             "major": "电力设备",
             "minor": "光伏设备",
-            "value": 0.0158560438229328
+            "value": 0.015841638450699615
           },
           {
             "major": "通信",
             "minor": "通信设备",
-            "value": 0.09281586628058225
+            "value": 0.09273154215043676
           },
           {
             "major": "食品饮料",
             "minor": "休闲食品",
-            "value": 0.0058009916425363905
+            "value": 0.0057957213844022975
           },
           {
             "major": "交通运输",
             "minor": "航运港口",
-            "value": 0.012472132031453238
+            "value": 0.01246080097646494
           },
           {
             "major": "建筑材料",
             "minor": "玻璃玻纤",
-            "value": 0.008604804269762312
+            "value": 0.00859698672019674
           },
           {
             "major": "交通运输",
             "minor": "物流",
-            "value": 0.0052208924782827515
+            "value": 0.005216149245962068
           },
           {
             "major": "食品饮料",
             "minor": "白酒Ⅱ",
-            "value": 0.01827312367398963
+            "value": 0.018256522360867236
           },
           {
             "major": "国防军工",
             "minor": "航空装备Ⅱ",
-            "value": 0.0029004958212681953
+            "value": 0.0028978606922011488
           },
           {
             "major": "基础化工",
             "minor": "专业工程",
-            "value": 0.0034805949855218343
+            "value": 0.003477432830641378
           },
           {
             "major": "电子",
             "minor": "消费电子",
-            "value": 0.00638109080679003
+            "value": 0.006375293522842528
           },
           {
             "major": "非银金融",
             "minor": "保险Ⅱ",
-            "value": 0.0053175756723250235
+            "value": 0.005312744602368773
           },
           {
             "major": "医药生物",
             "minor": "医疗服务",
-            "value": 0.016146093405059618
+            "value": 0.016131424519919727
           },
           {
             "major": "电力设备",
             "minor": "风电设备",
-            "value": 0.0028038126272259215
+            "value": 0.0028012653357944437
           },
           {
             "major": "纺织服饰",
             "minor": "饰品",
-            "value": 0.003190545403395015
+            "value": 0.003187646761421264
           },
           {
             "major": "国防军工",
             "minor": "军工电子Ⅱ",
-            "value": 0.004737476508071385
+            "value": 0.004733172463928543
           },
           {
             "major": "医药生物",
             "minor": "生物制品",
-            "value": 0.0032872285974372877
+            "value": 0.003284242117827969
           }
         ],
         "bondTypes": {},
@@ -3970,217 +3970,217 @@
       },
       "rawNavBreakdown": {
         "stockMajor": {
-          "电子": 0.17575380476754188,
-          "家用电器": 0.012275487472677536,
-          "汽车": 0.011301242435163446,
-          "基础化工": 0.017244137163999397,
-          "非银金融": 0.017049288156496575,
-          "有色金属": 0.06615123804720673,
-          "机械设备": 0.005358347706327495,
-          "电力设备": 0.07852415002363566,
-          "银行": 0.05387575057452919,
-          "计算机": 0.02474582395285789,
-          "石油石化": 0.004091829157559178,
-          "传媒": 0.010424421901400764,
-          "医药生物": 0.03224751074171638,
-          "公用事业": 0.011008968923909217,
-          "通信": 0.09352752360135265,
-          "食品饮料": 0.024258701434100843,
-          "交通运输": 0.017828684186507848,
-          "建筑材料": 0.008670780833875402,
-          "国防军工": 0.007696535796361311,
-          "纺织服饰": 0.0032150086237964976
+          "电子": 0.17559413070209723,
+          "家用电器": 0.012264335071210785,
+          "汽车": 0.011290975144924215,
+          "基础化工": 0.01722847069527229,
+          "非银金融": 0.01703379871001498,
+          "有色金属": 0.06609113899485812,
+          "机械设备": 0.005353479594576136,
+          "电力设备": 0.07845281005869756,
+          "银行": 0.05382680392364734,
+          "计算机": 0.024723342127678884,
+          "石油石化": 0.004088111690403595,
+          "传媒": 0.010414951211266302,
+          "医药生物": 0.032218213560085474,
+          "公用事业": 0.010998967167038243,
+          "通信": 0.09344255292351074,
+          "食品饮料": 0.0242366621645356,
+          "交通运输": 0.017812486651044235,
+          "建筑材料": 0.008662903343950474,
+          "国防军工": 0.007689543417663905,
+          "纺织服饰": 0.003212087756745682
         },
         "stockMinor": [
           {
             "major": "电子",
             "minor": "光学光电子",
-            "value": 0.007014564270101449
+            "value": 0.007008191469263306
           },
           {
             "major": "家用电器",
             "minor": "白色家电",
-            "value": 0.012275487472677536
+            "value": 0.012264335071210785
           },
           {
             "major": "汽车",
             "minor": "汽车零部件",
-            "value": 0.011301242435163446
+            "value": 0.011290975144924215
           },
           {
             "major": "基础化工",
             "minor": "农化制品",
-            "value": 0.007209413277604266
+            "value": 0.007202863454520619
           },
           {
             "major": "非银金融",
             "minor": "多元金融",
-            "value": 0.0025330370975366347
+            "value": 0.002530735808345083
           },
           {
             "major": "非银金融",
             "minor": "证券Ⅱ",
-            "value": 0.009157903352632446
+            "value": 0.00914958330709376
           },
           {
             "major": "有色金属",
             "minor": "工业金属",
-            "value": 0.028155681584157204
+            "value": 0.02813010186968188
           },
           {
             "major": "有色金属",
             "minor": "贵金属",
-            "value": 0.012372911976428945
+            "value": 0.012361671063839442
           },
           {
             "major": "机械设备",
             "minor": "自动化设备",
-            "value": 0.005358347706327495
+            "value": 0.005353479594576136
           },
           {
             "major": "电力设备",
             "minor": "电网设备",
-            "value": 0.0032150086237964976
+            "value": 0.003212087756745682
           },
           {
             "major": "电子",
             "minor": "半导体",
-            "value": 0.10599786008153299
+            "value": 0.10590155997997883
           },
           {
             "major": "银行",
             "minor": "银行Ⅱ",
-            "value": 0.05387575057452919
+            "value": 0.05382680392364734
           },
           {
             "major": "电子",
             "minor": "元件",
-            "value": 0.05631136316831441
+            "value": 0.05626020373936376
           },
           {
             "major": "计算机",
             "minor": "计算机设备",
-            "value": 0.004384102668813406
+            "value": 0.004380119668289566
           },
           {
             "major": "有色金属",
             "minor": "能源金属",
-            "value": 0.02562264448662057
+            "value": 0.025599366061336795
           },
           {
             "major": "石油石化",
             "minor": "炼化及贸易",
-            "value": 0.004091829157559178
+            "value": 0.004088111690403595
           },
           {
             "major": "传媒",
             "minor": "游戏Ⅱ",
-            "value": 0.010424421901400764
+            "value": 0.010414951211266302
           },
           {
             "major": "基础化工",
             "minor": "化学原料",
-            "value": 0.0065274417513444035
+            "value": 0.00652151150612002
           },
           {
             "major": "医药生物",
             "minor": "化学制药",
-            "value": 0.012665185487683172
+            "value": 0.012653679041725412
           },
           {
             "major": "电力设备",
             "minor": "电池",
-            "value": 0.05650621217581722
+            "value": 0.05645487572462107
           },
           {
             "major": "公用事业",
             "minor": "电力",
-            "value": 0.011008968923909217
+            "value": 0.010998967167038243
           },
           {
             "major": "计算机",
             "minor": "软件开发",
-            "value": 0.020361721284044485
+            "value": 0.02034322245938932
           },
           {
             "major": "电力设备",
             "minor": "光伏设备",
-            "value": 0.015977618615231077
+            "value": 0.01596310279109975
           },
           {
             "major": "通信",
             "minor": "通信设备",
-            "value": 0.09352752360135265
+            "value": 0.09344255292351074
           },
           {
             "major": "食品饮料",
             "minor": "休闲食品",
-            "value": 0.005845470225084541
+            "value": 0.005840159557719421
           },
           {
             "major": "交通运输",
             "minor": "航运港口",
-            "value": 0.012567760983931761
+            "value": 0.012556343049096755
           },
           {
             "major": "建筑材料",
             "minor": "玻璃玻纤",
-            "value": 0.008670780833875402
+            "value": 0.008662903343950474
           },
           {
             "major": "交通运输",
             "minor": "物流",
-            "value": 0.005260923202576087
+            "value": 0.005256143601947479
           },
           {
             "major": "食品饮料",
             "minor": "白酒Ⅱ",
-            "value": 0.018413231209016303
+            "value": 0.018396502606816176
           },
           {
             "major": "国防军工",
             "minor": "航空装备Ⅱ",
-            "value": 0.0029227351125422703
+            "value": 0.0029200797788597106
           },
           {
             "major": "基础化工",
             "minor": "专业工程",
-            "value": 0.0035072821350507245
+            "value": 0.0035040957346316524
           },
           {
             "major": "电子",
             "minor": "消费电子",
-            "value": 0.006430017247592995
+            "value": 0.006424175513491364
           },
           {
             "major": "非银金融",
             "minor": "保险Ⅱ",
-            "value": 0.005358347706327495
+            "value": 0.005353479594576136
           },
           {
             "major": "医药生物",
             "minor": "医疗服务",
-            "value": 0.016269892126485302
+            "value": 0.016255110768985722
           },
           {
             "major": "电力设备",
             "minor": "风电设备",
-            "value": 0.0028253106087908608
+            "value": 0.0028227437862310533
           },
           {
             "major": "纺织服饰",
             "minor": "饰品",
-            "value": 0.0032150086237964976
+            "value": 0.003212087756745682
           },
           {
             "major": "国防军工",
             "minor": "军工电子Ⅱ",
-            "value": 0.004773800683819041
+            "value": 0.004769463638804194
           },
           {
             "major": "医药生物",
             "minor": "生物制品",
-            "value": 0.0033124331275479063
+            "value": 0.0033094237493743388
           }
         ],
         "bondTypes": {},
@@ -4191,7 +4191,7 @@
       "assetCompositionSource": {
         "fundCode": "013291",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:00+08:00",
+        "capturedAt": "2026-10-22T03:39:56+08:00",
         "announcementResponseSha256": "c392bb9beb575acbf088e837b33ef564c2c0dc9df5c1a74fbf9a83a20bd7ca7e",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_013291_c392bb9beb575acbf088e837b33ef564c2c0dc9df5c1a74fbf9a83a20bd7ca7e.json",
         "announcement": {
@@ -4205,7 +4205,7 @@
           "ID": "AN202608311828785954"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828785954_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 5809181851.13,
         "amounts": {
@@ -4316,47 +4316,47 @@
       },
       "businessLookthrough": {
         "assets": {
-          "股票": 0.9096949669898875,
-          "现金及货币工具": 0.06328135890538145,
-          "其他资产": 0.0012687116188212012
+          "股票": 0.908868500138226,
+          "现金及货币工具": 0.06322386716654459,
+          "其他资产": 0.0012675589817996477
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.06328135890538145
+              "value": 0.06322386716654459
             }
           ],
           "股票": [
             {
               "name": "科技（TMT）",
-              "value": 0.3553868804568045
+              "value": 0.3550640079700139
             },
             {
               "name": "先进制造",
-              "value": 0.15582375225649608
+              "value": 0.15568218484036797
             },
             {
               "name": "医药医疗",
-              "value": 0.04755121293382329
+              "value": 0.047508012187779655
             },
             {
               "name": "消费",
-              "value": 0.06581822864359496
+              "value": 0.06575843213357468
             },
             {
               "name": "金融地产",
-              "value": 0.10915673681621378
+              "value": 0.10905756684398381
             },
             {
               "name": "周期",
-              "value": 0.1759581558829548
+              "value": 0.17579829616250592
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.0012687116188212012
+              "value": 0.0012675589817996477
             }
           ]
         },
@@ -4364,141 +4364,141 @@
           "科技（TMT）": [
             {
               "name": "通信",
-              "value": 0.09992990478471214
+              "value": 0.0998391174804056
             },
             {
               "name": "电子",
-              "value": 0.20656144795897505
+              "value": 0.2063737848457733
             },
             {
               "name": "计算机",
-              "value": 0.034642702082435035
+              "value": 0.034611228845842494
             },
             {
               "name": "传媒",
-              "value": 0.01425282563068229
+              "value": 0.014239876797992528
             }
           ],
           "先进制造": [
             {
               "name": "电力设备",
-              "value": 0.1056289118027243
+              "value": 0.1055329468943211
             },
             {
               "name": "机械设备（除工程机械Ⅱ）",
-              "value": 0.013395308505810301
+              "value": 0.013383138735887902
             },
             {
               "name": "汽车",
-              "value": 0.020716517638183572
+              "value": 0.020697696477540602
             },
             {
               "name": "国防军工",
-              "value": 0.01495748567679026
+              "value": 0.01494389665349713
             },
             {
               "name": "环保",
-              "value": 0.0011255286329876612
+              "value": 0.001124506079121239
             }
           ],
           "医药医疗": [
             {
               "name": "医药生物",
-              "value": 0.04755121293382329
+              "value": 0.047508012187779655
             }
           ],
           "消费": [
             {
               "name": "食品饮料",
-              "value": 0.029588649216122392
+              "value": 0.029561767636417186
             },
             {
               "name": "家用电器",
-              "value": 0.014189676938565404
+              "value": 0.014176785477085393
             },
             {
               "name": "商贸零售",
-              "value": 0.010990272496167137
+              "value": 0.010980287725185207
             },
             {
               "name": "农林牧渔",
-              "value": 0.001456778466324518
+              "value": 0.001455454968716726
             },
             {
               "name": "纺织服饰",
-              "value": 0.006929993256307424
+              "value": 0.006923697289069606
             },
             {
               "name": "美容护理",
-              "value": 0.00112953866874695
+              "value": 0.0011285124717234816
             },
             {
               "name": "轻工制造（除造纸Ⅱ）",
-              "value": 0.0013121824602014638
+              "value": 0.0013109903294916759
             },
             {
               "name": "社会服务",
-              "value": 0.0002211371411596745
+              "value": 0.00022093623588541052
             }
           ],
           "金融地产": [
             {
               "name": "银行",
-              "value": 0.07368406465620476
+              "value": 0.07361712195657047
             },
             {
               "name": "非银金融",
-              "value": 0.030257138365190086
+              "value": 0.0302296494564983
             },
             {
               "name": "房地产",
-              "value": 0.005215533794818928
+              "value": 0.005210795430915035
             }
           ],
           "周期": [
             {
               "name": "有色金属",
-              "value": 0.07562122841266196
+              "value": 0.07555252578064478
             },
             {
               "name": "建筑材料",
-              "value": 0.010506684731908965
+              "value": 0.01049713930518146
             },
             {
               "name": "交通运输",
-              "value": 0.024386326281970055
+              "value": 0.0243641710639715
             },
             {
               "name": "公用事业",
-              "value": 0.020668372183716
+              "value": 0.02064959476369337
             },
             {
               "name": "基础化工",
-              "value": 0.02133486652243856
+              "value": 0.021315483585734225
             },
             {
               "name": "石油石化",
-              "value": 0.009503950696370939
+              "value": 0.009495316263406705
             },
             {
               "name": "建筑装饰",
-              "value": 0.008373242468730106
+              "value": 0.008365635295345134
             },
             {
               "name": "工程机械Ⅱ",
-              "value": 0.0021794341131823602
+              "value": 0.002177454075790392
             },
             {
               "name": "钢铁",
-              "value": 0.002136815742227322
+              "value": 0.002134874424045797
             },
             {
               "name": "煤炭",
-              "value": 0.0012469657231026403
+              "value": 0.0012458328424418707
             },
             {
               "name": "造纸Ⅱ",
-              "value": 2.6900664587894995e-07
+              "value": 2.687622506874153e-07
             }
           ]
         },
@@ -4518,11 +4518,11 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\da8262e7667669c6ae09450cb2b3465f5d332950d9df283bca4b64678bf6e4a2.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828785954.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:00+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:56+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
-        "stockDetailGapContribution": 9e-40,
+        "stockDetailGapContribution": 0.0,
         "productDefinition": null,
         "fundTypeBasis": "source_product_dictionary",
         "supplementalTags": {
@@ -4553,8 +4553,8 @@
       },
       "fullStockCsv": "013291_2026-06-30_complete_stock.csv",
       "baseWeight": 1.0,
-      "weightChange": -0.025754962485909916,
-      "weightDate": "2026-10-16",
+      "weightChange": -0.0266400737134298,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -4579,7 +4579,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "014673",
       "fundName": "富国中证港股通互联网ETF发起式联接A",
-      "weight": 0.9074562793952037,
+      "weight": 0.8997075544271371,
       "fundClassMajor": "权益类",
       "fundClassMinor": "指数型-股票",
       "fundClassSource": "天天基金_fundcode_search",
@@ -4617,16 +4617,16 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 0.06089031634741817
+          "利率债/政策性金融债": 0.0603703769020609
         },
         "stockRows": 0
       },
-      "rawNavUnexplainedContribution": 0.8067286323823362,
+      "rawNavUnexplainedContribution": 0.799840015885725,
       "assetBasis": "fund_total_assets",
       "assetCompositionSource": {
         "fundCode": "014673",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:03+08:00",
+        "capturedAt": "2026-10-22T03:39:59+08:00",
         "announcementResponseSha256": "40dbcc4673c9f9d9579889b20f7bcf5a1038149f74618e57b86cb93a04f1f6cf",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_014673_40dbcc4673c9f9d9579889b20f7bcf5a1038149f74618e57b86cb93a04f1f6cf.json",
         "announcement": {
@@ -4640,7 +4640,7 @@
           "ID": "AN202608311828787171"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828787171_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 4904772335.18,
         "amounts": {
@@ -4751,34 +4751,34 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 0.05521001015115489,
-          "现金及货币工具": 0.0361100214417734,
-          "基金投资": 0.8115646397752152,
-          "其他资产": 0.004571608027060234
+          "固定收益": 0.05473857456372296,
+          "现金及货币工具": 0.035801679727581096,
+          "基金投资": 0.8046347288470354,
+          "其他资产": 0.004532571288797642
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.0361100214417734
+              "value": 0.035801679727581096
             }
           ],
           "固定收益": [
             {
               "name": "国家债券",
-              "value": 0.05521001015115489
+              "value": 0.05473857456372296
             }
           ],
           "基金投资": [
             {
               "name": "基金投资未细分",
-              "value": 0.8115646397752152
+              "value": 0.8046347288470354
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.004571608027060234
+              "value": 0.004532571288797642
             }
           ]
         },
@@ -4799,7 +4799,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\cf96638e6633c6cd07e4b0c760db3922d3fb4a3295e40533d95ba08688cce9f6.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828787171.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:03+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:59+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -4834,8 +4834,8 @@
       },
       "bondVarietiesCsv": "014673_2026-06-30_bond_varieties.csv",
       "baseWeight": 0.9,
-      "weightChange": 0.007456279395203658,
-      "weightDate": "2026-10-16",
+      "weightChange": -0.0002924455728628983,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -4860,7 +4860,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "018966",
       "fundName": "汇添富纳斯达克100ETF发起式联接(QDII)人民币A",
-      "weight": 0.6987374752474107,
+      "weight": 0.704641863891029,
       "fundClassMajor": "海外/QDII",
       "fundClassMinor": "指数型-海外股票",
       "fundClassSource": "天天基金_fundcode_search",
@@ -4883,7 +4883,7 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 0.004362742535368233
+          "利率债/政策性金融债": 0.004399608065547128
         },
         "stockRows": 0
       },
@@ -4900,16 +4900,16 @@
         "stockMajor": {},
         "stockMinor": [],
         "bondTypes": {
-          "利率债/政策性金融债": 0.004471919841583429
+          "利率债/政策性金融债": 0.004509707928902586
         },
         "stockRows": 0
       },
-      "rawNavUnexplainedContribution": 0.6249507978612842,
+      "rawNavUnexplainedContribution": 0.6302316830641363,
       "assetBasis": "fund_total_assets",
       "assetCompositionSource": {
         "fundCode": "018966",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:14+08:00",
+        "capturedAt": "2026-10-22T03:40:11+08:00",
         "announcementResponseSha256": "8efa77fddc9ab38ff436c335980dab70794c3266f7734d4b9af4a946bf099411",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_018966_8efa77fddc9ab38ff436c335980dab70794c3266f7734d4b9af4a946bf099411.json",
         "announcement": {
@@ -4923,7 +4923,7 @@
           "ID": "AN202608311828775674"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608311828775674_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 3207291367.23,
         "amounts": {
@@ -5034,34 +5034,34 @@
       },
       "businessLookthrough": {
         "assets": {
-          "固定收益": 0.004381764221085957,
-          "现金及货币工具": 0.06764950985741373,
-          "基金投资": 0.6163017589659332,
-          "其他资产": 0.01040444220297778
+          "固定收益": 0.004418790486060269,
+          "现金及货币工具": 0.06822115373211364,
+          "基金投资": 0.6215095590848434,
+          "其他资产": 0.010492360588011722
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.06764950985741373
+              "value": 0.06822115373211364
             }
           ],
           "固定收益": [
             {
               "name": "固定收益未细分",
-              "value": 0.004381764221085957
+              "value": 0.004418790486060269
             }
           ],
           "基金投资": [
             {
               "name": "基金投资未细分",
-              "value": 0.6163017589659332
+              "value": 0.6215095590848434
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.01040444220297778
+              "value": 0.010492360588011722
             }
           ]
         },
@@ -5082,7 +5082,7 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\57fffa94783cd72d7bebbb68b9d88ff73823c4b77e5634dfdbc3cba8c5a5a046.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608311828775674.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:14+08:00"
+          "sourceCapturedAt": "2026-10-22T03:40:11+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
@@ -5116,8 +5116,8 @@
         "isWindDirectData": false
       },
       "baseWeight": 0.73,
-      "weightChange": -0.03126252475258928,
-      "weightDate": "2026-10-16",
+      "weightChange": -0.025358136108970974,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -5142,7 +5142,7 @@
       "holdingConfidence": "snapshot_exact",
       "fundCode": "013332",
       "fundName": "富国中证500指数增强(LOF)C",
-      "weight": 0.4972775529279398,
+      "weight": 0.5031086528661781,
       "fundClassMajor": "权益类",
       "fundClassMinor": "指数型-股票",
       "fundClassSource": "天天基金_fundcode_search",
@@ -5163,252 +5163,252 @@
       "unexplainedContribution": 0.0,
       "interactionBreakdown": {
         "stockMajor": {
-          "电子": 0.09206264932408124,
-          "汽车": 0.004988373166165347,
-          "非银金融": 0.004790813832851868,
-          "钢铁": 0.0016298644998362023,
-          "有色金属": 0.014273661831898862,
-          "机械设备": 0.01575535683174996,
-          "计算机": 0.008198712332509382,
-          "环境治理": 0.0036054578329709932,
-          "建筑材料": 0.0066676274993299174,
-          "通信": 0.020299221497959975,
-          "家用电器": 0.003654847666299363,
-          "基础化工": 0.0016792543331645724,
-          "国防军工": 0.011656000665495266,
-          "电力设备": 0.03432593416321699,
-          "传媒": 0.0031115594996872953,
-          "医药生物": 0.012347458332092442,
-          "其他电子Ⅱ": 0.005334101999463935,
-          "食品饮料": 0.005235322332807196,
-          "石油石化": 0.0024694916664184884,
-          "银行": 0.00207437299979153,
-          "交通运输": 0.001481694999851093
+          "电子": 0.09314218027340103,
+          "汽车": 0.005046867064170333,
+          "非银金融": 0.0048469911408368545,
+          "钢铁": 0.001648976367501198,
+          "有色金属": 0.014441035460843825,
+          "机械设备": 0.015940104885844915,
+          "计算机": 0.00829485081833936,
+          "环境治理": 0.003647735600835983,
+          "建筑材料": 0.006745812412504901,
+          "通信": 0.02053725112251492,
+          "家用电器": 0.0036977045816693533,
+          "基础化工": 0.0016989453483345679,
+          "国防军工": 0.011792679476675234,
+          "电力设备": 0.034728441679191896,
+          "传媒": 0.0031480457925022872,
+          "医药生物": 0.01249224520834241,
+          "其他电子Ⅱ": 0.005396649930003921,
+          "食品饮料": 0.005296711968337182,
+          "石油石化": 0.0024984490416684823,
+          "银行": 0.002098697195001525,
+          "交通运输": 0.0014990694250010892
         },
         "stockMinor": [
           {
             "major": "电子",
             "minor": "消费电子",
-            "value": 0.01289074649870451
+            "value": 0.013041903997509477
           },
           {
             "major": "汽车",
             "minor": "汽车零部件",
-            "value": 0.0014323051665227232
+            "value": 0.0014491004441677196
           },
           {
             "major": "非银金融",
             "minor": "多元金融",
-            "value": 0.0016792543331645724
+            "value": 0.0016989453483345679
           },
           {
             "major": "非银金融",
             "minor": "证券Ⅱ",
-            "value": 0.0031115594996872953
+            "value": 0.0031480457925022872
           },
           {
             "major": "钢铁",
             "minor": "普钢",
-            "value": 0.0016298644998362023
+            "value": 0.001648976367501198
           },
           {
             "major": "有色金属",
             "minor": "小金属",
-            "value": 0.001481694999851093
+            "value": 0.0014990694250010892
           },
           {
             "major": "电子",
             "minor": "半导体",
-            "value": 0.05778610499419262
+            "value": 0.058463707575042476
           },
           {
             "major": "电子",
             "minor": "元件",
-            "value": 0.011754780332152005
+            "value": 0.011892617438341975
           },
           {
             "major": "机械设备",
             "minor": "自动化设备",
-            "value": 0.00854444116580797
+            "value": 0.008644633684172946
           },
           {
             "major": "机械设备",
             "minor": "通用设备",
-            "value": 0.003654847666299363
+            "value": 0.0036977045816693533
           },
           {
             "major": "计算机",
             "minor": "IT服务Ⅱ",
-            "value": 0.005087152832822087
+            "value": 0.005146805025837073
           },
           {
             "major": "环境治理",
             "minor": "环境治理",
-            "value": 0.0036054578329709932
+            "value": 0.003647735600835983
           },
           {
             "major": "建筑材料",
             "minor": "装修建材",
-            "value": 0.001975593333134791
+            "value": 0.0019987592333347856
           },
           {
             "major": "电子",
             "minor": "光学光电子",
-            "value": 0.003556067999642623
+            "value": 0.0035977666200026144
           },
           {
             "major": "通信",
             "minor": "通信设备",
-            "value": 0.020299221497959975
+            "value": 0.02053725112251492
           },
           {
             "major": "家用电器",
             "minor": "家电零部件Ⅱ",
-            "value": 0.00217315266644827
+            "value": 0.0021986351566682643
           },
           {
             "major": "基础化工",
             "minor": "化学制品",
-            "value": 0.0016792543331645724
+            "value": 0.0016989453483345679
           },
           {
             "major": "国防军工",
             "minor": "军工电子Ⅱ",
-            "value": 0.010075525998987433
+            "value": 0.010193672090007407
           },
           {
             "major": "家用电器",
             "minor": "黑色家电",
-            "value": 0.001481694999851093
+            "value": 0.0014990694250010892
           },
           {
             "major": "有色金属",
             "minor": "能源金属",
-            "value": 0.008791390332449819
+            "value": 0.008894478588339796
           },
           {
             "major": "电力设备",
             "minor": "风电设备",
-            "value": 0.0024201018330901186
+            "value": 0.0024484800608351124
           },
           {
             "major": "传媒",
             "minor": "游戏Ⅱ",
-            "value": 0.0031115594996872953
+            "value": 0.0031480457925022872
           },
           {
             "major": "电力设备",
             "minor": "电池",
-            "value": 0.020793119831243673
+            "value": 0.021036940930848617
           },
           {
             "major": "医药生物",
             "minor": "医疗服务",
-            "value": 0.002568271333075228
+            "value": 0.0025983870033352216
           },
           {
             "major": "电力设备",
             "minor": "其他电源设备Ⅱ",
-            "value": 0.003753627332956102
+            "value": 0.003797642543336093
           },
           {
             "major": "电子",
             "minor": "电子化学品Ⅱ",
-            "value": 0.006074949499389482
+            "value": 0.006146184642504465
           },
           {
             "major": "国防军工",
             "minor": "航空装备Ⅱ",
-            "value": 0.0015804746665078325
+            "value": 0.0015990073866678286
           },
           {
             "major": "其他电子Ⅱ",
             "minor": "其他电子Ⅱ",
-            "value": 0.005334101999463935
+            "value": 0.005396649930003921
           },
           {
             "major": "医药生物",
             "minor": "医疗器械",
-            "value": 0.004543864666210019
+            "value": 0.004597146236670006
           },
           {
             "major": "电力设备",
             "minor": "光伏设备",
-            "value": 0.0034078984996575136
+            "value": 0.0034478596775025052
           },
           {
             "major": "食品饮料",
             "minor": "休闲食品",
-            "value": 0.0024694916664184884
+            "value": 0.0024984490416684823
           },
           {
             "major": "机械设备",
             "minor": "专用设备",
-            "value": 0.0035560679996426234
+            "value": 0.003597766620002614
           },
           {
             "major": "建筑材料",
             "minor": "玻璃玻纤",
-            "value": 0.0022225424997766394
+            "value": 0.0022486041375016333
           },
           {
             "major": "汽车",
             "minor": "商用车",
-            "value": 0.0035560679996426234
+            "value": 0.0035977666200026144
           },
           {
             "major": "有色金属",
             "minor": "工业金属",
-            "value": 0.0018274238331496815
+            "value": 0.0018488522908346764
           },
           {
             "major": "建筑材料",
             "minor": "水泥",
-            "value": 0.0024694916664184884
+            "value": 0.0024984490416684823
           },
           {
             "major": "电力设备",
             "minor": "电网设备",
-            "value": 0.003951186666269582
+            "value": 0.003997518466669571
           },
           {
             "major": "有色金属",
             "minor": "贵金属",
-            "value": 0.00217315266644827
+            "value": 0.0021986351566682643
           },
           {
             "major": "石油石化",
             "minor": "炼化及贸易",
-            "value": 0.0024694916664184884
+            "value": 0.0024984490416684823
           },
           {
             "major": "银行",
             "minor": "银行Ⅱ",
-            "value": 0.00207437299979153
+            "value": 0.002098697195001525
           },
           {
             "major": "交通运输",
             "minor": "航运港口",
-            "value": 0.001481694999851093
+            "value": 0.0014990694250010892
           },
           {
             "major": "食品饮料",
             "minor": "食品加工",
-            "value": 0.0027658306663887076
+            "value": 0.0027982629266687003
           },
           {
             "major": "医药生物",
             "minor": "化学制药",
-            "value": 0.005235322332807196
+            "value": 0.005296711968337181
           },
           {
             "major": "计算机",
             "minor": "软件开发",
-            "value": 0.0031115594996872953
+            "value": 0.0031480457925022872
           }
         ],
         "bondTypes": {
-          "可转债": 4.938983332836977e-05
+          "可转债": 4.996898083336964e-05
         },
         "stockRows": 100
       },
@@ -5423,252 +5423,252 @@
       },
       "rawNavBreakdown": {
         "stockMajor": {
-          "电子": 0.09269253586576798,
-          "汽车": 0.005022503284572192,
-          "非银金融": 0.004823592263401016,
-          "钢铁": 0.0016410159246622014,
-          "有色金属": 0.01437132127961746,
-          "机械设备": 0.01586315393840128,
-          "计算机": 0.0082548073786038,
-          "环境治理": 0.0036301261363739607,
-          "建筑材料": 0.006713246964527186,
-          "通信": 0.020438107425338328,
-          "家用电器": 0.0036798538916667546,
-          "基础化工": 0.0016907436799549955,
-          "国防军工": 0.01173575024909938,
-          "电力设备": 0.03456078992849182,
-          "传媒": 0.003132848583446021,
-          "医药生物": 0.012431938823198495,
-          "其他电子Ⅱ": 0.00537059757162175,
-          "食品饮料": 0.005271142061036162,
-          "石油石化": 0.002486387764639699,
-          "银行": 0.002088565722297347,
-          "交通运输": 0.0014918326587838194
+          "电子": 0.09377945289425563,
+          "汽车": 0.005081397393948399,
+          "非银金融": 0.004880153932801928,
+          "钢铁": 0.0016602585544583878,
+          "有色金属": 0.014539840067832547,
+          "机械设备": 0.016049166026431083,
+          "计算机": 0.008351603637578557,
+          "环境治理": 0.0036726931659231,
+          "建筑材料": 0.006791966813693404,
+          "通信": 0.02067776563279992,
+          "家用电器": 0.003723004031209718,
+          "基础化工": 0.0017105694197450058,
+          "国防军工": 0.011873364207641804,
+          "电力设备": 0.03496605137419938,
+          "传媒": 0.003169584513056922,
+          "医药生物": 0.012577716321654454,
+          "其他电子Ⅱ": 0.005433573450954724,
+          "食品饮料": 0.005332951720381489,
+          "石油石化": 0.002515543264330891,
+          "银行": 0.002113056342037948,
+          "交通运输": 0.0015093259585985345
         },
         "stockMinor": [
           {
             "major": "电子",
             "minor": "消费电子",
-            "value": 0.012978944131419229
+            "value": 0.01313113583980725
           },
           {
             "major": "汽车",
             "minor": "汽车零部件",
-            "value": 0.0014421049034910253
+            "value": 0.0014590150933119165
           },
           {
             "major": "非银金融",
             "minor": "多元金融",
-            "value": 0.0016907436799549955
+            "value": 0.0017105694197450058
           },
           {
             "major": "非银金融",
             "minor": "证券Ⅱ",
-            "value": 0.003132848583446021
+            "value": 0.003169584513056922
           },
           {
             "major": "钢铁",
             "minor": "普钢",
-            "value": 0.0016410159246622014
+            "value": 0.0016602585544583878
           },
           {
             "major": "有色金属",
             "minor": "小金属",
-            "value": 0.0014918326587838194
+            "value": 0.0015093259585985345
           },
           {
             "major": "电子",
             "minor": "半导体",
-            "value": 0.05818147369256895
+            "value": 0.05886371238534284
           },
           {
             "major": "电子",
             "minor": "元件",
-            "value": 0.011835205759684967
+            "value": 0.01197398593821504
           },
           {
             "major": "机械设备",
             "minor": "自动化设备",
-            "value": 0.008602901665653358
+            "value": 0.008703779694584881
           },
           {
             "major": "机械设备",
             "minor": "通用设备",
-            "value": 0.0036798538916667546
+            "value": 0.003723004031209718
           },
           {
             "major": "计算机",
             "minor": "IT服务Ⅱ",
-            "value": 0.00512195879515778
+            "value": 0.005182019124521635
           },
           {
             "major": "环境治理",
             "minor": "环境治理",
-            "value": 0.0036301261363739607
+            "value": 0.0036726931659231
           },
           {
             "major": "建筑材料",
             "minor": "装修建材",
-            "value": 0.0019891102117117593
+            "value": 0.0020124346114647126
           },
           {
             "major": "电子",
             "minor": "光学光电子",
-            "value": 0.0035803983810811664
+            "value": 0.0036223823006364827
           },
           {
             "major": "通信",
             "minor": "通信设备",
-            "value": 0.020438107425338328
+            "value": 0.02067776563279992
           },
           {
             "major": "家用电器",
             "minor": "家电零部件Ⅱ",
-            "value": 0.0021880212328829352
+            "value": 0.0022136780726111837
           },
           {
             "major": "基础化工",
             "minor": "化学制品",
-            "value": 0.0016907436799549955
+            "value": 0.0017105694197450058
           },
           {
             "major": "国防军工",
             "minor": "军工电子Ⅱ",
-            "value": 0.010144462079729973
+            "value": 0.010263416518470033
           },
           {
             "major": "家用电器",
             "minor": "黑色家电",
-            "value": 0.0014918326587838194
+            "value": 0.0015093259585985345
           },
           {
             "major": "有色金属",
             "minor": "能源金属",
-            "value": 0.008851540442117329
+            "value": 0.008955334021017971
           },
           {
             "major": "电力设备",
             "minor": "风电设备",
-            "value": 0.002436660009346905
+            "value": 0.002465232399044273
           },
           {
             "major": "传媒",
             "minor": "游戏Ⅱ",
-            "value": 0.003132848583446021
+            "value": 0.003169584513056922
           },
           {
             "major": "电力设备",
             "minor": "电池",
-            "value": 0.020935384978266268
+            "value": 0.021180874285666097
           },
           {
             "major": "医药生物",
             "minor": "医疗服务",
-            "value": 0.002585843275225287
+            "value": 0.0026161649949041268
           },
           {
             "major": "电力设备",
             "minor": "其他电源设备Ⅱ",
-            "value": 0.0037793094022523423
+            "value": 0.003823625761782954
           },
           {
             "major": "电子",
             "minor": "电子化学品Ⅱ",
-            "value": 0.00611651390101366
+            "value": 0.00618823643025399
           },
           {
             "major": "国防军工",
             "minor": "航空装备Ⅱ",
-            "value": 0.0015912881693694073
+            "value": 0.00160994768917177
           },
           {
             "major": "其他电子Ⅱ",
             "minor": "其他电子Ⅱ",
-            "value": 0.00537059757162175
+            "value": 0.005433573450954724
           },
           {
             "major": "医药生物",
             "minor": "医疗器械",
-            "value": 0.004574953486937047
+            "value": 0.0046285996063688386
           },
           {
             "major": "电力设备",
             "minor": "光伏设备",
-            "value": 0.0034312151152027844
+            "value": 0.003471449704776629
           },
           {
             "major": "食品饮料",
             "minor": "休闲食品",
-            "value": 0.002486387764639699
+            "value": 0.002515543264330891
           },
           {
             "major": "机械设备",
             "minor": "专用设备",
-            "value": 0.003580398381081167
+            "value": 0.0036223823006364822
           },
           {
             "major": "建筑材料",
             "minor": "玻璃玻纤",
-            "value": 0.002237748988175729
+            "value": 0.0022639889378978013
           },
           {
             "major": "汽车",
             "minor": "商用车",
-            "value": 0.003580398381081167
+            "value": 0.0036223823006364827
           },
           {
             "major": "有色金属",
             "minor": "工业金属",
-            "value": 0.0018399269458333773
+            "value": 0.0018615020156048589
           },
           {
             "major": "建筑材料",
             "minor": "水泥",
-            "value": 0.002486387764639699
+            "value": 0.002515543264330891
           },
           {
             "major": "电力设备",
             "minor": "电网设备",
-            "value": 0.003978220423423519
+            "value": 0.004024869222929425
           },
           {
             "major": "有色金属",
             "minor": "贵金属",
-            "value": 0.0021880212328829352
+            "value": 0.0022136780726111837
           },
           {
             "major": "石油石化",
             "minor": "炼化及贸易",
-            "value": 0.002486387764639699
+            "value": 0.002515543264330891
           },
           {
             "major": "银行",
             "minor": "银行Ⅱ",
-            "value": 0.002088565722297347
+            "value": 0.002113056342037948
           },
           {
             "major": "交通运输",
             "minor": "航运港口",
-            "value": 0.0014918326587838194
+            "value": 0.0015093259585985345
           },
           {
             "major": "食品饮料",
             "minor": "食品加工",
-            "value": 0.0027847542963964633
+            "value": 0.002817408456050598
           },
           {
             "major": "医药生物",
             "minor": "化学制药",
-            "value": 0.005271142061036162
+            "value": 0.005332951720381488
           },
           {
             "major": "计算机",
             "minor": "软件开发",
-            "value": 0.003132848583446021
+            "value": 0.003169584513056922
           }
         ],
         "bondTypes": {
-          "可转债": 4.972775529279398e-05
+          "可转债": 5.031086528661781e-05
         },
         "stockRows": 100
       },
@@ -5677,7 +5677,7 @@
       "assetCompositionSource": {
         "fundCode": "013332",
         "reportDate": "2026-06-30",
-        "capturedAt": "2026-10-20T04:58:01+08:00",
+        "capturedAt": "2026-10-22T03:39:57+08:00",
         "announcementResponseSha256": "5c8a9ce00992335de1d016b1e8a3469687475d0c9d47484b9c44bbded8a76f76",
         "rawAnnouncementPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\JJGG_013332_5c8a9ce00992335de1d016b1e8a3469687475d0c9d47484b9c44bbded8a76f76.json",
         "announcement": {
@@ -5691,7 +5691,7 @@
           "ID": "AN202608301828737208"
         },
         "sourceUrl": "https://pdf.dfcfw.com/pdf/H2_AN202608301828737208_1.pdf",
-        "announcementCheckedAsOf": "2026-10-20",
+        "announcementCheckedAsOf": "2026-10-22",
         "basis": "fund_total_assets",
         "totalAssets": 4127954054.39,
         "amounts": {
@@ -5802,54 +5802,54 @@
       },
       "businessLookthrough": {
         "assets": {
-          "股票": 0.46662018202671546,
-          "固定收益": 5.842825351319993e-05,
-          "现金及货币工具": 0.029880210643037416,
-          "其他资产": 0.0007187320046737085
+          "股票": 0.47209179219406805,
+          "固定收益": 5.911338595773954e-05,
+          "现金及货币工具": 0.030230587396239485,
+          "其他资产": 0.0007271598899128198
         },
         "assetChildren": {
           "现金及货币工具": [
             {
               "name": "存款与结算备付金",
-              "value": 0.029880210643037416
+              "value": 0.030230587396239485
             }
           ],
           "股票": [
             {
               "name": "科技（TMT）",
-              "value": 0.18851796361652737
+              "value": 0.19072853411086946
             },
             {
               "name": "先进制造",
-              "value": 0.1277798184017976
+              "value": 0.12927817055303334
             },
             {
               "name": "周期",
-              "value": 0.08442677990306695
+              "value": 0.08541677228896853
             },
             {
               "name": "消费",
-              "value": 0.020235391612276134
+              "value": 0.02047267276459404
             },
             {
               "name": "医药医疗",
-              "value": 0.027059589270821412
+              "value": 0.02737689128535394
             },
             {
               "name": "金融地产",
-              "value": 0.018600639222226018
+              "value": 0.018818751191248744
             }
           ],
           "固定收益": [
             {
               "name": "可转债（可交换债）",
-              "value": 5.842825351319993e-05
+              "value": 5.911338595773954e-05
             }
           ],
           "其他资产": [
             {
               "name": "其他资产未细分",
-              "value": 0.0007187320046737085
+              "value": 0.0007271598899128198
             }
           ]
         },
@@ -5857,141 +5857,141 @@
           "科技（TMT）": [
             {
               "name": "电子",
-              "value": 0.13527553575809131
+              "value": 0.13686178304305266
             },
             {
               "name": "通信",
-              "value": 0.02746577233640141
+              "value": 0.027787837272635653
             },
             {
               "name": "计算机",
-              "value": 0.01692123222516021
+              "value": 0.017119651388868864
             },
             {
               "name": "传媒",
-              "value": 0.008855423296874419
+              "value": 0.008959262406312285
             }
           ],
           "先进制造": [
             {
               "name": "国防军工",
-              "value": 0.02406797686190845
+              "value": 0.024350199088845226
             },
             {
               "name": "机械设备（除工程机械Ⅱ）",
-              "value": 0.026035071693873372
+              "value": 0.02634036016718633
             },
             {
               "name": "电力设备",
-              "value": 0.058462661584121514
+              "value": 0.05914819749931658
             },
             {
               "name": "环保",
-              "value": 0.0061873696710052035
+              "value": 0.006259923058331907
             },
             {
               "name": "汽车",
-              "value": 0.013026738590889061
+              "value": 0.013179490739353296
             }
           ],
           "周期": [
             {
               "name": "有色金属",
-              "value": 0.026720908394581595
+              "value": 0.027034239021254573
             },
             {
               "name": "石油石化",
-              "value": 0.005761822461014331
+              "value": 0.005829385861772598
             },
             {
               "name": "建筑材料",
-              "value": 0.009938036972831335
+              "value": 0.010054570861073992
             },
             {
               "name": "基础化工",
-              "value": 0.016878786809104023
+              "value": 0.017076708255870727
             },
             {
               "name": "钢铁",
-              "value": 0.004645586950259713
+              "value": 0.004700061320999438
             },
             {
               "name": "公用事业",
-              "value": 0.006801073208320226
+              "value": 0.00688082291214556
             },
             {
               "name": "煤炭",
-              "value": 0.003050653234960076
+              "value": 0.003086425338054663
             },
             {
               "name": "交通运输",
-              "value": 0.007231114808167183
+              "value": 0.007315907199987467
             },
             {
               "name": "建筑装饰",
-              "value": 0.0019015375856876275
+              "value": 0.0019238351047153317
             },
             {
               "name": "工程机械Ⅱ",
-              "value": 0.0012060730025360326
+              "value": 0.001220215471202053
             },
             {
               "name": "造纸Ⅱ",
-              "value": 0.0002911864756048025
+              "value": 0.0002946009418921256
             }
           ],
           "消费": [
             {
               "name": "食品饮料",
-              "value": 0.004154818720242081
+              "value": 0.0042035383196696975
             },
             {
               "name": "商贸零售",
-              "value": 0.003848290154270518
+              "value": 0.003893415385338693
             },
             {
               "name": "家用电器",
-              "value": 0.0022142840333844826
+              "value": 0.0022402488319447373
             },
             {
               "name": "纺织服饰",
-              "value": 0.0038984099566308325
+              "value": 0.003944122894855156
             },
             {
               "name": "农林牧渔",
-              "value": 0.003152884451219414
+              "value": 0.003189855322356729
             },
             {
               "name": "社会服务",
-              "value": 0.0019073663144849053
+              "value": 0.0019297321814602088
             },
             {
               "name": "美容护理",
-              "value": 0.0008358773358377051
+              "value": 0.0008456788727312965
             },
             {
               "name": "轻工制造（除造纸Ⅱ）",
-              "value": 0.0002234606462061961
+              "value": 0.00022608095623752471
             }
           ],
           "医药医疗": [
             {
               "name": "医药生物",
-              "value": 0.027059589270821412
+              "value": 0.02737689128535394
             }
           ],
           "金融地产": [
             {
               "name": "银行",
-              "value": 0.0036700811451081143
+              "value": 0.003713116688965994
             },
             {
               "name": "非银金融",
-              "value": 0.012600170849510189
+              "value": 0.012747921044607004
             },
             {
               "name": "房地产",
-              "value": 0.002330387227607717
+              "value": 0.002357713457675745
             }
           ]
         },
@@ -6011,11 +6011,11 @@
           "rawTextPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\derived_text\\732d952a943d77a7\\324cda2b2fdc3f2d93d35b422238cb2b640328f456843d99b7fa21e8165a2df3.txt.gz",
           "rawPdfPath": "E:\\天眼系统\\采集数据\\raw\\official_fund_asset_reports\\AN202608301828737208.pdf",
           "parserFingerprint": "41f11e657223b75f5e562f8d53a073d5282066a3503dff459f1774b335becbdd",
-          "sourceCapturedAt": "2026-10-20T04:58:01+08:00"
+          "sourceCapturedAt": "2026-10-22T03:39:57+08:00"
         },
         "reportPeriod": "2026-06-30",
         "foreignSectorEvidence": null,
-        "stockDetailGapContribution": 9e-40,
+        "stockDetailGapContribution": 0.0,
         "productDefinition": null,
         "fundTypeBasis": "source_product_dictionary",
         "supplementalTags": {
@@ -6047,8 +6047,8 @@
       "fullStockCsv": "013332_2026-06-30_complete_stock.csv",
       "bondVarietiesCsv": "013332_2026-06-30_bond_varieties.csv",
       "baseWeight": 0.52,
-      "weightChange": -0.022722447072060226,
-      "weightDate": "2026-10-16",
+      "weightChange": -0.0168913471338219,
+      "weightDate": "2026-10-20",
       "weightBasis": "nav_drift",
       "allocationBasis": "latest_observed_current",
       "allocationLabel": "最新库内披露仓位",
@@ -6071,54 +6071,54 @@
   "assetBasis": "strategy_weighted_fund_total_assets",
   "rawNavExposure": {
     "metrics": {
-      "股票": 1.394044,
-      "债券": 77.669758,
-      "现金": 1.472192,
+      "股票": 1.398706,
+      "债券": 77.695903,
+      "现金": 1.473615,
       "基金": null,
       "商品": null,
       "存托凭证": null,
       "其他": null
     },
-    "unexplained": 26.656195767570317,
-    "grossExcess": 7.192189783529905,
+    "unexplained": 26.63174389024605,
+    "grossExcess": 7.199967842846216,
     "stockIndustryMajor": {
-      "银行": 0.05657639887036546,
+      "银行": 0.05655078145974664,
       "普钢": 0.0,
-      "石油石化": 0.006578216922198878,
-      "非银金融": 0.022280935468923554,
-      "机械设备": 0.021221501644728774,
-      "通信": 0.11416965855120395,
-      "汽车": 0.016323745719735636,
-      "电力设备": 0.11308493995212748,
-      "基础化工": 0.018934880843954394,
-      "有色金属": 0.08072658685133716,
-      "国防军工": 0.019432286045460687,
-      "建筑材料": 0.015384027798402589,
-      "电子": 0.2698745333049007,
-      "医药生物": 0.045087504613940836,
-      "食品饮料": 0.029937898544162962,
+      "石油石化": 0.0066036549547344855,
+      "非银金融": 0.022321233438857807,
+      "机械设备": 0.021402645621007216,
+      "通信": 0.11432395895433113,
+      "汽车": 0.016372372538872616,
+      "电力设备": 0.11341886143289694,
+      "基础化工": 0.018939040115017295,
+      "有色金属": 0.08083461946071113,
+      "国防军工": 0.019562907625305707,
+      "建筑材料": 0.015454870157643878,
+      "电子": 0.27079906638249607,
+      "医药生物": 0.04520321067778084,
+      "食品饮料": 0.029976894680957992,
       "工程咨询服务Ⅱ": 0.0,
       "综合Ⅱ": 0.0,
-      "家用电器": 0.01595534136434429,
-      "公用事业": 0.011212996448422198,
+      "家用电器": 0.015987339102420506,
+      "公用事业": 0.011202607565058696,
       "油气开采Ⅱ": 0.0,
-      "交通运输": 0.019320516845291666,
+      "交通运输": 0.019321812609642768,
       "煤炭": 0.0,
       "基础建设": 0.0,
       "房屋建设Ⅱ": 0.0,
       "商贸零售": 0.0,
-      "计算机": 0.033000631331461694,
-      "传媒": 0.013557270484846786,
-      "纺织服饰": 0.0032150086237964976,
-      "钢铁": 0.0016410159246622014,
-      "环境治理": 0.0036301261363739607,
-      "其他电子Ⅱ": 0.00537059757162175
+      "计算机": 0.033074945765257435,
+      "传媒": 0.013584535724323225,
+      "纺织服饰": 0.003212087756745682,
+      "钢铁": 0.0016602585544583878,
+      "环境治理": 0.0036726931659231,
+      "其他电子Ⅱ": 0.005433573450954724
     },
     "stockIndustryMinor": [
       {
         "major": "银行",
         "minor": "银行Ⅱ",
-        "value": 0.05657639887036546
+        "value": 0.05655078145974664
       },
       {
         "major": "普钢",
@@ -6128,12 +6128,12 @@
       {
         "major": "石油石化",
         "minor": "炼化及贸易",
-        "value": 0.006578216922198878
+        "value": 0.0066036549547344855
       },
       {
         "major": "非银金融",
         "minor": "证券Ⅱ",
-        "value": 0.012494779460591446
+        "value": 0.012522808218171134
       },
       {
         "major": "机械设备",
@@ -6148,17 +6148,17 @@
       {
         "major": "汽车",
         "minor": "商用车",
-        "value": 0.003580398381081167
+        "value": 0.0036223823006364827
       },
       {
         "major": "电力设备",
         "minor": "电网设备",
-        "value": 0.007193229047220017
+        "value": 0.007236956979675108
       },
       {
         "major": "基础化工",
         "minor": "农化制品",
-        "value": 0.007209413277604266
+        "value": 0.007202863454520619
       },
       {
         "major": "汽车",
@@ -6168,7 +6168,7 @@
       {
         "major": "有色金属",
         "minor": "小金属",
-        "value": 0.0014918326587838194
+        "value": 0.0015093259585985345
       },
       {
         "major": "国防军工",
@@ -6183,62 +6183,62 @@
       {
         "major": "基础化工",
         "minor": "化学制品",
-        "value": 0.0016907436799549955
+        "value": 0.0017105694197450058
       },
       {
         "major": "建筑材料",
         "minor": "玻璃玻纤",
-        "value": 0.010908529822051132
+        "value": 0.010926892281848274
       },
       {
         "major": "电子",
         "minor": "元件",
-        "value": 0.06835059645251236
+        "value": 0.06843783007559925
       },
       {
         "major": "医药生物",
         "minor": "化学制药",
-        "value": 0.018140355073232313
+        "value": 0.018190271160127353
       },
       {
         "major": "电子",
         "minor": "半导体",
-        "value": 0.1654034989211798
+        "value": 0.16598711475344446
       },
       {
         "major": "电力设备",
         "minor": "其他电源设备Ⅱ",
-        "value": 0.0037793094022523423
+        "value": 0.003823625761782954
       },
       {
         "major": "通信",
         "minor": "通信设备",
-        "value": 0.11416965855120395
+        "value": 0.11432395895433113
       },
       {
         "major": "有色金属",
         "minor": "贵金属",
-        "value": 0.01456093320931188
+        "value": 0.014575349136450626
       },
       {
         "major": "有色金属",
         "minor": "工业金属",
-        "value": 0.030199636054503556
+        "value": 0.03019524428330719
       },
       {
         "major": "食品饮料",
         "minor": "白酒Ⅱ",
-        "value": 0.01882128625804226
+        "value": 0.01880378340285708
       },
       {
         "major": "建筑材料",
         "minor": "水泥",
-        "value": 0.002486387764639699
+        "value": 0.002515543264330891
       },
       {
         "major": "汽车",
         "minor": "汽车零部件",
-        "value": 0.012743347338654471
+        "value": 0.012749990238236131
       },
       {
         "major": "工程咨询服务Ⅱ",
@@ -6253,17 +6253,17 @@
       {
         "major": "家用电器",
         "minor": "白色家电",
-        "value": 0.012275487472677536
+        "value": 0.012264335071210785
       },
       {
         "major": "国防军工",
         "minor": "航空装备Ⅱ",
-        "value": 0.004514023281911678
+        "value": 0.004530027468031481
       },
       {
         "major": "公用事业",
         "minor": "电力",
-        "value": 0.011212996448422198
+        "value": 0.011202607565058696
       },
       {
         "major": "食品饮料",
@@ -6278,7 +6278,7 @@
       {
         "major": "基础化工",
         "minor": "化学原料",
-        "value": 0.0065274417513444035
+        "value": 0.00652151150612002
       },
       {
         "major": "交通运输",
@@ -6288,7 +6288,7 @@
       {
         "major": "电力设备",
         "minor": "光伏设备",
-        "value": 0.01940883373043386
+        "value": 0.019434552495876382
       },
       {
         "major": "煤炭",
@@ -6298,7 +6298,7 @@
       {
         "major": "非银金融",
         "minor": "保险Ⅱ",
-        "value": 0.005562375230840474
+        "value": 0.005557119992596588
       },
       {
         "major": "基础建设",
@@ -6318,7 +6318,7 @@
       {
         "major": "交通运输",
         "minor": "航运港口",
-        "value": 0.01405959364271558
+        "value": 0.01406566900769529
       },
       {
         "major": "商贸零售",
@@ -6328,17 +6328,17 @@
       {
         "major": "计算机",
         "minor": "计算机设备",
-        "value": 0.004384102668813406
+        "value": 0.004380119668289566
       },
       {
         "major": "医药生物",
         "minor": "生物制品",
-        "value": 0.0033124331275479063
+        "value": 0.0033094237493743388
       },
       {
         "major": "医药生物",
         "minor": "医疗服务",
-        "value": 0.01905976292622357
+        "value": 0.019074916161910302
       },
       {
         "major": "食品饮料",
@@ -6348,7 +6348,7 @@
       {
         "major": "有色金属",
         "minor": "能源金属",
-        "value": 0.0344741849287379
+        "value": 0.03455470008235476
       },
       {
         "major": "基础化工",
@@ -6358,242 +6358,242 @@
       {
         "major": "电子",
         "minor": "光学光电子",
-        "value": 0.010594962651182616
+        "value": 0.010630573769899789
       },
       {
         "major": "非银金融",
         "minor": "多元金融",
-        "value": 0.00422378077749163
+        "value": 0.004241305228090088
       },
       {
         "major": "机械设备",
         "minor": "自动化设备",
-        "value": 0.013961249371980854
+        "value": 0.014057259289161017
       },
       {
         "major": "传媒",
         "minor": "游戏Ⅱ",
-        "value": 0.013557270484846786
+        "value": 0.013584535724323225
       },
       {
         "major": "电力设备",
         "minor": "电池",
-        "value": 0.07744159715408348
+        "value": 0.07763575001028716
       },
       {
         "major": "计算机",
         "minor": "软件开发",
-        "value": 0.023494569867490506
+        "value": 0.02351280697244624
       },
       {
         "major": "食品饮料",
         "minor": "休闲食品",
-        "value": 0.00833185798972424
+        "value": 0.008355702822050313
       },
       {
         "major": "交通运输",
         "minor": "物流",
-        "value": 0.005260923202576087
+        "value": 0.005256143601947479
       },
       {
         "major": "基础化工",
         "minor": "专业工程",
-        "value": 0.0035072821350507245
+        "value": 0.0035040957346316524
       },
       {
         "major": "电子",
         "minor": "消费电子",
-        "value": 0.019408961379012223
+        "value": 0.01955531135329861
       },
       {
         "major": "电力设备",
         "minor": "风电设备",
-        "value": 0.005261970618137766
+        "value": 0.005287976185275326
       },
       {
         "major": "纺织服饰",
         "minor": "饰品",
-        "value": 0.0032150086237964976
+        "value": 0.003212087756745682
       },
       {
         "major": "国防军工",
         "minor": "军工电子Ⅱ",
-        "value": 0.014918262763549014
+        "value": 0.015032880157274229
       },
       {
         "major": "钢铁",
         "minor": "普钢",
-        "value": 0.0016410159246622014
+        "value": 0.0016602585544583878
       },
       {
         "major": "机械设备",
         "minor": "通用设备",
-        "value": 0.0036798538916667546
+        "value": 0.003723004031209718
       },
       {
         "major": "计算机",
         "minor": "IT服务Ⅱ",
-        "value": 0.00512195879515778
+        "value": 0.005182019124521635
       },
       {
         "major": "环境治理",
         "minor": "环境治理",
-        "value": 0.0036301261363739607
+        "value": 0.0036726931659231
       },
       {
         "major": "建筑材料",
         "minor": "装修建材",
-        "value": 0.0019891102117117593
+        "value": 0.0020124346114647126
       },
       {
         "major": "家用电器",
         "minor": "家电零部件Ⅱ",
-        "value": 0.0021880212328829352
+        "value": 0.0022136780726111837
       },
       {
         "major": "家用电器",
         "minor": "黑色家电",
-        "value": 0.0014918326587838194
+        "value": 0.0015093259585985345
       },
       {
         "major": "电子",
         "minor": "电子化学品Ⅱ",
-        "value": 0.00611651390101366
+        "value": 0.00618823643025399
       },
       {
         "major": "其他电子Ⅱ",
         "minor": "其他电子Ⅱ",
-        "value": 0.00537059757162175
+        "value": 0.005433573450954724
       },
       {
         "major": "医药生物",
         "minor": "医疗器械",
-        "value": 0.004574953486937047
+        "value": 0.0046285996063688386
       },
       {
         "major": "机械设备",
         "minor": "专用设备",
-        "value": 0.003580398381081167
+        "value": 0.0036223823006364822
       },
       {
         "major": "食品饮料",
         "minor": "食品加工",
-        "value": 0.0027847542963964633
+        "value": 0.002817408456050598
       }
     ],
-    "stockSampleContribution": 0.9365166198622646,
+    "stockSampleContribution": 0.9389139711951453,
     "bondTypeMajor": {
-      "利率债/政策性金融债": 44.53000907903915,
-      "金融债": 0.18280677199619505,
-      "可转债": 4.972775529279398e-05
+      "利率债/政策性金融债": 44.5526679337296,
+      "金融债": 0.18264220848742863,
+      "可转债": 5.031086528661781e-05
     },
-    "bondSampleContribution": 44.712865578790634
+    "bondSampleContribution": 44.73536045308231
   },
   "compositionCoverageWeight": 100.00000000000001,
   "businessLookthrough": {
     "version": 2,
     "assetBasis": "fund_total_assets_with_explicit_index_proxy",
-    "equityDenominator": 1.3835163563717234,
+    "equityDenominator": 1.3881478359518375,
     "assetGroups": [
       {
         "name": "固定收益",
-        "value": 84.97554415557498,
+        "value": 85.01640040372037,
         "children": [
           {
             "name": "国家债券",
-            "value": 2.6962075686840126
+            "value": 2.6951320782616657
           },
           {
             "name": "金融债券",
-            "value": 65.81184731287956
+            "value": 65.83049859400869
           },
           {
             "name": "政策性金融债（指数估算）",
-            "value": 16.08180386753427
+            "value": 16.105366498915384
           },
           {
             "name": "固定收益未细分",
-            "value": 0.006992769614654812
+            "value": 0.007050758820269752
           },
           {
             "name": "企业短期融资券",
-            "value": 0.004454464968717818
+            "value": 0.004450455038577239
           },
           {
             "name": "中期票据",
-            "value": 0.0008365833382850985
+            "value": 0.0008358302420621282
           },
           {
             "name": "同业存单",
-            "value": 0.37334316030195636
+            "value": 0.37300707504777053
           },
           {
             "name": "可转债（可交换债）",
-            "value": 5.842825351319993e-05
+            "value": 5.911338595773954e-05
           }
         ]
       },
       {
         "name": "现金及货币工具",
-        "value": 1.49007859852544,
+        "value": 1.4912313252013902,
         "children": [
           {
             "name": "存款与结算备付金",
-            "value": 1.3301852044638267
+            "value": 1.3314818679188583
           },
           {
             "name": "买入返售金融资产",
-            "value": 0.15989339406161313
+            "value": 0.15974945728253198
           }
         ]
       },
       {
         "name": "其他资产",
-        "value": 1.5491308410621565,
+        "value": 1.5477061048255094,
         "children": [
           {
             "name": "其他资产未细分",
-            "value": 1.5491308410621565
+            "value": 1.5477061048255094
           }
         ]
       },
       {
         "name": "基金投资",
-        "value": 10.601730048465715,
+        "value": 10.5565143303009,
         "children": [
           {
             "name": "基金投资未细分",
-            "value": 10.601730048465711
+            "value": 10.556514330300896
           }
         ]
       },
       {
         "name": "股票",
-        "value": 1.3835163563717232,
+        "value": 1.3881478359518375,
         "children": [
           {
             "name": "消费",
-            "value": 0.08669799053010602
+            "value": 0.08687425252950412
           },
           {
             "name": "科技（TMT）",
-            "value": 0.5459233594257076
+            "value": 0.5478072274560521
           },
           {
             "name": "金融地产",
-            "value": 0.1289645501424379
+            "value": 0.12908120161946934
           },
           {
             "name": "周期",
-            "value": 0.26249052858810423
+            "value": 0.2633166660536049
           },
           {
             "name": "医药医疗",
-            "value": 0.07496348513772287
+            "value": 0.07523691721754625
           },
           {
             "name": "先进制造",
-            "value": 0.2844764425476447
+            "value": 0.2858315710756608
           }
         ]
       }
@@ -6601,45 +6601,45 @@
     "typeGroups": [
       {
         "name": "固收类",
-        "value": 86.06458064953594,
+        "value": 86.10949884111405,
         "children": [
           {
             "name": "其他固收",
-            "value": 86.06458064953594
+            "value": 86.10949884111405
           }
         ]
       },
       {
         "name": "商品及黄金类",
-        "value": 5.428939867733904,
+        "value": 5.366347654085841,
         "children": [
           {
             "name": "黄金ETF及联接",
-            "value": 5.428939867733904
+            "value": 5.366347654085841
           }
         ]
       },
       {
         "name": "权益类",
-        "value": 7.525230035622289,
+        "value": 7.543787383021102,
         "children": [
           {
             "name": "综合权益",
-            "value": 6.053707445180259
+            "value": 6.067318803868353
           },
           {
             "name": "增强指数",
-            "value": 1.47152259044203
+            "value": 1.4764685791527483
           }
         ]
       },
       {
         "name": "货币类",
-        "value": 0.9812494471078639,
+        "value": 0.980366121779005,
         "children": [
           {
             "name": "货币",
-            "value": 0.9812494471078639
+            "value": 0.980366121779005
           }
         ]
       }
@@ -6647,182 +6647,182 @@
     "styleGroups": [
       {
         "name": "消费",
-        "value": 0.08669799053010602,
+        "value": 0.08687425252950412,
         "children": [
           {
             "name": "食品饮料",
-            "value": 0.034258359907023084
+            "value": 0.03427922095894124
           },
           {
             "name": "家用电器",
-            "value": 0.0164528109503922
+            "value": 0.01646579159840581
           },
           {
             "name": "商贸零售",
-            "value": 0.014879889839209664
+            "value": 0.014914951884142495
           },
           {
             "name": "纺织服饰",
-            "value": 0.01084205766474382
+            "value": 0.010881448727461097
           },
           {
             "name": "轻工制造（除造纸Ⅱ）",
-            "value": 0.001550977612236321
+            "value": 0.0015523766955156963
           },
           {
             "name": "社会服务",
-            "value": 0.0021388156343723442
+            "value": 0.002160961029509555
           },
           {
             "name": "农林牧渔",
-            "value": 0.004609662917543932
+            "value": 0.004645310291073455
           },
           {
             "name": "美容护理",
-            "value": 0.001965416004584655
+            "value": 0.001974191344454778
           }
         ]
       },
       {
         "name": "科技（TMT）",
-        "value": 0.5459233594257077,
+        "value": 0.5478072274560521,
         "children": [
           {
             "name": "电子",
-            "value": 0.34343869585797926
+            "value": 0.34483424090448045
           },
           {
             "name": "通信",
-            "value": 0.12769554357877766
+            "value": 0.1279262522372286
           },
           {
             "name": "计算机",
-            "value": 0.05168087106139403
+            "value": 0.051847595110038336
           },
           {
             "name": "传媒",
-            "value": 0.02310824892755671
+            "value": 0.023199139204304813
           }
         ]
       },
       {
         "name": "金融地产",
-        "value": 0.1289645501424379,
+        "value": 0.12908120161946934,
         "children": [
           {
             "name": "非银金融",
-            "value": 0.04330229881021949
+            "value": 0.043421715763186
           },
           {
             "name": "银行",
-            "value": 0.0780595830073428
+            "value": 0.07803433733887345
           },
           {
             "name": "房地产",
-            "value": 0.0076026683248756255
+            "value": 0.007625148517409891
           }
         ]
       },
       {
         "name": "周期",
-        "value": 0.26249052858810423,
+        "value": 0.2633166660536048,
         "children": [
           {
             "name": "有色金属",
-            "value": 0.10294055706889768
+            "value": 0.10318404960725902
           },
           {
             "name": "公用事业",
-            "value": 0.02776323369247028
+            "value": 0.027823648535630772
           },
           {
             "name": "建筑材料",
-            "value": 0.02054084861741222
+            "value": 0.020647654685524184
           },
           {
             "name": "交通运输",
-            "value": 0.03192359259066484
+            "value": 0.03198564886562566
           },
           {
             "name": "煤炭",
-            "value": 0.004405695299561343
+            "value": 0.00444012945547235
           },
           {
             "name": "石油石化",
-            "value": 0.015408987953621774
+            "value": 0.01546764518238512
           },
           {
             "name": "工程机械Ⅱ",
-            "value": 0.0034731838203633063
+            "value": 0.0034851798918521942
           },
           {
             "name": "基础化工",
-            "value": 0.038453280399945375
+            "value": 0.03863136423612623
           },
           {
             "name": "建筑装饰",
-            "value": 0.01045411422865401
+            "value": 0.010468464301531937
           },
           {
             "name": "钢铁",
-            "value": 0.006835579434262721
+            "value": 0.006888011588054558
           },
           {
             "name": "造纸Ⅱ",
-            "value": 0.0002914554822506814
+            "value": 0.000294869704142813
           }
         ]
       },
       {
         "name": "医药医疗",
-        "value": 0.07496348513772287,
+        "value": 0.07523691721754625,
         "children": [
           {
             "name": "医药生物",
-            "value": 0.07496348513772287
+            "value": 0.07523691721754625
           }
         ]
       },
       {
         "name": "先进制造",
-        "value": 0.2844764425476447,
+        "value": 0.2858315710756609,
         "children": [
           {
             "name": "国防军工",
-            "value": 0.03924813925313598
+            "value": 0.039516349944887494
           },
           {
             "name": "电力设备",
-            "value": 0.16445642690235882
+            "value": 0.16504530562774364
           },
           {
             "name": "汽车",
-            "value": 0.03395057346872548
+            "value": 0.03408411108807345
           },
           {
             "name": "机械设备（除工程机械Ⅱ）",
-            "value": 0.03947314131991489
+            "value": 0.03976617888737768
           },
           {
             "name": "综合",
-            "value": 2.395592955228805e-05
+            "value": 2.391047502351826e-05
           },
           {
             "name": "环保",
-            "value": 0.007324205673957241
+            "value": 0.007395715052555075
           }
         ]
       }
     ],
     "fullStockRows": 1326,
     "distinctSecurities": 941,
-    "completeDetailsWeight": 96.89402407934473,
-    "unpenetratedEquity": 1.805e-39,
+    "completeDetailsWeight": 96.8687927307633,
+    "unpenetratedEquity": 0.0,
     "styleUnpenetratedEquity": 0.0,
     "unclassifiedEquity": 0.0,
-    "verifiedIndustryEquity": 1.3835163563717234,
+    "verifiedIndustryEquity": 1.3881478359518375,
     "approximateIndustryEquity": 0.0,
-    "productDefinitionWeight": 5.428939867733904,
+    "productDefinitionWeight": 5.366347654085841,
     "reportPeriods": {
       "2026-06-30": 100.0
     },
@@ -6831,55 +6831,55 @@
     "windTypeGroups": [
       {
         "name": "债券型",
-        "value": 86.06458064953594,
+        "value": 86.10949884111405,
         "children": [
           {
             "name": "被动指数债券型",
-            "value": 86.06458064953594
+            "value": 86.10949884111405
           }
         ]
       },
       {
         "name": "另类投资",
-        "value": 5.428939867733904,
+        "value": 5.366347654085841,
         "children": [
           {
             "name": "商品型基金",
-            "value": 5.428939867733904
+            "value": 5.366347654085841
           }
         ]
       },
       {
         "name": "QDII",
-        "value": 3.1059759206552626,
+        "value": 3.1312072692366955,
         "children": [
           {
             "name": "QDII股票型",
-            "value": 3.1059759206552626
+            "value": 3.1312072692366955
           }
         ]
       },
       {
         "name": "股票型",
-        "value": 4.419254114967027,
+        "value": 4.412580113784406,
         "children": [
           {
             "name": "被动指数型",
-            "value": 2.9477315245249964
+            "value": 2.936111534631658
           },
           {
             "name": "增强指数型",
-            "value": 1.47152259044203
+            "value": 1.4764685791527483
           }
         ]
       },
       {
         "name": "货币市场型",
-        "value": 0.9812494471078639,
+        "value": 0.980366121779005,
         "children": [
           {
             "name": "货币市场型",
-            "value": 0.9812494471078639
+            "value": 0.980366121779005
           }
         ]
       }
@@ -6911,7 +6911,7 @@
   "sharedModel": false,
   "parentStrategyId": null,
   "fileStem": "index_estimates/fc4286f87183b9f673af544a/model",
-  "generatedAt": "2026-10-21T13:09:05+08:00",
+  "generatedAt": "2026-10-22T14:54:43+08:00",
   "inputHoldings": [
     {
       "基金代码": "002659",
@@ -7186,8 +7186,8 @@
   "allocationRecoveryRejectedEvents": [],
   "weightProjection": {
     "baseDate": "2026-10-13",
-    "requestedAsOf": "2026-10-21",
-    "weightDate": "2026-10-16",
+    "requestedAsOf": "2026-10-22",
+    "weightDate": "2026-10-20",
     "basis": "nav_drift",
     "label": "净值漂移推算",
     "available": true,
@@ -7197,13 +7197,13 @@
       {
         "fundCode": "000638",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 1.0000756119010354,
+        "endNavDate": "2026-10-20",
+        "factor": 1.0001720326766,
         "methods": [
           "货币收益"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "9ad14b0bd19c35c7633091c44ea9180aa2899198802a20aa682d6bb90b596221",
+        "navRowCount": 8,
+        "navRowsSha256": "c525f6afd819c4d2a461cdff4d7b0564ca26fce200cf2cede9550d508e0d1ab7",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": null,
@@ -7216,32 +7216,32 @@
           "采集时间": "2026-10-19T00:30:36+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
+          "交易日期": "2026-10-20",
           "单位净值": null,
-          "复权净值": 137.35310801119365,
-          "日收益率_百分比": 0.002403,
-          "每万份收益": 0.2403,
+          "复权净值": 137.36635070308918,
+          "日收益率_百分比": 0.002421,
+          "每万份收益": 0.2421,
           "是否货币基金": 1,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-3911b05a10ca-83d014",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-00dd34682230-96cab6",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "002659",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 1.0007276464334092,
+        "endNavDate": "2026-10-20",
+        "factor": 1.0013005500669943,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "7c2c95ac7ef3884b4b423c1e95a90367fe823df38e0f7d825b5d7552e597a562",
+        "navRowCount": 6,
+        "navRowsSha256": "a5433c240e224b25acfb30c766547fd0cff82a975e6c18b46011e8d2cb701d5d",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.0987,
-          "复权净值": 1.379791,
+          "复权净值": 138.78685349724984,
           "日收益率_百分比": 0.0,
           "每万份收益": null,
           "是否货币基金": 0,
@@ -7250,32 +7250,32 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 1.0995,
-          "复权净值": 1.380795,
-          "日收益率_百分比": 0.05,
+          "交易日期": "2026-10-20",
+          "单位净值": 1.1,
+          "复权净值": 138.96735274886362,
+          "日收益率_百分比": 0.04,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-38063b1a6c35-f8d633",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-bf2dc390d640-74b670",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "006409",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 1.0004687278064486,
+        "endNavDate": "2026-10-20",
+        "factor": 1.001200510092006,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "faa5ba637da9e025e36362943b747c6369577daeec4c617e2d683cd3759a967f",
+        "navRowCount": 6,
+        "navRowsSha256": "0cbc15dd0a2ead2ef4219b5859f4652e149f4a7c708a0d4bf3c55312a1f13a06",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.0653,
-          "复权净值": 1.26726,
+          "复权净值": 127.07889313907422,
           "日收益率_百分比": 0.0,
           "每万份收益": null,
           "是否货币基金": 0,
@@ -7284,32 +7284,32 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 1.0658,
-          "复权净值": 1.267854,
-          "日收益率_百分比": 0.03,
+          "交易日期": "2026-10-20",
+          "单位净值": 1.0665,
+          "复权净值": 127.23145263276861,
+          "日收益率_百分比": 0.05,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-80541f595add-d10daf",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-2b67cce32aea-71bae0",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "006961",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 1.0030197313230915,
+        "endNavDate": "2026-10-20",
+        "factor": 1.005308913443661,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "aee2cb728a393c011d99d5941e13a54daecb47084d7557dd1339a0405af8b1df",
+        "navRowCount": 6,
+        "navRowsSha256": "ec03811ebe98f66da363100259fa31d20ba743f9715c4c4b48cc47bf7d67baf8",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.3576,
-          "复权净值": 1.465031,
+          "复权净值": 146.1152225982157,
           "日收益率_百分比": 0.07,
           "每万份收益": null,
           "是否货币基金": 0,
@@ -7318,32 +7318,32 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 1.3617,
-          "复权净值": 1.469455,
-          "日收益率_百分比": 0.15,
+          "交易日期": "2026-10-20",
+          "单位净值": 1.3648,
+          "复权净值": 146.89093566779087,
+          "日收益率_百分比": 0.17,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-2b0b158b79ae-1a7fe9",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-213fa78e768f-aceb66",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "007165",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 1.0017396524568154,
+        "endNavDate": "2026-10-20",
+        "factor": 1.0033034308426272,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "fb1055d034c975c5afe6e5f512e8dfc8f40dc5b48b63815d64a3a69fa6f35f95",
+        "navRowCount": 6,
+        "navRowsSha256": "4fc4e708986c001f2160d3ea9c55e4fb5acdde07d19b90460f26ced932a29c46",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.0347,
-          "复权净值": 1.239328,
+          "复权净值": 124.19621673346019,
           "日收益率_百分比": 0.03,
           "每万份收益": null,
           "是否货币基金": 0,
@@ -7352,32 +7352,32 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 1.0365,
-          "复权净值": 1.241484,
-          "日收益率_百分比": 0.1,
+          "交易日期": "2026-10-20",
+          "单位净值": 1.038,
+          "复权净值": 124.60649034635512,
+          "日收益率_百分比": 0.13,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-f40699009958-f02e77",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-697e1945d715-e0fc67",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "009505",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 0.9949425771783795,
+        "endNavDate": "2026-10-20",
+        "factor": 0.9844525526171319,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "3930c5d865aa785087276dd0904e3751dc0918076ce86654350b73cd1dc7eacf",
+        "navRowCount": 6,
+        "navRowsSha256": "eee73548d6237b8fbf8762753d3b3517e196ea24c500434f1cea6ad977f9f1ac",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.8982,
-          "复权净值": 1.8982,
+          "复权净值": 193.15095172438996,
           "日收益率_百分比": 0.09,
           "每万份收益": null,
           "是否货币基金": 0,
@@ -7386,28 +7386,28 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 1.8886,
-          "复权净值": 1.8886,
-          "日收益率_百分比": 0.9,
+          "交易日期": "2026-10-20",
+          "单位净值": 1.8686,
+          "复权净值": 190.14794746550407,
+          "日收益率_百分比": -1.17,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-ef1cd8a356a7-372e4e",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-3023e3c265b4-3d0c57",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "013291",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 0.97307808,
+        "endNavDate": "2026-10-20",
+        "factor": 0.973163808178848,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "786129a0375a17ecb7b2e17e2a4aa2b908cdd700f69c1fd4a5fdfa7d5d5ed106",
+        "navRowCount": 6,
+        "navRowsSha256": "08a57f4c8ad183899e9fbef9ca665cc8042e4d84559cb7dd49bd55751624568a",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.784,
@@ -7420,28 +7420,28 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
+          "交易日期": "2026-10-20",
           "单位净值": 1.736,
-          "复权净值": 93.7940449155758,
-          "日收益率_百分比": 0.0,
+          "复权净值": 93.80230817093286,
+          "日收益率_百分比": -0.34,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-f3d247be8c6c-5312cc",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-f6f63510bf25-3050e1",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "013332",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 0.9551575200000001,
+        "endNavDate": "2026-10-20",
+        "factor": 0.9673216993581552,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "a538429cce8c260730fa02b2e076d5be1457dcbe882d957a8041ceffd0bc6ae0",
+        "navRowCount": 6,
+        "navRowsSha256": "9e11f3f9e251115a9a26e90c74322840957be6a794add3545623a3571f06d7da",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 2.297,
@@ -7454,32 +7454,32 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 2.194,
-          "复权净值": 99.34707105094768,
-          "日收益率_百分比": 0.0,
+          "交易日期": "2026-10-20",
+          "单位净值": 2.222,
+          "复权净值": 100.61228183101997,
+          "日收益率_百分比": 0.86,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-0f2f6d9ae902-9a1be0",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-54bc8972b929-54c1c9",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "014673",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 1.0070770243581304,
+        "endNavDate": "2026-10-20",
+        "factor": 0.9994736402435982,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "18add70d49930abcf26197d32274c38dae6c54a6c450d4c5d91f123886b45bd8",
+        "navRowCount": 6,
+        "navRowsSha256": "8def895dff8e66e54d91fa7c16864011b1c08eb6aa2f01c1fb4f7e5eaa2b4e6b",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 0.6076,
-          "复权净值": 0.6076,
+          "复权净值": 64.9066245470747,
           "日收益率_百分比": -0.03,
           "每万份收益": null,
           "是否货币基金": 0,
@@ -7488,32 +7488,32 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 0.6119,
-          "复权净值": 0.6119,
-          "日收益率_百分比": 0.99,
+          "交易日期": "2026-10-20",
+          "单位净值": 0.6073,
+          "复权净值": 64.87246031198924,
+          "日收益率_百分比": -0.74,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-a36a948ed4df-2e2ab6",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-694d7468133f-3b7d5f",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "018266",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 1.0028383903988942,
+        "endNavDate": "2026-10-20",
+        "factor": 1.005309535682049,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "21ead6f8374033b48b5a59f3b682edceb62133242acfcd366fecdd04490c059a",
+        "navRowCount": 6,
+        "navRowsSha256": "3b67f51e89b2d8aa3a2ffd032a0b83d66782317611b1ceb7655251f5e738bf25",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.1627,
-          "复权净值": 1.197862,
+          "复权净值": 119.66438936951774,
           "日收益率_百分比": 0.08,
           "每万份收益": null,
           "是否货币基金": 0,
@@ -7522,100 +7522,100 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 1.166,
-          "复权净值": 1.201262,
-          "日收益率_百分比": 0.15,
+          "交易日期": "2026-10-20",
+          "单位净值": 1.1688,
+          "复权净值": 120.2997517147458,
+          "日收益率_百分比": 0.17,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-d27cd249a23d-52674b",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-004449f8b575-882958",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "018966",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 0.9560281131735447,
+        "endNavDate": "2026-10-20",
+        "factor": 0.9650683405899441,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "54fe0ad0c0945a20e0322b3757b58fb60eb30a121ea1b07dbd2d0c27549e7589",
+        "navRowCount": 6,
+        "navRowsSha256": "25ab1ea0c5c5a06822ee552fdb1f6b08366e960ebb574548a30caa4cfacc674b",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.6647,
-          "复权净值": 1.6647,
+          "复权净值": 166.7846015280696,
           "日收益率_百分比": -0.32,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-3912b42e58e1-c1021c",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-a25f2f4ab71f-fe0bf9",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 1.5915,
-          "复权净值": 1.5915,
-          "日收益率_百分比": -2.42,
+          "交易日期": "2026-10-20",
+          "单位净值": 1.6065,
+          "复权净值": 160.9585386326492,
+          "日收益率_百分比": -0.14,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-3912b42e58e1-c1021c",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-a25f2f4ab71f-fe0bf9",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "019547",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 0.9579103738549146,
+        "endNavDate": "2026-10-20",
+        "factor": 0.9665643374949521,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "f7dc88dcc45f6169e0bbe98c91de4a40396787510e21e0a43e24fb16f36ddb2b",
+        "navRowCount": 6,
+        "navRowsSha256": "1e6d86d065b7b0c85842540cfe2626c76b92811505b75e933bf0a52e27ec8a5e",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.6156,
-          "复权净值": 1.6156,
+          "复权净值": 161.61414814196206,
           "日收益率_百分比": -0.3,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-6bf9feca78d2-406bef",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-8cbedbbf8e2a-03f90a",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 1.5476,
-          "复权净值": 1.5476,
-          "日收益率_百分比": -2.31,
+          "交易日期": "2026-10-20",
+          "单位净值": 1.5616,
+          "复权净值": 156.21047202864662,
+          "日收益率_百分比": -0.13,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-6bf9feca78d2-406bef",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-8cbedbbf8e2a-03f90a",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       },
       {
         "fundCode": "022463",
         "startNavDate": "2026-10-13",
-        "endNavDate": "2026-10-16",
-        "factor": 0.9703958996111702,
+        "endNavDate": "2026-10-20",
+        "factor": 0.9695207971046154,
         "methods": [
           "复权净值"
         ],
-        "navRowCount": 4,
-        "navRowsSha256": "6c4e9f8ceece0db30673decb9d19f83742ba90a1bd67582e358fef960048f8d4",
+        "navRowCount": 6,
+        "navRowsSha256": "0299ce46e1854914dd4661aea8bf9b0f8b5e4670c9205e460d032821de707a5b",
         "startNav": {
           "交易日期": "2026-10-13",
           "单位净值": 1.1316,
-          "复权净值": 1.1316,
+          "复权净值": 114.37027746837344,
           "日收益率_百分比": -0.23,
           "每万份收益": null,
           "是否货币基金": 0,
@@ -7624,15 +7624,15 @@
           "采集时间": "2026-10-20T02:57:24+08:00"
         },
         "endNav": {
-          "交易日期": "2026-10-16",
-          "单位净值": 1.0981,
-          "复权净值": 1.0981,
-          "日收益率_百分比": 0.16,
+          "交易日期": "2026-10-20",
+          "单位净值": 1.0969,
+          "复权净值": 110.88436257621346,
+          "日收益率_百分比": -0.25,
           "每万份收益": null,
           "是否货币基金": 0,
           "数据来源": "天天基金_f10_lsjz_api",
-          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-9124bb8da379-0df8b9",
-          "采集时间": "2026-10-20T02:57:24+08:00"
+          "原始净值快照ID": "ttfund_fund_nav-eastmoney_f10_lsjz_api-ccbb0e190548-0b1006",
+          "采集时间": "2026-10-22T01:08:52+08:00"
         },
         "dividends": {}
       }
@@ -7642,23 +7642,23 @@
   },
   "weightBasis": "nav_drift",
   "weightLabel": "净值漂移推算",
-  "weightDate": "2026-10-16",
+  "weightDate": "2026-10-20",
   "latestWeightsAvailable": true,
   "indexProxy": {
     "version": 1,
     "basis": "index_proxy_estimate",
-    "asOf": "2026-10-16",
-    "baseModel": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\quality_repair_20261021T122410__report_build__node\\basic_data\\assets\\strategy-lookthrough\\fc4286f87183b9f673af544a.json",
-    "baseSha256": "431ec7f7d87ae72e249dc0c6ca0e6cd2fce4df423560e7442dafa3656db1da77",
-    "mappingFile": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\quality_repair_20261021T122410__report_build__node\\basic_data\\assets\\strategy-lookthrough\\index_estimates\\fc4286f87183b9f673af544a\\mappings.json",
+    "asOf": "2026-10-20",
+    "baseModel": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T102534+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\fc4286f87183b9f673af544a.json",
+    "baseSha256": "c79090cd2f9ac1c65d72eb9c88f74e4000ebb064bb995439d750d85261555cd8",
+    "mappingFile": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T102534+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\index_estimates\\fc4286f87183b9f673af544a\\mappings.json",
     "sourceDir": "E:\\天眼系统\\运行状态\\outputs\\gffunds_single_strategy\\GFJJ003101_20261020\\index_proxy",
     "database": "E:\\天眼系统\\数据库\\analysis_zh_current.sqlite",
     "databaseBinding": {
-      "size": 26797404160,
-      "mtimeNs": 1792547825177121300
+      "size": 26838470656,
+      "mtimeNs": 1792649895450747800
     },
-    "industryHistory": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\quality_repair_20261021T122410__report_build__node\\basic_data\\assets\\strategy-lookthrough\\industry_source_evidence.json",
-    "industryHistorySha256": "c95bdedc6f5038e09e40bc240c5c209a8589c81e8a320f179cd074cd6d645591",
+    "industryHistory": "E:\\天眼系统\\运行状态\\temp\\minimal_report_source\\20261022T102534+0800__report_build__attempt_01\\basic_data\\assets\\strategy-lookthrough\\industry_source_evidence.json",
+    "industryHistorySha256": "af8ed34c3d36c9f68c33e8f318ca2bbde4c40ee7b204b5739fdf099861433f6a",
     "indices": [],
     "mappings": [
       {
@@ -7669,9 +7669,9 @@
         "amount": 4986617777.04,
         "reportNameToken": "富国中债7-10年政策性金融债",
         "fundCode": "018266",
-        "weight": 19.89005295822983,
+        "weight": 19.919195334910082,
         "totalAssets": 6167473032.55,
-        "contribution": 16.08180386753427,
+        "contribution": 16.105366498915384,
         "reportDate": "2026-06-30",
         "sourcePdfSha256": "481d94b9eadb2f1203d7335e61fb7f5e3ef721ac4d064054b7dea4ff69084257",
         "reportTextSha256": "b12ca668a055f6dbff8b2b0f62cd9950323277fc8b2ce92745b3aa04df08d22e"
@@ -7681,20 +7681,20 @@
     "industryGaps": [],
     "roundingResidual": 0.0,
     "originalMetrics": {
-      "股票": 1.3835163563717234,
-      "债券": 68.89374028804069,
-      "现金": 1.4900785985254397,
-      "基金": 26.683533915999984,
+      "股票": 1.3881478359518375,
+      "债券": 68.91103390480498,
+      "现金": 1.4912313252013902,
+      "基金": 26.661880829216276,
       "商品": 0.0,
       "存托凭证": 0.0,
-      "其他": 1.5491308410621565
+      "其他": 1.547706104825509
     },
-    "fundInvestmentReplaced": 16.08180386753427,
+    "fundInvestmentReplaced": 16.105366498915384,
     "equityAdded": 0.0,
-    "bondAdded": 16.08180386753427,
+    "bondAdded": 16.105366498915384,
     "goldAdded": 0.0,
     "classifiedEquityAdded": 0.0,
-    "remainingFundInvestment": 10.601730048465715,
+    "remainingFundInvestment": 10.556514330300892,
     "sectorSource": {
       "url": "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=10000&download=true",
       "status": 200,
