@@ -7,14 +7,14 @@
   "constituentRows": 703,
   "sourceHashChecks": true,
   "noDatabaseWrite": true,
-  "modelSha256": "a273fb2b34d624860450ec9cc39272c71cc483ce5a659b74d28b7f6df2e6cc9c",
+  "modelSha256": "77324c4dc365700d353d062b08ce627ca636044b5758da23f0df250f125050fe",
   "basis": "index_proxy_estimate",
   "warnings": [
     "Index proxy is not reported ETF holdings; dates differ",
     "TQQQ separately retained",
     "Unmapped industry and source rounding retained"
   ],
-  "industryGapContribution": 0.019328776542959357,
-  "roundingContribution": 0.0011861571736740653,
-  "remainingFundInvestment": 0.038721541061310205
+  "industryGapContribution": 0.01953041141982735,
+  "roundingContribution": 0.0011957550609271418,
+  "remainingFundInvestment": 0.039125478327939334
 }
