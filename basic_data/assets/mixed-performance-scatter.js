@@ -767,7 +767,7 @@
     const strategyCount = list.filter((row) => isStrategy(row)).length;
     const fundCount = list.filter((row) => row.productType === "公募基金").length;
     const broadCount = broadList.length;
-    const plottableCount = list.filter((row) => hasCurrentMetrics(row)).length;
+    const plottableCount = list.filter((row) => currentRisk(row) !== null && currentReturn(row) !== null).length;
     const broadBucketText = selectionSummary("broadBuckets", "全部基准风险资产权重", broadBucketLabels);
     const trackText = selectionSummary("comparisonTracks", "全部轨道");
     const peerPoolCount = new Set(list.map((row) => clean(row.formalPeerPool)).filter(Boolean)).size;

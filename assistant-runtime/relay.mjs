@@ -2,6 +2,7 @@ import {publicPresentation} from './presentation.mjs';
 import {createHash,randomBytes,timingSafeEqual} from 'node:crypto';
 import {createMirror} from './feishu-mirror.mjs';
 import {visitor,reference} from './visitor.mjs';
+import {workerCredential} from './worker-auth.mjs';
 
 const terminal = new Set(['answer','clarification','rejected','failed']);
 const digest = value => createHash('sha256').update(value).digest('hex');
@@ -106,16 +107,47 @@ export function createHandler(config,store,clock=()=>Date.now()/1000,fetcher=fet
       if(origin){headers['Access-Control-Allow-Origin']=origin;headers.Vary='Origin';}
       if(request.method==='OPTIONS')return respond('',204,{'Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Allow-Headers':'Authorization, Content-Type, X-Task-Lease, X-File-Name, X-File-Kind, X-File-Sha256'});
       const path=new URL(request.url).pathname.replace(/^\/ai-api(?=\/)/,'');
-      const token=(request.headers.get('authorization')||'').replace(/^Bearer /,'');
+      const token=workerCredential(request);
       if(path==='/v1/health' && request.method==='GET'){
         const seen=await get('meta/worker');
-        return respond({ok:true,version:'tianyan-blob-relay-v3-recovery1',presentation_version:1,session_recovery:true,public_access:!!config.publicAccess,feishu_mirror:!!mirror,worker_online:!!seen && clock()-seen.seen<45,queued:(await list('queue/')).length});
+        return respond({ok:true,version:'tianyan-blob-relay-v3-recovery1',result_links:true,presentation_version:1,session_recovery:true,public_access:!!config.publicAccess,feishu_mirror:!!mirror,worker_online:!!seen && clock()-seen.seen<45,queued:(await list('queue/')).length});
+      }
+      if(path==='/v1/worker/results' && request.method==='POST'){
+        check(same(digest(token),config.workerTokenSha256),401,'监听服务凭据无效');
+        const body=await jsonBody(request,400000);
+        check(['tianyan','private_fund'].includes(body.database) && typeof body.payload==='string' && Buffer.byteLength(body.payload)<=200000,400,'结果名单无效');
+        let spec;try{spec=JSON.parse(body.payload);}catch{throw new ApiError(400,'结果名单格式无效');}
+        check(spec && spec.v===1 && typeof spec.summary==='string' && spec.summary.length<=500 && typeof spec.asOf==='string' && /^\d{4}-\d{2}-\d{2}$/.test(spec.asOf),400,'结果名单版本无效');
+        check(Object.keys(spec).every(key=>['v','ids','summary','asOf','expected'].includes(key)) && Array.isArray(spec.ids) && spec.ids.length<=10000 && spec.ids.every(id=>typeof id==='string' && id.length>0 && id.length<=150) && new Set(spec.ids).size===spec.ids.length && spec.expected===spec.ids.length,400,'结果名单数量无效');
+        const id=digest(body.payload),key=`results/${id}`,record={id,payload:body.payload,database:body.database,expected:spec.expected,created_at:clock()};
+        try{await put(key,record,{onlyIfNew:true});}catch(error){if(error.code!=='PRECONDITION_FAILED')throw error;}
+        const actual=await get(key);
+        check(actual?.payload===body.payload && actual.database===body.database,409,'结果编号冲突');
+        if(body.legacyDigest!==undefined){
+          check(typeof body.legacyDigest==='string' && /^[a-f0-9]{64}$/.test(body.legacyDigest),400,'旧链接修复编号无效');
+          const aliasKey=`result-aliases/${body.legacyDigest}`;
+          try{await put(aliasKey,{id,created_at:clock()},{onlyIfNew:true});}catch(error){if(error.code!=='PRECONDITION_FAILED')throw error;}
+          check((await get(aliasKey))?.id===id,409,'旧链接已绑定其他名单，不可覆盖');
+        }
+        return respond({id,expected:spec.expected,immutable:true});
+      }
+      const legacyMatch=path.match(/^\/v1\/results\/legacy\/([a-f0-9]{64})$/);
+      if(legacyMatch && request.method==='GET'){
+        const alias=await get(`result-aliases/${legacyMatch[1]}`);check(alias,404,'旧链接没有已核对的修复记录');
+        const result=await get(`results/${alias.id}`);check(result && digest(result.payload)===alias.id,503,'修复名单完整性校验失败');
+        return respond({...result,repaired:true},200,{'Cache-Control':'public, max-age=31536000, immutable'});
+      }
+      const resultMatch=path.match(/^\/v1\/results\/([a-f0-9]{64})$/);
+      if(resultMatch && request.method==='GET'){
+        const result=await get(`results/${resultMatch[1]}`);check(result,404,'结果名单不存在，请重新生成链接');
+        check(digest(result.payload)===resultMatch[1],503,'结果名单完整性校验失败');
+        return respond(result,200,{'Cache-Control':'public, max-age=31536000, immutable'});
       }
       if(path==='/v1/sessions' && request.method==='POST'){
         const body=await jsonBody(request,80000);
         if(!config.publicAccess)check(typeof body.access_code==='string' && same(digest(body.access_code),config.clientCodeSha256),401,'访问码不正确');
         const token=randomBytes(32).toString('hex'),sid=nonce(),expires=clock()+86400;
-        const is_test=same(digest((request.headers.get('authorization')||'').replace(/^Bearer /,'')),config.workerTokenSha256) && body.test_run===true;
+        const is_test=same(digest(workerCredential(request)),config.workerTokenSha256) && body.test_run===true;
         const machine_name=is_test?String(body.machine_name||'').replace(/[\x00-\x1f\x7f]/g,'').slice(0,80):'';
         await put(`sessions/${digest(token)}`,{id:sid,expires,is_test,machine_name},{onlyIfNew:true});
         return respond({token,session_id:sid,expires_at:expires});
