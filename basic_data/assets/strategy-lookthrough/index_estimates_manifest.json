@@ -3929,11 +3929,6 @@
       "reason": "target_index_mapping_unverified"
     },
     {
-      "strategy": "ttfund__QZ7HSD6",
-      "fundCode": "020021",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
       "strategy": "ttfund__0ZRNTQZ",
       "fundCode": "004253",
       "reason": "target_index_mapping_unverified"
@@ -4551,41 +4546,6 @@
     {
       "strategy": "ttfund__ABGPHLV",
       "fundCode": "000950",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__HLSOD2X",
-      "fundCode": "007473",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__KTAQQ5C",
-      "fundCode": "007473",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__N7SBTCN",
-      "fundCode": "007473",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__8N01SYM",
-      "fundCode": "007473",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__FDBXIZW",
-      "fundCode": "007473",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__PMQMSUE",
-      "fundCode": "007473",
-      "reason": "target_index_mapping_unverified"
-    },
-    {
-      "strategy": "ttfund__GVBCWKX",
-      "fundCode": "007473",
       "reason": "target_index_mapping_unverified"
     },
     {

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-28T17:57:12+08:00",
+  "generatedAt": "2026-10-29T03:06:08+08:00",
   "status": "ready",
   "checks": {
     "monthlyRebalanceMonthCount": 12,
@@ -49,10 +49,10 @@
     "holdingSnapshotSourceRowCount": 582277,
     "holdingSnapshotPublishedRowCount": 201106,
     "holdingSnapshotStrategyCount": 2114,
-    "strategy-lookthroughFileCount": 5525,
-    "strategy-lookthroughBytes": 722824783,
+    "strategy-lookthroughFileCount": 5528,
+    "strategy-lookthroughBytes": 658237135,
     "monthly-rebalance-reportsFileCount": 14,
-    "monthly-rebalance-reportsBytes": 21213626
+    "monthly-rebalance-reportsBytes": 21204979
   },
   "policy": {
     "blockingZeroChecks": [
