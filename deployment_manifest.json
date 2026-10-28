@@ -76,8 +76,8 @@
     "preservedPublishFileCount": 0,
     "preservedPublishBytes": 0
   },
-  "fileCount": 3683,
-  "totalBytes": 294557745,
+  "fileCount": 3684,
+  "totalBytes": 294560549,
   "files": [
     {
       "path": ".gitattributes",
@@ -18453,6 +18453,11 @@
       "path": "README_部署说明.md",
       "size": 2005,
       "sha256": "31972b312baccee4752e4d4c73a7bcae5642aaf2d204ad81b8e41b213c724ce9"
+    },
+    {
+      "path": "scripts/prepare_edgeone_static.cjs",
+      "size": 2804,
+      "sha256": "fbf5bd383ad75b6267b0018bab6406fbd41e44256296d91de681f8893176a40d"
     },
     {
       "path": "scripts/serve_basic_data_site.py",
