@@ -24,7 +24,7 @@ function selectFiles(root,names){
   if(!required.has('version.json')||!required.has('basic_data/institutions.html')||!required.has('scripts/prepare_edgeone_static.cjs'))throw Error('Current selection incomplete');
   if(JSON.parse(fs.readFileSync(inside(root,'version.json'),'utf8')).buildId!==v.buildId)throw Error('Current build differs');
   for(const item of v.omittedGeneratedFiles){
-    if(!(prefixes.some(prefix=>item.path.startsWith(prefix))||/^basic_data\/atomic\/catalog\/[0-9a-f]{64}\.js$/.test(item.path))||required.has(item.path)||retained.has(item.path)||omitted.has(item.path))throw Error('Unowned or live omitted path');
+    if(!(prefixes.some(prefix=>item.path.startsWith(prefix))||/^basic_data\/atomic\/(catalog|details|comparison)\/[0-9a-f]{64}\.js$/.test(item.path))||required.has(item.path)||retained.has(item.path)||omitted.has(item.path))throw Error('Unowned or live omitted path');
     validate(item);omitted.add(item.path);
   }
   return {names:names.filter(x=>!omitted.has(x)),omitted:omitted.size};
