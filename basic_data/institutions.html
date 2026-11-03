@@ -1,54 +1,7 @@
 <!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>机构总览｜天眼投顾</title>
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="./performance-static/basic.a942476b358631c98ad7.css">
-  <link rel="stylesheet" href="./performance-static/tianyan-navigation.0870f1c8ced6a7b7a810.css">
-  <link data-minimal-preload="1" rel="preload" as="fetch" crossorigin href="./data/institution_overview_pack.js.gz?v=minimal-a8c8b4d326b7">
-<!-- tianyan-web-assistant -->
-<link rel="stylesheet" href="./performance-static/tianyan-assistant.8f57e6231ef8f6c67ed5.css">
-<script src="./performance-static/tianyan-assistant-config.b7be37d7554ccb3f6c20.js"></script>
-<script defer src="./performance-static/tianyan-assistant.ac25c27b7985debafb15.js"></script>
-<!-- /tianyan-web-assistant -->
-</head>
-<body>
-  <header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="./index.html">
-      <span class="brand-mark">天</span>
-      <span>
-        <strong>天眼投顾</strong>
-        <small>最小发布集</small>
-      </span>
-    </a>
-    <nav class="nav" aria-label="主导航"><div class="nav-group"><div class="nav-group-title">产品分析</div><a class="nav-link is-active" href="./institutions.html">机构总览</a>
-<a class="nav-link " href="./strategies.html">策略列表</a>
-<a class="nav-link " href="./strategy-lookthrough.html">资产穿透分析</a>
-<a class="nav-link " href="./monthly-rebalance-report.html?v=minimal-a8c8b4d326b7">调仓月报</a></div>
-<div class="nav-group"><div class="nav-group-title">基金与排名</div><a class="nav-link " href="./mixed-performance-scatter.html">全市场产品排名</a></div>
-<a class="nav-link private-fund-link" href="https://gfinvest.site/private_fund/products.html">天眼私募 <span aria-hidden="true">↗</span></a>
-<button type="button" class="nav-link ty-assistant-trigger" data-tianyan-assistant>AI助手</button></nav>
-  </div>
-</header>
-  <main id="institutionPage" class="page-shell"><section id="pageLoadingStatus" class="page-loading-status" role="status" aria-live="polite">数据正在加载，请稍等。</section></main>
-  <section id="globalQualityGate" class="global-quality-gate" hidden></section>
-  <div id="fieldModal" class="modal" hidden>
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="fieldModalTitle">
-      <button id="fieldModalClose" class="modal-close" type="button" aria-label="关闭">×</button>
-      <h2 id="fieldModalTitle"></h2>
-      <p id="fieldModalBody"></p>
-    </div>
-  </div>
-  <script src="./performance-static/basic-common.e7947e60cb6d0b3d679e.js"></script>
-  <script src="./assets/minimal-publish-runtime.js?v=minimal-a8c8b4d326b7&nav=business_query_v4"></script>
-  
-    
-
-
-  
-  <script>window.MinimalPublish.startPage({"dataScripts":["./data/institution_overview_pack.js?v=minimal-a8c8b4d326b7","./data/data_quality_pack.js?v=minimal-a8c8b4d326b7"],"deferredDataScripts":[],"renderer":"./assets/institutions.js?v=minimal-a8c8b4d326b7","qualityScope":"institutions"});</script>
-</body>
-</html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>机构总览 · 已验收策略</title><link rel="stylesheet" href="./atomic/releases/strategy-20261103-fullgoal-01/app.css"></head>
+<body><main><header><p class="eyebrow">投顾数据观察 · 分批更新</p><h1>机构总览</h1><p>展示已独立验收的策略。各策略保留自己的业绩与持仓日期；其他渠道继续核验，未计入本页统计。</p><p class="muted">本版不提供全市场排名、底层经济暴露或未经验证的历史调仓。</p></header>
+<section class="metrics" aria-label="已发布范围"><div><span>已验收渠道</span><strong id="channels">—</strong></div><div><span>已验收策略</span><strong id="strategies">—</strong></div><div><span>业绩截止</span><strong id="performance-date">—</strong></div><div><span>持仓截止</span><strong id="holdings-date">—</strong></div></section>
+<section><h2>机构与策略</h2><label for="strategy-select">查看策略</label><select id="strategy-select"></select><div id="channel-summary"></div></section>
+<section id="detail"><h2 id="strategy-name"></h2><p id="description"></p><p id="terms"></p><h3>官方累计收益曲线</h3><p id="curve-label" class="muted"></p><svg id="curve" viewBox="0 0 800 240" role="img" aria-label="组合与官方基准累计收益曲线"></svg><p id="endpoints"></p><p class="muted">深蓝为组合，灰色为官方基准。原始单位为累计收益百分点，未将收益因子冒充官方净值，不作跨渠道排名。</p><h3>当前基金持仓</h3><p id="holding-label" class="muted"></p><div class="table-scroll"><table><thead><tr><th>基金代码</th><th>基金名称</th><th class="num">权重</th></tr></thead><tbody id="holdings"></tbody></table></div><p id="source" class="muted"></p></section>
+<footer><h2>来源与口径</h2><p>公开官方响应已留存，并与正式入库回执及当前策略字段核对。持仓权重表示基金份额配置，不代表穿透后的经济资产或行业占比。目录仅覆盖本次公开接口返回的已验收策略，不等于机构全部在售产品。缺失值显示“—”。</p><p>其他渠道未在本版获得新的验收结论；既有历史交付保留在原链接。</p><p class="muted">版本：<span id="build-id">strategy-20261103-fullgoal-01</span></p></footer></main><script src="./atomic/releases/strategy-20261103-fullgoal-01/data.js"></script><script src="./atomic/releases/strategy-20261103-fullgoal-01/app.js"></script></body></html>
